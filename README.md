@@ -1,11 +1,3 @@
-**Note:** Gatsby v2 beta support is here! Check out the [gatsby-v2 branch](https://github.com/AustinGreen/gatsby-starter-netlify-cms/tree/gatsby-v2) to start using it now.
-
-# Gatsby + Netlify CMS Starter
-
-This repo contains an example business website that is built with [Gatsby](https://www.gatsbyjs.org/), and [Netlify CMS](https://www.netlifycms.org): **[Demo Link](https://gatsby-netlify-cms.netlify.com/)**.
-
-It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
-
 ## Prerequisites
 
 - Node (I recommend using v8.2.0 or higher)
@@ -31,17 +23,6 @@ To test the CMS locally, you'll need run a production build of the site:
 $ npm run build
 $ npm run serve
 ```
-
-## Getting Started (Without Netlify)
-```
-$ gatsby new [SITE_DIRECTORY_NAME] https://github.com/AustinGreen/gatsby-starter-netlify-cms/
-$ cd [SITE_DIRECTORY_NAME]
-$ npm run build
-$ npm run serve
-```
-
-### Setting up the CMS
-Follow the [Netlify CMS Quick Start Guide](https://www.netlifycms.org/docs/quick-start/#authentication) to set up authentication, and hosting.
 
 ## Debugging
 Windows users might encounter ```node-gyp``` errors when trying to npm install.
