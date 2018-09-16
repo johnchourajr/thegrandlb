@@ -37,7 +37,6 @@ BasicPageTemplate.propTypes = {
 }
 
 const BasicPage = ({ data }) => {
-  console.log(data);
   const { frontmatter, html } = data.markdownRemark
 
   return (
