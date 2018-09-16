@@ -16,19 +16,6 @@ export const IndexPageTemplate = ({
         <div className="columns">
           <div className="column is-10 is-offset-1">
             <div className="content">
-              <div
-                className="full-width-image-container margin-top-0"
-                style={{ backgroundImage: `url(${image})` }}
-              >
-                <h2
-                  className="has-text-weight-bold is-size-1"
-                  style={{
-                    color: 'white',
-                  }}
-                >
-                  {title}
-                </h2>
-              </div>
               <div className="columns">
                 <div className="column is-7">
                   <h3 className="has-text-weight-semibold is-size-2">
