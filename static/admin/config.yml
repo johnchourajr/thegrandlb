@@ -8,6 +8,7 @@ public_folder: /img
 collections:
   - name: "mainPages"
     label: "Main Pages"
+    delete: false
     files:
       - file: "src/pages/index.md"
         label: "Home"
@@ -43,6 +44,7 @@ collections:
           - {label: "Body", name: "body", widget: "markdown"}
   - name: "tourPages"
     label: "Tour Pages"
+    delete: false
     files:
       - file: "src/pages/tour/index.md"
         label: "Tour"
@@ -62,6 +64,7 @@ collections:
           - {label: "Body", name: "body", widget: "markdown"}
   - name: "eventPages"
     label: "Event Pages"
+    delete: false
     files:
       - file: "src/pages/events/index.md"
         label: "Events"
@@ -81,6 +84,7 @@ collections:
           - {label: "Body", name: "body", widget: "markdown"}
   - name: "menuPages"
     label: "Menu Pages"
+    delete: false
     files:
       - file: "src/pages/menus/index.md"
         label: "Menus"
