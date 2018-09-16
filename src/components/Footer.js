@@ -1,19 +1,23 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import PropTypes from 'prop-types'
 
-const Footer = () => (
+const Footer = ({ subNav }) => (
   <nav className="navbar is-transparent">
     <div className="container">
       <div className="navbar-start">
-        <Link className="navbar-item" to="/contact">
-          Contact
-        </Link>
-        <Link className="navbar-item" to="/inquire">
-          Inquire
-        </Link>
+        {subNav.map(item => (
+          <Link key={item.name} className="navbar-item" to={item.path}>
+            {item.name}
+          </Link>
+        ))}
       </div>
     </div>
   </nav>
 )
+
+Footer.propTypes = {
+  subNav: PropTypes.array,
+}
 
 export default Footer

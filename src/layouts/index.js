@@ -3,15 +3,42 @@ import PropTypes from 'prop-types'
 
 import Head from '../components/Head'
 import Header from '../components/Header'
+import BodyWrap from '../components/BodyWrap'
 import Footer from '../components/Footer'
-import './all.sass'
+import './all.scss'
+
+const mainNav = [
+  {
+    name: "Tour",
+    path:  "/tour",
+  },{
+    name: "Events",
+    path:  "/events",
+  },{
+    name: "Menus",
+    path:  "/menus",
+  },{
+    name: "About",
+    path:  "/about",
+  },
+]
+
+const subNav = [
+  {
+    name: "Contact",
+    path:  "/contact",
+  },{
+    name: "Inquire",
+    path:  "/inquire",
+  },
+]
 
 const TemplateWrapper = ({ children }) => (
   <div>
     <Head />
-    <Header />
-    <div>{children()}</div>
-    <Footer />
+    <Header mainNav={mainNav}/>
+    <BodyWrap inner={children} />
+    <Footer subNav={subNav} />
   </div>
 )
 

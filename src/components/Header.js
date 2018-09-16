@@ -1,10 +1,14 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import PropTypes from 'prop-types'
 
 import Navbar from './Navbar'
 
-const Header = () => (
-  <Navbar/>
+const Header = ({ mainNav }) => (
+  <Navbar mainNav={mainNav}/>
 )
+
+Header.propTypes = {
+  mainNav: PropTypes.array,
+}
 
 export default Header

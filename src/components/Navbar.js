@@ -1,10 +1,10 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import PropTypes from 'prop-types'
 
-import github from '../img/github-icon.svg'
 import logo from '../img/logo.svg'
 
-const Navbar = () => (
+const Navbar = ({ mainNav }) => (
   <nav className="navbar is-transparent">
     <div className="container">
       <div className="navbar-brand">
@@ -13,21 +13,23 @@ const Navbar = () => (
         </Link>
       </div>
       <div className="navbar-start">
-        <Link className="navbar-item" to="/tour">
-          Tour
-        </Link>
-        <Link className="navbar-item" to="/events">
-          Events
-        </Link>
-        <Link className="navbar-item" to="/menus">
-          Menus
-        </Link>
-        <Link className="navbar-item" to="/about">
-          About
+        {mainNav.map(item => (
+          <Link key={item.name} className="navbar-item" to={item.path}>
+            {item.name}
+          </Link>
+        ))}
+      </div>
+      <div className="navbar-end">
+        <Link className="navbar-item" to="/Inquire">
+          Inquire
         </Link>
       </div>
     </div>
   </nav>
 )
+
+Navbar.propTypes = {
+  mainNav: PropTypes.array,
+}
 
 export default Navbar
