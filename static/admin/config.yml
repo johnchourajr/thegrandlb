@@ -6,38 +6,14 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "pages"
-    label: "Pages"
+  - name: "mainPages"
+    label: "Main Pages"
     files:
       - file: "src/pages/index.md"
         label: "Home"
         name: "home"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Heading", name: "heading", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - file: "src/pages/tour/index.md"
-        label: "Tour"
-        name: "tour"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Heading", name: "heading", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - file: "src/pages/events/index.md"
-        label: "Events"
-        name: "events"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Heading", name: "heading", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - file: "src/pages/menus/index.md"
-        label: "Menus"
-        name: "menus"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Heading", name: "heading", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
@@ -45,7 +21,7 @@ collections:
         label: "About"
         name: "about"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Heading", name: "heading", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
@@ -53,7 +29,7 @@ collections:
         label: "Contact"
         name: "contact"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Heading", name: "heading", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
@@ -61,7 +37,64 @@ collections:
         label: "Inquire"
         name: "inquire"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Heading", name: "heading", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+  - name: "tourPages"
+    label: "Tour Pages"
+    files:
+      - file: "src/pages/tour/index.md"
+        label: "Tour"
+        name: "tour"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Heading", name: "heading", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - file: "src/pages/tour/template.md"
+        label: "Tour Template"
+        name: "tour template"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Heading", name: "heading", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+  - name: "eventPages"
+    label: "Event Pages"
+    files:
+      - file: "src/pages/events/index.md"
+        label: "Events"
+        name: "events"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Heading", name: "heading", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - file: "src/pages/events/template.md"
+        label: "Events Template"
+        name: "events template"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Heading", name: "heading", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+  - name: "menuPages"
+    label: "Menu Pages"
+    files:
+      - file: "src/pages/menus/index.md"
+        label: "Menus"
+        name: "menus"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Heading", name: "heading", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - file: "src/pages/menus/template.md"
+        label: "Menus Template"
+        name: "menus template"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Heading", name: "heading", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
