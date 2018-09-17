@@ -1,8 +1,15 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
+    title: 'The Grand LB',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/layouts/index.js`),
+      },
+    },
+    'gatsby-plugin-page-transitions',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {

@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const BodyWrap = ({ inner }) => (
+const BodyWrap = ({ children }) => (
   <div className="bodyWrap">
-    {inner()}
+    {children()}
   </div>
 )
 

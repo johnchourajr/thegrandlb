@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 
 import Navbar from './Navbar'
 
-const Header = ({ mainNav }) => (
-  <Navbar mainNav={mainNav}/>
+const Header = ({ mainNav, inquireNav }) => (
+  <Navbar mainNav={mainNav} inquireNav={inquireNav}/>
 )
 
 Header.propTypes = {
