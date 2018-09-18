@@ -7,7 +7,7 @@ import Header from '../components/core/Header'
 import BodyWrap from '../components/core/BodyWrap'
 import Footer from '../components/core/Footer'
 import { typographyInject } from '../components/core/Typography'
-import { mainNav, subNav, inquireNav } from '../components/data/navData'
+import { mainNav, subNav, inquireNav } from '../components/data/NavData'
 
 import './all.scss'
 typographyInject
