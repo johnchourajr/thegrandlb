@@ -10,21 +10,21 @@ The Grand is a destination for weddings, meetings, and events of all occasions.
 ---
 
 ## Party Like Nobody’s Watching
-[More About Parties for Life’s Milestones](/events/template/) (/events/milestones/)
+[More About Parties for Life’s Milestones](/events/milestones/) (/events/milestones/)
 
 **[NOTE: PARTIES-IMAGE]**
 
 ---
 
 ## Meetings In Grand Style
-[Learn about Business Meetings](/events/template/) (/events/business/)
+[Learn about Business Meetings](/events/business/) (/events/business/)
 
 **[NOTE: BUSINESS-IMAGE]**
 
 ---
 
 ## Get Hitched With Us
-[Learn about Weddings](/events/template/) (/events/weddings/)
+[Learn about Weddings](/events/weddings/) (/events/weddings/)
 
 **[NOTE: WEDDING-IMAGE]**
 

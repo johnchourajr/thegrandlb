@@ -1,8 +1,8 @@
 ---
 templateKey: 'basic-page'
-path: /tour/template
+path: /tour/palm-courtyard
 title: Welcome To
-heading: ROOM-NAME
+heading: The Palm Courtyard
 ---
 ---
 
@@ -47,16 +47,12 @@ Some ideas of the kind of events that work best in this room
 ---
 
 ## Book The ROOM-NAME
-
-Button:
-- Let's Do It (/inquire/)
+[Let's Do It](/inquire/) (/inquire/)
 
 ---
 
 Keep Touring
-
-Button:
-- View All Rooms (/tour/map/)
+[View All Rooms](/tour/map/) (/tour/map/)
 
 #### Prev Room
 **[NOTE: PREV-ROOM-LINK]**

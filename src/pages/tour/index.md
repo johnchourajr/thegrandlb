@@ -24,13 +24,13 @@ Options:
 - Guest Count
 
 **[NOTE: Shows rooms filtered by options selected]**
-- [The Grand Ballroom](/tour/template/) (/tour/grand-ballroom/)
-- [The Catalina Room](/tour/template/) (/tour/catalina-room/)
-- [The Monarch Room & Patio](/tour/template/) (/tour/monarch-room/)
-- [The Garden Room](/tour/template/) (/tour/garden-room/)
-- [The Pacific Room](/tour/template/) (/tour/pacific-room/)
-- [The Board Room](/tour/template/) (/tour/board-room/)
-- [The Palm Courtyard](/tour/template/) (/tour/palm-courtyard/)
+- [The Grand Ballroom](/tour/grand-ballroom/) (/tour/grand-ballroom/)
+- [The Catalina Room](/tour/catalina-room/) (/tour/catalina-room/)
+- [The Monarch Room & Patio](/tour/monarch-room/) (/tour/monarch-room/)
+- [The Garden Room](/tour/garden-room/) (/tour/garden-room/)
+- [The Pacific Room](/tour/pacific-room/) (/tour/pacific-room/)
+- [The Board Room](/tour/board-room/) (/tour/board-room/)
+- [The Palm Courtyard](/tour/palm-courtyard/) (/tour/palm-courtyard/)
 
 ---
 

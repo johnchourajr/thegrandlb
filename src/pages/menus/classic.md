@@ -1,12 +1,12 @@
 ---
 templateKey: 'basic-page'
-path: /menus/template
+path: /menus/classic
 title: Menus
-heading: MENU-NAME Menu
+heading: Classic Menu
 ---
 ---
 
-Our MENU-NAME is the best of what The Grand has to offer, and is fit for any occasion.
+Our Classic Menu is the best of what The Grand has to offer, and is fit for any occasion.
 
 Print This Menu
 

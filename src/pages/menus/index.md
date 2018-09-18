@@ -10,16 +10,16 @@ heading: Taste Our Menu
 
 ---
 
-## [Our Classic Menu](/menus/template/)
+## [Our Classic Menu](/menus/classic/)
 (/menus/classic/)
 
-## [Wedding Packages Menu](/menus/template/)
+## [Wedding Packages Menu](/menus/weddings/)
 (/menus/weddings/)
 
-## [Corporate Packages Menu](/menus/template/)
+## [Corporate Packages Menu](/menus/business/)
 (/menus/business/)
 
-## [Milestone Packages Menu](/menus/template/)
+## [Milestone Packages Menu](/menus/milestones/)
 (/menus/milestones/)
 
 ---

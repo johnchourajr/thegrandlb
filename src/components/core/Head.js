@@ -1,15 +1,23 @@
 import React from 'react'
-
 import Helmet from 'react-helmet'
 
-const Head = () => (
-  <Helmet
-    title="The Grand LB"
-  >
-    <meta name="robots" content="noindex" />
-    <meta name="googlebot" content="noindex" />
-    <meta name="googlebot-news" content="noindex" />
-  </Helmet>
-)
+import { slugify } from '../functions/util'
+
+const Head = ({ location }) => {
+
+  const pathname = location.pathname === "/" ? "home" : slugify(location.pathname)
+
+  return (
+    <Helmet
+      title="The Grand LB"
+      bodyAttributes={{ class: pathname }}
+      meta={[
+        { name: "robots", content: "noindex" },
+        { name: "googlebot", content: "noindex" },
+        { name: "googlebot-news", content: "noindex" },
+      ]}
+    />
+  )
+}
 
 export default Head
