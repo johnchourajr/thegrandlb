@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
 
 const Footer = ({ subNav }) => (
-  <div className="container">
+  <footer className="container">
     {/*<nav className="navbar is-transparent">
       <div className="container">
         <div className="navbar-start">
@@ -55,7 +55,7 @@ const Footer = ({ subNav }) => (
         </div>
       </div>
     </div>
-  </div>
+  </footer>
 
 )
 

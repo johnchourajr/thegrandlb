@@ -43,4 +43,10 @@ $primary-invert: $kaldi-red-invert;
 .bodyWrap {
   min-height: 100vh;
 }
+footer.container {
+  margin-bottom: 5em;
+}
+.inquire footer {
+  display: none;
+}
 @import "~bulma";
