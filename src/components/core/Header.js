@@ -8,7 +8,7 @@ const Header = ({ mainNav, inquireNav }) => (
 )
 
 Header.propTypes = {
-  mainNav: PropTypes.array,
+  mainNav: PropTypes.object,
 }
 
 export default Header

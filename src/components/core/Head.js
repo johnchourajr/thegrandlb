@@ -10,12 +10,17 @@ const Head = ({ location }) => {
   return (
     <Helmet
       title="The Grand LB"
-      bodyAttributes={{ class: pathname }}
+      link={[
+        {rel: "icon", type: "image/png", href: "/img/favicon.ico", sizes: "16x16"}
+      ]}
       meta={[
+        {name: "viewport", content: "width=device-width, initial-scale=1, shrink-to-fit=yes"},
         { name: "robots", content: "noindex" },
         { name: "googlebot", content: "noindex" },
         { name: "googlebot-news", content: "noindex" },
       ]}
+      htmlAttributes={{ class: pathname }}
+      bodyAttributes={{ class: pathname }}
     />
   )
 }

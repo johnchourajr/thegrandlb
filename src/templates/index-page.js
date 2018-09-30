@@ -1,53 +1,50 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Features from '../components/Features'
-import Testimonials from '../components/Testimonials'
-import Pricing from '../components/Pricing'
+import Content, { HTMLContent } from '../components/Content'
 
 export const IndexPageTemplate = ({
-  image,
-  title,
   heading,
-  description
-}) => (
-  <section className="section section--gradient">
-    <div className="container">
-      <div className="section">
+  title,
+  content,
+  contentComponent
+}) => {
+  const PageContent = contentComponent || Content
+
+  return (
+    <section className="section section--gradient">
+      <div className="wrapper">
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <div className="content">
-              <div className="columns">
-                <div className="column is-7">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    {heading}
-                  </h3>
-                  <p>{description}</p>
-                </div>
-              </div>
+            <div className="section">
+              <h6>{title}</h6>
+              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
+                {heading}
+              </h2>
+              <PageContent className="content" content={content} />
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-)
+    </section>
+  )
+}
 
 IndexPageTemplate.propTypes = {
-  image: PropTypes.string,
-  title: PropTypes.string,
   heading: PropTypes.string,
-  description: PropTypes.string,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string,
+  contentComponent: PropTypes.func,
 }
 
 const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+  const { frontmatter, html } = data.markdownRemark
 
   return (
     <IndexPageTemplate
-      image={frontmatter.image}
-      title={frontmatter.title}
+      contentComponent={HTMLContent}
       heading={frontmatter.heading}
-      description={frontmatter.description}
+      title={frontmatter.title}
+      content={html}
     />
   )
 }
@@ -62,14 +59,13 @@ IndexPage.propTypes = {
 
 export default IndexPage
 
-export const indexPageQuery = graphql`
+export const basicPageQuery = graphql`
   query IndexPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
+      html
       frontmatter {
         title
-        image
         heading
-        description
       }
     }
   }

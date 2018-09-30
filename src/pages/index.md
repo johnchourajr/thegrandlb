@@ -1,5 +1,5 @@
 ---
-templateKey: 'basic-page'
+templateKey: 'index-page'
 path: /
 title: The Grand
 heading: So Cal's Premier Event Venue

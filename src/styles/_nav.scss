@@ -1,0 +1,142 @@
+/**
+ * Nav Main
+ */
+
+
+
+.nav {
+  // height: 73px;
+
+  .wrapper {
+
+    @include solid-breakpoint(md) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &--item {
+    font-size: .9rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+
+    @include solid-breakpoint(lg) {
+      font-size: 1rem;
+    }
+
+    .caret {
+      position: relative;
+      display: inline-block;
+      padding: 0 0.3rem;
+      top: -0.2rem;
+    }
+
+    &--menu {
+      display: none;
+    }
+  }
+
+  &--left, &--right {
+    display: none;
+
+    @include solid-breakpoint(md) {
+      display: flex;
+      padding-top: 3rem;
+    }
+
+    @include solid-breakpoint(lg) {
+      padding-top: 3.75rem;
+    }
+
+    @include solid-breakpoint(xl) {
+      padding-top: 4.5rem;
+    }
+  }
+
+  &--left {
+    .nav--item {
+      margin-right: 2rem;
+    }
+  }
+
+  &--right {
+    .nav--item {
+      margin-left: 2rem;
+    }
+  }
+
+  &--logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // align-items: center;
+
+    @include solid-breakpoint(md) {
+      display: block;
+    }
+
+    .logo > svg {
+      $logo-ratio: 0.4888888889;
+      $top-ratio: 0.07547169811;
+      @include logo-ratio($logo-ratio, 13.25rem, $top-ratio);
+
+      @include solid-breakpoint(sm) {
+        @include logo-ratio($logo-ratio, 18.25rem, $top-ratio);
+      }
+
+      @include solid-breakpoint(md) {
+        @include logo-ratio($logo-ratio, 20rem, $top-ratio);
+      }
+
+      @include solid-breakpoint(lg) {
+        $top-ratio: 0.08783783784;
+        @include logo-ratio($logo-ratio, 25rem, $top-ratio);
+      }
+
+      @include solid-breakpoint(xl) {
+        @include logo-ratio($logo-ratio, 30rem, $top-ratio);
+      }
+    }
+  }
+
+  &--mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-top: 0.8125rem;
+
+    @include solid-breakpoint(md) {
+      display: none;
+    }
+
+    span {
+      height: 0.125rem;
+      width: 1.5rem;
+      margin: 0.2125rem 0;
+      background-color: $black;
+    }
+  }
+}
+
+
+.nav {
+
+  &--hover-active {
+    overflow-y: hidden;
+
+    .nav--item {
+      opacity: .5;
+    }
+
+    .nav--item-active {
+      opacity: 1;
+
+      .nav--item--menu {
+        display: block;
+      }
+    }
+  }
+}

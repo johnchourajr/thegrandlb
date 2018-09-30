@@ -1,0 +1,256 @@
+//
+// Mixins
+// --------------------------------------------------
+
+// Generate Breakpoint Prefixes
+// -------------------------
+// this mixin adds breakpoint prefixes
+// from the list of breakpoints to the
+// beginning of a block of css selectors
+
+// all of the breakpoint names and values
+// we may use this a lot, keep them somwhere safe
+$breakpoints: (
+  xs:   null,
+  sm:   40rem,
+  md:   52rem,
+  lg:   64rem,
+  xl:   76rem,
+  xxl:  88rem,
+  xxxl: 100rem,
+);
+
+// Include Solid Breakpoint Media Queries
+// -------------------------
+// returns the apropriate media query
+// for the given breakpoint name
+@mixin solid-breakpoint ($breakpoint) {
+    @if (map-has-key($breakpoints, $breakpoint) != true) {
+      @error "Solid-breakpoint media query mixin requires a valid Solid breakpoint";
+    }
+    @else if(map-get($breakpoints, $breakpoint)) == null {
+      @content;
+    }
+    @else {
+      @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+        @content;
+      }
+    }
+}
+
+// nest content inside breakpoint prefix classes
+// in the apropriate media query block
+@mixin generate-breakpoint-prefixes {
+  @if ($generate-responsive-classes == true) {
+    // generate prefixed classes
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+    $breakpoint-prefix: "#{$breakpoint-name}-";
+
+    @include media-query($breakpoint-name) {
+      // Columns
+      .#{$breakpoint-prefix} {
+        @content;
+      }
+    }
+   }
+  } @else {
+    // only return xs styles
+   .xs- { @content; }
+  }
+}
+
+// hide from humans not screen readers
+@mixin visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px; margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+// include an svg icon as a background image using variables
+@function svg-background($svg-variable) {
+  @return url("data:image/svg+xml,#{$svg-variable}");
+}
+
+
+// Prefix
+// -------------------------
+// CSS vendor prefix mixin for desktops
+// e.g. p {@include prefix((transform: translate(-50%, -50%)), webkit ms);}
+// Credit: http://www.sitepoint.com/sass-mixins-kickstart-project/
+
+@mixin prefix($map, $vendors: webkit moz ms o) {
+
+  @each $prop, $value in $map {
+    @if $vendors {
+
+      @each $vendor in $vendors {
+        #{"-" + $vendor + "-" + $prop}: #{$value};
+      }
+
+    }
+
+    // Dump regular property anyway
+    #{$prop}: #{$value};
+
+  }
+}
+
+// Keyframes
+// -------------------------
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+// Enables tabular figures in opentype compatible browsers
+// http://thenewcode.com/575/Elegant-Table-Data-With-OpenType
+@mixin tabular-figures {
+  font-variant-numeric: tabular-nums;
+  -moz-font-feature-settings:"tnum" 1; // Firefox 31+
+  -moz-font-feature-settings:"tnum=1";
+  -webkit-font-feature-settings: 'tnum' 1; // Chrome 31+, Android 4.4+, Opera 24+
+  font-feature-settings: 'tnum' 1; // IE10+
+}
+
+
+// Font Smoothing
+// This will be enabled automatically when using the .slab class.
+// You may want to disable it for performance reasons, since these styles will cascade down.
+// https://davidwalsh.name/font-smoothing
+// ------------------------------
+
+@mixin font-smoothing {
+	@if $font-smoothing == true { // Font smoothing variable exists in the variables partial and can be overridden;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+} @else {
+	-webkit-font-smoothing: subpixel-antialiased;
+	-moz-osx-font-smoothing: auto;
+	}
+}
+
+// @TODO Remove in 3.0, renamed to solid-breakpoint above
+
+@mixin media-query($breakpoint) {
+    @if (map-has-key($breakpoints, $breakpoint) != true) {
+      @error "Media query mixin requires a valid Solid breakpoint";
+    }
+    @else if(map-get($breakpoints, $breakpoint)) == null {
+      @content;
+    }
+    @else {
+      @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+        @content;
+      }
+    }
+}
+
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+
+// =============================================================================
+// Linear Gradient
+// =============================================================================
+
+@mixin gradient($direction, $list) {
+  background: -webkit-linear-gradient($direction, $list);
+  background: -moz-linear-gradient($direction, $list);
+  background: -o-linear-gradient($direction, $list);
+  background: linear-gradient($direction, $list);
+}
+
+@mixin logo-ratio($logo-ratio, $width, $top-ratio) {
+  width: $width;
+  height: floor($width * $logo-ratio);
+  margin-top: $width * -$top-ratio
+}
+
+
+
+// =============================================================================
+// BLEHH
+// =============================================================================
+
+
+@mixin nav-gradient($color) {
+  $gradient: $color 60%, rgba($color, 0) 100%;
+  @include gradient(top, $gradient);
+}
+
+@mixin body-color($class, $color, $paths) {
+  html.#{$class} {
+    background-color: $color;
+  }
+  body.#{$class} {
+    // background-color: $color;
+
+    .nav--static:before { @include nav-gradient($color) }
+    .animHeader path { fill: $paths; }
+    .footer--right { background-color: $color; }
+  }
+}
+
+@mixin card-theme($themeName, $textColor, $backgroundColor) {
+  .card--#{$themeName} {
+    background-color: $backgroundColor;
+
+    h1, h2, h3, h4, h5, h6, p, a {
+      color: $textColor;
+    }
+  }
+}

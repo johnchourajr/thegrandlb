@@ -1,0 +1,184 @@
+
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+  margin-bottom: $space-1 / 2;
+}
+
+em {
+}
+
+del {
+  opacity: .12;
+}
+/**
+ * Headings
+ */
+h1, h2, {
+  font-weight: 700;
+  font-family: $sans;
+  letter-spacing: 0;
+  line-height: 1.35;
+  z-index: 1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  a {
+    text-decoration: underline;
+  }
+}
+
+h3, h4, h5, h6 {
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+
+
+h1 {
+  font-size: $text-1;
+  line-height: $line-height-1;
+
+  &.display {
+    font-size: $display-1;
+    line-height: $line-height-display;
+    margin-left: -0.07em;
+
+    &.xs-text-right,
+    &.sm-text-right,
+    &.md-text-right,
+    &.lg-text-right {
+      margin-left: initial;
+      margin-right: -0.07em;
+    }
+  }
+}
+
+h2 {
+  font-size: $text-2;
+  line-height: $line-height-2;
+
+  &.display {
+    font-size: $display-2;
+    line-height: $line-height-2;
+    margin-left: -0.07em;
+
+    &.xs-text-right,
+    &.sm-text-right,
+    &.md-text-right,
+    &.lg-text-right {
+      margin-left: initial;
+      margin-right: -0.07em;
+    }
+  }
+}
+
+h3 {
+  font-size: $text-3;
+  line-height: $line-height-3;
+
+  &.display {
+    font-size: $display-3;
+    line-height: $line-height-3;
+    margin-left: -0.07em;
+
+    &.xs-text-right,
+    &.sm-text-right,
+    &.md-text-right,
+    &.lg-text-right {
+      margin-left: initial;
+      margin-right: -0.07em;
+    }
+  }
+}
+
+
+/**
+ * Styles
+ */
+strong, .bold {
+  font-family: $sansBold;
+}
+
+
+/**
+ * Links
+ */
+a {
+  color: $text-black;
+  text-decoration: none;
+  transition: color .2s $easeOutCubic;
+
+  &:hover {
+    color: $text-black;
+    text-decoration: underline;
+
+    .underline {
+      text-decoration: underline;
+    }
+  }
+}
+
+
+
+/**
+ * Blockquotes
+ */
+blockquote {
+  color: $fill-black;
+  font-size: ($text-1 * .75);
+  font-weight: bold;
+
+  & > p {
+    text-indent: -0.4em;
+    line-height: $line-height-1 !important;
+
+    > strong {
+      font-size: 30%;
+      font-style: normal;
+      text-transform: uppercase;
+    }
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+
+/**
+ * Code formatting
+ */
+pre,
+code {
+  font-size: 15px;
+  border: 1px solid $fill-gray-lighter;
+  border-radius: 3px;
+  background-color: #eef;
+}
+
+code {
+  padding: 1px 5px;
+}
+
+pre {
+  padding: 8px 12px;
+  overflow-x: auto;
+
+  > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
