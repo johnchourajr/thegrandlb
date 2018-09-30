@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Content, { HTMLContent } from '../components/Content'
+import { withPrefix } from 'gatsby-link'
 
 export const IndexPageTemplate = ({
   heading,
@@ -11,21 +12,26 @@ export const IndexPageTemplate = ({
   const PageContent = contentComponent || Content
 
   return (
-    <section className="section section--gradient">
-      <div className="wrapper">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <div className="section">
-              <h6>{title}</h6>
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                {heading}
-              </h2>
-              <PageContent className="content" content={content} />
+    <div>
+      <section id="dark" className="section section--header" >
+        <div className="img" style={{backgroundImage: `url(${withPrefix('/img/placeholder--front-img.jpg')})`}}></div>
+      </section>
+      <section className="section">
+        <div className="wrapper">
+          <div className="columns">
+            <div className="column is-10 is-offset-1">
+              <div className="section">
+                <h6>{title}</h6>
+                <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
+                  {heading}
+                </h2>
+                <PageContent className="content" content={content} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   )
 }
 

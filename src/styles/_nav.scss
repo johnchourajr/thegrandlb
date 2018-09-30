@@ -5,13 +5,37 @@
 
 
 .nav {
-  // height: 73px;
+  position: fixed;
+  width: 100vw;
+  z-index: 10;
 
   .wrapper {
+    position: relative;
+    z-index: 10;
 
     @include solid-breakpoint(md) {
       display: flex;
       justify-content: space-between;
+    }
+  }
+
+  &--dark {
+    a {
+      color: $white;
+    }
+
+    path {
+      fill: $white;
+    }
+  }
+
+  &--light {
+    a {
+      color: $black;
+    }
+
+    path {
+      fill: $black;
     }
   }
 
@@ -25,6 +49,7 @@
     }
 
     .caret {
+      transition: transform .3s $easeOutCubic;
       position: relative;
       display: inline-block;
       padding: 0 0.3rem;
@@ -32,7 +57,22 @@
     }
 
     &--menu {
-      display: none;
+      position: absolute;
+      margin-top: -0.35rem;
+      padding-top: 1.5rem;
+      z-index: -10;
+      visibility: hidden;
+      transition: opacity .3s linear;
+      opacity: 0;
+
+      & > div {
+        opacity: 0;
+      }
+
+      &--item {
+        display: inline-block;
+        padding: .45rem 0;
+      }
     }
   }
 
@@ -69,10 +109,26 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    // align-items: center;
 
     @include solid-breakpoint(md) {
       display: block;
+    }
+
+    .logo {
+      position: relative;
+
+      &--link {
+        position: absolute;
+        top: 0; right: 0; bottom: 2.5em; left: 0;
+
+        @include solid-breakpoint(md) {
+          bottom: 3em;
+        }
+
+        @include solid-breakpoint(lg) {
+          bottom: 5em;
+        }
+      }
     }
 
     .logo > svg {
@@ -124,19 +180,73 @@
 
 .nav {
 
+  a, path {
+    transition: all .3s $easeOutCubic;
+  }
+
   &--hover-active {
-    overflow-y: hidden;
+
+    .nav {
+
+      a {
+        color: $white;
+      }
+
+      path {
+        fill: $white;
+      }
+    }
 
     .nav--item {
       opacity: .5;
+
+
     }
 
     .nav--item-active {
       opacity: 1;
+      
+      .caret {
+        transform: translateY(0.1em);
+      }
 
       .nav--item--menu {
         display: block;
+        visibility: visible;
+        transition: opacity .3s linear .2s;
+        opacity: 1;
+        z-index: 5;
+
+        & > div {
+          @for $i from 1 through 30 {
+            $offset: ($i * 0.05);
+
+            &:nth-child(#{$i}) {
+              opacity: 1;
+              transition: opacity .2s $easeOutCubic #{$offset}s;
+            }
+          }
+        }
       }
     }
+
+    .nav--overlay {
+      opacity: 1;
+      visibility: visible;
+      z-index: 5;
+      transition: opacity .15s linear .1s, z-index 0s linear 0s;
+    }
+  }
+
+  &--overlay {
+    $gradient: rgba($black, .5) 0%, rgba($black, .77) 50%, rgba($black, 1) 100%;
+    @include gradient(top, $gradient);
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    height: 100vh;
+    transition: opacity .15s linear, z-index .1s linear .3s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
   }
 }

@@ -1,14 +1,15 @@
 html {
   transition: background-color .5s $easeOutCubic;
-  width: 100vw;
-  height: 100vh;
-  overflow-y: scroll;
+  // width: 100vw;
+  // height: 100vh;
+  // overflow-y: scroll;
+  background-color: $white;
 }
 
 body {
   background-color: transparent;
   transition: background-color .5s $easeOutCubic;
-  height: 100vh;
+  // height: 100vh;
 }
 
 
@@ -190,5 +191,28 @@ li {
     max-width: 78rem;
     padding-right: 0;
     padding-left: 0;
+  }
+}
+
+.section {
+  &--header {
+    height: calc(100vh - 3rem);
+    width: 100vw;
+    background-color: $grandSilver;
+    position: relative;
+
+    .img {
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      height: 100%;
+      width: 100%;
+      background-position: center;
+      background-size: cover;
+      z-index: 0;
+    }
+  }
+
+  &--offset {
+    padding-top: 20em;
   }
 }

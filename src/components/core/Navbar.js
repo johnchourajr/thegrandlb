@@ -15,19 +15,30 @@ class NavbarWrap extends React.Component {
   };
 
   componentDidMount() {
-    this.measureNav()
-  }
 
-  measureNav() {
-    const height = document.getElementById('nav').clientHeight
-    this.setState({ navBarHeight: height });
-    console.log(height);
+
+    document.addEventListener('scroll', () => {
+      const darkContainer = document.getElementById('dark')
+      const elHeight = darkContainer.clientHeight - 60
+      const scrollPos = window.pageYOffset
+      const trigger = scrollPos >= elHeight
+
+      if (trigger) {
+        document.body.classList.remove(`nav--dark`);
+        document.body.classList.add(`nav--light`);
+      } else {
+        document.body.classList.remove(`nav--light`);
+        document.body.classList.add(`nav--dark`);
+      }
+
+      console.log(trigger)
+    });
   }
 
   render() {
 
     return (
-      <nav id="nav" className="nav" onScroll={this.onScroll}>
+      <nav id="nav" className="nav">
         <Helmet htmlAttributes={{ }} />
         {this.props.children}
       </nav>
@@ -37,8 +48,19 @@ class NavbarWrap extends React.Component {
 
 const NavbarItemMenu = ( props ) => {
   return (
-    <div className="nav--item--menu">
-      ...
+    <div
+      className="nav--item--menu"
+      onMouseOver={props.onMouseOver}
+      onMouseOut={props.onMouseOut}
+    >
+      {props.subpages.map((item, i) => (
+        <div key={i}>
+          <Link
+            to={item.path}
+            className="nav--item--menu--item"
+          >{item.name}</Link>
+        </div>
+      ))}
     </div>
   )
 }
@@ -67,7 +89,7 @@ class NavbarItem extends React.Component {
     const pageSlug = this.props.path ? `${slugify(this.props.path)}-nav` : null
     const hasSubpage = this.props.subpages
     const subpageCaret = hasSubpage ? <Caret/> : null
-    const subpageMenu = hasSubpage ? <NavbarItemMenu subpages={hasSubpage} /> : null
+    const subpageMenu = hasSubpage ? <NavbarItemMenu subpages={hasSubpage} onMouseOver={e => this.onMouseOver(e, hasSubpage)} onMouseOut={e => this.onMouseOut(e, hasSubpage)} /> : null
     const isActive = this.state.navActive ? 'nav--item-active' : ''
 
     return(
@@ -96,9 +118,7 @@ const Navbar = ({ mainNav, inquireNav }) => {
           ))}
         </div>
         <div className="nav--logo">
-          <Link to="/">
-            <Logo/>
-          </Link>
+          <Logo to="/"/>
           <div className="nav--mobile-menu">
             <span></span>
             <span></span>
@@ -110,6 +130,8 @@ const Navbar = ({ mainNav, inquireNav }) => {
             <NavbarItem key={item.name} {...item}/>
           ))}
         </div>
+      </div>
+      <div className="nav--overlay">
       </div>
     </NavbarWrap>
 

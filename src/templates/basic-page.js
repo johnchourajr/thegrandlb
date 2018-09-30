@@ -11,7 +11,7 @@ export const BasicPageTemplate = ({
   const PageContent = contentComponent || Content
 
   return (
-    <section className="section section--gradient">
+    <section className="section section--offset">
       <div className="wrapper">
         <div className="columns">
           <div className="column is-10 is-offset-1">
