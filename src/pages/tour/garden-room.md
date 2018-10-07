@@ -2,7 +2,9 @@
 templateKey: 'basic-page'
 path: /tour/garden-room
 title: Welcome To
-heading: The Garden Room
+heading: |
+  The Garden
+  Room
 ---
 ---
 

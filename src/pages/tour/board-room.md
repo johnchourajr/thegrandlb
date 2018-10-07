@@ -2,7 +2,9 @@
 templateKey: 'basic-page'
 path: /tour/board-room
 title: Welcome To
-heading: The Board Room
+heading: |
+  The Board
+  Room
 ---
 ---
 

@@ -2,7 +2,9 @@
 templateKey: 'basic-page'
 path: /menus/Business
 title: Menus
-heading: Corporate Menu
+heading: |
+  Our Corporate
+  Menu
 ---
 ---
 

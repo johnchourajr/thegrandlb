@@ -2,7 +2,9 @@
 templateKey: 'basic-page'
 path: /tour/catalina-room
 title: Welcome To
-heading: The Catalina Room
+heading: |
+  The Catalina
+  Room
 ---
 ---
 

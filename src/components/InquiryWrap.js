@@ -18,6 +18,7 @@ const InquiryWrap = ({ children }) => (
       width: '100vw',
       opacty: 0,
       background: '#EDFAFF',
+      zIndex: 7,
     }}
     transitionStyles={{
       entering: { top: '0%'},

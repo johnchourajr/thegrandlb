@@ -2,7 +2,9 @@
 templateKey: 'basic-page'
 path: /tour/palm-courtyard
 title: Welcome To
-heading: The Palm Courtyard
+heading: |
+  The Palm
+  Courtyard
 ---
 ---
 

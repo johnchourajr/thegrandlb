@@ -2,7 +2,9 @@
 templateKey: 'basic-page'
 path: /events/milestones
 title: Milestone Events
-heading: Party Like  Nobody’s Watching
+heading: |
+  Party Like
+  Nobody’s Watching
 ---
 ---
 

@@ -2,7 +2,9 @@
 templateKey: 'basic-page'
 path: /menus/classic
 title: Menus
-heading: Classic Menu
+heading: |
+  Our Classic
+  Menu
 ---
 ---
 

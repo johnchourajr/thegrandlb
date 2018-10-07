@@ -2,7 +2,9 @@
 templateKey: 'basic-page'
 path: /menus/weddings
 title: Menus
-heading: Weddings Menu
+heading: |
+  Our Weddings
+  Menu
 ---
 ---
 

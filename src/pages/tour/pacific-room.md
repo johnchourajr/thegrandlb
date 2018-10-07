@@ -2,7 +2,9 @@
 templateKey: 'basic-page'
 path: /tour/pacific-room
 title: Welcome To
-heading: The Pacific Room
+heading: |
+  The Pacific
+  Room
 ---
 ---
 

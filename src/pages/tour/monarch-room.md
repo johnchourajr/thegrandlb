@@ -2,7 +2,9 @@
 templateKey: 'basic-page'
 path: /tour/monarch-room
 title: Welcome To
-heading: The Monarch Room
+heading: |
+  The Monarch
+  Room
 ---
 ---
 

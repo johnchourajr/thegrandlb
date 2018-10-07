@@ -2,7 +2,9 @@
 templateKey: 'basic-page'
 path: /menus/milestones
 title: Menus
-heading: Milestones Menu
+heading: |
+  Our Milestones
+  Menu
 ---
 ---
 

@@ -2,7 +2,9 @@
 templateKey: 'basic-page'
 path: /tour/grand-ballroom
 title: Welcome To
-heading: The Grand Ballroom
+heading: |
+  The Grand
+  Ballroom
 ---
 ---
 

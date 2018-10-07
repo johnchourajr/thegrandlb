@@ -2,7 +2,9 @@
 templateKey: 'basic-page'
 path: /events/weddings
 title: Weddings
-heading: Get Hitched With Us
+heading: | 
+  Get Hitched
+  With Us
 ---
 ---
 

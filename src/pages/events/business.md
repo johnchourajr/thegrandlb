@@ -2,7 +2,9 @@
 templateKey: 'basic-page'
 path: /events/business
 title: Business Events
-heading: Meetings In Grand Style
+heading: |
+  Meetings In
+  Grand Style
 ---
 ---
 

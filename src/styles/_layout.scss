@@ -212,6 +212,8 @@ li {
 @include header-color(tour, $grandCream);
 @include header-color(events, $grandSilver);
 @include header-color(menus, $grandPink);
+@include header-color(about, $grandCream);
+@include header-color(contact, $grandBabyBlue);
 
 .page-header {
   padding-top: 7rem;
