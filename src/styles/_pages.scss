@@ -1,0 +1,133 @@
+@include header-color(tour, $grandCream);
+@include header-color(events, $grandSilver);
+@include header-color(menus, $grandPink);
+@include header-color(about, $grandCream);
+@include header-color(contact, $grandBabyBlue);
+
+
+body.inquire {
+  .nav:before {
+    top: -30%;
+    opacity: 0;
+    background-color: transparent;
+    box-shadow: 0 0px 0px rgba(0,0,0, 0) !important;
+  }
+
+  .nav--left, .nav--right {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &.footer {
+    display: none !important;
+  }
+}
+
+
+.page-header {
+  padding-top: 7rem;
+  margin-bottom: 9rem;
+  background: $grandBabyBlue;
+
+  @include solid-breakpoint(sm) {
+    padding-top: 8rem;
+    margin-bottom: 10rem;
+  }
+
+  @include solid-breakpoint(md) {
+    padding-top: 16rem;
+    margin-bottom: 12rem;
+  }
+
+
+  &--wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    transform: translateY(4.33em);
+  }
+
+  &--lower {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: -3rem;
+    margin-bottom: 3rem;
+
+    @include solid-breakpoint(sm) {
+      margin-top: -4rem;
+      margin-bottom: 4rem;
+    }
+
+    @include solid-breakpoint(md) {
+      margin-top: -5rem;
+      margin-bottom: 5rem;
+    }
+  }
+
+  &--eyebrow, &--headline, &--caption {
+    text-align: center;
+  }
+
+  &--eyebrow {
+    white-space: pre-wrap;
+    margin-bottom: 1rem;
+  }
+
+  &--headline {
+    white-space: pre-wrap;
+  }
+
+  &--caption {
+    max-width: 26.875rem;
+  }
+}
+
+.page-hero {
+  height: calc(100vh - 3rem);
+  max-height: 150vw;
+  width: 100vw;
+  background-color: $black;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include solid-breakpoint(sm) {
+    max-height: 100vw;
+  }
+
+  @include solid-breakpoint(lg) {
+    max-height: 90vh;
+  }
+
+  .img {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    z-index: 0;
+    opacity: .75;
+  }
+
+  &--wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &--headline {
+    white-space: pre-wrap;
+    text-align: center;
+    color: $grandBabyBlue;
+  }
+
+  &--buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+}

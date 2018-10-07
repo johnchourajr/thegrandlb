@@ -1,7 +1,15 @@
+// Mixins & variables
 @import "_mixins.scss";
 @import "_variables.scss";
+
+// 3rd Party
 @import "_solid.scss";
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+// Custom
 @import "_typography.scss";
 @import "_layout.scss";
 @import "_nav.scss";
 @import "_footer.scss";
+@import "_pages.scss";

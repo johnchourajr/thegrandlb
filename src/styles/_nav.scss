@@ -77,6 +77,7 @@
 
       & > div {
         opacity: 0;
+        transform: translateX(.4em);
       }
 
       &--item {
@@ -127,6 +128,7 @@
 
     .logo {
       position: relative;
+      z-index: 12;
 
       &--link {
         position: absolute;
@@ -345,7 +347,7 @@
 
 // ******
 // nav-min effects
-.nav--min {
+.nav--min, body.inquire {
 
   .nav {
 
@@ -406,7 +408,7 @@
 // nav--hover--active effects
 .nav--hover-active {
   .nav {
-    @include nav-color($white)
+    @include nav-color($black)
   }
 
   .nav--item {
@@ -433,7 +435,8 @@
 
           &:nth-child(#{$i}) {
             opacity: 1;
-            transition: opacity .2s $easeOutCubic #{$offset}s;
+            transform: translateX(0em);
+            transition: all .3s $easeOutCubic #{$offset}s;
           }
         }
       }
@@ -452,7 +455,8 @@
 // ******
 // nav--overlay effects
 .nav--overlay {
-  $gradient: rgba($black, 1) 0%, rgba($black, .77) 50%, rgba($black, .5) 100%;
+  $color: $white;
+  $gradient: rgba($color, 1) 0%, rgba($color, .77) 50%, rgba($color, 0) 100%;
   @include gradient(top, $gradient);
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;

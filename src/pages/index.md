@@ -5,6 +5,107 @@ title: The Grand
 heading: |
   So Cal’s Premier
   Event Venue
+headingButtons:
+- text: "Get a Quote"
+  url: "/inquire/"
+- text: "Take a Tour"
+  url: "/tour/"
+  isSecondary: true
+subhead: |
+  40,000 sqft. of
+  Whatever You Want
+topFeatures:
+- text: |
+    Meetings in
+    Grand Style
+  url: "/events/business/"
+- text: |
+    New in
+    Our Kitchen
+  url: "/menus/"
+- text: |
+    Tour Our
+    Facility
+  url: "/tour/map/"
+ctaUpper:
+  img: "/img/placeholder--cta-img.jpg"
+  accent: "grandBabyBlue"
+  heading: |
+    Plan Your
+    Next Event
+  buttons:
+  - text: "Plan Your Private Event"
+    url: "/inquire/"
+map:
+  heading: |
+    So. Cal.
+    Native
+  img: ""
+carousel:
+  array:
+  - img: "/img/placeholder--front-img.jpg"
+    caption: "Placeholder Image"
+  - img: "/img/placeholder--front-img.jpg"
+    caption: "Placeholder Image"
+  - img: "/img/placeholder--front-img.jpg"
+    caption: "Placeholder Image"
+  - img: "/img/placeholder--front-img.jpg"
+    caption: "Placeholder Image"
+  - img: "/img/placeholder--front-img.jpg"
+    caption: "Placeholder Image"
+  - img: "/img/placeholder--front-img.jpg"
+    caption: "Placeholder Image"
+numbers:
+  heading: |
+    Grand by
+    the Numbers
+  array:
+  - prefix: ""
+    number: '11'
+    suffix: ""
+    caption: "Acres"
+  - prefix: ""
+    number: "40"
+    suffix: "k"
+    caption: "Square Feet"
+  - prefix: ""
+    number: "7"
+    suffix: ""
+    caption: "Flexible Indoor Spaces"
+  - prefix: ""
+    number: "2"
+    suffix: ""
+    caption: "Room-Adjacent Patios"
+  - prefix: ""
+    number: "2"
+    suffix: ""
+    caption: "Outdoor Courtyards"
+  - prefix: ""
+    number: "2"
+    suffix: "k"
+    caption: "Total Number of Guests"
+ctaLower:
+  img: "/img/placeholder--cta-img-2.jpg"
+  accent: "grandPink"
+  heading: |
+    Plan Your
+    Next Event
+  buttons:
+  - text: "Plan Your Private Event"
+    url: "/inquire/"
+menuFeature:
+  heading: |
+    Food
+    Es Bueno
+  buttons:
+  - text: "See The Menus"
+    url: "/menus/"
+    isSecondary: true
+  imgs:
+  - "/img/placeholder--food-1.jpg"
+  - "/img/placeholder--food-2.jpg"
+  - "/img/placeholder--food-3.jpg"
+
 ---
 ---
 

@@ -1,10 +1,79 @@
 ---
-templateKey: 'basic-page'
+templateKey: 'tour-index-page'
 path: /tour
 title: Tour
 heading: |
   Take The
   Grand Tour
+hero: "/img/placeholder--front-img.jpg"
+map:
+  heading: |
+    40,000 sqft. of
+    Event Space
+  buttons:
+  - text: "View Our Interactive Map"
+    url: "/tour/map"
+    isSecondary: true
+roomlist: true
+numbers:
+  heading: |
+    Grand by
+    the Numbers
+  array:
+  - prefix: ""
+    number: '11'
+    suffix: ""
+    caption: "Acres"
+    description: "Aenean lacinia bibendum nulla sed consectetur. Integer posuere erat a ante venenatis dapibus posuere velit aliquet."
+  - prefix: ""
+    number: "40"
+    suffix: "k"
+    caption: "Square Feet"
+    description: "Aenean lacinia bibendum nulla sed consectetur. Integer posuere erat a ante venenatis dapibus posuere velit aliquet."
+  - prefix: ""
+    number: "7"
+    suffix: ""
+    caption: "Flexible Indoor Spaces"
+    description: "Aenean lacinia bibendum nulla sed consectetur. Integer posuere erat a ante venenatis dapibus posuere velit aliquet."
+  - prefix: ""
+    number: "2"
+    suffix: ""
+    caption: "Room-Adjacent Patios"
+    description: "Aenean lacinia bibendum nulla sed consectetur. Integer posuere erat a ante venenatis dapibus posuere velit aliquet."
+  - prefix: ""
+    number: "2"
+    suffix: ""
+    caption: "Outdoor Courtyards"
+    description: "Aenean lacinia bibendum nulla sed consectetur. Integer posuere erat a ante venenatis dapibus posuere velit aliquet."
+  - prefix: ""
+    number: "2"
+    suffix: "k"
+    caption: "Total Number of Guests"
+    description: "Aenean lacinia bibendum nulla sed consectetur. Integer posuere erat a ante venenatis dapibus posuere velit aliquet."
+carousel:
+  heading: |
+    Hey,
+    Good Lookin’
+  array:
+  - img: "/img/placeholder--front-img.jpg"
+    caption: "Placeholder Image"
+  - img: "/img/placeholder--front-img.jpg"
+    caption: "Placeholder Image"
+  - img: "/img/placeholder--front-img.jpg"
+    caption: "Placeholder Image"
+  - img: "/img/placeholder--front-img.jpg"
+    caption: "Placeholder Image"
+  - img: "/img/placeholder--front-img.jpg"
+    caption: "Placeholder Image"
+  - img: "/img/placeholder--front-img.jpg"
+    caption: "Placeholder Image"
+cta:
+  heading: |
+    Tell Us About
+    Your Event
+  buttons:
+  - text: "Plan Your Private Event"
+    url: "/inquire/"
 ---
 ---
 

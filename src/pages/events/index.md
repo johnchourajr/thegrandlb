@@ -1,5 +1,5 @@
 ---
-templateKey: 'basic-page'
+templateKey: 'events-index-page'
 path: /events
 title: Events
 heading: |

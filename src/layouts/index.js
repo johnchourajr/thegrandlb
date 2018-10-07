@@ -6,6 +6,8 @@ import Head from '../components/core/Head'
 import Header from '../components/core/Header'
 import Footer from '../components/core/Footer'
 import * as navDetails from '../data/navDetails'
+
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import '../styles/all.scss'
 
 const TemplateWrapper = ({ children, location }) => {
