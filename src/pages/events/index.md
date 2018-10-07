@@ -2,7 +2,9 @@
 templateKey: 'basic-page'
 path: /events
 title: Events
-heading: Your Thing in Grand Style
+heading: |
+  Your Thing in
+  Grand Style
 ---
 
 The Grand is a destination for weddings, meetings, and events of all occasions.

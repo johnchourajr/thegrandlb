@@ -2,7 +2,9 @@
 templateKey: 'basic-page'
 path: /tour
 title: Tour
-heading: Take The Grand Tour
+heading: |
+  Take The
+  Grand Tour
 ---
 ---
 

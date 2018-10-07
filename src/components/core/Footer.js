@@ -2,31 +2,51 @@ import React from 'react'
 import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
 
-import { allNav } from '../../data/NavData'
+// Svg
+import Logo from '../svg/Logo'
 
+// Components
+import NavbarItem from './NavbarItem'
+import NavbarAddressPhone from './NavbarAddressPhone'
+import NavbarSocial from './NavbarSocial'
 
+// Data
+import { footerNav } from '../../data/navData'
+import * as siteDetails from '../../data/siteDetails'
+
+// Component
 const Footer = ({ subNav }) => {
   return(
-    <footer className="container">
+    <footer className="footer">
+      <div className="wrapper footer--upper">
+        <div className="footer--col col xs-col-12 md-col-6">
+          {footerNav.left.map(item => (
+            <NavbarItem key={item.name} noHoverMenu {...item}/>
+          ))}
+        </div>
+        <div className="footer--col col xs-col-12 md-col-6">
+          {footerNav.right.map(item => (
+            <NavbarItem key={item.name} noHoverMenu {...item}/>
+          ))}
+          <NavbarSocial className="footer--social" />
+        </div>
+      </div>
+      <div className="wrapper footer--upper">
+        <div className="footer--col col xs-col-12">
+          <NavbarAddressPhone className="footer--addressphone" />
+        </div>
+      </div>
       <div className="wrapper">
-        <div className="gutters xs-flex ">
-          {allNav.map((item, i) => {
-            const subpages = item.subpages
-            let subPageArray = null
-            if (subpages) {
-              subPageArray = subpages.map((item, i) => (
-                <Link key={i} className="xs-block" to={item.path}>{item.name}</Link>
-              ))
-            }
-            return (
-              <div key={i} className="col xs-flex xs-flex-column">
-                <Link className="bold xs-block" to={item.path}>{item.name}</Link>
-                <div>
-                  {subPageArray}
-                </div>
-              </div>
-            )
-          })}
+        <div className="xs-col-12 footer--lower">
+          <div className="footer--left">
+            <p className="footer--note">© Copyright {Date().split` `[3]}</p>
+          </div>
+          <div  className="footer--logo">
+            <Logo to="/"/>
+          </div>
+          <div className="footer--right">
+            <p className="footer--note">{siteDetails.companyName}</p>
+          </div>
         </div>
       </div>
     </footer>

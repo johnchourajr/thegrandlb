@@ -5,7 +5,7 @@ import { Transition } from 'react-transition-group';
 import Head from '../components/core/Head'
 import Header from '../components/core/Header'
 import Footer from '../components/core/Footer'
-import { mainNav, subNav, inquireNav } from '../data/NavData'
+import { mainNav, subNav, inquireNav } from '../data/navData'
 import '../styles/all.scss'
 
 const TemplateWrapper = ({ children, location }) => {

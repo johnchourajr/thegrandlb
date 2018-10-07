@@ -2,12 +2,34 @@
  * Nav Main
  */
 
+ .home {
+   .nav {
+     @include nav-color($grandBabyBlue)
+   }
+ }
 
 
+// ******
+// nav styles
 .nav {
   position: fixed;
   width: 100vw;
   z-index: 10;
+
+  &:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    opacity: 0;
+    top: -110%; right: 0; bottom: 0; left: 0;
+    transition: top .5s $easeOutCubic, opacity .3s $easeOutCubic;
+    background-color: $white;
+    box-shadow: 0 10px 10px rgba(0,0,0, 0.025);
+  }
+
+  a, path {
+    transition: all .3s $easeOutCubic;
+  }
 
   .wrapper {
     position: relative;
@@ -20,23 +42,11 @@
   }
 
   &--dark {
-    a {
-      color: $white;
-    }
-
-    path {
-      fill: $white;
-    }
+    @include nav-color($white)
   }
 
   &--light {
-    a {
-      color: $black;
-    }
-
-    path {
-      fill: $black;
-    }
+    @include nav-color($black)
   }
 
   &--item {
@@ -78,6 +88,7 @@
 
   &--left, &--right {
     display: none;
+    transition: padding-top .3s $easeOutCubic;
 
     @include solid-breakpoint(md) {
       display: flex;
@@ -135,6 +146,7 @@
       $logo-ratio: 0.4888888889;
       $top-ratio: 0.07547169811;
       @include logo-ratio($logo-ratio, 13.25rem, $top-ratio);
+      transition: all .25s $easeOutCubic;
 
       @include solid-breakpoint(sm) {
         @include logo-ratio($logo-ratio, 18.25rem, $top-ratio);
@@ -154,99 +166,299 @@
       }
     }
   }
+}
 
-  &--mobile-menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    margin-top: 0.8125rem;
+.nav--mobile-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-top: 0.55rem;
 
-    @include solid-breakpoint(md) {
-      display: none;
+  @include solid-breakpoint(md) {
+    display: none;
+  }
+
+  span {
+    height: 0.125rem;
+    width: 1.5rem;
+    margin: 0.2125rem 0;
+    background-color: $black;
+    transition: opacity .15s $easeOutCubic, transform .35s $easeOutCubic;
+    position: relative;
+
+    &:nth-child(2) {
+      &:before, &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        opacity: 0;
+        transition: all .75s $easeOutCubic;
+      }
+    }
+  }
+}
+
+.nav--mobile-menu--overlay {
+  background-color: $white;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  height: 100vh;
+  padding-top: 2rem;
+  transition: opacity .15s linear, z-index .1s linear .3s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  @include solid-breakpoint(md) {
+    display: none;
+    z-index: -9999 !important;
+  }
+
+  a {
+    font-size: .9rem;
+    letter-spacing: .12em;
+    line-height: 1.75;
+    text-transform: uppercase;
+    color: $black !important;
+    text-align: center;
+
+    @include solid-breakpoint(lg) {
+      font-size: 1rem;
+    }
+  }
+
+  .links {
+    &--section {
+      margin: 1rem 0;
     }
 
+    &--main {
+      display: flex;
+      flex-direction: column;
+
+      a {
+        margin: .65em 0;
+      }
+    }
+
+    &--social {
+      display: flex;
+
+      a {
+        margin: 0 1.5em;
+      }
+    }
+
+    &--footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      div {
+        margin: .45rem 0;
+      }
+
+      .address {
+
+
+        a {
+          display: flex;
+          flex-direction: column;
+          white-space: pre-wrap;
+        }
+      }
+    }
+  }
+}
+
+.mobile-nav-active {
+  a { color: $black !important; }
+  path { fill: $black !important; }
+
+  .nav--mobile-menu {
+
+    span:nth-child(1), span:nth-child(3) {
+      opacity: 0;
+      transform: scale(.5);
+    }
+
+    span:nth-child(1) {
+      transform: translateY(-10px);
+    }
+
+    span:nth-child(2) {
+      background-color: transparent !important;
+
+      &:before, &:after {
+        opacity: 1;
+        background-color: $black;
+      }
+
+      &:before {
+        transform: rotate(135deg);
+      }
+
+      &:after {
+        transform: rotate(225deg);
+      }
+    }
+
+    span:nth-child(3) {
+      transform: translateY(10px);
+    }
+  }
+}
+
+.nav--mobile-menu {
+  &.active {
+    z-index: 20;
+    position: relative;
+
     span {
-      height: 0.125rem;
-      width: 1.5rem;
-      margin: 0.2125rem 0;
-      background-color: $black;
+      background-color: $black !important;
+    }
+  }
+}
+
+.nav--mobile-menu--overlay {
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    // z-index: ;
+  }
+}
+
+
+// ******
+// nav-min effects
+.nav--min {
+
+  .nav {
+
+    &:before {
+      top: -30%;
+      opacity: 1;
+      box-shadow: 0 20px 20px rgba(0,0,0, 0.025);
+    }
+
+    @include nav-color($black)
+
+    &--left, &--right {
+
+      @include solid-breakpoint(md) {
+        padding-top: 1.5rem;
+      }
+
+      @include solid-breakpoint(lg) {
+        padding-top: 2rem;
+      }
+    }
+
+    .logo--link {
+      position: absolute;
+      top: 0; right: 0; bottom: 1em; left: 0;
+
+      @include solid-breakpoint(md) {
+        bottom: 2em;
+      }
+
+      @include solid-breakpoint(lg) {
+        bottom: 2em;
+      }
+    }
+
+    .logo > svg {
+      $logo-ratio: 0.4888888889;
+      $top-ratio: 0.07547169811;
+
+      @include solid-breakpoint(md) {
+        @include logo-ratio($logo-ratio, 13rem, $top-ratio);
+      }
+
+      @include solid-breakpoint(lg) {
+        $top-ratio: 0.08783783784;
+        @include logo-ratio($logo-ratio, 18rem, $top-ratio);
+      }
+
+      @include solid-breakpoint(xl) {
+        @include logo-ratio($logo-ratio, 19rem, $top-ratio);
+      }
     }
   }
 }
 
 
-.nav {
-
-  a, path {
-    transition: all .3s $easeOutCubic;
+// ******
+// nav--hover--active effects
+.nav--hover-active {
+  .nav {
+    @include nav-color($white)
   }
 
-  &--hover-active {
+  .nav--item {
+    opacity: .5;
+  }
 
-    .nav {
+  .nav--item-active {
+    opacity: 1;
 
-      a {
-        color: $white;
-      }
-
-      path {
-        fill: $white;
-      }
+    .caret {
+      transform: translateY(0.1em);
     }
 
-    .nav--item {
-      opacity: .5;
-
-
-    }
-
-    .nav--item-active {
+    .nav--item--menu {
+      display: block;
+      visibility: visible;
+      transition: opacity .3s linear .2s;
       opacity: 1;
-      
-      .caret {
-        transform: translateY(0.1em);
-      }
+      z-index: 5;
 
-      .nav--item--menu {
-        display: block;
-        visibility: visible;
-        transition: opacity .3s linear .2s;
-        opacity: 1;
-        z-index: 5;
+      & > div {
+        @for $i from 1 through 30 {
+          $offset: ($i * 0.05);
 
-        & > div {
-          @for $i from 1 through 30 {
-            $offset: ($i * 0.05);
-
-            &:nth-child(#{$i}) {
-              opacity: 1;
-              transition: opacity .2s $easeOutCubic #{$offset}s;
-            }
+          &:nth-child(#{$i}) {
+            opacity: 1;
+            transition: opacity .2s $easeOutCubic #{$offset}s;
           }
         }
       }
     }
-
-    .nav--overlay {
-      opacity: 1;
-      visibility: visible;
-      z-index: 5;
-      transition: opacity .15s linear .1s, z-index 0s linear 0s;
-    }
   }
 
-  &--overlay {
-    $gradient: rgba($black, .5) 0%, rgba($black, .77) 50%, rgba($black, 1) 100%;
-    @include gradient(top, $gradient);
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    height: 100vh;
-    transition: opacity .15s linear, z-index .1s linear .3s;
-    opacity: 0;
-    visibility: hidden;
-    z-index: -1;
+  .nav--overlay {
+    opacity: 1;
+    visibility: visible;
+    z-index: 5;
+    transition: opacity .15s linear .1s, z-index 0s linear 0s;
   }
+}
+
+
+// ******
+// nav--overlay effects
+.nav--overlay {
+  $gradient: rgba($black, 1) 0%, rgba($black, .77) 50%, rgba($black, .5) 100%;
+  @include gradient(top, $gradient);
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  height: 100vh;
+  transition: opacity .15s linear, z-index .1s linear .3s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
 }

@@ -11,10 +11,16 @@ const Head = ({ location }) => {
     <Helmet
       title="The Grand LB"
       link={[
-        {rel: "icon", type: "image/png", href: "/img/favicon.ico", sizes: "16x16"}
+        { rel: "apple-touch-icon", sizes: "152x152", href: "/img/favicon/apple-touch-icon.png" },
+        { rel: "icon", type: "image/png", sizes: "32x32", href: "/img/favicon/favicon-32x32.png" },
+        { rel: "icon", type: "image/png", sizes: "16x16", href: "/img/favicon/favicon-16x16.png" },
+        { rel: "manifest", href: "/img/favicon/site.webmanifest" },
+        { rel: "mask-icon", href: "/img/favicon/safari-pinned-tab.svg", color: "#edfaff" },
       ]}
       meta={[
-        {name: "viewport", content: "width=device-width, initial-scale=1, shrink-to-fit=yes"},
+        { name: "viewport", content: "width=device-width, initial-scale=1, shrink-to-fit=yes"},
+        { name: "msapplication-TileColor", content: "#edfaff" },
+        { name: "theme-color", content: "#edfaff" },
         { name: "robots", content: "noindex" },
         { name: "googlebot", content: "noindex" },
         { name: "googlebot-news", content: "noindex" },

@@ -254,3 +254,15 @@ $breakpoints: (
     }
   }
 }
+
+@mixin nav-color($color) {
+  .nav--mobile-menu span { background-color: $color; }
+  a { color: $color; }
+  path { fill: $color; }
+}
+
+@mixin header-color($class, $color) {
+  html.#{$class} {
+    .page-header { background-color: $color; }
+  }
+}

@@ -2,7 +2,9 @@
 templateKey: 'index-page'
 path: /
 title: The Grand
-heading: So Cal's Premier Event Venue
+heading: |
+  So Cal’s Premier
+  Event Venue
 ---
 ---
 

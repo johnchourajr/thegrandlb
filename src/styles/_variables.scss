@@ -22,7 +22,7 @@ $font-smoothing: true !default;
 $sans: "Neutraface2TextDemi", Helvetica, Arial, sans-serif !default;
 $sansBold: "Neutraface2TextDemi", Helvetica, Arial, sans-serif !default;
 $serif: "MajestiBanner-Book", Helvetica, Arial, sans-serif !default;
-$sansBold: "MajestiBanner-Medium", Helvetica, Arial, sans-serif !default;
+$serifBold: "MajestiBanner-Medium", Helvetica, Arial, sans-serif !default;
 $slab: "MajestiBanner-Book", "Proxima Nova", Helvetica, Arial, sans-serif !default;
 
 
@@ -156,9 +156,9 @@ $base-font-size: 16px !default;
 $regular: 400;
 $bold: 600;
 
-$display-1: 4.2em     !default; // 72px
-$display-2: 3.5em   !default; // 50px
-$display-3: 2.5em   !default; // 44px
+$display-1: 5.6em     !default; // 80px
+$display-2: 4.2em   !default; // 72px
+$display-3: 4.5em   !default; // 50px
 
 $text-1: 2.25em   !default; // 36px
 $text-2: 1.8em    !default; // 22px
@@ -185,7 +185,7 @@ $line-height-5: 1.2   !default; // 20px
 $line-height-6: 1.2   !default; // 16px
 
 // Line heights displat text
-$line-height-display: 1    !default; // 16px
+$line-height-display: .85    !default; // 16px
 
 // Line heights specific to forms, buttons and tags.
 $line-height-form:       1.5rem  !default;

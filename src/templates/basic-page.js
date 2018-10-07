@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import Content, { HTMLContent } from '../components/Content'
+import PageHeader from '../components/PageHeader'
 
 export const BasicPageTemplate = ({
   heading,
@@ -11,21 +13,16 @@ export const BasicPageTemplate = ({
   const PageContent = contentComponent || Content
 
   return (
-    <section className="section section--offset">
-      <div className="wrapper">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <div className="section">
-              <h6>{title}</h6>
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                {heading}
-              </h2>
-              <PageContent className="content" content={content} />
-            </div>
-          </div>
+    <div>
+      <PageHeader title={title} heading={heading} />
+      <section className="section">
+        <div className="wrapper">
+          <PageContent className="content" content={content} />
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
+
+
   )
 }
 

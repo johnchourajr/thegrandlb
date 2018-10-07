@@ -1,0 +1,14 @@
+{
+    "name": "The Grand",
+    "short_name": "The Grand",
+    "icons": [
+        {
+            "src": "/android-chrome-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#edfaff",
+    "background_color": "#edfaff",
+    "display": "standalone"
+}

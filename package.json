@@ -36,6 +36,7 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
+    "stable": "nvm use stable",
     "start": "npm run develop",
     "build": "gatsby build",
     "develop": "gatsby develop",

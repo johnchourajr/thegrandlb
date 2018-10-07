@@ -1,3 +1,7 @@
+// *********
+// *********
+// Nav Sections
+
 export const homeNav = {
   name: "Home", path: "/",
 }
@@ -50,6 +54,24 @@ export const inquireNav = {
   name: "Inquire", path: "/inquire",
 }
 
+export const twitterNav = {
+  name: "twitter", path: "#",
+}
+
+export const facebookNav = {
+  name: "facebook", path: "#",
+}
+
+export const instagramNav = {
+  name: "instagram", path: "#",
+}
+
+
+
+// *********
+// *********
+// Nav Collections
+
 export const mainNav = {
   left: [
     { ...tourNav },
@@ -60,6 +82,35 @@ export const mainNav = {
     { ...aboutNav },
   ]
 }
+
+export const footerNav = {
+  left: [
+    { ...tourNav },
+    { ...eventsNav },
+    { ...menusNav },
+    { ...aboutNav },
+  ],
+  right: [
+    { ...contactNav },
+    { ...inquireNav },
+  ]
+}
+
+export const menuNav = [
+  { ...homeNav },
+  { ...tourNav },
+  { ...eventsNav },
+  { ...menusNav },
+  { ...aboutNav },
+  { ...contactNav },
+  { ...inquireNav },
+]
+
+export const socialNav = [
+  { ...twitterNav },
+  { ...facebookNav },
+  { ...instagramNav },
+]
 
 export const subNav = {
   name: null, path: '',

@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Content, { HTMLContent } from '../components/Content'
 import { withPrefix } from 'gatsby-link'
+
+import Content, { HTMLContent } from '../components/Content'
+import PageHero from '../components/PageHero'
 
 export const IndexPageTemplate = ({
   heading,
@@ -13,9 +15,11 @@ export const IndexPageTemplate = ({
 
   return (
     <div>
-      <section id="dark" className="section section--header" >
-        <div className="img" style={{backgroundImage: `url(${withPrefix('/img/placeholder--front-img.jpg')})`}}></div>
-      </section>
+      <PageHero
+        title={title} 
+        heading={heading}
+        img="/img/placeholder--front-img.jpg"
+      />
       <section className="section">
         <div className="wrapper">
           <div className="columns">

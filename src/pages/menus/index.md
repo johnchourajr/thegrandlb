@@ -2,7 +2,9 @@
 templateKey: 'basic-page'
 path: /menus
 title: Menu
-heading: Taste Our Menu
+heading: |
+  Taste
+  Our Menu
 ---
 ---
 
