@@ -8,7 +8,7 @@ import NavbarAddressPhone from './NavbarAddressPhone'
 import NavbarSocial from './NavbarSocial'
 
 //Data
-import { menuNav, socialNav } from '../../data/navData'
+import { menuNav, socialNav } from '../../data/navDetails'
 import siteDetails from '../../data/siteDetails'
 
 // Util Functions

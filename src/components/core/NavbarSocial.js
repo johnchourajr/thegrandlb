@@ -5,7 +5,7 @@ import Link from 'gatsby-link'
 import SvgIcon from '../svg/SvgIcon'
 
 // Data
-import { menuNav, socialNav } from '../../data/navData'
+import { menuNav, socialNav } from '../../data/navDetails'
 
 // Component
 const NavbarSocial = props => {
