@@ -11,7 +11,7 @@ import NavbarAddressPhone from './NavbarAddressPhone'
 import NavbarSocial from './NavbarSocial'
 
 // Data
-import { footerNav } from '../../data/navData'
+import * as navData from '../../data/navData'
 import * as siteDetails from '../../data/siteDetails'
 
 // Component
@@ -20,12 +20,12 @@ const Footer = ({ subNav }) => {
     <footer className="footer">
       <div className="wrapper footer--upper">
         <div className="footer--col col xs-col-12 md-col-6">
-          {footerNav.left.map(item => (
+          {navData.footerNav.left.map(item => (
             <NavbarItem key={item.name} noHoverMenu {...item}/>
           ))}
         </div>
         <div className="footer--col col xs-col-12 md-col-6">
-          {footerNav.right.map(item => (
+          {navData.footerNav.right.map(item => (
             <NavbarItem key={item.name} noHoverMenu {...item}/>
           ))}
           <NavbarSocial className="footer--social" />
