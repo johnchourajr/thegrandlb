@@ -39,7 +39,7 @@ export const EventsIndexTemplate = ({ frontmatter }) => {
       </PageSection>
       <PageSection>
         <div className="gutters xs-inline-block">
-          {frontmatter.events.map((item, i) => {
+          {frontmatter.exampleEvents.array.map((item, i) => {
             return (
               <div className="col xs-col-4">
                 <h3>{item}</h3>
@@ -91,7 +91,9 @@ export const basicPageQuery = graphql`
           img
         }
         statement
-        events
+        exampleEvents {
+          array
+        }
         cta {
           heading
           buttons {

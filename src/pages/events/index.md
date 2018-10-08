@@ -28,40 +28,41 @@ featureTiles:
 statement:
 - "The Grand serves the local Long Beach community with an array of hundreds of unique events monthly."
 - "We do et al."
-events:
-- |
-    Church
-    Services
-- |
-    Quinceanera
-    Birthdays
-- |
-    Business
-    Conferences
-- |
-    Big
-    Birthdays
-- |
-    Sports
-    Banquets
-- |
-    Beauty
-    Pagaents
-- |
-    Anniversary
-    Parties
-- |
-    Engagement
-    Celebrations
-- |
-    Dating
-    Mixers
-- |
-    Benefits &
-    Fundraisers
-- |
-    Corporate
-    Off-Sites
+exampleEvents:
+  array:
+  - |
+      Church
+      Services
+  - |
+      Quinceanera
+      Birthdays
+  - |
+      Business
+      Conferences
+  - |
+      Big
+      Birthdays
+  - |
+      Sports
+      Banquets
+  - |
+      Beauty
+      Pagaents
+  - |
+      Anniversary
+      Parties
+  - |
+      Engagement
+      Celebrations
+  - |
+      Dating
+      Mixers
+  - |
+      Benefits &
+      Fundraisers
+  - |
+      Corporate
+      Off-Sites
 cta:
   heading: |
     Tell Us About
