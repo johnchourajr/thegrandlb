@@ -127,7 +127,8 @@ body.inquire {
   }
 
   &--buttons {
-    display: flex;
-    justify-content: space-between;
+    margin-top: -2em;
+    z-index: 5;
+    position: relative;
   }
 }

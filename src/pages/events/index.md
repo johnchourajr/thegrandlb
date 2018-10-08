@@ -5,6 +5,70 @@ title: Events
 heading: |
   Your Thing in
   Grand Style
+description: "The Grand is a destination for weddings, meetings, and events of all occasions."
+featureTiles:
+- heading: |
+    Party Like
+    Nobody’s Watching
+  caption: More About Parties for Life’s Milestones
+  url: "/events/milestones/"
+  img: "/img/placeholder--party.jpg"
+- heading: |
+    Meetings
+    In Grand Style
+  caption: Learn about Business Meetings
+  url: "/events/business/"
+  img: "/img/placeholder--business.jpg"
+- heading: |
+    Get Hitched
+    With Us
+  caption: Learn about Weddings
+  url: "/events/weddings/"
+  img: "/img/placeholder--wedding.jpg"
+statement:
+- "The Grand serves the local Long Beach community with an array of hundreds of unique events monthly."
+- "We do et al."
+events:
+- |
+    Church
+    Services
+- |
+    Quinceanera
+    Birthdays
+- |
+    Business
+    Conferences
+- |
+    Big
+    Birthdays
+- |
+    Sports
+    Banquets
+- |
+    Beauty
+    Pagaents
+- |
+    Anniversary
+    Parties
+- |
+    Engagement
+    Celebrations
+- |
+    Dating
+    Mixers
+- |
+    Benefits &
+    Fundraisers
+- |
+    Corporate
+    Off-Sites
+cta:
+  heading: |
+    Tell Us About
+    Your Event
+  buttons:
+  - text: "Plan Your Private Event"
+    url: "/inquire/"
 ---
 
 The Grand is a destination for weddings, meetings, and events of all occasions.

@@ -35,9 +35,9 @@ $easeOutCubic: cubic-bezier(0.215, 0.61, 0.355, 1);
 // Borders
 // -------------------------
 
-$border:         1px solid rgba(0, 0, 0, .2) !default;
-$border-lighter: 1px solid rgba(0, 0, 0, .1) !default;
-$border-radius:  3px !default;
+$border:         2px solid rgba(0, 0, 0, .2) !default;
+$border-lighter: 2px solid rgba(0, 0, 0, .1) !default;
+$border-radius:  1px !default;
 
 
 // Spacing
@@ -69,34 +69,14 @@ $grandCream:           #FFFCED !default;
 $grandPink:            #F3E9EB !default;
 $grandSilver:          #F5F4F4 !default;
 
-// Base Brand Colors
 $black:                $grandBlack !default;
-$white:                #FFFFFF !default;
-$gray:                 #898A8E !default;
-$mediumGray:           #C4C5C6 !default;
-$lightGray:            #EBECEC !default;
-$lighterGray:          #F5F5F6 !default;
-$white:                #FFFFFF !default;
-$pink:                 #DC6375 !default;
-$blush:                #F7D2D0 !default;
-$blue:                 #706BF2 !default;
-$orange:               #EE8A5D !default;
-$peach:                #F3BA9A !default;
-$lightGreen:           #DBFCE9 !default;
-$darkGreen:            #40907F !default;
-$palePurple:           #C7B8F8 !default;
-$saturatedPurple:      #CF91E9 !default;
-$lightYellow:          #FFFDAF !default;
-$gold:                 #F9DD58 !default;
-$saturatedOrange:      #EC5747 !default;
-$happyGreen:           #76EAB2 !default;
-$sadRed:               #F67373 !default;
+$white:                #fff !default;
 
 // Fills
 $fill-red:             #e32    !default;
 $fill-red-lighter:     #feebe9 !default;
 $fill-pink:            #f43192 !default;
-$fill-blue:            #0f65ef !default;
+$fill-blue:            $grandRed !default;
 $fill-purple:          #6645dd !default;
 $fill-yellow:          #ffee00 !default;
 $fill-yellow-lighter:  #fffab6 !default;
@@ -108,8 +88,8 @@ $fill-promoted-orange: #f7ad19 !default;
 $fill-gray-lighter:    #f4f4f4 !default;
 $fill-gray:            #aaa    !default;
 $fill-gray-darker:     #222    !default;
-$fill-white:           $white  !default;
-$fill-black:           $black  !default;
+$fill-white:           #fff    !default;
+$fill-black:           $grandBlack  !default;
 
 // Social Fills
 $fill-facebook:  #3b5998    !default;
@@ -125,8 +105,8 @@ $fill-vine:      #00b488    !default;
 $fill-snapchat:  #fffc00    !default;
 
 // Type Colors
-$text-black:           $black  !default;
-$text-white:           $white  !default;
+$text-black:           $grandBlack  !default;
+$text-white:           #fff  !default;
 $text-gray:            #222    !default;
 $text-gray-lighter:    #666    !default;
 $text-gray-lightest:   #999    !default;

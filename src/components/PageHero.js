@@ -17,7 +17,7 @@ const PageHero = props => {
           </div>
         </div>
       </section>
-      <div className="wrapper">
+      <div className="wrapper page-hero--buttons">
         <Buttons
           className="xs-flex xs-flex-justify-space-between"
           buttons={props.buttons}

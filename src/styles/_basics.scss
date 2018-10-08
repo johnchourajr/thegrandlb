@@ -1,0 +1,13 @@
+.button {
+  padding: $space-3 $space-4 !important;
+  font-size: .85em !important;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: $grandBabyBlue !important;
+}
+
+.wrapper {
+  .button--secondary {
+    background-color: $white !important;
+  }
+}

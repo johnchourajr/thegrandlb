@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Link from 'gatsby-link'
 
 import Content, { HTMLContent } from '../components/Content'
 import PageHeader from '../components/PageHeader'
@@ -14,22 +15,43 @@ export const EventsIndexTemplate = ({ frontmatter }) => {
       <PageHeader
         title={frontmatter.title}
         heading={frontmatter.heading}
-        caption={"The Grand is a destination for weddings, meetings, and events of all occasions."}
+        caption={frontmatter.description}
       />
       <PageSection>
-        <div className="col xs-col-12">
-          <h3 className="display">Party Like Nobody's Watching</h3>
-          <p>More About Parties for Life’s Milestones</p>
-        </div>
-        <div className="col xs-col-12">
-          <h3 className="display">Meetings In Grand Style</h3>
-          <p>Learn about Business Meetings</p>
-        </div>
-        <div className="col xs-col-12">
-          <h3 className="display">Get Hitched With Us</h3>
-          <p>Learn about Weddings</p>
+        {frontmatter.featureTiles.map((item, i) => {
+          return (
+            <div className="col xs-col-12">
+              <Link to={item.url}>
+                <h3 className="display">{item.heading}</h3>
+                <p>{item.caption}</p>
+                <img src={item.img}/>
+              </Link>
+            </div>
+          )
+        })}
+      </PageSection>
+      <PageSection>
+        {frontmatter.statement.map((item, i) => {
+          return (
+            <p>{item}</p>
+          )
+        })}
+      </PageSection>
+      <PageSection>
+        <div className="gutters xs-inline-block">
+          {frontmatter.events.map((item, i) => {
+            return (
+              <div className="col xs-col-4">
+                <h3>{item}</h3>
+              </div>
+            )
+          })}
         </div>
       </PageSection>
+      <PageSection
+        heading={frontmatter.cta.heading}
+        buttons={frontmatter.cta.buttons}
+      />
     </div>
   )
 }
@@ -61,6 +83,22 @@ export const basicPageQuery = graphql`
       frontmatter {
         title
         heading
+        description
+        featureTiles {
+          heading
+          caption
+          url
+          img
+        }
+        statement
+        events
+        cta {
+          heading
+          buttons {
+            text
+            url
+          }
+        }
       }
     }
   }

@@ -1,8 +1,10 @@
 ---
 templateKey: 'basic-page'
-path: /events/template
-title: EVENT-NAME
-heading: EVENT-HEADLINE
+path: /events/milestones
+title: Milestone Events
+heading: |
+  Party Like
+  Nobody’s Watching
 carousel:
   description: "Our Favorites"
   array:

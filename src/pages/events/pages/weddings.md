@@ -1,8 +1,10 @@
 ---
 templateKey: 'basic-page'
-path: /events/template
-title: EVENT-NAME
-heading: EVENT-HEADLINE
+path: /events/weddings
+title: Weddings
+heading: |
+  Get Hitched
+  With Us
 carousel:
   description: "Our Favorites"
   array:
