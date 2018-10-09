@@ -7,7 +7,7 @@ import Buttons from './Buttons'
 const PageHero = props => {
   return(
     <div>
-      <section className="page-hero" >
+      <section className="page-hero page-hero-block">
         <div className="img" style={{backgroundImage: `url(${withPrefix(props.img)})`}}></div>
         <div className="wrapper">
           <div className="page-hero--wrap">

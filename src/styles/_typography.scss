@@ -23,7 +23,6 @@ h1, h2, h3 {
   // font-weight: 700;
   font-family: $serif;
   letter-spacing: 0;
-  line-height: 1.35;
   z-index: 1;
 }
 
@@ -55,34 +54,46 @@ h6 {
 
 h1 {
   font-size: $text-1;
-  line-height: $line-height-1;
+  line-height: $line-height-6;
 
   &.display {
-    font-size: $display-1;
+    font-size: $display-1 * .75;
     line-height: $line-height-display;
     letter-spacing: -0.03em;
+
+    @include solid-breakpoint(md) {
+      font-size: $display-1;
+    }
   }
 }
 
 h2 {
   font-size: $text-2;
-  line-height: $line-height-2;
+  line-height: $line-height-6;
 
   &.display {
-    font-size: $display-2;
+    font-size: $display-2 * .75;
     line-height: $line-height-display;
     letter-spacing: -0.03em;
+
+    @include solid-breakpoint(md) {
+      font-size: $display-2;
+    }
   }
 }
 
 h3 {
   font-size: $text-3;
-  line-height: $line-height-3;
+  line-height: $line-height-6;
 
   &.display {
-    font-size: $display-3;
+    font-size: $display-3 * .75;
     line-height: $line-height-display;
     letter-spacing: -0.03em;
+
+    @include solid-breakpoint(md) {
+      font-size: $display-3;
+    }
   }
 }
 

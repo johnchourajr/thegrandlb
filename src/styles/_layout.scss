@@ -197,14 +197,14 @@ li {
   }
 
   @include solid-breakpoint(xxxl) {
-    max-width: 78rem;
-    padding-right: 0;
-    padding-left: 0;
-  }
-}
+    $unit: 7.5vw;
+    $incriment: $unit / 2;
+    $offset: $unit;
+    $maxwidth: #{$content-width} - (#{$offset});
 
-.section {
-  &--offset {
-    padding-top: 20em;
+    max-width: -webkit-calc(#{$maxwidth});
+    max-width: calc(#{$maxwidth});
+    padding-right: $incriment;
+    padding-left: $incriment;
   }
 }

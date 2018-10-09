@@ -5,21 +5,30 @@
 @include header-color(contact, $grandBabyBlue);
 
 
-body.inquire {
-  .nav:before {
-    top: -30%;
-    opacity: 0;
-    background-color: transparent;
-    box-shadow: 0 0px 0px rgba(0,0,0, 0) !important;
+
+
+
+.section {
+  padding: 2.25rem 0;
+  margin: 2.25rem 0;
+
+  @include solid-breakpoint(sm) {
+    padding: 2.5rem 0;
+    margin: 2.5rem 0;
   }
 
-  .nav--left, .nav--right {
-    visibility: hidden;
-    opacity: 0;
+  @include solid-breakpoint(md) {
+    padding: 3rem 0;
+    margin: 3rem 0;
   }
 
-  &.footer {
-    display: none !important;
+  @include solid-breakpoint(lg) {
+    padding: 4rem 0;
+    margin: 4rem 0;
+  }
+
+  &--offset {
+    padding-top: 20em;
   }
 }
 
@@ -130,5 +139,70 @@ body.inquire {
     margin-top: -2em;
     z-index: 5;
     position: relative;
+  }
+}
+
+
+
+
+/**
+ * Custom Page Elements
+ */
+
+body.home {
+  .page-hero-block {
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      background-color: $grandBabyBlue;
+      z-index: -1;
+      height: 9.25em;
+      bottom: -9.25em;
+
+      @include solid-breakpoint(sm) {
+        height: 9em; bottom: -9em;
+      }
+
+      @include solid-breakpoint(md) {
+        height: 10em; bottom: -10em;
+      }
+
+      @include solid-breakpoint(lg) {
+        height: 11.35em; bottom: -11.35em;
+      }
+
+      @include solid-breakpoint(xl) {
+        height: 11em; bottom: -11em;
+      }
+
+      @include solid-breakpoint(xxl) {
+        height: 10.65em; bottom: -10.65em;
+      }
+
+      @include solid-breakpoint(xxxl) {
+        height: 10.25em; bottom: -10.25em;
+      }
+    }
+  }
+}
+
+body.inquire {
+  .nav:before {
+    top: -30%;
+    opacity: 0;
+    background-color: transparent;
+    box-shadow: 0 0px 0px rgba(0,0,0, 0) !important;
+  }
+
+  .nav--left, .nav--right {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &.footer {
+    display: none !important;
   }
 }

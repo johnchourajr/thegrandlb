@@ -1,13 +1,24 @@
-.button {
-  padding: $space-3 $space-4 !important;
-  font-size: .85em !important;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: $grandBabyBlue !important;
-}
+
 
 .wrapper {
+
+
+  .button {
+    padding: $space-3 $space-4 !important;
+    font-size: .85em !important;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background-color: $grandRed;
+    color: $grandBabyBlue;
+  }
+
   .button--secondary {
     background-color: $white !important;
+    color: $grandRed;
+
+    &:hover {
+      background-color: $grandBabyBlue !important;
+      color: $grandRed;
+    }
   }
 }

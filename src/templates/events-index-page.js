@@ -38,7 +38,7 @@ export const EventsIndexTemplate = ({ frontmatter }) => {
         })}
       </PageSection>
       <PageSection>
-        <div className="gutters xs-inline-block">
+        <div className="clearfix gutters">
           {frontmatter.exampleEvents.array.map((item, i) => {
             return (
               <div className="col xs-col-4">

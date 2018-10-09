@@ -18,7 +18,7 @@ export const TourIndexTemplate = ({ frontmatter }) => {
         buttons={frontmatter.map.buttons}
       />
       <PageSection heading={'Yours By Design'}>
-        <div className="gutters">
+        <div className="clearfix gutters">
           <div className="card col xs-col-6 fill-gray">...</div>
           <div className="card col xs-col-6 fill-gray">...</div>
           <div className="card col xs-col-6 fill-gray">...</div>
@@ -30,20 +30,22 @@ export const TourIndexTemplate = ({ frontmatter }) => {
       <PageSection
         heading={frontmatter.numbers.heading}
       >
-        {frontmatter.numbers.array.map((item, i) => {
-          return (
-            <div key={i} className="col xs-col-12 md-col-4">
-              {item.prefix}
-              {item.number}
-              {item.suffix}
-              {item.caption}
-              {item.description}
-            </div>
-          )
-        })}
+        <div className="clearfix gutters">
+          {frontmatter.numbers.array.map((item, i) => {
+            return (
+              <div key={i} className="col xs-col-12 md-col-4">
+                {item.prefix}
+                {item.number}
+                {item.suffix}
+                {item.caption}
+                {item.description}
+              </div>
+            )
+          })}
+        </div>
       </PageSection>
       <PageSection
-        heading={frontmatter.numbers.heading}
+        heading={frontmatter.carousel.heading}
       >
         <PageCarousel
           items={[...frontmatter.carousel.array]}
