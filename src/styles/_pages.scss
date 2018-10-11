@@ -94,12 +94,12 @@
   }
 }
 
-.page-hero {
+.page-image-full {
   height: calc(100vh - 3rem);
   max-height: 150vw;
   width: 100vw;
-  background-color: $black;
   position: relative;
+  background-color: $black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,6 +122,17 @@
     z-index: 0;
     opacity: .75;
   }
+}
+
+
+
+.page-hero {
+  height: calc(100vh - 3rem);
+  width: 100vw;
+  background-color: $black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &--wrap {
     display: flex;
@@ -139,6 +150,29 @@
     margin-top: -2em;
     z-index: 5;
     position: relative;
+  }
+}
+
+.page {
+  &-feature {
+    // background-color: yellow;
+
+    &--lower-bar {
+      padding-bottom: $space-6;
+      margin-bottom: $space-6;
+      position: relative;
+
+      &:after {
+        content: "";
+        position: absolute;
+        background-color: $grandRed;
+        box-shadow: 0 -0.5em 0 $grandRed !important;
+        left: calc(50% - 22px); right: calc(50% - 22px);
+        bottom: 0.5em;
+        width: 44px;
+        height: 2px;
+      }
+    }
   }
 }
 

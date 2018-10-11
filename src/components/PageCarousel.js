@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link, { withPrefix } from 'gatsby-link'
-import Slider from "react-slick"
-import { Carousel } from 'react-responsive-carousel';
+import Flickity from 'react-flickity-component'
 
 // Component
 const PageCarousel = props => {
@@ -14,25 +13,34 @@ const PageCarousel = props => {
 
   const toSlide = (item, i) => {
     return (
-      <div id={`slide-${i}`} key={`slide-${i}`}>
-        <img src={item.img}/>
-        <p>{item.caption}</p>
+      <div
+        key={`slide-${i}`}
+        className={`carousel-slide carousel-slide--${i}`}
+        style={{backgroundImage: `url(${item.img})`}}
+      >
+        <p className="caption">{item.caption}</p>
       </div>
     )
   }
 
+  const flickityOptions = {
+    initialIndex: 0,
+    // wrapAround: true,
+  }
+
   return (
-    <Carousel
-      className={className}
-      showThumbs={false}
-      showIndicators={true}
-      infiniteLoop={true}
-      emulateTouch={true}
-      {...settings}
+    <Flickity
+      className={'carousel'}
+      elementType={'div'}
+      options={flickityOptions}
+      disableImagesLoaded={false}
+      reloadOnUpdate
     >
       {items.map(toSlide)}
-    </Carousel>
+    </Flickity>
   )
+
+
 }
 
 PageCarousel.propTypes = {

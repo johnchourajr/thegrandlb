@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Link, { withPrefix } from 'gatsby-link'
 
 import Content, { HTMLContent } from '../components/Content'
 import PageHeader from '../components/PageHeader'
@@ -12,7 +13,11 @@ export const TourIndexTemplate = ({ frontmatter }) => {
   return (
     <div>
       <PageHeader title={frontmatter.title} heading={frontmatter.heading} />
-      <img src={frontmatter.hero} />
+      <PageSection heading={'Yours By Design'}>
+        <div className="page-image-full wrapper-offest">
+          <div className="img" style={{backgroundImage: `url(${withPrefix(frontmatter.hero)})`}}></div>
+        </div>
+      </PageSection>
       <PageSection
         heading={frontmatter.map.heading}
         buttons={frontmatter.map.buttons}

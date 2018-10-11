@@ -41,7 +41,7 @@ export const IndexPageTemplate = ({
       <PageSection>
         {frontmatter.topFeatures.map((item, i) => {
           return (
-            <div key={i} className="col xs-col-12 md-col-4">
+            <div key={i} className="page-feature page-feature--lower-bar col xs-col-12 md-col-4">
               <h1 className="xs-text-center">{item.text}</h1>
             </div>
           )

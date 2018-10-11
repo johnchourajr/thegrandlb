@@ -33,6 +33,13 @@ dl, dd, ol, ul, figure {
   color: $text-black;
 }
 
+*:focus,
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
 
 
 /**
@@ -159,7 +166,7 @@ li {
   margin-left: auto;
   padding-right: $incriment;
   padding-left: $incriment;
-  // @extend %clearfix;
+
 
   @include solid-breakpoint(lg) {
     $incriment: $space-1 / 2;
@@ -206,5 +213,218 @@ li {
     max-width: calc(#{$maxwidth});
     padding-right: $incriment;
     padding-left: $incriment;
+  }
+}
+
+.wrapper-offest {
+  margin-left: calc(-5vw + .45rem);
+
+  @include solid-breakpoint(lg) {
+    margin-left: calc(-5vw + .5rem);
+  }
+
+  @include solid-breakpoint(xl) {
+    margin-left: -3rem;
+  }
+
+  @include solid-breakpoint(xxl) {
+    margin-left: -7.5vw;
+  }
+
+  @include solid-breakpoint(xxxl) {
+    margin-left: -10vw;
+  }
+}
+
+
+.carousel {
+  position: relative;
+
+  .flickity-button {
+    // background-color: rgba(red, .5);
+    background-color: transparent;
+    outline: none;
+    border: none;
+    position: absolute;
+    width: 10vw;
+    top: 0;
+    bottom: 2rem;
+    @include carousel-button-offset(-0.9rem);
+
+    @include solid-breakpoint(sm) {
+      top: -3rem;
+      bottom: 3rem;
+      @include carousel-button-offset(calc(-5vw + 1rem));
+    }
+
+    @include solid-breakpoint(md) {
+      bottom: 5rem;
+    }
+
+    @include solid-breakpoint(lg) {
+      bottom: 5rem;
+    }
+
+    @include solid-breakpoint(xl) {
+      @include carousel-button-offset(calc(-10vw + 3rem));
+    }
+
+    @include solid-breakpoint(xxl) {
+      @include carousel-button-offset(calc(-12vw + 4rem));
+    }
+
+    @include solid-breakpoint(xxxl) {
+      @include carousel-button-offset(calc(-15vw + 5rem));
+    }
+
+    &:hover {
+      &.previous:after, &.next:after  {
+        width: 10vw;
+        min-width: 6rem;
+      }
+
+      &.previous  {
+        &:after { left: 1.5rem; }
+        &:before { left: 1.5rem; }
+      }
+
+      &.next  {
+        &:after { right: 1.5rem; }
+        &:before { right: 1.5rem; }
+      }
+    }
+
+    &[disabled], .flickity-button-icon {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &.previous, &.next {
+      &:after, &:before {
+        content: "";
+        position: absolute;
+        transition: all .3s $easeOutCubic;
+      }
+    }
+
+    &.previous, &.next  {
+      &:after {
+        height: 2px;
+        width: 4vw;
+        min-width: 3rem;
+        background-color: $white;
+        top: 50%;
+      }
+
+      &:before {
+        height: 1rem;
+        width: 1rem;
+        top: calc(50% - (.5rem - 1px));
+        background-color: transparent;
+        border-left-width: 2px;
+        border-left-color: $white;
+        border-left-style: solid;
+        border-bottom-width: 2px;
+        border-bottom-color: $white;
+        border-bottom-style: solid;
+      }
+    }
+
+    &.previous  {
+      &:after {
+        left: 2rem;
+      }
+
+      &:before {
+        left: 2rem;
+        transform: rotate(45deg);
+      }
+    }
+
+    &.next  {
+      &:after {
+        right: 2rem;
+      }
+
+      &:before {
+        right: 2rem;
+        transform: rotate(-135deg);
+      }
+    }
+  }
+
+  .flickity-page-dots {
+    list-style: none;
+    display: flex;
+    height: 6px;
+    width: 100%;
+    align-items: flex-end;
+    justify-content: center;
+    margin-top: 1.5rem;
+    margin-left: 0;
+
+    @include solid-breakpoint(sm) {
+      margin-top: 3rem;
+    }
+
+    @include solid-breakpoint(md) {
+      margin-top: 5rem;
+    }
+
+    @include solid-breakpoint(lg) {
+      margin-top: 5rem;
+    }
+
+    .dot {
+      height: 2px;
+      width: 2rem;
+      margin: 0 .25rem;
+      background-color: rgba($grandBlack, .1);
+      transition: all .3s $easeOutCubic;
+      cursor: pointer;
+
+
+
+      &.is-selected {
+        height: 4px;
+        width: 3rem;
+        background-color: rgba($grandRed, 1);
+      }
+
+      &:hover {
+        height: 6px;
+        width: 3rem;
+        // background-color: rgba($grandBlack, .5);
+      }
+    }
+  }
+}
+
+.carousel-slide {
+  width: calc(100vw - 1.25em);
+  height: 50vw;
+  min-height: 400px;
+  background: #222;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: margin-top .3s $easeOutCubic, height .3s $easeOutCubic;
+  margin: 0 0.5rem;
+  border-radius: $border-radius;
+
+  @include solid-breakpoint(sm) {
+    width: 80vw;
+    height: 50vw;
+    min-height: 50vw;
+  }
+
+  &.is-selected {
+
+    @include solid-breakpoint(sm) {
+      margin-top: -3rem;
+      height: calc(50vw + 6rem);
+    }
   }
 }

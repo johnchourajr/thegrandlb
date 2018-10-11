@@ -266,3 +266,13 @@ $breakpoints: (
     .page-header { background-color: $color; }
   }
 }
+
+@mixin carousel-button-offset($offset) {
+  &.previous {
+    left: $offset;
+  }
+
+  &.next {
+    right: $offset;
+  }
+}
