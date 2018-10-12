@@ -25,7 +25,8 @@ const PageCarousel = props => {
 
   const flickityOptions = {
     initialIndex: 0,
-    // wrapAround: true,
+    lazyLoad: true,
+    arrowShape: ''
   }
 
   return (
