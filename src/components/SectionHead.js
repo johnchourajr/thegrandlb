@@ -8,7 +8,7 @@ const SectionHead = props => {
   if (props.heading || props.buttons) {
     return (
       <div className="section--head">
-        <h2 className="display xs-text-center">{props.heading}</h2>
+        <h2 className={`display xs-text-center ${props.headingClassName}`}>{props.heading}</h2>
         <Buttons
           className="xs-flex xs-flex-justify-center"
           buttons={props.buttons ? props.buttons : []}

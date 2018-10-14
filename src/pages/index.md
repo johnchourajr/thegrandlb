@@ -40,7 +40,7 @@ map:
   heading: |
     So. Cal.
     Native
-  img: ""
+  img: "/img/placeholder--map.jpg"
 carousel:
   array:
   - img: "/img/placeholder--front-img.jpg"
@@ -63,11 +63,11 @@ numbers:
   - prefix: ""
     number: '11'
     suffix: ""
-    caption: "Acres"
+    caption: "Luscious Acres"
   - prefix: ""
     number: "40"
     suffix: "k"
-    caption: "Square Feet"
+    caption: "Square Foot Facility"
   - prefix: ""
     number: "7"
     suffix: ""

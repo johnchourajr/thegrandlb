@@ -7,11 +7,17 @@ const PageSection = props => {
 
   const sectionClassName = props.sectionClassName ? props.sectionClassName : ''
   const wrapperClassName = props.wrapperClassName ? props.wrapperClassName : ''
+  const headingClassName = props.headingClassName ? props.headingClassName : ''
+
 
   return (
     <section className={`section ${sectionClassName}`}>
       <div className={`wrapper ${wrapperClassName}`}>
-        <SectionHead heading={props.heading} buttons={props.buttons} />
+        <SectionHead
+          heading={props.heading}
+          headingClassName={headingClassName} 
+          buttons={props.buttons}
+        />
         {props.children}
       </div>
     </section>

@@ -9,9 +9,14 @@ import PageSection from '../components/PageSection'
 import PageCta from '../components/PageCta'
 import Buttons from '../components/Buttons'
 import PageCarousel from '../components/PageCarousel'
+import MapSection from '../components/MapSection'
+import NumberArray from '../components/NumberArray'
 
 // Data
 import siteDetails from '../data/siteDetails'
+
+// Util Functions
+import * as util from '../components/functions/util'
 
 // Page
 export const IndexPageTemplate = ({
@@ -38,7 +43,9 @@ export const IndexPageTemplate = ({
       <PageSection
         heading={frontmatter.subhead}
       />
-      <PageSection>
+      <PageSection
+        wrapperClassName="page-feature--wrapper"
+      >
         {frontmatter.topFeatures.map((item, i) => {
           return (
             <div key={i} className="page-feature page-feature--lower-bar col xs-col-12 md-col-4">
@@ -48,18 +55,17 @@ export const IndexPageTemplate = ({
         })}
       </PageSection>
       <PageCta
+        accent={'grandPink'}
         heading={frontmatter.ctaUpper.heading}
         buttons={frontmatter.ctaUpper.buttons}
         img={frontmatter.ctaUpper.img}
       />
-      <PageSection
+      <MapSection
         heading={frontmatter.map.heading}
-      >
-        <img src={frontmatter.map.img} />
-        <h6>Find Us</h6>
-        <p>{siteDetails.address1}</p>
-        <p>{siteDetails.address2}</p>
-      </PageSection>
+        mapLink={util.addressLink(siteDetails.address1, siteDetails.address2)}
+        address1={siteDetails.address1}
+        address2={siteDetails.address2}
+      />
       <PageSection>
         <PageCarousel
           items={[...frontmatter.carousel.array]}
@@ -70,34 +76,31 @@ export const IndexPageTemplate = ({
           }}
         />
       </PageSection>
-      <PageSection>
-        {frontmatter.numbers.array.map((item, i) => {
-          return (
-            <div key={i} className="col xs-col-12 md-col-4">
-              {item.prefix}
-              {item.number}
-              {item.suffix}
-              {item.caption}
-              {item.description}
-            </div>
-          )
-        })}
-      </PageSection>
+      <NumberArray
+        heading={frontmatter.numbers.heading}
+        array={frontmatter.numbers.array}
+      />
       <PageCta
         heading={frontmatter.ctaLower.heading}
         buttons={frontmatter.ctaLower.buttons}
         img={frontmatter.ctaLower.img}
       />
       <PageSection
-        heading={frontmatter.menuFeature.heading} buttons={frontmatter.menuFeature.buttons}
+        heading={frontmatter.menuFeature.heading}
+        headingClassName={"xs-mb3"}
+        buttons={frontmatter.menuFeature.buttons}
       >
-        {frontmatter.menuFeature.imgs.map ((item, i) => {
-          return(
-            <div key={i} className={`col xs-col-12 menu-feature--${i}`}>
-              <img src={item}/>
-            </div>
-          )
-        })}
+        <div className="menu-feature--wrap gutters clearfix">
+          <div className={`col xs-offset-1 xs-col-10 md-ml0 md-col-7 xs-my2 menu-feature--1`}>
+            <img src={frontmatter.menuFeature.imgs[0]}/>
+          </div>
+          <div className={`col xs-offset-1 xs-col-10 md-ml0 md-col-5 xs-my2 menu-feature--2`}>
+            <img src={frontmatter.menuFeature.imgs[1]}/>
+          </div>
+          <div className={`col xs-offset-1 xs-col-10 md-offset-1 md-col-6 lg-offset-3 lg-col-4 xs-my2 menu-feature--3`}>
+            <img src={frontmatter.menuFeature.imgs[2]}/>
+          </div>
+        </div>
       </PageSection>
     </div>
   )

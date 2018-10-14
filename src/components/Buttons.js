@@ -8,7 +8,7 @@ const Buttons = props => {
     return (
       <div className={props.className}>
         {props.buttons.map(( item, i ) => {
-          const secondary = item.isSecondary ? "button--secondary" : null
+          const secondary = item.isSecondary ? "button--secondary" : ""
           return(
             <Link
               key={i}

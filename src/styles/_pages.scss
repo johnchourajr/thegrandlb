@@ -95,8 +95,8 @@
 }
 
 .page-image-full {
-  height: calc(100vh - 3rem);
-  max-height: 150vw;
+  height: calc(80vh - 3rem);
+  max-height: 120vw;
   width: 100vw;
   position: relative;
   background-color: $black;
@@ -120,7 +120,127 @@
     background-position: center;
     background-size: cover;
     z-index: 0;
-    opacity: .75;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 0;
+      background-color: rgba($black, .4);
+    }
+  }
+}
+
+.map {
+  height: calc(60vh - 3rem);
+  max-height: 120vw;
+  width: 100vw;
+  z-index: -1;
+  position: relative;
+
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    background-color: red;
+    right: 0;
+    left: 0;
+    height: 12rem;
+    z-index: 1;
+  }
+
+  &:before {
+    top: 0;
+    $gradient: $white 0%, rgba($white, 0) 100%;
+    @include gradient(top, $gradient);
+  }
+
+  &:after {
+    bottom: 0;
+    $gradient: $white 0%, rgba($white, 0) 100%;
+    @include gradient(bottom, $gradient);
+  }
+
+  a, p, span {
+    display: none !important;
+  }
+}
+
+.map--wrap {
+  margin-top: -10.5rem;
+  margin-bottom: -7.5rem;
+
+  @include solid-breakpoint(sm) {
+    margin-top: -11rem;
+    margin-bottom: -8rem;
+  }
+
+  @include solid-breakpoint(md) {
+    margin-top: -12rem;
+    margin-bottom: -9rem;
+  }
+
+  @include solid-breakpoint(lg) {
+    margin-top: -14rem;
+    margin-bottom: -11rem;
+  }
+}
+
+.page-cta {
+  height: calc(60vh);
+  max-height: 100vw;
+  width: 100vw;
+  margin: 10em 0 10em;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: -2em;
+    bottom: -2em;
+    right: 2em;
+    left: 2em;
+    z-index: 0;
+    background-color: rgba($grandPink, 1);
+    mix-blend-mode: multiply;
+    z-index: -1;
+
+    @include solid-breakpoint(md) {
+      top: -5em;
+      bottom: -5em;
+      right: 5vw;
+      left: 5vw;
+    }
+
+    @include solid-breakpoint(xxxl) {
+      top: -5em;
+      bottom: -5em;
+      right: 5vw;
+      left: 5vw;
+    }
+
+    @include solid-breakpoint(xxxl) {
+      top: -5em;
+      bottom: -5em;
+      right: 10vw;
+      left: 10vw;
+    }
+  }
+
+  &--inner, .img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &--inner {
+    z-index: 5;
+    position: relative;
+  }
+
+  h1, h2, h3, h4, h5, h6, p {
+    color: $white;
   }
 }
 
@@ -133,6 +253,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 
   &--wrap {
     display: flex;
@@ -153,29 +274,107 @@
   }
 }
 
-.page {
-  &-feature {
-    // background-color: yellow;
+.page-feature {
+  // background-color: yellow;
 
-    &--lower-bar {
-      padding-bottom: $space-6;
-      margin-bottom: $space-6;
-      position: relative;
+  &--wrapper {
+    margin-bottom: 5em;
+  }
 
-      &:after {
-        content: "";
-        position: absolute;
-        background-color: $grandRed;
-        box-shadow: 0 -0.5em 0 $grandRed !important;
-        left: calc(50% - 22px); right: calc(50% - 22px);
-        bottom: 0.5em;
-        width: 44px;
-        height: 2px;
-      }
+  &--lower-bar {
+    padding-bottom: $space-6;
+    margin-bottom: $space-6;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      background-color: $grandRed;
+      box-shadow: 0 -0.5em 0 $grandRed !important;
+      left: calc(50% - 22px); right: calc(50% - 22px);
+      bottom: 0.5em;
+      width: 44px;
+      height: 2px;
     }
   }
 }
 
+.number-wrap {
+  margin-top: 2rem;
+  // margin-bottom: 1rem;
+
+  @include solid-breakpoint(sm) {
+    margin-top: 3rem;
+    // margin-bottom: 2rem;
+  }
+
+  @include solid-breakpoint(md) {
+    margin-top: 4rem;
+    // margin-bottom: 3rem;
+  }
+
+  @include solid-breakpoint(lg) {
+    margin-top: 5rem;
+    // margin-bottom: 4rem;
+  }
+}
+
+.number-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3em 0 2em;
+
+  &--value {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+  }
+
+  &--caption {
+    // max-width: 9.375em;
+    margin-top: .3em;
+    margin-bottom: 1em;
+  }
+
+  &--description {
+    font-size: $text-6;
+    line-height: 1.5;
+    max-width: 18.75rem;
+    color: rgba($black, .5);
+  }
+
+  h1, p {
+    text-align: center;
+  }
+}
+
+
+.menu-feature--wrap {
+  margin-top: 2rem !important;
+
+  @include solid-breakpoint(sm) {
+    margin-top: 3rem !important;
+  }
+
+  @include solid-breakpoint(md) {
+    margin-top: 4rem !important;
+  }
+
+  @include solid-breakpoint(lg) {
+    margin-top: 5rem !important;
+  }
+}
+
+.menu-feature {
+  &--2 {
+    img {
+      @include solid-breakpoint(md) {
+        transform: translateY(13rem);
+      }
+    }
+  }
+}
 
 
 

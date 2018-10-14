@@ -8,16 +8,15 @@ import PageSection from '../components/PageSection'
 import PageCta from '../components/PageCta'
 import Buttons from '../components/Buttons'
 import PageCarousel from '../components/PageCarousel'
+import NumberArray from '../components/NumberArray'
 
 export const TourIndexTemplate = ({ frontmatter }) => {
   return (
     <div>
       <PageHeader title={frontmatter.title} heading={frontmatter.heading} />
-      <PageSection heading={'Yours By Design'}>
-        <div className="page-image-full wrapper-offest">
-          <div className="img" style={{backgroundImage: `url(${withPrefix(frontmatter.hero)})`}}></div>
-        </div>
-      </PageSection>
+      <div className="page-image-full ">
+        <div className="img" style={{backgroundImage: `url(${withPrefix(frontmatter.hero)})`}}></div>
+      </div>
       <PageSection
         heading={frontmatter.map.heading}
         buttons={frontmatter.map.buttons}
@@ -32,23 +31,10 @@ export const TourIndexTemplate = ({ frontmatter }) => {
           <div className="card col xs-col-6 fill-gray">...</div>
         </div>
       </PageSection>
-      <PageSection
+      <NumberArray
         heading={frontmatter.numbers.heading}
-      >
-        <div className="clearfix gutters">
-          {frontmatter.numbers.array.map((item, i) => {
-            return (
-              <div key={i} className="col xs-col-12 md-col-4">
-                {item.prefix}
-                {item.number}
-                {item.suffix}
-                {item.caption}
-                {item.description}
-              </div>
-            )
-          })}
-        </div>
-      </PageSection>
+        array={frontmatter.numbers.array}
+      />
       <PageSection
         heading={frontmatter.carousel.heading}
       >

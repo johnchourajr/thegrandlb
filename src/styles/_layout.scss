@@ -22,6 +22,25 @@ body {
 }
 
 
+@keyframes animate-in {
+  0%, 33% {
+    opacity: 0;
+    transform: translateY(-2em) perspective(150em) rotateX(1deg) rotateY(1deg);
+    // -webkit-transform: translateY(-2em);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0em) perspective(0em) rotateX(0deg) rotateY(0deg);
+    // -webkit-transform: translateY(0em);
+  }
+}
+
+.page-header, .page-header--lower, .page-hero--buttons, .section, .page-image-full {
+  animation-direction: forward;
+  animation: animate-in .5s $easeOutCubic;
+}
+
+
 /**
  * Reset some basic elements
  */
@@ -216,26 +235,14 @@ li {
   }
 }
 
-.wrapper-offest {
-  margin-left: calc(-5vw + .45rem);
 
-  @include solid-breakpoint(lg) {
-    margin-left: calc(-5vw + .5rem);
-  }
+.carousel {
+  margin-top: 2rem;
 
-  @include solid-breakpoint(xl) {
-    margin-left: -3rem;
-  }
-
-  @include solid-breakpoint(xxl) {
-    margin-left: -7.5vw;
-  }
-
-  @include solid-breakpoint(xxxl) {
-    margin-left: -10vw;
+  @include solid-breakpoint(sm) {
+    margin-top: 6rem;
   }
 }
-
 
 .carousel {
   position: relative;
@@ -364,7 +371,7 @@ li {
     margin-left: 0;
 
     @include solid-breakpoint(sm) {
-      margin-top: 3rem;
+      margin-top: 4.5rem;
     }
 
     @include solid-breakpoint(md) {
@@ -426,6 +433,23 @@ li {
       margin-top: -3rem;
       height: calc(50vw + 6rem);
     }
+
+    .caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .caption {
+    position: absolute;
+    bottom: 2em;
+    left: 2.5em;
+    color: $white;
+    font-size: $text-6;
+    opacity: 0;
+    transform: translateY(1em);
+    transition: all .75s $easeOutCubic .5s;
+    text-shadow: 0 0 30px rgba($black, 1);
   }
 }
 
