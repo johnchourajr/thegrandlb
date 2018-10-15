@@ -20,7 +20,7 @@ export const EventsIndexTemplate = ({ frontmatter }) => {
       <PageSection>
         {frontmatter.featureTiles.map((item, i) => {
           return (
-            <div className="col xs-col-12">
+            <div key={i} className="col xs-col-12">
               <Link to={item.url}>
                 <h3 className="display">{item.heading}</h3>
                 <p>{item.caption}</p>
@@ -33,7 +33,7 @@ export const EventsIndexTemplate = ({ frontmatter }) => {
       <PageSection>
         {frontmatter.statement.map((item, i) => {
           return (
-            <p>{item}</p>
+            <p key={i} >{item}</p>
           )
         })}
       </PageSection>
@@ -41,7 +41,7 @@ export const EventsIndexTemplate = ({ frontmatter }) => {
         <div className="clearfix gutters">
           {frontmatter.exampleEvents.array.map((item, i) => {
             return (
-              <div className="col xs-col-4">
+              <div key={i} className="col xs-col-4">
                 <h3>{item}</h3>
               </div>
             )

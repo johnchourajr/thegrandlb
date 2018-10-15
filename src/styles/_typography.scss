@@ -59,10 +59,14 @@ h1 {
   &.display {
     font-size: $display-1 * .75;
     line-height: $line-height-display;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.05em;
 
     @include solid-breakpoint(md) {
       font-size: $display-1;
+    }
+
+    @include solid-breakpoint(xxl) {
+      font-size: $display-1 * 1.2;
     }
   }
 }

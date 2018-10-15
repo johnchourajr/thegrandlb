@@ -37,6 +37,7 @@
   padding-top: 7rem;
   margin-bottom: 9rem;
   background: $grandBabyBlue;
+  transition: background .3s $easeOutCubic;
 
   @include solid-breakpoint(sm) {
     padding-top: 8rem;

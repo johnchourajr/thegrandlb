@@ -10,6 +10,8 @@ import Buttons from '../components/Buttons'
 import PageCarousel from '../components/PageCarousel'
 import NumberArray from '../components/NumberArray'
 
+import Map from '../components/svg/Map';
+
 export const TourIndexTemplate = ({ frontmatter }) => {
   return (
     <div>
@@ -19,9 +21,14 @@ export const TourIndexTemplate = ({ frontmatter }) => {
       </div>
       <PageSection
         heading={frontmatter.map.heading}
+      />
+      <div className="map-svg--wrapper">
+        <Map/>
+      </div>
+      <PageSection
         buttons={frontmatter.map.buttons}
       />
-      <PageSection heading={'Yours By Design'}>
+    <PageSection heading={'Yours By Design'}>
         <div className="clearfix gutters">
           <div className="card col xs-col-6 fill-gray">...</div>
           <div className="card col xs-col-6 fill-gray">...</div>
@@ -49,6 +56,7 @@ export const TourIndexTemplate = ({ frontmatter }) => {
       </PageSection>
       <PageSection
         heading={frontmatter.cta.heading}
+        headingClassName={"xs-mb3"}
         buttons={frontmatter.cta.buttons}
       />
     </div>

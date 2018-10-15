@@ -1,0 +1,33 @@
+@keyframes animate-in {
+  0%, 33% {
+    opacity: 0;
+    transform: translateY(-2rem) perspective(150rem) rotateX(1deg) rotateY(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0rem) perspective(0rem) rotateX(0deg) rotateY(0deg);
+  }
+}
+
+@keyframes animate-in-2 {
+  0%, 33% {
+    opacity: 0;
+    transform: translateY(-1rem) perspective(150rem) rotateX(10deg) rotateY(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0em) perspective(0em) rotateX(0deg) rotateY(0deg);
+  }
+}
+
+// Load Group 1
+.page-header, .page-hero--buttons, .page-header--lower, .section, .page-image-full {
+  animation-direction: forward;
+  animation: animate-in .5s $easeOutCubic;
+}
+
+// Load Group 2
+.page-hero--headline {
+  animation-direction: forward;
+  animation: animate-in-2 1s $easeOutCubic 0s;
+}
