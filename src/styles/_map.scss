@@ -1,0 +1,110 @@
+
+.map-svg {
+  width: 100vw;
+  height: 59vw;
+  background-color: red;
+  position: relative;
+
+  svg {
+    $unit: 10;
+    $incriment: $unit * 2;
+    width: calc(100vw + #{$incriment}vw);
+    height: calc((100vw + #{$incriment}vw) * .59);
+    top: 0; left: -#{$unit}vw; right: -#{$unit}vw; bottom: 0;
+    position: absolute;
+
+  }
+}
+
+.map-svg--multiply {
+  mix-blend-mode: multiply;
+}
+
+.map-svg--wrapper {
+  margin-top: -18em;
+  margin-bottom: -10em;
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+  opacity: .35;
+
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    background-color: red;
+    right: 0;
+    left: 0;
+    height: 15rem;
+    z-index: 1;
+  }
+
+  &:before {
+    top: 0;
+    height: 30rem;
+    $gradient: $white 0%, rgba($white, 0) 100%;
+    @include gradient(top, $gradient);
+  }
+
+  &:after {
+    bottom: 0;
+    $gradient: $white 0%, rgba($white, 0) 100%;
+    @include gradient(bottom, $gradient);
+  }
+}
+
+
+
+
+.map {
+  height: calc(60vh - 3rem);
+  max-height: 120vw;
+  width: 100vw;
+  z-index: -1;
+  position: relative;
+
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    background-color: red;
+    right: 0;
+    left: 0;
+    height: 12rem;
+    z-index: 1;
+  }
+
+  &:before {
+    top: 0;
+    $gradient: $white 0%, rgba($white, 0) 100%;
+    @include gradient(top, $gradient);
+  }
+
+  &:after {
+    bottom: 0;
+    $gradient: $white 0%, rgba($white, 0) 100%;
+    @include gradient(bottom, $gradient);
+  }
+
+  a, p, span {
+    display: none !important;
+  }
+}
+
+.map--wrap {
+  margin-top: -10.5rem;
+  margin-bottom: -7.5rem;
+
+  @include solid-breakpoint(sm) {
+    margin-top: -11rem;
+    margin-bottom: -8rem;
+  }
+
+  @include solid-breakpoint(md) {
+    margin-top: -12rem;
+    margin-bottom: -9rem;
+  }
+
+  @include solid-breakpoint(lg) {
+    margin-top: -14rem;
+    margin-bottom: -11rem;
+  }
+}

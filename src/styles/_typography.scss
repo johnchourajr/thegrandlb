@@ -65,7 +65,7 @@ h1 {
       font-size: $display-1;
     }
 
-    @include solid-breakpoint(xxl) {
+    @include solid-breakpoint(xl) {
       font-size: $display-1 * 1.2;
     }
   }

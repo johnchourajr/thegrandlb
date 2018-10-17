@@ -1,5 +1,5 @@
 ---
-templateKey: 'basic-page'
+templateKey: 'tour-template-page'
 path: /tour/board-room
 title: Welcome To
 heading: |

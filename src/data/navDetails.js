@@ -59,11 +59,11 @@ export const twitterNav = {
 }
 
 export const facebookNav = {
-  name: "facebook", path: "#",
+  name: "facebook", path: "https://www.facebook.com/TheGrandLB",
 }
 
 export const instagramNav = {
-  name: "instagram", path: "#",
+  name: "instagram", path: "https://www.instagram.com/thegrandlb/",
 }
 
 
@@ -107,7 +107,7 @@ export const menuNav = [
 ]
 
 export const socialNav = [
-  { ...twitterNav },
+  // { ...twitterNav },
   { ...facebookNav },
   { ...instagramNav },
 ]

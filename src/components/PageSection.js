@@ -12,10 +12,10 @@ const PageSection = props => {
 
   return (
     <section className={`section ${sectionClassName}`}>
-      <div className={`wrapper ${wrapperClassName}`}>
+      <div className={`wrapper clearfix ${wrapperClassName}`}>
         <SectionHead
           heading={props.heading}
-          headingClassName={headingClassName} 
+          headingClassName={headingClassName}
           buttons={props.buttons}
         />
         {props.children}

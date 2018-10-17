@@ -3,7 +3,7 @@ templateKey: 'index-page'
 path: /
 title: The Grand
 heading: |
-  So Cal’s Premier
+  So Cal’s *Premier*
   Event Venue
 headingButtons:
 - text: "Get a Quote"

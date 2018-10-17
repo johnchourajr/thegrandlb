@@ -1,0 +1,65 @@
+/**
+ * Custom Page Elements
+ */
+
+html.tourmap {
+  background-color: $grandCream;
+}
+
+body.home {
+  .page-hero-block {
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      background-color: $grandBabyBlue;
+      z-index: -1;
+      height: 9.25em;
+      bottom: -6.65em;
+
+      @include solid-breakpoint(sm) {
+        height: 9em; bottom: -6.75em;
+      }
+
+      @include solid-breakpoint(md) {
+        height: 10em; bottom: -8em;
+      }
+
+      @include solid-breakpoint(lg) {
+        height: 11.35em; bottom: -9.5em;
+      }
+
+      @include solid-breakpoint(xl) {
+        height: 11em; bottom: -9.25em;
+      }
+
+      @include solid-breakpoint(xxl) {
+        height: 10.65em; bottom: -9em;
+      }
+
+      @include solid-breakpoint(xxxl) {
+        height: 10.25em; bottom: -8.75em;
+      }
+    }
+  }
+}
+
+body.inquire, body.tourmap {
+  .nav:before {
+    top: -30%;
+    opacity: 0;
+    background-color: transparent;
+    box-shadow: 0 0px 0px rgba(0,0,0, 0) !important;
+  }
+
+  .nav--left, .nav--right {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .footer {
+    display: none !important;
+  }
+}

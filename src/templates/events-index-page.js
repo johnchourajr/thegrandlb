@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
+import Link, { withPrefix } from 'gatsby-link'
 
 import Content, { HTMLContent } from '../components/Content'
 import PageHeader from '../components/PageHeader'
@@ -17,14 +17,16 @@ export const EventsIndexTemplate = ({ frontmatter }) => {
         heading={frontmatter.heading}
         caption={frontmatter.description}
       />
-      <PageSection>
+    <PageSection wrapperClassName={'events-feature--wrap'}>
         {frontmatter.featureTiles.map((item, i) => {
           return (
-            <div key={i} className="col xs-col-12">
-              <Link to={item.url}>
-                <h3 className="display">{item.heading}</h3>
-                <p>{item.caption}</p>
-                <img src={item.img}/>
+            <div key={i} className={`col xs-col-12 events-feature--item events-feature--${i+1}`}>
+              <Link className="" to={item.url}>
+                <div className="events-feature--text">
+                  <h3 className="display">{item.heading}</h3>
+                  <p>{item.caption}</p>
+                </div>
+                <div className="events-feature--img" style={{backgroundImage: `url(${withPrefix(item.img)})`}}></div>
               </Link>
             </div>
           )

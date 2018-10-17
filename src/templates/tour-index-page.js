@@ -12,7 +12,7 @@ import NumberArray from '../components/NumberArray'
 
 import Map from '../components/svg/Map';
 
-export const TourIndexTemplate = ({ frontmatter }) => {
+export const TourIndexTemplate = ({ frontmatter, posts }) => {
   return (
     <div>
       <PageHeader title={frontmatter.title} heading={frontmatter.heading} />
@@ -28,14 +28,17 @@ export const TourIndexTemplate = ({ frontmatter }) => {
       <PageSection
         buttons={frontmatter.map.buttons}
       />
-    <PageSection heading={'Yours By Design'}>
-        <div className="clearfix gutters">
-          <div className="card col xs-col-6 fill-gray">...</div>
-          <div className="card col xs-col-6 fill-gray">...</div>
-          <div className="card col xs-col-6 fill-gray">...</div>
-          <div className="card col xs-col-6 fill-gray">...</div>
-          <div className="card col xs-col-6 fill-gray">...</div>
-          <div className="card col xs-col-6 fill-gray">...</div>
+      <PageSection heading={'Yours By Design'}>
+        <div className="clearfix gutters card-wrap">
+          {posts.map(({ node: post }) => (
+            <div key={post.id} className="col xs-col-6">
+              <div className="card">
+                <Link to={post.fields.slug}>
+                  {post.frontmatter.heading}
+                </Link>
+              </div>
+          </div>
+          ))}
         </div>
       </PageSection>
       <NumberArray
@@ -64,11 +67,13 @@ export const TourIndexTemplate = ({ frontmatter }) => {
 }
 
 const TourIndex = ({ data }) => {
-  const { frontmatter, html } = data.markdownRemark
+  const { frontmatter, html } = data.pageData
+  const { edges: posts } = data.postData
 
   return (
     <TourIndexTemplate
       frontmatter={frontmatter}
+      posts={posts}
     />
   )
 }
@@ -85,7 +90,7 @@ export default TourIndex
 
 export const basicPageQuery = graphql`
   query TourIndex($id: String!) {
-    markdownRemark(id: { eq: $id }) {
+    pageData: markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
         title
@@ -122,6 +127,21 @@ export const basicPageQuery = graphql`
           buttons {
             text
             url
+          }
+        }
+      }
+    }
+    postData: allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "tour-template-page" } }}
+    ) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            heading
           }
         }
       }
