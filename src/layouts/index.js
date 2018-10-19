@@ -15,7 +15,7 @@ const TemplateWrapper = ({ children, location, props }) => {
     <React.Fragment>
       <Head location={location}/>
       <Header mainNav={navDetails.mainNav} inquireNav={navDetails.inquireNav}/>
-      <div className="bodyWrap">
+      <div className="bodyWrap" data-status="">
         {children()}
       </div>
       <Footer subNav={navDetails.subNav} />

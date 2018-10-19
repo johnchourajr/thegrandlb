@@ -4,12 +4,16 @@ html {
 
 body, .wrapper {
   .button {
-    padding: $space-3 $space-4 !important;
+    padding: $space-2 $space-3 !important;
     font-size: .85em !important;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     background-color: $grandRed;
     color: $grandBabyBlue;
+
+    @include solid-breakpoint(md) {
+      padding: $space-3 $space-4 !important;
+    }
   }
 
   .button--secondary {

@@ -207,12 +207,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
   }
 
   &--headline, &--headline p {
     white-space: pre-wrap;
     text-align: center;
     color: $grandBabyBlue;
+    margin-top: 0.3em;
   }
 
   &--buttons {

@@ -6,13 +6,13 @@ class Layout extends React.Component {
 	}
   componentDidMount() {
     window.pageExitTime = 0
+    console.log(this.props.status)
   }
   componentWillUnmount() {
     console.log(this.props.status)
   }
   render() {
     const {children, status} = this.props
-    console.log(status)
     return (
       <React.Fragment>
         {children}

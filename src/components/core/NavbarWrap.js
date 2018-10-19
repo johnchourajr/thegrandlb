@@ -13,9 +13,9 @@ class NavbarWrap extends React.Component {
     const trigger = scrollPos >= 150
 
     if (trigger) {
-      document.body.classList.add(`nav--min`);
+      document.body.classList.add(`nav--min`)
     } else {
-      document.body.classList.remove(`nav--min`);
+      document.body.classList.remove(`nav--min`)
     }
   }
 
