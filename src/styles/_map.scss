@@ -1,18 +1,29 @@
 
 .map-svg {
   width: 100vw;
-  height: 59vw;
-  background-color: red;
+  height: 80vw;
   position: relative;
 
+  @include solid-breakpoint(sm) {
+    width: 100vw;
+    height: 59vw;
+  }
+
   svg {
-    $unit: 10;
+    $unit: 40;
     $incriment: $unit * 2;
     width: calc(100vw + #{$incriment}vw);
     height: calc((100vw + #{$incriment}vw) * .59);
     top: 0; left: -#{$unit}vw; right: -#{$unit}vw; bottom: 0;
     position: absolute;
 
+    @include solid-breakpoint(sm) {
+      $unit: 10;
+      $incriment: $unit * 2;
+      width: calc(100vw + #{$incriment}vw);
+      height: calc((100vw + #{$incriment}vw) * .59);
+      top: 0; left: -#{$unit}vw; right: -#{$unit}vw; bottom: 0;
+    }
   }
 }
 
@@ -21,21 +32,36 @@
 }
 
 .map-svg--wrapper {
-  margin-top: -18em;
-  margin-bottom: -10em;
+  margin-top: -14em;
+  margin-bottom: -6em;
   position: relative;
   z-index: -1;
   overflow: hidden;
-  opacity: .35;
+  opacity: .75;
+
+  @include solid-breakpoint(sm) {
+    opacity: .35;
+    margin-top: -14em;
+    margin-bottom: -10em;
+  }
+
+  @include solid-breakpoint(md) {
+    margin-top: -18em;
+    margin-bottom: -10em;
+  }
 
   &:before, &:after {
     content: "";
     position: absolute;
-    background-color: red;
     right: 0;
     left: 0;
-    height: 15rem;
+    height: 6rem;
     z-index: 1;
+
+    @include solid-breakpoint(sm) {
+      height: 15rem;
+    }
+
   }
 
   &:before {

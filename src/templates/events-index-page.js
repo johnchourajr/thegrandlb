@@ -2,22 +2,25 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link, { withPrefix } from 'gatsby-link'
 
-import Content, { HTMLContent } from '../components/Content'
+import Layout from '../components/core/Layout'
 import PageHeader from '../components/PageHeader'
 import PageSection from '../components/PageSection'
 import PageCta from '../components/PageCta'
 import Buttons from '../components/Buttons'
 import PageCarousel from '../components/PageCarousel'
 
-export const EventsIndexTemplate = ({ frontmatter }) => {
+
+const EventsIndex = ({ data, status }) => {
+  const { frontmatter, html } = data.markdownRemark
+
   return (
-    <div>
+    <Layout status={status}>
       <PageHeader
         title={frontmatter.title}
         heading={frontmatter.heading}
         caption={frontmatter.description}
       />
-    <PageSection wrapperClassName={'events-feature--wrap'}>
+      <PageSection wrapperClassName={'events-feature--wrap'}>
         {frontmatter.featureTiles.map((item, i) => {
           return (
             <div key={i} className={`col xs-col-12 events-feature--item events-feature--${i+1}`}>
@@ -54,27 +57,10 @@ export const EventsIndexTemplate = ({ frontmatter }) => {
         heading={frontmatter.cta.heading}
         buttons={frontmatter.cta.buttons}
       />
-    </div>
+    </Layout>
   )
 }
 
-const EventsIndex = ({ data }) => {
-  const { frontmatter, html } = data.markdownRemark
-
-  return (
-    <EventsIndexTemplate
-      frontmatter={frontmatter}
-    />
-  )
-}
-
-EventsIndex.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
-}
 
 export default EventsIndex
 

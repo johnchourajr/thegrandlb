@@ -2,56 +2,24 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Content, { HTMLContent } from '../components/Content'
+import Layout from '../components/core/Layout'
 import PageHeader from '../components/PageHeader'
 
-export const BasicPageTemplate = ({
-  heading,
-  title,
-  content,
-  contentComponent
-}) => {
-  const PageContent = contentComponent || Content
-
-  return (
-    <div>
-      <PageHeader title={title} heading={heading} />
-      <section className="section">
-        <div className="wrapper">
-          <PageContent className="content" content={content} />
-        </div>
-      </section>
-    </div>
 
 
-  )
-}
-
-BasicPageTemplate.propTypes = {
-  heading: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string,
-  contentComponent: PropTypes.func,
-}
-
-const BasicPage = ({ data }) => {
+const BasicPage = ({ data, status }) => {
   const { frontmatter, html } = data.markdownRemark
 
   return (
-    <BasicPageTemplate
-      contentComponent={HTMLContent}
-      heading={frontmatter.heading}
-      title={frontmatter.title}
-      content={html}
-    />
+    <Layout status={status}>
+      <PageHeader title={frontmatter.title} heading={frontmatter.heading} />
+      <section className="section">
+        <div className="wrapper">
+          <HTMLContent className="content" content={html} />
+        </div>
+      </section>
+    </Layout>
   )
-}
-
-BasicPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
 }
 
 export default BasicPage

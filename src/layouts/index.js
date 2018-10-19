@@ -10,16 +10,16 @@ import * as navDetails from '../data/navDetails'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import '../styles/all.scss'
 
-const TemplateWrapper = ({ children, location }) => {
+const TemplateWrapper = ({ children, location, props }) => {
   return (
-    <div>
+    <React.Fragment>
       <Head location={location}/>
       <Header mainNav={navDetails.mainNav} inquireNav={navDetails.inquireNav}/>
       <div className="bodyWrap">
         {children()}
       </div>
       <Footer subNav={navDetails.subNav} />
-    </div>
+    </React.Fragment>
   )
 }
 

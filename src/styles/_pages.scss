@@ -226,13 +226,17 @@
   // background-color: yellow;
 
   &--wrapper {
-    margin-bottom: 5em;
+    margin-bottom: -$space-6;
   }
 
   &--lower-bar {
     padding-bottom: $space-6;
     margin-bottom: $space-6;
     position: relative;
+
+    @include solid-breakpoint(md) {
+      margin-bottom: 0;
+    }
 
     &:after {
       content: "";
@@ -248,22 +252,14 @@
 }
 
 .number-wrap {
-  margin-top: 2rem;
-  // margin-bottom: 1rem;
-
-  @include solid-breakpoint(sm) {
-    margin-top: 3rem;
-    // margin-bottom: 2rem;
-  }
+  margin-top: 1rem;
 
   @include solid-breakpoint(md) {
-    margin-top: 4rem;
-    // margin-bottom: 3rem;
+    margin-top: 2rem;
   }
 
   @include solid-breakpoint(lg) {
-    margin-top: 5rem;
-    // margin-bottom: 4rem;
+    margin-top: 3rem;
   }
 }
 
@@ -271,7 +267,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3em 0 2em;
+  margin: 4em 0 1em;
 
   &--value {
     display: flex;
@@ -360,7 +356,7 @@
   }
 
   &--1 {
-    
+
   }
 
   &--2 {

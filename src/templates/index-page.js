@@ -4,6 +4,7 @@ import { withPrefix } from 'gatsby-link'
 
 // Components
 import Content, { HTMLContent } from '../components/Content'
+import Layout from '../components/core/Layout'
 import PageHero from '../components/PageHero'
 import PageSection from '../components/PageSection'
 import PageCta from '../components/PageCta'
@@ -19,12 +20,11 @@ import siteDetails from '../data/siteDetails'
 import * as util from '../components/functions/util'
 
 // Page
-export const IndexPageTemplate = ({
-  frontmatter
-}) => {
+const IndexPage = ({ data, status }) => {
+  const { frontmatter, html } = data.markdownRemark
 
   return (
-    <div>
+    <Layout status={status}>
       <PageHero
         title={frontmatter.title}
         heading={frontmatter.heading}
@@ -102,25 +102,8 @@ export const IndexPageTemplate = ({
           </div>
         </div>
       </PageSection>
-    </div>
+    </Layout>
   )
-}
-
-const IndexPage = ({ data }) => {
-  const { frontmatter, html } = data.markdownRemark
-  return (
-    <IndexPageTemplate
-      frontmatter={frontmatter}
-    />
-  )
-}
-
-IndexPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
 }
 
 export default IndexPage

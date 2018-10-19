@@ -2,51 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Content, { HTMLContent } from '../components/Content'
+import Layout from '../components/core/Layout'
 import PageHeader from '../components/PageHeader'
 
-export const MapPageTemplate = ({
-  heading,
-  title,
-  content,
-  contentComponent
-}) => {
-  const PageContent = contentComponent || Content
 
-  return (
-    <div>
-      
-    </div>
-
-
-  )
-}
-
-MapPageTemplate.propTypes = {
-  heading: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string,
-  contentComponent: PropTypes.func,
-}
-
-const MapPage = ({ data }) => {
+const MapPage = ({ data, status }) => {
   const { frontmatter, html } = data.markdownRemark
 
   return (
-    <MapPageTemplate
-      contentComponent={HTMLContent}
-      heading={frontmatter.heading}
-      title={frontmatter.title}
-      content={html}
-    />
-  )
-}
+    <Layout status={status}>
 
-MapPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
+    </Layout>
+  )
 }
 
 export default MapPage

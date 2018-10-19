@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Link, { withPrefix } from 'gatsby-link'
 
 import Content, { HTMLContent } from '../components/Content'
+import Layout from '../components/core/Layout'
 import PageHeader from '../components/PageHeader'
 import PageSection from '../components/PageSection'
 import PageCta from '../components/PageCta'
@@ -12,9 +13,13 @@ import NumberArray from '../components/NumberArray'
 
 import Map from '../components/svg/Map';
 
-export const TourIndexTemplate = ({ frontmatter, posts }) => {
+
+const TourIndex = ({ data, status }) => {
+  const { frontmatter, html } = data.pageData
+  const { edges: posts } = data.postData
+
   return (
-    <div>
+    <Layout status={status}>
       <PageHeader title={frontmatter.title} heading={frontmatter.heading} />
       <div className="page-image-full ">
         <div className="img" style={{backgroundImage: `url(${withPrefix(frontmatter.hero)})`}}></div>
@@ -62,29 +67,10 @@ export const TourIndexTemplate = ({ frontmatter, posts }) => {
         headingClassName={"xs-mb3"}
         buttons={frontmatter.cta.buttons}
       />
-    </div>
+  </Layout>
   )
 }
 
-const TourIndex = ({ data }) => {
-  const { frontmatter, html } = data.pageData
-  const { edges: posts } = data.postData
-
-  return (
-    <TourIndexTemplate
-      frontmatter={frontmatter}
-      posts={posts}
-    />
-  )
-}
-
-TourIndex.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
-}
 
 export default TourIndex
 
