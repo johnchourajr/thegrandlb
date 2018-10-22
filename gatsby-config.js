@@ -9,7 +9,6 @@ module.exports = {
         component: require.resolve(`./src/layouts/index.js`),
       },
     },
-    'gatsby-plugin-page-load-delay',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
