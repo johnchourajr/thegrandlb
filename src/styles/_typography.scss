@@ -8,6 +8,7 @@ p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
   margin-bottom: $space-1 / 2;
+  transition: color .2s linear;
 }
 
 em {
@@ -16,6 +17,19 @@ em {
 del {
   opacity: .12;
 }
+
+
+/**
+ * Paragraphs
+ */
+p {
+  &.large {
+    font-size: 1.25em;
+    margin-bottom: 1em;
+  }
+}
+
+
 /**
  * Headings
  */

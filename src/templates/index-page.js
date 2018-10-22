@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withPrefix } from 'gatsby-link'
+import Link, { withPrefix } from 'gatsby-link'
 
 // Components
 import Content, { HTMLContent } from '../components/Content'
@@ -24,7 +24,7 @@ const IndexPage = ({ data, status }) => {
   const { frontmatter, html } = data.markdownRemark
 
   return (
-    <Layout status={status}>
+    <Layout status={status} >
       <PageHero
         title={frontmatter.title}
         heading={frontmatter.heading}
@@ -49,7 +49,9 @@ const IndexPage = ({ data, status }) => {
         {frontmatter.topFeatures.map((item, i) => {
           return (
             <div key={i} className="page-feature page-feature--lower-bar col xs-col-12 md-col-4">
-              <h1 className="xs-text-center">{item.text}</h1>
+              <Link to={item.url}>
+                <h1 className="xs-text-center">{item.text}</h1>
+              </Link>
             </div>
           )
         })}

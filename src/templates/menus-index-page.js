@@ -12,7 +12,7 @@ import PageCarousel from '../components/PageCarousel'
 import PageSegue from '../components/PageSegue'
 
 
-const EventsIndex = ({ data, status, location }) => {
+const MenusIndex = ({ data, status, location }) => {
   const { frontmatter, html } = data.markdownRemark
   const { pathname } = location
   const currentPage = slugify(pathname)
@@ -25,34 +25,26 @@ const EventsIndex = ({ data, status, location }) => {
         heading={frontmatter.heading}
         caption={frontmatter.description}
       />
-      <PageSection wrapperClassName={'events-feature--wrap'}>
-        {frontmatter.featureTiles.map((item, i) => {
-          return (
-            <div key={i} className={`col xs-col-12 events-feature--item events-feature--${i+1}`}>
-              <Link className="" to={item.url}>
-                <div className="events-feature--text">
-                  <h3 className="display">{item.heading}</h3>
-                  <p>{item.caption}</p>
-                </div>
-                <div className="events-feature--img" style={{backgroundImage: `url(${withPrefix(item.img)})`}}></div>
-              </Link>
-            </div>
-          )
-        })}
-      </PageSection>
-      <PageSection topDivider>
-        {frontmatter.statement.map((item, i) => {
-          return (
-            <p key={i} className="page-statement large xs-text-center">{item}</p>
-          )
-        })}
+      <PageSection>
+        <PageCarousel
+          items={[...frontmatter.carousel.array]}
+          settings={{
+            showIndicators: true,
+            infiniteLoop: true,
+            emulateTouch: true,
+          }}
+        />
       </PageSection>
       <PageSection bottomDivider>
-        <div className="clearfix gutters page-list">
-          {frontmatter.exampleEvents.array.map((item, i) => {
+        <div className="clearfix gutters menu-list">
+          {frontmatter.menus.array.map((item, i) => {
             return (
-              <div key={i} className="hash-item page-list--item col xs-col-6 md-col-4">
-                <h2 className="-display">{item}</h2>
+              <div key={i} className="menu-list--item col xs-col-8 xs-offset-2 md-col-3 md-offset-2 lg-col-3 lg-offset-2">
+                <Link to={item.path} className="menu-list--item--inner">
+                  <div className="hash-item">
+                    <h2 className="-display">{item.name}</h2>
+                  </div>
+                </Link>
               </div>
             )
           })}
@@ -71,25 +63,27 @@ const EventsIndex = ({ data, status, location }) => {
 }
 
 
-export default EventsIndex
+export default MenusIndex
 
 export const basicPageQuery = graphql`
-  query EventsIndex($id: String!) {
+  query MenusIndex($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
         title
         heading
         description
-        featureTiles {
-          heading
-          caption
-          url
-          img
+        carousel {
+          array {
+            img
+            caption
+          }
         }
-        statement
-        exampleEvents {
-          array
+        menus {
+          array {
+            name
+            path
+          }
         }
         cta {
           heading

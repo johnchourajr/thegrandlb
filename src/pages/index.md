@@ -26,7 +26,7 @@ topFeatures:
 - text: |
     Tour Our
     Facility
-  url: "/tour/map/"
+  url: "/tour/"
 ctaUpper:
   img: "/img/placeholder--cta-img.jpg"
   accent: "grandBabyBlue"

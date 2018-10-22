@@ -10,7 +10,7 @@ import * as navDetails from '../data/navDetails'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import '../styles/all.scss'
 
-const TemplateWrapper = ({ children, location, props }) => {
+const TemplateWrapper = ({ children, history, location, props }) => {
   return (
     <React.Fragment>
       <Head location={location}/>

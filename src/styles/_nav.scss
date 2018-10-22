@@ -340,14 +340,66 @@
   &.active {
     opacity: 1;
     visibility: visible;
-    // z-index: ;
+  }
+}
+
+.inquiry-page--close-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-top: 0.55rem;
+
+  position: absolute;
+  top: .5rem;
+  right: 2rem;
+  z-index: 9999;
+
+  span {
+    height: 0.125rem;
+    width: 1.5rem;
+    margin: 0.2125rem 0;
+    background-color: transparent !important;
+    transition: opacity .15s $easeOutCubic, transform .35s $easeOutCubic;
+    position: relative;
+
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      background-color: $black;
+      transition: all .75s $easeOutCubic;
+    }
+
+    &:before {
+      transform: rotate(135deg);
+    }
+
+    &:after {
+      transform: rotate(225deg);
+    }
   }
 }
 
 
 // ******
 // nav-min effects
-.nav--min, body.inquire, body.tourmap {
+body.inquire, body.inquiredone {
+  .nav--mobile-menu {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+.nav--min, body.inquire, body.inquiredone, body.tourmap {
 
   .nav {
 

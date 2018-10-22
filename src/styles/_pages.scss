@@ -97,6 +97,7 @@
 .page-image-full {
   height: calc(80vh - 3rem);
   max-height: 120vw;
+  min-height: 40rem;
   width: 100vw;
   position: relative;
   background-color: $black;
@@ -225,7 +226,30 @@
 }
 
 .page-feature {
-  // background-color: yellow;
+  transition: transform .5s $easeOutCubic, opacity .2s linear;
+
+  a {
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &:hover {
+    opacity: .95;
+    transform: translateY(-0.2rem);
+
+    h1 {
+      color: $grandRed;
+    }
+
+    .page-feature--lower-bar:after {
+      bottom: -1em;
+    }
+  }
+}
+
+.page-feature {
 
   &--wrapper {
     margin-bottom: -$space-6;
@@ -250,6 +274,65 @@
       width: 44px;
       height: 2px;
     }
+  }
+}
+
+.divider-bar {
+  position: relative;
+
+  &--top {
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+
+    @include solid-breakpoint(sm) {
+      padding-bottom: 1.75rem;
+      margin-bottom: 1.75rem;
+    }
+
+    @include solid-breakpoint(md) {
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    @include solid-breakpoint(lg) {
+      padding-bottom: 2.25rem;
+      margin-bottom: 2.25rem;
+    }
+  }
+
+  &--bottom {
+    padding-top: 1.25rem;
+    margin-top: 1.25rem;
+
+    @include solid-breakpoint(sm) {
+      padding-top: 1.75rem;
+      margin-top: 1.75rem;
+    }
+
+    @include solid-breakpoint(md) {
+      padding-top: 2rem;
+      margin-top: 2rem;
+    }
+
+    @include solid-breakpoint(lg) {
+      padding-top: 2.25rem;
+      margin-top: 2.25rem;
+    }
+  }
+
+  // @include solid-breakpoint(md) {
+  //   margin-bottom: 0;
+  // }
+
+  &:after {
+    content: "";
+    position: absolute;
+    background-color: $grandRed;
+    top: 0; bottom: 0;
+    box-shadow: 0 -0.5em 0 $grandRed !important;
+    left: calc(50% - 22px); right: calc(50% - 22px);
+    width: 44px;
+    height: 2px;
   }
 }
 
@@ -278,7 +361,6 @@
   }
 
   &--caption {
-    // max-width: 9.375em;
     margin-top: .3em;
     margin-bottom: 1em;
   }
@@ -357,10 +439,6 @@
     }
   }
 
-  &--1 {
-
-  }
-
   &--2 {
 
     a {
@@ -422,5 +500,213 @@
       max-height: 600px;
       max-width: 700px;
     }
+  }
+}
+
+
+.segue-card {
+  background-size: cover;
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-color: rgba($black, .33);
+    z-index: 0;
+  }
+
+  & > a {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 45vh;
+    min-height: 31rem;
+    max-height: 120vw;
+    padding: 4rem 2rem 2rem;
+    position: relative;
+    z-index: 5;
+
+    &:hover {
+      &, * {
+        text-decoration: none !important;
+      }
+    }
+
+    @include solid-breakpoint(sm) {
+      max-height: 100vw;
+    }
+
+    @include solid-breakpoint(md) {
+      padding: 5rem 4rem 0;
+    }
+
+    @include solid-breakpoint(lg) {
+      max-height: 90vh;
+    }
+  }
+
+  &--text {
+    color: $white;
+    max-width: 12em;
+    margin-bottom: 2em;
+
+    @include solid-breakpoint(md) {
+      max-width: 16em;
+      margin-bottom: 4em;
+    }
+
+    & > * {
+      color: $white;
+    }
+  }
+
+  &--button-wrap {
+    @include solid-breakpoint(md) {
+      margin-bottom: -2rem;
+    }
+  }
+}
+
+.page-statement {
+  max-width: 20em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.page-list {
+  margin-top: -4rem !important;
+  position: relative;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.25rem;
+
+  @include solid-breakpoint(sm) {
+    padding-bottom: 1.75rem;
+    margin-bottom: 1.75rem;
+  }
+
+  @include solid-breakpoint(md) {
+    margin-top: -6rem !important;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  @include solid-breakpoint(lg) {
+    padding-bottom: 2.25rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .hash-item {
+    margin-top: 8rem !important;
+  }
+}
+
+.hash-item {
+  display: flex;
+  text-align: center;
+  align-items: stretch;
+  justify-content: center;
+  position: relative;
+  margin-top: calc(1.5rem + 44px);
+
+  &:after {
+    content: "";
+    position: absolute;
+    background-color: $grandRed;
+    top: calc(-1.5rem - 44px); bottom: 0;
+    left: calc(50% - 1px); right: calc(50% - 1px);
+    width: 2px;
+    height: 44px;
+    transition: height .4s $easeOutCubic, top .4s $easeOutCubic;
+  }
+}
+
+
+.menu-list {
+  &--item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+
+    @include solid-breakpoint(md) {
+      margin-bottom: 4rem;
+    }
+
+    @include solid-breakpoint(lg) {
+      margin-bottom: 6rem;
+    }
+
+    &--inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba($grandSilver, 1);
+      height: 25rem;
+      width: 20rem;
+      padding: 0 3rem;
+      transition: background-color .2s linear;
+
+      @include solid-breakpoint(md) {
+        height: 25rem;
+        min-width: 20rem;
+        padding: 0 4rem;
+      }
+
+      @include solid-breakpoint(lg) {
+        height: 35rem;
+        min-width: 25rem;
+        padding: 0 4rem;
+      }
+
+      &:hover {
+        background-color: rgba($grandSilver, .5);
+        transition: background-color .2s linear;
+
+        &, * {
+          text-decoration: none !important;
+        }
+
+        .hash-item {
+          &:after {
+            top: calc(-1.5rem - 55px);
+            height: 66px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+.inquire-page {
+
+  &--index {
+    display: flex;
+    padding-bottom: 1.5rem;
+
+    span {
+      padding: 0 0.75rem;
+    }
+  }
+
+  &--header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 3rem;
+  }
+
+  &--body {
+    display: block;
+  }
+
+  &--footer {
+    display: flex;
+    justify-content: space-between;
+
   }
 }

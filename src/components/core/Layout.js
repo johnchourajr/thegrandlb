@@ -12,7 +12,7 @@ class Layout extends React.Component {
     console.log(this.props.status)
   }
   render() {
-    const {children, status} = this.props
+    const {children, status, location} = this.props
     return (
       <React.Fragment>
         {children}

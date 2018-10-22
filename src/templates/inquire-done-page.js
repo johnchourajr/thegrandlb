@@ -6,19 +6,17 @@ import Content, { HTMLContent } from '../components/Content'
 import Layout from '../components/core/Layout'
 import InquiryWrap from '../components/InquiryWrap'
 import { goBack } from '../components/functions/util'
-import StepFlow from '../components/flow/StepFlow'
 
-import inquiryForms from '../data/inquiryForms'
 
-const InquirePage = ({ data, status, location, history }) => {
+const InquireDonePage = ({ data, status }) => {
   const { frontmatter, html } = data.markdownRemark
 
   return (
     <Layout status={status}>
-      <InquiryWrap history={history}>
+      <InquiryWrap>
         <section className="section">
           <div className="wrapper">
-            <StepFlow flowPages={inquiryForms}/>
+            Done
           </div>
         </section>
       </InquiryWrap>
@@ -26,10 +24,10 @@ const InquirePage = ({ data, status, location, history }) => {
   )
 }
 
-export default InquirePage
+export default InquireDonePage
 
 export const basicPageQuery = graphql`
-  query InquirePage($id: String!) {
+  query InquireDonePage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       html
       frontmatter {
