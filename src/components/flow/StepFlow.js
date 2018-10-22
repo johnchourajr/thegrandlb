@@ -40,6 +40,7 @@ class StepFlow extends React.Component {
                           <li>{form.label}</li>
                           <li>{form.value}</li>
                         </React.Fragment>
+                        
                       ))
                     }
                   </ul>
