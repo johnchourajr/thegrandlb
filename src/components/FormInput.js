@@ -37,6 +37,7 @@ const FormInput = props => {
         required={required}
         title={label}
         aria-label={label}
+        autoFocus={formNumber === 0 ? true : false}
       />
       { hasError && <span className="form-feedback">Caps lock is on!</span>}
     </FormFieldset>

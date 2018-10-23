@@ -64,7 +64,11 @@ const Step = props => {
             goToNextStep={() => props.goToNextStep()}
             disabled={!page.isValid}
           />
-          <Submit isActive={displaySubmit} disabled={!page.isValid} />
+          <Submit
+            isActive={displaySubmit}
+            submitAction={() => props.submitAction()}
+            disabled={!page.isValid}
+          />
         </div>
       </React.Fragment>
     )
@@ -77,7 +81,7 @@ const Next = props => {
   if (isActive) {
     return (
       <button
-        className="button button--secondary"
+        className="button"
         onClick={() => props.goToNextStep()}
         type="Next"
         disabled={props.disabled}
@@ -101,7 +105,7 @@ const Previous = props => {
         Previous
       </button>
     )
-  } else return <div/>
+  } else return null
 }
 
 const Submit = props => {
@@ -109,13 +113,13 @@ const Submit = props => {
 
   if (isActive) {
     return (
-      <Link
+      <button
         className={`button ${props.disabled ? "button--disabled" : null}`}
-        to={props.disabled ? '#' : '/inquire/done'}
+        onClick={() => props.submitAction(props.disabled)}
         disabled={props.disabled}
       >
         Submit
-      </Link>
+      </button>
     )
   } else return null
 }

@@ -16,6 +16,7 @@ const inquiryForms = [
           "Business",
           "Corporate",
           "Party",
+          "Other",
         ],
         placeholder: "Wedding ",
         value: "",
@@ -53,7 +54,7 @@ const inquiryForms = [
         isValid: true,
         hasError: false,
         error: "Error",
-        className: "col xs-col-6",
+        className: "col xs-col-12 sm-col-6",
       },{
         label: "Desired Event Time",
         id: "tg-time",
@@ -65,7 +66,7 @@ const inquiryForms = [
         isValid: true,
         hasError: false,
         error: "Error",
-        className: "col xs-col-6",
+        className: "col xs-col-12 sm-col-6",
       },{
         label: "Desired Room",
         id: "tg-rooms",
@@ -85,7 +86,7 @@ const inquiryForms = [
         isValid: false,
         hasError: false,
         error: "Error",
-        className: "col xs-col-6",
+        className: "col xs-col-12 sm-col-6",
       },{
         label: "Guest Count",
         id: "tg-guest-count",
@@ -96,7 +97,7 @@ const inquiryForms = [
         isValid: true,
         hasError: false,
         error: "Error",
-        className: "col xs-col-6",
+        className: "col xs-col-12 sm-col-6",
       },
     ]
   },{
@@ -114,7 +115,7 @@ const inquiryForms = [
         isValid: false,
         hasError: false,
         error: "Error",
-        className: "col xs-col-6",
+        className: "col xs-col-12 sm-col-6",
       },{
         label: "Preferred contact method",
         id: "tg-contact-method",
@@ -130,7 +131,7 @@ const inquiryForms = [
         isValid: false,
         hasError: false,
         error: "Error",
-        className: "col xs-col-6",
+        className: "col xs-col-12 sm-col-6",
       },{
         label: "Email",
         id: "tg-contact-email",
@@ -142,7 +143,7 @@ const inquiryForms = [
         isValid: false,
         hasError: false,
         error: "Error",
-        className: "col xs-col-6",
+        className: "col xs-col-12 sm-col-6",
       },{
         label: "Phone Number",
         id: "tg-contact-phone",
@@ -154,7 +155,7 @@ const inquiryForms = [
         isValid: false,
         hasError: false,
         error: "Error",
-        className: "col xs-col-6",
+        className: "col xs-col-12 sm-col-6",
       },
     ]
   },

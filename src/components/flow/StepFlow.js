@@ -45,7 +45,7 @@ class StepFlow extends React.Component {
     newState.flowPages[page].isValid = isValid
 
     this.setState(newState)
-    console.log(`Page: ${isValid}`)
+    // console.log(`Page: ${isValid}`)
   }
 
   validateField(page, field, value) {
@@ -84,46 +84,16 @@ class StepFlow extends React.Component {
 
     return (
       <React.Fragment>
-        <StepList inquiryForms={flowPages}>
+        <StepList flowPages={flowPages}>
           {flowPages.map((page, i) => {
             return (
               <Step key={i} pageNumber={i} page={page} handleChange={this.handleFormChange}/>
             )
           })}
         </StepList>
-        {/*<StateValidate flowPages={flowPages}/>*/}
       </React.Fragment>
     )
   }
 }
 
 export default StepFlow;
-
-const StateValidate = props => {
-  const {
-    flowPages
-  } = props
-
-  return(
-    <div className="small">
-      <ul>
-        {flowPages.map((page, i) => (
-            <li key={i}>
-              {page.header}
-              <ul>
-                {page.forms.map((form, i) => (
-                    <React.Fragment key={i}>
-                      <li>{form.label}</li>
-                      <li>{form.value}</li>
-                    </React.Fragment>
-
-                  ))
-                }
-              </ul>
-            </li>
-          )
-        )}
-      </ul>
-    </div>
-  )
-}

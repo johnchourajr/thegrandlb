@@ -1,12 +1,63 @@
 
-.fieldset {
 
+.fieldset {
+  padding: 0 $space-1;
 }
 
-.text-input {
-  width: 100%;
+.fieldset {
+  .form-label {
+    color: $grandRed;
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0 0.9rem;
+    margin-bottom: -1.25rem !important;
+    position: relative;
+    z-index: 6;
+
+    @include solid-breakpoint(md) {
+      font-size: .85rem;
+      margin-bottom: -1.35rem !important;
+    }
+  }
+
+  input, .text-input, select, .select {
+    color: $black;
+    font-size: 1.25rem !important;
+    width: 100%;
+    position: relative;
+    padding: 0 1rem !important;
+    padding-top: .5em !important;
+    margin-top: .75rem !important;
+    margin-bottom: .75rem !important;
+    height: 4.875rem !important;
+    border: none !important;
+    border-bottom-width: 0px !important;
+    border-bottom-color: transparent !important;
+    border-bottom-style: solid !important;
+    z-index: 5;
+
+    transition: border-bottom-width .3s $easeOutCubic;
+
+    @include solid-breakpoint(md) {
+      font-size: 1.5rem !important;
+    }
+
+    &::placeholder {
+      font-size: 1.25rem !important;
+
+      @include solid-breakpoint(md) {
+        font-size: 1.5rem !important;
+      }
+    }
+
+    &:focus, &:hover {
+      border-bottom-width: 4px !important;
+      border-bottom-color: $grandRed !important;
+    }
+  }
 }
 
 select:invalid, input::-webkit-input-placeholder {
-  color: $grandSilver !important;
+  color: rgba($black, .1) !important;
 }

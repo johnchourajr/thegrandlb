@@ -1,5 +1,5 @@
 import React from "react"
-import Link from 'gatsby-link'
+import Link, {navigateTo} from 'gatsby-link'
 
 
 const StepIndex = props => {
@@ -21,7 +21,7 @@ const StepIndex = props => {
 
 
 const StepHeader = props => {
-  const headerText = props.inquiryForms[props.currentStep].header
+  const headerText = props.flowPages[props.currentStep].header
 
   return (
     <div className="inquire-page--header">
@@ -57,6 +57,15 @@ class StepList extends React.Component {
     this.setState({ currentStep: this.state.currentStep + 1 })
   }
 
+  submitAction = (disabled) => {
+    if (disabled) {
+      console.log('disabled');
+    } else {
+      sessionStorage.setItem('flowPages', JSON.stringify(this.props.flowPages))
+      // const data = JSON.parse(sessionStorage.getItem('flowPages'))
+    }
+  }
+
   renderSteps() {
     const children = React.Children.map(this.props.children, (child, index) => {
       const { currentStep, totalSteps } = this.state
@@ -68,6 +77,7 @@ class StepList extends React.Component {
         displaySubmit: currentStep === totalSteps,
         goToPreviousStep: () => this.goToPreviousStep(),
         goToNextStep: () => this.goToNextStep(),
+        submitAction: () => this.submitAction(),
       })
     })
 
@@ -76,12 +86,13 @@ class StepList extends React.Component {
 
   render() {
     return (
-      <div className="inquire-page xs-col-12 md-col-10 md-offset-1 lg-col-8 lg-offset-2">
+      <div className="inquire-page gutters clearfix xs-col-12 md-col-10 md-offset-1 lg-col-8 lg-offset-2">
         <StepHeader
           children={this.props.children}
           currentStep={this.state.currentStep}
           goToStep={this.goToStep}
-          inquiryForms={this.props.inquiryForms}
+          flowPages={this.props.flowPages}
+
         />
         {this.renderSteps()}
       </div>

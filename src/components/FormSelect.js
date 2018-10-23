@@ -37,6 +37,7 @@ const FormSelect = props => {
         multiple={multiple}
         title={label}
         aria-label={label}
+        autoFocus={formNumber === 0 ? true : false}
       >
         <option value="" style={{display: 'none'}}>{placeholder}</option>
         {optionsArray}
