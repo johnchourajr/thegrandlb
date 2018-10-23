@@ -682,6 +682,8 @@
 
 
 .inquire-page {
+  margin-top: ($space-6 * 2);
+  margin-bottom: ($space-6 * 2);
 
   &--index {
     display: flex;
@@ -708,5 +710,20 @@
     display: flex;
     justify-content: space-between;
 
+  }
+}
+
+
+
+
+
+
+
+
+
+
+.small {
+  & > * {
+    font-size: .75rem;
   }
 }

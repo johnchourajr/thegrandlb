@@ -6,3 +6,7 @@
 .text-input {
   width: 100%;
 }
+
+select:invalid, input::-webkit-input-placeholder {
+  color: $grandSilver !important;
+}

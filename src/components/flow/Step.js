@@ -1,68 +1,10 @@
 import React from "react"
 import Link, { navigateTo } from 'gatsby-link'
 
+import FormInput from '../FormInput'
+import FormSelect from '../FormSelect'
 import { slugify } from '../functions/util'
 
-const Fieldset = props => {
-  const {
-    className,
-    children
-  } = props
-
-  return (
-    <fieldset className={`${className} fieldset`}>
-      {children}
-    </fieldset>
-  )
-}
-
-const FormInput = props => {
-  const {
-    label,
-    id,
-    type,
-    options,
-    placeholder,
-    selected,
-    required,
-    className,
-    hasError
-  } = props
-
-  return (
-    <Fieldset className={className}>
-      <label className="form-label">{label}</label>
-      <input id={id} type={type} className="text-input" required={required}/>
-      { hasError && <span className="form-feedback">Caps lock is on!</span>}
-    </Fieldset>
-  )
-}
-
-const FormSelect = props => {
-  const {
-    label,
-    id,
-    type,
-    options,
-    placeholder,
-    selected,
-    required,
-    className,
-    hasError
-  } = props
-
-  const optionsArray = options.map((item, i) => {
-    return <option value={slugify(item)}>{item}</option>
-  })
-  return(
-    <Fieldset className={className}>
-      <label className="form-label">{label}</label>
-      <select id={id} type={type} className={`xs-col-12 select`} required={required}>
-        {optionsArray}
-      </select>
-    </Fieldset>
-  )
-}
 
 const StepInput = props => {
   const {
@@ -93,6 +35,7 @@ const Step = props => {
     component,
     children,
     page,
+    pageNumber,
   } = props
 
   if (isActive) {
@@ -103,6 +46,9 @@ const Step = props => {
             return (
               <StepInput
                 key={i}
+                pageNumber={pageNumber}
+                formNumber={i}
+                handleChange={props.handleChange}
                 {...item}
               />
             )
@@ -116,8 +62,9 @@ const Step = props => {
           <Next
             isActive={displayNext}
             goToNextStep={() => props.goToNextStep()}
+            disabled={!page.isValid}
           />
-          <Submit isActive={displaySubmit} />
+          <Submit isActive={displaySubmit} disabled={!page.isValid} />
         </div>
       </React.Fragment>
     )
@@ -129,9 +76,14 @@ const Next = props => {
 
   if (isActive) {
     return (
-      <Link onClick={() => props.goToNextStep()}>
+      <button
+        className="button button--secondary"
+        onClick={() => props.goToNextStep()}
+        type="Next"
+        disabled={props.disabled}
+      >
         Next
-      </Link>
+      </button>
     )
   } else return null
 }
@@ -141,9 +93,13 @@ const Previous = props => {
 
   if (isActive) {
     return (
-      <Link onClick={() => props.goToPreviousStep()}>
+      <button
+        className="button button--secondary"
+        onClick={() => props.goToPreviousStep()}
+        type="Previous"
+      >
         Previous
-      </Link>
+      </button>
     )
   } else return <div/>
 }
@@ -153,7 +109,11 @@ const Submit = props => {
 
   if (isActive) {
     return (
-      <Link to={'/inquire/done'}>
+      <Link
+        className={`button ${props.disabled ? "button--disabled" : null}`}
+        to={props.disabled ? '#' : '/inquire/done'}
+        disabled={props.disabled}
+      >
         Submit
       </Link>
     )
