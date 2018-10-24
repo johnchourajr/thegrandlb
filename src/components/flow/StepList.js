@@ -86,13 +86,12 @@ class StepList extends React.Component {
 
   render() {
     return (
-      <div className="inquire-page gutters clearfix xs-col-12 md-col-10 md-offset-1 lg-col-8 lg-offset-2">
+      <div className="inquire-page clearfix xs-col-12 md-col-10 md-offset-1 lg-col-8 lg-offset-2">
         <StepHeader
           children={this.props.children}
           currentStep={this.state.currentStep}
           goToStep={this.goToStep}
           flowPages={this.props.flowPages}
-
         />
         {this.renderSteps()}
       </div>
