@@ -48,6 +48,29 @@ export function mobileNavNav() {
   mobileMenuToggle()
 }
 
-function goBack() {
+export function goBack() {
   window.history.back();
+}
+
+export function getQueryVariable(variable) {
+  if (window) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]);
+        }
+    }
+    // console.log('Query variable %s not found', variable);
+  }
+}
+
+String.prototype.replaceAll = function(searchStr, replaceStr) {
+  var str = this;
+
+  // escape regexp special characters in search string
+  searchStr = searchStr.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+
+  return str.replace(new RegExp(searchStr, 'gi'), replaceStr);
 }

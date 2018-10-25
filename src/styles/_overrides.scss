@@ -2,6 +2,9 @@
  * Custom Page Elements
  */
 
+@include body-color(inquire, $grandBabyBlue, $black)
+@include body-color(inquiredone, $grandCream, $black)
+
 html.tourmap {
   background-color: $grandCream;
 }

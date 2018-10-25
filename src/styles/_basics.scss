@@ -2,6 +2,12 @@ html {
   transition: background-color .2s linear;
 }
 
+button {
+  outline: none !important;
+  border: none !important;
+  background-color: transparent !important;
+}
+
 body, .wrapper, .segue-card {
   .button {
     padding: $space-2 $space-3 !important;

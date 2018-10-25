@@ -20,7 +20,7 @@ const FormSelect = props => {
   } = props
 
   const optionsArray = options.map((item, i) => {
-    return <option key={i} value={slugify(item)}>{item}</option>
+    return <option key={i} value={item}>{item}</option>
   })
   return(
     <FormFieldset className={className}>

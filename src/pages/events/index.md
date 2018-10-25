@@ -20,7 +20,7 @@ featureTiles:
   url: "/events/business/"
   img: "/img/placeholder--business.jpg"
 - heading: |
-    Get Hitched
+    Get  Hitched
     With Us
   caption: Learn about Weddings
   url: "/events/weddings/"

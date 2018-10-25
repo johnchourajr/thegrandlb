@@ -1,5 +1,6 @@
 import React from 'react'
-import Link, {navigate} from 'gatsby-link'
+import Link, {navigateTo} from 'gatsby-link'
+import _ from 'lodash'
 
 export const style = {
   display: 'flex',
@@ -11,24 +12,31 @@ export const style = {
   top: '0',
   width: '100vw',
   opacity: 1,
-  background: '#EDFAFF',
   zIndex: 9,
 }
 
 const InquiryCloseButton = props => (
-  <Link
+  <button
     id="inquiry-page--close-button"
-    to={props.to}
+    onClick={props.onClick}
     className="inquiry-page--close-button"
   >
     <span></span>
-  </Link>
+  </button>
 )
+
+function handleBack(history) {
+  if (_.isUndefined(history)) {
+    navigateTo("/")
+  } else {
+    history.goBack()
+  }
+}
 
 const InquiryWrap = ({ history, children }) => {
   return (
     <div style={style}>
-      <InquiryCloseButton to={'/'}/>
+      <InquiryCloseButton onClick={() => handleBack(history)}/>
       {children}
     </div>
   )

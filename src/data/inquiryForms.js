@@ -1,4 +1,4 @@
-// ID Index: tg-event-type, tg-event-name, tg-date, tg-time, tg-rooms, tg-guest-count
+// ID Index: glb-event-type, glb-event-name, glb-date, glb-time, glb-rooms, glb-guest-count
 
 const now = new Date();
 
@@ -9,7 +9,7 @@ const inquiryForms = [
     forms: [
       {
         label: "What type of event",
-        id: "tg-event-type",
+        id: "glb-event-type",
         type: "select",
         options: [
           "Wedding",
@@ -27,7 +27,7 @@ const inquiryForms = [
         className: "col xs-col-12",
       },{
         label: "Name your event",
-        id: "tg-event-name",
+        id: "glb-event-name",
         type: "text",
         validate: "^.{2,}$",
         placeholder: "The Henderson Wedding",
@@ -45,7 +45,7 @@ const inquiryForms = [
     forms: [
       {
         label: "Desired Event Date",
-        id: "tg-date",
+        id: "glb-date",
         type: "date",
         placeholder: "",
         value: now.toISOString().substr(0, 10),
@@ -57,7 +57,7 @@ const inquiryForms = [
         className: "col xs-col-12 sm-col-6",
       },{
         label: "Desired Event Time",
-        id: "tg-time",
+        id: "glb-time",
         type: "time",
         placeholder: "",
         value: "13:00",
@@ -69,7 +69,7 @@ const inquiryForms = [
         className: "col xs-col-12 sm-col-6",
       },{
         label: "Desired Room",
-        id: "tg-rooms",
+        id: "glb-rooms",
         type: "select",
         options: [
           "The Grand Ballroom",
@@ -89,8 +89,8 @@ const inquiryForms = [
         className: "col xs-col-12 sm-col-6",
       },{
         label: "Guest Count",
-        id: "tg-guest-count",
-        type: "text",
+        id: "glb-guest-count",
+        type: "number",
         placeholder: "100",
         validate: "^.{1,}$",
         value: "",
@@ -107,7 +107,7 @@ const inquiryForms = [
     forms: [
       {
         label: "Your Name",
-        id: "tg-contact-name",
+        id: "glb-contact-name",
         type: "text",
         validate: "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$",
         placeholder: "Elle Henderson",
@@ -119,7 +119,7 @@ const inquiryForms = [
         className: "col xs-col-12 sm-col-6",
       },{
         label: "Preferred contact method",
-        id: "tg-contact-method",
+        id: "glb-contact-method",
         type: "select",
         options: [
           "Phone and Email",
@@ -135,7 +135,7 @@ const inquiryForms = [
         className: "col xs-col-12 sm-col-6",
       },{
         label: "Email",
-        id: "tg-contact-email",
+        id: "glb-contact-email",
         type: "email",
         validate: "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$",
         placeholder: "elle@website.com",
@@ -147,8 +147,8 @@ const inquiryForms = [
         className: "col xs-col-12 sm-col-6",
       },{
         label: "Phone Number",
-        id: "tg-contact-phone",
-        type: "tel",
+        id: "glb-contact-phone",
+        type: "number",
         validate: "^(1\s?)?((\([0-9]{3}\))|[0-9]{3})[\s\-]?[\0-9]{3}[\s\-]?[0-9]{4}$",
         placeholder: "5624260555",
         value: "",

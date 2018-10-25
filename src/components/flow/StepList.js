@@ -62,7 +62,6 @@ class StepList extends React.Component {
       console.log('disabled');
     } else {
       sessionStorage.setItem('flowPages', JSON.stringify(this.props.flowPages))
-      // const data = JSON.parse(sessionStorage.getItem('flowPages'))
     }
   }
 

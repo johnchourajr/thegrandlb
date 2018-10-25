@@ -407,8 +407,18 @@
 
 .events-feature {
 
+
+
   &--item {
     margin-bottom: 2rem;
+
+    &:hover {
+      @include solid-breakpoint(md) {
+        .events-feature--text {
+          transform: translateY(-1rem);
+        }
+      }
+    }
 
     @include solid-breakpoint(md) {
       margin-bottom: 6rem;
@@ -466,10 +476,18 @@
     .events-feature--img {
       background-position: right;
     }
+    .events-feature--text {
+      @include solid-breakpoint(md) {
+        padding-right: 0;
+        // padding-left: 6em;
+        width: 25rem;
+      }
+    }
   }
 
   &--text {
     margin: 1.5rem 0;
+    transition: all .5s $easeOutCubic;
 
     h3 {
       margin-bottom: 1rem;

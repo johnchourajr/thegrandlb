@@ -36,6 +36,7 @@ const Step = props => {
     children,
     page,
     pageNumber,
+    doneUrl,
   } = props
 
   if (isActive) {
@@ -61,13 +62,17 @@ const Step = props => {
           />
           <Next
             isActive={displayNext}
-            goToNextStep={() => props.goToNextStep()}
+            goToNextStep={() => {
+              props.goToNextStep()
+              props.setQueryValues
+            }}
             disabled={!page.isValid}
           />
           <Submit
             isActive={displaySubmit}
             submitAction={() => props.submitAction()}
             disabled={!page.isValid}
+            doneUrl={doneUrl}
           />
         </div>
       </React.Fragment>
@@ -109,13 +114,16 @@ const Previous = props => {
 }
 
 const Submit = props => {
-  const { isActive } = props
+  const { isActive, doneUrl } = props
 
   if (isActive) {
     return (
       <button
         className={`button ${props.disabled ? "button--disabled" : null}`}
-        onClick={() => props.submitAction(props.disabled)}
+        onClick={() => {
+          props.submitAction(props.disabled)
+          navigateTo(`/inquire/done${doneUrl}`)
+        }}
         disabled={props.disabled}
       >
         Submit
