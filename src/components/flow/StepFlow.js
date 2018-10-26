@@ -23,6 +23,10 @@ class StepFlow extends React.Component {
     this.setQueryValues = this.setQueryValues.bind(this);
   }
 
+  componentDidMount() {
+    this.setQueryValues()
+  }
+
   querySetFormValue(variable, page, field) {
     const queryVariable = util.getQueryVariable(variable)
 
@@ -32,10 +36,6 @@ class StepFlow extends React.Component {
       this.setState(newState,
       () => this.validateField(page, field, queryVariable))
     }
-  }
-
-  componentDidMount() {
-    this.setQueryValues()
   }
 
   setQueryValues() {

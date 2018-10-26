@@ -39,22 +39,23 @@ const Step = props => {
     doneUrl,
   } = props
 
-  if (isActive) {
+  const activeStyles = !isActive ? {display: 'none'} : {display: 'inherit'}
+
+  // if (isActive) {
     return (
-      <React.Fragment>
-        <form className="inquire-page--body xs-col-12">
-          {page.forms.map((item, i) => {
-            return (
-              <StepInput
-                key={i}
-                pageNumber={pageNumber}
-                formNumber={i}
-                handleChange={props.handleChange}
-                {...item}
-              />
-            )
-          })}
-        </form>
+      <div style={activeStyles}>
+        <input type="hidden" name="utf8" value="✓"/>
+        {page.forms.map((item, i) => {
+          return (
+            <StepInput
+              key={i}
+              pageNumber={pageNumber}
+              formNumber={i}
+              handleChange={props.handleChange}
+              {...item}
+            />
+          )
+        })}
         <div className="inquire-page--footer xs-col-12">
           <Previous
             isActive={displayPrevious}
@@ -75,9 +76,9 @@ const Step = props => {
             doneUrl={doneUrl}
           />
         </div>
-      </React.Fragment>
+      </div>
     )
-  } else return null
+  // } else return null
 }
 
 const Next = props => {
@@ -85,14 +86,14 @@ const Next = props => {
 
   if (isActive) {
     return (
-      <button
+      <div
         className="button"
         onClick={() => props.goToNextStep()}
         type="Next"
         disabled={props.disabled}
       >
         Next
-      </button>
+      </div>
     )
   } else return null
 }
@@ -102,13 +103,13 @@ const Previous = props => {
 
   if (isActive) {
     return (
-      <button
+      <div
         className="button button--secondary"
         onClick={() => props.goToPreviousStep()}
         type="Previous"
       >
         Previous
-      </button>
+      </div>
     )
   } else return null
 }
@@ -119,10 +120,11 @@ const Submit = props => {
   if (isActive) {
     return (
       <button
+        type="submit"
         className={`button ${props.disabled ? "button--disabled" : null}`}
         onClick={() => {
           props.submitAction(props.disabled)
-          navigateTo(`/inquire/done${doneUrl}`)
+          // navigateTo(`/inquire/done${doneUrl}`)
         }}
         disabled={props.disabled}
       >

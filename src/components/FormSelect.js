@@ -24,7 +24,7 @@ const FormSelect = props => {
   })
   return(
     <FormFieldset className={className}>
-      <label className="form-label">{label}</label>
+      <label className="form-label" htmlFor={id}>{label}</label>
       <select
         id={id}
         name={id}

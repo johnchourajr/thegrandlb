@@ -30,7 +30,7 @@ const StepHeader = props => {
         children={props.children}
         goToStep={props.goToStep}
       />
-      <h1>{headerText}</h1>
+      <h3 className="display">{headerText}</h3>
     </div>
   )
 }
@@ -92,7 +92,14 @@ class StepList extends React.Component {
           goToStep={this.goToStep}
           flowPages={this.props.flowPages}
         />
-        {this.renderSteps()}
+        <form
+          className="inquire-page--body xs-col-12"
+          acceptCharset="UTF-8"
+          action="https://formkeep.com/f/16c7029a33cf"
+          method="POST"
+        >
+          {this.renderSteps()}
+        </form>
       </div>
     )
   }

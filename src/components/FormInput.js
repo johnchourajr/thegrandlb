@@ -23,7 +23,7 @@ const FormInput = props => {
 
   return (
     <FormFieldset className={className}>
-      <label className="form-label">{label}</label>
+      <label className="form-label" htmlFor={id}>{label}</label>
       <input
         id={id}
         name={id}

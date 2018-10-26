@@ -5,6 +5,7 @@ import Link from 'gatsby-link'
 import Content, { HTMLContent } from '../components/Content'
 import Layout from '../components/core/Layout'
 import InquiryWrap from '../components/InquiryWrap'
+import InquiryDone from '../components/InquiryDone'
 import { goBack } from '../components/functions/util'
 
 
@@ -14,11 +15,7 @@ const InquireDonePage = ({ data, status }) => {
   return (
     <Layout status={status}>
       <InquiryWrap>
-        <section className="section">
-          <div className="wrapper">
-            Done
-          </div>
-        </section>
+        <InquiryDone/>
       </InquiryWrap>
     </Layout>
   )
