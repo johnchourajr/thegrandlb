@@ -709,6 +709,7 @@
 
     span {
       padding: 0 0.75rem;
+      transition: opacity 1s linear;
     }
   }
 
@@ -734,14 +735,6 @@
     }
   }
 }
-
-
-
-
-
-
-
-
 
 
 .small {

@@ -41,6 +41,11 @@ class InquiryDone extends React.Component {
 
   render () {
     const { name, eventName, email } = this.state
+    let urlQuery = ""
+
+    if (window && window.location.search) {
+      urlQuery = window.location.search
+    }
 
     return(
       <section className="section">
@@ -53,13 +58,19 @@ class InquiryDone extends React.Component {
             <p className="xs-text-center large">Hey <u>{name}</u>, we’re honored to help with your <u>{eventName}</u> event. An email has been sent to <u>{email}</u> with the details you provided.</p>
             <p className="xs-text-center large">Our Event Professionals will touch base in 1-2 Business Days.</p>
           </div>
-          <div className="xs-my4 xs-flex xs-flex-align-center xs-flex-justify-center">
-            <button
+          <div className="inquire-page--footer xs-flex xs-flex-align-center xs-flex-justify-center">
+            <Link
               className={`button button--secondary`}
-              onClick={() => navigateTo(`/`)}
+              to={`/inquire${urlQuery}`}
             >
               Return to Website
-            </button>
+            </Link>
+            <Link
+              className={`button`}
+              to={`/`}
+            >
+              Return to Website
+            </Link>
           </div>
         </div>
       </section>
