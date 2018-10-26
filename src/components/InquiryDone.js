@@ -10,6 +10,7 @@ class InquiryDone extends React.Component {
       name: "...",
       eventName: "...",
       email: "...",
+      urlQuery: "",
     }
   }
 
@@ -18,11 +19,17 @@ class InquiryDone extends React.Component {
       const name = this.getParameterByName("glb-contact-name")
       const eventName = this.getParameterByName("glb-event-name")
       const email = this.getParameterByName("glb-contact-email")
+      let urlQuery = ""
+
+      if (window.location.search) {
+        urlQuery = window.location.search
+      }
 
       this.setState({
         name: name,
         eventName: eventName,
         email: email,
+        urlQuery: urlQuery,
       })
     }
   }
@@ -40,12 +47,7 @@ class InquiryDone extends React.Component {
   }
 
   render () {
-    const { name, eventName, email } = this.state
-    let urlQuery = ""
-
-    if (window && window.location.search) {
-      urlQuery = window.location.search
-    }
+    const { name, eventName, email, urlQuery } = this.state
 
     return(
       <section className="section">
@@ -63,7 +65,7 @@ class InquiryDone extends React.Component {
               className={`button button--secondary`}
               to={`/inquire${urlQuery}`}
             >
-              Return to Website
+              Change Answers
             </Link>
             <Link
               className={`button`}
