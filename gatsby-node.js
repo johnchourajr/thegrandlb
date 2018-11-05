@@ -16,6 +16,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
             }
             frontmatter {
               templateKey
+              title
+              path
             }
           }
         }
@@ -29,20 +31,46 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
     const posts = result.data.allMarkdownRemark.edges
 
-    posts.forEach(edge => {
-      const id = edge.node.id
+    // posts.forEach(edge => {
+    //   const prev = index === 0 ? false : posts[index - 1].edge.node
+    //   const next =
+    //     index === posts.length - 1 ? false : posts[index + 1].edge.node
+    //   const id = edge.node.id
+    //   createPage({
+    //     path: edge.node.fields.slug,
+    //     // tags: edge.node.frontmatter.tags,
+    //     component: path.resolve(
+    //       `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
+    //     ),
+    //     // additional data can be passed via context
+    //     context: {
+    //       id,
+    //       prev,
+    //       next
+    //     },
+    //   })
+    // })
+
+    // Create pages for each markdown file.
+    posts.forEach(({ node }, index) => {
+      const prev = index === 0 ? false : posts[index - 1].node
+      const next =
+        index === posts.length - 1 ? false : posts[index + 1].node
+      const id = node.id
       createPage({
-        path: edge.node.fields.slug,
-        // tags: edge.node.frontmatter.tags,
+        path: node.fields.slug,
         component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
+          `src/templates/${String(node.frontmatter.templateKey)}.js`
         ),
-        // additional data can be passed via context
         context: {
           id,
-        },
+          prev,
+          next
+        }
       })
     })
+
+    return posts
   })
 }
 

@@ -1,4 +1,10 @@
 @include header-color(tour, $grandCream);
+@include header-color(tourgrand-ballroom, $grandCream);
+@include header-color(tourcatalina-room, $grandCream);
+@include header-color(tourmonarch-room, $grandCream);
+@include header-color(tourgarden-room, $grandCream);
+@include header-color(tourpacific-room, $grandCream);
+@include header-color(tourpalm-courtyard, $grandCream);
 @include header-color(events, $grandSilver);
 @include header-color(menus, $grandPink);
 @include header-color(about, $grandCream);
@@ -6,26 +12,39 @@
 
 
 .section {
-  padding: 2.25rem 0;
-  margin: 2.25rem 0;
+  // padding: 1.25rem 0;
+  margin: 3.5rem 0;
 
   @include solid-breakpoint(sm) {
-    padding: 2.5rem 0;
-    margin: 2.5rem 0;
+    // padding: 1.5rem 0;
+    margin: 4rem 0;
   }
 
   @include solid-breakpoint(md) {
-    padding: 3rem 0;
-    margin: 3rem 0;
+    // padding: 2rem 0;
+    margin: 5rem 0;
   }
 
   @include solid-breakpoint(lg) {
-    padding: 4rem 0;
-    margin: 4rem 0;
+    // padding: 3rem 0;
+    margin: 7rem 0;
   }
 
   &--offset {
     padding-top: 20em;
+  }
+}
+
+.section--head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  &--caption {
+    max-width: 26.875rem;
+    font-size: 1.25em;
+    margin: 1.5em 0 0;
   }
 }
 
@@ -140,7 +159,7 @@
   height: calc(60vh);
   max-height: 100vw;
   width: 100vw;
-  margin: 10em 0 10em;
+  margin: 6em 0 4em;
 
   &:after {
     content: "";
@@ -252,7 +271,7 @@
 .page-feature {
 
   &--wrapper {
-    margin-bottom: -$space-6;
+    margin-bottom: -$space-3;
   }
 
   &--lower-bar {
@@ -320,10 +339,6 @@
     }
   }
 
-  // @include solid-breakpoint(md) {
-  //   margin-bottom: 0;
-  // }
-
   &:after {
     content: "";
     position: absolute;
@@ -337,11 +352,10 @@
 }
 
 .number-wrap {
-  margin-top: 1rem;
-
-  @include solid-breakpoint(md) {
-    margin-top: 2rem;
-  }
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 
   @include solid-breakpoint(lg) {
     margin-top: 3rem;
@@ -352,12 +366,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 4em 0 1em;
+  margin: 2em 0 .75em;
+  padding-left: 1em;
+  padding-right: 1em;
+
+  @include solid-breakpoint(md) {
+    margin: 3em 0 .75em;
+  }
+
+  @include solid-breakpoint(lg) {
+    margin: 4em 0 1em;
+  }
 
   &--value {
     display: flex;
     align-items: baseline;
     justify-content: center;
+  }
+
+  &--value-min {
+    h1 {
+      font-size: 3em;
+
+      &.display {
+        font-size: 4.5em;
+      }
+    }
   }
 
   &--caption {
@@ -595,6 +629,9 @@
 
 .page-list {
   margin-top: -4rem !important;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   position: relative;
   padding-bottom: 1.25rem;
   margin-bottom: 1.25rem;
@@ -740,5 +777,85 @@
 .small {
   & > * {
     font-size: .75rem;
+  }
+}
+
+
+.icon-item {
+  &--wrap {
+    padding-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  padding-left: 1em;
+  padding-right: 1em;
+
+  &--icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 1.74rem;
+    background-color: $grandPink;
+    margin-bottom: 1.5rem;
+  }
+
+  &--text {
+
+  }
+}
+
+
+.room-switch {
+
+  &--image-group {
+    height: calc(80vh - 3rem);
+    max-height: 120vw;
+    min-height: 40rem;
+    width: 100vw;
+    position: relative;
+    background-color: $black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    @include solid-breakpoint(sm) {
+      max-height: 100vw;
+    }
+
+    @include solid-breakpoint(lg) {
+      max-height: 90vh;
+    }
+  }
+
+  &--image-item {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    transition: opacity .3s linear;
+    opacity: 0;
+    z-index: 0;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  &--button-group {
+    display: flex;
+    justify-content: center;
+    margin-top: -1.25em;
   }
 }

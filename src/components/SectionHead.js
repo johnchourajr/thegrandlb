@@ -4,18 +4,25 @@ import Buttons from '../components/Buttons'
 
 // Component
 const SectionHead = props => {
-
-  if (props.heading || props.buttons) {
-    return (
-      <div className="section--head">
-        <h2 className={`display xs-text-center ${props.headingClassName}`}>{props.heading}</h2>
+  return (
+    <div className="section--head">
+      {
+        props.heading &&
+        <h2 className={`clearfix display xs-text-center ${props.headingClassName}`}>{props.heading}</h2>
+      }
+      {
+        props.subHead &&
+        <p className={`clearfix xs-text-center section--head--caption ${props.subHeadClassName}`}>{props.subHead}</p>
+      }
+      {
+        props.buttons &&
         <Buttons
-          className="xs-flex xs-flex-justify-center"
+          className="clearfix xs-flex xs-flex-justify-center"
           buttons={props.buttons ? props.buttons : []}
         />
-      </div>
-    )
-  } else return null
+      }
+    </div>
+  )
 }
 
 export default SectionHead

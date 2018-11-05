@@ -30,7 +30,7 @@ const StepHeader = props => {
         children={props.children}
         goToStep={props.goToStep}
       />
-      <h3 className="display">{headerText}</h3>
+    <h3 className="display xs-text-center">{headerText}</h3>
     </div>
   )
 }

@@ -5,6 +5,13 @@
 @include body-color(inquire, $grandBabyBlue, $black)
 @include body-color(inquiredone, $grandCream, $black)
 
+.clearfix {
+  &:before, &:after {
+    font-size: 0;
+    height: 0;
+  }
+}
+
 html.tourmap {
   background-color: $grandCream;
 }

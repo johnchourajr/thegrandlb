@@ -48,13 +48,12 @@ class InquiryDone extends React.Component {
 
   render () {
     const { name, eventName, email, urlQuery } = this.state
-
     return(
       <section className="section">
         <div className="wrapper">
           <div className="inquire-page--header">
             <h6 className="xs-mb3">Done</h6>
-            <h3 className="display">We'll Be In Touch</h3>
+            <h3 className="display xs-text-center">We'll Be In Touch</h3>
           </div>
           <div className="clearfix xs-col-12 md-col-6 md-offset-3 lg-col-4 lg-offset-4">
             <p className="xs-text-center large">Hey <u>{name}</u>, we’re honored to help with your <u>{eventName}</u> event. An email has been sent to <u>{email}</u> with the details you provided.</p>

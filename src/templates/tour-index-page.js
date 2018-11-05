@@ -21,9 +21,6 @@ const TourIndex = ({ data, status, location }) => {
   const { edges: posts } = data.postData
   const { pathname } = location
   const currentPage = slugify(pathname)
-  console.log(currentPage);
-
-  console.log();
 
   return (
     <Layout status={status}>
@@ -60,14 +57,14 @@ const TourIndex = ({ data, status, location }) => {
       <PageSection
         heading={frontmatter.carousel.heading}
       >
-        <PageCarousel
-          items={[...frontmatter.carousel.array]}
-          settings={{
-            showIndicators: true,
-            infiniteLoop: true,
-            emulateTouch: true,
-          }}
-        />
+      <PageCarousel
+        items={[...frontmatter.carousel.array]}
+        settings={{
+          showIndicators: true,
+          infiniteLoop: true,
+          emulateTouch: true,
+        }}
+      />
       </PageSection>
       <PageSection
         heading={frontmatter.cta.heading}

@@ -10,10 +10,14 @@
   width: 100vw;
   z-index: 5;
   overflow: hidden;
-  padding-top: 5rem;
+  padding-top: 6rem;
 
   @include solid-breakpoint(md) {
-    padding-top: 6.5rem;
+    padding-top: 8rem;
+  }
+
+  @include solid-breakpoint(lg) {
+    padding-top: 10rem;
   }
 
   .wrapper {

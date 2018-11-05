@@ -12,13 +12,38 @@ body, .wrapper, .segue-card {
   .button {
     padding: $space-2 $space-3 !important;
     font-size: .85em !important;
+    font-weight: 800 !important; 
     letter-spacing: 0.15em;
     text-transform: uppercase;
     background-color: $grandRed;
     color: $grandBabyBlue;
+    border-width: 2px !important;
 
     @include solid-breakpoint(md) {
       padding: $space-3 $space-4 !important;
+    }
+  }
+
+  .button-group {
+    border-width: 0;
+    border-color: transparent;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .button {
+      margin-top: -1.5px !important;
+      margin-left: -1.5px !important;
+      padding: $space-1 $space-2 !important;
+      font-size: .75em !important;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background-color: $grandRed;
+      color: $grandBabyBlue;
+
+      @include solid-breakpoint(md) {
+        padding: $space-2 $space-3 !important;
+      }
     }
   }
 
