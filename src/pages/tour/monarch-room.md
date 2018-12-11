@@ -6,6 +6,18 @@ heading: |
   The Monarch
   Room
 hero: "/img/placeholder--ballroom-img.jpg"
+roomMeta:
+  eventType:
+  - Weddings
+  - Social
+  - Corporate
+  roomFeatures:
+  - Attached Outdoor Patio
+  - Dance Floor
+  - Sound System
+  - Cocktail Area
+  guestCount:
+  - 675
 numbers:
   description: |
     The Grand Ballroom
@@ -44,14 +56,14 @@ ameneties:
     text: "Dynamic Lighting"
 roomswitch:
   array:
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Social Layout"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Wedding Layout"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Theater Layout"
-  - img: "/img/placeholder--ballroom-img.jpg"
+  - img: "/img/tour-rooms/monarch-room/aligned/Monarch_Room_Wedding_Side.jpg"
+    caption: "Social/Wedding Layout"
+  - img: "/img/tour-rooms/monarch-room/aligned/Monarch_Room_Corporate_Side.jpg"
     caption: "Workshop Layout"
+  - img: "/img/tour-rooms/monarch-room/aligned/Monarch_Patio_Wedding.jpg"
+    caption: "Patio Ceremony Layout"
+  - img: "/img/tour-rooms/monarch-room/aligned/Monarch_Patio_Social.jpg"
+    caption: "Patio Social Layout"
 carousel:
   array:
   - img: "/img/placeholder--front-img.jpg"

@@ -5,7 +5,20 @@ title: The Grand Ballroom
 heading: |
   The Grand
   Ballroom
-hero: "/img/placeholder--ballroom-img.jpg"
+hero: "/img/placeholder--video.mp4"
+roomMeta:
+  eventType:
+  - Weddings
+  - Social
+  - Corporate
+  roomFeatures:
+  - Attached Outdoor Patio
+  - Dance Floor
+  - Stage
+  - Sound System
+  - Cocktail Area
+  guestCount:
+  - 675
 numbers:
   description: |
     The Grand Ballroom
@@ -44,13 +57,13 @@ ameneties:
     text: "Dynamic Lighting"
 roomswitch:
   array:
-  - img: "/img/placeholder--front-img.jpg"
+  - img: "/img/tour-rooms/grand-ballroom/aligned/Grand_Ballroom_Social_Front.jpg"
     caption: "Social Layout"
-  - img: "/img/placeholder--ballroom-img.jpg"
+  - img: "/img/tour-rooms/grand-ballroom/aligned/Grand_Ballroom_Wedding_Front.jpg"
     caption: "Wedding Layout"
-  - img: "/img/placeholder--front-img.jpg"
+  - img: "/img/tour-rooms/grand-ballroom/aligned/Grand_Ballroom_Theater_Front.jpg"
     caption: "Theater Layout"
-  - img: "/img/placeholder--ballroom-img.jpg"
+  - img: "/img/tour-rooms/grand-ballroom/aligned/Grand_Ballroom_Corporate_Front.jpg"
     caption: "Workshop Layout"
 carousel:
   array:

@@ -14,13 +14,16 @@ import PageSegue from '../components/PageSegue'
 import NumberArray from '../components/NumberArray'
 import AmenetiesArray from '../components/AmenetiesArray'
 import RoomSwitch from '../components/RoomSwitch'
+import Video from '../components/Video'
 
 function prevNextButton(el) {
-  return el.frontmatter.templateKey === 'tour-template-page' && el && (
-    <Link to={el.frontmatter.path}>
-      {el.frontmatter.title}
-    </Link>
-  )
+  if (el.frontmatter.templateKey) {
+    return el.frontmatter.templateKey === 'tour-template-page' && el && (
+      <Link to={el.frontmatter.path}>
+        {el.frontmatter.title}
+      </Link>
+    )
+  } else return null
 }
 
 const TourTemplatePage = ({ data, status, location, pathContext }) => {
@@ -29,8 +32,10 @@ const TourTemplatePage = ({ data, status, location, pathContext }) => {
   const { pathname } = location
   const { next, prev } = pathContext
   const currentPage = slugify(pathname)
+  const pageName = currentPage.replace("tour","")
 
-  console.log(pathContext);
+  // console.log(pathContext);
+  console.log(pageName);
 
   return (
     <Layout status={status}>
@@ -38,8 +43,11 @@ const TourTemplatePage = ({ data, status, location, pathContext }) => {
         title={'Welcome To'}
         heading={frontmatter.heading}
       />
-      <div className="page-image-full ">
-        <div className="img" style={{backgroundImage: `url(${withPrefix(frontmatter.hero)})`}}></div>
+      <div className="page-image-full page-image-full--clean">
+        <Video
+          source={[`/video/rooms/${pageName}.compressed.mp4`]}
+          poster={`/video/rooms/${pageName}-poster.jpg`}
+        />
       </div>
       <NumberArray
         subHead={frontmatter.numbers.description}
@@ -50,9 +58,9 @@ const TourTemplatePage = ({ data, status, location, pathContext }) => {
         subHead={frontmatter.ameneties.description}
         array={frontmatter.ameneties.array}
       />
-      <RoomSwitch
+      {frontmatter.roomswitch && <RoomSwitch
         array={frontmatter.roomswitch.array}
-      />
+      />}
       <PageSection>
         <PageCarousel
           items={[...frontmatter.carousel.array]}
@@ -90,10 +98,10 @@ const TourTemplatePage = ({ data, status, location, pathContext }) => {
       />
       <div>
         <div>
-          {prevNextButton(prev)}
+          {prev && prevNextButton(prev)}
         </div>
         <div>
-          {prevNextButton(next)}
+          {next && prevNextButton(next)}
         </div>
       </div>
     </Layout>

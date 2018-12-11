@@ -8739,6 +8739,10 @@ react-transition-group@^2.2.1, react-transition-group@^2.4.0:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
+react-video-cover@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-video-cover/-/react-video-cover-1.2.0.tgz#3763b67effafaa6659973813cc2f53a90a0f9e1e"
+
 react-waypoint@^7.1.0:
   version "7.3.4"
   resolved "https://registry.yarnpkg.com/react-waypoint/-/react-waypoint-7.3.4.tgz#6f4a167ca71c0877576699d6980089f001137f90"

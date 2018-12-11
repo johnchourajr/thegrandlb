@@ -218,6 +218,14 @@
     transform: translateY(1em);
     transition: all .75s $easeOutCubic .5s;
     text-shadow: 0 0 30px rgba($black, 1);
+
+    a {
+      text-decoration: underline;
+    }
+
+    & > p, a {
+      color: $white;
+    }
   }
 }
 

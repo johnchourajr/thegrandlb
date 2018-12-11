@@ -6,6 +6,16 @@ heading: |
   The Pacific
   Room
 hero: "/img/placeholder--ballroom-img.jpg"
+roomMeta:
+  eventType:
+  - Weddings
+  - Social
+  - Corporate
+  roomFeatures:
+  - Dance Floor
+  - Sound System
+  guestCount:
+  - 675
 numbers:
   description: |
     The Grand Ballroom
@@ -44,13 +54,9 @@ ameneties:
     text: "Dynamic Lighting"
 roomswitch:
   array:
-  - img: "/img/placeholder--front-img.jpg"
+  - img: "/img/tour-rooms/pacific-room/aligned/Pacific_Room_Social_Front.jpg"
     caption: "Social Layout"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Wedding Layout"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Theater Layout"
-  - img: "/img/placeholder--ballroom-img.jpg"
+  - img: "/img/tour-rooms/pacific-room/aligned/Pacific_Room_Corporate_Front.jpg"
     caption: "Workshop Layout"
 carousel:
   array:

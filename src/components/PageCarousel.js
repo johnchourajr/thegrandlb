@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link, { withPrefix } from 'gatsby-link'
+import ReactMarkdown from 'react-markdown'
 
 // Component
 const PageCarousel = props => {
@@ -22,7 +23,7 @@ const PageCarousel = props => {
           className={`carousel-slide carousel-slide--${i}`}
           style={{backgroundImage: `url(${item.img})`}}
         >
-          <p className="caption">{item.caption}</p>
+          <ReactMarkdown className="caption">{item.caption}</ReactMarkdown>
         </div>
       )
     }

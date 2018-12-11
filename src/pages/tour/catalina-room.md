@@ -6,6 +6,17 @@ heading: |
   The Catalina
   Room
 hero: "/img/placeholder--ballroom-img.jpg"
+roomMeta:
+  eventType:
+  - Weddings
+  - Social
+  - Corporate
+  roomFeatures:
+  - Dance Floor
+  - Stage
+  - Sound System
+  guestCount:
+  - 675
 numbers:
   description: |
     The Grand Ballroom
@@ -40,11 +51,11 @@ ameneties:
     text: "Dynamic Lighting"
 roomswitch:
   array:
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Social Layout"
-  - img: "/img/placeholder--front-img.jpg"
+  - img: "/img/tour-rooms/catalina-room/aligned/Social_Catalina_Front.jpg"
+    caption: "Social/Wedding Layout"
+  - img: "/img/tour-rooms/catalina-room/aligned/Corporate_Catalina_Front.jpg"
     caption: "Theater Layout"
-  - img: "/img/placeholder--ballroom-img.jpg"
+  - img: "/img/tour-rooms/catalina-room/aligned/Theater_Catalina_Front.jpg"
     caption: "Workshop Layout"
 carousel:
   array:

@@ -6,6 +6,18 @@ heading: |
   The Palm
   Courtyard
 hero: "/img/placeholder--ballroom-img.jpg"
+roomMeta:
+  eventType:
+  - Weddings
+  - Social
+  - Corporate
+  roomFeatures:
+  - Outdoors
+  - Dance Floor
+  - Sound System
+  - Cocktail Area
+  guestCount:
+  - 675
 numbers:
   description: |
     The Grand Ballroom
@@ -44,14 +56,10 @@ ameneties:
     text: "Dynamic Lighting"
 roomswitch:
   array:
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Social Layout"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Wedding Layout"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Theater Layout"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Workshop Layout"
+  - img: "/img/tour-rooms/palm-courtyard/aligned/Palm_Courtyard_Social_Front.jpg"
+    caption: "Social/Wedding Layout"
+  - img: "/img/tour-rooms/palm-courtyard/aligned/Palm_Courtyard_Wedding_Front.jpg"
+    caption: "Wedding Ceremony Layout"
 carousel:
   array:
   - img: "/img/placeholder--front-img.jpg"

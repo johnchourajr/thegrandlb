@@ -6,17 +6,24 @@ heading: |
   The Board
   Room
 hero: "/img/placeholder--ballroom-img.jpg"
+roomMeta:
+  eventType:
+  - Corporate
+  roomFeatures:
+  - Large Mahogany table
+  guestCount:
+  - 30
 numbers:
   description: |
     The Grand Ballroom
     by Purely Numbers
   array:
-  - number: "5,524"
+  - number: "570"
     caption: "Total Square Feet"
-  - number: "675"
+  - number: "30"
     caption: "Max Occupancy"
-  - number: "36’x20’"
-    caption: "Dance Floor"
+  - number: "15’"
+    caption: "Mahogany Table"
 ameneties:
   description: "Ameneties"
   array:
@@ -42,29 +49,15 @@ ameneties:
     text: "Cocktail Area"
   - img: ""
     text: "Dynamic Lighting"
-roomswitch:
-  array:
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Social Layout"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Wedding Layout"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Theater Layout"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Workshop Layout"
 carousel:
   array:
-  - img: "/img/placeholder--front-img.jpg"
+  - img: "/img/tour-rooms/board-room/index.jpg"
     caption: "Placeholder Image"
-  - img: "/img/placeholder--ballroom-img.jpg"
+  - img: "/img/tour-rooms/board-room/details/1.jpg"
     caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
+  - img: "/img/tour-rooms/board-room/details/2.jpg"
     caption: "Placeholder Image"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--ballroom-img.jpg"
+  - img: "/img/tour-rooms/board-room/details/3.jpg"
     caption: "Placeholder Image"
 events:
   - text: |

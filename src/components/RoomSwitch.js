@@ -18,7 +18,7 @@ const RoomSwitchButton = props => {
   const activeStyles = isActive ? "" : "button--secondary"
   return(
     <React.Fragment>
-      <input className="button-group__radio" type="radio" id={props.caption} value={props.caption} name={props.caption} checked={activeChecked} />
+      <input className="button-group__radio" type="radio" id={props.caption} value={props.caption} name={props.caption} defaultChecked={activeChecked} />
       <label className={`button ${activeStyles} button-group__item`} htmlFor={props.caption} onClick={(e) => props.handleRadio(e, props.index)}>{props.caption}</label>
     </React.Fragment>
   )
