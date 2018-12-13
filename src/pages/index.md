@@ -28,7 +28,7 @@ topFeatures:
     Facility
   url: "/tour/"
 ctaUpper:
-  img: "/img/placeholder--cta-img.jpg"
+  img: "/img/moments/party.jpg"
   accent: "grandBabyBlue"
   heading: |
     Plan Your
@@ -88,8 +88,16 @@ numbers:
     number: "2"
     suffix: "k"
     caption: "Total Number of Guests"
+  - prefix: ""
+    number: "1.2"
+    suffix: "k"
+    caption: "Complimentary Parking Spots"
+  - prefix: ""
+    number: "1"
+    suffix: ""
+    caption: "World Class Kitchen"
 ctaLower:
-  img: "/img/placeholder--cta-img-2.jpg"
+  img: "/img/moments/party-2.jpg"
   accent: "grandPink"
   heading: |
     Plan Your

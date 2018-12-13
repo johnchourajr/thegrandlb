@@ -1,5 +1,6 @@
 import React from 'react'
-import VideoCover from 'react-video-cover'
+
+import VideoCover from './thirdparty/VideoCover'
 
 const Video = props => {
 

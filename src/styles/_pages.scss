@@ -499,6 +499,34 @@
     }
   }
 
+  &--1, &--3 {
+    position: relative;
+
+    &:after {
+      content: "";
+      background-color: transparent;
+      position: absolute;
+
+      @include solid-breakpoint(md) {
+        content: "";
+        background-color: $grandBabyBlue;
+        position: absolute;
+        top: 6rem;
+        left: 6rem;
+        width: 60%;
+        height: 100%;
+        z-index: -1;
+      }
+    }
+  }
+
+  // &--1 {
+  //   &:after {
+  //     top: 10%;
+  //     left: 10%;
+  //   }
+  // }
+
   &--2 {
 
     a {

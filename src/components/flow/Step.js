@@ -86,14 +86,14 @@ const Next = props => {
 
   if (isActive) {
     return (
-      <div
+      <button
         className="button"
         onClick={() => props.goToNextStep()}
         type="Next"
         disabled={props.disabled}
       >
         Next
-      </div>
+      </button>
     )
   } else return null
 }
@@ -103,13 +103,13 @@ const Previous = props => {
 
   if (isActive) {
     return (
-      <div
+      <button
         className="button button--secondary"
         onClick={() => props.goToPreviousStep()}
         type="Previous"
       >
         Previous
-      </div>
+      </button>
     )
   } else return null
 }
