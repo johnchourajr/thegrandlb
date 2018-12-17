@@ -5,7 +5,7 @@ import Divider from './Divider'
 
 // Component
 const PageSection = props => {
-  
+
   return (
     <React.Fragment>
       {props.topDivider && <Divider top />}
@@ -16,6 +16,8 @@ const PageSection = props => {
             headingClassName={props.headingClassName}
             subHead={props.subHead}
             subHeadClassName={props.subHeadClassName}
+            caption={props.caption}
+            captionClassName={props.captionClassName}
             buttons={props.buttons}
           />
           {props.children}

@@ -115,7 +115,11 @@ class VideoCoverFallback extends Component {
           }}
           style={style}
           {...this.props.videoOptions}
-        />
+        >
+          {this.props.source.map((item, i) => (
+            <source key={i} src={item.src} type={item.type}/>
+          ))}
+        </video>
       </div>
     );
   }

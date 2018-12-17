@@ -15,6 +15,12 @@ const SectionHead = props => {
         <p className={`clearfix xs-text-center section--head--caption ${props.subHeadClassName}`}>{props.subHead}</p>
       }
       {
+        props.caption &&
+        <div className={`clearfix ${props.captionClassName}`}>
+          <p className="page-header--caption">{props.caption}</p>
+        </div>
+      }
+      {
         props.buttons &&
         <Buttons
           className="clearfix xs-flex xs-flex-justify-center"

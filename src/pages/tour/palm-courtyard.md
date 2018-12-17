@@ -5,75 +5,77 @@ title: The Palm Courtyard
 heading: |
   The Palm
   Courtyard
-hero: "/img/placeholder--ballroom-img.jpg"
+hero: "/img/tour-rooms/palm-courtyard/index.sm.jpg"
 roomMeta:
   eventType:
   - Weddings
   - Social
-  - Corporate
+  eventTypeInfo:
+  - type: "Weddings"
+    description: "Great for large Weddings ceremonies and receptions."
+  - type: "Social"
+    description: "Great for open and outdoor social events."
   roomFeatures:
   - Outdoors
   - Dance Floor
   - Sound System
   - Cocktail Area
   guestCount:
-  - 675
+  - 400
 numbers:
   description: |
-    The Grand Ballroom
-    by Purely Numbers
+    The Palm Courtyard
+    by Purely the Numbers
   array:
-  - number: "5,524"
+  - number: "3,400"
     caption: "Total Square Feet"
-  - number: "675"
+  - number: "400"
     caption: "Max Occupancy"
-  - number: "36’x20’"
-    caption: "Dance Floor"
 ameneties:
   description: "Ameneties"
   array:
-  - img: ""
-    text: "Venetian Columns"
-  - img: ""
+  - img: "outdoor-2.svg"
+    text: "Tropical Landscaping"
+  - img: "pa.svg"
     text: "PA Sound System"
-  - img: ""
+  - img: "dancing.svg"
     text: "Dance Floor"
-  - img: ""
+  - img: "dressing.svg"
     text: "Dressing Room"
-  - img: ""
-    text: "Projector Screen"
-  - img: ""
-    text: "Outdoor Patio"
-  - img: ""
-    text: "Stage"
-  - img: ""
-    text: "Green Room"
-  - img: ""
-    text: "Bar"
-  - img: ""
-    text: "Cocktail Area"
-  - img: ""
+  - img: "fire.svg"
+    text: "Fire-pits & Heaters"
+  - img: "twinkle.svg"
+    text: "String Twinkle Lights"
+  - img: "bar.svg"
+    text: "Full Private Bar"
+  - img: "cocktail.svg"
+    text: "Side Cocktail Areas"
+  - img: "lighting.svg"
     text: "Dynamic Lighting"
 roomswitch:
   array:
-  - img: "/img/tour-rooms/palm-courtyard/aligned/Palm_Courtyard_Social_Front.jpg"
+  - img: "/img/tour-rooms/palm-courtyard/aligned/social.jpg"
     caption: "Social/Wedding Layout"
-  - img: "/img/tour-rooms/palm-courtyard/aligned/Palm_Courtyard_Wedding_Front.jpg"
+  - img: "/img/tour-rooms/palm-courtyard/aligned/wedding.jpg"
     caption: "Wedding Ceremony Layout"
 carousel:
   array:
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Placeholder Image"
+  - img: "/img/tour-rooms/palm-courtyard/details/7.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/palm-courtyard/details/2.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/palm-courtyard/details/3.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/palm-courtyard/details/4.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/palm-courtyard/details/5.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/palm-courtyard/details/6.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/palm-courtyard/details/1.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/palm-courtyard/details/8.jpg"
+    caption: ""
 events:
   - text: |
       Pageants
@@ -82,10 +84,19 @@ events:
       Weddings
     img: ""
   - text: |
-      Workshops
+      Holiday
+      Parties
     img: ""
   - text: |
       Fundraisers
+    img: ""
+  - text: |
+      Celebrations
+      of Life
+    img: ""
+  - text: |
+      Dating
+      Mixers
     img: ""
   - text: |
       Birthdays
@@ -94,20 +105,8 @@ events:
       Quinceanera
     img: ""
   - text: |
-      Church
-      Services
-    img: ""
-  - text: |
-      Corporate
-      Conferences
-    img: ""
-  - text: |
-      Memorial
-      Services
-    img: ""
-  - text: |
-      Corporate
-      Events
+      Evening
+      Cocktail Hours
     img: ""
   - text: |
       Parties of
@@ -115,11 +114,11 @@ events:
     img: ""
 cta:
   heading: |
-    Book The Grand
-    Ballroom
+    Book The Palm
+    Courtyard
   buttons:
   - text: "Let's Do It"
-    url: "/inquire?glb-rooms=The Grand Ballroom"
+    url: "/inquire?glb-rooms=The Palm Courtyard"
 ctaAllRoom:
   subhead: |
     Keep Touring

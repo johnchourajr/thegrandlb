@@ -5,12 +5,19 @@ title: The Grand Ballroom
 heading: |
   The Grand
   Ballroom
-hero: "/img/placeholder--video.mp4"
+hero: "/img/tour-rooms/grand-ballroom/index.sm.jpg"
 roomMeta:
   eventType:
   - Weddings
   - Social
   - Corporate
+  eventTypeInfo:
+  - type: "Weddings"
+    description: "Great for large wedding receptions."
+  - type: "Social"
+    description: "Excellent for large social gatherings and parties."
+  - type: "Corporate"
+    description: "Perfect for large workshops and conferences."
   roomFeatures:
   - Attached Outdoor Patio
   - Dance Floor
@@ -20,9 +27,9 @@ roomMeta:
   guestCount:
   - 675
 numbers:
-  description: |
+  subhead: |
     The Grand Ballroom
-    by Purely Numbers
+    by Purely the Numbers
   array:
   - number: "5,524"
     caption: "Total Square Feet"
@@ -33,52 +40,52 @@ numbers:
 ameneties:
   description: "Ameneties"
   array:
-  - img: ""
+  - img: "columns.svg"
     text: "Venetian Columns"
-  - img: ""
+  - img: "pa.svg"
     text: "PA Sound System"
-  - img: ""
+  - img: "dancing.svg"
     text: "Dance Floor"
-  - img: ""
+  - img: "dressing.svg"
     text: "Dressing Room"
-  - img: ""
+  - img: "projector.svg"
     text: "Projector Screen"
-  - img: ""
-    text: "Outdoor Patio"
-  - img: ""
+  - img: "outdoor-1.svg"
+    text: "Private Outdoor Patio"
+  - img: "stage.svg"
     text: "Stage"
-  - img: ""
-    text: "Green Room"
-  - img: ""
-    text: "Bar"
-  - img: ""
-    text: "Cocktail Area"
-  - img: ""
+  - img: "bar.svg"
+    text: "Bar Service"
+  - img: "cocktail.svg"
+    text: "Large Cocktail Area"
+  - img: "lighting.svg"
     text: "Dynamic Lighting"
 roomswitch:
   array:
-  - img: "/img/tour-rooms/grand-ballroom/aligned/Grand_Ballroom_Social_Front.jpg"
-    caption: "Social Layout"
-  - img: "/img/tour-rooms/grand-ballroom/aligned/Grand_Ballroom_Wedding_Front.jpg"
+  - img: "/img/tour-rooms/grand-ballroom/aligned/wedding.jpg"
     caption: "Wedding Layout"
-  - img: "/img/tour-rooms/grand-ballroom/aligned/Grand_Ballroom_Theater_Front.jpg"
+  - img: "/img/tour-rooms/grand-ballroom/aligned/social.jpg"
+    caption: "Social  Layout"
+  - img: "/img/tour-rooms/grand-ballroom/aligned/corporate.jpg"
     caption: "Theater Layout"
-  - img: "/img/tour-rooms/grand-ballroom/aligned/Grand_Ballroom_Corporate_Front.jpg"
+  - img: "/img/tour-rooms/grand-ballroom/aligned/theater.jpg"
     caption: "Workshop Layout"
 carousel:
   array:
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Placeholder Image"
+  - img: "/img/tour-rooms/grand-ballroom/index.jpg"
+    caption: "The Main Space"
+  - img: "/img/tour-rooms/grand-ballroom/details/1.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/grand-ballroom/details/2.jpg"
+    caption: "Chiffon Ceiling Draping"
+  - img: "/img/tour-rooms/grand-ballroom/details/3.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/grand-ballroom/details/4.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/grand-ballroom/details/5.jpg"
+    caption: "Patio Landscaping"
+  - img: "/img/tour-rooms/grand-ballroom/details/6.jpg"
+    caption: "Attached Private Patio"
 events:
   - text: |
       Pageants
@@ -94,6 +101,10 @@ events:
     img: ""
   - text: |
       Birthdays
+    img: ""
+  - text: |
+      Sports
+      Banquets
     img: ""
   - text: |
       Quinceanera

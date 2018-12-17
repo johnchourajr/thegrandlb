@@ -12,10 +12,9 @@ const PageImage = props => {
   }
 
   return (
-    <div className={`page-image-full ${props.className}`}>
-      <div className="img" style={styles}>
-        {props.children}
-      </div>
+    <div className={`page-image page-image-full ${props.className}`}>
+      <div className="img" style={styles}/>
+      {props.children}
     </div>
   )
 }

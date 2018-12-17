@@ -14,17 +14,20 @@ import PageSegue from '../components/PageSegue'
 import NumberArray from '../components/NumberArray'
 import AmenetiesArray from '../components/AmenetiesArray'
 import RoomSwitch from '../components/RoomSwitch'
+import RoomCard from '../components/RoomCard'
 import Video from '../components/Video'
 
-function prevNextButton(el) {
-  if (el.frontmatter.templateKey) {
-    return el.frontmatter.templateKey === 'tour-template-page' && el && (
-      <Link to={el.frontmatter.path}>
-        {el.frontmatter.title}
-      </Link>
-    )
-  } else return null
-}
+// function prevNextButton(el) {
+//   if (el.frontmatter.templateKey) {
+//     return el.frontmatter.templateKey === 'tour-template-page' && el && (
+//       <RoomCard
+//         hero={el.frontmatter.hero}
+//         heading={el.frontmatter.title}
+//         slug={el.fields.slug}
+//       />
+//     )
+//   } else return null
+// }
 
 const TourTemplatePage = ({ data, status, location, pathContext }) => {
   const { frontmatter, html } = data.pageData
@@ -35,7 +38,7 @@ const TourTemplatePage = ({ data, status, location, pathContext }) => {
   const pageName = currentPage.replace("tour","")
 
   // console.log(pathContext);
-  console.log(pageName);
+  // console.log(next);
 
   return (
     <Layout status={status}>
@@ -45,12 +48,16 @@ const TourTemplatePage = ({ data, status, location, pathContext }) => {
       />
       <div className="page-image-full page-image-full--clean">
         <Video
-          source={[`/video/rooms/${pageName}.compressed.mp4`]}
+        source={[
+          { src: `/video/rooms/${pageName}.compressed.mp4`, type: 'video/mp4'},
+          { src: `/video/rooms/${pageName}.compressed.ogv`, type: 'video/ogv'},
+          { src: `/video/rooms/${pageName}.compressed.webm`, type: 'video/webm'},
+        ]}
           poster={`/video/rooms/${pageName}-poster.jpg`}
         />
       </div>
       <NumberArray
-        subHead={frontmatter.numbers.description}
+        subHead={frontmatter.numbers.subhead}
         array={frontmatter.numbers.array}
         isMin
       />
@@ -96,14 +103,14 @@ const TourTemplatePage = ({ data, status, location, pathContext }) => {
         subHeadClassName={"xs-mb4"}
         buttons={frontmatter.ctaAllRoom.buttons}
       />
-      <div>
-        <div>
+      {/*<div className="clearfix ">
+        <div className="xs-col-12 sm-col-6">
           {prev && prevNextButton(prev)}
         </div>
-        <div>
+        <div className="xs-col-12 sm-col-6">
           {next && prevNextButton(next)}
         </div>
-      </div>
+      </div>*/}
     </Layout>
   )
 }
@@ -119,9 +126,9 @@ export const basicPageQuery = graphql`
         title
         heading
         hero
+        metaDescription
         numbers {
-          heading
-          description
+          subhead
           array {
             number
             caption

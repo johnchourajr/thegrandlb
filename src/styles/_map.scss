@@ -14,6 +14,7 @@
     $incriment: $unit * 2;
     width: calc(100vw + #{$incriment}vw);
     height: calc((100vw + #{$incriment}vw) * .59);
+    max-height: 70rem;
     top: 0; left: -#{$unit}vw; right: -#{$unit}vw; bottom: 0;
     position: absolute;
 
@@ -22,6 +23,7 @@
       $incriment: $unit * 2;
       width: calc(100vw + #{$incriment}vw);
       height: calc((100vw + #{$incriment}vw) * .59);
+      max-height: 70rem;
       top: 0; left: -#{$unit}vw; right: -#{$unit}vw; bottom: 0;
     }
   }
@@ -48,6 +50,7 @@
   @include solid-breakpoint(md) {
     margin-top: -18em;
     margin-bottom: -10em;
+    max-height: 50rem;
   }
 
   &:before, &:after {

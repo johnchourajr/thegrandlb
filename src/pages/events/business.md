@@ -1,87 +1,61 @@
 ---
-templateKey: 'basic-page'
+templateKey: 'events-template-page'
 path: /events/business
 title: Business Events
 heading: |
   Meetings In
   Grand Style
 carousel:
-  description: "Our Favorites"
+  description: "Our Shining Stars"
   array:
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
+  - img: "/img/events/business/1.jpg"
+    caption: "[The Catalina Room](/tour/catalina-room) setup as a workshop"
+  - img: "/img/events/business/2.jpg"
+    caption: "[The Board Room](/tour/board-room) setup for a meeting"
+  - img: "/img/events/business/3.jpg"
+    caption: "[The Garden Room](/tour/garden-room) setup for a meeting"
 statement:
-- "The Grand has been there for over 5,000 wedding days over the past decade."
-- "We’d love to make your day."
+- "The Grand has been there for over 6,000 conferences, workshops, board meetings, and other business-related events over the past decade."
+- "We’d love to make your work-life easier."
 numbers:
   array:
-  - number: "24"
-    caption: "..."
-  - number: "24"
-    caption: "..."
-  - number: "24"
-    caption: "..."
-  - number: "24"
-    caption: "..."
-  - number: "24"
-    caption: "..."
-  - number: "24"
-    caption: "..."
-roomlist: true
+  - number: "5"
+    description: |  
+      Average Meetings
+      Per Week
+    isMin: true
+  - number: "346"
+    description: |  
+      Meetings
+      Last Year
+    isMin: true
+  - number: "14"
+    suffix: "hrs"
+    description: |  
+      Conferences and
+      Workshops Per Month
+    isMin: true
+  - number: "Mon."
+    description: |  
+      Most Popular
+      Meeting Day
+    isMin: true
+  - number: "13"
+    description: |  
+      Average
+      Meeting Attendance
+    isMin: true
+filterlist:
+  heading: |
+    The Best
+    Rooms
+  description: "We think these event spaces are the best for business events of all shapes and sizes"
+  filtertype: "Corporate"
 cta:
   heading: |
-    Tell Us About
-    Your Event
+    Let's Get
+    Crackin'
   buttons:
-  - text: "Plan Your Private Event"
-    url: "/inquire/"
-    function: "planEvent('')"
----
----
-
-### Our Favorites
-**[NOTE: IMAGE-GALLERY]**
-
----
-
-The Grand has been there for over 5,000 EVENT-NAME over the past decade.
-
-We’d love to make your day.
-
-**[NOTE: list of facts dependent on real data]**
-- 25, Age of average attendee
-- 216, EVENT-NAME last year
-- 4, Average EVENT-NAME duration
-- Saturday, Most popular day for an EVENT-NAME
-- 320, Average wedding attendance
-
----
-
-## The Best Rooms
-We think these event spaces are the best for EVENT-NAME
-
-Options:
-- Event Type (Preselect EVENT-NAME)
-- Room Features
-- Guest Count
-
-**[NOTE: Shows rooms filtered by options selected]**
-
----
-
-## Book Your EVENT-NAME
-
-Button:
-- Let's Do It (/inquire/)
-
+  - text: "Plan Your Event"
+    url: "/inquire?glb-event-type=Business"
 ---

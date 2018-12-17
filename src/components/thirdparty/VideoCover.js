@@ -61,6 +61,10 @@ class VideoCover extends Component {
      * Use this to set a custom className.
      */
     className: PropTypes.string,
+    /**
+     * Use this to declair a single or multple sources
+     */
+    source: PropTypes.array,
   };
 
   static defaultProps = {
@@ -81,13 +85,17 @@ class VideoCover extends Component {
           <CoverFallback {...this.props} />
         );
       }
-    } 
+    }
     return (
       <video
         className={this.props.className}
         style={style}
         {...this.props.videoOptions}
-      />
+      >
+        {this.props.source.map((item, i) => (
+          <source key={i} src={item.src} type={item.type}/>
+        ))}
+      </video>
     );
   }
 }

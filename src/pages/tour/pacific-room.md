@@ -5,107 +5,84 @@ title: The Pacific Room
 heading: |
   The Pacific
   Room
-hero: "/img/placeholder--ballroom-img.jpg"
+hero: "/img/tour-rooms/pacific-room/index.sm.jpg"
 roomMeta:
   eventType:
   - Weddings
   - Social
   - Corporate
+  eventTypeInfo:
+  - type: "Weddings"
+    description: "Great for small wedding receptions."
+  - type: "Social"
+    description: "Excellent for small social gatherings and parties."
+  - type: "Corporate"
+    description: "Perfect for workshops and company parties."
   roomFeatures:
   - Dance Floor
   - Sound System
   guestCount:
-  - 675
+  - 90
 numbers:
   description: |
-    The Grand Ballroom
-    by Purely Numbers
+    The Pacific Room
+    by Purely the Numbers
   array:
-  - number: "5,524"
+  - number: "1,557"
     caption: "Total Square Feet"
-  - number: "675"
+  - number: "90"
     caption: "Max Occupancy"
-  - number: "36’x20’"
+  - number: "19’x11’"
     caption: "Dance Floor"
 ameneties:
   description: "Ameneties"
   array:
-  - img: ""
-    text: "Venetian Columns"
-  - img: ""
+  - img: "art.svg"
+    text: "Pacific Coast Artwork"
+  - img: "pa.svg"
     text: "PA Sound System"
-  - img: ""
+  - img: "dancing.svg"
     text: "Dance Floor"
-  - img: ""
-    text: "Dressing Room"
-  - img: ""
+  - img: "projector.svg"
     text: "Projector Screen"
-  - img: ""
-    text: "Outdoor Patio"
-  - img: ""
-    text: "Stage"
-  - img: ""
-    text: "Green Room"
-  - img: ""
-    text: "Bar"
-  - img: ""
-    text: "Cocktail Area"
-  - img: ""
+  - img: "bar.svg"
+    text: "Private Bar"
+  - img: "lighting.svg"
     text: "Dynamic Lighting"
 roomswitch:
   array:
-  - img: "/img/tour-rooms/pacific-room/aligned/Pacific_Room_Social_Front.jpg"
+  - img: "/img/tour-rooms/pacific-room/aligned/social.jpg"
     caption: "Social Layout"
-  - img: "/img/tour-rooms/pacific-room/aligned/Pacific_Room_Corporate_Front.jpg"
+  - img: "/img/tour-rooms/pacific-room/aligned/corporate.jpg"
     caption: "Workshop Layout"
 carousel:
   array:
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Placeholder Image"
+  - img: "/img/tour-rooms/pacific-room/details/1.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/pacific-room/details/2.jpg"
+    caption: "Chiffon Ceiling Draping"
+  - img: "/img/tour-rooms/pacific-room/details/3.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/pacific-room/details/4.jpg"
+    caption: ""
 events:
   - text: |
-      Pageants
-    img: ""
-  - text: |
-      Weddings
+      Small Wedding
+      Receptions
     img: ""
   - text: |
       Workshops
     img: ""
   - text: |
-      Fundraisers
-    img: ""
-  - text: |
       Birthdays
     img: ""
   - text: |
-      Quinceanera
-    img: ""
-  - text: |
-      Church
-      Services
-    img: ""
-  - text: |
-      Corporate
-      Conferences
-    img: ""
-  - text: |
-      Memorial
-      Services
-    img: ""
-  - text: |
-      Corporate
+      Holiday
       Events
+    img: ""
+  - text: |
+      50th Anniversary
+      Celebrations
     img: ""
   - text: |
       Parties of
@@ -113,11 +90,11 @@ events:
     img: ""
 cta:
   heading: |
-    Book The Grand
-    Ballroom
+    Book The
+    Pacific Room
   buttons:
   - text: "Let's Do It"
-    url: "/inquire?glb-rooms=The Grand Ballroom"
+    url: "/inquire?glb-rooms=The Pacific Room"
 ctaAllRoom:
   subhead: |
     Keep Touring
@@ -125,61 +102,4 @@ ctaAllRoom:
   - text: "View All Rooms"
     url: "/tour/map"
     isSecondary: true
----
----
-
-**[HEADER-LOOPING-VIDEO-REEL]**
-
----
-
-ROOM-NAME by purely numbers
-
-- X Square Feet
-- X Total Capacity
-- X Banquet Capacity
-- X Classroom Capacity
-- X Theater Capacity
-- X Dance Floor Size
-
----
-
-Ameneties
-
-**[NOTE: list dependent on room capabilities]**
-- PA System
-- Dance floor
-- Dressing Room
-- Projector Screen
-- ...
-
----
-
-**[IMAGE-GALLERY]**
-
----
-
-Some ideas of the kind of events that work best in this room
-
-**[NOTE: list dependent on room capabilities]**
-- Church Services
-- Quinceanera Birthdays
-- Business Conferences
-- ...
-
----
-
-## Book The ROOM-NAME
-[Let's Do It](/inquire/) (/inquire/)
-
----
-
-Keep Touring
-[View All Rooms](/tour/map/) (/tour/map/)
-
-#### Prev Room
-**[NOTE: PREV-ROOM-LINK]**
-
-#### Next Room
-**[NOTE: NEXT-ROOM-LINK]**
-
 ---

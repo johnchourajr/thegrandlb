@@ -12,7 +12,7 @@ body, .wrapper, .segue-card {
   .button {
     padding: $space-2 $space-3 !important;
     font-size: .85em !important;
-    font-weight: 800 !important; 
+    font-weight: 800 !important;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     background-color: $grandRed;
@@ -21,6 +21,16 @@ body, .wrapper, .segue-card {
 
     @include solid-breakpoint(md) {
       padding: $space-3 $space-4 !important;
+
+      &:not(.button--disabled):not(:disabled) {
+        transition: transform .3s $easeOutCubic !important;
+        transform: scale(1) !important;
+
+        &:hover {
+          transition: transform .3s $easeOutCubic !important;
+          transform: scale(1.025) !important;
+        }
+      }
     }
   }
 
@@ -43,6 +53,12 @@ body, .wrapper, .segue-card {
 
       @include solid-breakpoint(md) {
         padding: $space-2 $space-3 !important;
+      }
+
+      &:not(.button--disabled):not(:disabled) {
+        &:hover {
+          transform: scale(1) !important;
+        }
       }
     }
   }

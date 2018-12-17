@@ -28,8 +28,14 @@ const IndexPage = ({ data, status }) => {
       <PageHero
         title={frontmatter.title}
         heading={frontmatter.heading}
-        video={["/video/home.compressed.mp4"]}
-        videoPoster={"/video/home-poster.jpg"}
+        video={{
+          source: [
+            { src: '/video/home.compressed.mp4', type: 'video/mp4'},
+            { src: '/video/home.compressed.ogv', type: 'video/ogv'},
+            { src: '/video/home.compressed.webm', type: 'video/webm'},
+          ],
+          poster: "/video/home-poster.jpg",
+        }}
         img="/img/placeholder--front-img.jpg"
         buttons={[
           {

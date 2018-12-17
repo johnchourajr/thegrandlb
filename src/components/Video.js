@@ -5,7 +5,6 @@ import VideoCover from './thirdparty/VideoCover'
 const Video = props => {
 
   const videoOptions = {
-    src: props.source,
     poster: props.poster,
     autoPlay: true,
     muted: true,
@@ -16,6 +15,7 @@ const Video = props => {
     <div className="video">
       <VideoCover
         videoOptions={videoOptions}
+        source={props.source}
         remeasureOnWindowResize
       />
     </div>

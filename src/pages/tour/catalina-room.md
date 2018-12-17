@@ -5,22 +5,29 @@ title: The Catalina Room
 heading: |
   The Catalina
   Room
-hero: "/img/placeholder--ballroom-img.jpg"
+hero: "/img/tour-rooms/catalina-room/index.sm.jpg"
 roomMeta:
   eventType:
   - Weddings
   - Social
   - Corporate
+  eventTypeInfo:
+  - type: "Weddings"
+    description: "Great for large wedding receptions."
+  - type: "Social"
+    description: "Excellent for large social gatherings and parties."
+  - type: "Corporate"
+    description: "Perfect for large workshops and conferences."
   roomFeatures:
   - Dance Floor
   - Stage
   - Sound System
   guestCount:
-  - 675
+  - 400
 numbers:
-  description: |
-    The Grand Ballroom
-    by Purely Numbers
+  subhead: |
+    The Catalina Room
+    by Purely the Numbers
   array:
   - number: "3,340"
     caption: "Total Square Feet"
@@ -31,46 +38,46 @@ numbers:
 ameneties:
   description: "Ameneties"
   array:
-  - img: ""
+  - img: "art.svg"
     text: "Catalina Artwork"
-  - img: ""
+  - img: "pa.svg"
     text: "PA Sound System"
-  - img: ""
+  - img: "dancing.svg"
     text: "Dance Floor"
-  - img: ""
+  - img: "dressing.svg"
     text: "Dressing Room"
-  - img: ""
+  - img: "projector.svg"
     text: "Projector Screen"
-  - img: ""
+  - img: "stage.svg"
     text: "Stage"
-  - img: ""
-    text: "Green Room"
-  - img: ""
-    text: "Bar"
-  - img: ""
+  - img: "bar.svg"
+    text: "Bar Service"
+  - img: "lighting.svg"
     text: "Dynamic Lighting"
 roomswitch:
   array:
-  - img: "/img/tour-rooms/catalina-room/aligned/Social_Catalina_Front.jpg"
+  - img: "/img/tour-rooms/catalina-room/aligned/social.jpg"
     caption: "Social/Wedding Layout"
-  - img: "/img/tour-rooms/catalina-room/aligned/Corporate_Catalina_Front.jpg"
+  - img: "/img/tour-rooms/catalina-room/aligned/corporate.jpg"
     caption: "Theater Layout"
-  - img: "/img/tour-rooms/catalina-room/aligned/Theater_Catalina_Front.jpg"
+  - img: "/img/tour-rooms/catalina-room/aligned/theater.jpg"
     caption: "Workshop Layout"
 carousel:
   array:
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Placeholder Image"
+  - img: "/img/tour-rooms/catalina-room/index.sm.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/catalina-room/details/1.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/catalina-room/details/2.jpg"
+    caption: "Chiffon Ceiling Draping"
+  - img: "/img/tour-rooms/catalina-room/details/3.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/catalina-room/details/4.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/catalina-room/details/5.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/catalina-room/details/6.jpg"
+    caption: ""
 events:
   - text: |
       Pageants
@@ -124,61 +131,4 @@ ctaAllRoom:
   - text: "View All Rooms"
     url: "/tour/map"
     isSecondary: true
----
----
-
-**[HEADER-LOOPING-VIDEO-REEL]**
-
----
-
-ROOM-NAME by purely numbers
-
-- X Square Feet
-- X Total Capacity
-- X Banquet Capacity
-- X Classroom Capacity
-- X Theater Capacity
-- X Dance Floor Size
-
----
-
-Ameneties
-
-**[NOTE: list dependent on room capabilities]**
-- PA System
-- Dance floor
-- Dressing Room
-- Projector Screen
-- ...
-
----
-
-**[IMAGE-GALLERY]**
-
----
-
-Some ideas of the kind of events that work best in this room
-
-**[NOTE: list dependent on room capabilities]**
-- Church Services
-- Quinceanera Birthdays
-- Business Conferences
-- ...
-
----
-
-## Book The ROOM-NAME
-[Let's Do It](/inquire/) (/inquire/)
-
----
-
-Keep Touring
-[View All Rooms](/tour/map/) (/tour/map/)
-
-#### Prev Room
-**[NOTE: PREV-ROOM-LINK]**
-
-#### Next Room
-**[NOTE: NEXT-ROOM-LINK]**
-
 ---

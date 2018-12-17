@@ -35,9 +35,12 @@ const PageSegue = props => {
           return (
             <div
               key={i}
-              style={{backgroundImage: `url(${withPrefix(item.img)})`}}
               className="col xs-col-12 md-col-6 segue-card"
             >
+              <div className="segue-card--img-wrap" >
+                <div className="segue-card--img" style={{backgroundImage: `url(${withPrefix(item.img)})`}} />
+              </div>
+
               <Link to={item.path}>
                 <div className="segue-card--text">
                   <h3 className="display">{item.headline}</h3>

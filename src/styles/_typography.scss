@@ -69,6 +69,7 @@ h6 {
 h1 {
   font-size: $text-1;
   line-height: $line-height-6;
+  letter-spacing: -0.03em;
 
   &.display {
     font-size: $display-1 * .75;
@@ -88,6 +89,7 @@ h1 {
 h2 {
   font-size: $text-2;
   line-height: $line-height-6;
+  letter-spacing: -0.01em;
 
   &.display {
     font-size: $display-2 * .75;

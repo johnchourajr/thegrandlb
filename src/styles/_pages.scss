@@ -6,6 +6,10 @@
 @include header-color(tourpacific-room, $grandCream);
 @include header-color(tourpalm-courtyard, $grandCream);
 @include header-color(events, $grandSilver);
+@include header-color(eventsweddings, $grandSilver);
+@include header-color(eventsbusiness, $grandSilver);
+@include header-color(eventsmilestones, $grandSilver);
+
 @include header-color(menus, $grandPink);
 @include header-color(about, $grandCream);
 @include header-color(contact, $grandBabyBlue);
@@ -113,6 +117,15 @@
   }
 }
 
+.page-image {
+  &:hover {
+    .img {
+      transition: transform 4s $easeOutCubic;
+      transform: scale(1.05);
+    }
+  }
+}
+
 .page-image-full {
   height: calc(80vh - 3rem);
   max-height: 120vw;
@@ -141,6 +154,7 @@
     background-position: center;
     background-size: cover;
     z-index: 0;
+    transition: transform 3s $easeOutCubic;
 
     &:after {
       content: "";
@@ -402,22 +416,22 @@
 
   &--value-min {
     h1 {
-      font-size: 3em;
+      font-size: 2em;
 
       &.display {
-        font-size: 4.5em;
+        font-size: 3.5em;
       }
     }
   }
 
-  &--caption {
+  &--caption > p {
     margin-top: .3em;
     margin-bottom: 1em;
   }
 
-  &--description {
+  &--description > p {
     font-size: $text-6;
-    line-height: 1.5;
+    line-height: 1.25;
     max-width: 18.75rem;
     color: rgba($black, .5);
   }
@@ -599,6 +613,11 @@
   }
 }
 
+.segue-card:hover {
+  .segue-card--img {
+    transform: scale(1.05);
+  }
+}
 
 .segue-card {
   background-size: cover;
@@ -662,6 +681,19 @@
       margin-bottom: -2rem;
     }
   }
+
+  &--img-wrap {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    overflow: hidden;
+  }
+
+  &--img {
+    background-size: cover;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    transition: transform 3s $easeOutCubic;
+  }
 }
 
 .page-statement {
@@ -722,12 +754,19 @@
 }
 
 
+.menu-list--item {
+  &:hover {
+    transform: scale(1.025);
+  }
+}
+
 .menu-list {
   &--item {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 2rem;
+    transition: transform .3s $easeOutCubic;
 
     @include solid-breakpoint(md) {
       margin-bottom: 4rem;
@@ -848,7 +887,7 @@
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 1.74rem;
-    background-color: $grandPink;
+    // background-color: $grandBabyBlue;
     margin-bottom: 1.5rem;
   }
 

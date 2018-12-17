@@ -54,13 +54,11 @@
       }
 
       &.previous  {
-        &:after { left: 1.5rem; }
-        &:before { left: 1.5rem; }
+        &:after, &:before { left: 1.5rem; }
       }
 
       &.next  {
-        &:after { right: 1.5rem; }
-        &:before { right: 1.5rem; }
+        &:after, &:before { right: 1.5rem; }
       }
     }
 
@@ -195,11 +193,22 @@
     min-height: 50vw;
   }
 
+  @include solid-breakpoint(lg) {
+    width: 80vw;
+    height: 40vw;
+    min-height: 40vw;
+  }
+
   &.is-selected {
 
     @include solid-breakpoint(sm) {
       margin-top: -3rem;
       height: calc(50vw + 6rem);
+    }
+
+    @include solid-breakpoint(lg) {
+      margin-top: -3rem;
+      height: calc(40vw + 6rem);
     }
 
     .caption {

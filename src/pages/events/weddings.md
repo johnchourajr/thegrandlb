@@ -1,5 +1,5 @@
 ---
-templateKey: 'basic-page'
+templateKey: 'events-template-page'
 path: /events/weddings
 title: Weddings
 heading: |
@@ -8,80 +8,54 @@ heading: |
 carousel:
   description: "Our Favorites"
   array:
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
+  - img: "/img/events/weddings/1.jpg"
+    caption: "A ceremony on [The Monarch Room](/tour/monarch-room) Patio"
+  - img: "/img/events/weddings/2.jpg"
+    caption: "A reception in [The Garden Room](/tour/garden-room)"
+  - img: "/img/events/weddings/3.jpg"
+    caption: "A reception in [The Monarch Room](/tour/monarch-room)"
 statement:
 - "The Grand has been there for over 5,000 wedding days over the past decade."
 - "We’d love to make your day."
 numbers:
   array:
-  - number: "24"
-    caption: "..."
-  - number: "24"
-    caption: "..."
-  - number: "24"
-    caption: "..."
-  - number: "24"
-    caption: "..."
-  - number: "24"
-    caption: "..."
-  - number: "24"
-    caption: "..."
-roomlist: true
+  - number: "25"
+    description: |  
+      Average
+      Couple Age
+    isMin: true
+  - number: "416"
+    description: |  
+      Weddings
+      Last Year
+    isMin: true
+  - number: "4"
+    suffix: "hrs"
+    description: |  
+      Average
+      Wedding Duration
+    isMin: true
+  - number: "Sat."
+    description: |  
+      Most Popular
+      Wedding Day
+    isMin: true
+  - number: "320"
+    description: |  
+      Average
+      Wedding Attendance
+    isMin: true
+filterlist:
+  heading: |
+    The Best
+    Rooms
+  description: "We think these event spaces are the best for weddings"
+  filtertype: "Weddings"
 cta:
   heading: |
-    Tell Us About
-    Your Event
+    Let's Get
+    Married
   buttons:
-  - text: "Plan Your Private Event"
-    url: "/inquire/"
-    function: "planEvent('')"
----
----
-
-### Our Favorites
-**[NOTE: IMAGE-GALLERY]**
-
----
-
-The Grand has been there for over 5,000 EVENT-NAME over the past decade.
-
-We’d love to make your day.
-
-**[NOTE: list of facts dependent on real data]**
-- 25, Age of average attendee
-- 216, EVENT-NAME last year
-- 4, Average EVENT-NAME duration
-- Saturday, Most popular day for an EVENT-NAME
-- 320, Average wedding attendance
-
----
-
-## The Best Rooms
-We think these event spaces are the best for EVENT-NAME
-
-Options:
-- Event Type (Preselect EVENT-NAME)
-- Room Features
-- Guest Count
-
-**[NOTE: Shows rooms filtered by options selected]**
-
----
-
-## Book Your EVENT-NAME
-
-Button:
-- Let's Do It (/inquire/)
-
+  - text: "Plan Your Wedding"
+    url: "/inquire?glb-event-type=Wedding"
 ---

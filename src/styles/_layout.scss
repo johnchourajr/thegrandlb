@@ -221,23 +221,106 @@ li {
 
 
 
+.page-card {
+  transition: transform .3s $easeOutCubic;
 
+  &:hover {
+    transform: scale(1.025);
+  }
+}
 
 .card-wrap {
   padding: 4rem 0 2rem;
 }
 
+.card a:hover {
+
+  .card--inner--upper h1 {
+    color: $grandRed;
+  }
+
+  .card--inner--lower {
+    @include solid-breakpoint(md) {
+      bottom: 0rem;
+      opacity: 1;
+
+      & * {
+        color: $grandRed;
+      }
+    }
+  }
+}
+
 .card {
   height: 25vw;
-  min-height: 20rem;
+  min-height: 25rem;
   margin: 1rem 0;
+  overflow: hidden;
   border: none !important;
   background-color: rgba($grandBabyBlue,.5);
   position: relative;
+  background-size: cover;
+  background-position: center;
+
+  &:hover {
+    &:after {
+      background-color: rgba($white, .95);
+    }
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top:-1px; right:-1px; bottom:-1px; left:-1px;
+    background-color: rgba($black, .33);
+    transition: background-color .3s linear;
+    z-index: 0;
+  }
 
   a {
     padding: 3rem;
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
+    text-decoration: none;
+  }
+
+  &--inner {
+    z-index: 2;
+
+    * {
+      color: $grandBabyBlue;
+    }
+
+    &--upper {
+      height: 100%;
+    }
+
+    &--lower {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      background-color: $grandPink;
+      position: absolute;
+      padding: 2rem 3rem 2rem 3rem;
+      left: 0; right: 0; bottom: 0rem;
+      transition: all .4s $easeOutCubic;
+      border-bottom-width: 2px;
+      border-bottom-style: solid;
+      border-bottom-color: $grandRed;
+
+      * {
+        color: $black;
+      }
+
+      @include solid-breakpoint(md) {
+        background-color: transparent;
+        bottom: -1rem;
+        opacity: 0;
+
+        & * {
+          color: $grandBabyBlue;
+        }
+      }
+    }
   }
 }

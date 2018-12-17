@@ -14,94 +14,11 @@ import PageCarousel from '../components/PageCarousel'
 import PageSegue from '../components/PageSegue'
 import NumberArray from '../components/NumberArray'
 import FormSelect from '../components/FormSelect'
+import FilterList from '../components/FilterList'
 import Video from '../components/Video'
 
 import Map from '../components/svg/Map';
 
-
-function outputOptions(data, key) {
-
-  const output = data.map(item => {
-    const items = item.node.frontmatter.roomMeta[key]
-    return items
-  })
-
-  return _.union(...output)
-}
-
-class FilterList extends React.Component {
-
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      data: [],
-      dataFilters: [],
-      filterOptions: [],
-    }
-
-    this.handleFormChange = this.handleFormChange.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState({
-      data: this.props.data,
-      dataFilters: this.createDataFilterSets(this.props.data),
-    })
-  }
-
-  componentDidUpdate() {
-    console.log(this.state);
-  }
-
-  createDataFilterSets(data) {
-    const dataFilterSets = this.props.dataFilters.map(item => {
-      return outputOptions(data, item)
-    })
-    // console.log(dataFilterSets);
-    return dataFilterSets
-  }
-
-  handleFormChange(event, page, field) {
-    this.setState({ [event.target.name]: event.target.value });
-
-  }
-
-  render() {
-    const {
-      data,
-      dataFilters
-    } = this.state
-
-    return(
-      <div className="clearfix gutters card-wrap">
-
-        {data.map(({ node: post }) => (
-          <div key={post.id} className="col xs-col-6">
-            <div className="card">
-              <Link to={post.fields.slug}>
-                {post.frontmatter.heading}
-                <br/>
-                {/*<u>Type:</u>
-                {post.frontmatter.roomMeta.eventType.map((item) => (
-                  <div key={item}>{item}</div>
-                ))}
-                <u>Features:</u>
-                {post.frontmatter.roomMeta.roomFeatures.map((item) => (
-                  <div key={item}>{item}</div>
-                ))}
-                <u>Guest Count:</u>
-                {post.frontmatter.roomMeta.guestCount.map((item) => (
-                  <div key={item}>{item}</div>
-                ))}*/}
-              </Link>
-            </div>
-        </div>
-        ))}
-      </div>
-    )
-  }
-}
 
 const TourIndex = ({ data, status, location }) => {
   const { frontmatter, html } = data.pageData
@@ -114,7 +31,11 @@ const TourIndex = ({ data, status, location }) => {
       <PageHeader title={frontmatter.title} heading={frontmatter.heading} />
       <div className="page-image-full page-image-full--clean">
         <Video
-          source={["/video/tour.compressed.mp4"]}
+          source={[
+            { src: '/video/tour.compressed.mp4', type: 'video/mp4'},
+            { src: '/video/tour.compressed.ogv', type: 'video/ogv'},
+            { src: '/video/tour.compressed.webm', type: 'video/webm'},
+          ]}
           poster={"/video/tour-poster.jpg"}
         />
       </div>
@@ -130,7 +51,7 @@ const TourIndex = ({ data, status, location }) => {
       <PageSection heading={'Yours By Design'}>
         <FilterList
           data={posts}
-          dataFilters={["eventType","roomFeatures","guestCount"]}
+          targetFilter={"all"}
         />
       </PageSection>
       <NumberArray
@@ -220,8 +141,13 @@ export const basicPageQuery = graphql`
             heading
             title
             hero
+            path
             roomMeta {
               eventType
+              eventTypeInfo {
+                type
+                description
+              }
               roomFeatures
               guestCount
             }

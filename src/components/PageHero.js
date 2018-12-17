@@ -14,7 +14,7 @@ const PageHero = props => {
     <div>
       <section className="page-hero page-image-full">
         {!props.video && props.img && <div className="img" style={{backgroundImage: `url(${withPrefix(props.img)})`}}></div>}
-        {props.video && <Video source={props.video} poster={props.videoPoster}/>}
+        {props.video && <Video source={props.video.source} poster={props.video.poster}/>}
         <div className="wrapper">
           <div className="page-hero--wrap">
             <h1 className="page-hero--headline display">

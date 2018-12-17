@@ -5,12 +5,19 @@ title: The Garden Room
 heading: |
   The Garden
   Room
-hero: "/img/placeholder--ballroom-img.jpg"
+hero: "/img/tour-rooms/garden-room/index.sm.jpg"
 roomMeta:
   eventType:
   - Weddings
   - Social
   - Corporate
+  eventTypeInfo:
+  - type: "Weddings"
+    description: "Great for mid-sized wedding receptions."
+  - type: "Social"
+    description: "Excellent for mid-sized social gatherings and parties."
+  - type: "Corporate"
+    description: "Perfect for workshops and company parties."
   roomFeatures:
   - Attached Outdoor Patio
   - Dance Floor
@@ -18,72 +25,61 @@ roomMeta:
   - Sound System
   - Cocktail Area
   guestCount:
-  - 675
+  - 140
 numbers:
   description: |
-    The Grand Ballroom
-    by Purely Numbers
+    The Garden Room
+    by Purely the Numbers
   array:
-  - number: "5,524"
+  - number: "2,757"
     caption: "Total Square Feet"
-  - number: "675"
+  - number: "140"
     caption: "Max Occupancy"
-  - number: "36’x20’"
+  - number: "20’x25’"
     caption: "Dance Floor"
 ameneties:
   description: "Ameneties"
   array:
-  - img: ""
-    text: "Venetian Columns"
-  - img: ""
+  - img: "pa.svg"
     text: "PA Sound System"
-  - img: ""
+  - img: "dancing.svg"
     text: "Dance Floor"
-  - img: ""
-    text: "Dressing Room"
-  - img: ""
+  - img: "projector.svg"
     text: "Projector Screen"
-  - img: ""
-    text: "Outdoor Patio"
-  - img: ""
-    text: "Stage"
-  - img: ""
-    text: "Green Room"
-  - img: ""
-    text: "Bar"
-  - img: ""
-    text: "Cocktail Area"
-  - img: ""
+  - img: "outdoor-2.svg"
+    text: "Attached to Palm Courtyard"
+  - img: "bar.svg"
+    text: "Full Private Bar"
+  - img: "cocktail.svg"
+    text: "Large Cocktail Area"
+  - img: "lighting.svg"
     text: "Dynamic Lighting"
 roomswitch:
   array:
-  - img: "/img/tour-rooms/garden-room/aligned/Garden_Room_Social_7.jpg"
+  - img: "/img/tour-rooms/garden-room/aligned/social.jpg"
     caption: "Social/Wedding Layout"
-  - img: "/img/tour-rooms/garden-room/aligned/Garden_Room_Corporate_1.jpg"
+  - img: "/img/tour-rooms/garden-room/aligned/corporate.jpg"
     caption: "Workshop Layout"
 carousel:
   array:
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--front-img.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/placeholder--ballroom-img.jpg"
-    caption: "Placeholder Image"
+  - img: "/img/tour-rooms/garden-room/details/1.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/garden-room/details/2.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/garden-room/details/3.jpg"
+    caption: "Large Private Bar/Cocktail Area"
+  - img: "/img/tour-rooms/garden-room/details/4.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/garden-room/details/5.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/garden-room/details/6.jpg"
+    caption: ""
 events:
   - text: |
       Pageants
     img: ""
   - text: |
       Weddings
-    img: ""
-  - text: |
-      Workshops
     img: ""
   - text: |
       Fundraisers
@@ -95,12 +91,11 @@ events:
       Quinceanera
     img: ""
   - text: |
-      Church
-      Services
+      Large Corporate
+      Workshops
     img: ""
   - text: |
-      Corporate
-      Conferences
+      Cocktail Hours
     img: ""
   - text: |
       Memorial
@@ -116,11 +111,11 @@ events:
     img: ""
 cta:
   heading: |
-    Book The Grand
-    Ballroom
+    Book The
+    Garden Room
   buttons:
   - text: "Let's Do It"
-    url: "/inquire?glb-rooms=The Grand Ballroom"
+    url: "/inquire?glb-rooms=The Garden Room"
 ctaAllRoom:
   subhead: |
     Keep Touring
@@ -128,61 +123,4 @@ ctaAllRoom:
   - text: "View All Rooms"
     url: "/tour/map"
     isSecondary: true
----
----
-
-**[HEADER-LOOPING-VIDEO-REEL]**
-
----
-
-ROOM-NAME by purely numbers
-
-- X Square Feet
-- X Total Capacity
-- X Banquet Capacity
-- X Classroom Capacity
-- X Theater Capacity
-- X Dance Floor Size
-
----
-
-Ameneties
-
-**[NOTE: list dependent on room capabilities]**
-- PA System
-- Dance floor
-- Dressing Room
-- Projector Screen
-- ...
-
----
-
-**[IMAGE-GALLERY]**
-
----
-
-Some ideas of the kind of events that work best in this room
-
-**[NOTE: list dependent on room capabilities]**
-- Church Services
-- Quinceanera Birthdays
-- Business Conferences
-- ...
-
----
-
-## Book The ROOM-NAME
-[Let's Do It](/inquire/) (/inquire/)
-
----
-
-Keep Touring
-[View All Rooms](/tour/map/) (/tour/map/)
-
-#### Prev Room
-**[NOTE: PREV-ROOM-LINK]**
-
-#### Next Room
-**[NOTE: NEXT-ROOM-LINK]**
-
 ---

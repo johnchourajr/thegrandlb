@@ -20,7 +20,7 @@ const NumberArray = props => {
               suffix={item.suffix}
               caption={item.caption}
               description={item.description}
-              isMin={props.isMin}
+              isMin={item.isMin}
             />
           )
         })}
