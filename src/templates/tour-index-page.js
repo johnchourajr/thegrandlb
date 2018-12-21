@@ -42,7 +42,7 @@ const TourIndex = ({ data, status, location }) => {
       <PageSection
         heading={frontmatter.map.heading}
       />
-      <div className="map-svg--wrapper">
+      <div className="map-svg--wrapper map-svg">
         <Map/>
       </div>
       <PageSection

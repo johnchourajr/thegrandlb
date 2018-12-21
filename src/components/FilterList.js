@@ -58,8 +58,6 @@ class FilterList extends React.Component {
             guestCount
           } = post.frontmatter.roomMeta
 
-          console.log(post);
-
           const targetAll = this.props.targetFilter === "all"
           const targetCondition = _.includes(eventType, this.props.targetFilter)
           const condition = targetAll ? true : targetCondition

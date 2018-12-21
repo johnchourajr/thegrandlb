@@ -3,38 +3,40 @@ import React from 'react'
 
 
 const Map = (props) => {
+  const baseColor = props.baseColor ? props.baseColor : "white"
+
   return(
-    <div className="map-svg">
+    <div className="">
       <svg width="2126" height="1263" viewBox="0 0 2126 1263" fill="none">
         <g clipPath="url(#clip0)">
-        <path d="M2125.2 0H0V1262.87H2125.2V0Z" fill="white"/>
+        <path d="M2125.2 0H0V1262.87H2125.2V0Z" fill={baseColor}/>
         <g className="map-svg--multiply">
         <g className="map-svg--multiply">
-        <path className="room-a" d="M735.562 440.839L703.992 490.669L694.112 506.259L685.562 501.089L622.062 600.839L482.062 523.839L537.062 430.839L735.562 440.839Z" fill="#FDFEFF"/>
+        <path className="room room-a" d="M735.562 440.839L703.992 490.669L694.112 506.259L685.562 501.089L622.062 600.839L482.062 523.839L537.062 430.839L735.562 440.839Z" fill={baseColor}/>
         </g>
         <g className="map-svg--multiply">
-        <path className="room-f" d="M1463.2 731.769L1479.19 758.109L1424.71 791.189L1415.48 775.999L1296.12 848.469L1306.06 864.839L1264.59 890.019L1200.4 784.289H1165.89V731.339L1241.53 684.659L1270.79 666.439L1337.23 625.339L1400.81 729.589L1409.06 730.839L1421.06 749.089L1429.87 751.379L1463.2 731.769Z" fill="#FDFEFF"/>
+        <path className="room room-f" d="M1463.2 731.769L1479.19 758.109L1424.71 791.189L1415.48 775.999L1296.12 848.469L1306.06 864.839L1264.59 890.019L1200.4 784.289H1165.89V731.339L1241.53 684.659L1270.79 666.439L1337.23 625.339L1400.81 729.589L1409.06 730.839L1421.06 749.089L1429.87 751.379L1463.2 731.769Z" fill={baseColor}/>
         </g>
         <g className="map-svg--multiply">
-        <path className="room-board"  d="M886.563 638.859L829.563 731.619L779.143 701.149L836.563 608.349L886.563 638.859Z" fill="#FDFEFF"/>
+        <path className="room room-board"  d="M886.563 638.859L829.563 731.619L779.143 701.149L836.563 608.349L886.563 638.859Z" fill={baseColor}/>
         </g>
         <g className="map-svg--multiply">
-        <path className="room-b" d="M849.753 586.869L836.562 608.349L779.143 701.149L625.562 608.339L622.062 600.839L685.562 501.089L694.112 506.259L693.992 506.669L703.992 490.669L833.842 567.459L829.562 574.839L849.753 586.869Z" fill="#FDFEFF"/>
+        <path className="room room-a" d="M849.753 586.869L836.562 608.349L779.143 701.149L625.562 608.339L622.062 600.839L685.562 501.089L694.112 506.259L693.992 506.669L703.992 490.669L833.842 567.459L829.562 574.839L849.753 586.869Z" fill={baseColor}/>
         </g>
         <g className="map-svg--multiply">
-        <path className="room-c" d="M983.562 544.339L954.062 591.339L975.852 606.049L976.503 606.489L949.562 646.339L926.652 632.689L849.753 586.869L829.562 574.839L833.842 567.459L872.332 501.089L883.062 483.339L983.562 544.339Z" fill="#FDFEFF"/>
+        <path className="room room-c" d="M983.562 544.339L954.062 591.339L975.852 606.049L976.503 606.489L949.562 646.339L926.652 632.689L849.753 586.869L829.562 574.839L833.842 567.459L872.332 501.089L883.062 483.339L983.562 544.339Z" fill={baseColor}/>
         </g>
         <g className="map-svg--multiply">
-        <path className="room-e" d="M1090.06 591.339V560.459L1128.33 538.329L1151.56 576.839L1239.06 523.339L1229.81 507.339L1244.81 498.339L1233.81 480.339L1277.81 454.089L1320.76 523.359L1312.06 528.839L1318.56 539.339L1305.06 547.339L1315.06 563.839L1117.06 680.839H1050.73H1034.06H1018.06V591.339H1029.56H1090.06Z" fill="#FDFEFF"/>
+        <path className="room room-e" d="M1090.06 591.339V560.459L1128.33 538.329L1151.56 576.839L1239.06 523.339L1229.81 507.339L1244.81 498.339L1233.81 480.339L1277.81 454.089L1320.76 523.359L1312.06 528.839L1318.56 539.339L1305.06 547.339L1315.06 563.839L1117.06 680.839H1050.73H1034.06H1018.06V591.339H1029.56H1090.06Z" fill={baseColor}/>
         </g>
         <g className="map-svg--multiply">
-        <path  className="room-g" d="M1488.06 387.339L1517.3 436.339L1498.08 448.269L1363.3 531.949L1322.92 467.199L1479.23 372.669L1488.06 387.339Z" fill="#FDFEFF"/>
+        <path  className="room room-g" d="M1488.06 387.339L1517.3 436.339L1498.08 448.269L1363.3 531.949L1322.92 467.199L1479.23 372.669L1488.06 387.339Z" fill={baseColor}/>
         </g>
         <g className="map-svg--multiply">
-        <path className="room-g" d="M1201.06 271.839L1385.56 159.339L1510.06 352.339L1519.32 368.339L1488.06 387.339L1479.23 372.669L1322.92 467.199L1247.9 346.929L1248.06 346.839L1201.06 271.839Z" fill="#FDFEFF"/>
+        <path className="room room-g" d="M1201.06 271.839L1385.56 159.339L1510.06 352.339L1519.32 368.339L1488.06 387.339L1479.23 372.669L1322.92 467.199L1247.9 346.929L1248.06 346.839L1201.06 271.839Z" fill={baseColor}/>
         </g>
         <g className="map-svg--multiply">
-        <path className="room-d" d="M1233.81 480.339L1277.81 454.089L1222.56 361.839L1247.9 346.928L1201.06 271.839L1189.21 251.375L1131.67 286.488H1131.66L1022.33 353.22L906.612 423.839H765.151L768.062 439.839L872.332 501.089L883.062 483.339L983.562 544.339L989.062 536.339L1025.06 560.458L1029.56 591.339H1090.06V560.458L1128.33 538.328L1151.56 576.839L1239.06 523.339L1229.81 507.339L1244.81 498.339L1233.81 480.339Z" fill="#FDFEFF"/>
+        <path className="room room-d" d="M1233.81 480.339L1277.81 454.089L1222.56 361.839L1247.9 346.928L1201.06 271.839L1189.21 251.375L1131.67 286.488H1131.66L1022.33 353.22L906.612 423.839H765.151L768.062 439.839L872.332 501.089L883.062 483.339L983.562 544.339L989.062 536.339L1025.06 560.458L1029.56 591.339H1090.06V560.458L1128.33 538.328L1151.56 576.839L1239.06 523.339L1229.81 507.339L1244.81 498.339L1233.81 480.339Z" fill={baseColor}/>
         </g>
         </g>
         <path d="M1131.66 286.489H1131.67C1153.77 299.417 1172.04 317.972 1184.63 340.263C1197.22 362.554 1203.67 387.784 1203.33 413.382C1202.99 438.98 1195.87 464.03 1182.7 485.979C1169.52 507.928 1150.76 525.992 1128.33 538.329" stroke="#E0DFDE" strokeWidth="2" strokeMiterlimit="10"/>
@@ -43,7 +45,7 @@ const Map = (props) => {
         <path d="M1180.34 489.769L1164.96 479.879L1150.17 470.369C1140.46 485.448 1127.18 497.905 1111.51 506.639C1092.08 517.46 1069.8 522.067 1047.67 519.839C1025.54 517.612 1004.62 508.656 987.732 494.179L976.292 507.529L964.402 521.419L989.062 536.339" stroke="#E0DFDE" strokeWidth="2" strokeMiterlimit="10"/>
         <path d="M1090.06 560.459V533.99V515.729" stroke="#E0DFDE" strokeWidth="2" strokeMiterlimit="10"/>
         <path d="M1025.06 560.459V533.459V515.729" stroke="#E0DFDE" strokeWidth="2" strokeMiterlimit="10"/>
-        <path d="M1539.89 304.669C1570.56 321.339 1574.56 346.669 1564.23 360.209C1554.92 344.849 1548.56 334.339 1548.56 334.339L1516.06 354.339L1510.06 352.339L1400.51 182.509L1385.56 159.339C1421.89 138.669 1466.56 156.489 1480.56 202.919C1494.56 249.339 1509.43 288.119 1539.89 304.669Z" fill="#FDFEFF"/>
+        <path d="M1539.89 304.669C1570.56 321.339 1574.56 346.669 1564.23 360.209C1554.92 344.849 1548.56 334.339 1548.56 334.339L1516.06 354.339L1510.06 352.339L1400.51 182.509L1385.56 159.339C1421.89 138.669 1466.56 156.489 1480.56 202.919C1494.56 249.339 1509.43 288.119 1539.89 304.669Z" fill={baseColor}/>
         <path d="M1385.56 159.339C1421.89 138.669 1466.56 156.489 1480.56 202.919C1494.56 249.339 1509.43 288.119 1539.89 304.669C1570.56 321.339 1574.56 346.669 1564.23 360.209" stroke="#E0DFDE" strokeWidth="2" strokeMiterlimit="10"/>
         <path d="M864.401 769.359L911.561 797.339H1032.06L1048.17 784.289" stroke="#E0DFDE" strokeWidth="2" strokeMiterlimit="10"/>
         <path d="M1086.95 784.289L1103.06 797.339H1155.06L1175.06 784.289" stroke="#E0DFDE" strokeWidth="2" strokeMiterlimit="10"/>
@@ -246,27 +248,27 @@ const Map = (props) => {
         <use transform="scale(0.00442478 0.00203666)"/>
         </pattern>
         <linearGradient id="paint0_linear" x1="307" y1="522.5" x2="434.565" y2="550.705" gradientUnits="userSpaceOnUse">
-        <stop stopColor="white"/>
-        <stop offset="1" stopColor="white" stopOpacity="0"/>
+        <stop stopColor={baseColor}/>
+        <stop offset="1" stopColor={baseColor} stopOpacity="0"/>
         </linearGradient>
         <linearGradient id="paint1_linear" x1="240" y1="739" x2="459.792" y2="658.432" gradientUnits="userSpaceOnUse">
-        <stop stopColor="white"/>
-        <stop offset="1" stopColor="white" stopOpacity="0"/>
+        <stop stopColor={baseColor}/>
+        <stop offset="1" stopColor={baseColor} stopOpacity="0"/>
         </linearGradient>
         <linearGradient id="paint2_linear" x1="543" y1="966" x2="643.957" y2="848.251" gradientUnits="userSpaceOnUse">
-        <stop stopColor="white"/>
-        <stop offset="1" stopColor="white" stopOpacity="0"/>
+        <stop stopColor={baseColor}/>
+        <stop offset="1" stopColor={baseColor} stopOpacity="0"/>
         </linearGradient>
         <linearGradient id="paint3_linear" x1="1680.5" y1="566" x2="1476.5" y2="518" gradientUnits="userSpaceOnUse">
-        <stop stopColor="white"/>
-        <stop offset="1" stopColor="white" stopOpacity="0"/>
+        <stop stopColor={baseColor}/>
+        <stop offset="1" stopColor={baseColor} stopOpacity="0"/>
         </linearGradient>
         <linearGradient id="paint4_linear" x1="1406.49" y1="153.971" x2="1285.69" y2="78.3384" gradientUnits="userSpaceOnUse">
-        <stop stopColor="white"/>
-        <stop offset="1" stopColor="white" stopOpacity="0"/>
+        <stop stopColor={baseColor}/>
+        <stop offset="1" stopColor={baseColor} stopOpacity="0"/>
         </linearGradient>
         <clipPath id="clip0">
-        <rect width="2125.2" height="1262.87" fill="white"/>
+        <rect width="2125.2" height="1262.87" fill={baseColor}/>
         </clipPath>
         </defs>
       </svg>
