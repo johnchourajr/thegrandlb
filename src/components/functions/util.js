@@ -1,3 +1,8 @@
+import classicMenu from '../../data/menus/classic-menu'
+import corporateMenu from '../../data/menus/corporate-menu'
+import milestoneMenu from '../../data/menus/milestone-menu'
+import weddingMenu from '../../data/menus/wedding-menu'
+
 export function slugify(text) {
   return text.toString().toLowerCase()
     .replace(/\s+/g, '-')           // Replace spaces with -
@@ -64,6 +69,28 @@ export function getQueryVariable(variable) {
     }
     // console.log('Query variable %s not found', variable);
   }
+}
+
+export function outputMenuData(key) {
+  let data
+  switch(key) {
+    case "classicMenu" || "classic" :
+      data = classicMenu
+      break;
+    case "corporateMenu" || "corporate" :
+      data = corporateMenu
+      break;
+    case "milestoneMenu" || "milestone" :
+      data = milestoneMenu
+      break;
+    case "weddingMenu" || "wedding" :
+      data = weddingMenu
+      break;
+    default:
+      data = classicMenu
+      break;
+  }
+  return data
 }
 
 String.prototype.replaceAll = function(searchStr, replaceStr) {

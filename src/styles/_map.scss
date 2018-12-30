@@ -185,9 +185,9 @@
   &--nav {
     z-index: 1;
     position: relative;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    // display: flex;
+    // align-items: center;
+    // flex-direction: column;
 
     @include solid-breakpoint(md) {
       align-items: flex-start;
@@ -207,18 +207,24 @@
     h6 {
       font-size: $text-6;
       margin-bottom: $space-3;
+      text-align: center;
+
+      @include solid-breakpoint(md) {
+        text-align: left;
+      }
     }
 
     &--inner {
       display: flex;
-      align-items: center;
+      align-items: stretch;
       flex-direction: column;
+      max-width: calc(100vw - 4rem);
 
       @include solid-breakpoint(md) {
         align-items: flex-start;
 
         &:hover {
-          a {
+          a, h3, h6 {
             opacity: .2;
           }
         }
@@ -226,21 +232,80 @@
     }
 
     &--item {
-      font-family: $serif;
-      font-size: $text-2;
-      line-height: 1.75;
       opacity: 1;
-      text-decoration-line: none;
       transition: all .3s $easeOutCubic;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
       @include solid-breakpoint(md) {
+        align-items: flex-start;
+
         &:hover {
-          font-size: $text-1;
           opacity: 1 !important;
-          color: $grandRed;
-          transition: all .5s $easeOutCubic;
           text-decoration-line: none;
+          transition: all .5s $easeOutCubic;
+
+          a, h3, h6 {
+            opacity: 1 !important;
+          }
+
+          a {
+            // font-size: $text-1;
+            color: $grandRed;
+            text-decoration-line: none;
+            transition: all .5s $easeOutCubic;
+          }
+
+          .interactive-map--nav--lower {
+            opacity: 1;
+            height: 3.8125rem;
+            transition: all .5s $easeOutCubic .25s;
+          }
         }
+      }
+
+      a {
+        font-family: $serif;
+        font-size: $text-2;
+        text-decoration-line: none;
+        line-height: 1.75;
+        transition: all .3s $easeOutCubic;
+      }
+    }
+
+    &--lower {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 0;
+      opacity: 0;
+      transition: all .5s $easeOutCubic 0s;
+      padding: 0 .25rem;
+
+      &-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 37%;
+        padding: 0 1rem;
+
+        @include solid-breakpoint(md) {
+          padding: 0 1rem 0 0;
+          align-items: flex-start;
+        }
+      }
+
+      h3, h6 {
+
+      }
+
+      h3 {
+
+      }
+
+      h6 {
+        font-size: .55em;
       }
     }
   }

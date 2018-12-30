@@ -1,10 +1,11 @@
 ---
-templateKey: 'basic-page'
+templateKey: 'menu-template-page'
 path: /menus/milestones
 title: Menus
 heading: |
   Our Milestones
   Menu
+data: milestoneMenu
 ---
 ---
 

@@ -1,10 +1,11 @@
 ---
-templateKey: 'basic-page'
+templateKey: 'menu-template-page'
 path: /menus/classic
 title: Menus
 heading: |
   Our Classic
   Menu
+data: classicMenu
 ---
 ---
 

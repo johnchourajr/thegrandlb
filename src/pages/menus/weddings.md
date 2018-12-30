@@ -1,10 +1,11 @@
 ---
-templateKey: 'basic-page'
+templateKey: 'menu-template-page'
 path: /menus/weddings
 title: Menus
 heading: |
   Our Weddings
   Menu
+data: weddingMenu
 ---
 ---
 

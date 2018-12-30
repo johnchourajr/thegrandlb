@@ -8,43 +8,46 @@ import PageHeader from '../components/PageHeader'
 import Map from '../components/svg/Map';
 
 
-// .room-a
-// .room-b
-// .room-c
-// .room-d
-// .room-e
-// .room-f
-// .room-g
-// .room-board
-
 function outputRoomClass(slug) {
-  let className = ""
+  let className
+  let roomNumber
   switch(slug) {
     case "/tour/grand-ballroom/":
       className = "room-g"
+      roomNumber = ""
       break;
     case "/tour/catalina-room/":
       className = "room-f"
+      roomNumber = ""
       break;
     case "/tour/monarch-room/":
       className = "room-a"
+      roomNumber = ""
       break;
     case "/tour/garden-room/":
       className = "room-e"
+      roomNumber = ""
       break;
     case "/tour/pacific-room/":
       className = "room-c"
+      roomNumber = ""
       break;
     case "/tour/board-room/":
       className = "room-board"
+      roomNumber = ""
       break;
     case "/tour/palm-courtyard/":
       className = "room-d"
+      roomNumber = ""
       break;
     default:
       className = ""
+      roomNumber = ""
   }
-  return className
+  return {
+    className,
+    roomNumber
+  }
 }
 
 function toggleElement(el, string) {
@@ -52,7 +55,8 @@ function toggleElement(el, string) {
 }
 
 function mouseEvent(slug) {
-  let element = document.querySelectorAll(`.${outputRoomClass(slug)}`)
+  let output = outputRoomClass(slug)
+  let element = document.querySelectorAll(`.${output.className}`)
   for (var i = 0; i < element.length; i++) {
     toggleElement(element[i], `hover`)
   }
@@ -71,17 +75,32 @@ const MapPage = ({ data, status, history }) => {
           {posts.map(({ node: post }, i) => {
 
             return(
-              <Link
+              <div
                 key={i}
-                to={post.fields.slug}
-                className="interactive-map--nav--item"
                 onMouseOver={(e) => mouseEvent(post.fields.slug)}
                 onMouseOut={(e) => mouseEvent(post.fields.slug)}
                 onTouchStart={(e) => mouseEvent(post.fields.slug)}
                 onTouchEnd={(e) => mouseEvent(post.fields.slug)}
+                className="interactive-map--nav--item"
               >
-                {post.frontmatter.heading}
-              </Link>
+                <Link
+                  key={i}
+                  to={post.fields.slug}
+                >
+                  {post.frontmatter.heading}
+                </Link>
+                <div className="interactive-map--nav--lower">
+                  {post.frontmatter.numbers.array.map((item, i) => {
+                    return (
+                      <div className="interactive-map--nav--lower-inner" key={i}>
+                        <h3>{item.number}</h3>
+                        <h6>{item.caption}</h6>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+
             )
           })}
           </div>
@@ -128,6 +147,12 @@ export const MapPageQuery = graphql`
               }
               roomFeatures
               guestCount
+            }
+            numbers {
+              array {
+                number
+                caption
+              }
             }
           }
         }
