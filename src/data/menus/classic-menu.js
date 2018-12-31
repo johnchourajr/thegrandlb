@@ -33,28 +33,27 @@ const classicMenu = {
             "**Substitute Egg Whites for additional $1.50 per person"
           ],
           items: [
-            {title: "Cinnamon French Toast", description: "Two Slices Texas Toast, Scrambled Eggs & Bacon or Sausage, Maple Syrup, & Powdered Sugar", price: "$19.95 *per person*"},
-            {title: "The All American", description: "Scrambled Eggs with Cheese, Choice of Bacon, Sausage or Ham, Hash Browns, & Fresh Fruit", price: "$19.95 *per person*"},
-            {title: "Traditional Benedict", description: "Two English Muffins Topped with Canadian Bacon, Poached Eggs, & Chipotle Hollandaise Sauce (vegetarian option available upon request)", price: "$19.95 *per person*"},
-            {title: "Fried Chicken & Waffles", description: "Buttermilk Brined, Oven Fried Chicken on top a Belgian Waffle & Chipotle Syrup", price: "$19.95 *per person*"},
-            {title: "Breakfast Croissant", description: "Open-faced Croissant with Scrambled Eggs, Cheddar Cheese, & Canadian Bacon. Served with Fresh Fruit", price: "$19.95 *per person*"},
-            {title: "Mexican Scramble", description: "Scrambled Eggs with Pico de Gallo & Chorizo, Tortillas and Choice of Bacon or Sausage", price: "$19.95 *per person*"},
+            {title: "Cinnamon French Toast", description: "Two Slices Texas Toast, Scrambled Eggs & Bacon or Sausage, Maple Syrup, & Powdered Sugar", price: "$21.50 *per person*"},
+            {title: "The All American", description: "Scrambled Eggs with Cheese, Choice of Bacon, Sausage or Ham, Hash Browns, & Fresh Fruit", price: "$21.50 *per person*"},
+            {title: "Traditional Benedict", description: "Two English Muffins Topped with Canadian Bacon, Poached Eggs, & Chipotle Hollandaise Sauce (vegetarian option available upon request)", price: "$21.50 *per person*"},
+            {title: "Fried Chicken & Waffles", description: "Buttermilk Brined, Oven Fried Chicken on top a Belgian Waffle & Chipotle Syrup", price: "$21.50 *per person*"},
+            {title: "Breakfast Croissant", description: "Open-faced Croissant with Scrambled Eggs, Cheddar Cheese, & Canadian Bacon. Served with Fresh Fruit", price: "$21.50 *per person*"},
+            {title: "Mexican Scramble", description: "Scrambled Eggs with Pico de Gallo & Chorizo, Tortillas and Choice of Bacon or Sausage", price: "$21.50 *per person*"},
           ],
         },{
           type: "multi-item",
           title: "Buffet Breakfast",
           description: "",
-          price: "$19.95  *per person*",
           items: [
-            {title: "Continental Breakfast", description: "Assorted Breakfast Breads, Mini Muffins & Mini Danish", price: "$14.95 *per person*"},
-            {title: "Deluxe Continental", description: "Assorted Breakfast Breads, Mini Muffins & Fresh Fruit", price: "$16.95 *per person*"},
-            {title: "Healthy Continental", description: "Fresh Fruit, Individual Yogurts, Granola & Assorted Breakfast Breads", price: "$18.95 *per person*"},
+            {title: "Continental Breakfast", description: "Assorted Breakfast Breads, Mini Muffins & Mini Danish", price: "$16.50 *per person*"},
+            {title: "Deluxe Continental", description: "Assorted Breakfast Breads, Mini Muffins & Fresh Fruit", price: "$18.50 *per person*"},
+            {title: "Healthy Continental", description: "Fresh Fruit, Individual Yogurts, Granola & Assorted Breakfast Breads", price: "$20.50 *per person*"},
           ],
         },{
           type: "multi-item",
           title: "*Build Your Own* Breakfast Buffet",
           description: "",
-          price: "$18.95 *per person*",
+          price: "$20.50 *per person*",
           items: [
             {
               title: "Scrambeled Eggs _(Select One)_",
@@ -99,7 +98,7 @@ const classicMenu = {
           title: "Brunch Buffet",
           description: "Brunch beverage service includes orange juice, regular and decaf coffee, and iced water – served with biodegradable disposable ware unless otherwise requested. 50 guest minimum; $150 Fee applies if minimum is not met. Have our Brunch Buffet for Dinner for an additional **$5.00 *per person***.",
           items: [
-            {title: "The Standard", description: "Fresh Fruit, Assorted Breakfast Breads, Country Potatoes, Oven Fried Chicken w/ Gravy, Bacon, Sausage, Scrambled Eggs w/ Chives & Cheese, Build Your Own Salad Bar & one [Culinary Enhancement below](#culinary-breakfast-enhancements) (food only).",price: "$34.95 *per person*"},
+            {title: "The Standard", description: "Fresh Fruit, Assorted Breakfast Breads, Country Potatoes, Oven Fried Chicken w/ Gravy, Bacon, Sausage, Scrambled Eggs w/ Chives & Cheese, Build Your Own Salad Bar & one [Culinary Enhancement below](#culinary-breakfast-enhancements) (food only).",price: "$36.50 *per person*"},
           ],
         },{
           type: "multi-item",
@@ -115,8 +114,15 @@ const classicMenu = {
               ],
               price: "Add $11 *per person*",
             },
-            {title: "Juice Bar", description: "Carrots, Apples, Celery, Cucumber, Kale, Spinach, Beets, & Pineapple", price: "Add $8 *per person*"},
-            {title: "Mimosa Station", description: "Champagne & Assorted Fruit Juices", price: "Add $7*per person per hour*"},
+            {
+              title: "Juice Bar",
+              description: "Carrots, Apples, Celery, Cucumber, Kale, Spinach, Beets, & Pineapple",
+              price: "Add $8 *per person*"
+            },{
+              title: "Mimosa Station",
+              description: "Champagne & Assorted Fruit Juices",
+              price: "Add $7*per person per hour*"
+            },
           ],
         },
       ],

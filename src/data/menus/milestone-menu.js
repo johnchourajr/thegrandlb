@@ -29,21 +29,21 @@ const milestoneMenu = {
             {
               title: "The Ruby",
               description: "",
-              price: "*Lunch* $33.50 *-* *Dinner* $42.50",
+              price: "*Lunch* $35.50 *-* *Dinner* $44.00",
               list: [
                 "“[The Standard](#the-standard)” Menu", "Complimentary Entrée for Guest of Honor", "Fruit Punch -or- Lemonade Station", "Served Champagne & Sparkling Cider Toast", "Cake Cutting & Serving",
               ]
             },{
               title: "The Pearl",
               description: "",
-              price: "*Lunch* $40.50 *-* *Dinner* $53.50",
+              price: "*Lunch* $42.00 *-* *Dinner* $55.00",
               list: [
                 "“[The Grand Standard](#the-grand-standard)” Menu", "Complimentary Entrée for Guest of Honor", "Fruit Punch -or- Lemonade Station", "Unlimited Soft Drinks", "Served Champagne & Sparkling Cider Toast", "Cake Cutting & Serving", "10” Mirrored Round for Each Guest Table",
               ]
             },{
               title: "The Diamond",
               description: "",
-              price: "*Lunch* $47.50 *-* *Dinner* $63.50",
+              price: "*Lunch* $49.00 *-* *Dinner* $65.00",
               list: [
                 "“[The Choura Standard](#the-choura-standard)” Menu", "Complimentary Entrée for Guest of Honor", "Fruit Punch -or- Lemonade Station", "Unlimited Soft Drinks", "Served Champagne & Sparkling Cider Toast", "Chocolate Fountain with Five Dipping Items", "Cake Cutting & Serving", "10” Mirrored Round for Each Guest Table", "Chair Covers with Sash -or- Chiavari Chairs", "Additional Event Hour"
               ]

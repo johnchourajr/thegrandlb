@@ -1,0 +1,104 @@
+// https://www.tutorialspoint.com/css/css_print_references.htm
+// https://www.smashingmagazine.com/2011/11/how-to-set-up-a-print-style-sheet/
+
+
+@media print {
+  .footer--upper,
+  .nav--left, .nav--right,
+  .nav--mobile-menu {
+    display: none;
+  }
+
+  .nav {
+    position: absolute;
+
+    &--logo {
+      justify-content: center;
+
+      .logo > svg {
+        width: 16rem !important;
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  .footer {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    page-break-before: always;
+  }
+
+  .page-header {
+    padding-top: 35vh;
+    margin-bottom: 50vh;
+
+    &--wrap {
+      transform: translateY(5.33em);
+    }
+
+    &--headline {
+      font-size: 5.15em !important;
+    }
+
+    &:after {
+      content: "www.thegrandlb.com";
+      position: absolute;
+      bottom: -40vh;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .menu--wrap {
+    page-break-before: always;
+  }
+
+  .menu--header {
+    margin-top: 3rem;
+  }
+
+  .table--row p {
+    orphans: 0;
+  }
+}
+
+@media print {
+  body {
+    width: 100%;
+    font-size: 12pt !important;
+    // color: $black !important;
+  }
+
+  @page {
+    margin: 0.5in 0.5in;
+  }
+
+  @page :first {
+    margin: 0.5in 0.5in;
+  }
+
+  @page :left {
+   margin: 0.5in;
+  }
+
+  @page :right {
+   margin: 0.5in;
+  }
+
+  @page :after {
+    content:"test";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: $black;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+  .only-print {
+    display: block ! important;
+  }
+}

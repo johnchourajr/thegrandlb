@@ -26,31 +26,31 @@ body.home {
       width: 100%;
       background-color: $grandBabyBlue;
       z-index: -1;
-      height: 9.25em;
-      bottom: -6.65em;
+      height: 8.75em;
+      bottom: -5.75em;
 
       @include solid-breakpoint(sm) {
-        height: 9em; bottom: -6.75em;
+        height: 10em; bottom: -6em;
       }
 
       @include solid-breakpoint(md) {
-        height: 10em; bottom: -8em;
+        height: 9.12em; bottom: -7.12em;
       }
 
       @include solid-breakpoint(lg) {
-        height: 11.35em; bottom: -9.5em;
+        height: 10.75em; bottom: -8.75em;
       }
 
       @include solid-breakpoint(xl) {
-        height: 11em; bottom: -9.25em;
+        height: 10.5em; bottom: -8.5em;
       }
 
       @include solid-breakpoint(xxl) {
-        height: 10.65em; bottom: -9em;
+        height: 10.25em; bottom: -8.25em;
       }
 
       @include solid-breakpoint(xxxl) {
-        height: 10.25em; bottom: -8.75em;
+        height: 10em; bottom: -8em;
       }
     }
   }

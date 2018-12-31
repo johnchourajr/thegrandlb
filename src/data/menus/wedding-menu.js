@@ -29,7 +29,7 @@ const weddingMenu = {
             {
               title: "The Silver",
               description: "",
-              price: "*Lunch* $51.50 *-* *Dinner* $61.50",
+              price: "*Lunch* $53.00 *-* *Dinner* $63.00",
               list: [
                 "“[The Standard](#the-standard)” Menu",
                 "Complimentary Entrées for Bride & Groom", "Choice of Two “[To Start](#to-start)” Displayed Appetizers", "Wine Service with Dinner *(two bottles per table)*", "Served Champagne & Sparkling Cider Toast", "Cake Cutting & Serving",
@@ -37,7 +37,7 @@ const weddingMenu = {
             },{
               title: "The Gold",
               description: "",
-              price: "*Lunch* $62.50 *-* *Dinner* $72.50",
+              price: "*Lunch* $64.00 *-* *Dinner* $74.00",
               list: [
                 "“[The Grand Standard](#the-grand-standard)” Menu",
                 "Complimentary Entrées for Bride & Groom",
@@ -51,7 +51,7 @@ const weddingMenu = {
             },{
               title: "The Platinum",
               description: "",
-              price: "*Lunch* $76.50 *-* *Dinner* $86.50",
+              price: "*Lunch* $78.00 *-* *Dinner* $88.00",
               list: [
                 "“[The Choura Standard](#the-choura-standard)” Menu",
                 "Complimentary Entrées for Bride & Groom",
@@ -79,8 +79,8 @@ const weddingMenu = {
                 {
                   title: "Pricing",
                   list: [
-                    "Without Reception $14.00 *per person*",
-                    "With Reception $10.00 *per person*",
+                    "Without Reception $15.00 *per person*",
+                    "With Reception $12.00 *per person*",
                   ]
                 },{
                   title: "Includes",
@@ -113,7 +113,7 @@ const weddingMenu = {
                 "Assorted Cookies",
                 "Coffee, Decaf, Assorted Sodas",
               ],
-              price: "$53.95",
+              price: "$55.00",
             },{
               title: "Spice It Up",
               list: [
@@ -122,14 +122,14 @@ const weddingMenu = {
                 "Tortilla Chips",
                 "Coffee, Decaf, Assorted Sodas",
               ],
-              price: "$70.95",
+              price: "$72.00",
             },{
               title: "Napa Valley",
               list: [
                 "Marinated Olives, Goat Cheese, Grapes, and Crostinis Sliced Seasonal Fruit and Berries",
                 "Coffee, Decaf, Tea, Mineral Water, Assorted Sodas",
               ],
-              price: "$70.95",
+              price: "$72.00",
             },{
               title: "Balance",
               list: [
@@ -138,7 +138,7 @@ const weddingMenu = {
                 "Vegetable Crudités with Dip",
                 "Assorted Vitamin Water",
               ],
-              price: "$80.95",
+              price: "$82.00",
             },{
               title: "Time For Tea",
               list: [
@@ -147,7 +147,7 @@ const weddingMenu = {
                 "Strawberries with Whipped Cream",
                 "Assorted Hot Teas",
               ],
-              price: "$91.95",
+              price: "$93.00",
             },{
               title: "Ultimate Relaxation",
               list: [
@@ -157,7 +157,7 @@ const weddingMenu = {
                 "Assorted Breads & Crostinis",
                 "Mineral Water",
               ],
-              price: "127.95",
+              price: "139.00",
             },
           ]
         },

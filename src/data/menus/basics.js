@@ -10,106 +10,107 @@ const basics = [
         title: "To Start",
         description: "Displayed - *A la Carte*",
         items: [
-          {title: "Domestic Cheese Platter", description: "Domestic Cheese, Dried Fruit, Roasted Rosemary Nuts, & Assorted Crackers", price: "$3.50 *per person*"},
-          {title: "Gourmet Cheese Platter", description: "Gourmet Cheese, Dried Fruit, & Roasted Rosemary Nuts. Add Assorted Crostinis & Crackers *(Add $1.50 per person)*", price: "$3.50 *per person*"},
-          {title: "Fruit Platter", description: "Assorted Seasonal Melon & Berries", price: "$3.50 *per person*"},
-          {title: "Vegetable Crudités", description: "Herb Ranch Dip", price: "$3.50 *per person*"},
-          {title: "Antipasto Platter", description: "Assorted Cured Meats, Marinated Artichoke Hearts, Assorted Olives, & Roasted Peppers", price: "$3.50 *per person*"},
-          {title: "Roasted Garlic Hummus", description: "Served with Pita Chips. Add Grilled Vegetables *(Add $2.00 per person)*", price: "$3.50 *per person*"},
+          {title: "Domestic Cheese Platter", description: "Domestic Cheese, Dried Fruit, Roasted Rosemary Nuts, & Assorted Crackers", price: "$4.00 *per person*"},
+          {title: "Gourmet Cheese Platter", description: "Gourmet Cheese, Dried Fruit, & Roasted Rosemary Nuts. Add Assorted Crostinis & Crackers *(Add $1.50 per person)*", price: "$4.00 *per person*"},
+          {title: "Fruit Platter", description: "Assorted Seasonal Melon & Berries", price: "$4.00 *per person*"},
+          {title: "Vegetable Crudités", description: "Herb Ranch Dip", price: "$4.00 *per person*"},
+          {title: "Antipasto Platter", description: "Assorted Cured Meats, Marinated Artichoke Hearts, Assorted Olives, & Roasted Peppers", price: "$4.00 *per person*"},
+          {title: "Roasted Garlic Hummus", description: "Served with Pita Chips. Add Grilled Vegetables *(Add $2.00 per person)*", price: "$4.00 *per person*"},
         ],
       },{
         type: "multi-item",
         title: "Cold Hors D’oeuvres",
-        description: "Chilled and ready to eat.\n$5.50 per person for Tray Passed or\n$4.50 per person for displayed",
+        description: "Chilled and ready to eat.\n$6.00 per person for Tray Passed or\n$5.00 per person for displayed",
         items: [
-          {title: "Antipasto Skewers", description: "Cherry Tomatoes, Olives, Marinated Artichoke Hearts, & Bocconcini Mozzarella", price: "$5.50 *per person*"},
-          {title: "Chopped Heirloom Tomato Salad", description: "Baby Arugula, Crushed Pistachios, Goat Cheese, Basil & Dijon Vinaigrette on Endive Spear", price: "$5.50 *per person*"},
-          {title: "Sesame Crusted Goat Cheese", description: "on Wonton Crisp", price: "$5.50 *per person*"},
-          {title: "Ahi Poke", description: "Tuna, Soy Sauce, Black Sesame Seeds, and Scallions on a Wonton Crisp", price: "$5.50 *per person*"},
-          {title: "White Fish Ceviche", description: "on Tostada Round", price: "$5.50 *per person*"},
-          {title: "Grilled Peach Crostini", description: "Balsamic Glaze, Goat Cheese & Honey Drizzle", price: "$5.50 *per person*"},
-          {title: "NY Steak Crostini", description: "Caramelized Onions & Gorgonzola Cream", price: "$5.50 *per person*"},
-          {title: "Open Faced NY Steak Sandwich Bite", description: "Arugula & Spicy Aioli", price: "$5.50 *per person*"},
-          {title: "Jumbo Shrimp", description: "Cocktail Sauce & Lemon Wedges", price: "$7.00 *per person*"},
-          {title: "Grilled Shrimp", description: "Thai Chili Sauce", price: "$7.00 *per person*"},
-          {title: "Pan Seared Ahi", description: "Cucumber Slice with Japanese Spice, Pickled Onions, & Sriracha Aioli", price: "$5.50 *per person*"},
-          {title: "Fresh Spring Rolls", description: "Green Tea Soba Noodles, Thai Basil, Cucumber, Mint, & Spicy Hoisin", price: "$5.50 *per person*"},
-          {title: "Caprese Skewers", description: "Cherry Tomato, Bocconcini Mozzarella, Fresh Basil, & Basil Pesto", price: "$5.50 *per person*"},
-          {title: "Roasted Artichoke Crostini", description: "Fennel Herb Goat Cheese", price: "$5.50 *per person*"},
+          {title: "Antipasto Skewers", description: "Cherry Tomatoes, Olives, Marinated Artichoke Hearts, & Bocconcini Mozzarella", price: "$6.00 *per person*"},
+          {title: "Chopped Heirloom Tomato Salad", description: "Baby Arugula, Crushed Pistachios, Goat Cheese, Basil & Dijon Vinaigrette on Endive Spear", price: "$6.00 *per person*"},
+          {title: "Sesame Crusted Goat Cheese", description: "on Wonton Crisp", price: "$6.00 *per person*"},
+          {title: "Ahi Poke", description: "Tuna, Soy Sauce, Black Sesame Seeds, and Scallions on a Wonton Crisp", price: "$6.00 *per person*"},
+          {title: "White Fish Ceviche", description: "on Tostada Round", price: "$6.00 *per person*"},
+          {title: "Grilled Peach Crostini", description: "Balsamic Glaze, Goat Cheese & Honey Drizzle", price: "$6.00 *per person*"},
+          {title: "NY Steak Crostini", description: "Caramelized Onions & Gorgonzola Cream", price: "$6.00 *per person*"},
+          {title: "Open Faced NY Steak Sandwich Bite", description: "Arugula & Spicy Aioli", price: "$6.00 *per person*"},
+          {title: "Jumbo Shrimp", description: "Cocktail Sauce & Lemon Wedges", price: "$7.50 *per person*"},
+          {title: "Grilled Shrimp", description: "Thai Chili Sauce", price: "$7.50 *per person*"},
+          {title: "Pan Seared Ahi", description: "Cucumber Slice with Japanese Spice, Pickled Onions, & Sriracha Aioli", price: "$6.00 *per person*"},
+          {title: "Fresh Spring Rolls", description: "Green Tea Soba Noodles, Thai Basil, Cucumber, Mint, & Spicy Hoisin", price: "$6.00 *per person*"},
+          {title: "Caprese Skewers", description: "Cherry Tomato, Bocconcini Mozzarella, Fresh Basil, & Basil Pesto", price: "$6.00 *per person*"},
+          {title: "Roasted Artichoke Crostini", description: "Fennel Herb Goat Cheese", price: "$6.00 *per person*"},
         ],
       },{
         type: "multi-item",
         title: "Warm Hors D’oeuvres",
-        description: "Warm and ready to eat.\n$5.50 per person for Tray Passed or\n$4.50 per person for displayed",
+        description: "Warm and ready to eat.\n$6.00 per person for Tray Passed or\n$5.00 per person for displayed",
         items: [
-          {title: "Homemade Meatballs", description: "Select One: Teriyaki, Turkey, or Italian", price: "$5.50 *per person*"},
-          {title: "Buffalo Chicken Drumettes", description: "Served with Ranch Dressing", price: "$5.50 *per person*"},
-          {title: "Crispy Chicken Egg Rolls", description: "Served with Sweet + Sour Dipping Sauce", price: "$5.50 *per person*"},
-          {title: "Pork & Shrimp Egg Rolls", description: "Served with Sweet Chili Hoisin Sauce", price: "$5.50 *per person*"},
-          {title: "Chicken Satay", description: "Select One: Served with Spicy Peanut Sauce, Tikka Masala Sauce, or Teriyaki Pineapple", price: "$5.50 *per person*"},
-          {title: "Spanakopita", description: "Flaky Phyllo Stuffed with Spinach & Feta Cheese", price: "$5.50 *per person*"},
-          {title: "Sicilian Stuffed Mushrooms", description: "Sicilian Sausage & Cheddar", price: "$5.50 *per person*"},
-          {title: "Yucatan Beef Empanadas", description: "Served with Avocado Crème", price: "$5.50 *per person*"},
-          {title: "Mini Beef Wellington", description: "Tender Beef Wrapped in Puff Pastry with Sautéed Mushrooms & Shallots Duxelle, & Madera Wine Demi Glaze", price: "$5.50 *per person*"},
-          {title: "Lump Crab Cakes", description: "Served with Cilantro Lime Aioli Mongolian Beef Skewers - with Grilled Scallions", price: "$5.50 *per person*"},
-          {title: "Short Rib Quesadilla", description: "Served with Chipotle Crème", price: "$5.50 *per person*"},
-          {title: "Soup Shooter", description: "Select One: Tomato Bisque, Butternut Squash, or Mushroom Cream Angus Beef Slider - Bleu Cheese & Port Wine Pickled Onions", price: "$6.50 *per person*"},
-          {title: "Tikka Masala Taco", description: "Chicken Tikka Masala, Cilantro & Cucumber Raita", price: "$5.50 *per person*"},
-          {title: "Italian Surf & Turf", description: "Shrimp Scampi and Italian Sausage Bite", price: "$5.50 *per person*"},
-          {title: "Lobster Corndogs", description: "Served with Green Peppercorn Aioli", price: "$7.00 *per person*"},
+          {title: "Homemade Meatballs", description: "Select One: Teriyaki, Turkey, or Italian", price: "$6.00 *per person*"},
+          {title: "Buffalo Chicken Drumettes", description: "Served with Ranch Dressing", price: "$6.00 *per person*"},
+          {title: "Crispy Chicken Egg Rolls", description: "Served with Sweet + Sour Dipping Sauce", price: "$6.00 *per person*"},
+          {title: "Pork & Shrimp Egg Rolls", description: "Served with Sweet Chili Hoisin Sauce", price: "$6.00 *per person*"},
+          {title: "Chicken Satay", description: "Select One: Served with Spicy Peanut Sauce, Tikka Masala Sauce, or Teriyaki Pineapple", price: "$6.00 *per person*"},
+          {title: "Spanakopita", description: "Flaky Phyllo Stuffed with Spinach & Feta Cheese", price: "$6.00 *per person*"},
+          {title: "Sicilian Stuffed Mushrooms", description: "Sicilian Sausage & Cheddar", price: "$6.00 *per person*"},
+          {title: "Yucatan Beef Empanadas", description: "Served with Avocado Crème", price: "$6.00 *per person*"},
+          {title: "Mini Beef Wellington", description: "Tender Beef Wrapped in Puff Pastry with Sautéed Mushrooms & Shallots Duxelle, & Madera Wine Demi Glaze", price: "$6.00 *per person*"},
+          {title: "Lump Crab Cakes", description: "Served with Cilantro Lime Aioli Mongolian Beef Skewers - with Grilled Scallions", price: "$6.00 *per person*"},
+          {title: "Short Rib Quesadilla", description: "Served with Chipotle Crème", price: "$6.00 *per person*"},
+          {title: "Soup Shooter", description: "Select One: Tomato Bisque, Butternut Squash, or Mushroom Cream", price: "$6.00 *per person*"},
+          {title: "Angus Beef Slider", description: "Bleu Cheese & Port Wine Pickled Onions", price: "$7.00 *per person*"},
+          {title: "Tikka Masala Taco", description: "Chicken Tikka Masala, Cilantro & Cucumber Raita", price: "$6.00 *per person*"},
+          {title: "Italian Surf & Turf", description: "Shrimp Scampi and Italian Sausage Bite", price: "$6.00 *per person*"},
+          {title: "Lobster Corndogs", description: "Served with Green Peppercorn Aioli", price: "$7.50 *per person*"},
         ],
       },
     ],
   },{
     type: "section",
-    title: "Mains",
-    description: "Served Meals. All entrées include homemade rolls & butter, one [gourmet salad](#salad), one [starch](#starch), one vegetable, & dessert. Beverage service includes coffee, iced tea & iced water – served with biodegradable disposable ware unless otherwise requested. For split menu *(Add $3.00 per person)*. For buffet choose additional salad & entrée *(Add $4.00 per person)*.",
+    title: "Main Courses",
+    description: "Served Meals. All entrées include homemade rolls & butter, one [gourmet salad](#salad), one [starch](#starch), one [vegetable](#vegetable), & [dessert](#sweets). Beverage service includes coffee, iced tea & iced water – served with biodegradable disposable ware unless otherwise requested. For split menu *(Add $3.00 per person)*. For buffet choose additional salad & entrée *(Add $4.00 per person)*.",
     caption: "",
     items: [
       {
         type: "multi-item",
         title: "The Standard",
-        description: "Choose one.\n$29.95 for Lunch and $37.95 for Dinner *per person*.\nChoose two options for a duet plate *(Add $3.00 per person)*.",
+        description: "Choose one.\n$31.50 for Lunch and $39.50 for Dinner *per person*.\nChoose two options for a duet plate *(Add $3.00 per person)*.",
         price: "",
         items: [
-          {title: "Lemon Rosemary Chicken", description: "Bone-in Chicken Breast with Lemon Caper Beurre Blanc", price: "$29.95/$37.95 *per person*"},
-          {title: "Chicken Parmesan", description: "Parmesan Panko Crusted Chicken Breast with Provolone & Basil Marinara Sauce", price: "$29.95/$37.95 *per person*"},
-          {title: "Chicken Marsala", description: "Bone-in Chicken Breast with Sautéed Mushrooms, Caramelized Onions, & Marsala Wine Sauce", price: "$29.95/$37.95 *per person*"},
-          {title: "Beef Brisket", description: "Fork Tender Roasted Beef Brisket with Natural Jus", price: "$29.95/$37.95 *per person*"},
-          {title: "Spiced Pork Loin", description: "Roasted Poblano Ancho Chile Demi", price: "$29.95/$37.95 *per person*"},
-          {title: "Asian Inspired Salmon", description: "Shiitake Mushrooms, Bok Choy, & Sweet Soy Reduction", price: "$31.45/$39.45 *per person*"},
+          {title: "Lemon Rosemary Chicken", description: "Bone-in Chicken Breast with Lemon Caper Beurre Blanc", price: "$31.50/$39.50 *per person*"},
+          {title: "Chicken Parmesan", description: "Parmesan Panko Crusted Chicken Breast with Provolone & Basil Marinara Sauce", price: "$31.50/$39.50 *per person*"},
+          {title: "Chicken Marsala", description: "Bone-in Chicken Breast with Sautéed Mushrooms, Caramelized Onions, & Marsala Wine Sauce", price: "$31.50/$39.50 *per person*"},
+          {title: "Beef Brisket", description: "Fork Tender Roasted Beef Brisket with Natural Jus", price: "$31.50/$39.50 *per person*"},
+          {title: "Spiced Pork Loin", description: "Roasted Poblano Ancho Chile Demi", price: "$31.50/$39.50 *per person*"},
+          {title: "Asian Inspired Salmon", description: "Shiitake Mushrooms, Bok Choy, & Sweet Soy Reduction", price: "$33.00/$42.00 *per person*"},
         ],
       },{
         type: "multi-item",
         title: "The Grand Standard",
-        description: "Choose one.\n$33.95 for Lunch and $41.95 for Dinner *per person*.\nChoose two options for a duet plate *(Add $4.50 per person)*.",
+        description: "Choose one.\n$35.50 for Lunch and $43.50 for Dinner *per person*.\nChoose two options for a duet plate *(Add $4.50 per person)*.",
         price: "",
         items: [
-          {title: "Chicken Wellington", description: "Boneless Chicken Breast Wrapped in Puff Pastry with Sautéed Mushrooms & Shallots Duxelle, & Madera Wine Demi Glaze", price: "$33.95/$41.95 *per person*"},
-          {title: "California Chicken", description: "Grilled Chicken Breast with Balsamic Marinated Artichoke Hearts, Roma Tomatoes, Sun Dried Tomato, Kalamata Olives, Capers, Garlic, Toasted Pine Nuts & Fresh Basil", price: "$33.95/$41.95 *per person*"},
-          {title: "Beef Stroganoff", description: "Braised Filet Mignon Beef Tips, Mushrooms, & Demi Sauce", price: "$33.95/$41.95 *per person*"},
-          {title: "Bistecca", description: "Grilled Tri Tip with Fresh Lemon, Garlic, Shaved Parmesan, & Tomato Basil Vinaigrette", price: "$33.95/$41.95 *per person*"},
-          {title: "Red Snapper", description: "Served with Chipotle Cream & Roasted Poblano Chiles", price: "$33.95/$41.95 *per person*"},
-          {title: "Pistachio Crusted Mahi Mahi", description: "Served with Mango Relish", price: "$33.95/$41.95 *per person*"},
-          {title: "Coconut Crusted Salmon", description: "Served with Coconut Lychee Cream", price: "$33.95/$41.95 *per person*"},
-          {title: "Turf and Turf", description: "Chicken Grilled Breast & Herb Crusted Tri-tip with Rosemary Demi", price: "$33.95/$41.95 *per person*"},
+          {title: "Chicken Wellington", description: "Boneless Chicken Breast Wrapped in Puff Pastry with Sautéed Mushrooms & Shallots Duxelle, & Madera Wine Demi Glaze", price: "$35.50/$43.50 *per person*"},
+          {title: "California Chicken", description: "Grilled Chicken Breast with Balsamic Marinated Artichoke Hearts, Roma Tomatoes, Sun Dried Tomato, Kalamata Olives, Capers, Garlic, Toasted Pine Nuts & Fresh Basil", price: "$35.50/$43.50 *per person*"},
+          {title: "Beef Stroganoff", description: "Braised Filet Mignon Beef Tips, Mushrooms, & Demi Sauce", price: "$35.50/$43.50 *per person*"},
+          {title: "Bistecca", description: "Grilled Tri Tip with Fresh Lemon, Garlic, Shaved Parmesan, & Tomato Basil Vinaigrette", price: "$35.50/$43.50 *per person*"},
+          {title: "Red Snapper", description: "Served with Chipotle Cream & Roasted Poblano Chiles", price: "$35.50/$43.50 *per person*"},
+          {title: "Pistachio Crusted Mahi Mahi", description: "Served with Mango Relish", price: "$35.50/$43.50 *per person*"},
+          {title: "Coconut Crusted Salmon", description: "Served with Coconut Lychee Cream", price: "$35.50/$43.50 *per person*"},
+          {title: "Turf and Turf", description: "Chicken Grilled Breast & Herb Crusted Tri-tip with Rosemary Demi", price: "$35.50/$43.50 *per person*"},
         ],
       },{
         type: "multi-item",
         title: "The Choura Standard",
-        description: "Choose one.\n$40.95 for Lunch and $48.95 for Dinner *per person*.\nChoose two options for a duet plate *(Add $6.00 per person)*.",
+        description: "Choose one.\n$43.50 for Lunch and $50.50 for Dinner *per person*.\nChoose two options for a duet plate *(Add $6.00 per person)*.",
         price: "",
         items: [
-          {title: "Classic Beef Wellington", description: "Filet Wrapped in Puff Pastry with Sautéed Mushrooms & Shallots Duxelle, & Madera Wine Demi Glaze", price: "$40.95/$48.95 *per person*"},
-          {title: "Braised Short Ribs", description: "Served with Aromatics & Chipotle Honey Jus", price: "$40.95/$48.95 *per person*"},
-          {title: "Chicken Cordon Bleu", description: "Panko Crusted Chicken Breast with Virginia Ham, Swiss Cheese, & Classic Cheese Mornay Sauce", price: "$40.95/$48.95 *per person*"},
-          {title: "Chicken Florentine", description: "Roasted Chicken Breast Stuffed with Sautéed Spinach, Artichoke Hearts, and Topped with a Parmesan Cream Sauce", price: "$40.95/$48.95 *per person*"},
-          {title: "Prime Rib", description: "Served with Green Peppercorn Demi", price: "$40.95/$48.95 *per person*"},
-          {title: "Filet Mignon", description: "Served with Béarnaise Sauce (MP)", price: "$40.95/$48.95 *per person*"},
-          {title: "Chilean Sea Bass", description: "Garlic Fennel Rubbed with Blood Orange Beurre Blanc (MP) ", price: "$40.95/$48.95 *per person*"},
-          {title: "Spice Rubbed Halibut", description: "Served with Lemon Cilantro Crema (MP)", price: "$40.95/$48.95 *per person*"},
-          {title: "Land and Sea", description: "Petite Filet & Pan Seared Shrimp with Demi Glaze", price: "$40.95/$48.95 *per person*"},
-          {title: "Ribeye", description: "Pan Seared with Thyme, Bellini Onions, & Cabernet Demi *(Only Available for Dinner Service)*", price: "$48.95 *per person*"},
+          {title: "Classic Beef Wellington", description: "Filet Wrapped in Puff Pastry with Sautéed Mushrooms & Shallots Duxelle, & Madera Wine Demi Glaze", price: "$43.50/$50.50 *per person*"},
+          {title: "Braised Short Ribs", description: "Served with Aromatics & Chipotle Honey Jus", price: "$43.50/$50.50 *per person*"},
+          {title: "Chicken Cordon Bleu", description: "Panko Crusted Chicken Breast with Virginia Ham, Swiss Cheese, & Classic Cheese Mornay Sauce", price: "$43.50/$50.50 *per person*"},
+          {title: "Chicken Florentine", description: "Roasted Chicken Breast Stuffed with Sautéed Spinach, Artichoke Hearts, and Topped with a Parmesan Cream Sauce", price: "$43.50/$50.50 *per person*"},
+          {title: "Prime Rib", description: "Served with Green Peppercorn Demi", price: "$43.50/$50.50 *per person*"},
+          {title: "Filet Mignon", description: "Served with Béarnaise Sauce (MP)", price: "$43.50/$50.50 *per person*"},
+          {title: "Chilean Sea Bass", description: "Garlic Fennel Rubbed with Blood Orange Beurre Blanc (MP) ", price: "$43.50/$50.50 *per person*"},
+          {title: "Spice Rubbed Halibut", description: "Served with Lemon Cilantro Crema (MP)", price: "$43.50/$50.50 *per person*"},
+          {title: "Land and Sea", description: "Petite Filet & Pan Seared Shrimp with Demi Glaze", price: "$43.50/$50.50 *per person*"},
+          {title: "Ribeye", description: "Pan Seared with Thyme, Bellini Onions, & Cabernet Demi *(Only Available for Dinner Service)*", price: "$50.50 *per person*"},
         ],
       },{
         type: "multi-item",
@@ -124,7 +125,7 @@ const basics = [
         type: "multi-item",
         title: "Other Options",
         items: [
-          {title: "Kids Meals", description: "Chicken Strips, Macaroni & Cheese, French Fries, Fresh Fruit & Juice or Milk", price: "$19.95 *per person*"},
+          {title: "Kids Meals", description: "Chicken Strips, Macaroni & Cheese, French Fries, Fresh Fruit & Juice or Milk", price: "$20.95 *per person*"},
           {title: "Vendor Meals", description: "Chef's Choice", price: "$25.00 *per person*"},
         ],
       },{
@@ -203,7 +204,7 @@ const basics = [
           {
             title: "Taste of Asia",
             description: "",
-            price: "*Lunch* $32.95 *-* *Dinner* $39.95",
+            price: "*Lunch* $34.50 *-* *Dinner* $41.50",
             items: [
               {
                 title: "Salads — Included",
@@ -238,7 +239,7 @@ const basics = [
           },{
             title: "Taste of India",
             description: "Served with Naan Bread",
-            price: "*Lunch* $32.95 *-* *Dinner* $39.95",
+            price: "*Lunch* $34.50 *-* *Dinner* $41.50",
             items: [
               {
                 title: "Salads — Included",
@@ -270,7 +271,7 @@ const basics = [
           },{
             title: "South of the Border",
             description: "",
-            price: "*Lunch* $32.95 *-* *Dinner* $39.95",
+            price: "*Lunch* $34.50 *-* *Dinner* $41.50",
             items: [
               {
                 title: "Salads — Included",
@@ -305,7 +306,7 @@ const basics = [
           },{
             title: "The Cowboy",
             description: "",
-            price: "*Lunch* $32.95 *-* *Dinner* $39.95",
+            price: "*Lunch* $34.50 *-* *Dinner* $41.50",
             items: [
               {
                 title: "Salads — Included",
@@ -339,7 +340,7 @@ const basics = [
           },{
             title: "Mambo Italiano",
             description: "",
-            price: "*Lunch* $32.95 *-* *Dinner* $39.95",
+            price: "*Lunch* $34.50 *-* *Dinner* $41.50",
             items: [
               {
                 title: "Salads — Select Two",
@@ -373,7 +374,7 @@ const basics = [
           },{
             title: "From The Deli",
             description: "",
-            price: "*Lunch* $29.95 *-* *Dinner* $35.95",
+            price: "*Lunch* $31.50 *-* *Dinner* $37.50",
             items: [
               {
                 title: "Salads — Included",
@@ -413,7 +414,7 @@ const basics = [
           },{
             title: "Eats + Sweets",
             description: "",
-            price: "*Lunch* $32.95 *-* *Dinner* $39.95",
+            price: "*Lunch* $34.50 *-* *Dinner* $41.50",
             items: [
               {
                 title: "Appetizers — Select Six",
@@ -624,7 +625,7 @@ const basics = [
           },{
             title: "Chacolate Fountain",
             description: "Warm Belgium Chocolate cascades off a three-tier fountain, specially designed for fondue. Minimum 25 people.",
-            price: "$350 *rental fee* *-* $7.50-$10 *per person*",
+            price: "$350 *rental fee* *-* $8-$11 *per person*",
             items: [
               {
                 title: "Includes",
@@ -638,9 +639,9 @@ const basics = [
               {
                 title: "Dipping Items",
                 list: [
-                  "Choose Three for $7.50 *per person*",
-                  "Choose Four for $9.00 *per person*",
-                  "Choose Five for $10.00 *per person*",
+                  "Choose Three for $8.00 *per person*",
+                  "Choose Four for $10.00 *per person*",
+                  "Choose Five for $11.00 *per person*",
                 ],
               },
               {
@@ -740,22 +741,22 @@ const basics = [
             price: "$3-$5",
           },{
             title: "Pellegrino Sparkling Water",
-            price: "$9-$10",
+            price: "$4-$6",
           },{
             title: "Soft Drinks",
-            price: "$10",
+            price: "$3",
           },{
             title: "Juices",
-            price: "$11",
+            price: "$2",
           },{
             title: "Sparkling Cider",
-            price: "$11 *per bottle*",
+            price: "$13 *per bottle*",
           },{
             title: "Unlimited Sodas",
-            price: "$11 *per person*",
+            price: "$4 *per person*",
           },{
             title: "Corkage Fee",
-            price: "$11 *per bottle*",
+            price: "$15 *per bottle*",
           },
         ],
       },{

@@ -23,7 +23,7 @@ const weddingMenu = {
             {
               title: "Continential Breakfast",
               description: "",
-              price: "$49.50 *per person*",
+              price: "$51.00 *per person*",
               list: [
                 "Assorted Mini Danishes, Breakfast Breads & Mini Muffins",
                 "Seasonal Fruit Platter",
@@ -33,7 +33,7 @@ const weddingMenu = {
             },{
               title: "Morning Break",
               description: "",
-              price: "$49.50 *per person*",
+              price: "$51.00 *per person*",
               list: [
                 "Assorted Granola Bars",
                 "Assorted Individual Yogurts",
@@ -49,7 +49,7 @@ const weddingMenu = {
             {
               title: "Served Lunch",
               description: "",
-              price: "$49.50 *per person*",
+              price: "$51.00 *per person*",
               items: [
                 {
                   title: "Included",
@@ -73,7 +73,7 @@ const weddingMenu = {
             },{
               title: "Deli Buffet",
               description: "",
-              price: "$49.50 *per person*",
+              price: "$51.00 *per person*",
               items: [
                 {
                   title: "Included",
@@ -96,7 +96,7 @@ const weddingMenu = {
             },{
               title: "Afternoon Break",
               description: "",
-              price: "$49.50 *per person*",
+              price: "$51.00 *per person*",
               list: [
                 "Domestic Cheese Platter with Mixed Nuts & Dried Fruit",
                 "Assorted Soft Drinks",
