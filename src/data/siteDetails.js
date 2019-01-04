@@ -9,7 +9,7 @@ const siteDetails = {
   url: "",
   twitter: "",
   socialCard: "",
-  ga: "",
+  ga: "UA-131770061-1",
   sitePublic: false,
 }
 

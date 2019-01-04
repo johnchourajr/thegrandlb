@@ -6,19 +6,19 @@ const seguePages = [
   {
     "key": "tour",
     "headline": "Tour Our 40k sqft. Facility",
-    "img": "/img/placeholder--front-img.jpg",
+    "img": "/img/tour.jpg",
     "buttonText": "Take a Tour",
     "path": "/tour",
   },{
     "key": "events",
     "headline": "Oh, We Do It All",
-    "img": "/img/placeholder--wedding.jpg",
+    "img": "/img/events.jpg",
     "buttonText": "See Our Offerings",
     "path": "/events",
   },{
     "key": "menus",
     "headline": "Peek At Our Menus",
-    "img": "/img/placeholder--food-1.jpg",
+    "img": "/img/menus.jpg",
     "buttonText": "See The Menus",
     "path": "/menus",
   },
@@ -29,7 +29,7 @@ const PageSegue = props => {
   const { currentPage } = props
 
   return (
-    <div className="section gutters clearfix">
+    <div className="section gutters clearfix no-print">
       {seguePages.map(( item, i ) => {
         if (currentPage != item.key && i < 3) {
           return (

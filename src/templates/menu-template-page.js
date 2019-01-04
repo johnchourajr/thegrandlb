@@ -5,9 +5,11 @@ import ReactMarkdown from 'react-markdown'
 import Content, { HTMLContent } from '../components/Content'
 import Layout from '../components/core/Layout'
 import PageHeader from '../components/PageHeader'
+import PageSection from '../components/PageSection'
+import PageSegue from '../components/PageSegue'
+import Link, { withPrefix } from 'gatsby-link'
+
 import { slugify, outputMenuData } from '../components/functions/util'
-
-
 
 const Td = props => {
   return (
@@ -126,15 +128,35 @@ const MenuSubList = props => {
 const MenuTemplatePage = ({ data, status }) => {
   const { frontmatter, html } = data.markdownRemark
   const menuData = outputMenuData(frontmatter.data)
+  const path = '/img/icons/menu/printer.svg'
 
   return (
     <Layout status={status}>
       <PageHeader title={frontmatter.title} heading={frontmatter.heading} />
+
+      <PageSection
+        subHead={frontmatter.subhead}
+        subHeadClassName={"xs-px4 xs-pb4 no-print"}
+      >
+      <div className="print-button no-print">
+        <button onClick={() => window.print()} className="button button--small button--secondary button--third">
+          <p>Print This Menu  <img style={{width: 20, height: 24}} src={`${withPrefix(path)}`}/></p>
+        </button>
+      </div>
+      </PageSection>
       <section className="section">
         <div className="wrapper">
           <MenuTable data={menuData}/>
         </div>
       </section>
+      <PageSection
+        heading={"Tell Us About\nYour Event"}
+        headingClassName={"xs-mb3"}
+        buttons={[{text: "Plan Your Private Event", url: "/inquire/"}]}
+      />
+      <PageSegue
+        currentPage={'menus'}
+      />
     </Layout>
   )
 }
@@ -151,6 +173,7 @@ export const menuTemplatePageQuery = graphql`
       frontmatter {
         title
         heading
+        subhead
         data
       }
     }

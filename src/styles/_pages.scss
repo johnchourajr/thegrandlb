@@ -9,8 +9,11 @@
 @include header-color(eventsweddings, $grandSilver);
 @include header-color(eventsbusiness, $grandSilver);
 @include header-color(eventsmilestones, $grandSilver);
-
 @include header-color(menus, $grandPink);
+@include header-color(menusbusiness, $grandPink);
+@include header-color(menusclassic, $grandPink);
+@include header-color(menusweddings, $grandPink);
+@include header-color(menusmilestones, $grandPink);
 @include header-color(about, $grandCream);
 @include header-color(contact, $grandBabyBlue);
 
@@ -122,10 +125,38 @@
 }
 
 .page-image {
+  position: relative;
+  background-color: $black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
   &:hover {
     .img {
       transition: transform 4s $easeOutCubic;
       transform: scale(1.05);
+    }
+  }
+
+  .img {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    z-index: 0;
+    transition: transform 3s $easeOutCubic;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: 0;
+      background-color: rgba($black, .4);
     }
   }
 }
@@ -247,6 +278,9 @@
 }
 
 
+.page-hero .img:after {
+  background-color: transparent !important;
+}
 
 .page-hero {
   height: calc(100vh - 3rem);
@@ -1135,5 +1169,19 @@
 
   &--division {
 
+  }
+}
+
+.print-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

@@ -10,7 +10,7 @@ const PageSection = props => {
     <React.Fragment>
       {props.topDivider && <Divider top />}
       <section className={`section ${props.sectionClassName}`}>
-        <div className={`wrapper clearfix ${props.wrapperClassName}`}>
+        <div className={`wrapper clearfix ${props.wrapperClassName} no-print`}>
           <SectionHead
             heading={props.heading}
             headingClassName={props.headingClassName}

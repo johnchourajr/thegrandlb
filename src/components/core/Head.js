@@ -2,6 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 
 import { slugify } from '../functions/util'
+import { siteDetails } from '../../data/siteDetails'
 
 const Head = ({ location }) => {
 
@@ -21,9 +22,6 @@ const Head = ({ location }) => {
         { name: "viewport", content: "width=device-width, initial-scale=1, shrink-to-fit=yes"},
         { name: "msapplication-TileColor", content: "#edfaff" },
         { name: "theme-color", content: "#edfaff" },
-        { name: "robots", content: "noindex" },
-        { name: "googlebot", content: "noindex" },
-        { name: "googlebot-news", content: "noindex" },
       ]}
       htmlAttributes={{ class: pathname }}
       bodyAttributes={{ class: pathname }}

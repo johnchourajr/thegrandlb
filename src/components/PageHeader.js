@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 // Component
 const PageHeader = props => {
   return(
-    <div>
+    <React.Fragment>
       <section className="page-header">
         <div className="wrapper">
           <div className="page-header--wrap">
@@ -25,7 +25,7 @@ const PageHeader = props => {
           <p className="page-header--caption">{props.caption}</p>
         </div>
       }
-    </div>
+    </React.Fragment>
 
   )
 }

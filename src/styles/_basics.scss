@@ -29,6 +29,67 @@ body, .wrapper, .segue-card {
         &:hover {
           transition: transform .3s $easeOutCubic !important;
           transform: scale(1.025) !important;
+          background: darken($grandRed, 10%) !important;
+        }
+      }
+    }
+
+    &--secondary {
+      &:not(.button--disabled):not(:disabled) {
+        transition: transform .3s $easeOutCubic !important;
+        transform: scale(1) !important;
+
+        &:hover {
+          background: darken(white, 1%) !important;
+          color: $grandRed !important;
+        }
+
+        &:active {
+          background: darken(white, 1%) !important;
+          color: $grandRed !important;
+        }
+      }
+    }
+
+    &--small {
+      padding: $space-1 $space-2 !important;
+      font-size: .75em !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.15em;
+
+      &:not(.button--disabled):not(:disabled) {
+        transition: transform .3s $easeOutCubic !important;
+        transform: scale(1) !important;
+
+        &:hover {
+          background: $grandBabyBlue !important;
+          color: $grandRed !important;
+        }
+
+        &:active {
+          border-color: darken($grandRed, 10%) !important;
+          background: $grandBabyBlue !important;
+          color: $grandRed !important;
+        }
+      }
+    }
+
+    &--third {
+      border-color: $grandBabyBlue !important;
+
+      &:not(.button--disabled):not(:disabled) {
+        transition: transform .3s $easeOutCubic !important;
+        transform: scale(1) !important;
+
+        &:hover {
+          background: $grandBabyBlue !important;
+          color: $grandRed !important;
+        }
+
+        &:active, {
+          border-color: darken($grandBabyBlue, 10%) !important;
+          background: $grandBabyBlue !important;
+          color: $grandRed !important;
         }
       }
     }
