@@ -6,6 +6,9 @@ class NavbarWrap extends React.Component {
     document.addEventListener('scroll', () => {
       this.navChangeSize()
     })
+    document.addEventListener('load', () => {
+      this.navChangeSize()
+    })
   }
 
   navChangeSize() {
