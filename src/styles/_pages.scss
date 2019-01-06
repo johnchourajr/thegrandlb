@@ -20,21 +20,21 @@
 
 .section {
   // padding: 1.25rem 0;
-  margin: 3.5rem 0;
+  margin: 3.5rem 0 !important;
 
   @include solid-breakpoint(sm) {
     // padding: 1.5rem 0;
-    margin: 4rem 0;
+    margin: 4rem 0 !important;
   }
 
   @include solid-breakpoint(md) {
     // padding: 2rem 0;
-    margin: 5rem 0;
+    margin: 5rem 0 !important;
   }
 
   @include solid-breakpoint(lg) {
     // padding: 3rem 0;
-    margin: 7rem 0;
+    margin: 7rem 0 !important;
   }
 
   &--offset {
@@ -1183,5 +1183,132 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+}
+
+.star {
+
+  svg {
+    max-width: 50px;
+
+    @include solid-breakpoint(sm) {
+      max-width: none;
+    }
+  }
+}
+
+.star-group {
+  display: flex;
+  margin: 1.25rem 0;
+
+  @include solid-breakpoint(md) {
+    margin: 1.25rem 0;
+  }
+}
+
+.ratings {
+
+  &--wrap {
+    background-color: $grandPink;
+    padding-top: $space-6;
+    margin-bottom: 6rem;
+
+    @include solid-breakpoint(xl) {
+      margin-bottom: 8rem;
+    }
+  }
+
+  &--upper {
+    margin-bottom: $space-6;
+  }
+
+  &--lower {
+    margin-top: -6rem;
+
+    @include solid-breakpoint(md) {
+      margin-top: -8rem;
+    }
+
+    .ratings--item {
+      transform: translateY(4rem);
+    }
+
+    .star-group {
+      margin-top: 0 !important;
+    }
+  }
+
+  &--item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    a {
+      text-decoration: underline !important;
+    }
+
+    &--logo {
+      width: 10rem;
+    }
+  }
+}
+
+.about {
+
+
+  &--founding {
+
+    .page-header--caption {
+      margin-top: 5rem;
+    }
+
+    h1 {
+      position: absolute;
+      top: -4rem; left: -5vw; right: -5vw;
+      width: 110vw;
+      font-size: 24vw;
+      color: $grandSilver;
+      // background-color: red;
+      text-align: center;
+      z-index: -10;
+    }
+  }
+
+  &--highlights {
+
+    @include solid-breakpoint(md) {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &--text {
+      // background-color: $grandBabyBlue;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 2rem;
+    }
+
+    &--reverse {
+      @include solid-breakpoint(md) {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+}
+
+
+.people {
+  &--item {
+    min-height: 60vw;
+
+    @include solid-breakpoint(md) {
+      min-height: 50vw;
+    }
+
+    .hash-item {
+      margin-top: 3rem 
+    }
   }
 }

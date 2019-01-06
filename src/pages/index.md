@@ -41,6 +41,10 @@ map:
     So. Cal.
     Native
   img: "/img/placeholder--map.jpg"
+  features:
+  - "5 Minutes from \nLong Beach Airport"
+  - "Walking Distance to\nHotel Accommodations"
+  - "20 Minutes from\n LAX Airport"
 carousel:
   array:
   - img: "/img/tour-spaces/GLB_Details_Spaces_2.jpg"

@@ -12,6 +12,7 @@ import Buttons from '../components/Buttons'
 import PageCarousel from '../components/PageCarousel'
 import MapSection from '../components/MapSection'
 import NumberArray from '../components/NumberArray'
+import RatingsSection from '../components/RatingsSection'
 
 // Data
 import siteDetails from '../data/siteDetails'
@@ -75,6 +76,7 @@ const IndexPage = ({ data, status }) => {
         mapLink={util.addressLink(siteDetails.address1, siteDetails.address2)}
         address1={siteDetails.address1}
         address2={siteDetails.address2}
+        features={frontmatter.map.features}
       />
       <PageSection>
         <PageCarousel
@@ -90,6 +92,7 @@ const IndexPage = ({ data, status }) => {
         heading={frontmatter.numbers.heading}
         array={frontmatter.numbers.array}
       />
+      <RatingsSection />
       <PageCta
         heading={frontmatter.ctaLower.heading}
         buttons={frontmatter.ctaLower.buttons}
@@ -146,6 +149,7 @@ export const basicPageQuery = graphql`
         }
         map {
           heading
+          features
         }
         carousel {
           array {

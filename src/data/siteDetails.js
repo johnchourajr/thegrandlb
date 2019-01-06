@@ -11,6 +11,23 @@ const siteDetails = {
   socialCard: "",
   ga: "UA-131770061-1",
   sitePublic: false,
+  yelpRating: {
+    title: "Yelp",
+    rating: 4,
+    img: "/img/misc/yelp-logo.svg",
+    link: "https://www.yelp.com/biz/the-grand-long-beach-long-beach",
+  },
+  ratings: [
+    {
+      title: "The Knot",
+      rating: 5,
+      link: "https://www.theknot.com/marketplace/the-grand-long-beach-long-beach-ca-620906",
+    },{
+      title: "WeddingWire",
+      rating: 4.4,
+      link: "https://www.weddingwire.com/biz/the-grand-long-beach-long-beach/05b58faf6174714e.html",
+    },
+  ]
 }
 
 export default siteDetails
