@@ -21,7 +21,6 @@ people:
       Choura
     title: Owner
     imgFront: "/img/about/headshots/melanie.jpg"
-    imgBack: "/img/about/headshots/melanie.jpg"
     quote: “Happiness lies in the joy of achievement and the thrill of creative effort.”
   - name: |
       Dan
@@ -56,14 +55,12 @@ people:
       Wright
     title: Assistant Director of Operations
     imgFront: "/img/about/headshots/elexis.jpg"
-    imgBack: "/img/about/headshots/elexis.jpg"
     quote: “Cherish yesterday, dream tomorrow, live today.”
   - name: |
       Jesus
       Gonzalez
     title: Executive Chef
     imgFront: "/img/about/headshots/jesus.jpg"
-    imgBack: "/img/about/headshots/jesus.jpg"
     quote: “Eating is a necessity, cooking is an art.”
   - name: |
       Marissa
@@ -84,7 +81,6 @@ people:
       Sanchez
     title: Details Manager
     imgFront: "/img/about/headshots/kimberly.jpg"
-    imgBack: "/img/about/headshots/kimberly.jpg"
     quote: “Shoot for the moon. Even if you miss, you’ll land among the stars.”
   - name: |
       Lauren
@@ -93,8 +89,15 @@ people:
     imgFront: "/img/about/headshots/lauren-front.jpg"
     imgBack: "/img/about/headshots/lauren-back.jpg"
     quote: “Be bold or italic, never regular.”
-
-
+ctaLower:
+  img: "/img/moments/party-2.jpg"
+  accent: "grandPink"
+  heading: |
+    Plan Your
+    Next Event
+  buttons:
+  - text: "Plan Your Private Event"
+    url: "/inquire/"
 ---
 
 About Page content will go here

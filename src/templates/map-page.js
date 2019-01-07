@@ -91,16 +91,21 @@ const MapPage = ({ data, status, history }) => {
                 </Link>
                 <div className="interactive-map--nav--lower">
                   {post.frontmatter.numbers.array.map((item, i) => {
-                    return (
-                      <div className="interactive-map--nav--lower-inner" key={i}>
-                        <h3>{item.number}</h3>
-                        <h6>{item.caption}</h6>
-                      </div>
-                    )
+                    if (i < 2) {
+                      return (
+                        <div className="interactive-map--nav--lower-inner" key={i}>
+                          <h3>{item.number}</h3>
+                          <h6>{item.caption}</h6>
+                        </div>
+                      )
+                    } else return null
                   })}
+                  <Link to={post.fields.slug} className="interactive-map--nav--lower-inner" key={i}>
+                    <h3>➝</h3>
+                    <h6>View Room</h6>
+                  </Link>
                 </div>
               </div>
-
             )
           })}
           </div>

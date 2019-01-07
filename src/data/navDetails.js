@@ -55,15 +55,21 @@ export const inquireNav = {
 }
 
 export const twitterNav = {
-  name: "twitter", path: "#",
+  name: "twitter",
+  displayName: "Twitter",
+  path: "#",
 }
 
 export const facebookNav = {
-  name: "facebook", path: "https://www.facebook.com/TheGrandLB",
+  name: "facebook",
+  displayName: "Facebook",
+  path: "https://www.facebook.com/TheGrandLB",
 }
 
 export const instagramNav = {
-  name: "instagram", path: "https://www.instagram.com/thegrandlb/",
+  name: "instagram",
+  displayName: "Instagram",
+  path: "https://www.instagram.com/thegrandlb/",
 }
 
 

@@ -64,19 +64,28 @@ const AboutPage = ({ data, status }) => {
         heading={frontmatter.people.heading}
         topDivider
       >
-        <div className="section gutters -page-list clearfix">
+        <div className="section gutters people--wrap clearfix">
           {frontmatter.people.array.map((item, i) => {
             return (
-              <div className="col people--item xs-col-6 md-col-4">
-                <img src={item.imgFront}/>
+              <div key={i} className="col people--item xs-col-6 md-col-4">
+                <div className="people--item--img">
+                  <img className="front" src={item.imgFront}/>
+                  {item.imgBack && <img className="back" src={item.imgBack}/>}
+                </div>
                 <div key={i} className="hash-item">
                   <h2 className="">{item.name}</h2>
+                  <h6 className="xs-mt1 xs-text-6">{item.title}</h6>
                 </div>
               </div>
             )
           })}
         </div>
       </PageSection>
+      <PageCta
+        heading={frontmatter.ctaLower.heading}
+        buttons={frontmatter.ctaLower.buttons}
+        img={frontmatter.ctaLower.img}
+      />
     </Layout>
   )
 }
@@ -98,6 +107,15 @@ export const aboutPageQuery = graphql`
             imgFront
             imgBack
             quote
+          }
+        }
+        ctaLower {
+          img
+          accent
+          heading
+          buttons {
+            text
+            url
           }
         }
       }

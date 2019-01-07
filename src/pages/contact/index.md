@@ -1,5 +1,5 @@
 ---
-templateKey: 'basic-page'
+templateKey: 'contact-page'
 path: /contact
 title: Contact
 heading: |
