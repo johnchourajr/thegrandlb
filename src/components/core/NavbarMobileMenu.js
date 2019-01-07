@@ -9,7 +9,7 @@ import NavbarSocial from './NavbarSocial'
 
 //Data
 import { menuNav, socialNav } from '../../data/navDetails'
-import siteDetails from '../../data/siteDetails'
+import { siteDetails } from '../../data/siteDetails'
 
 // Util Functions
 import { mobileNavNav } from '../functions/util'

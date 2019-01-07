@@ -15,7 +15,7 @@ import NumberArray from '../components/NumberArray'
 import RatingsSection from '../components/RatingsSection'
 
 // Data
-import siteDetails from '../data/siteDetails'
+import { siteDetails } from '../data/siteDetails'
 
 // Util Functions
 import * as util from '../components/functions/util'

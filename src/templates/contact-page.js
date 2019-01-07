@@ -17,7 +17,7 @@ import RatingsSection from '../components/RatingsSection'
 import SvgIcon from '../components/svg/SvgIcon'
 
 // Data
-import siteDetails from '../data/siteDetails'
+import { siteDetails } from '../data/siteDetails'
 import { socialNav } from '../data/navDetails'
 
 // Util Functions

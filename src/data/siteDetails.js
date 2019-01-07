@@ -1,4 +1,4 @@
-const siteDetails = {
+export const siteDetails = {
   title: "The Grand Long Beach",
   description: "So Cal’s Premier Event Venue. Have a wedding, meeting, or party for any milestone in our 40,000 sqft event space.",
   companyName: "Choura Venue Services",
@@ -6,9 +6,9 @@ const siteDetails = {
   address1: "4101 E. Willow St.",
   address2: "Long Beach, CA 90815",
   addressLink: "",
-  url: "",
+  url: "https://thegrandlb.com/",
   twitter: "",
-  socialCard: "",
+  socialCard: "/img/misc/social_card.png",
   ga: "UA-131770061-1",
   sitePublic: false,
   yelpRating: {
@@ -29,5 +29,3 @@ const siteDetails = {
     },
   ]
 }
-
-export default siteDetails
