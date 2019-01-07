@@ -36,9 +36,9 @@ export const menusNav = {
   subpages: [
     { name: "Overview", path: "/menus" },
     { name: "Classic Menu", path: "/menus/classic" },
-    { name: "Weddings Menu", path: "/menus/weddings" },
-    { name: "Business Menu", path: "/menus/business" },
-    { name: "Milestones Menu", path: "/menus/milestones" },
+    { name: "For Weddings", path: "/menus/weddings" },
+    { name: "For Business", path: "/menus/business" },
+    { name: "For Milestones", path: "/menus/milestones" },
   ]
 }
 
