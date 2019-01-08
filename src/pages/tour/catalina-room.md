@@ -35,8 +35,10 @@ numbers:
     caption: "Max Occupancy"
   - number: "25’x25’"
     caption: "Dance Floor"
-ameneties:
-  description: "Ameneties"
+  - number: "27'x10.5'"
+    caption: "Stage"
+amenities:
+  description: "Amenities"
   array:
   - img: "art.svg"
     text: "Catalina Artwork"
@@ -59,9 +61,9 @@ roomswitch:
   - img: "/img/tour-rooms/catalina-room/aligned/social.jpg"
     caption: "Social/Wedding Layout"
   - img: "/img/tour-rooms/catalina-room/aligned/corporate.jpg"
-    caption: "Theater Layout"
-  - img: "/img/tour-rooms/catalina-room/aligned/theater.jpg"
     caption: "Workshop Layout"
+  - img: "/img/tour-rooms/catalina-room/aligned/theater.jpg"
+    caption: "Theater Layout"
 carousel:
   array:
   - img: "/img/tour-rooms/catalina-room/index.sm.jpg"

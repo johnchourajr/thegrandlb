@@ -24,23 +24,17 @@ numbers:
       Average Meetings
       Per Week
     isMin: true
-  - number: "346"
+  - number: "780"
     description: |  
       Meetings
       Last Year
     isMin: true
-  - number: "14"
-    suffix: "hrs"
-    description: |  
-      Conferences and
-      Workshops Per Month
-    isMin: true
-  - number: "Mon."
+  - number: "Thur."
     description: |  
       Most Popular
       Meeting Day
     isMin: true
-  - number: "13"
+  - number: "55"
     description: |  
       Average
       Meeting Attendance

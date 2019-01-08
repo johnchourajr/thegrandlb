@@ -12,7 +12,7 @@ import Buttons from '../components/Buttons'
 import PageCarousel from '../components/PageCarousel'
 import PageSegue from '../components/PageSegue'
 import NumberArray from '../components/NumberArray'
-import AmenetiesArray from '../components/AmenetiesArray'
+import AmenitiesArray from '../components/AmenitiesArray'
 import RoomSwitch from '../components/RoomSwitch'
 import RoomCard from '../components/RoomCard'
 import Video from '../components/Video'
@@ -61,9 +61,9 @@ const TourTemplatePage = ({ data, status, location, pathContext }) => {
         array={frontmatter.numbers.array}
         isMin
       />
-      <AmenetiesArray
-        subHead={frontmatter.ameneties.description}
-        array={frontmatter.ameneties.array}
+      <AmenitiesArray
+        subHead={frontmatter.amenities.description}
+        array={frontmatter.amenities.array}
       />
       {frontmatter.roomswitch && <RoomSwitch
         array={frontmatter.roomswitch.array}
@@ -134,7 +134,7 @@ export const basicPageQuery = graphql`
             caption
           }
         }
-        ameneties {
+        amenities {
           description
           array {
             img

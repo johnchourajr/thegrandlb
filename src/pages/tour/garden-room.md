@@ -37,8 +37,8 @@ numbers:
     caption: "Max Occupancy"
   - number: "20’x25’"
     caption: "Dance Floor"
-ameneties:
-  description: "Ameneties"
+amenities:
+  description: "Amenities"
   array:
   - img: "pa.svg"
     text: "PA Sound System"
@@ -47,7 +47,7 @@ ameneties:
   - img: "projector.svg"
     text: "Projector Screen"
   - img: "outdoor-2.svg"
-    text: "Attached to Palm Courtyard"
+    text: "Attached to Palm Terrace"
   - img: "bar.svg"
     text: "Full Private Bar"
   - img: "cocktail.svg"

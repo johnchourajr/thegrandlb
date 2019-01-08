@@ -34,8 +34,8 @@ numbers:
     caption: "Max Occupancy"
   - number: "19’x11’"
     caption: "Dance Floor"
-ameneties:
-  description: "Ameneties"
+amenities:
+  description: "Amenities"
   array:
   - img: "art.svg"
     text: "Pacific Coast Artwork"

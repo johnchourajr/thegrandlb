@@ -19,17 +19,12 @@ statement:
 - "We’d love to make your day."
 numbers:
   array:
-  - number: "25"
-    description: |  
-      Average
-      Couple Age
-    isMin: true
-  - number: "416"
+  - number: "150"
     description: |  
       Weddings
       Last Year
     isMin: true
-  - number: "4"
+  - number: "5"
     suffix: "hrs"
     description: |  
       Average
@@ -40,7 +35,7 @@ numbers:
       Most Popular
       Wedding Day
     isMin: true
-  - number: "320"
+  - number: "100"
     description: |  
       Average
       Wedding Attendance

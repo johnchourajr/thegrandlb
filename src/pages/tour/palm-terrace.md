@@ -1,11 +1,11 @@
 ---
 templateKey: 'tour-template-page'
-path: /tour/palm-courtyard
-title: The Palm Courtyard
+path: /tour/palm-terrace
+title: The Palm Terrace
 heading: |
   The Palm
-  Courtyard
-hero: "/img/tour-rooms/palm-courtyard/index.sm.jpg"
+  Terrace
+hero: "/img/tour-rooms/palm-terrace/index.sm.jpg"
 roomMeta:
   eventType:
   - Weddings
@@ -24,15 +24,15 @@ roomMeta:
   - 400
 numbers:
   description: |
-    The Palm Courtyard
+    The Palm Terrace
     by Purely the Numbers
   array:
   - number: "3,400"
     caption: "Total Square Feet"
   - number: "400"
     caption: "Max Occupancy"
-ameneties:
-  description: "Ameneties"
+amenities:
+  description: "Amenities"
   array:
   - img: "outdoor-2.svg"
     text: "Tropical Landscaping"
@@ -54,27 +54,27 @@ ameneties:
     text: "Dynamic Lighting"
 roomswitch:
   array:
-  - img: "/img/tour-rooms/palm-courtyard/aligned/social.jpg"
+  - img: "/img/tour-rooms/palm-terrace/aligned/social.jpg"
     caption: "Social/Wedding Layout"
-  - img: "/img/tour-rooms/palm-courtyard/aligned/wedding.jpg"
+  - img: "/img/tour-rooms/palm-terrace/aligned/wedding.jpg"
     caption: "Wedding Ceremony Layout"
 carousel:
   array:
-  - img: "/img/tour-rooms/palm-courtyard/details/7.jpg"
+  - img: "/img/tour-rooms/palm-terrace/details/7.jpg"
     caption: ""
-  - img: "/img/tour-rooms/palm-courtyard/details/2.jpg"
+  - img: "/img/tour-rooms/palm-terrace/details/2.jpg"
     caption: ""
-  - img: "/img/tour-rooms/palm-courtyard/details/3.jpg"
+  - img: "/img/tour-rooms/palm-terrace/details/3.jpg"
     caption: ""
-  - img: "/img/tour-rooms/palm-courtyard/details/4.jpg"
+  - img: "/img/tour-rooms/palm-terrace/details/4.jpg"
     caption: ""
-  - img: "/img/tour-rooms/palm-courtyard/details/5.jpg"
+  - img: "/img/tour-rooms/palm-terrace/details/5.jpg"
     caption: ""
-  - img: "/img/tour-rooms/palm-courtyard/details/6.jpg"
+  - img: "/img/tour-rooms/palm-terrace/details/6.jpg"
     caption: ""
-  - img: "/img/tour-rooms/palm-courtyard/details/1.jpg"
+  - img: "/img/tour-rooms/palm-terrace/details/1.jpg"
     caption: ""
-  - img: "/img/tour-rooms/palm-courtyard/details/8.jpg"
+  - img: "/img/tour-rooms/palm-terrace/details/8.jpg"
     caption: ""
 events:
   - text: |
@@ -115,10 +115,10 @@ events:
 cta:
   heading: |
     Book The Palm
-    Courtyard
+    Terrace
   buttons:
   - text: "Let's Do It"
-    url: "/inquire?glb-rooms=The Palm Courtyard"
+    url: "/inquire?glb-rooms=The Palm Terrace"
 ctaAllRoom:
   subhead: |
     Keep Touring
@@ -144,7 +144,7 @@ ROOM-NAME by purely numbers
 
 ---
 
-Ameneties
+Amenities
 
 **[NOTE: list dependent on room capabilities]**
 - PA System

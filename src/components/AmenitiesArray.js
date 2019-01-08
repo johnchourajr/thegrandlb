@@ -3,7 +3,7 @@ import React from 'react'
 import PageSection from './PageSection'
 import NumberItem from './NumberItem'
 
-const AmenetiesArray = props => {
+const AmenitiesArray = props => {
   return (
     <PageSection
       heading={props.heading}
@@ -28,4 +28,4 @@ const AmenetiesArray = props => {
   )
 }
 
-export default AmenetiesArray
+export default AmenitiesArray

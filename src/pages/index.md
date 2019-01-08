@@ -36,6 +36,9 @@ ctaUpper:
   buttons:
   - text: "Plan Your Private Event"
     url: "/inquire/"
+    event:
+      category: InquireAction
+      action: homeCtaUpperInquireAction
 map:
   heading: |
     So. Cal.
@@ -48,11 +51,11 @@ map:
 carousel:
   array:
   - img: "/img/tour-spaces/GLB_Details_Spaces_2.jpg"
-    caption: "[Palm Courtyard](/tour/palm-courtyard) with Lounge Furniture"
+    caption: "[Palm Terrace](/tour/palm-terrace) with Lounge Furniture"
   - img: "/img/tour-spaces/GLB_Details_Spaces_3.jpg"
     caption: "[Catalina Room](/tour/catalina-room) with Chivari Chairs"
   - img: "/img/tour-spaces/GLB_Details_Spaces_4.jpg"
-    caption: "A [Palm Courtyard](/tour/palm-courtyard) Table Setting"
+    caption: "A [Palm Terrace](/tour/palm-terrace) Table Setting"
   - img: "/img/tour-spaces/GLB_Details_Spaces_5.jpg"
     caption: "[Monarch Room Patio](/tour/monarch-room) Ceremony"
   - img: "/img/tour-spaces/GLB_Details_Spaces_6.jpg"
@@ -77,7 +80,7 @@ numbers:
     suffix: "k"
     caption: "Square Foot Facility"
   - prefix: ""
-    number: "7"
+    number: "6"
     suffix: ""
     caption: "Flexible Indoor Spaces"
   - prefix: ""
@@ -87,14 +90,14 @@ numbers:
   - prefix: ""
     number: "2"
     suffix: ""
-    caption: "Outdoor Courtyards"
+    caption: "Outdoor Terraces"
   - prefix: ""
     number: "2"
     suffix: "k"
     caption: "Total Number of Guests"
   - prefix: ""
-    number: "1.2"
-    suffix: "k"
+    number: "400"
+    suffix: ""
     caption: "Complimentary Parking Spots"
   - prefix: ""
     number: "1"
@@ -109,6 +112,9 @@ ctaLower:
   buttons:
   - text: "Plan Your Private Event"
     url: "/inquire/"
+    event:
+      category: InquireAction
+      action: homeCtaLowerInquireAction
 menuFeature:
   heading: |
     Food & Drink

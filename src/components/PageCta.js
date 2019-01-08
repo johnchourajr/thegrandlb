@@ -8,6 +8,8 @@ import Link, { withPrefix } from 'gatsby-link'
 // Component
 const PageCta = props => {
 
+  console.log(props.buttons);
+
   return (
     <PageImage
       img={props.img}

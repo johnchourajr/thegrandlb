@@ -36,7 +36,7 @@ function outputRoomClass(slug) {
       className = "room-board"
       roomNumber = ""
       break;
-    case "/tour/palm-courtyard/":
+    case "/tour/palm-terrace/":
       className = "room-d"
       roomNumber = ""
       break;

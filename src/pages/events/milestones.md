@@ -11,7 +11,7 @@ carousel:
   - img: "/img/events/milestones/1.jpg"
     caption: "A red carpet entrance to [The Grand Ballroom](/tour/grand-ballroom)"
   - img: "/img/events/milestones/2.jpg"
-    caption: "A [Palm Courtyard](/tour/palm-courtyard) food tasting event"
+    caption: "A [Palm Terrace](/tour/palm-terrace) food tasting event"
   - img: "/img/events/milestones/3.jpg"
     caption: "[The Grand Ballroom](/tour/grand-ballroom) setup for a fundraiser"
 statement:
@@ -19,28 +19,28 @@ statement:
 - "We’d love to help make a lasting memory."
 numbers:
   array:
-  - number: "15"
+  - number: "5"
     description: |  
       Parties
-      Per Month
+      Per Week
     isMin: true
-  - number: "523"
+  - number: "480"
     description: |  
       Parties
       Last Year
     isMin: true
-  - number: "14"
+  - number: "10"
     suffix: "hrs"
     description: |  
       Hours of
       Parties Per Day
     isMin: true
-  - number: "Fri."
+  - number: "Sat."
     description: |  
       Most Popular
       Party Day
     isMin: true
-  - number: "67"
+  - number: "115"
     description: |  
       Average
       Party Attendance

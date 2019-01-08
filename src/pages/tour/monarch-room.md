@@ -36,8 +36,8 @@ numbers:
     caption: "Max Occupancy"
   - number: "15’x25’"
     caption: "Dance Floor"
-ameneties:
-  description: "Ameneties"
+amenities:
+  description: "Amenities"
   array:
   - img: "art.svg"
     text: "Italian Inspired Artwork"

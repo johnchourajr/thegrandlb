@@ -17,7 +17,7 @@ export const tourNav = {
     { name: "The Garden Room", path: "/tour/garden-room" },
     { name: "The Pacific Room", path: "/tour/pacific-room" },
     { name: "The Board Room", path: "/tour/board-room" },
-    { name: "The Palm Courtyard", path: "/tour/palm-courtyard" },
+    { name: "The Palm Terrace", path: "/tour/palm-terrace" },
   ]
 }
 

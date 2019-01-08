@@ -1,6 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link, { withPrefix } from 'gatsby-link'
+import Link, { withPrefix, navigateTo } from 'gatsby-link'
+import ReactGA from 'react-ga'
+
+function buttonClick(url, event) {
+  if (event) {
+    ReactGA.event({
+      category: event.category,
+      action: event.action,
+    });
+  }
+  navigateTo(url)
+}
 
 // Component
 const Buttons = props => {
@@ -10,11 +21,11 @@ const Buttons = props => {
         {props.buttons.map(( item, i ) => {
           const secondary = item.isSecondary ? "button--secondary" : ""
           return(
-            <Link
+            <a
               key={i}
               className={`button ${secondary}`}
-              to={item.url}
-            >{item.text}</Link>
+              onClick={() => buttonClick(item.url, item.event)}
+            >{item.text}</a>
           )
         })}
       </div>

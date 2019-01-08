@@ -29,8 +29,8 @@ numbers:
     caption: "Max Occupancy"
   - number: "15’"
     caption: "Mahogany Table"
-ameneties:
-  description: "Ameneties"
+amenities:
+  description: "Amenities"
   array:
   - img: "pa.svg"
     text: "PA Sound System"

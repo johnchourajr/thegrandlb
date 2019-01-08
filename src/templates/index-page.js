@@ -42,9 +42,17 @@ const IndexPage = ({ data, status }) => {
           {
             text: "Get a Quote",
             url: "/inquire/",
+            event: {
+              category: 'InquireAction',
+              action: 'homeInquireAction'
+            },
           },{
             text: "Take a Tour",
             url: "/tour/",
+            event: {
+              category: 'TourAction',
+              action: 'homeTourAction'
+            },
             isSecondary: true,
           }
         ]}
@@ -145,6 +153,10 @@ export const basicPageQuery = graphql`
           buttons {
             text
             url
+            event {
+              category
+              action
+            }
           }
         }
         map {
@@ -173,6 +185,10 @@ export const basicPageQuery = graphql`
           buttons {
             text
             url
+            event {
+              category
+              action
+            }
           }
         }
         menuFeature {

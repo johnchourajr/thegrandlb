@@ -37,8 +37,10 @@ numbers:
     caption: "Max Occupancy"
   - number: "36’x20’"
     caption: "Dance Floor"
-ameneties:
-  description: "Ameneties"
+  - number: "465"
+    caption: "Stage Sq. Ft."
+amenities:
+  description: "Amenities"
   array:
   - img: "columns.svg"
     text: "Venetian Columns"
@@ -67,9 +69,9 @@ roomswitch:
   - img: "/img/tour-rooms/grand-ballroom/aligned/social.jpg"
     caption: "Social  Layout"
   - img: "/img/tour-rooms/grand-ballroom/aligned/corporate.jpg"
-    caption: "Theater Layout"
-  - img: "/img/tour-rooms/grand-ballroom/aligned/theater.jpg"
     caption: "Workshop Layout"
+  - img: "/img/tour-rooms/grand-ballroom/aligned/theater.jpg"
+    caption: "Theater Layout"
 carousel:
   array:
   - img: "/img/tour-rooms/grand-ballroom/index.jpg"

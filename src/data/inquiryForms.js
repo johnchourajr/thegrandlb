@@ -81,7 +81,7 @@ const inquiryForms = [
           "The Garden Room",
           "The Pacific Room",
           "The Board Room",
-          "The Palm Courtyard",
+          "The Palm Terrace",
         ],
         placeholder: "The Grand Ballroom ",
         value: "",
