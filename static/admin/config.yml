@@ -86,10 +86,10 @@ collections:
     label: "Menu Pages"
     delete: false
     files:
-      - file: "src/data/menus/classicMenu.json"
-        label: "Classic Menu"
+      - label: "Classic Menu"
         name: "classic menu"
-        widget: "list"
+        file: "src/data/menus/classicMenu.json"
+        extension: "json"
         fields:
           - {label: type, name: type, widget: string, required: false}
           - {label: title, name: title, widget: markdown, required: false}
@@ -113,4 +113,3 @@ collections:
                   - {label: description, name: description, widget: markdown, required: false}
                   - {label: list, name: list, widget: list, required: false}
                   - {label: price, name: price, widget: string, required: false}
-                  
