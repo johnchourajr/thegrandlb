@@ -1,66 +1,29 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
+
 import Content, { HTMLContent } from '../components/Content'
+import Layout from '../components/core/Layout'
 import InquiryWrap from '../components/InquiryWrap'
 import { goBack } from '../components/functions/util'
+import StepFlow from '../components/flow/StepFlow'
 
-export const InquirePageTemplate = ({
-  heading,
-  title,
-  content,
-  contentComponent
-}) => {
-  const PageContent = contentComponent || Content
+import inquiryForms from '../data/inquiryForms'
 
-  return (
-    <InquiryWrap>
-      <section className="section section--gradient">
-        <div className="container">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="section">
-                <h6>{title}</h6>
-                <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                  {heading}
-                </h2>
-                <Link to="/">Go Back</Link>
-                <PageContent className="content" content={content} />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </InquiryWrap>
-  )
-}
-
-InquirePageTemplate.propTypes = {
-  heading: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string,
-  contentComponent: PropTypes.func,
-}
-
-const InquirePage = ({ data }) => {
+const InquirePage = ({ data, status, location, history }) => {
   const { frontmatter, html } = data.markdownRemark
 
   return (
-    <InquirePageTemplate
-      contentComponent={HTMLContent}
-      heading={frontmatter.heading}
-      title={frontmatter.title}
-      content={html}
-    />
+    <Layout status={status}>
+      <InquiryWrap history={history}>
+        <section className="section">
+          <div className="wrapper">
+            <StepFlow flowPages={inquiryForms}/>
+          </div>
+        </section>
+      </InquiryWrap>
+    </Layout>
   )
-}
-
-InquirePage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
 }
 
 export default InquirePage

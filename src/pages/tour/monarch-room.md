@@ -1,63 +1,133 @@
 ---
-templateKey: 'basic-page'
+templateKey: 'tour-template-page'
 path: /tour/monarch-room
-title: Welcome To
-heading: The Monarch Room
----
----
-
-**[HEADER-LOOPING-VIDEO-REEL]**
-
----
-
-ROOM-NAME by purely numbers
-
-- X Square Feet
-- X Total Capacity
-- X Banquet Capacity
-- X Classroom Capacity
-- X Theater Capacity
-- X Dance Floor Size
-
----
-
-Ameneties
-
-**[NOTE: list dependent on room capabilities]**
-- PA System
-- Dance floor
-- Dressing Room
-- Projector Screen
-- ...
-
----
-
-**[IMAGE-GALLERY]**
-
----
-
-Some ideas of the kind of events that work best in this room
-
-**[NOTE: list dependent on room capabilities]**
-- Church Services
-- Quinceanera Birthdays
-- Business Conferences
-- ...
-
----
-
-## Book The ROOM-NAME
-[Let's Do It](/inquire/) (/inquire/)
-
----
-
-Keep Touring
-[View All Rooms](/tour/map/) (/tour/map/)
-
-#### Prev Room
-**[NOTE: PREV-ROOM-LINK]**
-
-#### Next Room
-**[NOTE: NEXT-ROOM-LINK]**
-
+title: The Monarch Room
+heading: |
+  The Monarch
+  Room
+hero: "/img/tour-rooms/monarch-room/index.sm.jpg"
+roomMeta:
+  eventType:
+  - Weddings
+  - Social
+  - Corporate
+  eventTypeInfo:
+  - type: "Weddings"
+    description: "Great for mid-sized wedding receptions and ceremonies."
+  - type: "Social"
+    description: "Excellent for mid-sized social gatherings and parties."
+  - type: "Corporate"
+    description: "Perfect for workshops and company parties."
+  roomFeatures:
+  - Attached Outdoor Patio
+  - Dance Floor
+  - Sound System
+  - Cocktail Area
+  guestCount:
+  - 180
+numbers:
+  description: |
+    The Monarch Room
+    by Purely the Numbers
+  array:
+  - number: "3,400"
+    caption: "Total Square Feet"
+  - number: "180"
+    caption: "Max Occupancy"
+  - number: "15’x25’"
+    caption: "Dance Floor"
+amenities:
+  description: "Amenities"
+  array:
+  - img: "art.svg"
+    text: "Italian Inspired Artwork"
+  - img: "outdoor-1.svg"
+    text: "Large Outdoor Patio"
+  - img: "pa.svg"
+    text: "PA Sound System"
+  - img: "dancing.svg"
+    text: "Dance Floor"
+  - img: "projector.svg"
+    text: "Projector Screen"
+  - img: "bar.svg"
+    text: "Bar Service"
+  - img: "lighting.svg"
+    text: "Dynamic Lighting"
+roomswitch:
+  array:
+  - img: "/img/tour-rooms/monarch-room/aligned/wedding.jpg"
+    caption: "Social/Wedding Layout"
+  - img: "/img/tour-rooms/monarch-room/aligned/corporate.jpg"
+    caption: "Workshop Layout"
+  - img: "/img/tour-rooms/monarch-room/aligned/patio-wedding.jpg"
+    caption: "Patio Ceremony Layout"
+  - img: "/img/tour-rooms/monarch-room/aligned/patio-social.jpg"
+    caption: "Patio Social Layout"
+carousel:
+  array:
+  - img: "/img/tour-rooms/monarch-room/index.sm.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/monarch-room/details/1.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/monarch-room/details/2.jpg"
+    caption: "Chiffon Ceiling Draping"
+  - img: "/img/tour-rooms/monarch-room/details/3.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/monarch-room/details/4.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/monarch-room/details/5.jpg"
+    caption: ""
+events:
+  - text: |
+      Pageants
+    img: ""
+  - text: |
+      Weddings
+    img: ""
+  - text: |
+      Workshops
+    img: ""
+  - text: |
+      Fundraisers
+    img: ""
+  - text: |
+      Birthdays
+    img: ""
+  - text: |
+      Quinceanera
+    img: ""
+  - text: |
+      Church
+      Services
+    img: ""
+  - text: |
+      Corporate
+      Conferences
+    img: ""
+  - text: |
+      Memorial
+      Services
+    img: ""
+  - text: |
+      Corporate
+      Events
+    img: ""
+  - text: |
+      Parties of
+      All Types
+    img: ""
+cta:
+  heading: |
+    Book The
+    Monarch Room
+  buttons:
+  - text: "Let's Do It"
+    url: "/inquire?glb-rooms=The Monarch Room"
+ctaAllRoom:
+  subhead: |
+    Keep Touring
+  buttons:
+  - text: "View All Rooms"
+    url: "/tour/map"
+    isSecondary: true
 ---

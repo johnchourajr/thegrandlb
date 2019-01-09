@@ -1,44 +1,61 @@
 ---
-templateKey: 'basic-page'
+templateKey: 'events-template-page'
 path: /events/milestones
 title: Milestone Events
-heading: Party Like  Nobody’s Watching
----
----
-
-### Our Favorites
-**[NOTE: IMAGE-GALLERY]**
-
----
-
-The Grand has been there for over 5,000 EVENT-NAME over the past decade.
-
-We’d love to make your day.
-
-**[NOTE: list of facts dependent on real data]**
-- 25, Age of average attendee
-- 216, EVENT-NAME last year
-- 4, Average EVENT-NAME duration
-- Saturday, Most popular day for an EVENT-NAME
-- 320, Average wedding attendance
-
----
-
-## The Best Rooms
-We think these event spaces are the best for EVENT-NAME
-
-Options:
-- Event Type (Preselect EVENT-NAME)
-- Room Features
-- Guest Count
-
-**[NOTE: Shows rooms filtered by options selected]**
-
----
-
-## Book Your EVENT-NAME
-
-Button:
-- Let's Do It (/inquire/)
-
+heading: |
+  Party Like
+  Nobody’s Watching
+carousel:
+  description: "Our Top Picks"
+  array:
+  - img: "/img/events/milestones/1.jpg"
+    caption: "A red carpet entrance to [The Grand Ballroom](/tour/grand-ballroom)"
+  - img: "/img/events/milestones/2.jpg"
+    caption: "A [Palm Terrace](/tour/palm-terrace) food tasting event"
+  - img: "/img/events/milestones/3.jpg"
+    caption: "[The Grand Ballroom](/tour/grand-ballroom) setup for a fundraiser"
+statement:
+- "Life is full of milestones. The Grand has been there for over 4,000 milestone events over the past decade."
+- "We’d love to help make a lasting memory."
+numbers:
+  array:
+  - number: "5"
+    description: |  
+      Parties
+      Per Week
+    isMin: true
+  - number: "480"
+    description: |  
+      Parties
+      Last Year
+    isMin: true
+  - number: "10"
+    suffix: "hrs"
+    description: |  
+      Hours of
+      Parties Per Day
+    isMin: true
+  - number: "Sat."
+    description: |  
+      Most Popular
+      Party Day
+    isMin: true
+  - number: "115"
+    description: |  
+      Average
+      Party Attendance
+    isMin: true
+filterlist:
+  heading: |
+    The Best
+    Rooms
+  description: "We think these event spaces are the best for milestone events of all kinds"
+  filtertype: "Social"
+cta:
+  heading: |
+    Let's Celebrate
+    Together
+  buttons:
+  - text: "Plan Your Event"
+    url: "/inquire?glb-event-type=Party"
 ---

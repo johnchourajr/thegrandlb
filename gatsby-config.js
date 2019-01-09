@@ -9,7 +9,6 @@ module.exports = {
         component: require.resolve(`./src/layouts/index.js`),
       },
     },
-    'gatsby-plugin-page-transitions',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
@@ -17,6 +16,14 @@ module.exports = {
       options: {
         path: `${__dirname}/src/pages`,
         name: 'pages',
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `data`,
+        path: `${__dirname}/src/data/`,
+        ignore: [`**/\.*`], // ignore files starting with a dot
       },
     },
     {

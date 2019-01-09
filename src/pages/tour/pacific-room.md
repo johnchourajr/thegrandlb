@@ -1,63 +1,105 @@
 ---
-templateKey: 'basic-page'
+templateKey: 'tour-template-page'
 path: /tour/pacific-room
-title: Welcome To
-heading: The Pacific Room
----
----
-
-**[HEADER-LOOPING-VIDEO-REEL]**
-
----
-
-ROOM-NAME by purely numbers
-
-- X Square Feet
-- X Total Capacity
-- X Banquet Capacity
-- X Classroom Capacity
-- X Theater Capacity
-- X Dance Floor Size
-
----
-
-Ameneties
-
-**[NOTE: list dependent on room capabilities]**
-- PA System
-- Dance floor
-- Dressing Room
-- Projector Screen
-- ...
-
----
-
-**[IMAGE-GALLERY]**
-
----
-
-Some ideas of the kind of events that work best in this room
-
-**[NOTE: list dependent on room capabilities]**
-- Church Services
-- Quinceanera Birthdays
-- Business Conferences
-- ...
-
----
-
-## Book The ROOM-NAME
-[Let's Do It](/inquire/) (/inquire/)
-
----
-
-Keep Touring
-[View All Rooms](/tour/map/) (/tour/map/)
-
-#### Prev Room
-**[NOTE: PREV-ROOM-LINK]**
-
-#### Next Room
-**[NOTE: NEXT-ROOM-LINK]**
-
+title: The Pacific Room
+heading: |
+  The Pacific
+  Room
+hero: "/img/tour-rooms/pacific-room/index.sm.jpg"
+roomMeta:
+  eventType:
+  - Weddings
+  - Social
+  - Corporate
+  eventTypeInfo:
+  - type: "Weddings"
+    description: "Great for small wedding receptions."
+  - type: "Social"
+    description: "Excellent for small social gatherings and parties."
+  - type: "Corporate"
+    description: "Perfect for workshops and company parties."
+  roomFeatures:
+  - Dance Floor
+  - Sound System
+  guestCount:
+  - 90
+numbers:
+  description: |
+    The Pacific Room
+    by Purely the Numbers
+  array:
+  - number: "1,557"
+    caption: "Total Square Feet"
+  - number: "90"
+    caption: "Max Occupancy"
+  - number: "19’x11’"
+    caption: "Dance Floor"
+amenities:
+  description: "Amenities"
+  array:
+  - img: "art.svg"
+    text: "Pacific Coast Artwork"
+  - img: "pa.svg"
+    text: "PA Sound System"
+  - img: "dancing.svg"
+    text: "Dance Floor"
+  - img: "projector.svg"
+    text: "Projector Screen"
+  - img: "bar.svg"
+    text: "Private Bar"
+  - img: "lighting.svg"
+    text: "Dynamic Lighting"
+roomswitch:
+  array:
+  - img: "/img/tour-rooms/pacific-room/aligned/social.jpg"
+    caption: "Social Layout"
+  - img: "/img/tour-rooms/pacific-room/aligned/corporate.jpg"
+    caption: "Workshop Layout"
+carousel:
+  array:
+  - img: "/img/tour-rooms/pacific-room/details/1.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/pacific-room/details/2.jpg"
+    caption: "Chiffon Ceiling Draping"
+  - img: "/img/tour-rooms/pacific-room/details/3.jpg"
+    caption: ""
+  - img: "/img/tour-rooms/pacific-room/details/4.jpg"
+    caption: ""
+events:
+  - text: |
+      Small Wedding
+      Receptions
+    img: ""
+  - text: |
+      Workshops
+    img: ""
+  - text: |
+      Birthdays
+    img: ""
+  - text: |
+      Holiday
+      Events
+    img: ""
+  - text: |
+      50th Anniversary
+      Celebrations
+    img: ""
+  - text: |
+      Parties of
+      All Types
+    img: ""
+cta:
+  heading: |
+    Book The
+    Pacific Room
+  buttons:
+  - text: "Let's Do It"
+    url: "/inquire?glb-rooms=The Pacific Room"
+ctaAllRoom:
+  subhead: |
+    Keep Touring
+  buttons:
+  - text: "View All Rooms"
+    url: "/tour/map"
+    isSecondary: true
 ---

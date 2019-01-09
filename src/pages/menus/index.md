@@ -1,8 +1,41 @@
 ---
-templateKey: 'basic-page'
+templateKey: 'menus-index-page'
 path: /menus
 title: Menu
-heading: Taste Our Menu
+heading: |
+  Taste
+  Our Menu
+carousel:
+  array:
+  - img: "/img/menus/1.jpg"
+    caption: ""
+  - img: "/img/menus/2.jpg"
+    caption: ""
+  - img: "/img/menus/3.jpg"
+    caption: ""
+  - img: "/img/menus/4.jpg"
+    caption: ""
+  - img: "/img/menus/5.jpg"
+    caption: ""
+  - img: "/img/menus/6.jpg"
+    caption: ""
+menus:
+  array:
+  - name: "Our Classic Menu"
+    path: "/menus/classic"
+  - name: "Wedding Packages Menu"
+    path: "/menus/weddings"
+  - name: "Corporate Packages Menu"
+    path: "/menus/business"
+  - name: "Milestone Packages Menu"
+    path: "/menus/milestones"
+cta:
+  heading: |
+    Tell Us About
+    Your Event
+  buttons:
+  - text: "Plan Your Private Event"
+    url: "/inquire/"
 ---
 ---
 

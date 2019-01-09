@@ -4,24 +4,22 @@ import { Transition } from 'react-transition-group';
 
 import Head from '../components/core/Head'
 import Header from '../components/core/Header'
-import BodyWrap from '../components/core/BodyWrap'
 import Footer from '../components/core/Footer'
-import { typographyInject } from '../components/core/Typography'
-import { mainNav, subNav, inquireNav } from '../components/data/NavData'
+import * as navDetails from '../data/navDetails'
 
-import './all.scss'
-typographyInject
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import '../styles/all.scss'
 
-const TemplateWrapper = ({ children, location }) => {
+const TemplateWrapper = ({ children, history, location, props }) => {
   return (
-    <div>
+    <React.Fragment>
       <Head location={location}/>
-        <Header mainNav={mainNav} inquireNav={inquireNav}/>
-        <BodyWrap location={location}>
-          {children}
-        </BodyWrap>
-        <Footer subNav={subNav} />
-    </div>
+      <Header mainNav={navDetails.mainNav} inquireNav={navDetails.inquireNav}/>
+      <div className="bodyWrap" data-status="">
+        {children()}
+      </div>
+      <Footer subNav={navDetails.subNav} />
+    </React.Fragment>
   )
 }
 

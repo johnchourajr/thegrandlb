@@ -1,0 +1,326 @@
+html {
+  transition: background-color .5s $easeOutCubic;
+  max-width: 100vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: $white;
+
+  &.active--mobile-menu, &.active--mobile-menu body {
+    overflow: hidden;
+    height: 100vw;
+
+    @include solid-breakpoint(md) {
+      overflow: initial;
+      height: auto;
+    }
+  }
+}
+
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: transparent;
+  transition: background-color .5s $easeOutCubic;
+}
+
+
+
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+  color: $text-black;
+}
+
+*:focus,
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+
+/**
+ * Basic styling
+ */
+html {
+  font-size: $base-font-size;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  font-size: $base-font-size;
+  color: $text-black;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "kern" 1;
+  -moz-font-feature-settings: "kern" 1;
+  -o-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+
+  @include solid-breakpoint(sm) {
+    font-size: $base-font-size * 1.1;
+  }
+  @include solid-breakpoint(md) {
+    font-size: $base-font-size * 1.15;
+  }
+  @include solid-breakpoint(lg) {
+    font-size: $base-font-size * 1.2;
+  }
+  @include solid-breakpoint(xl) {
+    font-size: $base-font-size * 1.25;
+  }
+  @include solid-breakpoint(xxl) {
+    font-size: $base-font-size * 1.3;
+  }
+  @include solid-breakpoint(xxxl) {
+    font-size: $base-font-size * 1.35;
+  }
+}
+
+
+
+/**
+ * Images
+ */
+img {
+  width: 100%;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+
+
+/**
+ * Figures
+ */
+figure {
+  background: $fill-white;
+}
+
+figure > img {
+  display: block;
+  min-height: 30vw;
+}
+
+figcaption {
+  font-size: $text-6;
+}
+
+
+
+/**
+ * Lists
+ */
+ul, ol {
+  margin-left: ($space-1 * 2.5);
+}
+
+li {
+  > ul,
+  > ol {
+     margin-bottom: 0;
+  }
+}
+
+
+
+/**
+ * Clearfix
+ */
+%clearfix {
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
+/**
+ * Grid Mods
+ */
+.gutters {
+  margin: 0 -#{$space-2} !important;
+
+   > .col {
+    padding: 0 #{$space-2}!important;
+  }
+}
+
+/**
+ * Wrapper
+ */
+.wrapper {
+  $incriment: $space-1 / 4;
+  $offset: $space-1 / 2;
+  $maxwidth: #{$content-width} - (#{$offset});
+
+  max-width: -webkit-calc(#{$maxwidth});
+  max-width: calc(#{$maxwidth});
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $incriment;
+  padding-left: $incriment;
+
+
+  @include solid-breakpoint(lg) {
+    $incriment: $space-1 / 2;
+    $offset: $space-1;
+    $maxwidth: #{$content-width} - (#{$offset});
+
+    max-width: -webkit-calc(#{$maxwidth});
+    max-width: calc(#{$maxwidth});
+    padding-right: $incriment;
+    padding-left: $incriment;
+  }
+
+  @include solid-breakpoint(xl) {
+    $unit: 5;
+    $incriment: ($space-1*$unit) / 2;
+    $offset: ($space-1*$unit);
+    $maxwidth: #{$content-width} - (#{$offset});
+
+    max-width: -webkit-calc(#{$maxwidth});
+    max-width: calc(#{$maxwidth});
+    padding-right: $incriment;
+    padding-left: $incriment;
+  }
+
+  @include solid-breakpoint(xxl) {
+    $unit: 5vw;
+    $incriment: $unit / 2;
+    $offset: $unit;
+    $maxwidth: #{$content-width} - (#{$offset});
+
+    max-width: -webkit-calc(#{$maxwidth});
+    max-width: calc(#{$maxwidth});
+    padding-right: $incriment;
+    padding-left: $incriment;
+  }
+
+  @include solid-breakpoint(xxxl) {
+    $unit: 7.5vw;
+    $incriment: $unit / 2;
+    $offset: $unit;
+    $maxwidth: #{$content-width} - (#{$offset});
+
+    max-width: -webkit-calc(#{$maxwidth});
+    max-width: calc(#{$maxwidth});
+    padding-right: $incriment;
+    padding-left: $incriment;
+  }
+}
+
+
+
+.page-card {
+  transition: transform .3s $easeOutCubic;
+
+  &:hover {
+    transform: scale(1.025);
+  }
+}
+
+.card-wrap {
+  padding: 4rem 0 2rem;
+}
+
+.card a:hover {
+
+  .card--inner--upper h1 {
+    color: $grandRed;
+  }
+
+  .card--inner--lower {
+    @include solid-breakpoint(md) {
+      bottom: 0rem;
+      opacity: 1;
+
+      & * {
+        color: $grandRed;
+      }
+    }
+  }
+}
+
+.card {
+  height: 25vw;
+  min-height: 25rem;
+  margin: 1rem 0;
+  overflow: hidden;
+  border: none !important;
+  background-color: rgba($grandBabyBlue,.5);
+  position: relative;
+  background-size: cover;
+  background-position: center;
+
+  &:hover {
+    &:after {
+      background-color: rgba($white, .95);
+    }
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top:-1px; right:-1px; bottom:-1px; left:-1px;
+    background-color: rgba($black, .33);
+    transition: background-color .3s linear;
+    z-index: 0;
+  }
+
+  a {
+    padding: 3rem;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    text-decoration: none;
+  }
+
+  &--inner {
+    z-index: 2;
+
+    * {
+      color: $grandBabyBlue;
+    }
+
+    &--upper {
+      height: 100%;
+    }
+
+    &--lower {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      background-color: $grandPink;
+      position: absolute;
+      padding: 2rem 3rem 2rem 3rem;
+      left: 0; right: 0; bottom: 0rem;
+      transition: all .4s $easeOutCubic;
+      border-bottom-width: 2px;
+      border-bottom-style: solid;
+      border-bottom-color: $grandRed;
+
+      * {
+        color: $black;
+      }
+
+      @include solid-breakpoint(md) {
+        background-color: transparent;
+        bottom: -1rem;
+        opacity: 0;
+
+        & * {
+          color: $grandBabyBlue;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,204 @@
+
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+  margin-bottom: $space-1 / 2;
+  transition: color .2s linear;
+}
+
+em {
+}
+
+del {
+  opacity: .12;
+}
+
+
+/**
+ * Paragraphs
+ */
+p {
+  &.large {
+    font-size: 1.25em;
+    margin-bottom: 1em;
+  }
+}
+
+
+/**
+ * Headings
+ */
+h1, h2, h3 {
+  // font-weight: 700;
+  font-family: $serif;
+  letter-spacing: 0;
+  z-index: 1;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  white-space: pre-wrap;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  a {
+    text-decoration: underline;
+  }
+}
+
+h4, h5, h6 {
+  font-family: $sans;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+
+h6 {
+  font-family: $sansBold;
+  font-size: 1em;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+
+h1 {
+  font-size: $text-1;
+  line-height: $line-height-6;
+  letter-spacing: -0.03em;
+
+  &.display {
+    font-size: $display-1 * .75;
+    line-height: $line-height-display;
+    letter-spacing: -0.05em;
+
+    @include solid-breakpoint(md) {
+      font-size: $display-1;
+    }
+
+    @include solid-breakpoint(xl) {
+      font-size: $display-1 * 1.2;
+    }
+  }
+}
+
+h2 {
+  font-size: $text-2;
+  line-height: $line-height-6;
+  letter-spacing: -0.01em;
+
+  &.display {
+    font-size: $display-2 * .75;
+    line-height: $line-height-display;
+    letter-spacing: -0.03em;
+
+    @include solid-breakpoint(md) {
+      font-size: $display-2;
+    }
+  }
+}
+
+h3 {
+  font-size: $text-3;
+  line-height: $line-height-6;
+
+  &.display {
+    font-size: $display-3 * .75;
+    line-height: $line-height-display;
+    letter-spacing: -0.03em;
+
+    @include solid-breakpoint(md) {
+      font-size: $display-3;
+    }
+  }
+}
+
+
+/**
+ * Styles
+ */
+strong, .bold {
+  font-family: $sansBold;
+}
+
+
+/**
+ * Links
+ */
+a {
+  color: $text-black;
+  text-decoration: none;
+  transition: color .2s $easeOutCubic;
+
+  &:hover {
+    color: $text-black;
+    text-decoration: underline;
+
+    .underline {
+      text-decoration: underline;
+    }
+  }
+}
+
+
+
+/**
+ * Blockquotes
+ */
+blockquote {
+  color: $fill-black;
+  font-size: ($text-1 * .75);
+  font-weight: bold;
+
+  & > p {
+    text-indent: -0.4em;
+    line-height: $line-height-1 !important;
+
+    > strong {
+      font-size: 30%;
+      font-style: normal;
+      text-transform: uppercase;
+    }
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+
+/**
+ * Code formatting
+ */
+pre,
+code {
+  font-size: 15px;
+  border: 1px solid $fill-gray-lighter;
+  border-radius: 3px;
+  background-color: #eef;
+}
+
+code {
+  padding: 1px 5px;
+}
+
+pre {
+  padding: 8px 12px;
+  overflow-x: auto;
+
+  > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}

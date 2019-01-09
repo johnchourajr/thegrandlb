@@ -1,0 +1,143 @@
+// https://www.tutorialspoint.com/css/css_print_references.htm
+// https://www.smashingmagazine.com/2011/11/how-to-set-up-a-print-style-sheet/
+@media screen {
+  .only-print {
+    display: none;
+  }
+}
+
+@media print {
+  .footer--upper,
+  .nav--left, .nav--right,
+  .nav--mobile-menu {
+    display: none;
+  }
+
+  .nav {
+    position: absolute;
+
+    &:before {
+      background-color: transparent !important;
+      box-shadow: none !important;
+    }
+
+    &--logo {
+      justify-content: center;
+
+      .logo > svg {
+        width: 16rem !important;
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  .footer {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    page-break-before: always;
+  }
+
+  .page-header {
+    padding-top: 35vh;
+    margin-bottom: 50vh;
+
+    &--wrap {
+      transform: translateY(5.33em);
+    }
+
+    &--headline {
+      font-size: 5.15em !important;
+    }
+
+    &:after {
+      content: "www.thegrandlb.com";
+      position: absolute;
+      bottom: -40vh;
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .menu--wrap {
+    page-break-before: always;
+  }
+
+  .menu--header {
+    margin-top: 3rem;
+  }
+
+  .table--row p {
+    orphans: 0;
+  }
+
+  // .print-footer {
+  //   position: fixed;
+  //   display: table-footer-group;
+  //   bottom: 0;
+  //   // transform: translateY(-60px);
+  //   color: lighten($black, 75%);
+  //   font-size: $text-6;
+  //   // display: flex !important;
+  //   align-items: center;
+  //   justify-content: center;
+  //   width: 100%;
+  //   padding: 0 0;
+  // }
+}
+
+@media print {
+  body {
+    width: 100%;
+    font-size: 12pt !important;
+  }
+
+  // @page {
+  //   margin: 0.5in 0.5in;
+  //
+  //   @top-left {
+  //     content: "Hamlet";
+  //     color: $black;
+  //   }
+  //
+  //   @top-right {
+  //     content: "Page " counter(page);
+  //     color: $black;
+  //   }
+  // }
+
+  // @page :first {
+  //   color: green;
+  //
+  //   @top-left {
+  //     content: "foo";
+  //     color: blue;
+  //   }
+  //   @top-right {
+  //     content: "bar";
+  //   }
+  // }
+
+  // @page:right{
+  //   @bottom-left {
+  //     margin: 10pt 0 30pt 0;
+  //     border-top: .25pt solid #666;
+  //     content: "My book";
+  //     font-size: 9pt;
+  //     color: #333;
+  //   }
+  // }
+  //
+  // @page:left {
+  //  margin: 0.5in;
+  //  // background-color: red;
+  // }
+
+  .no-print {
+    display: none !important;
+  }
+  .only-print {
+    display: block;
+  }
+}
