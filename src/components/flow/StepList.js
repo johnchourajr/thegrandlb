@@ -1,5 +1,6 @@
 import React from "react"
 import Link, {navigateTo} from 'gatsby-link'
+import ReactGA from 'react-ga'
 
 
 const StepIndex = props => {
@@ -50,11 +51,23 @@ class StepList extends React.Component {
   }
 
   goToPreviousStep = () => {
-    this.setState({ currentStep: this.state.currentStep - 1 })
+    const step = this.state.currentStep - 1
+
+    this.setState({ currentStep: step })
+    ReactGA.event({
+      category: 'InquiryFlow',
+      action: `Back To Step ${step+1}`
+    });
   }
 
   goToNextStep = () => {
-    this.setState({ currentStep: this.state.currentStep + 1 })
+    const step = this.state.currentStep + 1
+
+    this.setState({ currentStep: step })
+    ReactGA.event({
+      category: 'InquiryFlow',
+      action: `Proceed To Step ${step+1}`
+    });
   }
 
   submitAction = (disabled) => {
@@ -62,6 +75,11 @@ class StepList extends React.Component {
       console.log('disabled');
     } else {
       sessionStorage.setItem('flowPages', JSON.stringify(this.props.flowPages))
+      ReactGA.event({
+        category: 'InquiryFlow',
+        action: 'Inquiry Submitted'
+      });
+      // ReactGA.set({ userName: this.props.flowPages[2].forms[0].value });
     }
   }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import ReactGA from 'react-ga'
 
 import StepList from './StepList'
 import Step from './Step'
@@ -25,6 +26,11 @@ class StepFlow extends React.Component {
 
   componentDidMount() {
     this.setQueryValues()
+
+    ReactGA.event({
+      category: 'InquiryFlow',
+      action: `Started at Step 1`
+    });
   }
 
   querySetFormValue(variable, page, field) {
@@ -132,7 +138,7 @@ class StepFlow extends React.Component {
       doneUrl,
     } = this.state
 
-    console.log(flowPages);
+    // console.log(flowPages);
 
     return (
       <React.Fragment>

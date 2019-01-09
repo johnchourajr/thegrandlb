@@ -1355,13 +1355,20 @@
 
     h1.display {
       position: absolute;
-      top: -1rem; left: 0; right: 0;
+      top: 2rem; left: 0; right: 0;
       width: 100%;
-      font-size: 20vw;
+      font-size: 30vw;
       color: rgba($grandBabyBlue, 1);
       text-align: center;
       z-index: -10;
+
+      @include solid-breakpoint(md) {
+        top: 2rem;
+        font-size: 20vw;
+      }
     }
+
+
 
     // &--left {
     //

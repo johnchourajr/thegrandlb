@@ -10,9 +10,7 @@ class Video extends React.Component {
   }
 
   componentWillMount() {
-    // console.log("we did it", isMobileBrowswer());
     this.setState({isMobileBrowswer: isMobileBrowswer()})
-    // console.log(this.state.isMobileBrowswer);
   }
 
   render() {
@@ -22,8 +20,6 @@ class Video extends React.Component {
       muted: true,
       loop: true,
     }
-
-    console.log(this.props.poster);
 
     return(
       <div className="video">

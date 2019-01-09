@@ -50,6 +50,21 @@ const ContactPage = ({ data, status }) => {
           </div>
         ))}
       </PageSection>
+      <PageCta
+        accent={'grandPink'}
+        heading={"Plan Your\nEvent Today"}
+        buttons={[
+          {
+            text: "Plan Your Private Event",
+            url: "/inquire/",
+            event: {
+              category: 'InquireAction',
+              action: 'contactPageInquireAction',
+            },
+          }
+        ]}
+        img={"/img/moments/party.jpg"}
+      />
     </Layout>
   )
 }

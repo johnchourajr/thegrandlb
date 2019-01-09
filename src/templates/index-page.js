@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link, { withPrefix } from 'gatsby-link'
+import Experiment from "react-ab-test/lib/Experiment"
+import Variant from "react-ab-test/lib/Variant"
+import emitter from "react-ab-test/lib/emitter"
 
 // Components
 import Content, { HTMLContent } from '../components/Content'
@@ -13,6 +16,9 @@ import PageCarousel from '../components/PageCarousel'
 import MapSection from '../components/MapSection'
 import NumberArray from '../components/NumberArray'
 import RatingsSection from '../components/RatingsSection'
+
+// AB Tests
+import HomeABTest from '../components/HomeABTest'
 
 // Data
 import { siteDetails } from '../data/siteDetails'
@@ -57,28 +63,9 @@ const IndexPage = ({ data, status }) => {
           }
         ]}
       />
-      <PageSection
-        heading={frontmatter.subhead}
-      />
-      <PageSection
-        wrapperClassName="page-feature--wrapper"
-      >
-        {frontmatter.topFeatures.map((item, i) => {
-          return (
-            <div key={i} className="page-feature page-feature--lower-bar col xs-col-12 md-col-4">
-              <Link to={item.url}>
-                <h1 className="xs-text-center">{item.text}</h1>
-              </Link>
-            </div>
-          )
-        })}
-      </PageSection>
-      <PageCta
-        accent={'grandPink'}
-        heading={frontmatter.ctaUpper.heading}
-        buttons={frontmatter.ctaUpper.buttons}
-        img={frontmatter.ctaUpper.img}
-      />
+
+      <HomeABTest frontmatter={frontmatter}/>
+
       <MapSection
         heading={frontmatter.map.heading}
         mapLink={util.addressLink(siteDetails.address1, siteDetails.address2)}
@@ -126,6 +113,8 @@ const IndexPage = ({ data, status }) => {
     </Layout>
   )
 }
+
+
 
 export default IndexPage
 

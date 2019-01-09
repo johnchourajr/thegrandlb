@@ -1,5 +1,6 @@
 import React from 'react'
 import Link, {navigateTo} from 'gatsby-link'
+import ReactGA from 'react-ga'
 import _ from 'lodash'
 
 export const style = {
@@ -28,8 +29,16 @@ const InquiryCloseButton = props => (
 function handleBack(history) {
   if (_.isUndefined(history)) {
     navigateTo("/")
+    ReactGA.event({
+      category: 'InquiryFlow',
+      action: `Exit`
+    });
   } else {
     history.goBack()
+    ReactGA.event({
+      category: 'InquiryFlow',
+      action: `Exit`
+    });
   }
 }
 

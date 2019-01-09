@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import ReactGA from 'react-ga'
 import ReactMarkdown from 'react-markdown'
 
 import Content, { HTMLContent } from '../components/Content'
@@ -10,6 +11,15 @@ import PageSegue from '../components/PageSegue'
 import Link, { withPrefix } from 'gatsby-link'
 
 import { slugify, outputMenuData } from '../components/functions/util'
+
+function printAction(menu) {
+  window.print()
+
+  ReactGA.event({
+    category: 'MenuPrint',
+    action: menu,
+  });
+}
 
 const Td = props => {
   return (
@@ -139,7 +149,7 @@ const MenuTemplatePage = ({ data, status }) => {
         subHeadClassName={"xs-px4 xs-pb4 no-print"}
       >
       <div className="print-button no-print">
-        <button onClick={() => window.print()} className="button button--small button--secondary button--third">
+        <button onClick={() => printAction(frontmatter.heading)} className="button button--small button--secondary button--third">
           <p>Print This Menu  <img style={{width: 20, height: 24}} src={`${withPrefix(path)}`}/></p>
         </button>
       </div>

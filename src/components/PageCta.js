@@ -8,15 +8,20 @@ import Link, { withPrefix } from 'gatsby-link'
 // Component
 const PageCta = props => {
 
-  console.log(props.buttons);
-
   return (
     <PageImage
       img={props.img}
       className={`page-cta page-cta--${props.accent}`}
     >
       <div className="page-cta--inner">
-        <h2 className="display xs-text-center xs-mb5">{props.heading}</h2>
+        {
+          props.heading &&
+          <h2 className="display xs-text-center xs-mb5">{props.heading}</h2>
+        }
+        {
+          props.subHead &&
+          <p className={`clearfix xs-text-center section--head--caption xs-text-white`}>{props.subHead}</p>
+        }
         <Buttons
           className="xs-flex xs-flex-justify-center"
           buttons={props.buttons}

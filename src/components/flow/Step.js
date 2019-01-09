@@ -41,44 +41,42 @@ const Step = props => {
 
   const activeStyles = !isActive ? {display: 'none'} : {display: 'inherit'}
 
-  // if (isActive) {
-    return (
-      <div style={activeStyles}>
-        <input type="hidden" name="utf8" value="✓"/>
-        {page.forms.map((item, i) => {
-          return (
-            <StepInput
-              key={i}
-              pageNumber={pageNumber}
-              formNumber={i}
-              handleChange={props.handleChange}
-              {...item}
-            />
-          )
-        })}
-        <div className="inquire-page--footer xs-col-12">
-          <Previous
-            isActive={displayPrevious}
-            goToPreviousStep={() => props.goToPreviousStep()}
+  return (
+    <div style={activeStyles}>
+      <input type="hidden" name="utf8" value="✓"/>
+      {page.forms.map((item, i) => {
+        return (
+          <StepInput
+            key={i}
+            pageNumber={pageNumber}
+            formNumber={i}
+            handleChange={props.handleChange}
+            {...item}
           />
-          <Next
-            isActive={displayNext}
-            goToNextStep={() => {
-              props.goToNextStep()
-              props.setQueryValues
-            }}
-            disabled={!page.isValid}
-          />
-          <Submit
-            isActive={displaySubmit}
-            submitAction={() => props.submitAction()}
-            disabled={!page.isValid}
-            doneUrl={doneUrl}
-          />
-        </div>
+        )
+      })}
+      <div className="inquire-page--footer xs-col-12">
+        <Previous
+          isActive={displayPrevious}
+          goToPreviousStep={() => props.goToPreviousStep()}
+        />
+        <Next
+          isActive={displayNext}
+          goToNextStep={() => {
+            props.goToNextStep()
+            props.setQueryValues
+          }}
+          disabled={!page.isValid}
+        />
+        <Submit
+          isActive={displaySubmit}
+          submitAction={() => props.submitAction()}
+          disabled={!page.isValid}
+          doneUrl={doneUrl}
+        />
       </div>
-    )
-  // } else return null
+    </div>
+  )
 }
 
 const Next = props => {
@@ -122,9 +120,9 @@ const Submit = props => {
       <button
         type="submit"
         className={`button ${props.disabled ? "button--disabled" : null}`}
+        onMouseOver={() => props.submitAction(props.disabled)}
         onClick={() => {
           props.submitAction(props.disabled)
-          // navigateTo(`/inquire/done${doneUrl}`)
         }}
         disabled={props.disabled}
       >
