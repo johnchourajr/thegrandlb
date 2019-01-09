@@ -23,22 +23,6 @@ class HomeABTest extends React.Component {
     return (
       <Experiment ref="experiment" name="HomeIntroModule">
         <Variant name="A">
-          <PageSection
-            heading={frontmatter.subhead}
-          />
-          <PageSection
-            wrapperClassName="page-feature--wrapper"
-          >
-            {frontmatter.topFeatures.map((item, i) => {
-              return (
-                <div key={i} className="page-feature page-feature--lower-bar col xs-col-12 md-col-4">
-                  <Link to={item.url}>
-                    <h1 className="xs-text-center">{item.text}</h1>
-                  </Link>
-                </div>
-              )
-            })}
-          </PageSection>
           <PageCta
             accent={'grandPink'}
             heading={frontmatter.ctaUpper.heading}
@@ -57,9 +41,6 @@ class HomeABTest extends React.Component {
           />
         </Variant>
         <Variant name="B">
-          <PageSection
-            heading={frontmatter.subhead}
-          />
           <PageCta
             accent={'grandPink'}
             heading={"Chat with our\nEvent Pro's today"}
@@ -78,9 +59,6 @@ class HomeABTest extends React.Component {
           />
         </Variant>
         <Variant name="C">
-          <PageSection
-            heading={frontmatter.subhead}
-          />
           <PageCta
             accent={'grandPink'}
             heading={"Chat with Elizabeth\nor Marissa today."}

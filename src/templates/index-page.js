@@ -63,6 +63,22 @@ const IndexPage = ({ data, status }) => {
           }
         ]}
       />
+      <PageSection
+        heading={frontmatter.subhead}
+      />
+      <PageSection
+        wrapperClassName="page-feature--wrapper"
+      >
+        {frontmatter.topFeatures.map((item, i) => {
+          return (
+            <div key={i} className="page-feature page-feature--lower-bar col xs-col-12 md-col-4">
+              <Link to={item.url}>
+                <h1 className="xs-text-center">{item.text}</h1>
+              </Link>
+            </div>
+          )
+        })}
+      </PageSection>
 
       <HomeABTest frontmatter={frontmatter}/>
 
