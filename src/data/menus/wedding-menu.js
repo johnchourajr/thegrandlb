@@ -20,7 +20,7 @@ const weddingMenu = {
   },
   items: [
     ...weddingMenuContent,
-    ...basics
+    ...basics.items
   ]
 }
 

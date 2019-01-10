@@ -20,7 +20,7 @@ const milestoneMenu = {
   },
   items: [
     ...milestoneMenuContent,
-    ...basics
+    ...basics.items
   ]
 }
 
