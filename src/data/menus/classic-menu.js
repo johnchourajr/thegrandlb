@@ -1,8 +1,6 @@
 import classicMenuContent from './classicMenu.json'
 import basics from './basics.json'
 
-console.log(basics.items);
-
 const classicMenu = {
   meta: {
     title: "The Classic Menu",
