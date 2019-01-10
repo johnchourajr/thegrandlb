@@ -11,7 +11,7 @@ const weddingMenu = {
     footer: "All Catering Services Incur a 22% Production Fee and Applicable Sales Tax",
   },
   items: [
-    ...corporateMenuContent
+    ...corporateMenuContent.items
   ]
 }
 

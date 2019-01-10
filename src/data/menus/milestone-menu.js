@@ -19,7 +19,7 @@ const milestoneMenu = {
     footer: "All Catering Services Incur a 22% Production Fee and Applicable Sales Tax",
   },
   items: [
-    ...milestoneMenuContent,
+    ...milestoneMenuContent.items,
     ...basics.items
   ]
 }
