@@ -8,49 +8,49 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "mainPages"
-    label: "Main Pages"
-    delete: false
-    files:
-      - file: "src/pages/index.md"
-        label: "Home"
-        name: "home"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Heading", name: "heading", widget: "string"}
-      - file: "src/pages/about/index.md"
-        label: "About"
-        name: "about"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Heading", name: "heading", widget: "string"}
-          - label: "people"
-            name: "people"
-            widget: "list"
-            fields:
-              - {label: "Heading", name: "heading", widget: "string"}
-              - label: "array"
-                name: "array"
-                widget: "list"
-                fields:
-                  - {label: "name", name: "name", widget: "markdown"}
-                  - {label: "title", name: "title", widget: "string"}
-      - file: "src/pages/contact/index.md"
-        label: "Contact"
-        name: "contact"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Heading", name: "heading", widget: "string"}
-      - file: "src/pages/inquire/index.md"
-        label: "Inquire"
-        name: "inquire"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Heading", name: "heading", widget: "string"}
+  # - name: "mainPages"
+  #   label: "Main Pages"
+  #   delete: false
+  #   files:
+  #     - file: "src/pages/index.md"
+  #       label: "Home"
+  #       name: "home"
+  #       fields:
+  #         - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
+  #         - {label: "Title", name: "title", widget: "string"}
+  #         - {label: "Heading", name: "heading", widget: "string"}
+  #     - file: "src/pages/about/index.md"
+  #       label: "About"
+  #       name: "about"
+  #       fields:
+  #         - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
+  #         - {label: "Title", name: "title", widget: "string"}
+  #         - {label: "Heading", name: "heading", widget: "string"}
+  #         - label: "people"
+  #           name: "people"
+  #           widget: "list"
+  #           fields:
+  #             - {label: "Heading", name: "heading", widget: "string"}
+  #             - label: "array"
+  #               name: "array"
+  #               widget: "list"
+  #               fields:
+  #                 - {label: "name", name: "name", widget: "markdown"}
+  #                 - {label: "title", name: "title", widget: "string"}
+  #     - file: "src/pages/contact/index.md"
+  #       label: "Contact"
+  #       name: "contact"
+  #       fields:
+  #         - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
+  #         - {label: "Title", name: "title", widget: "string"}
+  #         - {label: "Heading", name: "heading", widget: "string"}
+  #     - file: "src/pages/inquire/index.md"
+  #       label: "Inquire"
+  #       name: "inquire"
+  #       fields:
+  #         - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
+  #         - {label: "Title", name: "title", widget: "string"}
+  #         - {label: "Heading", name: "heading", widget: "string"}
   - name: "tourPages"
     label: "Tour Sub Pages"
     folder: "src/pages/tour"
@@ -58,19 +58,15 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Heading", name: "heading", widget: "string"}
-  - name: "eventPages"
-    label: "Event Pages"
-    delete: false
-    files:
-      - file: "src/pages/events/index.md"
-        label: "Events"
-        name: "events"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Heading", name: "heading", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Heading", name: "heading", widget: "markdown"}
+  # - name: "eventPages"
+  #   label: "Event Sub Pages"
+  #   folder: "src/pages/events"
+  #   delete: false
+  #   fields:
+  #     - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Heading", name: "heading", widget: "markdown"}
   - name: "menuPages"
     label: "Menu Pages"
     delete: false

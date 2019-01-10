@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { BasicPageTemplate } from '../../templates/basic-page'
 
 const BasicPagePreview = ({ entry, widgetFor }) => (
-  <BasicPageTemplate
-    title={entry.getIn(['data', 'title'])}
-    heading={entry.getIn(['data', 'heading'])}
-    content={widgetFor('body')}
-  />
+  <React.Fragment>
+    <h6>{entry.getIn(['data', 'title'])}</h6>
+    <h2>{entry.getIn(['data', 'heading'])}</h2>
+    <p>{widgetFor('body')}</p>
+  </React.Fragment>
 )
 
 BasicPagePreview.propTypes = {
