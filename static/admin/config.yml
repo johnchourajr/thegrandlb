@@ -2,6 +2,8 @@ backend:
   name: git-gateway
   branch: dev
 
+display_url: https://thegrandlb.com
+
 media_folder: static/img
 public_folder: /img
 
@@ -88,11 +90,11 @@ collections:
     files:
       - label: "Classic Menu"
         name: "classic menu"
-        file: "src/data/menus/classicMenu.json"
+        file: "/data/menus/classicMenu.json"
         extension: "json"
         fields:
-          - {label: type, name: type, widget: string, required: false}
           - {label: title, name: title, widget: markdown, required: false}
+          - {label: type, name: type, widget: string, required: false, hidden: true}
           - {label: description, name: description, widget: markdown, required: false}
           - {label: caption, name: caption, widget: markdown, required: false}
           - label: items
@@ -100,8 +102,8 @@ collections:
             widget: list
             required: false
             fields:
-              - {label: type, name: type, widget: string, required: false}
               - {label: title, name: title, widget: markdown, required: false}
+              - {label: type, name: type, widget: string, required: false, hidden: true}
               - {label: description, name: description, widget: markdown, required: false}
               - {label: annotation, name: annotation, widget: list, required: false}
               - label: items
