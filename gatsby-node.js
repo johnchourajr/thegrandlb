@@ -46,8 +46,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         ),
         context: {
           id,
-          prev,
-          next
+          // prev,
+          // next
         }
       })
     })
