@@ -88,48 +88,48 @@ collections:
     label: "Menu Pages"
     delete: false
     files:
-      # - label: "Menu Basics"
-      #   name: "basics"
-      #   file: "/data/menus/basics.json"
-      #   extension: "json"
-      #   fields:
-      #     - label: items
-      #       name: items
-      #       widget: list
-      #       required: false
-      #       fields:
-      #         - {label: title, name: title, widget: markdown, required: false}
-      #         - {label: type, name: type, widget: string, required: false, hidden: true}
-      #         - {label: description, name: description, widget: markdown, required: false}
-      #         - {label: caption, name: caption, widget: markdown, required: false}
-      #         - label: items
-      #           name: items
-      #           widget: list
-      #           required: false
-      #           fields:
-      #             - {label: title, name: title, widget: markdown, required: false}
-      #             - {label: type, name: type, widget: string, required: false, hidden: true}
-      #             - {label: description, name: description, widget: markdown, required: false}
-      #             - {label: annotation, name: annotation, widget: list, required: false}
-      #             - label: items
-      #               name: items
-      #               widget: list
-      #               required: false
-      #               fields:
-      #                 - {label: title, name: title, widget: markdown, required: false}
-      #                 - {label: description, name: description, widget: markdown, required: false}
-      #                 - {label: list, name: list, widget: list, required: false}
-      #                 - {label: price, name: price, widget: string, required: false}
-      #                 - label: items
-      #                   name: items
-      #                   widget: list
-      #                   required: false
-      #                   fields:
-      #                     - {label: title, name: title, widget: markdown, required: false}
-      #                     - {label: list, name: list, widget: list, required: false}
+      - label: "Menu Basics"
+        name: "basics"
+        file: "src/data/menus/basics.json"
+        extension: "json"
+        fields:
+          - label: items
+            name: items
+            widget: list
+            required: false
+            fields:
+              - {label: title, name: title, widget: markdown, required: false}
+              - {label: type, name: type, widget: string, required: false, hidden: true}
+              - {label: description, name: description, widget: markdown, required: false}
+              - {label: caption, name: caption, widget: markdown, required: false}
+              - label: items
+                name: items
+                widget: list
+                required: false
+                fields:
+                  - {label: title, name: title, widget: markdown, required: false}
+                  - {label: type, name: type, widget: string, required: false, hidden: true}
+                  - {label: description, name: description, widget: markdown, required: false}
+                  - {label: annotation, name: annotation, widget: list, required: false}
+                  - label: items
+                    name: items
+                    widget: list
+                    required: false
+                    fields:
+                      - {label: title, name: title, widget: markdown, required: false}
+                      - {label: description, name: description, widget: markdown, required: false}
+                      - {label: list, name: list, widget: list, required: false}
+                      - {label: price, name: price, widget: string, required: false}
+                      - label: items
+                        name: items
+                        widget: list
+                        required: false
+                        fields:
+                          - {label: title, name: title, widget: markdown, required: false}
+                          - {label: list, name: list, widget: list, required: false}
       - label: "Classic Menu"
         name: "classic menu"
-        file: "/data/menus/classicMenu.json"
+        file: "src/data/menus/classicMenu.json"
         extension: "json"
         fields:
           - {label: title, name: title, widget: markdown, required: false}
