@@ -12,7 +12,27 @@ const RoomSwitchImage = props => {
   )
 }
 
-const RoomSwitchButton = props => {
+const ButtonGroup = props => {
+  return(
+    <div className={`room-switch--button-group wrapper clearfix`}>
+      <div className="button-group">
+        {props.array.map((item, i) => {
+          return (
+            <ButtonGroupItem
+              key={i}
+              index={i}
+              activeItem={props.activeItem}
+              caption={item.caption}
+              onClick={props.handleRadio}
+            />
+          )
+        })}
+      </div>
+    </div>
+  )
+}
+
+const ButtonGroupItem = props => {
   const isActive = props.index === props.activeItem
   const activeChecked = isActive ? "checked" : ""
   const activeStyles = isActive ? "" : "button--secondary"
@@ -56,22 +76,11 @@ class RoomSwitch extends React.Component {
                 )
               })}
             </div>
-            <div className={`room-switch--button-group wrapper clearfix`}>
-              <div className="button-group">
-                {this.state.array.map((item, i) => {
-                  return (
-                    <RoomSwitchButton
-                      key={i}
-                      index={i}
-                      activeItem={this.state.activeItem}
-                      caption={item.caption}
-                      handleRadio={this._handleRadio}
-                    />
-                  )
-                })}
-              </div>
-            </div>
-
+            <ButtonGroup
+              array={this.state.array}
+              activeItem={this.state.activeItem}
+              onClick={this._handleRadio}
+            />
           </div>
         </section>
       </React.Fragment>

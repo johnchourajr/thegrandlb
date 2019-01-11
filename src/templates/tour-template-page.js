@@ -17,18 +17,6 @@ import RoomSwitch from '../components/RoomSwitch'
 import RoomCard from '../components/RoomCard'
 import Video from '../components/Video'
 
-// function prevNextButton(el) {
-//   if (el.frontmatter.templateKey) {
-//     return el.frontmatter.templateKey === 'tour-template-page' && el && (
-//       <RoomCard
-//         hero={el.frontmatter.hero}
-//         heading={el.frontmatter.title}
-//         slug={el.fields.slug}
-//       />
-//     )
-//   } else return null
-// }
-
 const TourTemplatePage = ({ data, status, location, pathContext }) => {
   const { frontmatter, html } = data.pageData
   const { edges: posts } = data.postData
@@ -36,9 +24,6 @@ const TourTemplatePage = ({ data, status, location, pathContext }) => {
   const { next, prev } = pathContext
   const currentPage = slugify(pathname)
   const pageName = currentPage.replace("tour","")
-
-  // console.log(pathContext);
-  // console.log(next);
 
   return (
     <Layout status={status}>
@@ -103,14 +88,6 @@ const TourTemplatePage = ({ data, status, location, pathContext }) => {
         subHeadClassName={"xs-mb4"}
         buttons={frontmatter.ctaAllRoom.buttons}
       />
-      {/*<div className="clearfix ">
-        <div className="xs-col-12 sm-col-6">
-          {prev && prevNextButton(prev)}
-        </div>
-        <div className="xs-col-12 sm-col-6">
-          {next && prevNextButton(next)}
-        </div>
-      </div>*/}
     </Layout>
   )
 }
