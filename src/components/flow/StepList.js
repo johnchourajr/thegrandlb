@@ -72,7 +72,6 @@ class StepList extends React.Component {
 
   submitAction = (disabled) => {
     if (disabled) {
-      console.log('disabled');
     } else {
       sessionStorage.setItem('flowPages', JSON.stringify(this.props.flowPages))
       ReactGA.event({

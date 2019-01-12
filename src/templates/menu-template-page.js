@@ -27,8 +27,7 @@ const MenuTemplatePage = ({ data, status }) => {
   const { frontmatter, html } = data.markdownRemark
   const menuData = outputMenuData(frontmatter.data)
   const path = '/img/icons/menu/printer.svg'
-
-  // console.log(menuData.items);
+  const totalMenuDataLength = menuData.items.length
 
   return (
     <Layout status={status}>
@@ -45,8 +44,8 @@ const MenuTemplatePage = ({ data, status }) => {
         </div>
       </PageSection>
       <PageSection>
-        <div className="button-group no-print">
-          {menuData.items.map((item, i) => (
+        <div id={"menutop"} className="button-group no-print">
+          {totalMenuDataLength > 1 ? menuData.items.map((item, i) => (
             <React.Fragment key={i}>
               <Scrollchor
                 to={`#${slugify(item.title)}`}
@@ -56,7 +55,7 @@ const MenuTemplatePage = ({ data, status }) => {
                 {item.title}
               </Scrollchor>
             </React.Fragment>
-          ))}
+          )) : null}
         </div>
       </PageSection>
       <section className="section">

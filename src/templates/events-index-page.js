@@ -16,7 +16,6 @@ const EventsIndex = ({ data, status, location }) => {
   const { frontmatter, html } = data.markdownRemark
   const { pathname } = location
   const currentPage = slugify(pathname)
-  console.log(currentPage);
 
   return (
     <Layout status={status}>

@@ -998,10 +998,21 @@
     }
   }
 
+  &--scrolltop {
+    position: absolute;
+    right: 0;
+    top: 1rem;
+
+    a {
+      color: rgba($black, .25);
+    }
+  }
+
   &--header {
     display: flex;
     align-items: center;
     flex-direction: column;
+    position: relative;
 
     h1, h2, h3, p {
       text-align: center;

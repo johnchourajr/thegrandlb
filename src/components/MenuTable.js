@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ReactGA from 'react-ga'
 import ReactMarkdown from 'react-markdown'
+import Scrollchor from 'react-scrollchor'
 import _ from 'lodash'
 
 import Content, { HTMLContent } from './Content'
@@ -117,7 +118,14 @@ export class MenuTable extends React.Component {
           return (
             <div key={i} id={item.title && slugify(item.title)} className="menu--wrap sm-col-8 sm-offset-2">
               <div className="menu--header ">
-
+                {i > 0 ? <div className="menu--scrolltop">
+                  <Scrollchor
+                    to={`#menutop`}
+                    animate={{offset: -150, duration: 600}}
+                  >
+                    Top
+                  </Scrollchor>
+                </div> : null}
                 <h3 className="display "><a href={`#${slugify(item.title)}`}>{item.title}</a></h3>
                 <ReactMarkdown source={item.description}/>
               </div>

@@ -12,7 +12,7 @@ import NavbarSocial from './NavbarSocial'
 
 // Data
 import * as navDetails from '../../data/navDetails'
-import * as siteDetails from '../../data/siteDetails'
+import { siteDetails } from '../../data/siteDetails'
 
 // Component
 const Footer = ({ subNav }) => {

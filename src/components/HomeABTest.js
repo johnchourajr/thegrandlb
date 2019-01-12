@@ -82,10 +82,9 @@ class HomeABTest extends React.Component {
 }
 
 // Called when the experiment is displayed to the user.
-emitter.addPlayListener(function(experimentName, variantName){
+emitter.addPlayListener((experimentName, variantName) => {
   const str = `Displaying experiment '${experimentName}' variant '${variantName}'`
 
-  console.log(str)
   ReactGA.event({
     category: 'HomeABTest',
     action: str,
@@ -93,10 +92,9 @@ emitter.addPlayListener(function(experimentName, variantName){
 });
 
 // Called when a 'win' is emitted, in this case by this.refs.experiment.win()
-emitter.addWinListener(function(experimentName, variantName){
+emitter.addWinListener((experimentName, variantName) => {
   const str = `Variant '${variantName}' of experiment '${experimentName}' was clicked`
 
-  console.log(str)
   ReactGA.event({
     category: 'HomeABTest',
     action: str,

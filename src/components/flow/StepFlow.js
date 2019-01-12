@@ -138,8 +138,6 @@ class StepFlow extends React.Component {
       doneUrl,
     } = this.state
 
-    // console.log(flowPages);
-
     return (
       <React.Fragment>
         <StepList flowPages={flowPages}>
