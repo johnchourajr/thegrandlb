@@ -51,6 +51,14 @@
       font-size: 5.15em !important;
     }
 
+    .print {
+      position: absolute;
+      width: 100vw;
+      height: 60vh;
+      bottom: 0; left: 0;
+      z-index: -1;
+    }
+
     &:after {
       content: "www.thegrandlb.com";
       position: absolute;

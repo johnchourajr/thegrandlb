@@ -88,6 +88,7 @@ class VideoCover extends Component {
     }
     return (
       <video
+        id={this.props.id ? this.props.id : "video"}
         className={this.props.className}
         style={style}
         {...this.props.videoOptions}

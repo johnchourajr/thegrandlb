@@ -18,6 +18,7 @@ const PageHeader = props => {
             }
           </div>
         </div>
+        {props.children}
       </section>
       {
         props.caption &&

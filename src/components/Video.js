@@ -13,6 +13,19 @@ class Video extends React.Component {
     this.setState({isMobileBrowswer: isMobileBrowswer()})
   }
 
+  // componentDidMount() {
+  //   window.onload = () => {
+  //     const vid = document.getElementById("video")
+  //     const vidDuration = vid.duration
+  //     const vidDurIncriments = vidDuration / 10
+  //     console.log(vid);
+  //
+  //     this.setState({
+  //       vidDuration: vidDuration,
+  //     })
+  //   }
+  // }
+
   render() {
     const videoOptions = {
       poster: this.props.poster,
