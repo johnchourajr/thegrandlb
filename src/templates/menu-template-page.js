@@ -45,9 +45,9 @@ const MenuTemplatePage = ({ data, status }) => {
           </button>
         </div>
       </PageSection>
-      <PageSection>
+      {totalMenuDataLength > 1 ? <PageSection>
         <div id={"menutop"} className="button-group no-print">
-          {totalMenuDataLength > 1 ? menuData.items.map((item, i) => (
+          {menuData.items.map((item, i) => (
             <React.Fragment key={i}>
               <Scrollchor
                 to={`#${slugify(item.title)}`}
@@ -57,9 +57,9 @@ const MenuTemplatePage = ({ data, status }) => {
                 {item.title}
               </Scrollchor>
             </React.Fragment>
-          )) : null}
+          ))}
         </div>
-      </PageSection>
+      </PageSection> : null}
       <section className="section">
         <div className="wrapper">
           <MenuTable data={menuData}/>

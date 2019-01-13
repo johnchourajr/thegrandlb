@@ -1,8 +1,27 @@
 import React from 'react'
 
 import VideoCover from './thirdparty/VideoCover'
+import { ParallaxBanner } from 'react-scroll-parallax'
 import { isMobileBrowswer } from '../components/functions/util'
 import Link, { withPrefix } from 'gatsby-link'
+
+const VideoContent = props => {
+  if (!props.isMobileBrowswer) {
+    return (
+      <VideoCover
+        videoOptions={props.videoOptions}
+        source={props.source}
+        remeasureOnWindowResize
+      />
+    )
+  } else {
+    return (
+      <div className="img" style={{backgroundImage: `url(${withPrefix(props.poster)})`}}/>
+    )
+  }
+
+
+}
 
 class Video extends React.Component {
   state = {
@@ -13,38 +32,43 @@ class Video extends React.Component {
     this.setState({isMobileBrowswer: isMobileBrowswer()})
   }
 
-  // componentDidMount() {
-  //   window.onload = () => {
-  //     const vid = document.getElementById("video")
-  //     const vidDuration = vid.duration
-  //     const vidDurIncriments = vidDuration / 10
-  //     console.log(vid);
-  //
-  //     this.setState({
-  //       vidDuration: vidDuration,
-  //     })
-  //   }
-  // }
-
   render() {
     const videoOptions = {
       poster: this.props.poster,
       autoPlay: true,
+      playsInline: true,
+      preload: "auto",
       muted: true,
       loop: true,
     }
 
     return(
-      <div className="video">
-        {!this.state.isMobileBrowswer
-          ? <VideoCover
-              videoOptions={videoOptions}
-              source={this.props.source}
-              remeasureOnWindowResize
-            />
-          : <div className="img" style={{backgroundImage: `url(${withPrefix(this.props.poster)})`}}/>
-        }
-      </div>
+      <ParallaxBanner
+        className={"video"}
+        layers={[
+          {
+            amount: 0.3,
+            children: (
+              <VideoContent
+                isMobileBrowswer={this.state.isMobileBrowswer}
+                videoOptions={videoOptions}
+                source={this.props.source}
+                poster={this.props.poster}
+              />
+              // {!this.state.isMobileBrowswer
+              //   ?
+              //   <VideoCover
+              //     videoOptions={videoOptions}
+              //     source={this.props.source}
+              //     remeasureOnWindowResize
+              //   />
+              //   : <div className="img" style={{backgroundImage: `url(${withPrefix(this.props.poster)})`}}/>
+              // }
+            ),
+            slowerScrollRate: true,
+          },
+        ]}
+      />
     )
   }
 }

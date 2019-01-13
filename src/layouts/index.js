@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Transition } from 'react-transition-group';
+import { Transition } from 'react-transition-group'
+import { ParallaxProvider } from 'react-scroll-parallax'
 
 import Head from '../components/core/Head'
 import Header from '../components/core/Header'
@@ -12,14 +13,14 @@ import '../styles/all.scss'
 
 const TemplateWrapper = ({ children, history, location, props }) => {
   return (
-    <React.Fragment>
+    <ParallaxProvider>
       <Head location={location}/>
       <Header mainNav={navDetails.mainNav} inquireNav={navDetails.inquireNav}/>
       <div className="bodyWrap" data-status="">
         {children()}
       </div>
       <Footer subNav={navDetails.subNav} />
-    </React.Fragment>
+    </ParallaxProvider>
   )
 }
 

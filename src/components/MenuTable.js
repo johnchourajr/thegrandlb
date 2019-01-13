@@ -42,7 +42,7 @@ const MenuSection = props => {
       {section && section.map((section, i) => (
         <div key={i} id={section.title && slugify(section.title)} className="menu--section">
           {section.title && <div className="menu--section--header">
-            {section.title && <h2><a href={`#${slugify(section.title)}`}><ReactMarkdown source={section.title}/></a></h2>}
+            {section.title && <h2><Scrollchor to={`#${slugify(section.title)}`} animate={{offset: -100, duration: 300}}><ReactMarkdown source={section.title}/></Scrollchor></h2>}
             {section.description && <ReactMarkdown className="menu--section--description" source={section.description}/>}
             {section.price && <ReactMarkdown className="menu--section--price" source={section.price}/>}
           </div>}
@@ -126,7 +126,7 @@ export class MenuTable extends React.Component {
                     Top
                   </Scrollchor>
                 </div> : null}
-                <h3 className="display "><a href={`#${slugify(item.title)}`}>{item.title}</a></h3>
+                <h3 className="display "><Scrollchor to={`#${slugify(item.title)}`} animate={{offset: -100, duration: 300}}>{item.title}</Scrollchor></h3>
                 <ReactMarkdown source={item.description}/>
               </div>
               <div className="xs-my5 divider-bar divider-bar--top"/>
