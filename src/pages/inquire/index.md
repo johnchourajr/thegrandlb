@@ -27,5 +27,4 @@ Steps 3 of 3
 
 **[NOTE: ON SUBMIT, DETAILS WILL BE EMAILED]**
 
-**[TECH STUFF]**
 https://hackernoon.com/how-to-build-a-stepper-with-compound-components-6a49d90950ba
