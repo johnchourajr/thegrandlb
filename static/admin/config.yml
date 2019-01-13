@@ -56,17 +56,34 @@ collections:
     folder: "src/pages/tour"
     delete: false
     fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "tour-template-page"}
+      - {label: "Title", name: "title", widget: "string", required: false}
+      - {label: "Heading", name: "heading", widget: "markdown", required: false}
+      - label: "Carousel"
+        name: "carousel"
+        required: false
+        fields:
+          - label: Array
+            name: array
+            widget: list
+            required: false
+            fields:
+              - label: Image
+                name: img
+                widget: image
+                required: false
+                default: ""
+                media_library:
+                  config:
+                    multiple: true
+  - name: "eventPages"
+    label: "Event Sub Pages"
+    folder: "src/pages/events"
+    delete: false
+    fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Heading", name: "heading", widget: "markdown"}
-  # - name: "eventPages"
-  #   label: "Event Sub Pages"
-  #   folder: "src/pages/events"
-  #   delete: false
-  #   fields:
-  #     - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
-  #     - {label: "Title", name: "title", widget: "string"}
-  #     - {label: "Heading", name: "heading", widget: "markdown"}
   - name: "menuPages"
     label: "Menu Pages"
     delete: false
