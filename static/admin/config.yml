@@ -59,8 +59,9 @@ collections:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "tour-template-page"}
       - {label: "Title", name: "title", widget: "string", required: false}
       - {label: "Heading", name: "heading", widget: "markdown", required: false}
-      - label: "Carousel"
-        name: "carousel"
+      - label: Carousel
+        name: carousel
+        widget: object
         required: false
         fields:
           - label: Array
@@ -74,6 +75,7 @@ collections:
                 required: false
                 default: ""
                 media_library:
+                  name: tour
                   config:
                     multiple: true
   - name: "eventPages"
