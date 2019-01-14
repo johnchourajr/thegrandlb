@@ -1,100 +1,285 @@
 backend:
   name: git-gateway
-  branch: master
+  branch: dev
+
+display_url: https://thegrandlb.com
 
 media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "mainPages"
-    label: "Main Pages"
-    files:
-      - file: "src/pages/index.md"
-        label: "Home"
-        name: "home"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Heading", name: "heading", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - file: "src/pages/about/index.md"
-        label: "About"
-        name: "about"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Heading", name: "heading", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - file: "src/pages/contact/index.md"
-        label: "Contact"
-        name: "contact"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Heading", name: "heading", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - file: "src/pages/inquire/index.md"
-        label: "Inquire"
-        name: "inquire"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Heading", name: "heading", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
+  # - name: "mainPages"
+  #   label: "Main Pages"
+  #   delete: false
+  #   files:
+  #     - file: "src/pages/index.md"
+  #       label: "Home"
+  #       name: "home"
+  #       fields:
+  #         - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
+  #         - {label: "Title", name: "title", widget: "string"}
+  #         - {label: "Heading", name: "heading", widget: "string"}
+  #     - file: "src/pages/about/index.md"
+  #       label: "About"
+  #       name: "about"
+  #       fields:
+  #         - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
+  #         - {label: "Title", name: "title", widget: "string"}
+  #         - {label: "Heading", name: "heading", widget: "string"}
+  #         - label: "people"
+  #           name: "people"
+  #           widget: "list"
+  #           fields:
+  #             - {label: "Heading", name: "heading", widget: "string"}
+  #             - label: "array"
+  #               name: "array"
+  #               widget: "list"
+  #               fields:
+  #                 - {label: "name", name: "name", widget: "markdown"}
+  #                 - {label: "title", name: "title", widget: "string"}
+  #     - file: "src/pages/contact/index.md"
+  #       label: "Contact"
+  #       name: "contact"
+  #       fields:
+  #         - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
+  #         - {label: "Title", name: "title", widget: "string"}
+  #         - {label: "Heading", name: "heading", widget: "string"}
+  #     - file: "src/pages/inquire/index.md"
+  #       label: "Inquire"
+  #       name: "inquire"
+  #       fields:
+  #         - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
+  #         - {label: "Title", name: "title", widget: "string"}
+  #         - {label: "Heading", name: "heading", widget: "string"}
   - name: "tourPages"
-    label: "Tour Pages"
-    files:
-      - file: "src/pages/tour/index.md"
-        label: "Tour"
-        name: "tour"
+    label: "Tour Sub Pages"
+    folder: "src/pages/tour"
+    delete: false
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "tour-template-page"}
+      - {label: "Title", name: "title", widget: "string", required: false}
+      - {label: "Heading", name: "heading", widget: "markdown", required: false}
+      - label: "Carousel"
+        name: "carousel"
+        required: false
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Heading", name: "heading", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - file: "src/pages/tour/template.md"
-        label: "Tour Template"
-        name: "tour template"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Heading", name: "heading", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
+          - label: Array
+            name: array
+            widget: list
+            required: false
+            fields:
+              - label: Image
+                name: img
+                widget: image
+                required: false
+                default: ""
+                media_library:
+                  config:
+                    multiple: true
   - name: "eventPages"
-    label: "Event Pages"
-    files:
-      - file: "src/pages/events/index.md"
-        label: "Events"
-        name: "events"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Heading", name: "heading", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - file: "src/pages/events/template.md"
-        label: "Events Template"
-        name: "events template"
-        fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Heading", name: "heading", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
+    label: "Event Sub Pages"
+    folder: "src/pages/events"
+    delete: false
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Heading", name: "heading", widget: "markdown"}
   - name: "menuPages"
     label: "Menu Pages"
+    delete: false
     files:
-      - file: "src/pages/menus/index.md"
-        label: "Menus"
-        name: "menus"
+      - label: "Menu Basics"
+        name: "basics"
+        file: "src/data/menus/basics.json"
+        extension: "json"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Heading", name: "heading", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
-      - file: "src/pages/menus/template.md"
-        label: "Menus Template"
-        name: "menus template"
+          - label: items
+            name: items
+            widget: list
+            required: false
+            fields:
+              - {label: title, name: title, widget: markdown, required: false}
+              - {label: type, name: type, widget: string, required: false, hidden: true}
+              - {label: description, name: description, widget: markdown, required: false}
+              - {label: caption, name: caption, widget: markdown, required: false}
+              - label: items
+                name: items
+                widget: list
+                required: false
+                fields:
+                  - {label: title, name: title, widget: markdown, required: false}
+                  - {label: type, name: type, widget: string, required: false, hidden: true}
+                  - {label: description, name: description, widget: markdown, required: false}
+                  - {label: annotation, name: annotation, widget: list, required: false}
+                  - label: items
+                    name: items
+                    widget: list
+                    required: false
+                    fields:
+                      - {label: title, name: title, widget: markdown, required: false}
+                      - {label: description, name: description, widget: markdown, required: false}
+                      - {label: list, name: list, widget: list, required: false}
+                      - {label: price, name: price, widget: string, required: false}
+                      - label: items
+                        name: items
+                        widget: list
+                        required: false
+                        fields:
+                          - {label: title, name: title, widget: markdown, required: false}
+                          - {label: list, name: list, widget: list, required: false}
+      - label: "Classic Menu"
+        name: "classic menu"
+        file: "src/data/menus/classicMenu.json"
+        extension: "json"
         fields:
-          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
-          - {label: "Title", name: "title", widget: "string"}
-          - {label: "Heading", name: "heading", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
+          - label: items
+            name: items
+            widget: list
+            required: false
+            fields:
+              - {label: title, name: title, widget: markdown, required: false}
+              - {label: type, name: type, widget: string, required: false, hidden: true}
+              - {label: description, name: description, widget: markdown, required: false}
+              - {label: caption, name: caption, widget: markdown, required: false}
+              - label: items
+                name: items
+                widget: list
+                required: false
+                fields:
+                  - {label: title, name: title, widget: markdown, required: false}
+                  - {label: type, name: type, widget: string, required: false, hidden: true}
+                  - {label: description, name: description, widget: markdown, required: false}
+                  - {label: annotation, name: annotation, widget: list, required: false}
+                  - label: items
+                    name: items
+                    widget: list
+                    required: false
+                    fields:
+                      - {label: title, name: title, widget: markdown, required: false}
+                      - {label: description, name: description, widget: markdown, required: false}
+                      - {label: list, name: list, widget: list, required: false}
+                      - {label: price, name: price, widget: string, required: false}
+                      - label: items
+                        name: items
+                        widget: list
+                        required: false
+                        fields:
+                          - {label: title, name: title, widget: markdown, required: false}
+                          - {label: list, name: list, widget: list, required: false}
+      - label: "Corporate Menu"
+        name: "corporate menu"
+        file: "src/data/menus/corporateMenu.json"
+        extension: "json"
+        fields:
+          - label: items
+            name: items
+            widget: list
+            required: false
+            fields:
+              - {label: title, name: title, widget: markdown, required: false}
+              - {label: type, name: type, widget: string, required: false, hidden: true}
+              - {label: description, name: description, widget: markdown, required: false}
+              - {label: caption, name: caption, widget: markdown, required: false}
+              - label: items
+                name: items
+                widget: list
+                required: false
+                fields:
+                  - {label: title, name: title, widget: markdown, required: false}
+                  - {label: type, name: type, widget: string, required: false, hidden: true}
+                  - {label: description, name: description, widget: markdown, required: false}
+                  - {label: annotation, name: annotation, widget: list, required: false}
+                  - label: items
+                    name: items
+                    widget: list
+                    required: false
+                    fields:
+                      - {label: title, name: title, widget: markdown, required: false}
+                      - {label: description, name: description, widget: markdown, required: false}
+                      - {label: list, name: list, widget: list, required: false}
+                      - {label: price, name: price, widget: string, required: false}
+                      - label: items
+                        name: items
+                        widget: list
+                        required: false
+                        fields:
+                          - {label: title, name: title, widget: markdown, required: false}
+                          - {label: list, name: list, widget: list, required: false}
+      - label: "Milestone Menu"
+        name: "milestone menu"
+        file: "src/data/menus/milestoneMenu.json"
+        extension: "json"
+        fields:
+          - label: items
+            name: items
+            widget: list
+            required: false
+            fields:
+              - {label: title, name: title, widget: markdown, required: false}
+              - {label: type, name: type, widget: string, required: false, hidden: true}
+              - {label: description, name: description, widget: markdown, required: false}
+              - {label: caption, name: caption, widget: markdown, required: false}
+              - label: items
+                name: items
+                widget: list
+                required: false
+                fields:
+                  - {label: title, name: title, widget: markdown, required: false}
+                  - {label: type, name: type, widget: string, required: false, hidden: true}
+                  - {label: description, name: description, widget: markdown, required: false}
+                  - {label: annotation, name: annotation, widget: list, required: false}
+                  - label: items
+                    name: items
+                    widget: list
+                    required: false
+                    fields:
+                      - {label: title, name: title, widget: markdown, required: false}
+                      - {label: description, name: description, widget: markdown, required: false}
+                      - {label: list, name: list, widget: list, required: false}
+                      - {label: price, name: price, widget: string, required: false}
+                      - label: items
+                        name: items
+                        widget: list
+                        required: false
+                        fields:
+                          - {label: title, name: title, widget: markdown, required: false}
+                          - {label: list, name: list, widget: list, required: false}
+      - label: "Wedding Menu"
+        name: "wedding menu"
+        file: "src/data/menus/weddingMenu.json"
+        extension: "json"
+        fields:
+          - label: items
+            name: items
+            widget: list
+            required: false
+            fields:
+              - {label: title, name: title, widget: markdown, required: false}
+              - {label: type, name: type, widget: string, required: false, hidden: true}
+              - {label: description, name: description, widget: markdown, required: false}
+              - {label: caption, name: caption, widget: markdown, required: false}
+              - label: items
+                name: items
+                widget: list
+                required: false
+                fields:
+                  - {label: title, name: title, widget: markdown, required: false}
+                  - {label: type, name: type, widget: string, required: false, hidden: true}
+                  - {label: description, name: description, widget: markdown, required: false}
+                  - {label: annotation, name: annotation, widget: list, required: false}
+                  - label: items
+                    name: items
+                    widget: list
+                    required: false
+                    fields:
+                      - {label: title, name: title, widget: markdown, required: false}
+                      - {label: description, name: description, widget: markdown, required: false}
+                      - {label: list, name: list, widget: list, required: false}
+                      - {label: price, name: price, widget: string, required: false}
+                      - label: items
+                        name: items
+                        widget: list
+                        required: false
+                        fields:
+                          - {label: title, name: title, widget: markdown, required: false}
+                          - {label: list, name: list, widget: list, required: false}

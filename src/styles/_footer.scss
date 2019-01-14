@@ -1,0 +1,194 @@
+/**
+ * Footer Main
+ */
+
+
+
+// ******
+// footer styles
+.footer {
+  width: 100vw;
+  z-index: 5;
+  overflow: hidden;
+  padding-top: 6rem;
+
+  @include solid-breakpoint(md) {
+    padding-top: 8rem;
+  }
+
+  @include solid-breakpoint(lg) {
+    padding-top: 10rem;
+  }
+
+  .wrapper {
+    position: relative;
+
+    @include solid-breakpoint(md) {
+      display: flex;
+    }
+  }
+
+  &--upper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+
+    @include solid-breakpoint(md) {
+      flex-direction: row;
+      margin-bottom: 3.5rem;
+    }
+  }
+
+  &--col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &:nth-child(2) {
+      @include solid-breakpoint(md) {
+        border-left-width: 2px;
+        border-left-color: rgba($black, .2);
+        border-left-style: solid;
+      }
+    }
+
+    .nav--item {
+      padding: 1em 0;
+      text-align: center;
+    }
+  }
+
+  &--social {
+    display: flex;
+
+    a {
+      margin: 1em 1.5em;
+    }
+  }
+
+  &--addressphone {
+    a {
+      display: flex;
+      justify-content: center;
+      margin: 1em 0;
+      text-align: center;
+
+      font-size: .9rem;
+      letter-spacing: .12em;
+      line-height: 1.75;
+      text-transform: uppercase;
+    }
+  }
+
+  &--lower {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 0 0 2rem;
+
+    @include solid-breakpoint(md) {
+      justify-content: space-between;
+      flex-direction: row;
+      margin-bottom: -3.5em;
+    }
+  }
+
+  &--note {
+    font-size: .7rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: rgba($grandBlack, .5);
+    padding: 1em 0;
+
+    @include solid-breakpoint(md) {
+      padding: 0em 0 5rem;
+      min-width: 200px;
+    }
+  }
+
+  &--left, &--right {
+    transition: padding-top .3s $easeOutCubic;
+
+    @include solid-breakpoint(md) {
+      display: flex;
+      padding-top: 3rem;
+    }
+
+    @include solid-breakpoint(lg) {
+      padding-top: 3.75rem;
+    }
+
+    @include solid-breakpoint(xl) {
+      padding-top: 4.5rem;
+    }
+  }
+
+  &--left {
+    .nav--item {
+      margin-right: 2rem;
+    }
+  }
+
+  &--right {
+    .nav--item {
+      margin-left: 2rem;
+    }
+  }
+
+  &--logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: -0.75em;
+
+    @include solid-breakpoint(md) {
+      display: block;
+    }
+
+    path { fill: rgba($black, .1) !important; }
+
+    .logo {
+      position: relative;
+
+      &--link {
+        position: absolute;
+        top: 0; right: 0; bottom: 2.5em; left: 0;
+
+        @include solid-breakpoint(md) {
+          bottom: 3em;
+        }
+
+        @include solid-breakpoint(lg) {
+          bottom: 5em;
+        }
+      }
+    }
+
+    .logo > svg {
+      $logo-ratio: 0.4888888889;
+      @include logo-ratio($logo-ratio, 13.25rem, 0);
+      transition: all .25s $easeOutCubic;
+
+      @include solid-breakpoint(sm) {
+        @include logo-ratio($logo-ratio, 18.25rem, 0);
+      }
+
+      @include solid-breakpoint(md) {
+        @include logo-ratio($logo-ratio, 20rem, 0);
+      }
+
+      @include solid-breakpoint(lg) {
+        $bottom-ratio: -0.08783783784;
+        @include logo-ratio($logo-ratio, 25rem, 0);
+      }
+
+      @include solid-breakpoint(xl) {
+        @include logo-ratio($logo-ratio, 30rem, 0);
+      }
+    }
+  }
+}

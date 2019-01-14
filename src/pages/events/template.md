@@ -3,6 +3,47 @@ templateKey: 'basic-page'
 path: /events/template
 title: EVENT-NAME
 heading: EVENT-HEADLINE
+carousel:
+  description: "Our Favorites"
+  array:
+  - img: "/img/placeholder--front-img.jpg"
+    caption: "Placeholder Image"
+  - img: "/img/placeholder--front-img.jpg"
+    caption: "Placeholder Image"
+  - img: "/img/placeholder--front-img.jpg"
+    caption: "Placeholder Image"
+  - img: "/img/placeholder--front-img.jpg"
+    caption: "Placeholder Image"
+  - img: "/img/placeholder--front-img.jpg"
+    caption: "Placeholder Image"
+  - img: "/img/placeholder--front-img.jpg"
+    caption: "Placeholder Image"
+statement:
+- "The Grand has been there for over 5,000 wedding days over the past decade."
+- "We’d love to make your day."
+numbers:
+  array:
+  - number: "24"
+    caption: "..."
+  - number: "24"
+    caption: "..."
+  - number: "24"
+    caption: "..."
+  - number: "24"
+    caption: "..."
+  - number: "24"
+    caption: "..."
+  - number: "24"
+    caption: "..."
+roomlist: true
+cta:
+  heading: |
+    Tell Us About
+    Your Event
+  buttons:
+  - text: "Plan Your Private Event"
+    url: "/inquire/"
+    function: "planEvent('')"
 ---
 ---
 

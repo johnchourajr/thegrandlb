@@ -15,8 +15,10 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
               slug
             }
             frontmatter {
-              tags
               templateKey
+              hero
+              title
+              path
             }
           }
         }
@@ -30,44 +32,27 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
 
     const posts = result.data.allMarkdownRemark.edges
 
-    posts.forEach(edge => {
-      const id = edge.node.id
+
+    // Create pages for each markdown file.
+    posts.forEach(({ node }, index) => {
+      const prev = index === 0 ? false : posts[index - 1].node
+      const next =
+        index === posts.length - 1 ? false : posts[index + 1].node
+      const id = node.id
       createPage({
-        path: edge.node.fields.slug,
-        tags: edge.node.frontmatter.tags,
+        path: node.fields.slug,
         component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
+          `src/templates/${String(node.frontmatter.templateKey)}.js`
         ),
-        // additional data can be passed via context
         context: {
           id,
-        },
+          // prev,
+          // next
+        }
       })
     })
 
-    // Tag pages:
-    let tags = []
-    // Iterate through each post, putting all found tags into `tags`
-    posts.forEach(edge => {
-      if (_.get(edge, `node.frontmatter.tags`)) {
-        tags = tags.concat(edge.node.frontmatter.tags)
-      }
-    })
-    // Eliminate duplicate tags
-    tags = _.uniq(tags)
-
-    // Make tag pages
-    tags.forEach(tag => {
-      const tagPath = `/tags/${_.kebabCase(tag)}/`
-
-      createPage({
-        path: tagPath,
-        component: path.resolve(`src/templates/tags.js`),
-        context: {
-          tag,
-        },
-      })
-    })
+    return posts
   })
 }
 
@@ -80,6 +65,21 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
       name: `slug`,
       node,
       value,
+    })
+  }
+}
+
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+  if (stage === "build-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: 'react-flickity-component',
+            use: loaders.null(),
+          },
+        ],
+      },
     })
   }
 }

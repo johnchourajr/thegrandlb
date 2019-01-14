@@ -1,0 +1,136 @@
+html {
+  transition: background-color .2s linear;
+}
+
+button {
+  outline: none !important;
+  border: none !important;
+  background-color: transparent !important;
+}
+
+body, .wrapper, .segue-card {
+  .button {
+    padding: $space-2 $space-3 !important;
+    font-size: .85em !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background-color: $grandRed;
+    color: $grandBabyBlue;
+    border-width: 2px !important;
+
+    @include solid-breakpoint(md) {
+      padding: $space-3 $space-4 !important;
+
+      &:not(.button--disabled):not(:disabled) {
+        transition: transform .3s $easeOutCubic !important;
+        transform: scale(1) !important;
+
+        &:hover {
+          transition: transform .3s $easeOutCubic !important;
+          transform: scale(1.025) !important;
+          background: darken($grandRed, 10%) !important;
+        }
+      }
+    }
+
+    &--secondary {
+      &:not(.button--disabled):not(:disabled) {
+        transition: transform .3s $easeOutCubic !important;
+        transform: scale(1) !important;
+
+        &:hover {
+          background: darken(white, 1%) !important;
+          color: $grandRed !important;
+        }
+
+        &:active {
+          background: darken(white, 1%) !important;
+          color: $grandRed !important;
+        }
+      }
+    }
+
+    &--small {
+      padding: $space-1 $space-2 !important;
+      font-size: .75em !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.15em;
+
+      &:not(.button--disabled):not(:disabled) {
+        transition: transform .3s $easeOutCubic !important;
+        transform: scale(1) !important;
+
+        &:hover {
+          background: $grandBabyBlue !important;
+          color: $grandRed !important;
+        }
+
+        &:active {
+          border-color: darken($grandRed, 10%) !important;
+          background: $grandBabyBlue !important;
+          color: $grandRed !important;
+        }
+      }
+    }
+
+    &--third {
+      border-color: $grandBabyBlue !important;
+
+      &:not(.button--disabled):not(:disabled) {
+        transition: transform .3s $easeOutCubic !important;
+        transform: scale(1) !important;
+
+        &:hover {
+          background: $grandBabyBlue !important;
+          color: $grandRed !important;
+        }
+
+        &:active, {
+          border-color: darken($grandBabyBlue, 10%) !important;
+          background: $grandBabyBlue !important;
+          color: $grandRed !important;
+        }
+      }
+    }
+  }
+
+  .button-group {
+    border-width: 0;
+    border-color: transparent;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .button {
+      margin-top: -1.5px !important;
+      margin-left: -1.5px !important;
+      padding: $space-1 $space-2 !important;
+      font-size: .75em !important;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background-color: $grandRed;
+      color: $grandBabyBlue;
+
+      @include solid-breakpoint(md) {
+        padding: $space-2 $space-3 !important;
+      }
+
+      &:not(.button--disabled):not(:disabled) {
+        &:hover {
+          transform: scale(1) !important;
+        }
+      }
+    }
+  }
+
+  .button--secondary {
+    background-color: $white !important;
+    color: $grandRed;
+
+    &:hover {
+      background-color: $grandBabyBlue !important;
+      color: $grandRed;
+    }
+  }
+}

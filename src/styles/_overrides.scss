@@ -1,0 +1,75 @@
+/**
+ * Custom Page Elements
+ */
+
+@include body-color(inquire, $grandBabyBlue, $black)
+@include body-color(inquiredone, $grandCream, $black)
+
+.clearfix {
+  &:before, &:after {
+    font-size: 0;
+    height: 0;
+  }
+}
+
+html.tourmap {
+  background-color: $grandCream;
+}
+
+body.home {
+  .page-hero-block {
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      background-color: $grandBabyBlue;
+      z-index: -1;
+      height: 8.75em;
+      bottom: -5.75em;
+
+      @include solid-breakpoint(sm) {
+        height: 10em; bottom: -6em;
+      }
+
+      @include solid-breakpoint(md) {
+        height: 9.12em; bottom: -7.12em;
+      }
+
+      @include solid-breakpoint(lg) {
+        height: 10.75em; bottom: -8.75em;
+      }
+
+      @include solid-breakpoint(xl) {
+        height: 10.5em; bottom: -8.5em;
+      }
+
+      @include solid-breakpoint(xxl) {
+        height: 10.25em; bottom: -8.25em;
+      }
+
+      @include solid-breakpoint(xxxl) {
+        height: 10em; bottom: -8em;
+      }
+    }
+  }
+}
+
+body.inquire, body.inquiredone, body.tourmap {
+  .nav:before {
+    top: -30%;
+    opacity: 0;
+    background-color: transparent;
+    box-shadow: 0 0px 0px rgba(0,0,0, 0) !important;
+  }
+
+  .nav--left, .nav--right {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .footer {
+    display: none !important;
+  }
+}

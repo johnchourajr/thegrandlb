@@ -1,19 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
+import { Transition } from 'react-transition-group'
+import { ParallaxProvider } from 'react-scroll-parallax'
 
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import './all.sass'
+import Head from '../components/core/Head'
+import Header from '../components/core/Header'
+import Footer from '../components/core/Footer'
+import * as navDetails from '../data/navDetails'
 
-const TemplateWrapper = ({ children }) => (
-  <div>
-    <Helmet title="Home | Gatsby + Netlify CMS" />
-    <Header />
-    <div>{children()}</div>
-    <Footer />
-  </div>
-)
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import '../styles/all.scss'
+
+const TemplateWrapper = ({ children, history, location, props }) => {
+  return (
+    <ParallaxProvider>
+      <Head location={location}/>
+      <Header mainNav={navDetails.mainNav} inquireNav={navDetails.inquireNav}/>
+      <div className="bodyWrap" data-status="">
+        {children()}
+      </div>
+      <Footer subNav={navDetails.subNav} />
+    </ParallaxProvider>
+  )
+}
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func,

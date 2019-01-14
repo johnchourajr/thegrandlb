@@ -1,5 +1,6 @@
 ---
-templateKey: basic-page
+templateKey: inquire-page
+path: /inquire
 title: Inquiry
 heading: Inquiry
 ---
@@ -25,3 +26,5 @@ Steps 3 of 3
 * Phone Number
 
 **[NOTE: ON SUBMIT, DETAILS WILL BE EMAILED]**
+
+https://hackernoon.com/how-to-build-a-stepper-with-compound-components-6a49d90950ba
