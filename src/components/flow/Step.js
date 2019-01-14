@@ -28,6 +28,7 @@ const StepInput = props => {
 
 const Step = props => {
   const {
+    currentStep,
     isActive,
     displayPrevious,
     displayNext,
@@ -37,6 +38,7 @@ const Step = props => {
     page,
     pageNumber,
     doneUrl,
+    activePageNumber
   } = props
 
   const activeStyles = !isActive ? {display: 'none'} : {display: 'inherit'}
@@ -70,6 +72,7 @@ const Step = props => {
         />
         <Submit
           isActive={displaySubmit}
+          currentStep={currentStep}
           submitAction={() => props.submitAction()}
           disabled={!page.isValid}
           doneUrl={doneUrl}
@@ -84,14 +87,14 @@ const Next = props => {
 
   if (isActive) {
     return (
-      <button
+      <div
         className="button"
         onClick={() => props.goToNextStep()}
         type="Next"
         disabled={props.disabled}
       >
         Next
-      </button>
+      </div>
     )
   } else return null
 }
@@ -101,21 +104,21 @@ const Previous = props => {
 
   if (isActive) {
     return (
-      <button
+      <div
         className="button button--secondary"
         onClick={() => props.goToPreviousStep()}
         type="Previous"
       >
         Previous
-      </button>
+      </div>
     )
   } else return null
 }
 
 const Submit = props => {
-  const { isActive, doneUrl } = props
+  const { isActive, doneUrl, currentStep } = props
 
-  if (isActive) {
+  if (isActive && currentStep === 2) {
     return (
       <button
         type="submit"

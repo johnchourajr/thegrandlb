@@ -18,6 +18,7 @@ class StepFlow extends React.Component {
     this.state = {
       flowPages: this.props.flowPages,
       doneUrl: "",
+      activePageNumber: "0",
     }
 
     this.handleFormChange = this.handleFormChange.bind(this);
@@ -37,10 +38,11 @@ class StepFlow extends React.Component {
     const queryVariable = util.getQueryVariable(variable)
 
     if(queryVariable) {
+      let variable = util.replaceAll(queryVariable, "+", " ")
       let newState = Object.assign({}, this.state)
-      newState.flowPages[page].forms[field].value = queryVariable
+      newState.flowPages[page].forms[field].value = variable
       this.setState(newState,
-      () => this.validateField(page, field, queryVariable))
+      () => this.validateField(page, field, variable))
     }
   }
 
@@ -136,6 +138,7 @@ class StepFlow extends React.Component {
     const {
       flowPages,
       doneUrl,
+      activePageNumber,
     } = this.state
 
     return (
@@ -150,6 +153,7 @@ class StepFlow extends React.Component {
                 handleChange={this.handleFormChange}
                 setQueryValues={this.setQueryValues}
                 doneUrl={doneUrl}
+                activePageNumber={activePageNumber}
               />
             )
           })}

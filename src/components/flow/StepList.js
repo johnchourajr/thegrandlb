@@ -87,6 +87,7 @@ class StepList extends React.Component {
       const { currentStep, totalSteps } = this.state
 
       return React.cloneElement(child, {
+        currentStep: currentStep,
         isActive: index === currentStep,
         displayPrevious: currentStep > 0,
         displayNext: currentStep < totalSteps,
