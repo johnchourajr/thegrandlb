@@ -47,7 +47,7 @@ class Video extends React.Component {
         className={"video"}
         layers={[
           {
-            amount: 0.3,
+            amount: 0.2,
             children: (
               <VideoContent
                 isMobileBrowswer={this.state.isMobileBrowswer}
