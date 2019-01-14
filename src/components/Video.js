@@ -55,15 +55,6 @@ class Video extends React.Component {
                 source={this.props.source}
                 poster={this.props.poster}
               />
-              // {!this.state.isMobileBrowswer
-              //   ?
-              //   <VideoCover
-              //     videoOptions={videoOptions}
-              //     source={this.props.source}
-              //     remeasureOnWindowResize
-              //   />
-              //   : <div className="img" style={{backgroundImage: `url(${withPrefix(this.props.poster)})`}}/>
-              // }
             ),
             slowerScrollRate: true,
           },
