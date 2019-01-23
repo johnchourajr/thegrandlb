@@ -32,18 +32,25 @@ numbers:
 amenities:
   description: "Amenities"
   array:
-  - img: "pa.svg"
-    text: "PA Sound System"
-  - img: "projector.svg"
-    text: "Projector Screen"
-  - img: "beverage.svg"
-    text: "Beverage Service"
-  - img: "food.svg"
-    text: "On Site Meals"
   - img: "lighting.svg"
     text: "Dynamic Lighting"
   - img: "table.svg"
-    text: "Large Hahogany Table"
+    text: "Large Mahogany Table"
+  - img: "art.svg"
+    text: "Access to Monarch Room"
+upgrades:
+  description: "Optional Upgrades"
+  array:
+  - text: "100 Mbps Wi-fi"
+  - text: "AV Equipment"
+  - text: "Fire-pits & Heaters"
+  - text: "Bar Service"
+  - text: "Lounge Furniture"
+  - text: "Chiavari Chairs"
+  - text: "Specialty Linens"
+  - text: "Dressing Rooms"
+  - text: "Red Carpet"
+  - text: "Uplighting"
 carousel:
   array:
   - img: "/img/tour-rooms/board-room/index.jpg"

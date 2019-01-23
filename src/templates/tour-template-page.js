@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link, { withPrefix } from 'gatsby-link'
 
+import Star from '../components/svg/Star'
 import { slugify } from '../components/functions/util'
 import Content, { HTMLContent } from '../components/Content'
 import Layout from '../components/core/Layout'
@@ -50,6 +51,18 @@ const TourTemplatePage = ({ data, status, location, pathContext }) => {
         subHead={frontmatter.amenities.description}
         array={frontmatter.amenities.array}
       />
+      <PageSection
+        subHead={frontmatter.upgrades.description}
+      >
+        <div className="xs-flex xs-flex-wrap xs-flex-justify-center xs-pt4">
+          {frontmatter.upgrades && frontmatter.upgrades.array.map((item, i) => (
+            <div key={i} className={"col xs-pt3 xs-col-12 sm-col-6 md-col-3 xs-flex xs-flex-column xs-flex-align-center"}>
+              <p className="xs-text-center text-gray-lightest">{item.text}</p>
+            </div>
+          ))}
+        </div>
+
+      </PageSection>
       {frontmatter.roomswitch && <RoomSwitch
         array={frontmatter.roomswitch.array}
       />}
@@ -115,6 +128,12 @@ export const basicPageQuery = graphql`
           description
           array {
             img
+            text
+          }
+        }
+        upgrades {
+          description
+          array {
             text
           }
         }

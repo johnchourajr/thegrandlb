@@ -1381,30 +1381,15 @@
       z-index: -10;
 
       @include solid-breakpoint(md) {
+        top: -1rem;
+        font-size: 20vw;
+      }
+
+      @include solid-breakpoint(lg) {
         top: 2rem;
         font-size: 20vw;
       }
     }
-
-
-
-    // &--left {
-    //
-    //   h1.display {
-    //     text-align: left;
-    //     width: calc(100% - 8.333%);
-    //     left: 8.333%;
-    //   }
-    // }
-    //
-    // &--right {
-    //
-    //   h1.display {
-    //     text-align: right;
-    //     width: calc(100% - 8.333%);
-    //     right: 8.333%;
-    //   }
-    // }
 
     .icon {
       position: absolute;

@@ -16,7 +16,7 @@ const TemplateWrapper = ({ children, history, location, props }) => {
     <ParallaxProvider>
       <Head location={location}/>
       <Header mainNav={navDetails.mainNav} inquireNav={navDetails.inquireNav}/>
-      <div className="bodyWrap" data-status="">
+      <div className="bodyWrap">
         {children()}
       </div>
       <Footer subNav={navDetails.subNav} />

@@ -34,6 +34,7 @@ const ContactPage = ({ data, status }) => {
         heading={frontmatter.heading}
       />
       <PageSection wrapperClassName="-xs-py1" />
+
       <PageSection wrapperClassName="xs-py5 contact--item contact--item--left">
         <p className="xs-col-12 md-col-10 md-offset-1 xs-text-3 xs-mt5 xs-text-center"><a href="tel:+15624260555">{"562.426.0555"}</a></p>
         <h1 className="display">Call</h1>
@@ -41,6 +42,10 @@ const ContactPage = ({ data, status }) => {
       <PageSection wrapperClassName="xs-py5 contact--item contact--item--right">
         <p className="xs-col-12 md-col-10 md-offset-1 xs-text-3 xs-mt5 xs-text-center"><a href="mailto:dan@thegrandlb.com">{"dan@thegrandlb.com"}</a></p>
         <h1 className="display">Email</h1>
+      </PageSection>
+      <PageSection wrapperClassName="xs-py5 contact--item contact--item--left">
+        <p className="xs-col-12 md-col-10 md-offset-1 xs-text-3 xs-mt5 xs-text-center"><Link to="/inquire">{"Submit Inquiry"}</Link></p>
+        <h1 className="display">Inquire</h1>
       </PageSection>
       <PageSection wrapperClassName="xs-py5 xs-col-12 md-col-8 md-offset-2">
         {socialNav.map((item, i) => (

@@ -118,7 +118,7 @@ export class MenuTable extends React.Component {
           return (
             <div key={i} id={item.title && slugify(item.title)} className="menu--wrap sm-col-8 sm-offset-2">
               <div className="menu--header ">
-                {i > 0 ? <div className="menu--scrolltop">
+                {i > 0 ? <div className="menu--scrolltop no-print">
                   <Scrollchor
                     to={`#menutop`}
                     animate={{offset: -150, duration: 600}}

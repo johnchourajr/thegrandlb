@@ -80,6 +80,26 @@
     orphans: 0;
   }
 
+  .menu--section {
+    padding: 2rem 0 0;
+    // page-break-before: auto;
+  }
+
+  .menu--wrap {
+    padding-bottom: 2rem;
+  }
+
+  .menu--section--header {
+    padding-bottom: 1rem;
+    page-break-inside: avoid;
+  }
+
+  .menu--table--item {
+    padding: 0.55rem 0;
+    // page-break-before: avoid;
+    page-break-inside: avoid;
+  }
+
   // .print-footer {
   //   position: fixed;
   //   display: table-footer-group;
@@ -98,49 +118,8 @@
 @media print {
   body {
     width: 100%;
-    font-size: 12pt !important;
+    font-size: 10pt !important;
   }
-
-  // @page {
-  //   margin: 0.5in 0.5in;
-  //
-  //   @top-left {
-  //     content: "Hamlet";
-  //     color: $black;
-  //   }
-  //
-  //   @top-right {
-  //     content: "Page " counter(page);
-  //     color: $black;
-  //   }
-  // }
-
-  // @page :first {
-  //   color: green;
-  //
-  //   @top-left {
-  //     content: "foo";
-  //     color: blue;
-  //   }
-  //   @top-right {
-  //     content: "bar";
-  //   }
-  // }
-
-  // @page:right{
-  //   @bottom-left {
-  //     margin: 10pt 0 30pt 0;
-  //     border-top: .25pt solid #666;
-  //     content: "My book";
-  //     font-size: 9pt;
-  //     color: #333;
-  //   }
-  // }
-  //
-  // @page:left {
-  //  margin: 0.5in;
-  //  // background-color: red;
-  // }
 
   .no-print {
     display: none !important;
