@@ -3,7 +3,7 @@
     {
       "title": "Breakfast &\nBrunch",
       "type": "section",
-      "description": "Breakfast beverage service includes orange juice, regular and decaf coffee, and iced water – ***served with biodegradable disposable ware unless otherwise requested**.*",
+      "description": "Breakfast beverage service includes orange juice, regular and decaf coffee, and iced water – _**served with biodegradable disposable ware unless otherwise requested**._",
       "caption": "30 guest minimum; $150 Fee applies if minimum is not met.",
       "items": [
         {
@@ -72,7 +72,7 @@
         {
           "title": "*Build Your Own* Breakfast Buffet",
           "type": "multi-item",
-          "description": "\\*$20.50 per person\\*",
+          "description": "_$20.50 per person_",
           "items": [
             {
               "title": "Scrambled Eggs _(Select One)_",
