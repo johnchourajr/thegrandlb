@@ -7,7 +7,7 @@
         {
           "title": "Breakfast",
           "type": "multi-item",
-          "description": "30 guest minimum. $150 fee applies of minimum is not met.",
+          "description": "30 guest minimum. $150 fee applies if minimum is not met.",
           "items": [
             {
               "title": "Continental Breakfast",
@@ -33,7 +33,7 @@
           ]
         },
         {
-          "title": "Lunch Packages",
+          "title": "Lunch",
           "type": "multi-item",
           "description": "choose Served Lunch or Deli Buffet",
           "items": [
