@@ -33,7 +33,7 @@ const RatingsSection = props => {
       <div className="ratings--wrap">
         <div className="ratings--upper">
           <div className="ratings--item">
-            <img className="ratings--item--logo" src="/img/misc/yelp-logo.svg" />
+            <img className="ratings--item--logo" alt="yelp" title="title" src="/img/misc/yelp-logo.svg" />
             <Ratings
               rating={yelpRating.rating}
               color={'white'}

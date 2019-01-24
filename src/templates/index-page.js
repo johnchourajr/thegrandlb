@@ -116,13 +116,13 @@ const IndexPage = ({ data, status }) => {
       >
         <div className="menu-feature--wrap gutters clearfix">
           <div className={`col xs-offset-1 xs-col-10 md-ml0 md-col-7 xs-my2 menu-feature--1`}>
-            <img src={frontmatter.menuFeature.imgs[0]}/>
+            <img src={frontmatter.menuFeature.imgs[0]} alt="food" title="food"/>
           </div>
           <div className={`col xs-offset-1 xs-col-10 md-ml0 md-col-5 xs-my2 menu-feature--2`}>
-            <img src={frontmatter.menuFeature.imgs[1]}/>
+            <img src={frontmatter.menuFeature.imgs[1]} alt="food" title="food"/>
           </div>
           <div className={`col xs-offset-1 xs-col-10 md-offset-1 md-col-6 lg-offset-3 lg-col-4 xs-my2 menu-feature--3`}>
-            <img src={frontmatter.menuFeature.imgs[2]}/>
+            <img src={frontmatter.menuFeature.imgs[2]} alt="food" title="food"/>
           </div>
         </div>
       </PageSection>

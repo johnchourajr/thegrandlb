@@ -57,10 +57,12 @@ carousel:
     Hey,
     Good Lookin’
   array:
-  - img: "/img/tour-architecture/GLB_Details_Arch_4.jpg"
+  - img: "/img/tour-architecture/GLB_Details_Arch_8.jpg"
     caption: "The Grand Entrance"
   - img: "/img/events/milestones/2.jpg"
     caption: "A [Palm Terrace](/tour/palm-terrace) food tasting event"
+  - img: "/img/tour-architecture/GLB_Details_Arch_7.jpg"
+    caption: "Willow Street View at Night"
   - img: "/img/tour-spaces/GLB_Details_Spaces_11.jpg"
     caption: "Terrace Shade & Lights"
   - img: "/img/events/weddings/1.jpg"
@@ -71,7 +73,8 @@ carousel:
     caption: "A red carpet entrance to [The Grand Ballroom](/tour/grand-ballroom)"
   - img: "/img/tour-architecture/GLB_Details_Arch_3.jpg"
     caption: "Building Detail"
-
+  - img: "/img/tour-architecture/GLB_Details_Arch_4.jpg"
+    caption: "The Grand Entrance"
   - img: "/img/tour-architecture/GLB_Details_Arch_5.jpg"
     caption: "Building Detail"
 cta:
