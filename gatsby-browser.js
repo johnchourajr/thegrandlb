@@ -6,5 +6,5 @@ exports.onRouteUpdate = ({ location }) => {
 };
 
 exports.onClientEntry = () => {
-  ReactGA.initialize("UA-131770061-1");
+  ReactGA.initialize(siteDetails.ga);
 }
