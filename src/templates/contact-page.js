@@ -54,6 +54,9 @@ const ContactPage = ({ data, status }) => {
           </div>
         ))}
       </PageSection>
+      <PageSection
+        subHead={"Check out our list of [Preferred Vendors](/about/vendors)."}
+      />
       <PageCta
         accent={'grandPink'}
         heading={"Plan Your\nEvent Today"}

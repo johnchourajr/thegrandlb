@@ -13,9 +13,11 @@ const BasicPage = ({ data, status }) => {
   return (
     <Layout status={status}>
       <PageHeader title={frontmatter.title} heading={frontmatter.heading} />
-      <section className="section">
-        <div className="wrapper">
-          <HTMLContent className="content" content={html} />
+      <section className="basic-page section">
+        <div className="wrapper clearfix">
+          <div className="xs-col-12 md-offset-2 md-col-8">
+            <HTMLContent className="content" content={html} />
+          </div>
         </div>
       </section>
     </Layout>
