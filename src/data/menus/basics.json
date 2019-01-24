@@ -363,22 +363,22 @@
             {
               "title": "Pasta Primavera",
               "description": "Penne Pasta with Roasted Vegetables and tossed in a White Wine Cream Sauce",
-              "price": "--"
+              "price": ""
             },
             {
               "title": "Eggplant Parmesan",
               "description": "Parmesan Panko Crusted Eggplant with Provolone & Basil Marinara Sauce",
-              "price": "--"
+              "price": ""
             },
             {
               "title": "Grilled Portobello Mushroom Cap",
               "description": "Filled with Roasted Vegetables and topped with a Tomato Coulis *(Vegan & Gluten Free)*",
-              "price": "--"
+              "price": ""
             },
             {
               "title": "Roasted Butternut Squash",
               "description": "Stuffed with Roasted Vegetables and Topped with a Balsamic Glaze *(Vegan & Gluten Free)*",
-              "price": "--"
+              "price": ""
             }
           ]
         },
