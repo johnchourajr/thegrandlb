@@ -13,7 +13,7 @@ collections:
     delete: false
     files:
       - name: "siteDetails"
-        label: "Site Detains"
+        label: "Site Details"
         file: "src/data/siteDetails.json"
         extension: "json"
         delete: false
