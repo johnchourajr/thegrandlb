@@ -1,5 +1,9 @@
 import classicMenuContent from './classicMenu.json'
 import basics from './basics.json'
+import basicsAppetizers from './basicsAppetizers.json'
+import basicsMains from './basicsMains.json'
+import basicsSweets from './basicsSweets.json'
+import basicsDrinks from './basicsDrinks.json'
 
 const classicMenu = {
   meta: {
@@ -20,7 +24,10 @@ const classicMenu = {
   },
   items: [
     ...classicMenuContent.items,
-    ...basics.items
+    ...basicsAppetizers.items,
+    ...basicsMains.items,
+    ...basicsSweets.items,
+    ...basicsDrinks.items
   ]
 }
 

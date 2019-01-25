@@ -6,6 +6,6 @@ heading: |
   Our Weddings
   Menu
 subhead: |
-  Our weddings menu has the perfect packages your special day.
+  Our weddings menu has the perfect packages for your special day.
 data: weddingMenu
 ---

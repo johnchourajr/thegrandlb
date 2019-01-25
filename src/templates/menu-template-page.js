@@ -39,6 +39,9 @@ const MenuTemplatePage = ({ data, status }) => {
         subHead={frontmatter.subhead}
         subHeadClassName={"xs-px4 xs-pb4 no-print"}
       >
+        <div className="xs-mb5">
+          <p className="text-gray-lightest xs-text-center">Add 22% production fee and applicable sales tax to all menus</p>
+        </div>
         <div className="print-button no-print">
           <button onClick={() => printAction(frontmatter.heading)} className="button button--small button--secondary button--third">
             <p>Print This Menu  <img style={{width: 20, height: 24}} src={`${withPrefix(path)}`}/></p>

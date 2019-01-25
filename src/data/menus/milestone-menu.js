@@ -1,5 +1,9 @@
 import milestoneMenuContent from './milestoneMenu.json'
 import basics from './basics.json'
+import basicsAppetizers from './basicsAppetizers.json'
+import basicsMainsShared from './basicsMainsShared.json'
+import basicsSweets from './basicsSweets.json'
+import basicsDrinks from './basicsDrinks.json'
 
 const milestoneMenu = {
   meta: {
@@ -20,7 +24,10 @@ const milestoneMenu = {
   },
   items: [
     ...milestoneMenuContent.items,
-    ...basics.items
+    ...basicsAppetizers.items,
+    ...basicsMainsShared.items,
+    ...basicsSweets.items,
+    ...basicsDrinks.items
   ]
 }
 

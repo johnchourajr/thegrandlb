@@ -8,49 +8,6 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  # - name: "mainPages"
-  #   label: "Main Pages"
-  #   delete: false
-  #   files:
-  #     - file: "src/pages/index.md"
-  #       label: "Home"
-  #       name: "home"
-  #       fields:
-  #         - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
-  #         - {label: "Title", name: "title", widget: "string"}
-  #         - {label: "Heading", name: "heading", widget: "string"}
-  #     - file: "src/pages/about/index.md"
-  #       label: "About"
-  #       name: "about"
-  #       fields:
-  #         - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
-  #         - {label: "Title", name: "title", widget: "string"}
-  #         - {label: "Heading", name: "heading", widget: "string"}
-  #         - label: "people"
-  #           name: "people"
-  #           widget: "list"
-  #           fields:
-  #             - {label: "Heading", name: "heading", widget: "string"}
-  #             - label: "array"
-  #               name: "array"
-  #               widget: "list"
-  #               fields:
-  #                 - {label: "name", name: "name", widget: "markdown"}
-  #                 - {label: "title", name: "title", widget: "string"}
-  #     - file: "src/pages/contact/index.md"
-  #       label: "Contact"
-  #       name: "contact"
-  #       fields:
-  #         - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
-  #         - {label: "Title", name: "title", widget: "string"}
-  #         - {label: "Heading", name: "heading", widget: "string"}
-  #     - file: "src/pages/inquire/index.md"
-  #       label: "Inquire"
-  #       name: "inquire"
-  #       fields:
-  #         - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
-  #         - {label: "Title", name: "title", widget: "string"}
-  #         - {label: "Heading", name: "heading", widget: "string"}
   - name: "tourPages"
     label: "Tour Sub Pages"
     folder: "src/pages/tour"
@@ -90,9 +47,170 @@ collections:
     label: "Menu Pages"
     delete: false
     files:
-      - label: "Menu Basics"
-        name: "basics"
-        file: "src/data/menus/basics.json"
+      - label: "Menu Basics Appetizers"
+        name: "basics appetizers"
+        description: "Used in Classic, Wedding, and Milestones Menu"
+        file: "src/data/menus/basicsAppetizers.json"
+        extension: "json"
+        fields:
+          - label: items
+            name: items
+            widget: list
+            required: false
+            fields:
+              - {label: title, name: title, widget: markdown, required: false}
+              - {label: type, name: type, widget: string, required: false, hidden: true}
+              - {label: description, name: description, widget: markdown, required: false}
+              - {label: caption, name: caption, widget: markdown, required: false}
+              - label: items
+                name: items
+                widget: list
+                required: false
+                fields:
+                  - {label: title, name: title, widget: markdown, required: false}
+                  - {label: type, name: type, widget: string, required: false, hidden: true}
+                  - {label: description, name: description, widget: markdown, required: false}
+                  - {label: annotation, name: annotation, widget: list, required: false}
+                  - label: items
+                    name: items
+                    widget: list
+                    required: false
+                    fields:
+                      - {label: title, name: title, widget: markdown, required: false}
+                      - {label: description, name: description, widget: markdown, required: false}
+                      - {label: list, name: list, widget: list, required: false}
+                      - {label: price, name: price, widget: string, required: false}
+                      - label: items
+                        name: items
+                        widget: list
+                        required: false
+                        fields:
+                          - {label: title, name: title, widget: markdown, required: false}
+                          - {label: list, name: list, widget: list, required: false}
+      - label: "Menu Basics Mains"
+        name: "basics mains"
+        description: "Used in Classic Menu"
+        file: "src/data/menus/basicsMains.json"
+        extension: "json"
+        fields:
+          - label: items
+            name: items
+            widget: list
+            required: false
+            fields:
+              - {label: title, name: title, widget: markdown, required: false}
+              - {label: type, name: type, widget: string, required: false, hidden: true}
+              - {label: description, name: description, widget: markdown, required: false}
+              - {label: caption, name: caption, widget: markdown, required: false}
+              - label: items
+                name: items
+                widget: list
+                required: false
+                fields:
+                  - {label: title, name: title, widget: markdown, required: false}
+                  - {label: type, name: type, widget: string, required: false, hidden: true}
+                  - {label: description, name: description, widget: markdown, required: false}
+                  - {label: annotation, name: annotation, widget: list, required: false}
+                  - label: items
+                    name: items
+                    widget: list
+                    required: false
+                    fields:
+                      - {label: title, name: title, widget: markdown, required: false}
+                      - {label: description, name: description, widget: markdown, required: false}
+                      - {label: list, name: list, widget: list, required: false}
+                      - {label: price, name: price, widget: string, required: false}
+                      - label: items
+                        name: items
+                        widget: list
+                        required: false
+                        fields:
+                          - {label: title, name: title, widget: markdown, required: false}
+                          - {label: list, name: list, widget: list, required: false}
+      - label: "Menu Basics Mains Shared"
+        name: "basics mains shared"
+        description: "Used in Wedding, and Milestones Menu"
+        file: "src/data/menus/basicsMainsShared.json"
+        extension: "json"
+        fields:
+          - label: items
+            name: items
+            widget: list
+            required: false
+            fields:
+              - {label: title, name: title, widget: markdown, required: false}
+              - {label: type, name: type, widget: string, required: false, hidden: true}
+              - {label: description, name: description, widget: markdown, required: false}
+              - {label: caption, name: caption, widget: markdown, required: false}
+              - label: items
+                name: items
+                widget: list
+                required: false
+                fields:
+                  - {label: title, name: title, widget: markdown, required: false}
+                  - {label: type, name: type, widget: string, required: false, hidden: true}
+                  - {label: description, name: description, widget: markdown, required: false}
+                  - {label: annotation, name: annotation, widget: list, required: false}
+                  - label: items
+                    name: items
+                    widget: list
+                    required: false
+                    fields:
+                      - {label: title, name: title, widget: markdown, required: false}
+                      - {label: description, name: description, widget: markdown, required: false}
+                      - {label: list, name: list, widget: list, required: false}
+                      - {label: price, name: price, widget: string, required: false}
+                      - label: items
+                        name: items
+                        widget: list
+                        required: false
+                        fields:
+                          - {label: title, name: title, widget: markdown, required: false}
+                          - {label: list, name: list, widget: list, required: false}
+      - label: "Menu Basics Sweets"
+        name: "basics sweets"
+        description: "Used in Classic, Wedding, and Milestones Menu"
+        file: "src/data/menus/basicsSweets.json"
+        extension: "json"
+        fields:
+          - label: items
+            name: items
+            widget: list
+            required: false
+            fields:
+              - {label: title, name: title, widget: markdown, required: false}
+              - {label: type, name: type, widget: string, required: false, hidden: true}
+              - {label: description, name: description, widget: markdown, required: false}
+              - {label: caption, name: caption, widget: markdown, required: false}
+              - label: items
+                name: items
+                widget: list
+                required: false
+                fields:
+                  - {label: title, name: title, widget: markdown, required: false}
+                  - {label: type, name: type, widget: string, required: false, hidden: true}
+                  - {label: description, name: description, widget: markdown, required: false}
+                  - {label: annotation, name: annotation, widget: list, required: false}
+                  - label: items
+                    name: items
+                    widget: list
+                    required: false
+                    fields:
+                      - {label: title, name: title, widget: markdown, required: false}
+                      - {label: description, name: description, widget: markdown, required: false}
+                      - {label: list, name: list, widget: list, required: false}
+                      - {label: price, name: price, widget: string, required: false}
+                      - label: items
+                        name: items
+                        widget: list
+                        required: false
+                        fields:
+                          - {label: title, name: title, widget: markdown, required: false}
+                          - {label: list, name: list, widget: list, required: false}
+      - label: "Menu Basics Drinks"
+        name: "basics drinks"
+        description: "Used in Classic, Wedding, and Milestones Menu"
+        file: "src/data/menus/basicsDrinks.json"
         extension: "json"
         fields:
           - label: items
