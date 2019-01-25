@@ -7,8 +7,9 @@
       "caption": "",
       "items": [
         {
-          "title": "The Standard\n\nChoose two options for a duet plate _(Add $3.00 per person)_",
+          "title": "The Standard",
           "type": "multi-item",
+          "description": "Choose two options for a duet plate _(Add $3.00 per person)_",
           "items": [
             {
               "title": "Lemon Rosemary Chicken",
@@ -37,8 +38,9 @@
           ]
         },
         {
-          "title": "The Grand Standard\n\nChoose two options for a duet plate _(Add $4.50 per person)_",
+          "title": "The Grand Standard",
           "type": "multi-item",
+          "description": "Choose two options for a duet plate _(Add $4.50 per person)_",
           "items": [
             {
               "title": "Chicken Wellington",
@@ -75,8 +77,9 @@
           ]
         },
         {
-          "title": "The Choura Standard\n\nChoose two options for a duet plate _(Add $6.00 per person)_",
+          "title": "The Choura Standard",
           "type": "multi-item",
+          "description": "Choose two options for a duet plate _(Add $6.00 per person)_",
           "items": [
             {
               "title": "Classic Beef Wellington",
