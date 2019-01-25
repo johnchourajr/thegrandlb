@@ -82,7 +82,10 @@
 
   .menu--section {
     padding: 2rem 0 0;
-    // page-break-before: auto;
+  }
+
+  #live-cooking-stations, #say-i-do-specials {
+    page-break-before: always;
   }
 
   .menu--wrap {
