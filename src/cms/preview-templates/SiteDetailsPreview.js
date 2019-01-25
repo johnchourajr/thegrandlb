@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 const SiteDetailsPreview = ({ entry, widgetFor }) => (
   <div style={{padding: '2rem'}}>
     <h3>{entry.getIn(['data', 'title'])}</h3>
+    <br/>
     <h3>{entry.getIn(['data', 'description'])}</h3>
     <br/>
     <p><u>Company Name:</u> {entry.getIn(['data', 'companyName'])}</p>
