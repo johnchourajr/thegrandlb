@@ -3,18 +3,17 @@ import PropTypes from 'prop-types'
 
 const SiteDetailsPreview = ({ entry, widgetFor }) => (
   <div style={{padding: '2rem'}}>
-    <h6>{entry.getIn(['data', 'title'])}</h6>
-    <p>{entry.getIn(['data', 'description'])}</p>
+    <h3>{entry.getIn(['data', 'title'])}</h3>
+    <h3>{entry.getIn(['data', 'description'])}</h3>
     <br/>
-    <p>Company Name: {entry.getIn(['data', 'companyName'])}</p>
-    <p>Phone: {entry.getIn(['data', 'phone'])}</p>
-    <p>Address Line 1: {entry.getIn(['data', 'address1'])}</p>
-    <p>Address Line 2: {entry.getIn(['data', 'address2'])}</p>
-    <p>URL: {entry.getIn(['data', 'url'])}</p>
-    <p>Email: {entry.getIn(['data', 'email'])}</p>
+    <p><u>Company Name:</u> {entry.getIn(['data', 'companyName'])}</p>
+    <p><u>Phone:</u> {entry.getIn(['data', 'phone'])}</p>
+    <p><u>Address Line 1:</u> {entry.getIn(['data', 'address1'])}</p>
+    <p><u>Address Line 2:</u> {entry.getIn(['data', 'address2'])}</p>
+    <p><u>URL:</u> {entry.getIn(['data', 'url'])}</p>
+    <p><u>Email:</u> {entry.getIn(['data', 'email'])}</p>
     <br/>
-    <p>Google Analytics: {entry.getIn(['data', 'ga'])}</p>
-    <p>Site Public: {entry.getIn(['data', 'sitePublic'])}</p>
+    <p><u>Google Analytics:</u> {entry.getIn(['data', 'ga'])}</p>
   </div>
 )
 
