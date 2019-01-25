@@ -15,8 +15,6 @@ const BasicPagePreview = ({ entry, widgetFor }) => (
     <br/>
     <p>Google Analytics: {entry.getIn(['data', 'ga'])}</p>
     <p>Site Public: {entry.getIn(['data', 'sitePublic'])}</p>
-    <br/>
-    <p>Social Card: {entry.getIn(['data', 'socialCard'])}</p>
   </div>
 )
 
