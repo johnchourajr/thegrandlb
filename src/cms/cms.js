@@ -1,8 +1,10 @@
 import CMS from 'netlify-cms'
 
 import BasicPagePreview from './preview-templates/BasicPagePreview'
+import SiteDetailsPreview from './preview-templates/SiteDetailsPreview'
 
 CMS.registerPreviewStyle('/styles.css')
+CMS.registerPreviewTemplate('siteDetails', SiteDetailsPreview)
 CMS.registerPreviewTemplate('tourPages', BasicPagePreview)
 
 CMS.registerPreviewTemplate('basics', BasicPagePreview)

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const BasicPagePreview = ({ entry, widgetFor }) => (
+const SiteDetailsPreview = ({ entry, widgetFor }) => (
   <div style={{padding: '2rem'}}>
     <h6>{entry.getIn(['data', 'title'])}</h6>
     <p>{entry.getIn(['data', 'description'])}</p>
@@ -18,11 +18,11 @@ const BasicPagePreview = ({ entry, widgetFor }) => (
   </div>
 )
 
-BasicPagePreview.propTypes = {
+SiteDetailsPreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
   widgetFor: PropTypes.func,
 }
 
-export default BasicPagePreview
+export default SiteDetailsPreview
