@@ -3,6 +3,7 @@
     {
       "title": "Wedding Packages",
       "type": "section",
+      "description": "All Packages Include: 5 Hour Event Time Inclusive of Ceremony, Two Hour Access Window Prior to Event Start, Served Champagne & Sparkling Cider Toast, Customized Room Setup, Choice of White or Ivory Linens for all Tables, Selection of Napkin Color(s), All China, Glassware & Flatware, Complimentary Parking for all Guests, and Unformed, Professional Staff",
       "items": [
         {
           "title": "Lunch and Dinner Packages",
@@ -63,7 +64,7 @@
           "items": [
             {
               "title": "Garden Ceremony",
-              "description": "Have your wedding ceremony and reception in one space in The Garden Room and Patio. Minimum 100 guests.",
+              "description": "Minimum 100 guests.",
               "price": "$12.00-$15.00 *per person*",
               "items": [
                 {
