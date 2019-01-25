@@ -1,7 +1,7 @@
 {
   "items": [
     {
-      "title": "Specials",
+      "title": "Wedding Packages",
       "type": "section",
       "items": [
         {
@@ -58,7 +58,7 @@
           ]
         },
         {
-          "title": "Say, 'I do...' Specials",
+          "title": "Say, 'I do...'",
           "type": "multi-item",
           "items": [
             {
