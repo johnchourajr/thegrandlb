@@ -8,6 +8,37 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+  - name: "siteContent"
+    label: "Site Content"
+    delete: false
+    files:
+      - name: "siteDetails"
+        label: "Site Detains"
+        file: "src/data/siteDetails.json"
+        extension: "json"
+        delete: false
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Company Name", name: "companyName", widget: "string"}
+          - {label: "Phone", name: "phone", widget: "string"}
+          - {label: "Address Line 1", name: "address1", widget: "string"}
+          - {label: "Address Line 2", name: "address2", widget: "string"}
+          - {label: "URL", name: "url", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Social Card", name: "socialCard", widget: "image"}
+          - {label: "Google Analytics", name: "ga", widget: "string"}
+          - {label: "Site Public", name: "sitePublic", widget: "boolean"}
+      - name: "vendorsPage"
+        label: "Vendors Page"
+        file: "src/pages/about/vendors.md"
+        extension: "md"
+        delete: false
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "basic-page"}
+          - {label: "Title", name: "title", widget: "string", required: false}
+          - {label: "Heading", name: "heading", widget: "markdown", required: false}
+          - {label: "Body", name: "body", widget: "markdown", required: false}
   - name: "tourPages"
     label: "Tour Sub Pages"
     folder: "src/pages/tour"
