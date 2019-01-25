@@ -59,10 +59,18 @@
       z-index: -1;
     }
 
+    &:before {
+      content: "Add 22% production fee and applicable sales tax to all menus";
+      position: absolute;
+      bottom: -40vh;
+      width: 100%;
+      text-align: center;
+    }
+
     &:after {
       content: "www.thegrandlb.com";
       position: absolute;
-      bottom: -40vh;
+      bottom: -36vh;
       width: 100%;
       text-align: center;
     }
