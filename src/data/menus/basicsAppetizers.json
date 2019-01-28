@@ -46,7 +46,7 @@
         {
           "title": "Cold Hors D’oeuvres",
           "type": "multi-item",
-          "description": "Chilled and ready to eat.\n$6.00 per person for Tray Passed or\n$5.00 per person for displayed",
+          "description": "Chilled and ready to eat.\n$6.00 per person for Tray Passed or\n$5.00 per person for Displayed",
           "items": [
             {
               "title": "Antipasto Skewers",
@@ -123,7 +123,7 @@
         {
           "title": "Warm Hors D’oeuvres",
           "type": "multi-item",
-          "description": "Warm and ready to eat.\n$6.00 per person for Tray Passed or\n$5.00 per person for displayed",
+          "description": "Warm and ready to eat.\n$6.00 per person for Tray Passed or\n$5.00 per person for Displayed",
           "items": [
             {
               "title": "Homemade Meatballs",
