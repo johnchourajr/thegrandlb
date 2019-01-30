@@ -9,7 +9,7 @@
         {
           "title": "Served Breakfast",
           "type": "multi-item",
-          "description": "Breakfast beverage service includes orange juice, regular and decaf coffee, and iced water.** **_30 guest minimum; $150 Fee applies if minimum is not met._",
+          "description": "Breakfast beverage service includes orange juice, regular and decaf coffee, and iced water. _30 guest minimum; $150 Fee applies if minimum is not met._",
           "annotation": [
             "**Substitute Turkey Bacon or Sausage for additional $1.50 per person.",
             "**Substitute Egg Whites for additional $1.50 per person"
@@ -50,7 +50,7 @@
         {
           "title": "Buffet Breakfast",
           "type": "multi-item",
-          "description": "Breakfast beverage service includes orange juice, regular and decaf coffee, and iced water.** **_30 guest minimum; $150 Fee applies if minimum is not met._",
+          "description": "Breakfast beverage service includes orange juice, regular and decaf coffee, and iced water. _30 guest minimum; $150 Fee applies if minimum is not met._",
           "items": [
             {
               "title": "Continental Breakfast",
@@ -72,7 +72,7 @@
         {
           "title": "*Build Your Own* Breakfast Buffet",
           "type": "multi-item",
-          "description": "Breakfast beverage service includes orange juice, regular and decaf coffee, and iced water.** **_30 guest minimum; $150 Fee applies if minimum is not met._",
+          "description": "Breakfast beverage service includes orange juice, regular and decaf coffee, and iced water. _30 guest minimum; $150 Fee applies if minimum is not met._",
           "items": [
             {
               "title": "Scrambled Eggs _(Select One)_",
