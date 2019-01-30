@@ -9,7 +9,7 @@
         {
           "title": "Served Breakfast",
           "type": "multi-item",
-          "description": "Breakfast beverage service includes orange juice, regular and decaf coffee, and iced water – **served with biodegradable disposable ware unless otherwise requested. **_30 guest minimum; $150 Fee applies if minimum is not met._",
+          "description": "Breakfast beverage service includes orange juice, regular and decaf coffee, and iced water.** **_30 guest minimum; $150 Fee applies if minimum is not met._",
           "annotation": [
             "**Substitute Turkey Bacon or Sausage for additional $1.50 per person.",
             "**Substitute Egg Whites for additional $1.50 per person"
@@ -50,7 +50,7 @@
         {
           "title": "Buffet Breakfast",
           "type": "multi-item",
-          "description": "Breakfast beverage service includes orange juice, regular and decaf coffee, and iced water – **served with biodegradable disposable ware unless otherwise requested. **_30 guest minimum; $150 Fee applies if minimum is not met._",
+          "description": "Breakfast beverage service includes orange juice, regular and decaf coffee, and iced water.** **_30 guest minimum; $150 Fee applies if minimum is not met._",
           "items": [
             {
               "title": "Continental Breakfast",
@@ -72,7 +72,7 @@
         {
           "title": "*Build Your Own* Breakfast Buffet",
           "type": "multi-item",
-          "description": "Breakfast beverage service includes orange juice, regular and decaf coffee, and iced water – **served with biodegradable disposable ware unless otherwise requested. **_30 guest minimum; $150 Fee applies if minimum is not met._",
+          "description": "Breakfast beverage service includes orange juice, regular and decaf coffee, and iced water.** **_30 guest minimum; $150 Fee applies if minimum is not met._",
           "items": [
             {
               "title": "Scrambled Eggs _(Select One)_",
@@ -119,7 +119,7 @@
         {
           "title": "Brunch Buffet",
           "type": "multi-item",
-          "description": "Brunch beverage service includes orange juice, regular and decaf coffee, and iced water – served with biodegradable disposable ware unless otherwise requested. 50 guest minimum; $150 Fee applies if minimum is not met. Have our Brunch Buffet for Dinner for an additional **$5.00 *per person***.",
+          "description": "Brunch beverage service includes orange juice, regular and decaf coffee, and iced water. 50 guest minimum; $150 Fee applies if minimum is not met. Have our Brunch Buffet for Dinner for an additional **$5.00 _per person_**.",
           "items": [
             {
               "title": "The Standard",
@@ -131,7 +131,7 @@
         {
           "title": "Culinary Breakfast Enhancements",
           "type": "multi-item",
-          "description": "$150 per attendant. One attendant per 50 guests recommeneded",
+          "description": "$150 per attendant. One attendant per 50 guests recommended",
           "items": [
             {
               "title": "Waffle Bar",
