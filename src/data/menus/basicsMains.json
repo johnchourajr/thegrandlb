@@ -3,7 +3,7 @@
     {
       "title": "Main Courses",
       "type": "section",
-      "description": "Served Meals. All entrées include homemade rolls & butter, one [gourmet salad](#salad), one [starch](#starch), one [vegetable](#vegetable), & [dessert](#sweets). Beverage service includes coffee, iced tea & iced water – served with biodegradable disposable ware unless otherwise requested. For split menu *(Add $3.00 per person)*. For buffet choose additional salad & entrée *(Add $4.00 per person)*.",
+      "description": "Served Meals. All entrées include homemade rolls & butter, one [gourmet salad](#salad), one [starch](#starch), one [vegetable](#vegetable), & [dessert](#sweets). Beverage service includes coffee, iced tea & iced water. For split menu _(Add $3.00 per person)_. For buffet choose additional salad & entrée _(Add $4.00 per person)_.",
       "caption": "",
       "items": [
         {
@@ -421,7 +421,7 @@
         {
           "title": "Perfectly Packaged Buffet",
           "type": "multi-item",
-          "description": "All packages include homemade rolls and butter, coffee, iced tea & iced water – served with biodegradable disposable ware unless otherwise requested. Please note, the Eats & Sweets Package only does not include homemade rolls and butter.",
+          "description": "All packages include homemade rolls and butter, coffee, iced tea & iced water. Please note, the Eats & Sweets Package only does not include homemade rolls and butter.",
           "items": [
             {
               "title": "Taste of Asia",
