@@ -85,11 +85,13 @@ const Step = props => {
 const Next = props => {
   const { isActive } = props
 
+  console.log(props);
+
   if (isActive) {
     return (
       <div
-        className="button"
-        onClick={() => props.goToNextStep()}
+        className={`button ${props.disabled && "button--disabled"}`}
+        onClick={() => !props.disabled && props.goToNextStep()}
         type="Next"
         disabled={props.disabled}
       >

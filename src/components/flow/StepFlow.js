@@ -87,6 +87,8 @@ class StepFlow extends React.Component {
     newState.flowPages[page].isValid = isValid
 
     this.setState(newState)
+
+    console.log(newState);
   }
 
   validateField(page, field, value) {
