@@ -35,7 +35,6 @@ heading: |
 | [Long Beach Marriott – Shonna Begay](https://www.marriott.com/hotels/travel/lgblb-long-beach-marriott/)       | [562-627-8079](tel:562-627-8079) |
 | _Extras_                                                                                                      |                                  |
 | [Long Beach Ice](http://www.LongBeachIce.com)                                                                 | [714-536-3637](tel:714-536-3637) |
-| [Two’s a Party (Candy) – Kim White](http://www.TwosAParty.com)                                                | [562-577-2861](tel:562-577-2861) |
 | [Coffee Catering LA – Francisco](http://www.CoffeeCateringLA.com)                                             | [909-202-3545](tel:909-202-3545) |
 | _Event Rentals (In House)_                                                                                    |                                  |
 | Please inquire through your Event Manager                                                                     |                                  |
