@@ -5,11 +5,11 @@ heading: |
   Some Folks
   We Trust
 ---
-| Name     | Phone     |
-| :------------- | :------------- | _Bakeries_                                                                                                    |                                  |
+| Name                                                                                                          | Phone                            |
+| ------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| _Bakeries_                                                                                                    |                                  |
+| [SusieCakes](http://www.SusieCakes.com/Stores/LongBeach)                                                          | [562-379-2253](tel:562-379-2253) |
 | [Rossmoor Pastries](http://www.RossmoorPastries.com)                                                          | [562-498-2253](tel:562-498-2253) |
-| [SusieCakes ](http://www.SusieCakes.com/Stores/LongBeach) | [562-379-2253](tel:562-379-2253) |
-
 | _Florists_                                                                                                    |                                  |
 | [Allen’s Flower Market](http://www.AllensFlowerMarket.net)                                                    | [562-981-9499](tel:562-981-9499) |
 | [Last Minute Florist](http://www.WhenYouThinkFlowers.com)                                                     | [310-830-5414](tel:310-830-5414) |
@@ -35,8 +35,9 @@ heading: |
 | Holiday Inn-LB Airport                                                                                        | [562-597-4401](tel:562-597-4401) |
 | [Long Beach Marriott – Shonna Begay](https://www.marriott.com/hotels/travel/lgblb-long-beach-marriott/)       | [562-627-8079](tel:562-627-8079) |
 | _Extras_                                                                                                      |                                  |
-| [Friar Tux Rentals](http://www.FriarTux.com) | [562-421-8943](tel:562-421-8943) |
+| [Friar Tux Rentals](http://www.FriarTux.com)                                                                 | [562-421-8943](tel:562-421-8943) |
 | [Long Beach Ice](http://www.LongBeachIce.com)                                                                 | [714-536-3637](tel:714-536-3637) |
+| [Two’s a Party (Candy) – Kim White](http://www.TwosAParty.com)                                                | [562-577-2861](tel:562-577-2861) |
 | [Coffee Catering LA – Francisco](http://www.CoffeeCateringLA.com)                                             | [909-202-3545](tel:909-202-3545) |
 | _Event Rentals (In House)_                                                                                    |                                  |
 | Please inquire through your Event Manager                                                                     |                                  |
