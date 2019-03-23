@@ -10,6 +10,7 @@ const Star = (props) => {
   return(
     <div className="star">
       <svg
+        alt="star" 
         width={width}
         height={height}
         viewBox="0 0 75 71"
