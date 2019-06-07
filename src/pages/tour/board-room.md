@@ -20,7 +20,7 @@ roomMeta:
   - 30
 numbers:
   subhead: |
-    The Grand Ballroom
+    The Board Room
     by Purely Numbers
   array:
   - number: "570"
@@ -89,7 +89,7 @@ events:
 cta:
   heading: |
     Book The Grand
-    Ballroom
+    Board Room
   buttons:
   - text: "Let's Do It"
     url: "/inquire?glb-rooms=The Board Room"
