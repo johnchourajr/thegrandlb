@@ -779,6 +779,9 @@
                     "Onion",
                     "Corn -or- Flour Tortillas"
                   ]
+                },
+                {
+                  "title": "_Add Spanish Rice & Beans for $3.00 per person_"
                 }
               ]
             },
@@ -840,31 +843,21 @@
               ]
             },
             {
-              "title": "Taco Bar",
+              "title": "By The Sea",
               "description": "",
-              "price": "$15.00 *per person*",
+              "price": "$10.00 *per person*",
               "items": [
                 {
-                  "title": "Select Two",
+                  "title": "Included",
                   "list": [
-                    "Carne Asada",
-                    "Pollo Asado",
-                    "Carnitas",
-                    "Barbacoa",
-                    "Chorizo"
+                    "Butter Bowtie Pasta w/ Shrimp Scampi"
                   ]
                 },
                 {
-                  "title": "Includes All",
+                  "title": "Toppings",
                   "list": [
-                    "Cheese",
-                    "Sour Cream",
-                    "Salsa",
-                    "Cilantro",
-                    "Onion",
-                    "Corn -or- Flour Tortillas",
-                    "Black -or- Pinto Beans",
-                    "Spanish Rice"
+                    "Crushed Red Pepper Flakes",
+                    "Parmesan Cheese"
                   ]
                 }
               ]
