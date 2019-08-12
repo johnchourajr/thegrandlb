@@ -89,13 +89,6 @@ people:
     imgFront: "/img/about/headshots/lisa-front.jpg"
     imgBack: "/img/about/headshots/lisa-back.jpg"
     quote: “”
-  - name: |
-       Ryanna
-       Declines
-    title: Sales Support
-    imgFront: "/img/about/headshots/ryanna-front.jpg"
-    imgBack: "/img/about/headshots/ryanna-back.jpg"
-    quote: “”
 ctaLower:
   img: "/img/moments/party-2.jpg"
   accent: "grandPink"
