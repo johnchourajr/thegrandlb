@@ -55,7 +55,7 @@
             },
             {
               "title": "Chopped Heirloom Tomato Salad",
-              "description": "Baby Arugula, Crushed Pistachios, Goat Cheese, Basil & Dijon Vinaigrette on Endive Spear",
+              "description": "Baby Arugula, Crushed Pistachios, Goat Cheese, Basil & Dijon Vinaigrette on Endive Spear _\\[tray passed only]_",
               "price": "$6.00 *per person*"
             },
             {
@@ -65,7 +65,7 @@
             },
             {
               "title": "Ahi Poke",
-              "description": "Tuna, Soy Sauce, Black Sesame Seeds, and Scallions on a Wonton Crisp",
+              "description": "Tuna, Soy Sauce, Black Sesame Seeds, and Scallions on a Wonton Crisp _\\[tray passed only]_",
               "price": "$6.00 *per person*"
             },
             {
@@ -192,7 +192,7 @@
             },
             {
               "title": "Tikka Masala Taco",
-              "description": "Chicken Tikka Masala, Cilantro & Cucumber Raita",
+              "description": "Chicken Tikka Masala, Cilantro & Cucumber Raita _\\[tray passed only]_",
               "price": "$6.00 *per person*"
             },
             {
@@ -204,6 +204,11 @@
               "title": "Lobster Corndogs",
               "description": "Served with Green Peppercorn Aioli",
               "price": "$7.50 *per person*"
+            },
+            {
+              "title": "Thai Chicken Lettuce Wraps",
+              "description": "Asian Inspired Diced Chicken on an Endive Spear _\\[tray passed only]_",
+              "price": "$6.00 *per person*"
             }
           ]
         }
