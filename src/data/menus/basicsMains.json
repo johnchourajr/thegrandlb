@@ -9,141 +9,141 @@
         {
           "title": "The Standard",
           "type": "multi-item",
-          "description": "Choose one.\n$31.50 for Lunch and $39.50 for Dinner *per person*.\nChoose two options for a duet plate *(Add $3.00 per person)*.",
+          "description": "Choose one.\n$32.95 for Lunch and $40.95 for Dinner _per person_.\nChoose two options for a duet plate _(Add $3.00 per person)_.",
           "items": [
             {
               "title": "Lemon Rosemary Chicken",
               "description": "Bone-in Chicken Breast with Lemon Caper Beurre Blanc",
-              "price": "$31.50/$39.50 *per person*"
+              "price": "$32.95/$40.95 *per person*"
             },
             {
               "title": "Chicken Parmesan",
               "description": "Parmesan Panko Crusted Chicken Breast with Provolone & Basil Marinara Sauce",
-              "price": "$31.50/$39.50 *per person*"
+              "price": "$32.95/$40.95 *per person*"
             },
             {
               "title": "Chicken Marsala",
               "description": "Bone-in Chicken Breast with Sautéed Mushrooms, Caramelized Onions, & Marsala Wine Sauce",
-              "price": "$31.50/$39.50 *per person*"
+              "price": "$32.95/$40.95 *per person*"
             },
             {
               "title": "Beef Brisket",
               "description": "Fork Tender Roasted Beef Brisket with Natural Jus",
-              "price": "$31.50/$39.50 *per person*"
+              "price": "$32.95/$40.95 *per person*"
             },
             {
               "title": "Spiced Pork Loin",
               "description": "Roasted Poblano Ancho Chile Demi",
-              "price": "$31.50/$39.50 *per person*"
+              "price": "$32.95/$40.95 *per person*"
             },
             {
               "title": "Asian Inspired Salmon",
               "description": "Shiitake Mushrooms, Bok Choy, & Sweet Soy Reduction",
-              "price": "$33.00/$42.00 *per person*"
+              "price": "$34.45/$42.45 *per person*"
             }
           ]
         },
         {
           "title": "The Grand Standard",
           "type": "multi-item",
-          "description": "Choose one.\n$35.50 for Lunch and $43.50 for Dinner *per person*.\nChoose two options for a duet plate *(Add $4.50 per person)*.",
+          "description": "Choose one.\n$36.95 for Lunch and $44.95 for Dinner _per person_.\nChoose two options for a duet plate _(Add $4.50 per person)_.",
           "items": [
             {
               "title": "Chicken Wellington",
               "description": "Boneless Chicken Breast Wrapped in Puff Pastry with Sautéed Mushrooms & Shallots Duxelle, & Madera Wine Demi Glaze",
-              "price": "$35.50/$43.50 *per person*"
+              "price": "$36.95/$44.95 *per person*"
             },
             {
               "title": "California Chicken",
               "description": "Grilled Chicken Breast with Balsamic Marinated Artichoke Hearts, Roma Tomatoes, Sun Dried Tomato, Kalamata Olives, Capers, Garlic, Toasted Pine Nuts & Fresh Basil",
-              "price": "$35.50/$43.50 *per person*"
+              "price": "$36.95/$44.95 *per person*"
             },
             {
               "title": "Beef Stroganoff",
               "description": "Braised Filet Mignon Beef Tips, Mushrooms, & Demi Sauce",
-              "price": "$35.50/$43.50 *per person*"
+              "price": "$36.95/$44.95 *per person*"
             },
             {
               "title": "Bistecca",
               "description": "Grilled Tri Tip with Fresh Lemon, Garlic, Shaved Parmesan, & Tomato Basil Vinaigrette",
-              "price": "$35.50/$43.50 *per person*"
+              "price": "$36.95/$44.95 *per person*"
             },
             {
               "title": "Red Snapper",
               "description": "Served with Chipotle Cream & Roasted Poblano Chiles",
-              "price": "$35.50/$43.50 *per person*"
+              "price": "$36.95/$44.95 *per person*"
             },
             {
               "title": "Pistachio Crusted Mahi Mahi",
               "description": "Served with Mango Relish",
-              "price": "$35.50/$43.50 *per person*"
+              "price": "$36.95/$44.95 *per person*"
             },
             {
               "title": "Coconut Crusted Salmon",
               "description": "Served with Coconut Lychee Cream",
-              "price": "$35.50/$43.50 *per person*"
+              "price": "$36.95/$44.95 *per person*"
             },
             {
               "title": "Turf and Turf",
               "description": "Chicken Grilled Breast & Herb Crusted Tri-tip with Rosemary Demi",
-              "price": "$35.50/$43.50 *per person*"
+              "price": "$36.95/$44.95 *per person*"
             }
           ]
         },
         {
           "title": "The Choura Standard",
           "type": "multi-item",
-          "description": "Choose one.\n$43.50 for Lunch and $50.50 for Dinner *per person*.\nChoose two options for a duet plate *(Add $6.00 per person)*.",
+          "description": "Choose one.\n$42.95 for Lunch and $50.95 for Dinner _per person_.\nChoose two options for a duet plate _(Add $6.00 per person)_.",
           "items": [
             {
               "title": "Classic Beef Wellington",
               "description": "Filet Wrapped in Puff Pastry with Sautéed Mushrooms & Shallots Duxelle, & Madera Wine Demi Glaze",
-              "price": "$43.50/$50.50 *per person*"
+              "price": "$42.95/$50.95 *per person*"
             },
             {
               "title": "Braised Short Ribs",
               "description": "Served with Aromatics & Chipotle Honey Jus",
-              "price": "$43.50/$50.50 *per person*"
+              "price": "$42.95/$50.95 *per person*"
             },
             {
               "title": "Chicken Cordon Bleu",
               "description": "Panko Crusted Chicken Breast with Virginia Ham, Swiss Cheese, & Classic Cheese Mornay Sauce",
-              "price": "$43.50/$50.50 *per person*"
+              "price": "$42.95/$50.95 *per person*"
             },
             {
               "title": "Chicken Florentine",
               "description": "Roasted Chicken Breast Stuffed with Sautéed Spinach, Artichoke Hearts, and Topped with a Parmesan Cream Sauce",
-              "price": "$43.50/$50.50 *per person*"
+              "price": "$42.95/$50.95 *per person*"
             },
             {
               "title": "Prime Rib",
               "description": "Served with Green Peppercorn Demi",
-              "price": "$43.50/$50.50 *per person*"
+              "price": "$42.95/$50.95 *per person*"
             },
             {
               "title": "Filet Mignon",
               "description": "Served with Béarnaise Sauce (MP)",
-              "price": "$43.50/$50.50 *per person*"
+              "price": "$42.95/$50.95 *per person*"
             },
             {
               "title": "Chilean Sea Bass",
               "description": "Garlic Fennel Rubbed with Blood Orange Beurre Blanc (MP) ",
-              "price": "$43.50/$50.50 *per person*"
+              "price": "$42.95/$50.95 *per person*"
             },
             {
               "title": "Spice Rubbed Halibut",
               "description": "Served with Lemon Cilantro Crema (MP)",
-              "price": "$43.50/$50.50 *per person*"
+              "price": "$42.95/$50.95 *per person*"
             },
             {
               "title": "Land and Sea",
               "description": "Petite Filet & Pan Seared Shrimp with Demi Glaze",
-              "price": "$43.50/$50.50 *per person*"
+              "price": "$42.95/$50.95 *per person*"
             },
             {
               "title": "Ribeye",
               "description": "Pan Seared with Thyme, Bellini Onions, & Cabernet Demi *(Only Available for Dinner Service)*",
-              "price": "$50.50 *per person*"
+              "price": "$50.95 *per person*"
             }
           ]
         },
