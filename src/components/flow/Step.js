@@ -1,9 +1,9 @@
+/* eslint-disable */
+
 import React from "react"
-import Link, { navigateTo } from 'gatsby-link'
 
 import FormInput from '../FormInput'
 import FormSelect from '../FormSelect'
-import { slugify } from '../functions/util'
 
 
 const StepInput = props => {
@@ -28,15 +28,13 @@ const StepInput = props => {
 
 const Step = props => {
   const {
+    currentStep,
     isActive,
     displayPrevious,
     displayNext,
     displaySubmit,
-    component,
-    children,
     page,
     pageNumber,
-    doneUrl,
   } = props
 
   const activeStyles = !isActive ? {display: 'none'} : {display: 'inherit'}
@@ -64,15 +62,16 @@ const Step = props => {
           isActive={displayNext}
           goToNextStep={() => {
             props.goToNextStep()
-            props.setQueryValues
+            props.setQueryValues()
           }}
           disabled={!page.isValid}
         />
         <Submit
           isActive={displaySubmit}
+          currentStep={currentStep}
           submitAction={() => props.submitAction()}
           disabled={!page.isValid}
-          doneUrl={doneUrl}
+          doneUrl={props.doneUrl}
         />
       </div>
     </div>
@@ -82,16 +81,18 @@ const Step = props => {
 const Next = props => {
   const { isActive } = props
 
+  console.log(props);
+
   if (isActive) {
     return (
-      <button
-        className="button"
-        onClick={() => props.goToNextStep()}
+      <div
+        className={`button ${props.disabled && "button--disabled"}`}
+        onClick={() => !props.disabled && props.goToNextStep()}
         type="Next"
         disabled={props.disabled}
       >
         Next
-      </button>
+      </div>
     )
   } else return null
 }
@@ -101,21 +102,21 @@ const Previous = props => {
 
   if (isActive) {
     return (
-      <button
+      <div
         className="button button--secondary"
         onClick={() => props.goToPreviousStep()}
         type="Previous"
       >
         Previous
-      </button>
+      </div>
     )
   } else return null
 }
 
 const Submit = props => {
-  const { isActive, doneUrl } = props
+  const { isActive, doneUrl, currentStep } = props
 
-  if (isActive) {
+  if (isActive && currentStep === 2) {
     return (
       <button
         type="submit"

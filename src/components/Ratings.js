@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Star from './svg/Star'
 
 // import { outputStarRating } from './functions/util'
@@ -15,7 +14,7 @@ function outputStarRating(rating, color, strokeWidth, width, height) {
     )
 
   // Half Star
-  if (i == .5)
+  if (i === .5)
     output.push(
       <Star key={i} isHalf color={color} strokeWidth={strokeWidth} width={width} height={height}/>
     )

@@ -43,12 +43,21 @@ amenities:
     text: "PA Sound System"
   - img: "dancing.svg"
     text: "Dance Floor"
-  - img: "projector.svg"
-    text: "Projector Screen"
-  - img: "bar.svg"
-    text: "Private Bar"
   - img: "lighting.svg"
     text: "Dynamic Lighting"
+upgrades:
+  description: "Optional Upgrades"
+  array:
+  - text: "100 Mbps Wi-fi"
+  - text: "AV Equipment"
+  - text: "Fire-pits & Heaters"
+  - text: "Bar Service"
+  - text: "Lounge Furniture"
+  - text: "Chiavari Chairs"
+  - text: "Specialty Linens"
+  - text: "Dressing Rooms"
+  - text: "Red Carpet"
+  - text: "Uplighting"
 roomswitch:
   array:
   - img: "/img/tour-rooms/pacific-room/aligned/social.jpg"

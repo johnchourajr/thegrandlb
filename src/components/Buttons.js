@@ -1,6 +1,8 @@
+/* eslint-disable */
+
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link, { withPrefix, navigateTo } from 'gatsby-link'
+import { navigateTo } from 'gatsby'
 import ReactGA from 'react-ga'
 
 function buttonClick(url, event) {
@@ -16,6 +18,7 @@ function buttonClick(url, event) {
 // Component
 const Buttons = props => {
   if (props.buttons) {
+
     return (
       <div className={props.className}>
         {props.buttons.map(( item, i ) => {

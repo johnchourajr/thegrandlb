@@ -25,6 +25,7 @@ const Head = ({ location }) => {
         { name: "description", content: siteDetails.description, },
         { name: "msapplication-TileColor", content: "#edfaff" },
         { name: "theme-color", content: "#edfaff" },
+        { name: "google-site-verification", content: "XHmqEhH34GAy4c1dwKbIUDWtyRW52BwYIeutvuNHtCI" },
 
         // Open Graph / Facebook
         { property: "og:type", content: "website", },

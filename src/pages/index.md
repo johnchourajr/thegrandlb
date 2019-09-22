@@ -125,7 +125,7 @@ menuFeature:
     isSecondary: true
   imgs:
   - "/img/menus.jpg"
-  - "/img/placeholder--food-2.jpg"
+  - "/img/food.jpg"
   - "/img/menus/5.jpg"
 
 

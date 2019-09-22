@@ -1,17 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Link, { withPrefix } from 'gatsby-link'
-import Experiment from "react-ab-test/lib/Experiment"
-import Variant from "react-ab-test/lib/Variant"
-import emitter from "react-ab-test/lib/emitter"
+import { graphql, Link } from 'gatsby'
 
 // Components
-import Content, { HTMLContent } from '../components/Content'
 import Layout from '../components/core/Layout'
 import PageHero from '../components/PageHero'
 import PageSection from '../components/PageSection'
 import PageCta from '../components/PageCta'
-import Buttons from '../components/Buttons'
 import PageCarousel from '../components/PageCarousel'
 import MapSection from '../components/MapSection'
 import NumberArray from '../components/NumberArray'
@@ -28,7 +22,7 @@ import * as util from '../components/functions/util'
 
 // Page
 const IndexPage = ({ data, status }) => {
-  const { frontmatter, html } = data.markdownRemark
+  const { frontmatter } = data.markdownRemark
 
   return (
     <Layout status={status} >
@@ -116,13 +110,13 @@ const IndexPage = ({ data, status }) => {
       >
         <div className="menu-feature--wrap gutters clearfix">
           <div className={`col xs-offset-1 xs-col-10 md-ml0 md-col-7 xs-my2 menu-feature--1`}>
-            <img src={frontmatter.menuFeature.imgs[0]}/>
+            <img src={frontmatter.menuFeature.imgs[0]} alt="food" title="food"/>
           </div>
           <div className={`col xs-offset-1 xs-col-10 md-ml0 md-col-5 xs-my2 menu-feature--2`}>
-            <img src={frontmatter.menuFeature.imgs[1]}/>
+            <img src={frontmatter.menuFeature.imgs[1]} alt="food" title="food"/>
           </div>
           <div className={`col xs-offset-1 xs-col-10 md-offset-1 md-col-6 lg-offset-3 lg-col-4 xs-my2 menu-feature--3`}>
-            <img src={frontmatter.menuFeature.imgs[2]}/>
+            <img src={frontmatter.menuFeature.imgs[2]} alt="food" title="food"/>
           </div>
         </div>
       </PageSection>

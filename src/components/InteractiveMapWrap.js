@@ -1,5 +1,5 @@
 import React from 'react'
-import Link, {navigateTo} from 'gatsby-link'
+import { navigateTo } from 'gatsby'
 import _ from 'lodash'
 
 const CloseButton = props => (

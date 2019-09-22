@@ -41,6 +41,7 @@ input:focus,
 select:focus,
 textarea:focus,
 button:focus {
+  // outline: 3px solid rgba($black,.1);
   outline: none;
 }
 

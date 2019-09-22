@@ -37,13 +37,6 @@ people:
     imgBack: "/img/about/headshots/rachael-back.jpg"
     quote: “Be a pineapple. Stand tall, wear a crown and be sweet on the inside.”
   - name: |
-      Kimberly
-      Yoshiyama
-    title: Office Manager
-    imgFront: "/img/about/headshots/kim-y-front.jpg"
-    imgBack: "/img/about/headshots/kim-y-back.jpg"
-    quote: “Be the Reason Someone Smiles Today.”
-  - name: |
       Gilberto
       Vasquez
     title: Director of Operations
@@ -89,6 +82,13 @@ people:
     imgFront: "/img/about/headshots/lauren-front.jpg"
     imgBack: "/img/about/headshots/lauren-back.jpg"
     quote: “Be bold or italic, never regular.”
+  - name: |
+       Lisa
+       DeLeon
+    title: Office Manager
+    imgFront: "/img/about/headshots/lisa-front.jpg"
+    imgBack: "/img/about/headshots/lisa-back.jpg"
+    quote: “”
 ctaLower:
   img: "/img/moments/party-2.jpg"
   accent: "grandPink"

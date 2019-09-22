@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import classicMenu from '../../data/menus/classic-menu'
 import corporateMenu from '../../data/menus/corporate-menu'
 import milestoneMenu from '../../data/menus/milestone-menu'
@@ -49,7 +51,6 @@ export function addressLink(address1, address2) {
 
 export function mobileMenuToggle() {
   const html = document.documentElement
-  const body = document.body
   const nav = document.getElementById("nav")
   const clickEl = document.getElementById("nav--mobile-menu")
   const menuEl = document.getElementById("nav--mobile-menu--overlay")
@@ -81,10 +82,12 @@ export function getQueryVariable(variable) {
     var vars = query.split('&');
     for (var i = 0; i < vars.length; i++) {
         var pair = vars[i].split('=');
-        if (decodeURIComponent(pair[0]) == variable) {
+
+        if (decodeURIComponent(pair[0]) === variable) {
             return decodeURIComponent(pair[1]);
         }
     }
+    // console.log(vars);
     // console.log('Query variable %s not found', variable);
   }
 }
@@ -118,4 +121,12 @@ String.prototype.replaceAll = function(searchStr, replaceStr) {
   searchStr = searchStr.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 
   return str.replace(new RegExp(searchStr, 'gi'), replaceStr);
+}
+
+export function escapeRegExp(str) {
+    return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+}
+
+export function replaceAll(str, find, replace) {
+    return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
 }

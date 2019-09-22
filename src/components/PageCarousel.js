@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link, { withPrefix } from 'gatsby-link'
 import ReactMarkdown from 'react-markdown'
 
 // Component
@@ -11,9 +10,7 @@ const PageCarousel = props => {
     const Flickity = require('react-flickity-component');
 
     const {
-      className,
       items,
-      settings,
     } = props
 
     const toSlide = (item, i) => {

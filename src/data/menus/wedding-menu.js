@@ -1,5 +1,8 @@
 import weddingMenuContent from './weddingMenu.json'
-import basics from './basics.json'
+import basicsAppetizers from './basicsAppetizers.json'
+import basicsMainsShared from './basicsMainsShared.json'
+import basicsSweets from './basicsSweets.json'
+import basicsDrinks from './basicsDrinks.json'
 
 const weddingMenu = {
   meta: {
@@ -20,7 +23,10 @@ const weddingMenu = {
   },
   items: [
     ...weddingMenuContent.items,
-    ...basics.items
+    ...basicsAppetizers.items,
+    ...basicsMainsShared.items,
+    ...basicsSweets.items,
+    ...basicsDrinks.items
   ]
 }
 

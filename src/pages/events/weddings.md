@@ -52,5 +52,5 @@ cta:
     Married
   buttons:
   - text: "Plan Your Wedding"
-    url: "/inquire?glb-event-type=Wedding"
+    url: "/inquire?glb-event-type=Wedding Reception"
 ---

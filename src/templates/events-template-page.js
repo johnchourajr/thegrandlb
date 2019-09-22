@@ -1,30 +1,17 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Link, { withPrefix } from 'gatsby-link'
+import { graphql } from 'gatsby'
 
-import { slugify } from '../components/functions/util'
-import Content, { HTMLContent } from '../components/Content'
 import Layout from '../components/core/Layout'
 import PageHeader from '../components/PageHeader'
 import PageSection from '../components/PageSection'
-import PageCta from '../components/PageCta'
-import Buttons from '../components/Buttons'
 import PageCarousel from '../components/PageCarousel'
-import PageSegue from '../components/PageSegue'
 import NumberArray from '../components/NumberArray'
-import AmenitiesArray from '../components/AmenitiesArray'
-import RoomSwitch from '../components/RoomSwitch'
 import FilterList from '../components/FilterList'
-import Video from '../components/Video'
 
 
-const EventsTemplatePage = ({ data, status, location, pathContext }) => {
-  const { frontmatter, html } = data.pageData
+const EventsTemplatePage = ({ data, status, location, pageContext }) => {
+  const { frontmatter } = data.pageData
   const { edges: posts } = data.postData
-  const { pathname } = location
-  const { next, prev } = pathContext
-  const currentPage = slugify(pathname)
-  const pageName = currentPage.replace("tour","")
 
   return (
     <Layout status={status}>

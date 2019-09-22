@@ -1,5 +1,6 @@
+/* eslint-disable */
+
 import React from 'react'
-import PropTypes from 'prop-types'
 import ReactGA from 'react-ga'
 
 import StepList from './StepList'
@@ -8,7 +9,6 @@ import Step from './Step'
 // TEST STRING
 // /inquire?glb-event-type=Wedding&glb-event-name=The%20Wedding&glb-rooms=The%20Grand%20Ballroom&glb-guest-count=100&glb-contact-name=John&glb-contact-method=Phone%20and%20Email&glb-contact-email=jchoura@me.com&glb-contact-phone=5555555555
 
-import inquiryForms from '../../data/inquiryForms'
 import * as util from '../functions/util'
 
 class StepFlow extends React.Component {
@@ -18,6 +18,7 @@ class StepFlow extends React.Component {
     this.state = {
       flowPages: this.props.flowPages,
       doneUrl: "",
+      activePageNumber: "0",
     }
 
     this.handleFormChange = this.handleFormChange.bind(this);
@@ -37,10 +38,11 @@ class StepFlow extends React.Component {
     const queryVariable = util.getQueryVariable(variable)
 
     if(queryVariable) {
+      let variable = util.replaceAll(queryVariable, "+", " ")
       let newState = Object.assign({}, this.state)
-      newState.flowPages[page].forms[field].value = queryVariable
+      newState.flowPages[page].forms[field].value = variable
       this.setState(newState,
-      () => this.validateField(page, field, queryVariable))
+      () => this.validateField(page, field, variable))
     }
   }
 
@@ -85,6 +87,8 @@ class StepFlow extends React.Component {
     newState.flowPages[page].isValid = isValid
 
     this.setState(newState)
+
+    console.log(newState);
   }
 
   validateField(page, field, value) {
@@ -136,6 +140,7 @@ class StepFlow extends React.Component {
     const {
       flowPages,
       doneUrl,
+      activePageNumber,
     } = this.state
 
     return (
@@ -150,6 +155,7 @@ class StepFlow extends React.Component {
                 handleChange={this.handleFormChange}
                 setQueryValues={this.setQueryValues}
                 doneUrl={doneUrl}
+                activePageNumber={activePageNumber}
               />
             )
           })}

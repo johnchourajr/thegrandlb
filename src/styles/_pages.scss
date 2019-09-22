@@ -189,10 +189,10 @@
   }
 
   .img {
-    position: absolute;
+    position: absolute !important;
     top: 0; right: 0; bottom: 0; left: 0;
-    height: 100%;
-    width: 100%;
+    height: 100% !important;
+    width: 100% !important;
     background-position: center;
     background-size: cover;
     z-index: 0;
@@ -205,7 +205,7 @@
       height: 100%;
       width: 100%;
       z-index: 0;
-      background-color: rgba($black, .4);
+      background-color: rgba($black, .2);
     }
   }
 
@@ -641,8 +641,8 @@
   }
 
   &--img {
-    height: 60vw;
-    width: calc(100vw - 2rem);
+    height: 100%;
+    width: 100%;
     position: relative;
     background-color: $black;
     display: flex;
@@ -652,8 +652,8 @@
     background-size: cover;
 
     @include solid-breakpoint(md) {
-      max-height: 600px;
-      max-width: 700px;
+      // max-height: 600px;
+      // max-width: 700px;
     }
   }
 }
@@ -1381,30 +1381,15 @@
       z-index: -10;
 
       @include solid-breakpoint(md) {
+        top: -1rem;
+        font-size: 20vw;
+      }
+
+      @include solid-breakpoint(lg) {
         top: 2rem;
         font-size: 20vw;
       }
     }
-
-
-
-    // &--left {
-    //
-    //   h1.display {
-    //     text-align: left;
-    //     width: calc(100% - 8.333%);
-    //     left: 8.333%;
-    //   }
-    // }
-    //
-    // &--right {
-    //
-    //   h1.display {
-    //     text-align: right;
-    //     width: calc(100% - 8.333%);
-    //     right: 8.333%;
-    //   }
-    // }
 
     .icon {
       position: absolute;
@@ -1430,6 +1415,40 @@
           fill: $grandBabyBlue;
         }
       }
+    }
+  }
+}
+
+
+.basic-page .content {
+  table {
+    border: 1px solid rgba($black, 0.2);
+
+    th {
+      border-bottom: 1px solid rgba($black, 0.2);
+      color: rgba($black, .5);
+    }
+
+    th, td {
+      padding: 0.75rem;
+    }
+
+    tr td {
+      border-bottom: 1px solid rgba($black, 0.2);
+    }
+
+    em {
+      color: rgba($black, .5);
+      font-size: $text-6;
+      padding-top: 1rem;
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-style: normal !important;
+    }
+
+    a {
+      text-decoration: underline !important;
     }
   }
 }

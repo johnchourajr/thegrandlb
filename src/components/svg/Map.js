@@ -7,7 +7,7 @@ const Map = (props) => {
 
   return(
     <div className="">
-      <svg width="2126" height="1263" viewBox="0 0 2126 1263" fill="none">
+      <svg alt="map" width="2126" height="1263" viewBox="0 0 2126 1263" fill="none">
         <g clipPath="url(#clip0)">
         <path d="M2125.2 0H0V1262.87H2125.2V0Z" fill={baseColor}/>
         <g className="map-svg--multiply">

@@ -1,19 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import ReactGA from 'react-ga'
 import ReactMarkdown from 'react-markdown'
 import Scrollchor from 'react-scrollchor'
-import _ from 'lodash'
 
-import Content, { HTMLContent } from './Content'
-import Layout from './core/Layout'
-import PageHeader from './PageHeader'
-import PageSection from './PageSection'
-import PageSegue from './PageSegue'
-import Link, { withPrefix } from 'gatsby-link'
+import { slugify } from './functions/util'
 
-import { slugify, outputMenuData } from './functions/util'
-
+// eslint-disable-next-line
 const Td = props => {
   return (
     <div className={`table--division ${props.className}`}><ReactMarkdown source={props.children}/></div>
@@ -118,7 +109,7 @@ export class MenuTable extends React.Component {
           return (
             <div key={i} id={item.title && slugify(item.title)} className="menu--wrap sm-col-8 sm-offset-2">
               <div className="menu--header ">
-                {i > 0 ? <div className="menu--scrolltop">
+                {i > 0 ? <div className="menu--scrolltop no-print">
                   <Scrollchor
                     to={`#menutop`}
                     animate={{offset: -150, duration: 600}}

@@ -1,39 +1,46 @@
 {
   "items": [
     {
+      "title": "Wedding Packages",
       "type": "section",
-      "title": "Specials",
+      "description": "\n\n_All Packages Include_\n\n5 Hour Event Time Inclusive of Ceremony, Two Hour Access Window Prior to Event Start, Served Champagne & Sparkling Cider Toast, Customized Room Setup, Choice of White or Ivory Linens for all Tables, Selection of Napkin Color(s), All China, Glassware & Flatware, Complimentary Parking for all Guests, and Uniformed, Professional Staff",
       "items": [
         {
-          "type": "multi-item",
           "title": "Lunch and Dinner Packages",
+          "type": "multi-item",
           "items": [
             {
               "title": "The Silver",
               "description": "",
-              "price": "*Lunch* $53.00 *-* *Dinner* $63.00",
               "list": [
                 "“[The Standard](#the-standard)” Menu",
-                "Complimentary Entrées for Bride & Groom", "Choice of Two “[To Start](#to-start)” Displayed Appetizers", "Wine Service with Dinner *(two bottles per table)*", "Served Champagne & Sparkling Cider Toast", "Cake Cutting & Serving"
-              ]
-            },{
+                "Complimentary Entrées for Bride & Groom",
+                "Choice of Two “[To Start](#to-start)” Displayed Appetizers",
+                "Wine Service with Dinner *(two bottles per table)*",
+                "Served Champagne & Sparkling Cider Toast",
+                "Cake Cutting & Serving"
+              ],
+              "price": "*Lunch* $54.95 *-* *Dinner* $64.95"
+            },
+            {
               "title": "The Gold",
               "description": "",
-              "price": "*Lunch* $64.00 *-* *Dinner* $74.00",
               "list": [
                 "“[The Grand Standard](#the-grand-standard)” Menu",
                 "Complimentary Entrées for Bride & Groom",
                 "90 Minute Limited Hosted Bar",
-                "Choice of Three “[To Start](#to-start)” Displayed Appetizers", "Choice of Two Tray Passed Hors D’oeuvres",
+                "Choice of Three “[To Start](#to-start)” Displayed Appetizers",
+                "Choice of Two Tray Passed Hors D’oeuvres",
                 "Wine Service with Dinner *(two bottles per table)*",
                 "Served Champagne & Sparkling Cider Toast",
                 "10” Mirrored Round for Each Guest Table",
                 "Cake Cutting & Serving"
-              ]
-            },{
+              ],
+              "price": "*Lunch* $65.95 *-* *Dinner* $75.95"
+            },
+            {
               "title": "The Platinum",
               "description": "",
-              "price": "*Lunch* $78.00 *-* *Dinner* $88.00",
               "list": [
                 "“[The Choura Standard](#the-choura-standard)” Menu",
                 "Complimentary Entrées for Bride & Groom",
@@ -46,17 +53,19 @@
                 "Chair Covers with Sash -or- Chiavari Chairs",
                 "Cake Cutting & Serving",
                 "Additional Event Hour"
-              ]
+              ],
+              "price": "*Lunch* $78.95 *-* *Dinner* $88.95"
             }
           ]
-        },{
+        },
+        {
+          "title": "Say, 'I do...'",
           "type": "multi-item",
-          "title": "Say, 'I do...' Specials",
           "items": [
             {
               "title": "Garden Ceremony",
-              "description": "Have your wedding ceremony and reception in one space in The Garden Room and Patio. Minimum 100 guests.",
-              "price": "$10.00-$14.00 *per person*",
+              "description": "Have your Garden Ceremony outside on our Palm Terrace or on our Monarch Patio. _Minimum 100 guests_",
+              "price": "$12.00-$15.00 *per person*",
               "items": [
                 {
                   "title": "Pricing",
@@ -64,7 +73,8 @@
                     "Without Reception $15.00 *per person*",
                     "With Reception $12.00 *per person*"
                   ]
-                },{
+                },
+                {
                   "title": "Includes",
                   "list": [
                     "Iced Water Station",
@@ -72,9 +82,10 @@
                     "Serene Garden Setting",
                     "Wedding Arch -or- Columns",
                     "White Aisle Runner",
-                    "Bridal Suite – *Available on a 'First Come, First Served' Basis*"
+                    "Bridal Suite – Available on a 'First Come, First Served' Basis Upon Booking"
                   ]
-                },{
+                },
+                {
                   "title": "Not Included",
                   "list": [
                     "Groom’s Room, Wedding Coordinator, Photographer, Decorations, Clergy, and Music. *Referrals are available upon request*"
@@ -83,9 +94,10 @@
               ]
             }
           ]
-        },{
-          "type": "multi-item",
+        },
+        {
           "title": "Bridal Room Packages",
+          "type": "multi-item",
           "description": "Each package is a flat cost and serves six people.",
           "items": [
             {
@@ -96,7 +108,8 @@
                 "Coffee, Decaf, Assorted Sodas"
               ],
               "price": "$55.00"
-            },{
+            },
+            {
               "title": "Spice It Up",
               "list": [
                 "Mini Chicken Quesadillas",
@@ -105,14 +118,16 @@
                 "Coffee, Decaf, Assorted Sodas"
               ],
               "price": "$72.00"
-            },{
+            },
+            {
               "title": "Napa Valley",
               "list": [
                 "Marinated Olives, Goat Cheese, Grapes, and Crostinis Sliced Seasonal Fruit and Berries",
                 "Coffee, Decaf, Tea, Mineral Water, Assorted Sodas"
               ],
               "price": "$72.00"
-            },{
+            },
+            {
               "title": "Balance",
               "list": [
                 "Granola Bars",
@@ -121,7 +136,8 @@
                 "Assorted Vitamin Water"
               ],
               "price": "$82.00"
-            },{
+            },
+            {
               "title": "Time For Tea",
               "list": [
                 "Freshly Baked Scones",
@@ -130,7 +146,8 @@
                 "Assorted Hot Teas"
               ],
               "price": "$93.00"
-            },{
+            },
+            {
               "title": "Ultimate Relaxation",
               "list": [
                 "Premium House Chardonnay and Cabernet Sauvignon",

@@ -85,7 +85,7 @@ export const mainNav = {
   ],
   right: [
     { ...menusNav },
-    { ...aboutNav },
+    { ...contactNav },
   ]
 }
 
