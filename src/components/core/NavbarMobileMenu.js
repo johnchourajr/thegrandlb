@@ -1,15 +1,12 @@
-import React, { Component } from "react"
-import Link from 'gatsby-link'
+import React from "react"
+import { Link } from "gatsby"
 
 // Components
-import SvgIcon from '../svg/SvgIcon'
-import NavbarMobileButton from './NavbarMobileButton'
 import NavbarAddressPhone from './NavbarAddressPhone'
 import NavbarSocial from './NavbarSocial'
 
 //Data
-import { menuNav, socialNav } from '../../data/navDetails'
-import { siteDetails } from '../../data/siteDetails'
+import { menuNav } from '../../data/navDetails'
 
 // Util Functions
 import { mobileNavNav } from '../functions/util'

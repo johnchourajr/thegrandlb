@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Star = (props) => {
-  const { isEmpty, isWhole, isHalf } = props
+  const { isWhole, isHalf } = props
   const color = props.color ? props.color : "black"
   const strokeWidth = props.strokeWidth ? props.strokeWidth : "3"
   const width = props.width ? props.width : "75"
@@ -10,7 +10,7 @@ const Star = (props) => {
   return(
     <div className="star">
       <svg
-        alt="star" 
+        alt="star"
         width={width}
         height={height}
         viewBox="0 0 75 71"

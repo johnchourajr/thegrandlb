@@ -1,5 +1,4 @@
 import classicMenuContent from './classicMenu.json'
-import basics from './basics.json'
 import basicsAppetizers from './basicsAppetizers.json'
 import basicsMains from './basicsMains.json'
 import basicsSweets from './basicsSweets.json'

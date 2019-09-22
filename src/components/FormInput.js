@@ -1,8 +1,6 @@
 import React from "react"
-import Link, { navigateTo } from 'gatsby-link'
 
 import FormFieldset from './FormFieldset'
-import { slugify } from './functions/util'
 
 const FormInput = props => {
   const {
@@ -12,7 +10,6 @@ const FormInput = props => {
     value,
     step,
     min,
-    options,
     placeholder,
     required,
     className,

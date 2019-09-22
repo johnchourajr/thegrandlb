@@ -1,5 +1,4 @@
 import React from "react"
-import Link, {navigateTo} from 'gatsby-link'
 import ReactGA from 'react-ga'
 
 

@@ -1,10 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { graphql, Link } from 'gatsby'
 
-import Link, { withPrefix } from 'gatsby-link'
 import Layout from '../components/core/Layout'
 import InteractiveMapWrap from '../components/InteractiveMapWrap'
-import PageHeader from '../components/PageHeader'
 import Map from '../components/svg/Map';
 
 
@@ -63,7 +61,6 @@ function mouseEvent(slug) {
 }
 
 const MapPage = ({ data, status, history }) => {
-  const { frontmatter, html } = data.pageData
   const { edges: posts } = data.postData
 
   return (

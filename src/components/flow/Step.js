@@ -1,9 +1,9 @@
+/* eslint-disable */
+
 import React from "react"
-import Link, { navigateTo } from 'gatsby-link'
 
 import FormInput from '../FormInput'
 import FormSelect from '../FormSelect'
-import { slugify } from '../functions/util'
 
 
 const StepInput = props => {
@@ -33,12 +33,8 @@ const Step = props => {
     displayPrevious,
     displayNext,
     displaySubmit,
-    component,
-    children,
     page,
     pageNumber,
-    doneUrl,
-    activePageNumber
   } = props
 
   const activeStyles = !isActive ? {display: 'none'} : {display: 'inherit'}
@@ -66,7 +62,7 @@ const Step = props => {
           isActive={displayNext}
           goToNextStep={() => {
             props.goToNextStep()
-            props.setQueryValues
+            props.setQueryValues()
           }}
           disabled={!page.isValid}
         />
@@ -75,7 +71,7 @@ const Step = props => {
           currentStep={currentStep}
           submitAction={() => props.submitAction()}
           disabled={!page.isValid}
-          doneUrl={doneUrl}
+          doneUrl={props.doneUrl}
         />
       </div>
     </div>

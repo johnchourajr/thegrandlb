@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // ID Index: glb-event-type, glb-event-name, glb-date, glb-time, glb-rooms, glb-guest-count
 
 const now = new Date();

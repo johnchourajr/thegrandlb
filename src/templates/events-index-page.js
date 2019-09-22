@@ -1,20 +1,16 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Link, { withPrefix } from 'gatsby-link'
-import { ParallaxBanner } from 'react-scroll-parallax'
+import { graphql, Link, withPrefix } from 'gatsby'
+import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax'
 
 import { slugify } from '../components/functions/util'
 import Layout from '../components/core/Layout'
 import PageHeader from '../components/PageHeader'
 import PageSection from '../components/PageSection'
-import PageCta from '../components/PageCta'
-import Buttons from '../components/Buttons'
-import PageCarousel from '../components/PageCarousel'
 import PageSegue from '../components/PageSegue'
 
 
 const EventsIndex = ({ data, status, location }) => {
-  const { frontmatter, html } = data.markdownRemark
+  const { frontmatter } = data.markdownRemark
   const { pathname } = location
   const currentPage = slugify(pathname)
 
@@ -34,18 +30,20 @@ const EventsIndex = ({ data, status, location }) => {
                   <h3 className="display">{item.heading}</h3>
                   <p>{item.caption}</p>
                 </div>
-                <ParallaxBanner
-                  className={"events-feature--img"}
-                  layers={[
-                    {
-                      amount: 0.2,
-                      children: (
-                        <div className="events-feature--img" style={{backgroundImage: `url(${withPrefix(item.img)})`}}></div>
-                      ),
-                      slowerScrollRate: true,
-                    },
-                  ]}
-                />
+                <ParallaxProvider>
+                  <ParallaxBanner
+                    className={"events-feature--img"}
+                    layers={[
+                      {
+                        amount: 0.2,
+                        children: (
+                          <div className="events-feature--img" style={{backgroundImage: `url(${withPrefix(item.img)})`}}></div>
+                        ),
+                        slowerScrollRate: true,
+                      },
+                    ]}
+                  />
+                </ParallaxProvider>
 
               </Link>
             </div>

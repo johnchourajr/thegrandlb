@@ -1,9 +1,5 @@
 import React from 'react'
-import Link, { withPrefix } from 'gatsby-link'
-
-import Buttons from './Buttons'
-import PageSection from './PageSection'
-import NumberItem from './NumberItem'
+import { withPrefix } from 'gatsby'
 
 const RoomSwitchImage = props => {
   const isActive = props.index === props.activeItem ? "active" : "inactive"

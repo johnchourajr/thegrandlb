@@ -1,6 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Link, { withPrefix } from 'gatsby-link'
 
 // **
 // ** Using React GA for event tracking
@@ -14,7 +12,6 @@ import Experiment from "react-ab-test/lib/Experiment"
 import Variant from "react-ab-test/lib/Variant"
 import emitter from "react-ab-test/lib/emitter"
 
-import PageSection from '../components/PageSection'
 import PageCta from '../components/PageCta'
 
 class HomeABTest extends React.Component {

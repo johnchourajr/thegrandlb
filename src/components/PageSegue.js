@@ -31,7 +31,7 @@ const PageSegue = props => {
   return (
     <div className="section gutters clearfix no-print">
       {seguePages.map(( item, i ) => {
-        if (currentPage != item.key && i < 3) {
+        if (currentPage !== item.key && i < 3) {
           return (
             <div
               key={i}

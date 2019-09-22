@@ -1,17 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Link, { withPrefix } from 'gatsby-link'
-import Experiment from "react-ab-test/lib/Experiment"
-import Variant from "react-ab-test/lib/Variant"
-import emitter from "react-ab-test/lib/emitter"
+import { graphql, Link } from 'gatsby'
 
 // Components
-import Content, { HTMLContent } from '../components/Content'
 import Layout from '../components/core/Layout'
 import PageHero from '../components/PageHero'
 import PageSection from '../components/PageSection'
 import PageCta from '../components/PageCta'
-import Buttons from '../components/Buttons'
 import PageCarousel from '../components/PageCarousel'
 import MapSection from '../components/MapSection'
 import NumberArray from '../components/NumberArray'
@@ -28,7 +22,7 @@ import * as util from '../components/functions/util'
 
 // Page
 const IndexPage = ({ data, status }) => {
-  const { frontmatter, html } = data.markdownRemark
+  const { frontmatter } = data.markdownRemark
 
   return (
     <Layout status={status} >

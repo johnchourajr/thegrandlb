@@ -1,19 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Link, { withPrefix } from 'gatsby-link'
+import { graphql, Link } from 'gatsby'
 
 // Components
-import Content, { HTMLContent } from '../components/Content'
 import Layout from '../components/core/Layout'
-import PageHero from '../components/PageHero'
 import PageHeader from '../components/PageHeader'
 import PageSection from '../components/PageSection'
 import PageCta from '../components/PageCta'
-import Buttons from '../components/Buttons'
-import PageCarousel from '../components/PageCarousel'
-import MapSection from '../components/MapSection'
-import NumberArray from '../components/NumberArray'
-import RatingsSection from '../components/RatingsSection'
 import SvgIcon from '../components/svg/SvgIcon'
 
 // Data
@@ -25,7 +17,7 @@ import * as util from '../components/functions/util'
 
 // Page
 const ContactPage = ({ data, status }) => {
-  const { frontmatter, html } = data.markdownRemark
+  const { frontmatter } = data.markdownRemark
 
   return (
     <Layout status={status} >
@@ -49,7 +41,7 @@ const ContactPage = ({ data, status }) => {
       <PageSection wrapperClassName="xs-py5 xs-col-12 md-col-8 md-offset-2">
         {socialNav.map((item, i) => (
           <div key={i} className="contact--item col xs-col-12 md-col-6 xs-my6">
-            <p className="xs-text-3 xs-text-center"><a href={item.path} target="_blank">{item.displayName}</a></p>
+            <p className="xs-text-3 xs-text-center"><a href={item.path} target="_blank" rel="noopener noreferrer">{item.displayName}</a></p>
             <SvgIcon component={item.name}/>
           </div>
         ))}

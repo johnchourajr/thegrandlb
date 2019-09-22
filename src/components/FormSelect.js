@@ -1,8 +1,6 @@
 import React from "react"
-import Link, { navigateTo } from 'gatsby-link'
 
 import FormFieldset from './FormFieldset'
-import { slugify } from './functions/util'
 
 const FormSelect = props => {
   const {
@@ -14,7 +12,6 @@ const FormSelect = props => {
     multiple,
     required,
     className,
-    hasError,
     pageNumber,
     formNumber,
   } = props
