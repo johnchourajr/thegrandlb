@@ -71,13 +71,13 @@
     top: 0;
     height: 30rem;
     $gradient: $white 0%, rgba($white, 0) 100%;
-    @include gradient(top, $gradient);
+    @include gradient(to top, $gradient);
   }
 
   &:after {
     bottom: 0;
     $gradient: $white 0%, rgba($white, 0) 100%;
-    @include gradient(bottom, $gradient);
+    @include gradient(to bottom, $gradient);
   }
 }
 
@@ -104,13 +104,13 @@
   &:before {
     top: 0;
     $gradient: $white 0%, rgba($white, 0) 100%;
-    @include gradient(top, $gradient);
+    @include gradient(to top, $gradient);
   }
 
   &:after {
     bottom: 0;
     $gradient: $white 0%, rgba($white, 0) 100%;
-    @include gradient(bottom, $gradient);
+    @include gradient(to bottom, $gradient);
   }
 
   a, p, span {
@@ -175,7 +175,7 @@
     top: 0; left: 0; bottom: 0;
     z-index: 1;
     $gradient: $grandCream 60%, rgba($grandCream, 0) 100%;
-    @include gradient(left, $gradient);
+    @include gradient(to left, $gradient);
 
     @include solid-breakpoint(md) {
       width: 40%;

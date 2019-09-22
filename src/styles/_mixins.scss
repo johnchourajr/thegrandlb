@@ -231,7 +231,7 @@ $breakpoints: (
 
 @mixin nav-gradient($color) {
   $gradient: $color 60%, rgba($color, 0) 100%;
-  @include gradient(top, $gradient);
+  @include gradient(to top, $gradient);
 }
 
 @mixin body-color($class, $color, $paths) {

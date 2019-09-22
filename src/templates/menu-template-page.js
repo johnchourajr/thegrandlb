@@ -30,7 +30,7 @@ const MenuTemplatePage = ({ data, status }) => {
   return (
     <Layout status={status}>
       <PageHeader title={frontmatter.title} heading={frontmatter.heading}>
-        <img src="/img/menus/header-pattern.png" alt="" className="print only-print" alt="Logo"/>
+        <img src="/img/menus/header-pattern.png" className="print only-print" alt="Logo"/>
       </PageHeader>
 
       <PageSection
