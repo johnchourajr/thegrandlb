@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link, { withPrefix } from 'gatsby-link'
+import { graphql, Link } from 'gatsby'
 
 // Components
 import Content, { HTMLContent } from '../components/Content'

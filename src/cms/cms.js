@@ -1,7 +1,12 @@
-import CMS from 'netlify-cms'
+import CMS from 'netlify-cms-app'
+import uploadcare from 'netlify-cms-media-library-uploadcare'
+import cloudinary from 'netlify-cms-media-library-cloudinary'
 
 import BasicPagePreview from './preview-templates/BasicPagePreview'
 import SiteDetailsPreview from './preview-templates/SiteDetailsPreview'
+
+CMS.registerMediaLibrary(uploadcare);
+CMS.registerMediaLibrary(cloudinary);
 
 CMS.registerPreviewStyle('/styles.css')
 CMS.registerPreviewTemplate('siteDetails', SiteDetailsPreview)

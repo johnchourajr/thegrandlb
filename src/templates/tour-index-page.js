@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link, { withPrefix } from 'gatsby-link'
+import { graphql, Link, withPrefix } from 'gatsby'
 import _ from 'lodash'
 
 import { slugify } from '../components/functions/util'

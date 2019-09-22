@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link, { withPrefix } from 'gatsby-link'
+import { graphql, Link, withPrefix } from 'gatsby'
 import Experiment from "react-ab-test/lib/Experiment"
 import Variant from "react-ab-test/lib/Variant"
 import emitter from "react-ab-test/lib/emitter"

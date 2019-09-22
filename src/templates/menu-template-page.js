@@ -4,12 +4,13 @@ import ReactGA from 'react-ga'
 import ReactMarkdown from 'react-markdown'
 import Scrollchor from 'react-scrollchor'
 
+import { graphql, Link, withPrefix } from 'gatsby'
+
 import Content, { HTMLContent } from '../components/Content'
 import Layout from '../components/core/Layout'
 import PageHeader from '../components/PageHeader'
 import PageSection from '../components/PageSection'
 import PageSegue from '../components/PageSegue'
-import Link, { withPrefix } from 'gatsby-link'
 import MenuTable from '../components/MenuTable'
 
 import { outputMenuData, slugify } from '../components/functions/util'

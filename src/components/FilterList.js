@@ -19,13 +19,6 @@ import Video from '../components/Video'
 import Map from '../components/svg/Map';
 
 
-function containsAll(needles, haystack){
-  for(var i = 0 , len = needles.length; i < len; i++){
-     if($.inArray(needles[i], haystack) == -1) return false;
-  }
-  return true;
-}
-
 class FilterList extends React.Component {
 
   constructor(props) {

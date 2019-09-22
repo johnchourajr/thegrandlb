@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link, { withPrefix } from 'gatsby-link'
+import { graphql, Link, withPrefix } from 'gatsby'
 
 import { slugify } from '../components/functions/util'
 import Content, { HTMLContent } from '../components/Content'
@@ -18,11 +18,11 @@ import FilterList from '../components/FilterList'
 import Video from '../components/Video'
 
 
-const EventsTemplatePage = ({ data, status, location, pathContext }) => {
+const EventsTemplatePage = ({ data, status, location, pageContext }) => {
   const { frontmatter, html } = data.pageData
   const { edges: posts } = data.postData
   const { pathname } = location
-  const { next, prev } = pathContext
+  const { next, prev } = pageContext
   const currentPage = slugify(pathname)
   const pageName = currentPage.replace("tour","")
 

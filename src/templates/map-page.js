@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { graphql, Link, withPrefix } from 'gatsby'
 
-import Link, { withPrefix } from 'gatsby-link'
 import Layout from '../components/core/Layout'
 import InteractiveMapWrap from '../components/InteractiveMapWrap'
 import PageHeader from '../components/PageHeader'
