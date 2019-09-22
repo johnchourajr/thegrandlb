@@ -1,7 +1,4 @@
 import React from "react"
-import Link, { navigateTo } from 'gatsby-link'
-
-import { slugify } from './functions/util'
 
 const FormFieldset = props => {
   const {

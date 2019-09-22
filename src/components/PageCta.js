@@ -1,9 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Buttons from '../components/Buttons'
-import PageSection from './PageSection'
 import PageImage from './PageImage'
-import Link, { withPrefix } from 'gatsby-link'
 
 // Component
 const PageCta = props => {

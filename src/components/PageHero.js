@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link, { withPrefix } from 'gatsby-link'
+import { withPrefix } from 'gatsby'
 import ReactMarkdown from 'react-markdown'
-import VideoCover from 'react-video-cover'
 
 // Components
 import Buttons from './Buttons'

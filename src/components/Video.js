@@ -3,7 +3,7 @@ import React from 'react'
 import VideoCover from './thirdparty/VideoCover'
 import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax'
 import { isMobileBrowswer } from '../components/functions/util'
-import Link, { withPrefix } from 'gatsby-link'
+import { withPrefix } from 'gatsby'
 
 const VideoContent = props => {
   if (!props.isMobileBrowswer) {

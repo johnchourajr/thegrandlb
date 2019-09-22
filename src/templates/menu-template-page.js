@@ -1,12 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import ReactGA from 'react-ga'
-import ReactMarkdown from 'react-markdown'
 import Scrollchor from 'react-scrollchor'
 
-import { graphql, Link, withPrefix } from 'gatsby'
+import { graphql, withPrefix } from 'gatsby'
 
-import Content, { HTMLContent } from '../components/Content'
 import Layout from '../components/core/Layout'
 import PageHeader from '../components/PageHeader'
 import PageSection from '../components/PageSection'
@@ -25,7 +22,7 @@ function printAction(menu) {
 }
 
 const MenuTemplatePage = ({ data, status }) => {
-  const { frontmatter, html } = data.markdownRemark
+  const { frontmatter } = data.markdownRemark
   const menuData = outputMenuData(frontmatter.data)
   const path = '/img/icons/menu/printer.svg'
   const totalMenuDataLength = menuData.items.length
@@ -33,7 +30,7 @@ const MenuTemplatePage = ({ data, status }) => {
   return (
     <Layout status={status}>
       <PageHeader title={frontmatter.title} heading={frontmatter.heading}>
-        <img src="/img/menus/header-pattern.png" alt="" className="print only-print"/>
+        <img src="/img/menus/header-pattern.png" alt="" className="print only-print" alt="Logo"/>
       </PageHeader>
 
       <PageSection
@@ -45,7 +42,7 @@ const MenuTemplatePage = ({ data, status }) => {
         </div>
         <div className="print-button no-print">
           <button onClick={() => printAction(frontmatter.heading)} className="button button--small button--secondary button--third">
-            <p>Print This Menu  <img style={{width: 20, height: 24}} src={`${withPrefix(path)}`}/></p>
+            <p>Print This Menu  <img style={{width: 20, height: 24}} src={`${withPrefix(path)}`} alt="print icon"/></p>
           </button>
         </div>
       </PageSection>

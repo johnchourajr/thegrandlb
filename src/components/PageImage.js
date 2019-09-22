@@ -1,10 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax'
 
-import Buttons from '../components/Buttons'
-import PageSection from './PageSection'
-import Link, { withPrefix } from 'gatsby-link'
+import { withPrefix } from 'gatsby'
 
 // Component
 const PageImage = props => {

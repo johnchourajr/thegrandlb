@@ -1,23 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Link, { withPrefix } from 'gatsby-link'
 import _ from 'lodash'
 
-import { slugify } from '../components/functions/util'
-import Layout from '../components/core/Layout'
-import PageHeader from '../components/PageHeader'
-import PageSection from '../components/PageSection'
-import PageCta from '../components/PageCta'
-import Buttons from '../components/Buttons'
-import PageCarousel from '../components/PageCarousel'
-import PageSegue from '../components/PageSegue'
-import NumberArray from '../components/NumberArray'
-import FormSelect from '../components/FormSelect'
 import RoomCard from '../components/RoomCard'
-import Video from '../components/Video'
-
-import Map from '../components/svg/Map';
-
 
 class FilterList extends React.Component {
 
@@ -47,7 +31,6 @@ class FilterList extends React.Component {
           let {
             eventType,
             eventTypeInfo,
-            roomFeatures,
             guestCount
           } = post.frontmatter.roomMeta
 

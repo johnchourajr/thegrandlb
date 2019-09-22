@@ -1,17 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql, Link, withPrefix } from 'gatsby'
+import { graphql } from 'gatsby'
 
-import Content, { HTMLContent } from '../components/Content'
 import Layout from '../components/core/Layout'
 import InquiryWrap from '../components/InquiryWrap'
 import InquiryDone from '../components/InquiryDone'
-import { goBack } from '../components/functions/util'
 
 
 const InquireDonePage = ({ data, status }) => {
-  const { frontmatter, html } = data.markdownRemark
-
   return (
     <Layout status={status}>
       <InquiryWrap>

@@ -1,6 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Star from './svg/Star'
 import Ratings from './Ratings'
 import NumberItem from './NumberItem'
 import PageSection from './PageSection'
@@ -39,7 +37,7 @@ const RatingsSection = props => {
               color={'white'}
               strokeWidth={3}
             />
-            <p>{yelpRating.rating} Stars on <a href={yelpRating.link} target="_blank" >{yelpRating.title}</a></p>
+            <p>{yelpRating.rating} Stars on <a href={yelpRating.link} target="_blank" rel="noopener noreferrer">{yelpRating.title}</a></p>
           </div>
         </div>
         <div className="ratings--lower clearfix">
@@ -53,7 +51,7 @@ const RatingsSection = props => {
                 width={32}
                 height={32}
               />
-              <a target="_blank" href={item.link}>{item.title}</a>
+              <a target="_blank" href={item.link} rel="noopener noreferrer">{item.title}</a>
             </div>
           ))}
         </div>

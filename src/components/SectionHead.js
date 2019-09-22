@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Buttons from '../components/Buttons'
 import ReactMarkdown from 'react-markdown'
 
@@ -13,12 +12,12 @@ const SectionHead = props => {
       }
       {
         props.subHead &&
-        <p className={`clearfix xs-text-center section--head--caption ${props.subHeadClassName}`}><ReactMarkdown source={props.subHead}/></p>
+        <span className={`clearfix xs-text-center section--head--caption ${props.subHeadClassName}`}><ReactMarkdown source={props.subHead}/></span>
       }
       {
         props.caption &&
         <div className={`clearfix ${props.captionClassName}`}>
-          <p className="page-header--caption"><ReactMarkdown source={props.caption}/></p>
+          <span className="page-header--caption"><ReactMarkdown source={props.caption}/></span>
         </div>
       }
       {

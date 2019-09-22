@@ -1,11 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Link, { withPrefix } from 'gatsby-link'
 
-import Buttons from '../components/Buttons'
 import PageSection from './PageSection'
 import Star from './svg/Star'
-import PageImage from './PageImage'
 import Map from './Map'
 
 
@@ -30,7 +26,7 @@ const MapSection = props => {
       </div>
       <div className="map--footer xs-flex xs-flex-align-center xs-flex-column">
         <h6 className="xs-text-center xs-mb3">Find Us</h6>
-        <a target="_blank" href={props.mapLink}>
+        <a target="_blank" href={props.mapLink} rel="noopener noreferrer">
         <h2 className="xs-text-center">
           {props.address1}
           <br />

@@ -1,18 +1,17 @@
-import React, { Fragment } from "react"
-import Link from 'gatsby-link'
+import React from "react"
 
 // Components
 import SvgIcon from '../svg/SvgIcon'
 
 // Data
-import { menuNav, socialNav } from '../../data/navDetails'
+import { socialNav } from '../../data/navDetails'
 
 // Component
 const NavbarSocial = props => {
   return (
     <div className={props.className}>
       {socialNav.map((item, i) => (
-        <a key={i} href={item.path} target="_blank">
+        <a key={i} href={item.path} target="_blank" rel="noopener noreferrer">
           <SvgIcon component={item.name}/>
         </a>
       ))}

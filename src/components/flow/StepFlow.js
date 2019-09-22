@@ -1,5 +1,6 @@
+/* eslint-disable */
+
 import React from 'react'
-import PropTypes from 'prop-types'
 import ReactGA from 'react-ga'
 
 import StepList from './StepList'
@@ -8,7 +9,6 @@ import Step from './Step'
 // TEST STRING
 // /inquire?glb-event-type=Wedding&glb-event-name=The%20Wedding&glb-rooms=The%20Grand%20Ballroom&glb-guest-count=100&glb-contact-name=John&glb-contact-method=Phone%20and%20Email&glb-contact-email=jchoura@me.com&glb-contact-phone=5555555555
 
-import inquiryForms from '../../data/inquiryForms'
 import * as util from '../functions/util'
 
 class StepFlow extends React.Component {

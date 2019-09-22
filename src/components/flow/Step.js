@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from "react"
 
 import FormInput from '../FormInput'
@@ -33,7 +35,6 @@ const Step = props => {
     displaySubmit,
     page,
     pageNumber,
-    doneUrl,
   } = props
 
   const activeStyles = !isActive ? {display: 'none'} : {display: 'inherit'}
@@ -70,7 +71,7 @@ const Step = props => {
           currentStep={currentStep}
           submitAction={() => props.submitAction()}
           disabled={!page.isValid}
-          doneUrl={doneUrl}
+          doneUrl={props.doneUrl}
         />
       </div>
     </div>

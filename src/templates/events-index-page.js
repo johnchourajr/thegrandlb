@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { graphql, Link, withPrefix } from 'gatsby'
 import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax'
 
@@ -7,14 +6,11 @@ import { slugify } from '../components/functions/util'
 import Layout from '../components/core/Layout'
 import PageHeader from '../components/PageHeader'
 import PageSection from '../components/PageSection'
-import PageCta from '../components/PageCta'
-import Buttons from '../components/Buttons'
-import PageCarousel from '../components/PageCarousel'
 import PageSegue from '../components/PageSegue'
 
 
 const EventsIndex = ({ data, status, location }) => {
-  const { frontmatter, html } = data.markdownRemark
+  const { frontmatter } = data.markdownRemark
   const { pathname } = location
   const currentPage = slugify(pathname)
 
