@@ -1,9 +1,9 @@
 ---
 templateKey: basic-page
 title: Preferred Vendors
-heading: |
+heading: |-
   Some Folks
-  We Trust
+  That We Trust
 ---
 | Name                                                                                                          | Phone                            |
 | ------------------------------------------------------------------------------------------------------------- | -------------------------------- |
