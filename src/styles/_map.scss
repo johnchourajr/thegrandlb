@@ -104,13 +104,13 @@
   &:before {
     top: 0;
     $gradient: $white 0%, rgba($white, 0) 100%;
-    @include gradient(to top, $gradient);
+    @include gradient(to bottom, $gradient);
   }
 
   &:after {
     bottom: 0;
     $gradient: $white 0%, rgba($white, 0) 100%;
-    @include gradient(to bottom, $gradient);
+    @include gradient(to top, $gradient);
   }
 
   a, p, span {

@@ -509,7 +509,7 @@ body.inquire, body.inquiredone, body.tourmap {
 .nav--overlay {
   $color: $white;
   $gradient: rgba($color, 1) 0%, rgba($color, .77) 50%, rgba($color, 0) 100%;
-  @include gradient(to top, $gradient);
+  @include gradient(to bottom, $gradient);
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
   height: 100vh;
