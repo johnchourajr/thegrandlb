@@ -36,7 +36,6 @@ const RatingsSection = props => {
               rating={yelpRating.rating}
               color={'white'}
               strokeWidth={3}
-              ariaLabel={`${yelpRating.rating} Star Rating`}
             />
             <p>{yelpRating.rating} Stars on <a href={yelpRating.link} target="_blank" rel="noopener noreferrer">{yelpRating.title}</a></p>
           </div>
@@ -51,7 +50,6 @@ const RatingsSection = props => {
                 strokeWidth={3}
                 width={32}
                 height={32}
-                ariaLabel={`${item.rating} Star Rating`}
               />
               <a target="_blank" href={item.link} rel="noopener noreferrer">{item.title}</a>
             </div>

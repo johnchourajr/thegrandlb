@@ -31,7 +31,7 @@ function outputStarRating(rating, color, strokeWidth, width, height) {
 const Ratings = props => {
 
   return (
-    <div className="star-group">
+    <div className="star-group" aria-label={`${props.rating} Star Rating`}>
       {outputStarRating(props.rating, props.color, props.strokeWidth, props.width, props.height)}
     </div>
   )

@@ -22,24 +22,6 @@ class HomeABTest extends React.Component {
         <Variant name="A">
           <PageCta
             accent={'grandPink'}
-            heading={frontmatter.ctaUpper.heading}
-            buttons={[
-              {
-                text: "Plan Your Private Event",
-                url: "/inquire/",
-                event: {
-                  category: 'InquireAction',
-                  action: 'homeCtaUpperInquireAction',
-                  label: 'Home Page Experiment A',
-                },
-              }
-            ]}
-            img={frontmatter.ctaUpper.img}
-          />
-        </Variant>
-        <Variant name="B">
-          <PageCta
-            accent={'grandPink'}
             heading={"Chat with our\nEvent Pro's today"}
             buttons={[
               {
@@ -47,15 +29,15 @@ class HomeABTest extends React.Component {
                 url: "/contact/",
                 event: {
                   category: 'ContactAction',
-                  action: 'homeContactAction',
-                  label: 'Home Page Experiment B',
+                  action: 'Test092919__Home__Action_A',
+                  label: 'Test092919__Home__Action_A',
                 },
               }
             ]}
             img={"/img/about/team-sales.jpg"}
           />
         </Variant>
-        <Variant name="C">
+        <Variant name="B">
           <PageCta
             accent={'grandPink'}
             heading={"Chat with Elizabeth\nor Marissa today."}
@@ -65,14 +47,32 @@ class HomeABTest extends React.Component {
                 url: "/contact/",
                 event: {
                   category: 'ContactAction',
-                  action: 'homeContactAction',
-                  label: 'Home Page Experiment C',
+                  action: 'Test092919__Home__Action_B',
+                  label: 'Test092919__Home__Action_B',
                 },
               }
             ]}
             img={"/img/about/team-elizabeth-melissa-2.jpg"}
           />
         </Variant>
+        {/*<Variant name="C">
+          <PageCta
+            accent={'grandPink'}
+            heading={frontmatter.ctaUpper.heading}
+            buttons={[
+              {
+                text: "Plan Your Private Event",
+                url: "/inquire/",
+                event: {
+                  category: 'InquireAction',
+                  action: 'Test092919__Home__Action_C',
+                  label: 'Test092919__Home__Action_C',
+                },
+              }
+            ]}
+            img={frontmatter.ctaUpper.img}
+          />
+        </Variant>*/}
       </Experiment>
     )
   }
