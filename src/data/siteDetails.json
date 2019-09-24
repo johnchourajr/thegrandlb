@@ -1,16 +1,16 @@
 {
-  "companyName": "",
+  "companyName": "The Grand Long Beach",
+  "yelp_rating": 4.5,
   "phone": "+15624260555",
   "url": "https://thegrandlb.com/",
   "sitePublic": true,
+  "knot_rating": 5,
   "title": "The Grand Long Beach — So Cal’s Premier Event Venue",
   "ga": "UA-131770061-1",
   "email": "dan@grandfandb.com",
+  "ww_rating": 4.4,
   "description": "A premier 40,000 sqft event venue perfect for your wedding, meeting, or any milestone party.",
   "socialCard": "/img/misc/social_card.png",
   "address1": "4101 E. Willow St.",
-  "address2": "Long Beach, CA 90815",
-  "yelp_rating": 4.5,
-  "knot_rating": 5,
-  "ww_rating": 4.4
+  "address2": "Long Beach, CA 90815"
 }
