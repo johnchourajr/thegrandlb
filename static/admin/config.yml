@@ -31,8 +31,6 @@ collections:
           - {label: "Site Public", name: "sitePublic", widget: "boolean"}
           - label: Ratings
             name: ratings
-            widget: list
-            required: false
             fields:
               - {label: "Yelp Star Rating", name: "yelp_rating", widget: "number", default: 4.5, pattern: ['([0-5])', "Should range from 0 to 5"]}
               - {label: "The Knot Star Rating", name: "knot_rating", widget: "number", default: 5, pattern: ['([0-5])', "Should range from 0 to 5"]}

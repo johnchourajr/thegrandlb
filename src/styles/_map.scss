@@ -175,7 +175,7 @@
     top: 0; left: 0; bottom: 0;
     z-index: 1;
     $gradient: $grandCream 60%, rgba($grandCream, 0) 100%;
-    @include gradient(to left, $gradient);
+    @include gradient(to right, $gradient);
 
     @include solid-breakpoint(md) {
       width: 40%;
