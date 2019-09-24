@@ -29,15 +29,14 @@ collections:
           - {label: "Social Card", name: "socialCard", widget: "image"}
           - {label: "Google Analytics", name: "ga", widget: "string"}
           - {label: "Site Public", name: "sitePublic", widget: "boolean"}
-      - name: "ratings"
-        label: "Ratings"
-        file: "src/data/siteDetails.json"
-        extension: "json"
-        delete: false
-        fields:
-          - {label: "Yelp Star Rating", name: "yelp_rating", widget: "number", default: 4.5, pattern: ['([0-5])', "Should range from 0 to 5"]}
-          - {label: "The Knot Star Rating", name: "knot_rating", widget: "number", default: 5, pattern: ['([0-5])', "Should range from 0 to 5"]}
-          - {label: "WeddingWire Star Rating", name: "ww_rating", widget: "number", default: 4.4, pattern: ['([0-5])', "Should range from 0 to 5"]}
+          - label: Ratings
+            name: ratings
+            widget: list
+            required: false
+            fields:
+              - {label: "Yelp Star Rating", name: "yelp_rating", widget: "number", default: 4.5, pattern: ['([0-5])', "Should range from 0 to 5"]}
+              - {label: "The Knot Star Rating", name: "knot_rating", widget: "number", default: 5, pattern: ['([0-5])', "Should range from 0 to 5"]}
+              - {label: "WeddingWire Star Rating", name: "ww_rating", widget: "number", default: 4.4, pattern: ['([0-5])', "Should range from 0 to 5"]}
       - name: "vendorsPage"
         label: "Vendors Page"
         file: "src/pages/about/vendors.md"
