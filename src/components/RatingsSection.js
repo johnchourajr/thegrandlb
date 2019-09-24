@@ -3,11 +3,11 @@ import Ratings from './Ratings'
 import NumberItem from './NumberItem'
 import PageSection from './PageSection'
 
-// import { siteDetails } from '../data/siteDetails'
+import { siteDetails } from '../data/siteDetails'
 
 const yelpRating = {
   title: "Yelp",
-  rating: 4.3,
+  rating: siteDetails.yelp_rating,
   img: "/img/misc/yelp-logo.svg",
   link: "https://www.yelp.com/biz/the-grand-long-beach-long-beach",
 }
@@ -15,11 +15,11 @@ const yelpRating = {
 const ratings = [
   {
     title: "The Knot",
-    rating: 5,
+    rating: siteDetails.knot_rating,
     link: "https://www.theknot.com/marketplace/the-grand-long-beach-long-beach-ca-620906",
   },{
     title: "WeddingWire",
-    rating: 4.4,
+    rating: siteDetails.ww_rating,
     link: "https://www.weddingwire.com/biz/the-grand-long-beach-long-beach/05b58faf6174714e.html",
   },
 ]
