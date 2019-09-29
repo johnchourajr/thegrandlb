@@ -10,6 +10,7 @@ import PageCarousel from '../components/PageCarousel'
 import MapSection from '../components/MapSection'
 import NumberArray from '../components/NumberArray'
 import RatingsSection from '../components/RatingsSection'
+import ReviewsSection from '../components/ReviewsSection'
 
 // AB Tests
 import HomeABTest from '../components/HomeABTest'
@@ -97,7 +98,14 @@ const IndexPage = ({ data, status }) => {
         heading={frontmatter.numbers.heading}
         array={frontmatter.numbers.array}
       />
-      <RatingsSection />
+      <PageSection
+        sectionClassName="section--flush-bottom"
+      >
+        <RatingsSection />
+      </PageSection>
+      <PageSection sectionClassName="section--flush-top">
+        <ReviewsSection />
+      </PageSection>
       <PageCta
         heading={frontmatter.ctaLower.heading}
         buttons={frontmatter.ctaLower.buttons}

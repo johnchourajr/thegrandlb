@@ -242,3 +242,141 @@
   height: 100vh;
   width: 100vw;
 }
+
+
+.carousel-reviews {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+
+  @include solid-breakpoint(sm) {
+    margin-top: 0;
+  }
+
+  .carousel-slide {
+    width: calc(100vw - 1.25em);
+    height: auto;
+    min-height: auto;
+    background-color: white;
+    border: solid 8px $grandSilver;
+    padding: 25px 25px;
+    margin: 0 0.5rem;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: border .75s $easeOutCubic .15s;
+
+    &:active {
+      cursor: grabbing;
+    }
+
+    @include solid-breakpoint(sm) {
+      width: 50vw;
+      height: auto;
+      min-height: auto;
+      padding: 30px 40px;
+    }
+
+    @include solid-breakpoint(lg) {
+      width: 40vw;
+      padding: 45px 60px;
+    }
+
+    &.is-selected {
+      border: solid 8px $grandPink;
+
+      .star-group path {
+        fill: #8A2432;
+      }
+
+      .review-lower--right p {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .review-upper {
+      margin-bottom: 30px;
+    }
+
+    .review-lower {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+
+      @include solid-breakpoint(sm) {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    .star-group path {
+      transition: all .75s $easeOutCubic .15s;
+    }
+
+    .review-lower--right {
+      display: flex;
+      flex-direction: row-reverse;
+
+      @include solid-breakpoint(sm) {
+        flex-direction: row;
+      }
+
+      p {
+        text-align: left;
+        opacity: 0;
+        transform: translateY(0.5em);
+        transition: all .75s $easeOutCubic .15s;
+
+        @include solid-breakpoint(sm) {
+          text-align: right;
+        }
+
+        a {
+          text-decoration-line: underline;
+        }
+      }
+    }
+
+    .review-lower--avatar {
+      border-radius: 50%;
+      margin-right: 15px;
+
+      @include solid-breakpoint(sm) {
+        margin-right: 0;
+        margin-left: 15px;
+      }
+    }
+  }
+
+  .flickity-viewport {
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      font-size: 434.9px;
+      font-family: $serif;
+      color: rgba($grandPink, .5);
+      z-index: -1;
+    }
+
+    &:before {
+      content: "“";
+      top: -160px;
+      left: -50px;
+
+      @include solid-breakpoint(sm) {
+        left: 20vw;
+      }
+    }
+
+    &:after {
+      content: "”";
+      bottom: calc(-405px);
+      right: -50px;
+
+      @include solid-breakpoint(sm) {
+        right: 20vw;
+      }
+    }
+  }
+}

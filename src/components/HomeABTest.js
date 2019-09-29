@@ -19,13 +19,13 @@ class HomeABTest extends React.Component {
     const { frontmatter } = this.props
     return (
       <Experiment ref="experiment" name="HomeIntroModule">
-        <Variant name="A">
+        <Variant name="Test092919__Home__Action_A">
           <PageCta
             accent={'grandPink'}
-            heading={"Chat with our\nEvent Pro's today"}
+            heading={`Chat with our\nEvent Pro\'s today`}
             buttons={[
               {
-                text: "Let's Talk",
+                text: "Let\'s Talk",
                 url: "/contact/",
                 event: {
                   category: 'ContactAction',
@@ -37,13 +37,13 @@ class HomeABTest extends React.Component {
             img={"/img/about/team-sales.jpg"}
           />
         </Variant>
-        <Variant name="B">
+        <Variant name="Test092919__Home__Action_B">
           <PageCta
             accent={'grandPink'}
             heading={"Chat with Elizabeth\nor Marissa today."}
             buttons={[
               {
-                text: "Let's Talk",
+                text: "Let\'s Talk",
                 url: "/contact/",
                 event: {
                   category: 'ContactAction',
@@ -55,24 +55,6 @@ class HomeABTest extends React.Component {
             img={"/img/about/team-elizabeth-melissa-2.jpg"}
           />
         </Variant>
-        {/*<Variant name="C">
-          <PageCta
-            accent={'grandPink'}
-            heading={frontmatter.ctaUpper.heading}
-            buttons={[
-              {
-                text: "Plan Your Private Event",
-                url: "/inquire/",
-                event: {
-                  category: 'InquireAction',
-                  action: 'Test092919__Home__Action_C',
-                  label: 'Test092919__Home__Action_C',
-                },
-              }
-            ]}
-            img={frontmatter.ctaUpper.img}
-          />
-        </Variant>*/}
       </Experiment>
     )
   }

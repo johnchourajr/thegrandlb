@@ -7,6 +7,7 @@ import PageHeader from '../components/PageHeader'
 import PageSection from '../components/PageSection'
 import PageCta from '../components/PageCta'
 import RatingsSection from '../components/RatingsSection'
+import ReviewsSection from '../components/ReviewsSection'
 
 // Page
 const AboutPage = ({ data, status }) => {
@@ -42,10 +43,14 @@ const AboutPage = ({ data, status }) => {
         </div>
       </PageSection>
       <PageSection
-        heading={"We're\nValidated"}
+        heading={"We\'re\nValidated"}
+        sectionClassName="section--flush-bottom"
         topDivider
       >
         <RatingsSection />
+      </PageSection>
+      <PageSection sectionClassName="section--flush-top">
+        <ReviewsSection />
       </PageSection>
       <PageSection
         heading={frontmatter.people.heading}

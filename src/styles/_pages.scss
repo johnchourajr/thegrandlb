@@ -40,6 +40,14 @@
   &--offset {
     padding-top: 20em;
   }
+
+  &--flush-top {
+    margin-top: 0 !important;
+  }
+
+  &--flush-bottom {
+    margin-bottom: 0 !important;
+  }
 }
 
 .section--head {
