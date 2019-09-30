@@ -27,7 +27,8 @@ numbers:
     caption: "Total Square Feet"
   - number: "40"
     caption: "Max Occupancy"
-  - number: "15’"
+  - number: "15"
+    suffix: " ft"
     caption: "Mahogany Table"
 amenities:
   description: "Amenities"

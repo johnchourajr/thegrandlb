@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax'
 
 // Components
 import Layout from '../components/core/Layout'
@@ -21,7 +22,20 @@ const AboutPage = ({ data, status }) => {
       />
       <PageSection>
         <div className="col xs-col-12 md-offset-1 md-col-10 ">
-          <img src={'/img/about/team-cheers.jpg'} alt="Our Team"/>
+          <ParallaxBanner
+            layers={[
+              {
+                image:'/img/about/team-cheers.jpg',
+                amount: 0.2,
+                slowerScrollRate: true,
+              },
+            ]}
+            style={{
+              height: '35vw',
+              maxHeight: '700px',
+              minHeight: '400px',
+            }}
+          />
         </div>
       </PageSection>
       <PageSection
@@ -33,13 +47,39 @@ const AboutPage = ({ data, status }) => {
       <PageSection wrapperClassName={"about--highlights about--highlights--reverse"}>
         <div className="about--highlights--text col xs-col-12 md-col-5"><h3 className="display">{"Bar None\nEvent Pros"}</h3></div>
         <div className="col xs-col-12 md-col-7 ">
-          <img src={'/img/about/team-sales.jpg'} alt="Sales Team"/>
+          <ParallaxBanner
+            layers={[
+              {
+                image: '/img/about/team-sales.jpg',
+                amount: 0.2,
+                slowerScrollRate: true,
+              },
+            ]}
+            style={{
+              height: '30vw',
+              maxHeight: '600px',
+              minHeight: '300px',
+            }}
+          />
         </div>
       </PageSection>
       <PageSection wrapperClassName={"about--highlights"}>
         <div className="about--highlights--text col xs-col-12 md-col-5"><h3 className="display">{"Top Notch\nKitchen Staff"}</h3></div>
         <div className="col xs-col-12 md-col-7 ">
-          <img src={'/img/about/team-jesus.jpg'} alt="Kitchen Staff"/>
+          <ParallaxBanner
+            layers={[
+              {
+                image:'/img/about/team-jesus.jpg',
+                amount: 0.2,
+                slowerScrollRate: true,
+              },
+            ]}
+            style={{
+              height: '30vw',
+              maxHeight: '600px',
+              minHeight: '300px',
+            }}
+          />
         </div>
       </PageSection>
       <PageSection

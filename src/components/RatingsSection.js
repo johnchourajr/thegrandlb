@@ -44,7 +44,16 @@ const RatingsSection = props => {
         <div className="ratings--lower clearfix">
           {ratings.map((item, i) => (
             <div key={i} className="ratings--item col xs-col-12 sm-col-6">
-              <NumberItem number={item.rating} suffix={"/5"} isMin/>
+              <NumberItem
+                number={item.rating}
+                suffix={"/5"}
+                isMin
+                countUpProps={{
+                  duration: 2,
+                  decimal: ".",
+                  decimals: 1,
+                }}
+              />
               <Ratings
                 rating={item.rating}
                 color={'#8A2432'}

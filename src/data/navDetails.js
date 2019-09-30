@@ -42,6 +42,15 @@ export const menusNav = {
   ]
 }
 
+export const moreNav = {
+  name: "More", path: "/about",
+  subpages: [
+    { name: "About", path: "/about", },
+    { name: "Contact", path: "/contact", },
+    { name: "Inquire", path: "/inquire", },
+  ]
+}
+
 export const aboutNav = {
   name: "About", path: "/about",
 }
@@ -85,7 +94,7 @@ export const mainNav = {
   ],
   right: [
     { ...menusNav },
-    { ...contactNav },
+    { ...moreNav },
   ]
 }
 

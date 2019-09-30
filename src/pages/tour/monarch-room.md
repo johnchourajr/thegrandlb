@@ -30,11 +30,12 @@ numbers:
     The Monarch Room
     by Purely the Numbers
   array:
-  - number: "3,400"
+  - number: "3400"
     caption: "Total Square Feet"
   - number: "180"
     caption: "Max Occupancy"
-  - number: "15’x25’"
+  - number: "375"
+    suffix: " sqft."
     caption: "Dance Floor"
 amenities:
   description: "Amenities"

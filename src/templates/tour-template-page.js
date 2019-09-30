@@ -112,6 +112,8 @@ export const basicPageQuery = graphql`
           subhead
           array {
             number
+            suffix
+            prefix
             caption
           }
         }

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import VideoCover from './thirdparty/VideoCover'
-import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax'
+import { ParallaxBanner } from 'react-scroll-parallax'
 import { isMobileBrowswer } from '../components/functions/util'
 import { withPrefix } from 'gatsby'
 
@@ -43,25 +43,23 @@ class Video extends React.Component {
     }
 
     return(
-      <ParallaxProvider>
-        <ParallaxBanner
-          className={"video"}
-          layers={[
-            {
-              amount: 0.2,
-              children: (
-                <VideoContent
-                  isMobileBrowswer={this.state.isMobileBrowswer}
-                  videoOptions={videoOptions}
-                  source={this.props.source}
-                  poster={this.props.poster}
-                />
-              ),
-              slowerScrollRate: true,
-            },
-          ]}
-        />
-      </ParallaxProvider>
+      <ParallaxBanner
+        className={"video"}
+        layers={[
+          {
+            amount: 0.2,
+            children: (
+              <VideoContent
+                isMobileBrowswer={this.state.isMobileBrowswer}
+                videoOptions={videoOptions}
+                source={this.props.source}
+                poster={this.props.poster}
+              />
+            ),
+            slowerScrollRate: true,
+          },
+        ]}
+      />
     )
   }
 }

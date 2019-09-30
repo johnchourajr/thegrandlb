@@ -27,7 +27,7 @@ numbers:
     The Palm Terrace
     by Purely the Numbers
   array:
-  - number: "3,400"
+  - number: "3400"
     caption: "Total Square Feet"
   - number: "400"
     caption: "Max Occupancy"

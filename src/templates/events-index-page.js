@@ -30,21 +30,18 @@ const EventsIndex = ({ data, status, location }) => {
                   <h3 className="display">{item.heading}</h3>
                   <p>{item.caption}</p>
                 </div>
-                <ParallaxProvider>
-                  <ParallaxBanner
-                    className={"events-feature--img"}
-                    layers={[
-                      {
-                        amount: 0.2,
-                        children: (
-                          <div className="events-feature--img" style={{backgroundImage: `url(${withPrefix(item.img)})`}}></div>
-                        ),
-                        slowerScrollRate: true,
-                      },
-                    ]}
-                  />
-                </ParallaxProvider>
-
+                <ParallaxBanner
+                  className={"events-feature--img"}
+                  layers={[
+                    {
+                      amount: 0.2,
+                      children: (
+                        <div className="events-feature--img" style={{backgroundImage: `url(${withPrefix(item.img)})`}}></div>
+                      ),
+                      slowerScrollRate: true,
+                    },
+                  ]}
+                />
               </Link>
             </div>
           )

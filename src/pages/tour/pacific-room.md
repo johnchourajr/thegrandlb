@@ -28,11 +28,12 @@ numbers:
     The Pacific Room
     by Purely the Numbers
   array:
-  - number: "1,557"
+  - number: "1557"
     caption: "Total Square Feet"
   - number: "90"
     caption: "Max Occupancy"
-  - number: "19’x11’"
+  - number: "323"
+    suffix: " sqft."
     caption: "Dance Floor"
 amenities:
   description: "Amenities"
