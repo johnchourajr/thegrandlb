@@ -79,6 +79,7 @@ export const basicPageQuery = graphql`
         numbers {
           array {
             number
+            prefix
             suffix
             description
             isMin
