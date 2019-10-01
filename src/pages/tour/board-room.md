@@ -1,103 +1,14 @@
 ---
-templateKey: 'tour-template-page'
-path: /tour/board-room
+templateKey: tour-template-page
 title: The Board Room
-heading: |
+heading: |-
   The Board
   Room
-hero: "/img/tour-rooms/board-room/index.sm.jpg"
-metaDescription: |
-  Bring your meeting to The Grand’s intimate 570 square foot room designed to accommodate 15 – 40 executives and employees. We have multiple sized projector screens to assist in delivering presentations and ideas to your team, and different seating configurations allow for more presentation-style meetings or brainstorming sessions. A panorama of downtown Long Beach reminds visitors that great cities inspire great leaders, and we welcome them at The Grand.
-roomMeta:
-  eventType:
-  - Corporate
-  eventTypeInfo:
-  - type: "Corporate"
-    description: "Best for a board meeting or team off-site"
-  roomFeatures:
-  - Large Mahogany table
-  guestCount:
-  - 30
-numbers:
-  subhead: |
-    The Board Room
-    by Purely Numbers
-  array:
-  - number: "570"
-    caption: "Total Square Feet"
-  - number: "40"
-    caption: "Max Occupancy"
-  - number: "15’"
-    caption: "Mahogany Table"
-amenities:
-  description: "Amenities"
-  array:
-  - img: "lighting.svg"
-    text: "Dynamic Lighting"
-  - img: "table.svg"
-    text: "Large Mahogany Table"
-  - img: "art.svg"
-    text: "Access to Monarch Room"
-upgrades:
-  description: "Optional Upgrades"
-  array:
-  - text: "100 Mbps Wi-fi"
-  - text: "AV Equipment"
-  - text: "Fire-pits & Heaters"
-  - text: "Bar Service"
-  - text: "Lounge Furniture"
-  - text: "Chiavari Chairs"
-  - text: "Specialty Linens"
-  - text: "Dressing Rooms"
-  - text: "Red Carpet"
-  - text: "Uplighting"
 carousel:
   array:
-  - img: "/img/tour-rooms/board-room/index.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/tour-rooms/board-room/details/1.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/tour-rooms/board-room/details/2.jpg"
-    caption: "Placeholder Image"
-  - img: "/img/tour-rooms/board-room/details/3.jpg"
-    caption: "Placeholder Image"
-events:
-  - text: |
-      Team
-      Workshops
-    img: ""
-  - text: |
-      Board
-      Meetings
-    img: ""
-  - text: |
-      Executive
-      Offsites
-    img: ""
-  - text: |
-      Project
-      "War Room"
-    img: ""
-  - text: |
-      Client
-      Presentations
-    img: ""
-  - text: |
-      Anything You
-      Can Dream Of
-    img: ""
-cta:
-  heading: |
-    Book The Grand
-    Board Room
-  buttons:
-  - text: "Let's Do It"
-    url: "/inquire?glb-rooms=The Board Room"
-ctaAllRoom:
-  subhead: |
-    Keep Touring
-  buttons:
-  - text: "View All Rooms"
-    url: "/tour/map"
-    isSecondary: true
+    - img: /img/tour-rooms/board-room/index.jpg
+    - img: /img/tour-rooms/board-room/details/1.jpg
+    - img: /img/tour-rooms/board-room/details/2.jpg
+    - img: /img/tour-rooms/board-room/details/3.jpg
 ---
+
