@@ -4,6 +4,9 @@ backend:
 
 display_url: https://thegrandlb.com
 
+show_preview_links: true
+publish_mode: editorial_workflow
+
 media_folder: static/img
 public_folder: /img
 
@@ -29,9 +32,32 @@ collections:
           - {label: "Social Card", name: "socialCard", widget: "image"}
           - {label: "Google Analytics", name: "ga", widget: "string"}
           - {label: "Site Public", name: "sitePublic", widget: "boolean"}
-          - {label: "Yelp Star Rating", name: "yelp_rating", widget: "number", default: 4.5, pattern: ['([0-5])', "Should range from 0 to 5"]}
-          - {label: "The Knot Star Rating", name: "knot_rating", widget: "number", default: 5, pattern: ['([0-5])', "Should range from 0 to 5"]}
-          - {label: "WeddingWire Star Rating", name: "ww_rating", widget: "number", default: 4.4, pattern: ['([0-5])', "Should range from 0 to 5"]}
+      - name: "contentReviews"
+        label: "Reviews Content"
+        file: "src/data/contentReviews.json"
+        extension: "json"
+        delete: false
+        fields:
+          - label: "Ratings Meta"
+            name: "ratingsMeta"
+            widget: "object"
+            fields:
+              - {label: "Yelp Star Rating", name: "yelp_rating", widget: "number", default: 4.5, pattern: ['([0-5])', "Should range from 0 to 5"]}
+              - {label: "The Knot Star Rating", name: "knot_rating", widget: "number", default: 5, pattern: ['([0-5])', "Should range from 0 to 5"]}
+              - {label: "WeddingWire Star Rating", name: "ww_rating", widget: "number", default: 4.4, pattern: ['([0-5])', "Should range from 0 to 5"]}
+          - label: Reviews Array
+            name: reviewsArray
+            widget: list
+            required: false
+            fields:
+              - {label: "Title", name: "title", widget: "text"}
+              - {label: "Body", name: "body", widget: "text"}
+              - {label: "Blurb", name: "blurb", widget: "text", required: true}
+              - {label: "Rating", name: "rating", widget: "number", required: true}
+              - {label: "Username", name: "username", widget: "string", required: true}
+              - {label: "Userlink", name: "userlink", widget: "string", required: true}
+              - {label: "Review Link", name: "reviewLink", widget: "string", required: true}
+              - {label: "Review Site", name: "reviewSite", widget: "string", required: true}
       - name: "vendorsPage"
         label: "Vendors Page"
         file: "src/pages/about/vendors.md"
