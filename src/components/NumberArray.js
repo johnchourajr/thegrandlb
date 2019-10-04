@@ -14,6 +14,7 @@ const NumberArray = props => {
           return (
             <NumberItem
               key={i}
+              delay={50 * i}
               className="col xs-col-6 sm-col-6 md-col-4"
               prefix={item.prefix}
               number={item.number}

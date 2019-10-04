@@ -1,6 +1,6 @@
 import React from 'react'
 import Link, { withPrefix } from 'gatsby-link'
-
+import ScrollAnimate from './ScrollAnimate'
 
 const seguePages = [
   {
@@ -29,7 +29,7 @@ const PageSegue = props => {
   const { currentPage } = props
 
   return (
-    <div className="section gutters clearfix no-print">
+    <ScrollAnimate className="section gutters clearfix no-print">
       {seguePages.map(( item, i ) => {
         if (currentPage !== item.key && i < 3) {
           return (
@@ -56,7 +56,7 @@ const PageSegue = props => {
           )
         } return null
       })}
-    </div>
+    </ScrollAnimate>
   )
 }
 

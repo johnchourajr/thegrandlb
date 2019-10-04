@@ -42,6 +42,7 @@ const EventsTemplatePage = ({ data, status, location, pageContext }) => {
       <PageSection
         heading={frontmatter.filterlist.heading}
         caption={frontmatter.filterlist.description}
+        disabledAnimation
       >
         <FilterList
           data={posts}

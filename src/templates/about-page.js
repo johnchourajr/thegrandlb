@@ -95,6 +95,7 @@ const AboutPage = ({ data, status }) => {
       <PageSection
         heading={frontmatter.people.heading}
         topDivider
+        disabledAnimation
       >
         <div className="section gutters people--wrap clearfix">
           {frontmatter.people.array.map((item, i) => {

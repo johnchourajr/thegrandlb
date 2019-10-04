@@ -48,6 +48,7 @@
     "react-video-cover": "^1.2.0",
     "remark-parse": "^5.0.0",
     "slick-carousel": "^1.8.1",
+    "styled-components": "^4.4.0",
     "typography": "^0.16.17",
     "util.promisify": "^1.0.0",
     "uuid": "^3.2.1"

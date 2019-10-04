@@ -10,6 +10,7 @@ import NumberArray from '../components/NumberArray'
 import AmenitiesArray from '../components/AmenitiesArray'
 import RoomSwitch from '../components/RoomSwitch'
 import Video from '../components/Video'
+import ScrollAnimate from '../components/ScrollAnimate'
 
 const TourTemplatePage = ({ data, status, location, pageContext }) => {
   const { frontmatter } = data.pageData
@@ -47,9 +48,9 @@ const TourTemplatePage = ({ data, status, location, pageContext }) => {
       >
         <div className="xs-flex xs-flex-wrap xs-flex-justify-center xs-pt4">
           {frontmatter.upgrades && frontmatter.upgrades.array.map((item, i) => (
-            <div key={i} className={"col xs-pt3 xs-col-12 sm-col-6 md-col-3 xs-flex xs-flex-column xs-flex-align-center"}>
+            <ScrollAnimate key={i} className={"col xs-pt3 xs-col-12 sm-col-6 md-col-3 xs-flex xs-flex-column xs-flex-align-center"}>
               <p className="xs-text-center text-gray-lightest">{item.text}</p>
-            </div>
+            </ScrollAnimate>
           ))}
         </div>
 
@@ -74,9 +75,9 @@ const TourTemplatePage = ({ data, status, location, pageContext }) => {
         <div className="clearfix gutters page-list xs-pt6">
           {frontmatter.events.map((item, i) => {
             return (
-              <div key={i} className="hash-item page-list--item col xs-col-6 md-col-4">
+              <ScrollAnimate key={i} className="hash-item page-list--item col xs-col-6 md-col-4">
                 <h2 className="-display">{item.text}</h2>
-              </div>
+              </ScrollAnimate>
             )
           })}
         </div>

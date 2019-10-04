@@ -11,6 +11,7 @@ import MapSection from '../components/MapSection'
 import NumberArray from '../components/NumberArray'
 import RatingsSection from '../components/RatingsSection'
 import ReviewsSection from '../components/ReviewsSection'
+import ScrollAnimate from '../components/ScrollAnimate'
 
 // AB Tests
 import HomeABTest from '../components/HomeABTest'
@@ -66,11 +67,11 @@ const IndexPage = ({ data, status }) => {
       >
         {frontmatter.topFeatures.map((item, i) => {
           return (
-            <div key={i} className="page-feature page-feature--lower-bar col xs-col-12 md-col-4">
+            <ScrollAnimate delay={150 * i} key={i} className="page-feature page-feature--lower-bar col xs-col-12 md-col-4">
               <Link to={item.url}>
                 <h1 className="xs-text-center">{item.text}</h1>
               </Link>
-            </div>
+            </ScrollAnimate>
           )
         })}
       </PageSection>
@@ -115,17 +116,18 @@ const IndexPage = ({ data, status }) => {
         heading={frontmatter.menuFeature.heading}
         headingClassName={"xs-mb3"}
         buttons={frontmatter.menuFeature.buttons}
+        disabledAnimation
       >
         <div className="menu-feature--wrap gutters clearfix">
-          <div className={`col xs-offset-1 xs-col-10 md-ml0 md-col-7 xs-my2 menu-feature--1`}>
+          <ScrollAnimate className={`col xs-offset-1 xs-col-10 md-ml0 md-col-7 xs-my2 menu-feature--1`}>
             <img src={frontmatter.menuFeature.imgs[0]} alt="food" title="food"/>
-          </div>
-          <div className={`col xs-offset-1 xs-col-10 md-ml0 md-col-5 xs-my2 menu-feature--2`}>
+          </ScrollAnimate>
+          <ScrollAnimate className={`col xs-offset-1 xs-col-10 md-ml0 md-col-5 xs-my2 menu-feature--2`}>
             <img src={frontmatter.menuFeature.imgs[1]} alt="food" title="food"/>
-          </div>
-          <div className={`col xs-offset-1 xs-col-10 md-offset-1 md-col-6 lg-offset-3 lg-col-4 xs-my2 menu-feature--3`}>
+          </ScrollAnimate>
+          <ScrollAnimate className={`col xs-offset-1 xs-col-10 md-offset-1 md-col-6 lg-offset-3 lg-col-4 xs-my2 menu-feature--3`}>
             <img src={frontmatter.menuFeature.imgs[2]} alt="food" title="food"/>
-          </div>
+          </ScrollAnimate>
         </div>
       </PageSection>
     </Layout>

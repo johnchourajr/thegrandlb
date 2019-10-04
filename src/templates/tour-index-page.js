@@ -42,7 +42,7 @@ const TourIndex = ({ data, status, location }) => {
       <PageSection
         buttons={frontmatter.map.buttons}
       />
-      <PageSection heading={'Yours By Design'}>
+      <PageSection heading={'Yours By Design'} disabledAnimation>
         <FilterList
           data={posts}
           targetFilter={"all"}

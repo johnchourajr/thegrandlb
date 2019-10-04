@@ -53,6 +53,7 @@ const RatingsSection = props => {
                   decimal: ".",
                   decimals: 1,
                 }}
+                disabled={true}
               />
               <Ratings
                 rating={item.rating}
