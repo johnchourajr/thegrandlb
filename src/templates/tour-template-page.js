@@ -37,7 +37,6 @@ const TourTemplatePage = ({ data, status, location, pageContext }) => {
       <NumberArray
         subHead={frontmatter.numbers.subhead}
         array={frontmatter.numbers.array}
-        isMin
       />
       <AmenitiesArray
         subHead={frontmatter.amenities.description}
@@ -116,6 +115,10 @@ export const basicPageQuery = graphql`
             suffix
             prefix
             caption
+            options {
+              caption
+              number
+            }
           }
         }
         amenities {

@@ -24,9 +24,7 @@ const NumberItem = props => {
 
   const observeCallback = (entry, observer) => {
     let threshold = observer.thresholds[0]
-
     if (entry[0].intersectionRatio >= threshold) {
-
       if (delay) {
         setTimeout(() => {
           setShow(true)
@@ -42,7 +40,7 @@ const NumberItem = props => {
   useEffect(() => {
     const observer = new IntersectionObserver(observeCallback, options)
     observe(observer, popupEl)
-  }, [])
+  }, [props.number])
 
   const isMinStyles = props.isMin ? 'number-item--value-min' : ''
   const showCondition = show ? 'active' : ''
@@ -67,9 +65,9 @@ const NumberItem = props => {
         </h1> }
         { props.suffix && <h1>{props.suffix}</h1> }
       </div>
+      { props.children }
       { props.caption && <ReactMarkdown className="number-item--caption">{props.caption}</ReactMarkdown>}
       { props.description && <ReactMarkdown className="number-item--description">{props.description}</ReactMarkdown>}
-
     </Wrap>
   )
 }
