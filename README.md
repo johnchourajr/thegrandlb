@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a4612687-c1e2-4799-abc9-64bb45daf2d4/deploy-status)](https://app.netlify.com/sites/thegrandlb/deploys)
+
 ## Prerequisites
 
 - Node (I recommend using v8.2.0 or higher)
