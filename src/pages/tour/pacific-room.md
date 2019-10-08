@@ -28,20 +28,20 @@ numbers:
     The Pacific Room
     by Purely the Numbers
   array:
-  - number: "1557"
+  - number: 1557
     caption: "Total Square Feet"
   - number: ""
     caption: ""
     options:
-    - number: "90"
+    - number: 90
       caption: "Max Capacity"
-    - number: "90"
+    - number: 90
       caption: "Banquet Capacity"
-    - number: "70"
+    - number: 70
       caption: "Theater Capacity"
-    - number: "50"
+    - number: 50
       caption: "Classroom Capacity"
-  - number: "323"
+  - number: 323
     suffix: " sqft."
     caption: "Dance Floor"
 amenities:

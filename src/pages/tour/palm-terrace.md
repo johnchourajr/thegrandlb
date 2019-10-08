@@ -27,14 +27,14 @@ numbers:
     The Palm Terrace
     by Purely the Numbers
   array:
-  - number: "3400"
+  - number: 3400
     caption: "Total Square Feet"
   - number: ""
     caption: ""
     options:
-    - number: "400"
+    - number: 400
       caption: "Max Capacity"
-    - number: "320"
+    - number: 320
       caption: "Banquet Capacity"
 amenities:
   description: "Amenities"
