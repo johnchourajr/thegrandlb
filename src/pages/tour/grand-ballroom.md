@@ -31,23 +31,23 @@ numbers:
     The Grand Ballroom
     by Purely the Numbers
   array:
-  - number: "5524"
+  - number: 5524
     caption: "Total Square Feet"
   - number: ""
     caption: ""
     options:
-    - number: "675"
+    - number: 675
       caption: "Max Capacity"
-    - number: "675"
+    - number: 675
       caption: "Theater Capacity"
-    - number: "450"
+    - number: 450
       caption: "Banquet Capacity"
-    - number: "310"
+    - number: 310
       caption: "Classroom Capacity"
-  - number: "720"
+  - number: 720
     suffix: " sqft."
     caption: "Dance Floor"
-  - number: "465"
+  - number: 465
     suffix: " sqft."
     caption: "Stage"
 amenities:

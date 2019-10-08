@@ -30,20 +30,20 @@ numbers:
     The Monarch Room
     by Purely the Numbers
   array:
-  - number: "3400"
+  - number: 3400
     caption: "Total Square Feet"
   - number: ""
     caption: ""
     options:
-    - number: "280"
+    - number: 280
       caption: "Max Capacity"
-    - number: "180"
+    - number: 180
       caption: "Banquet Capacity"
-    - number: "140"
+    - number: 140
       caption: "Theater Capacity"
-    - number: "90"
+    - number: 90
       caption: "Classroom Capacity"
-  - number: "375"
+  - number: 375
     suffix: " sqft."
     caption: "Dance Floor"
 amenities:

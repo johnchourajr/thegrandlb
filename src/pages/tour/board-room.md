@@ -23,20 +23,20 @@ numbers:
     The Board Room
     by Purely Numbers
   array:
-  - number: "570"
+  - number: 570
     caption: "Total Square Feet"
   - number: ""
     caption: ""
     options:
-    - number: "40"
+    - number: 40
       caption: "Max Capacity"
-    - number: "40"
+    - number: 40
       caption: "Theater Capacity"
-    - number: "30"
+    - number: 30
       caption: "Banquet Capacity"
-    - number: "25"
+    - number: 25
       caption: "Classroom Capacity"
-  - number: "15"
+  - number: 15
     suffix: " ft"
     caption: "Mahogany Table"
 amenities:

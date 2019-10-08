@@ -54,9 +54,11 @@ const TourTemplatePage = ({ data, status, location, pageContext }) => {
         </div>
 
       </PageSection>
-      {frontmatter.roomswitch && <RoomSwitch
-        array={frontmatter.roomswitch.array}
-      />}
+      <ScrollAnimate>
+        {frontmatter.roomswitch && <RoomSwitch
+          array={frontmatter.roomswitch.array}
+        />}
+      </ScrollAnimate>
       <PageSection>
         <PageCarousel
           items={[...frontmatter.carousel.array]}
