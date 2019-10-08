@@ -6,8 +6,3 @@ heading: |
   Interactive
   Map
 ---
----
-
-**[NOTE: INTERACTIVE MAP]**
-
----
