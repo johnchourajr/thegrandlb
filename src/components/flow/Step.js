@@ -49,6 +49,7 @@ const Step = props => {
             pageNumber={pageNumber}
             formNumber={i}
             handleChange={props.handleChange}
+            handleBlur={props.handleBlur}
             {...item}
           />
         )
@@ -81,15 +82,17 @@ const Step = props => {
 const Next = props => {
   const { isActive } = props
 
-  console.log(props);
+  // console.log(props);
 
   if (isActive) {
     return (
       <div
+        role="button"
         className={`button ${props.disabled && "button--disabled"}`}
         onClick={() => !props.disabled && props.goToNextStep()}
         type="Next"
         disabled={props.disabled}
+        tabIndex="0"
       >
         Next
       </div>
@@ -103,9 +106,11 @@ const Previous = props => {
   if (isActive) {
     return (
       <div
+        role="button"
         className="button button--secondary"
         onClick={() => props.goToPreviousStep()}
         type="Previous"
+        tabIndex="0"
       >
         Previous
       </div>
@@ -126,6 +131,7 @@ const Submit = props => {
           props.submitAction(props.disabled)
         }}
         disabled={props.disabled}
+        tabIndex="0"
       >
         Submit
       </button>

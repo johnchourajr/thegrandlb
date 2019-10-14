@@ -198,6 +198,7 @@ $breakpoints: (
 
 	@font-face {
 		font-family: quote($name);
+    font-display: auto;
 		font-style: $style;
 		font-weight: $weight;
 		src: $src;

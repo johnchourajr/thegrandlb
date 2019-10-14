@@ -5,6 +5,8 @@
 }
 
 .fieldset {
+  position: relative;
+
   .form-label {
     color: $grandRed;
     font-size: .75rem;
@@ -60,4 +62,22 @@
 
 select:invalid, input::-webkit-input-placeholder {
   color: rgba($black, .1) !important;
+}
+
+fieldset.field-error {
+  input, .text-input, select, .select {
+    background-color: $grandPink !important;
+  }
+}
+
+.form-feedback {
+  position: absolute;
+  top: 0.6rem;
+  right: 1.25rem;
+  z-index: 10;
+
+  h6 {
+    font-size: .6rem;
+    color: $grandRed;
+  }
 }

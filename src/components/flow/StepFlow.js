@@ -2,6 +2,7 @@
 
 import React from 'react'
 import ReactGA from 'react-ga'
+import textMask, {conformToMask} from "react-text-mask";
 
 import StepList from './StepList'
 import Step from './Step'
@@ -10,7 +11,7 @@ import Step from './Step'
 // /inquire?glb-event-type=Wedding&glb-event-name=The%20Wedding&glb-rooms=The%20Grand%20Ballroom&glb-guest-count=100&glb-contact-name=John&glb-contact-method=Phone%20and%20Email&glb-contact-email=jchoura@me.com&glb-contact-phone=5555555555
 
 // TEST STRING 2
-// /inquire?glb-contact-email=test%40test.test&glb-contact-method=Phone&glb-contact-name=This+is+just+a+test&glb-contact-phone=5555555555&glb-date=2019-09-22&glb-event-name=Test&glb-event-type=Wedding+Reception&glb-guest-count=100&glb-rooms=The+Grand+Ballroom&glb-time=01%3A00
+// /inquire?glb-contact-email=test%40test.test&glb-contact-method=Phone&glb-contact-name=This+is+just+a+test&glb-contact-phone=5555555555&glb-date=2019-09-22&glb-event-name=Test&glb-event-type=Wedding+Reception&glb-guest-count=100&glb-rooms=The+Grand+Ballroom&glb-time=8am
 
 import * as util from '../functions/util'
 
@@ -91,10 +92,10 @@ class StepFlow extends React.Component {
 
     this.setState(newState)
 
-    console.log(newState);
+    // console.log(newState);
   }
 
-  validateField(page, field, value) {
+  validateField(page, field, value, blur) {
     const thisField = this.state.flowPages[page].forms[field]
     const validate = thisField.validate
     let isValid = false
@@ -109,18 +110,30 @@ class StepFlow extends React.Component {
     let newState = Object.assign({}, this.state)
     newState.flowPages[page].forms[field].isValid = isValid
 
+    let hasError = newState.flowPages[page].forms[field].hasError
+
+    if (isValid) {
+      newState.flowPages[page].forms[field].hasError = false
+    } else {
+      if (blur) {
+        newState.flowPages[page].forms[field].hasError = true
+      } else {
+        newState.flowPages[page].forms[field].hasError = false
+      }
+    }
+
     this.setState(newState,
     () => this.validatePage(page, field, value))
   }
 
-  handleFormChange(event, page, field) {
+  handleFormChange(event, page, field, blur) {
     let value = event.target.value
     let newState = Object.assign({}, this.state)
     newState.flowPages[page].forms[field].value = value
 
     this.setState(newState,
     () => {
-      this.validateField(page, field, value)
+      this.validateField(page, field, value, blur)
       this.buildUrlQuery(page, field, value)
     })
   }
