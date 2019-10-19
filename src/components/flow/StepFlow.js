@@ -2,7 +2,6 @@
 
 import React from 'react'
 import ReactGA from 'react-ga'
-import textMask, {conformToMask} from "react-text-mask";
 
 import StepList from './StepList'
 import Step from './Step'

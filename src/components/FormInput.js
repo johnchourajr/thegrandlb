@@ -1,7 +1,5 @@
 import React from "react"
-
 import FormFieldset from './FormFieldset'
-import MaskedInput from "react-text-mask";
 
 const FormInput = props => {
   const {

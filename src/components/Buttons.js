@@ -5,13 +5,18 @@ import PropTypes from 'prop-types'
 import { navigateTo } from 'gatsby'
 import ReactGA from 'react-ga'
 
-function buttonClick(url, event) {
+function buttonClick(url, event, modal) {
   if (event) {
     ReactGA.event({
       category: event.category,
       action: event.action,
     });
   }
+
+  if (modal) {
+    modal(false)
+  }
+
   navigateTo(url)
 }
 
@@ -27,7 +32,7 @@ const Buttons = props => {
             <a
               key={i}
               className={`button ${secondary}`}
-              onClick={() => buttonClick(item.url, item.event)}
+              onClick={() => {buttonClick(item.url, item.event, item.modal)}}
             >{item.text}</a>
           )
         })}

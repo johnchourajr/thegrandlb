@@ -355,7 +355,7 @@
   position: absolute;
   top: .5rem;
   right: 2rem;
-  z-index: 9999;
+  z-index: 500;
 
   span {
     height: 0.125rem;
@@ -453,6 +453,10 @@ body.inquire, body.inquiredone, body.tourmap {
       }
     }
   }
+
+  .nav--banner:not(.nav--banner--dismissed) {
+    margin-top: calc(-4.3125rem - 2px);
+  }
 }
 
 
@@ -465,6 +469,15 @@ body.inquire, body.inquiredone, body.tourmap {
 
   .nav--item {
     opacity: .5;
+  }
+
+  .nav--banner {
+    background-color: transparent;
+    border-bottom-color: transparent;
+  }
+
+  .nav--banner p, .nav--banner--close {
+    opacity: 0;
   }
 
   .nav--item-active {
@@ -517,4 +530,111 @@ body.inquire, body.inquiredone, body.tourmap {
   opacity: 0;
   visibility: hidden;
   z-index: -1;
+}
+
+
+.nav--banner {
+  background-color: $grandBabyBlue;
+  transition: margin-top .5s $easeOutCubic, height .5s $easeOutCubic, border-bottom .25s $easeOutCubic, background-color .25s $easeOutCubic;
+  position: relative;
+  height: 4.3125rem;
+  z-index: 9999;
+  overflow: hidden;
+  border-bottom: solid 2px $grandBlack;
+
+  .wrapper {
+    position: relative;
+  }
+
+  p {
+    transition: opacity .1s linear;
+    text-align: center;
+    width: 100%;
+    padding: 1.4rem 0 1.4rem;
+
+    a {
+      color: $grandBlack !important;
+      text-decoration: underline;
+    }
+  }
+
+  button {
+    text-decoration: underline;
+  }
+}
+
+.nav--banner--dismissed {
+  height: 0;
+  border-bottom: none;
+}
+
+.nav--banner--close {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0.85rem;
+  transition: opacity .1s linear;
+
+  svg, path {
+    fill: $black !important;
+  }
+}
+
+.ReactModal__Overlay {
+  $color: $grandBabyBlue;
+  $gradient: rgba($color, 1) 0%, rgba($color, .77) 50%, rgba($color, 0) 100%;
+  @include gradient(to bottom, $gradient);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity .5s $easeOutCubic;
+
+  .nav--banner--close {
+    top: 1.75rem;
+    right: 1.75rem;
+  }
+}
+
+.ReactModal__Content {
+  transition: transform .5s $easeOutCubic;
+  transform: translateY(-250px);
+}
+
+.ReactModal__Overlay--after-open{
+  opacity: 1;
+
+  .ReactModal__Content {
+    transform: translateY(0px);
+  }
+}
+
+.ReactModal__Overlay--before-close{
+  opacity: 0;
+
+  .ReactModal__Content {
+    transform: translateY(-250px);
+  }
+}
+
+.modal--inner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 30px 25px;
+
+  @include solid-breakpoint(md) {
+    padding: 20px 50px 45px;
+  }
+
+  h6, p {
+    text-align: center;
+    padding-bottom: 30px;
+
+    @include solid-breakpoint(md) {
+      padding-bottom: 50px;
+    }
+  }
 }
