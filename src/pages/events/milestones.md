@@ -30,12 +30,13 @@ numbers:
       Last Year
     isMin: true
   - number: "10"
-    suffix: "hrs"
+    suffix: " hrs"
     description: |  
       Hours of
       Parties Per Day
     isMin: true
-  - number: "Sat."
+  - number: ""
+    prefix: "Saturday"
     description: |  
       Most Popular
       Party Day

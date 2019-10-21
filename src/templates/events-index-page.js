@@ -7,6 +7,7 @@ import Layout from '../components/core/Layout'
 import PageHeader from '../components/PageHeader'
 import PageSection from '../components/PageSection'
 import PageSegue from '../components/PageSegue'
+import ScrollAnimate from '../components/ScrollAnimate'
 
 
 const EventsIndex = ({ data, status, location }) => {
@@ -21,32 +22,29 @@ const EventsIndex = ({ data, status, location }) => {
         heading={frontmatter.heading}
         caption={frontmatter.description}
       />
-      <PageSection wrapperClassName={'events-feature--wrap'}>
+      <PageSection disabledAnimation wrapperClassName={'events-feature--wrap'}>
         {frontmatter.featureTiles.map((item, i) => {
           return (
-            <div key={i} className={`col xs-col-12 events-feature--item events-feature--${i+1}`}>
+            <ScrollAnimate key={i} className={`col xs-col-12 events-feature--item events-feature--${i+1}`}>
               <Link className="" to={item.url}>
                 <div className="events-feature--text">
                   <h3 className="display">{item.heading}</h3>
                   <p>{item.caption}</p>
                 </div>
-                <ParallaxProvider>
-                  <ParallaxBanner
-                    className={"events-feature--img"}
-                    layers={[
-                      {
-                        amount: 0.2,
-                        children: (
-                          <div className="events-feature--img" style={{backgroundImage: `url(${withPrefix(item.img)})`}}></div>
-                        ),
-                        slowerScrollRate: true,
-                      },
-                    ]}
-                  />
-                </ParallaxProvider>
-
+                <ParallaxBanner
+                  className={"events-feature--img"}
+                  layers={[
+                    {
+                      amount: 0.2,
+                      children: (
+                        <div className="events-feature--img" style={{backgroundImage: `url(${withPrefix(item.img)})`}}></div>
+                      ),
+                      slowerScrollRate: true,
+                    },
+                  ]}
+                />
               </Link>
-            </div>
+            </ScrollAnimate>
           )
         })}
       </PageSection>
@@ -61,9 +59,9 @@ const EventsIndex = ({ data, status, location }) => {
         <div className="clearfix gutters page-list">
           {frontmatter.exampleEvents.array.map((item, i) => {
             return (
-              <div key={i} className="hash-item page-list--item col xs-col-6 md-col-4">
+              <ScrollAnimate key={i} className="hash-item page-list--item col xs-col-6 md-col-4">
                 <h2 className="-display">{item}</h2>
-              </div>
+              </ScrollAnimate>
             )
           })}
         </div>

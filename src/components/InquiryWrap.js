@@ -31,13 +31,13 @@ function handleBack(history) {
     navigateTo("/")
     ReactGA.event({
       category: 'InquiryFlow',
-      action: `Exit`
+      action: `Exit Inquiry Flow`
     });
   } else {
     history.goBack()
     ReactGA.event({
       category: 'InquiryFlow',
-      action: `Exit`
+      action: `Exit Inquiry Flow`
     });
   }
 }

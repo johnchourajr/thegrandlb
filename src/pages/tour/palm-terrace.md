@@ -27,10 +27,15 @@ numbers:
     The Palm Terrace
     by Purely the Numbers
   array:
-  - number: "3,400"
+  - number: "3400"
     caption: "Total Square Feet"
-  - number: "400"
-    caption: "Max Occupancy"
+  - number: ""
+    caption: ""
+    options:
+    - number: "400"
+      caption: "Max Capacity"
+    - number: "320"
+      caption: "Banquet Capacity"
 amenities:
   description: "Amenities"
   array:
@@ -124,68 +129,17 @@ cta:
   buttons:
   - text: "Let's Do It"
     url: "/inquire?glb-rooms=The Palm Terrace"
+    event:
+      category: 'InquireAction'
+      action: 'tourPalmTerrace-InquireAction'
 ctaAllRoom:
   subhead: |
     Keep Touring
   buttons:
   - text: "View All Rooms"
     url: "/tour/map"
+    event:
+      category: 'TourAction'
+      action: 'tourPalmTerrace-ViewAll'
     isSecondary: true
----
----
-
-**[HEADER-LOOPING-VIDEO-REEL]**
-
----
-
-ROOM-NAME by purely numbers
-
-- X Square Feet
-- X Total Capacity
-- X Banquet Capacity
-- X Classroom Capacity
-- X Theater Capacity
-- X Dance Floor Size
-
----
-
-Amenities
-
-**[NOTE: list dependent on room capabilities]**
-- PA System
-- Dance floor
-- Dressing Room
-- Projector Screen
-- ...
-
----
-
-**[IMAGE-GALLERY]**
-
----
-
-Some ideas of the kind of events that work best in this room
-
-**[NOTE: list dependent on room capabilities]**
-- Church Services
-- Quinceanera Birthdays
-- Business Conferences
-- ...
-
----
-
-## Book The ROOM-NAME
-[Let's Do It](/inquire/) (/inquire/)
-
----
-
-Keep Touring
-[View All Rooms](/tour/map/) (/tour/map/)
-
-#### Prev Room
-**[NOTE: PREV-ROOM-LINK]**
-
-#### Next Room
-**[NOTE: NEXT-ROOM-LINK]**
-
 ---

@@ -29,13 +29,24 @@ numbers:
     The Catalina Room
     by Purely the Numbers
   array:
-  - number: "3,340"
+  - number: "3340"
     caption: "Total Square Feet"
-  - number: "400"
-    caption: "Max Occupancy"
-  - number: "25’x25’"
+  - number: ""
+    caption: ""
+    options:
+    - number: "400"
+      caption: "Max Capacity"
+    - number: "400"
+      caption: "Theater Capacity"
+    - number: "200"
+      caption: "Banquet Capacity"
+    - number: "150"
+      caption: "Classroom Capacity"
+  - number: "625"
+    suffix: " sqft."
     caption: "Dance Floor"
-  - number: "27'x10.5'"
+  - number: "283"
+    suffix: " sqft."
     caption: "Stage"
 amenities:
   description: "Amenities"

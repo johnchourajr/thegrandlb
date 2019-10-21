@@ -1,12 +1,13 @@
 import React from 'react'
 import SectionHead from './SectionHead'
 import Divider from './Divider'
+import ScrollAnimate from './ScrollAnimate'
 
 // Component
 const PageSection = props => {
 
   return (
-    <React.Fragment>
+    <ScrollAnimate disabled={props.disabledAnimation}>
       {props.topDivider && <Divider top />}
       <section className={`section ${props.sectionClassName}`}>
         <div className={`wrapper clearfix ${props.wrapperClassName} no-print`}>
@@ -23,7 +24,7 @@ const PageSection = props => {
         </div>
       </section>
       {props.bottomDivider && <Divider bottom />}
-    </React.Fragment>
+    </ScrollAnimate>
   )
 }
 

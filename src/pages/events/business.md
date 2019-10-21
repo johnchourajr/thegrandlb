@@ -29,7 +29,8 @@ numbers:
       Meetings
       Last Year
     isMin: true
-  - number: "Thur."
+  - number: ""
+    prefix: "Thursday"
     description: |  
       Most Popular
       Meeting Day

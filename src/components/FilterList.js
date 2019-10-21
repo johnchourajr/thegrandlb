@@ -2,6 +2,7 @@ import React from 'react'
 import _ from 'lodash'
 
 import RoomCard from '../components/RoomCard'
+import ScrollAnimate from '../components/ScrollAnimate'
 
 class FilterList extends React.Component {
 
@@ -40,7 +41,7 @@ class FilterList extends React.Component {
 
           if (condition) {
             return (
-              <div key={post.id} className="col xs-col-12 md-col-6 xxl-col-4" >
+              <ScrollAnimate key={post.id} className="col xs-col-12 md-col-6 xxl-col-4" >
                 <RoomCard
                   hero={post.frontmatter.hero}
                   heading={post.frontmatter.heading}
@@ -49,7 +50,7 @@ class FilterList extends React.Component {
                   targetFilter={this.props.targetFilter}
                   eventTypeInfo={eventTypeInfo}
                 />
-              </div>
+              </ScrollAnimate>
             )
           } else return null
         })}

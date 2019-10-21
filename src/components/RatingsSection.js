@@ -4,10 +4,11 @@ import NumberItem from './NumberItem'
 import PageSection from './PageSection'
 
 import { siteDetails } from '../data/siteDetails'
+import { ratingsMeta } from '../data/contentReviews.json'
 
 const yelpRating = {
   title: "Yelp",
-  rating: siteDetails.yelp_rating,
+  rating: ratingsMeta.yelp_rating,
   img: "/img/misc/yelp-logo.svg",
   link: "https://www.yelp.com/biz/the-grand-long-beach-long-beach",
 }
@@ -15,11 +16,11 @@ const yelpRating = {
 const ratings = [
   {
     title: "The Knot",
-    rating: siteDetails.knot_rating,
+    rating: ratingsMeta.knot_rating,
     link: "https://www.theknot.com/marketplace/the-grand-long-beach-long-beach-ca-620906",
   },{
     title: "WeddingWire",
-    rating: siteDetails.ww_rating,
+    rating: ratingsMeta.ww_rating,
     link: "https://www.weddingwire.com/biz/the-grand-long-beach-long-beach/05b58faf6174714e.html",
   },
 ]
@@ -43,7 +44,17 @@ const RatingsSection = props => {
         <div className="ratings--lower clearfix">
           {ratings.map((item, i) => (
             <div key={i} className="ratings--item col xs-col-12 sm-col-6">
-              <NumberItem number={item.rating} suffix={"/5"} isMin/>
+              <NumberItem
+                number={item.rating}
+                suffix={"/5"}
+                isMin
+                countUpProps={{
+                  duration: 2,
+                  decimal: ".",
+                  decimals: 1,
+                }}
+                disabled={true}
+              />
               <Ratings
                 rating={item.rating}
                 color={'#8A2432'}

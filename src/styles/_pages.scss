@@ -40,6 +40,14 @@
   &--offset {
     padding-top: 20em;
   }
+
+  &--flush-top {
+    margin-top: 0 !important;
+  }
+
+  &--flush-bottom {
+    margin-bottom: 0 !important;
+  }
 }
 
 .section--head {
@@ -455,6 +463,36 @@
     margin: 4em 0 1em;
   }
 
+  &--input {
+    background-color: transparent;
+    border: solid 3px $grandSilver;
+    height: 3rem;
+    padding: 0 3rem 0 .5rem !important;
+
+    /* reset */
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    background-image:
+      linear-gradient(45deg, $black 50%, transparent 50%),
+      linear-gradient(135deg, transparent 50%, $black 50%),
+      radial-gradient(darken($grandSilver, 10%) 70%, transparent 72%);
+    background-position:
+      calc(100% - 15px) 17px,
+      calc(100% - 20px) 17px,
+      calc(100% - 10px) 10px;
+    background-size:
+      5px 5px,
+      5px 5px,
+      20px 20px;
+    background-repeat: no-repeat;
+    outline: 0;
+  }
+
   &--value {
     display: flex;
     align-items: baseline;
@@ -479,7 +517,6 @@
   &--description > p {
     font-size: $text-6;
     line-height: 1.25;
-    max-width: 18.75rem;
     color: rgba($black, .5);
   }
 

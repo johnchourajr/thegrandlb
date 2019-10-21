@@ -25,12 +25,13 @@ numbers:
       Last Year
     isMin: true
   - number: "5"
-    suffix: "hrs"
+    suffix: " hrs"
     description: |  
       Average
       Wedding Duration
     isMin: true
-  - number: "Sat."
+  - number: ""
+    prefix: "Saturday"
     description: |  
       Most Popular
       Wedding Day

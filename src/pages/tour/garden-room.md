@@ -31,11 +31,21 @@ numbers:
     The Garden Room
     by Purely the Numbers
   array:
-  - number: "2,757"
+  - number: "2757"
     caption: "Total Square Feet"
-  - number: "140"
-    caption: "Max Occupancy"
-  - number: "20’x25’"
+  - number: ""
+    caption: ""
+    options:
+    - number: "140"
+      caption: "Max Capacity"
+    - number: "140"
+      caption: "Banquet Capacity"
+    - number: "70"
+      caption: "Theater Capacity"
+    - number: "60"
+      caption: "Classroom Capacity"
+  - number: "500"
+    suffix: " sqft."
     caption: "Dance Floor"
 amenities:
   description: "Amenities"

@@ -28,7 +28,9 @@ const PageCarousel = props => {
     const flickityOptions = {
       initialIndex: 0,
       lazyLoad: true,
-      arrowShape: ''
+      arrowShape: '',
+      selectedAttraction: 0.2,
+      friction: 0.8
     }
 
     return (
