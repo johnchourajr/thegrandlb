@@ -7,14 +7,27 @@ import StepFlow from '../components/flow/StepFlow'
 
 import inquiryForms from '../data/inquiryForms'
 
-const InquirePage = ({ data, status, location, history }) => {
+const InquirePage = ({
+  data,
+  status,
+  location,
+  history,
+  siteBanner,
+  bannerDismissState,
+  handleBannerDismiss
+}) => {
 
   return (
     <Layout status={status}>
       <InquiryWrap history={history}>
         <section className="section">
           <div className="wrapper">
-            <StepFlow flowPages={inquiryForms}/>
+            <StepFlow
+              flowPages={inquiryForms}
+              siteBanner={siteBanner}
+              bannerDismissState={bannerDismissState}
+              handleBannerDismiss={handleBannerDismiss}
+            />
           </div>
         </section>
       </InquiryWrap>

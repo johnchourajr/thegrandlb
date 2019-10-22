@@ -1,0 +1,16 @@
+{
+  "show": true,
+  "dismissed": false,
+  "text": "Choose a Friday or Sunday to qualify for our special deal.",
+  "matchText": "You qualify for our Friday & Sunday deal!",
+  "button": "Learn More",
+  "startDate": "09/10/2019",
+  "endDate": "12/25/2019",
+  "modalDetail": {
+    "title": "Featured Deal",
+    "description": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Sed posuere consectetur est at lobortis. Curabitur blandit tempus porttitor.",
+    "buttonText": "Inquire About Friday or Sunday",
+    "buttonUrl": "/inquire/?deal=fridaysunday"
+  },
+  "toMatch": ["Friday", "Sunday"]
+}

@@ -6,104 +6,54 @@ import moment from 'moment'
 // Components
 import X from '../svg/X'
 import Buttons from '../Buttons'
-
-const NabBannerLink = props => {
-  if (props.button) {
-    return (
-      <button onClick={props.onClick}>
-        {props.button}
-      </button>
-    )
-  } else return null
-}
-
-const MainModal = props => {
-  const styles = {
-    overlay: {
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    content: {
-      position: 'absolute',
-      top: '0px',
-      left: 'unset',
-      right: 'unset',
-      bottom: 'unset',
-      border: 'none',
-      width: '90vw',
-      maxWidth: '620px',
-      minHeight: '200px',
-      background: '#fff',
-      overflow: 'auto',
-      WebkitOverflowScrolling: 'touch',
-      borderRadius: '0px',
-      outline: 'none',
-      padding: '20px',
-    }
-  }
-
-  return (
-    <ReactModal
-      isOpen={props.modalVisible}
-      contentLabel="Minimal Modal Example"
-      onRequestClose={e => props.handleModal(false)}
-      shouldCloseOnOverlayClick={true}
-      closeTimeoutMS={500}
-      style={styles}
-    >
-      <button onClick={e => props.handleModal(false)} className="nav--banner--close"><X/></button>
-      <div className="modal--inner">
-        {props.children}
-      </div>
-    </ReactModal>
-  )
-}
+import BannerWrap from '../BannerWrap'
+import NavBannerLink from './NavBannerLink'
+import MainModal from "../MainModal"
 
 // Component
 const NavBanner = props => {
-  const [dismissed, handleDismiss] = useState(props.dismissed)
+
+  const {
+    button,
+    dismissed,
+    endDate,
+    modalDetail,
+    show,
+    startDate,
+    text
+  } = props.siteBanner
+
   const [modalVisible, handleModal] = useState(false)
 
-  if (props.show) {
-
-    const dateRange = moment().isBetween(props.startDate, props.endDate)
-
-    if (dateRange) {
-      return (
-        <div className={`nav--banner ${dismissed ? "nav--banner--dismissed" : null}`}>
-          <div className="wrapper">
-            <p>{props.text} <NabBannerLink onClick={e => handleModal(true)} button={props.button}/></p>
-            <button onClick={e => handleDismiss(true)} className="nav--banner--close"><X/></button>
-          </div>
-          <MainModal modalVisible={modalVisible} handleModal={handleModal}>
-              <h6>{props.modalDetail.title}</h6>
-              <p>{props.modalDetail.description}</p>
-              <Buttons
-                buttons={[
-                  {
-                    text: props.modalDetail.buttonText,
-                    url: props.modalDetail.buttonUrl,
-                    event: {
-                      category: 'BannerInquiryAction',
-                      action: props.modalDetail.buttonText,
-                      label: props.modalDetail.buttonText,
-                    },
-                    isSecondary: true,
-                    modal: handleModal,
-                  }
-                ]}
-              />
-          </MainModal>
+  return (
+    <BannerWrap siteBanner={props.siteBanner}>
+      <div className={`nav--banner ${props.bannerDismissState ? "nav--banner--dismissed" : null}`}>
+        <div className="wrapper">
+          <p>{text} <NavBannerLink onClick={e => handleModal(true)} button={button}/></p>
+          <button onClick={e => props.handleBannerDismiss(true)} className="nav--banner--close"><X/></button>
         </div>
-      )
-    } else return null
-  } return null
+        <MainModal modalVisible={modalVisible} handleModal={handleModal}>
+            <h6>{modalDetail.title}</h6>
+            <p>{modalDetail.description}</p>
+            <Buttons
+              buttons={[
+                {
+                  text: modalDetail.buttonText,
+                  url: modalDetail.buttonUrl,
+                  event: {
+                    category: 'BannerInquiryAction',
+                    action: modalDetail.buttonText,
+                    label: modalDetail.buttonText,
+                  },
+                  isSecondary: true,
+                  modal: handleModal,
+                }
+              ]}
+            />
+        </MainModal>
+      </div>
+    </BannerWrap>
+  )
 }
 
 export default NavBanner

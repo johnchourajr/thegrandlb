@@ -9,7 +9,7 @@ import Step from './Step'
 // TEST STRING
 // /inquire?glb-event-type=Wedding&glb-event-name=The%20Wedding&glb-rooms=The%20Grand%20Ballroom&glb-guest-count=100&glb-contact-name=John&glb-contact-method=Phone%20and%20Email&glb-contact-email=jchoura@me.com&glb-contact-phone=5555555555
 
-// TEST STRING 2
+// TEST STRING 2 (ON A SUNDAY)
 // /inquire?glb-contact-email=test%40test.test&glb-contact-method=Phone&glb-contact-name=This+is+just+a+test&glb-contact-phone=5555555555&glb-date=2019-09-22&glb-event-name=Test&glb-event-type=Wedding+Reception&glb-guest-count=100&glb-rooms=The+Grand+Ballroom&glb-time=8am
 
 import * as util from '../functions/util'
@@ -90,8 +90,6 @@ class StepFlow extends React.Component {
     newState.flowPages[page].isValid = isValid
 
     this.setState(newState)
-
-    // console.log(newState);
   }
 
   validateField(page, field, value, blur) {
@@ -160,7 +158,12 @@ class StepFlow extends React.Component {
 
     return (
       <React.Fragment>
-        <StepList flowPages={flowPages}>
+        <StepList
+          flowPages={flowPages}
+          siteBanner={this.props.siteBanner}
+          bannerDismissState={this.props.bannerDismissState}
+          handleBannerDismiss={this.props.handleBannerDismiss}
+        >
           {flowPages.map((page, i) => {
             return (
               <Step

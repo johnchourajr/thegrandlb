@@ -22,20 +22,22 @@ const AboutPage = ({ data, status }) => {
       />
       <PageSection>
         <div className="col xs-col-12 md-offset-1 md-col-10 ">
-          <ParallaxBanner
-            layers={[
-              {
-                image:'/img/about/team-cheers.jpg',
-                amount: 0.2,
-                slowerScrollRate: true,
-              },
-            ]}
-            style={{
-              height: '35vw',
-              maxHeight: '700px',
-              minHeight: '400px',
-            }}
-          />
+          <ParallaxProvider>
+            <ParallaxBanner
+              layers={[
+                {
+                  image:'/img/about/team-cheers.jpg',
+                  amount: 0.2,
+                  slowerScrollRate: true,
+                },
+              ]}
+              style={{
+                height: '35vw',
+                maxHeight: '700px',
+                minHeight: '400px',
+              }}
+            />
+          </ParallaxProvider>
         </div>
       </PageSection>
       <PageSection
