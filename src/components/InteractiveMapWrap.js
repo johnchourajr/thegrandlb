@@ -1,5 +1,5 @@
 import React from 'react'
-import { navigateTo } from 'gatsby'
+import { navigate } from 'gatsby'
 import _ from 'lodash'
 
 const CloseButton = props => (
@@ -14,7 +14,7 @@ const CloseButton = props => (
 
 function handleBack(history) {
   if (_.isUndefined(history)) {
-    navigateTo("/")
+    navigate("/")
   } else {
     history.goBack()
   }

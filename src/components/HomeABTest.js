@@ -15,7 +15,9 @@ import emitter from "react-ab-test/lib/emitter"
 import PageCta from '../components/PageCta'
 import ScrollAnimate from '../components/ScrollAnimate'
 
+
 class HomeABTest extends React.Component {
+
   render () {
     const { frontmatter } = this.props
     return (

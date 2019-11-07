@@ -2,7 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { navigateTo } from 'gatsby'
+import { navigate } from 'gatsby'
 import ReactGA from 'react-ga'
 
 function buttonClick(url, event, modal) {
@@ -17,7 +17,7 @@ function buttonClick(url, event, modal) {
     modal(false)
   }
 
-  navigateTo(url)
+  navigate(url)
 }
 
 // Component

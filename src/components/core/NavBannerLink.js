@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 const NavBannerLink = props => {
   if (props.button) {
     return (
-      <button onClick={props.onClick}>
+      <span className="nav--banner--link" onClick={props.onClick}>
         {props.button}
-      </button>
+      </span>
     )
   } else return null
 }

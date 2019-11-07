@@ -267,6 +267,7 @@ $breakpoints: (
 @mixin header-color($class, $color) {
   html.#{$class} {
     .page-header { background-color: $color; }
+    .nav--banner { background-color: $color; }
   }
 }
 

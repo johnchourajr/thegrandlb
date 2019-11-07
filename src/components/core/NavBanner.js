@@ -8,10 +8,12 @@ import X from '../svg/X'
 import Buttons from '../Buttons'
 import BannerWrap from '../BannerWrap'
 import NavBannerLink from './NavBannerLink'
-import MainModal from "../MainModal"
+import BannerModal from "../BannerModal"
 
 // Component
 const NavBanner = props => {
+
+  const [modalVisible, handleModal] = useState(false)
 
   const {
     button,
@@ -23,34 +25,20 @@ const NavBanner = props => {
     text
   } = props.siteBanner
 
-  const [modalVisible, handleModal] = useState(false)
+  const dismissedClass = props.bannerDismissState ? "nav--banner--dismissed" : sessionStorage.getItem('bannerDismissState') === 'dismissed' ? "nav--banner--dismissed" : null
 
   return (
     <BannerWrap siteBanner={props.siteBanner}>
-      <div className={`nav--banner ${props.bannerDismissState ? "nav--banner--dismissed" : null}`}>
+      <div className={`nav--banner ${dismissedClass}`}>
         <div className="wrapper">
           <p>{text} <NavBannerLink onClick={e => handleModal(true)} button={button}/></p>
-          <button onClick={e => props.handleBannerDismiss(true)} className="nav--banner--close"><X/></button>
+          <button onClick={e => props.handleBannerDismiss(true)} className="nav--banner--button nav--banner--close"><X/></button>
         </div>
-        <MainModal modalVisible={modalVisible} handleModal={handleModal}>
-            <h6>{modalDetail.title}</h6>
-            <p>{modalDetail.description}</p>
-            <Buttons
-              buttons={[
-                {
-                  text: modalDetail.buttonText,
-                  url: modalDetail.buttonUrl,
-                  event: {
-                    category: 'BannerInquiryAction',
-                    action: modalDetail.buttonText,
-                    label: modalDetail.buttonText,
-                  },
-                  isSecondary: true,
-                  modal: handleModal,
-                }
-              ]}
-            />
-        </MainModal>
+        <BannerModal
+          modalVisible={modalVisible}
+          handleModal={handleModal}
+          modalDetail={modalDetail}
+        />
       </div>
     </BannerWrap>
   )

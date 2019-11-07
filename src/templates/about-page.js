@@ -49,39 +49,43 @@ const AboutPage = ({ data, status }) => {
       <PageSection wrapperClassName={"about--highlights about--highlights--reverse"}>
         <div className="about--highlights--text col xs-col-12 md-col-5"><h3 className="display">{"Bar None\nEvent Pros"}</h3></div>
         <div className="col xs-col-12 md-col-7 ">
-          <ParallaxBanner
-            layers={[
-              {
-                image: '/img/about/team-sales.jpg',
-                amount: 0.2,
-                slowerScrollRate: true,
-              },
-            ]}
-            style={{
-              height: '30vw',
-              maxHeight: '600px',
-              minHeight: '300px',
-            }}
-          />
+          <ParallaxProvider>
+            <ParallaxBanner
+              layers={[
+                {
+                  image: '/img/about/team-sales.jpg',
+                  amount: 0.2,
+                  slowerScrollRate: true,
+                },
+              ]}
+              style={{
+                height: '30vw',
+                maxHeight: '600px',
+                minHeight: '300px',
+              }}
+            />
+        </ParallaxProvider>
         </div>
       </PageSection>
       <PageSection wrapperClassName={"about--highlights"}>
         <div className="about--highlights--text col xs-col-12 md-col-5"><h3 className="display">{"Top Notch\nKitchen Staff"}</h3></div>
         <div className="col xs-col-12 md-col-7 ">
-          <ParallaxBanner
-            layers={[
-              {
-                image:'/img/about/team-jesus.jpg',
-                amount: 0.2,
-                slowerScrollRate: true,
-              },
-            ]}
-            style={{
-              height: '30vw',
-              maxHeight: '600px',
-              minHeight: '300px',
-            }}
-          />
+          <ParallaxProvider>
+            <ParallaxBanner
+              layers={[
+                {
+                  image:'/img/about/team-jesus.jpg',
+                  amount: 0.2,
+                  slowerScrollRate: true,
+                },
+              ]}
+              style={{
+                height: '30vw',
+                maxHeight: '600px',
+                minHeight: '300px',
+              }}
+            />
+          </ParallaxProvider>
         </div>
       </PageSection>
       <PageSection

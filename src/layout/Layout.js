@@ -10,7 +10,24 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const TemplateWrapper = ({ children, history, location, props }) => {
 
-  const [bannerDismissState, handleBannerDismiss] = useState(false)
+  const [bannerDismissState, handleBannerState] = useState(false)
+
+  const handleBannerDismiss = (bool) => {
+
+    if (bool === true) {
+      console.log("Banner Just Dismissed");
+      handleBannerState(true)
+      sessionStorage.setItem('bannerDismissState', 'dismissed');
+    }
+  }
+
+  useEffect(() => {
+    if (sessionStorage.getItem('bannerDismissState') === 'dismissed') {
+      console.log("Banner Already Dismissed");
+      handleBannerState(true)
+      sessionStorage.setItem('bannerDismissState', 'dismissed');
+    }
+  }, [bannerDismissState])
 
   const kids = React.Children.map(children, child => {
     return React.cloneElement(child, {

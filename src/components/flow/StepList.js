@@ -32,12 +32,6 @@ const StepHeader = props => {
         goToStep={props.goToStep}
       />
       <h3 className="display xs-text-center">{headerText}</h3>
-      <StepBanner
-        flowPages={props.flowPages}
-        siteBanner={props.siteBanner}
-        bannerDismissState={props.bannerDismissState}
-        handleBannerDismiss={props.handleBannerDismiss}
-      />
     </div>
   )
 }
@@ -125,6 +119,12 @@ class StepList extends React.Component {
           action="https://formkeep.com/f/16c7029a33cf"
           method="POST"
         >
+          <StepBanner
+            flowPages={this.props.flowPages}
+            siteBanner={this.props.siteBanner}
+            bannerDismissState={this.props.bannerDismissState}
+            handleBannerDismiss={this.props.handleBannerDismiss}
+          />
           {this.renderSteps()}
         </form>
       </div>
