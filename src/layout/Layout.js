@@ -15,17 +15,21 @@ const TemplateWrapper = ({ children, history, location, props }) => {
   const handleBannerDismiss = (bool) => {
 
     if (bool === true) {
-      console.log("Banner Just Dismissed");
       handleBannerState(true)
-      sessionStorage.setItem('bannerDismissState', 'dismissed');
+
+      if (typeof window != "undefined") {
+        sessionStorage.setItem('bannerDismissState', 'dismissed');
+      }
     }
   }
 
   useEffect(() => {
-    if (sessionStorage.getItem('bannerDismissState') === 'dismissed') {
-      console.log("Banner Already Dismissed");
-      handleBannerState(true)
-      sessionStorage.setItem('bannerDismissState', 'dismissed');
+
+    if (typeof window != "undefined") {
+      if (sessionStorage.getItem('bannerDismissState') === 'dismissed') {
+        handleBannerState(true)
+        sessionStorage.setItem('bannerDismissState', 'dismissed');
+      }
     }
   }, [bannerDismissState])
 

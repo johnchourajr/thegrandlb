@@ -29,7 +29,13 @@ const StepBanner = props => {
   const dateSelected = props.flowPages[1].forms[0].value
   const selectedDayOfWeek = moment(dateSelected).format("dddd")
   const isMatch = toMatch.includes(selectedDayOfWeek)
-  const dismissedCondition = props.bannerDismissState ? "nav--banner--dismissed" : sessionStorage.getItem('bannerDismissState') === 'dismissed' ? "nav--banner--dismissed" : null
+
+  let dismissedCondition = null
+
+  if (typeof window != "undefined") {
+    dismissedCondition = props.bannerDismissState ? "nav--banner--dismissed" : sessionStorage.getItem('bannerDismissState') === 'dismissed' ? "nav--banner--dismissed" : null
+  }
+
   const dismissedClass = isMatch ? null : dismissedCondition
 
   return (

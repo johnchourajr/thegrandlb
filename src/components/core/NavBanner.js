@@ -25,7 +25,11 @@ const NavBanner = props => {
     text
   } = props.siteBanner
 
-  const dismissedClass = props.bannerDismissState ? "nav--banner--dismissed" : sessionStorage.getItem('bannerDismissState') === 'dismissed' ? "nav--banner--dismissed" : null
+  let dismissedClass = null
+
+  if (typeof window != "undefined") {
+    dismissedClass = props.bannerDismissState ? "nav--banner--dismissed" : sessionStorage.getItem('bannerDismissState') === 'dismissed' ? "nav--banner--dismissed" : null
+  }
 
   return (
     <BannerWrap siteBanner={props.siteBanner}>
