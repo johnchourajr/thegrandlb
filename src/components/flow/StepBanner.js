@@ -41,7 +41,7 @@ const StepBanner = props => {
   return (
     <BannerWrap siteBanner={props.siteBanner}>
       <div className={`nav--banner ${dismissedClass} ${isMatch && "nav--banner--confirm"} nav--banner--inline`}>
-        <div className="wrapper">
+        <div className="nav--banner--inner">
           <p>{!isMatch ? text : matchText} <NavBannerLink onClick={e => handleModal(true)} button={button}/></p>
           {!isMatch && <div onClick={e => props.handleBannerDismiss(true)} className="nav--banner--button nav--banner--close"><X/></div>}
           {isMatch && <div className="nav--banner--button"><Check/></div>}

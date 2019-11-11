@@ -14,6 +14,7 @@ import emitter from "react-ab-test/lib/emitter"
 
 import PageCta from '../components/PageCta'
 import ScrollAnimate from '../components/ScrollAnimate'
+import PromoSection from "../components/PromoSection"
 
 
 class HomeABTest extends React.Component {
@@ -58,6 +59,9 @@ class HomeABTest extends React.Component {
               ]}
               img={"/img/about/team-elizabeth-melissa-2.jpg"}
             />
+          </Variant>
+          <Variant name="C">
+            <PromoSection siteBanner={this.props.siteBanner} />
           </Variant>
         </Experiment>
       </ScrollAnimate>

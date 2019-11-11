@@ -12,6 +12,7 @@ import NumberArray from '../components/NumberArray'
 import RatingsSection from '../components/RatingsSection'
 import ReviewsSection from '../components/ReviewsSection'
 import ScrollAnimate from '../components/ScrollAnimate'
+import Buttons from '../components/Buttons'
 
 // AB Tests
 import HomeABTest from '../components/HomeABTest'
@@ -23,7 +24,7 @@ import { siteDetails } from '../data/siteDetails'
 import * as util from '../components/functions/util'
 
 // Page
-const IndexPage = ({ data, status }) => {
+const IndexPage = ({ data, status, siteBanner }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
@@ -76,7 +77,7 @@ const IndexPage = ({ data, status }) => {
         })}
       </PageSection>
 
-      <HomeABTest frontmatter={frontmatter}/>
+      <HomeABTest siteBanner={siteBanner} frontmatter={frontmatter}/>
 
       <MapSection
         heading={frontmatter.map.heading}

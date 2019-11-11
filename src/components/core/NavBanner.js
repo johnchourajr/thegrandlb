@@ -31,21 +31,23 @@ const NavBanner = props => {
     dismissedClass = props.bannerDismissState ? "nav--banner--dismissed" : sessionStorage.getItem('bannerDismissState') === 'dismissed' ? "nav--banner--dismissed" : null
   }
 
-  return (
-    <BannerWrap siteBanner={props.siteBanner}>
-      <div className={`nav--banner ${dismissedClass}`}>
-        <div className="wrapper">
-          <p>{text} <NavBannerLink onClick={e => handleModal(true)} button={button}/></p>
-          <button onClick={e => props.handleBannerDismiss(true)} className="nav--banner--button nav--banner--close"><X/></button>
+  if (props.siteBanner) {
+    return (
+      <BannerWrap siteBanner={props.siteBanner}>
+        <div className={`nav--banner ${dismissedClass}`}>
+          <div className="wrapper">
+            <p>{text} <NavBannerLink onClick={e => handleModal(true)} button={button}/></p>
+            <button onClick={e => props.handleBannerDismiss(true)} className="nav--banner--button nav--banner--close"><X/></button>
+          </div>
+          <BannerModal
+            modalVisible={modalVisible}
+            handleModal={handleModal}
+            modalDetail={modalDetail}
+          />
         </div>
-        <BannerModal
-          modalVisible={modalVisible}
-          handleModal={handleModal}
-          modalDetail={modalDetail}
-        />
-      </div>
-    </BannerWrap>
-  )
+      </BannerWrap>
+    )
+  } else return null
 }
 
 export default NavBanner

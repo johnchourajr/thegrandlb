@@ -13,10 +13,8 @@ const TemplateWrapper = ({ children, history, location, props }) => {
   const [bannerDismissState, handleBannerState] = useState(false)
 
   const handleBannerDismiss = (bool) => {
-
     if (bool === true) {
       handleBannerState(true)
-
       if (typeof window != "undefined") {
         sessionStorage.setItem('bannerDismissState', 'dismissed');
       }
@@ -24,7 +22,6 @@ const TemplateWrapper = ({ children, history, location, props }) => {
   }
 
   useEffect(() => {
-
     if (typeof window != "undefined") {
       if (sessionStorage.getItem('bannerDismissState') === 'dismissed') {
         handleBannerState(true)

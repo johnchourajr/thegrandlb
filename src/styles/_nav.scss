@@ -471,11 +471,6 @@ body.inquire, body.inquiredone, body.tourmap {
     opacity: .5;
   }
 
-  .nav--banner {
-    // background-color: transparent !important;
-    // border-bottom-color: transparent !important;
-  }
-
   .nav--banner p, .nav--banner--close {
     // opacity: 0;
   }
@@ -574,6 +569,10 @@ body.inquire, body.inquiredone, body.tourmap {
     text-decoration: underline;
     text-align: left;
   }
+}
+
+.nav--banner--inner {
+  padding-left: 2rem;
 }
 
 .nav--banner--inline {

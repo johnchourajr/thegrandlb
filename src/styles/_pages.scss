@@ -382,6 +382,78 @@
   }
 }
 
+
+.page-promo {
+
+  &--wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    @include solid-breakpoint(md) {
+      flex-direction: row;
+    }
+  }
+
+  &--left {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    height: 50vw;
+    margin: 0 3rem;
+
+    img, .img {
+      width: 100%;
+      background-size: cover;
+    }
+
+    @include solid-breakpoint(md) {
+      height: 100%;
+      width: 50%;
+      margin: 0;
+    }
+  }
+
+  &--right {
+    background-color: $grandBabyBlue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+
+    @include solid-breakpoint(md) {
+      width: 50%;
+      margin: 3rem 0;
+    }
+  }
+
+  &--right__text {
+    text-align: center;
+    padding: 1.5rem 0;
+
+    @include solid-breakpoint(md) {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h6 {
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      max-width: 7em;
+    }
+  }
+}
+
+
+
 .divider-bar {
   position: relative;
 
