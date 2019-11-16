@@ -6,6 +6,8 @@ import ReactMarkdown from 'react-markdown'
 // Components
 import Buttons from './Buttons'
 import Video from './Video'
+import VideoPlayAction from './VideoPlayAction'
+
 
 // Component
 const PageHero = props => {
@@ -18,6 +20,7 @@ const PageHero = props => {
           <div className="page-hero--wrap">
             <h1 className="page-hero--headline display">
               <ReactMarkdown source={props.heading} />
+              <VideoPlayAction source={props.video.source} />
             </h1>
           </div>
         </div>
@@ -30,7 +33,6 @@ const PageHero = props => {
           />
         </div>
       </div>
-
     </div>
   )
 }

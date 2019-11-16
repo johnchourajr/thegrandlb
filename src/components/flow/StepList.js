@@ -1,6 +1,7 @@
 import React from "react"
 import ReactGA from 'react-ga'
 
+import StepBanner from "./StepBanner"
 
 const StepIndex = props => {
   const children = React.Children.map(props.children, (child, i) => {
@@ -30,7 +31,7 @@ const StepHeader = props => {
         children={props.children}
         goToStep={props.goToStep}
       />
-    <h3 className="display xs-text-center">{headerText}</h3>
+      <h3 className="display xs-text-center">{headerText}</h3>
     </div>
   )
 }
@@ -108,6 +109,9 @@ class StepList extends React.Component {
           currentStep={this.state.currentStep}
           goToStep={this.goToStep}
           flowPages={this.props.flowPages}
+          siteBanner={this.props.siteBanner}
+          bannerDismissState={this.props.bannerDismissState}
+          handleBannerDismiss={this.props.handleBannerDismiss}
         />
         <form
           className="inquire-page--body xs-col-12"
@@ -115,6 +119,12 @@ class StepList extends React.Component {
           action="https://formkeep.com/f/16c7029a33cf"
           method="POST"
         >
+          <StepBanner
+            flowPages={this.props.flowPages}
+            siteBanner={this.props.siteBanner}
+            bannerDismissState={this.props.bannerDismissState}
+            handleBannerDismiss={this.props.handleBannerDismiss}
+          />
           {this.renderSteps()}
         </form>
       </div>

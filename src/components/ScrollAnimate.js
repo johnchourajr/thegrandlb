@@ -36,9 +36,10 @@ const ScrollAnimate = props => {
     }
   }
 
+  // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     observe(animateElement)
-  }, [])
+  }, [observe])
 
   const showCondition = showElement ? 'active' : ''
   const activeClass = !disabled ? showCondition : 'active'

@@ -14,20 +14,22 @@ import emitter from "react-ab-test/lib/emitter"
 
 import PageCta from '../components/PageCta'
 import ScrollAnimate from '../components/ScrollAnimate'
+import PromoSection from "../components/PromoSection"
+
 
 class HomeABTest extends React.Component {
+
   render () {
-    const { frontmatter } = this.props
     return (
       <ScrollAnimate>
         <Experiment ref="experiment" name="Test092919__Home">
           <Variant name="A">
             <PageCta
               accent={'grandPink'}
-              heading={`Chat with our\nEvent Pro\'s today`}
+              heading={`Chat with our\nEvent Pro's today`}
               buttons={[
                 {
-                  text: "Let\'s Talk",
+                  text: "Let's Talk",
                   url: "/contact/",
                   event: {
                     category: 'ContactAction',
@@ -45,7 +47,7 @@ class HomeABTest extends React.Component {
               heading={"Chat with Elizabeth\nor Marissa today."}
               buttons={[
                 {
-                  text: "Let\'s Talk",
+                  text: "Let's Talk",
                   url: "/contact/",
                   event: {
                     category: 'ContactAction',
@@ -56,6 +58,9 @@ class HomeABTest extends React.Component {
               ]}
               img={"/img/about/team-elizabeth-melissa-2.jpg"}
             />
+          </Variant>
+          <Variant name="C">
+            <PromoSection siteBanner={this.props.siteBanner} />
           </Variant>
         </Experiment>
       </ScrollAnimate>

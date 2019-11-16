@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 import PropTypes from 'prop-types'
 
 // Svg
@@ -9,14 +9,27 @@ import NavbarWrap from './NavbarWrap'
 import NavbarItem from './NavbarItem'
 import NavbarMobileButton from './NavbarMobileButton'
 import NavbarMobileMenu from './NavbarMobileMenu'
+import NavBanner from './NavBanner'
 
 // Util Functions
 import { mobileMenuToggle } from '../functions/util'
 
 // Component
-const Navbar = ({ mainNav, inquireNav }) => {
+const Navbar = ({
+  siteBanner,
+  bannerDismissState,
+  handleBannerDismiss,
+  mainNav,
+  inquireNav
+}) => {
+
   return (
     <NavbarWrap>
+      <NavBanner
+        siteBanner={siteBanner}
+        bannerDismissState={bannerDismissState}
+        handleBannerDismiss={handleBannerDismiss}
+      />
       <div className="wrapper">
         <div className="nav--left">
           {mainNav.left.map(item => (

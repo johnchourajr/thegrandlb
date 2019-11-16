@@ -63,6 +63,10 @@ export const inquireNav = {
   name: "Inquire", path: "/inquire",
 }
 
+export const privacyNav = {
+  name: "Privacy Policy", path: "/privacy",
+}
+
 export const twitterNav = {
   name: "twitter",
   displayName: "Twitter",
@@ -108,6 +112,7 @@ export const footerNav = {
   right: [
     { ...contactNav },
     { ...inquireNav },
+    { ...privacyNav },
   ]
 }
 

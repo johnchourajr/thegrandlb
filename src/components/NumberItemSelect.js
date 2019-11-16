@@ -1,9 +1,5 @@
-import React, { useRef, useEffect, useState } from 'react'
-import Select from 'react-select'
-import CountUp from 'react-countup';
+import React, { useState } from 'react'
 import 'intersection-observer';
-import styled from 'styled-components'
-import ReactMarkdown from 'react-markdown'
 
 import NumberItem from './NumberItem'
 

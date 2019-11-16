@@ -1,7 +1,5 @@
 import React from 'react'
 import Ratings from './Ratings'
-import NumberItem from './NumberItem'
-import PageSection from './PageSection'
 
 import { reviewsArray } from '../data/contentReviews.json'
 
@@ -32,7 +30,7 @@ const ReviewsCarousel = props => {
                 {item.rating && <p>{item.rating} Stars on {item.reviewLink ? <a href={item.reviewLink} target="_blank" rel="noopener noreferrer">{item.reviewSite}</a> : item.reviewSite}</p>}
                 <p>from {item.userlink ? <a href={item.userlink} target="_blank" rel="noopener noreferrer">{item.username}</a> : item.username }</p>
               </div>
-              {item.userphoto && <img className="review-lower--avatar" src={item.userphoto} style={{width: 45, height: 45}}/>}
+              {item.userphoto && <img className="review-lower--avatar" src={item.userphoto} alt={item.username} style={{width: 45, height: 45}}/>}
             </div>
           </div>
         </div>

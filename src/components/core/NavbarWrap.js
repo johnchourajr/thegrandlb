@@ -13,7 +13,7 @@ class NavbarWrap extends React.Component {
 
   navChangeSize() {
     const scrollPos = window.pageYOffset
-    const trigger = scrollPos >= 150
+    const trigger = scrollPos >= 50
 
     if (trigger) {
       document.body.classList.add(`nav--min`)

@@ -3,7 +3,6 @@ import CountUp from 'react-countup';
 import 'intersection-observer';
 import styled from 'styled-components'
 import ReactMarkdown from 'react-markdown'
-import ScrollAnimate from './ScrollAnimate'
 
 const NumberItem = props => {
   const [show, setShow] = useState(false)
@@ -37,6 +36,7 @@ const NumberItem = props => {
     }
   }
 
+  // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     const observer = new IntersectionObserver(observeCallback, options)
     observe(observer, popupEl)

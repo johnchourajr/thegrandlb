@@ -11,6 +11,7 @@ import AmenitiesArray from '../components/AmenitiesArray'
 import RoomSwitch from '../components/RoomSwitch'
 import Video from '../components/Video'
 import ScrollAnimate from '../components/ScrollAnimate'
+import VideoPlayAction from '../components/VideoPlayAction'
 
 const TourTemplatePage = ({ data, status, location, pageContext }) => {
   const { frontmatter } = data.pageData
@@ -33,6 +34,11 @@ const TourTemplatePage = ({ data, status, location, pageContext }) => {
         ]}
           poster={`/video/rooms/${pageName}-poster.jpg`}
         />
+        <VideoPlayAction source={[
+          { src: `/video/rooms/${pageName}.compressed.mp4`, type: 'video/mp4'},
+          { src: `/video/rooms/${pageName}.compressed.ogv`, type: 'video/ogv'},
+          { src: `/video/rooms/${pageName}.compressed.webm`, type: 'video/webm'},
+        ]} />
       </div>
       <NumberArray
         subHead={frontmatter.numbers.subhead}

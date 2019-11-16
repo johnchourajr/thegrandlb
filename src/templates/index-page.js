@@ -23,7 +23,7 @@ import { siteDetails } from '../data/siteDetails'
 import * as util from '../components/functions/util'
 
 // Page
-const IndexPage = ({ data, status }) => {
+const IndexPage = ({ data, status, siteBanner }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
@@ -76,7 +76,7 @@ const IndexPage = ({ data, status }) => {
         })}
       </PageSection>
 
-      <HomeABTest frontmatter={frontmatter}/>
+      <HomeABTest siteBanner={siteBanner} frontmatter={frontmatter}/>
 
       <MapSection
         heading={frontmatter.map.heading}

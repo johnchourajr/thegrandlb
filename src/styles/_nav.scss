@@ -355,7 +355,7 @@
   position: absolute;
   top: .5rem;
   right: 2rem;
-  z-index: 9999;
+  z-index: 500;
 
   span {
     height: 0.125rem;
@@ -453,6 +453,10 @@ body.inquire, body.inquiredone, body.tourmap {
       }
     }
   }
+
+  .nav--banner:not(.nav--banner--dismissed) {
+    margin-top: calc(-4.3125rem - 2px);
+  }
 }
 
 
@@ -465,6 +469,10 @@ body.inquire, body.inquiredone, body.tourmap {
 
   .nav--item {
     opacity: .5;
+  }
+
+  .nav--banner p, .nav--banner--close {
+    // opacity: 0;
   }
 
   .nav--item-active {
@@ -517,4 +525,192 @@ body.inquire, body.inquiredone, body.tourmap {
   opacity: 0;
   visibility: hidden;
   z-index: -1;
+}
+
+
+.nav--banner {
+  background-color: $grandBabyBlue;
+  transition: margin-top .5s $easeOutCubic, height .5s $easeOutCubic, border-width .25s $easeOutCubic, background-color .25s $easeOutCubic;
+  position: relative;
+  width: 100%;
+  height: 4.45rem;
+  z-index: 9999;
+  overflow: hidden;
+  border-bottom: solid 2px $grandBlack;
+
+  @include solid-breakpoint(sm) {
+    height: 4.3125rem;
+  }
+
+  .wrapper {
+    position: relative;
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .1s linear;
+    text-align: center;
+    padding: 1.4rem 1rem 1.4rem;
+    width: 85%;
+
+    @include solid-breakpoint(sm) {
+      width: 100%;
+    }
+
+    a {
+      color: $grandBlack !important;
+      text-decoration: underline;
+    }
+  }
+
+  button {
+    text-decoration: underline;
+    text-align: left;
+  }
+}
+
+.nav--banner--inner {
+  padding-left: 2rem;
+}
+
+.nav--banner--inline {
+  margin: 0 0.5rem 0.5rem !important;
+  width: calc(100% - 1rem) !important;
+  height: calc(0.4375rem + 5.45rem) !important;
+  top: 0;
+  position: relative;
+  display: inline-block;
+  border: solid 0.4375rem white;
+
+  @include solid-breakpoint(sm) {
+    height: calc(0.4375rem + 4.3125rem) !important;
+  }
+
+  p {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    text-align: left;
+    font-size: 1.1rem;
+    width: 85%;
+    padding-left: 0;
+
+    @include solid-breakpoint(sm) {
+      width: 100%;
+    }
+  }
+
+  .nav--banner--button {
+    right: 0.85rem;
+  }
+}
+
+.nav--banner--link {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.nav--banner--confirm {
+  border-color: #AFFFC6;
+}
+
+.nav--banner--dismissed {
+  height: 0 !important;
+  border-width: 0 !important;
+}
+
+.nav--banner--button {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  top: 0.85rem;
+  transition: opacity .1s linear;
+
+  svg, path {
+    fill: $black !important;
+  }
+}
+
+.nav--banner--close {
+  cursor: pointer;
+}
+
+.nav--banner--close-float {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 500;
+
+  path {
+    fill: #ffffff;
+  }
+}
+
+.ReactModal__Overlay {
+  $color: $grandBabyBlue;
+  $gradient: rgba($color, 1) 0%, rgba($color, .77) 50%, rgba($color, 0) 100%;
+  @include gradient(to bottom, $gradient);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity .5s $easeOutCubic;
+
+  .nav--banner--close {
+    top: 1.75rem;
+    right: 1.75rem;
+  }
+
+  &--dark {
+    $color: $grandBlack;
+    $gradient: rgba($color, 1) 0%, rgba($color, .77) 50%, rgba($color, 0) 100%;
+    @include gradient(to bottom, $gradient);
+  }
+}
+
+.ReactModal__Content {
+  transition: transform .5s $easeOutCubic, box-shadow 1s $easeOutCubic;
+  transform: translateY(-250px);
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+.ReactModal__Overlay--after-open{
+  opacity: 1;
+
+  .ReactModal__Content {
+    transform: translateY(0px);
+    box-shadow: 0px 24px 64px rgba(0, 0, 0, 0.13), 0px 4px 124px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.ReactModal__Overlay--before-close{
+  opacity: 0;
+
+  .ReactModal__Content {
+    transform: translateY(-250px);
+  }
+}
+
+.modal--inner {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 30px 25px;
+
+  @include solid-breakpoint(md) {
+    padding: 20px 50px 45px;
+  }
+
+  h6, p {
+    text-align: center;
+    padding-bottom: 30px;
+
+    @include solid-breakpoint(md) {
+      padding-bottom: 50px;
+    }
+  }
 }

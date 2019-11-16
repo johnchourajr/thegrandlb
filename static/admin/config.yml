@@ -21,6 +21,32 @@ collections:
         extension: "json"
         delete: false
         fields:
+          - {label: "Show", name: "show", widget: "boolean"}
+          - {label: "Text", name: "text", widget: "text"}
+          - {label: "Match Text", name: "matchText", widget: "string"}
+          - {label: "Button", name: "button", widget: "string"}
+          - {label: "Start Date", name: "startDate", widget: "datetime", format: "MM-DD-YYYY"}
+          - {label: "End Date", name: "endDate", widget: "datetime", format: "MM-DD-YYYY"}
+          - {label: "To Match", name: "toMatch", widget: "string"}
+          - label: "To Match"
+            name: "toMatch"
+            widget: "select"
+            multiple: true
+            options: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+          - label: "Modal Detail"
+            name: "modalDetail"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "text"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Button Text", name: "buttonText", widget: "text"}
+              - {label: "Button URL", name: "buttonUrl", widget: "text"}
+      - name: "siteBanner"
+        label: "Site Banner"
+        file: "src/data/siteBanner.json"
+        extension: "json"
+        delete: false
+        fields:
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Description", name: "description", widget: "text"}
           - {label: "Company Name", name: "companyName", widget: "string"}

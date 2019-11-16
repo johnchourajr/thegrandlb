@@ -10,6 +10,7 @@ import PageSegue from '../components/PageSegue'
 import NumberArray from '../components/NumberArray'
 import FilterList from '../components/FilterList'
 import Video from '../components/Video'
+import VideoPlayAction from '../components/VideoPlayAction'
 
 import Map from '../components/svg/Map';
 
@@ -32,6 +33,11 @@ const TourIndex = ({ data, status, location }) => {
           ]}
           poster={"/video/tour-poster.jpg"}
         />
+        <VideoPlayAction source={[
+          { src: '/video/tour.compressed.mp4', type: 'video/mp4'},
+          { src: '/video/tour.compressed.ogv', type: 'video/ogv'},
+          { src: '/video/tour.compressed.webm', type: 'video/webm'},
+        ]} />
       </div>
       <PageSection
         heading={frontmatter.map.heading}

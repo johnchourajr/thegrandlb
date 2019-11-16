@@ -9,8 +9,8 @@ import Step from './Step'
 // TEST STRING
 // /inquire?glb-event-type=Wedding&glb-event-name=The%20Wedding&glb-rooms=The%20Grand%20Ballroom&glb-guest-count=100&glb-contact-name=John&glb-contact-method=Phone%20and%20Email&glb-contact-email=jchoura@me.com&glb-contact-phone=5555555555
 
-// TEST STRING 2
-// /inquire?glb-contact-email=test%40test.test&glb-contact-method=Phone&glb-contact-name=This+is+just+a+test&glb-contact-phone=5555555555&glb-date=2019-09-22&glb-event-name=Test&glb-event-type=Wedding+Reception&glb-guest-count=100&glb-rooms=The+Grand+Ballroom&glb-time=01%3A00
+// TEST STRING 2 (ON A SUNDAY)
+// /inquire?glb-contact-email=test%40test.test&glb-contact-method=Phone&glb-contact-name=This+is+just+a+test&glb-contact-phone=5555555555&glb-date=2019-09-22&glb-event-name=Test&glb-event-type=Wedding+Reception&glb-guest-count=100&glb-rooms=The+Grand+Ballroom&glb-time=8am
 
 import * as util from '../functions/util'
 
@@ -90,11 +90,9 @@ class StepFlow extends React.Component {
     newState.flowPages[page].isValid = isValid
 
     this.setState(newState)
-
-    console.log(newState);
   }
 
-  validateField(page, field, value) {
+  validateField(page, field, value, blur) {
     const thisField = this.state.flowPages[page].forms[field]
     const validate = thisField.validate
     let isValid = false
@@ -109,18 +107,30 @@ class StepFlow extends React.Component {
     let newState = Object.assign({}, this.state)
     newState.flowPages[page].forms[field].isValid = isValid
 
+    let hasError = newState.flowPages[page].forms[field].hasError
+
+    if (isValid) {
+      newState.flowPages[page].forms[field].hasError = false
+    } else {
+      if (blur) {
+        newState.flowPages[page].forms[field].hasError = true
+      } else {
+        newState.flowPages[page].forms[field].hasError = false
+      }
+    }
+
     this.setState(newState,
     () => this.validatePage(page, field, value))
   }
 
-  handleFormChange(event, page, field) {
+  handleFormChange(event, page, field, blur) {
     let value = event.target.value
     let newState = Object.assign({}, this.state)
     newState.flowPages[page].forms[field].value = value
 
     this.setState(newState,
     () => {
-      this.validateField(page, field, value)
+      this.validateField(page, field, value, blur)
       this.buildUrlQuery(page, field, value)
     })
   }
@@ -148,7 +158,12 @@ class StepFlow extends React.Component {
 
     return (
       <React.Fragment>
-        <StepList flowPages={flowPages}>
+        <StepList
+          flowPages={flowPages}
+          siteBanner={this.props.siteBanner}
+          bannerDismissState={this.props.bannerDismissState}
+          handleBannerDismiss={this.props.handleBannerDismiss}
+        >
           {flowPages.map((page, i) => {
             return (
               <Step
