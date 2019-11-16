@@ -20,6 +20,7 @@ import PromoSection from "../components/PromoSection"
 class HomeABTest extends React.Component {
 
   render () {
+    
     return (
       <ScrollAnimate>
         <Experiment ref="experiment" name="Test092919__Home">
@@ -59,9 +60,11 @@ class HomeABTest extends React.Component {
               img={"/img/about/team-elizabeth-melissa-2.jpg"}
             />
           </Variant>
-          <Variant name="C">
-            <PromoSection siteBanner={this.props.siteBanner} />
-          </Variant>
+          { /*
+            <Variant name="C">
+              <PromoSection siteBanner={this.props.siteBanner} />
+            </Variant>
+          */ }
         </Experiment>
       </ScrollAnimate>
     )
