@@ -17,7 +17,6 @@ const FormInput = props => {
     pageNumber,
     formNumber,
     isValid,
-    mask,
   } = props
 
   const errorStyles = hasError ? "field-error" : null

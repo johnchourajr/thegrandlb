@@ -15,7 +15,6 @@ const MainModal = props => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      background: '-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0, .95)), to(rgba(0,0,0, .8)))',
       background: 'linear-gradient(to bottom, rgba(0,0,0, .95) 0%, rgba(0,0,0, .8) 100%)',
     },
     content: {
@@ -34,7 +33,6 @@ const MainModal = props => {
       borderRadius: '0px',
       outline: 'none',
       padding: '0px',
-      background: 'transparent',
     }
   }
 

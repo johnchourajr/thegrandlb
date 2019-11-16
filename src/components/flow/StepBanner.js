@@ -1,11 +1,9 @@
-import React, { useRef, useEffect, useState } from 'react'
-import ReactGA from 'react-ga'
+import React, { useState } from 'react'
 import moment from 'moment'
 
 // Components
 import X from '../svg/X'
 import Check from '../svg/Check'
-import Buttons from '../Buttons'
 import BannerWrap from '../BannerWrap'
 import NavBannerLink from '../core/NavBannerLink'
 import BannerModal from "../BannerModal"
@@ -16,11 +14,7 @@ const StepBanner = props => {
 
   const {
     button,
-    dismissed,
-    endDate,
     modalDetail,
-    show,
-    startDate,
     text,
     matchText,
     toMatch,

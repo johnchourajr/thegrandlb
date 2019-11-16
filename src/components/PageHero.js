@@ -1,15 +1,12 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { withPrefix } from 'gatsby'
 import ReactMarkdown from 'react-markdown'
-import ReactPlayer from 'react-player'
 
 // Components
 import Buttons from './Buttons'
 import Video from './Video'
-import VideoModal from './VideoModal'
 import VideoPlayAction from './VideoPlayAction'
-import PlayButton from './svg/PlayButton'
 
 
 // Component
@@ -36,7 +33,6 @@ const PageHero = props => {
           />
         </div>
       </div>
-
     </div>
   )
 }

@@ -3,7 +3,6 @@ import Ratings from './Ratings'
 import NumberItem from './NumberItem'
 import PageSection from './PageSection'
 
-import { siteDetails } from '../data/siteDetails'
 import { ratingsMeta } from '../data/contentReviews.json'
 
 const yelpRating = {

@@ -89,7 +89,7 @@ const AboutPage = ({ data, status }) => {
         </div>
       </PageSection>
       <PageSection
-        heading={"We\'re\nValidated"}
+        heading={"We're\nValidated"}
         sectionClassName="section--flush-bottom"
         topDivider
       >

@@ -12,7 +12,6 @@ import NumberArray from '../components/NumberArray'
 import RatingsSection from '../components/RatingsSection'
 import ReviewsSection from '../components/ReviewsSection'
 import ScrollAnimate from '../components/ScrollAnimate'
-import Buttons from '../components/Buttons'
 
 // AB Tests
 import HomeABTest from '../components/HomeABTest'

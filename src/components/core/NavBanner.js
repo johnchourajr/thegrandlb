@@ -1,11 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react'
-import { Link } from 'gatsby'
-import ReactModal from 'react-modal';
-import moment from 'moment'
+import React, { useState } from 'react'
 
 // Components
 import X from '../svg/X'
-import Buttons from '../Buttons'
 import BannerWrap from '../BannerWrap'
 import NavBannerLink from './NavBannerLink'
 import BannerModal from "../BannerModal"
@@ -17,11 +13,7 @@ const NavBanner = props => {
 
   const {
     button,
-    dismissed,
-    endDate,
     modalDetail,
-    show,
-    startDate,
     text
   } = props.siteBanner
 

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 // Svg
@@ -10,7 +10,6 @@ import NavbarItem from './NavbarItem'
 import NavbarMobileButton from './NavbarMobileButton'
 import NavbarMobileMenu from './NavbarMobileMenu'
 import NavBanner from './NavBanner'
-import X from '../svg/X'
 
 // Util Functions
 import { mobileMenuToggle } from '../functions/util'

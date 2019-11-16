@@ -10,7 +10,7 @@ const PromoSection = props => {
     <PageSection sectionClassName="xs-pt5">
       <div className="page-promo--wrapper">
         <div className="page-promo--left">
-          <img src="/img/promo/01-friday-sunday-graphic.jpg"/>
+          <img src="/img/promo/01-friday-sunday-graphic.jpg" alt="Friday & Sunday Promo"/>
         </div>
         <div className="page-promo--right">
           <div className="page-promo--right__text">
