@@ -170,7 +170,14 @@ export const basicPageQuery = graphql`
         }
         map {
           heading
-          features
+          features {
+            text
+            url
+            event {
+              category
+              action
+            }
+          }
         }
         carousel {
           array {

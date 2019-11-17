@@ -45,9 +45,21 @@ map:
     Native
   img: "/img/placeholder--map.jpg"
   features:
-  - "5 Minutes from \nLong Beach Airport"
-  - "Walking Distance to\nHotel Accommodations"
-  - "20 Minutes from\n LAX Airport"
+  - text: "5 Minutes from \nLong Beach Airport"
+    url: "https://www.google.com/maps/dir/Long+Beach+Airport,+Donald+Douglas+Dr,+Long+Beach,+CA/thegrandlb/@33.8111233,-118.1501993,16z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x80dd3236c1430c85:0x3d72b50085627ff!2m2!1d-118.1523845!2d33.8176974!1m5!1m1!1s0x80dd3187fe1d4d89:0x28bb151385838a33!2m2!1d-118.1473096!2d33.8041368!3e0"
+    event:
+      category: "MapFeatureAction"
+      action: "MapFeatureLGB"
+  - text: "Walking Distance to\nHotel Accommodations"
+    url: "https://www.google.com/maps/dir/Residence+Inn+by+Marriott+Long+Beach,+East+Willow+Street,+Long+Beach,+CA/thegrandlb/@33.8038015,-118.1464431,19z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x80dd318836554d57:0x13034432a0b5caa8!2m2!1d-118.1448683!2d33.803945!1m5!1m1!1s0x80dd3187fe1d4d89:0x28bb151385838a33!2m2!1d-118.1473096!2d33.8041368!3e2"
+    event:
+      category: "MapFeatureAction"
+      action: "MapFeatureHotel"
+  - text: "20 Minutes from\n LAX Airport"
+    url: "https://www.google.com/maps/dir/LAX+airport+(LAX),+World+Way,+Los+Angeles,+CA/thegrandlb/@33.8746301,-118.3446163,12z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x80c2b0d213b24fb5:0x77a87b57698badf1!2m2!1d-118.40853!2d33.9415889!1m5!1m1!1s0x80dd3187fe1d4d89:0x28bb151385838a33!2m2!1d-118.1473096!2d33.8041368!3e0"
+    event:
+      category: "MapFeatureAction"
+      action: "MapFeatureLAX"
 carousel:
   array:
   - img: "/img/tour-spaces/GLB_Details_Spaces_2.jpg"
