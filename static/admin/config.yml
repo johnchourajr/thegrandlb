@@ -4,10 +4,6 @@ backend:
   branch: master
 
 display_url: https://thegrandlb.com
-
-show_preview_links: true
-publish_mode: editorial_workflow
-
 media_folder: static/img
 public_folder: /img
 
