@@ -82,6 +82,21 @@
               ]
             },
             {
+              "title": "Churro Donut Station",
+              "description": "Attendant Required; additional labor fee applies",
+              "price": "$6.00 *per person*",
+              "items": [
+                {
+                  "title": "Includes All",
+                  "list": [
+                    "Vanilla Ice Cream",
+                    "Chocolate Sauce",
+                    "Caramel Sauce"
+                  ]
+                }
+              ]
+            },
+            {
               "title": "Chocolate Fountain",
               "description": "Warm Belgium Chocolate cascades off a three-tier fountain, specially designed for fondue. Minimum 25 people.",
               "price": "$350 *rental fee* *-* $8-$11 *per person*",
@@ -126,21 +141,6 @@
                     "Coconut Balls",
                     "Biscotti",
                     "Marshmallows"
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Churro Donut Station",
-              "description": "Attendant Required; additional labor fee applies",
-              "price": "$6.00 *per person*",
-              "items": [
-                {
-                  "title": "Includes All",
-                  "list": [
-                    "Vanilla Ice Cream",
-                    "Chocolate Sauce",
-                    "Caramel Sauce"
                   ]
                 }
               ]
