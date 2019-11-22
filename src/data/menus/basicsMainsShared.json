@@ -402,7 +402,7 @@
             {
               "title": "Taste of Asia",
               "description": "",
-              "price": "*Lunch* $34.50 *-* *Dinner* $41.50",
+              "price": "*Lunch* $35.00 *-* *Dinner* $42.00",
               "items": [
                 {
                   "title": "Salads — Included",
@@ -431,9 +431,10 @@
                   ]
                 },
                 {
-                  "title": "Dessert — Included",
+                  "title": "Dessert — Select One",
                   "list": [
-                    "Pineapple Upside-down Cake -or- Almond Cookies"
+                    "Pineapple Upside-down Cake",
+                    "Almond Cookies"
                   ]
                 }
               ]
@@ -441,7 +442,7 @@
             {
               "title": "Taste of India",
               "description": "Served with Naan Bread",
-              "price": "*Lunch* $34.50 *-* *Dinner* $41.50",
+              "price": "*Lunch* $35.00 *-* *Dinner* $42.00",
               "items": [
                 {
                   "title": "Salads — Included",
@@ -477,7 +478,7 @@
             {
               "title": "South of the Border",
               "description": "",
-              "price": "*Lunch* $34.50 *-* *Dinner* $41.50",
+              "price": "*Lunch* $35.00 *-* *Dinner* $42.00",
               "items": [
                 {
                   "title": "Salads — Included",
@@ -516,7 +517,7 @@
             {
               "title": "The Cowboy",
               "description": "",
-              "price": "*Lunch* $34.50 *-* *Dinner* $41.50",
+              "price": "*Lunch* $35.00 *-* *Dinner* $42.00",
               "items": [
                 {
                   "title": "Salads — Included",
@@ -554,7 +555,7 @@
             {
               "title": "Mambo Italiano",
               "description": "",
-              "price": "*Lunch* $34.50 *-* *Dinner* $41.50",
+              "price": "*Lunch* $35.00 *-* *Dinner* $42.00",
               "items": [
                 {
                   "title": "Salads — Select Two",
@@ -592,7 +593,7 @@
             {
               "title": "From The Deli",
               "description": "",
-              "price": "*Lunch* $31.50 *-* *Dinner* $37.50",
+              "price": "*Lunch* $32.00 *-* *Dinner* $38.00",
               "items": [
                 {
                   "title": "Salads — Included",
@@ -605,17 +606,55 @@
                   "title": "Between The Bread — Select Two",
                   "list": [
                     "Smoked Ham - Brie & Honey Mustard",
-                    "Roast Beef - Cheddar Cheese, Caramelized Onions, & Gorgonzola Spread",
-                    "Classic BLT - Bacon, Lettuce, Tomato, & Lemon Aioli",
-                    "Chicken Caesar Pita - Romaine Lettuce, Tomato, Parmesan, & Caesar Dressing",
-                    "Club Sandwich - Roasted Turkey, Ham, Lettuce, Tomato, Bacon, & Garlic Aioli",
-                    "Roasted Turkey - Provolone, Roasted Red Peppers, & Basil Pesto",
-                    "Santa Fe Chicken - Ortega Chiles, Pepperjack Cheese, Greens, & Chipotle Aioli ",
-                    "Roasted Pork Loin - Asian Slaw, Thai Basil, Pea Sprouts, Pickled Cucumber, & Sriracha Aioli",
-                    "Albacore Tuna - with Scallions, Fresh Tarragon, & Lemon Zest",
-                    "Chicken Salad - with Celery, Fresh Herbs, Dried Cherries, Chives, & Curry Aioli",
-                    "Garden Stack - Grilled Vegetables, Feta, & Olive Tapenade Spread",
-                    "Caprese Stack - Arugula, Mozzarella, Tomatoes, Balsamic Glaze, & Basil Pesto",
+                    "Roast Beef - Cheddar Cheese",
+                    "Caramelized Onions",
+                    "& Gorgonzola Spread",
+                    "Classic BLT - Bacon",
+                    "Lettuce",
+                    "Tomato",
+                    "& Lemon Aioli",
+                    "Chicken Caesar Pita - Romaine Lettuce",
+                    "Tomato",
+                    "Parmesan",
+                    "& Caesar Dressing",
+                    "Club Sandwich - Roasted Turkey",
+                    "Ham",
+                    "Lettuce",
+                    "Tomato",
+                    "Bacon",
+                    "& Garlic Aioli",
+                    "Roasted Turkey - Provolone",
+                    "Roasted Red Peppers",
+                    "& Basil Pesto",
+                    "Santa Fe Chicken - Ortega Chiles",
+                    "Pepperjack Cheese",
+                    "Greens",
+                    "& Chipotle Aioli",
+                    "Roasted Pork Loin - Asian Slaw",
+                    "Thai Basil",
+                    "Pea Sprouts",
+                    "Pickled Cucumber",
+                    "& Sriracha Aioli",
+                    "Albacore Tuna - with Scallions",
+                    "Fresh Tarragon",
+                    "& Lemon Zest",
+                    "Curry Chicken Salad - with Celery",
+                    "Fresh Herbs",
+                    "Dried Cherries",
+                    "Chives",
+                    "& Curry Aioli",
+                    "Chicken Salad - with Celery",
+                    "Fresh Herbs",
+                    "Chives",
+                    "& Mayo",
+                    "Garden Stack - Grilled Vegetables",
+                    "Feta",
+                    "& Olive Tapenade Spread",
+                    "Caprese Stack - Arugula",
+                    "Mozzarella",
+                    "Tomatoes",
+                    "Balsamic Glaze",
+                    "& Basil Pesto",
                     "Assorted Cookies & Brownies"
                   ]
                 },
@@ -636,7 +675,7 @@
             {
               "title": "Eats + Sweets",
               "description": "",
-              "price": "*Lunch* $34.50 *-* *Dinner* $41.50",
+              "price": "*Lunch* $35.00 *-* *Dinner* $42.00",
               "items": [
                 {
                   "title": "Appetizers — Select Six",
@@ -858,6 +897,18 @@
                   "list": [
                     "Crushed Red Pepper Flakes",
                     "Parmesan Cheese"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Butcher Shoppe",
+              "price": "$9.00 *per person*",
+              "items": [
+                {
+                  "title": "Included",
+                  "list": [
+                    "Carved Tri-Tip Sliders with Spicy Aioli & Micro Arugula on Toasted Asiago Rolls"
                   ]
                 }
               ]
