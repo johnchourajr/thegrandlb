@@ -46,7 +46,7 @@
         {
           "title": "Cold Hors D’oeuvres",
           "type": "multi-item",
-          "description": "Chilled and ready to eat.\n$6.00 per person for Tray Passed or\n$5.00 per person for Displayed",
+          "description": "Chilled and ready to eat.\n$5.00 per person for Tray Passed or\n$6.00 per person for Displayed",
           "items": [
             {
               "title": "Antipasto Skewers",
@@ -117,13 +117,18 @@
               "title": "Roasted Artichoke Crostini",
               "description": "Fennel Herb Goat Cheese",
               "price": "$6.00 *per person*"
+            },
+            {
+              "title": "Avocado Kale Toast",
+              "description": "Lemon, Olive Oil, Salt, & Pepper",
+              "price": "$6.00 *per person*"
             }
           ]
         },
         {
           "title": "Warm Hors D’oeuvres",
           "type": "multi-item",
-          "description": "Warm and ready to eat.\n$6.00 per person for Tray Passed or\n$5.00 per person for Displayed",
+          "description": "Warm and ready to eat.\n$5.00 per person for Tray Passed or\n$6.00 per person for Displayed",
           "items": [
             {
               "title": "Homemade Meatballs",
@@ -208,6 +213,11 @@
             {
               "title": "Thai Chicken Lettuce Wraps",
               "description": "Asian Inspired Diced Chicken on an Endive Spear _\\[tray passed only]_",
+              "price": "$6.00 *per person*"
+            },
+            {
+              "title": "Mini Rolls",
+              "description": "Served on Toasted, Homemade Roll. Choice of: Meatball, Philly Cheese Steak, or Lobster with Garlic Butter _(Add $2.00 per person)_",
               "price": "$6.00 *per person*"
             }
           ]
