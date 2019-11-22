@@ -122,6 +122,21 @@
                   ]
                 }
               ]
+            },
+            {
+              "title": "Churro Donut Station",
+              "description": "Attendant Required; additional labor fee applies",
+              "price": "$6.00 *per person*",
+              "items": [
+                {
+                  "title": "Includes All",
+                  "list": [
+                    "Vanilla Ice Cream",
+                    "Chocolate Sauce",
+                    "Caramel Sauce"
+                  ]
+                }
+              ]
             }
           ]
         }
