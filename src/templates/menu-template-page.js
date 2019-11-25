@@ -46,33 +46,39 @@ const MenuTemplatePage = ({ data, status }) => {
           </button>
         </div>
       </PageSection>
-      {totalMenuDataLength > 1 ? <PageSection>
-        <div id={"menutop"} className="button-group no-print">
-          {menuData.items.map((item, i) => (
-            <React.Fragment key={i}>
-              <Scrollchor
-                to={`#${slugify(item.title)}`}
-                animate={{offset: -150, duration: 600}}
-                className={`button button--secondary button-group__item`}
-              >
-                {item.title}
-              </Scrollchor>
-            </React.Fragment>
-          ))}
-        </div>
-      </PageSection> : null}
+      {
+        totalMenuDataLength > 1 ?
+        <PageSection>
+          <div id={"menutop"} className="button-group no-print">
+            {menuData.items.map((item, i) => (
+              <React.Fragment key={i}>
+                <Scrollchor
+                  to={`#${slugify(item.title)}`}
+                  animate={{offset: -150, duration: 600}}
+                  className={`button button--secondary button-group__item`}
+                >
+                  {item.title}
+                </Scrollchor>
+              </React.Fragment>
+            ))}
+          </div>
+        </PageSection> : null
+      }
       <section className="section">
         <div className="wrapper">
           <MenuTable data={menuData}/>
         </div>
-        <div className="wrapper xs-py6 xs-text-center">
-          <Scrollchor
-            to={`#menutop`}
-            animate={{offset: -150, duration: 600}}
-          >
-            ⇡ Back to Top 
-          </Scrollchor>
-        </div>
+        {
+          totalMenuDataLength > 1 ?
+          <div className="wrapper xs-py6 xs-text-center">
+            <Scrollchor
+              to={`#menutop`}
+              animate={{offset: -150, duration: 600}}
+            >
+              ⇡ Back to Top
+            </Scrollchor>
+          </div> : null
+        }
       </section>
       <PageSection
         heading={"Tell Us About\nYour Event"}
