@@ -70,7 +70,7 @@ const MenuTemplatePage = ({ data, status }) => {
             to={`#menutop`}
             animate={{offset: -150, duration: 600}}
           >
-            ⇡ Back to Top
+            ⇡ Back to Top 
           </Scrollchor>
         </div>
       </section>
