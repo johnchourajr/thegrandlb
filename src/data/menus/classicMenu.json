@@ -77,40 +77,40 @@
             {
               "title": "Scrambled Eggs _(Select One)_",
               "list": [
-                "With Cheese",
-                "With Chorizo",
-                "With Vegetables"
+                { "text": "With Cheese" },
+                { "text": "With Chorizo" },
+                { "text": "With Vegetables" }
               ],
               "price": "$20.50 *per person*"
             },
             {
               "title": "Side 1 _(Select One)_",
               "list": [
-                "Hash Browns",
-                "Country Potatoes - Peppers & Onions",
-                "Skillet Potatoes - Ortega Chiles, Cumin & Onions, Sweet Potato Hash *(Add $0.75 per person)*"
+                { "text": "Hash Browns" },
+                { "text": "Country Potatoes - Peppers & Onions" },
+                { "text": "Skillet Potatoes - Ortega Chiles, Cumin & Onions, Sweet Potato Hash *(Add $0.75 per person)*" }
               ],
               "price": ""
             },
             {
               "title": "Side 2 _(Select One)_",
               "list": [
-                "Thick-Cut Bacon",
-                "Sausage Patties",
-                "Sausage Links",
-                "Turkey Sausage Links *(Add $1.50 per person)*",
-                "Turkey Bacon *(Add $1.50per person)*",
-                "Morning Star Veggie Patties *(Add $1.50 per person)*"
+                { "text": "Thick-Cut Bacon" },
+                { "text": "Sausage Patties" },
+                { "text": "Sausage Links" },
+                { "text": "Turkey Sausage Links *(Add $1.50 per person)*" },
+                { "text": "Turkey Bacon *(Add $1.50per person)*" },
+                { "text": "Morning Star Veggie Patties *(Add $1.50 per person)*" }
               ],
               "price": ""
             },
             {
               "title": "Side 3 _(Select One)_",
               "list": [
-                "Petite Croissants",
-                "Mini Muffins",
-                "Mini Bagels",
-                "Zucchini Bread"
+                { "text": "Petite Croissants" },
+                { "text": "Mini Muffins" },
+                { "text": "Mini Bagels" },
+                { "text": "Zucchini Bread" }
               ],
               "price": ""
             }
@@ -146,9 +146,9 @@
             {
               "title": "Carving Station _(Select One)_",
               "list": [
-                "Herb Roasted Prime Rib with Horseradish Cream & Au Jus",
-                "Turkey Airline Breast with Cranberry Relish & Sage Gravy",
-                "Smoked Pitt Ham with Honey Clove Orange Glaze & Ground Mustard"
+                { "text": "Herb Roasted Prime Rib with Horseradish Cream & Au Jus" },
+                { "text": "Turkey Airline Breast with Cranberry Relish & Sage Gravy" },
+                { "text": "Smoked Pitt Ham with Honey Clove Orange Glaze & Ground Mustard" }
               ],
               "price": "Add $11 *per person*"
             },

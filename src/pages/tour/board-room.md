@@ -64,13 +64,13 @@ upgrades:
 carousel:
   array:
   - img: "/img/tour-rooms/board-room/index.jpg"
-    caption: "Placeholder Image"
+    caption: ""
   - img: "/img/tour-rooms/board-room/details/1.jpg"
-    caption: "Placeholder Image"
+    caption: ""
   - img: "/img/tour-rooms/board-room/details/2.jpg"
-    caption: "Placeholder Image"
+    caption: ""
   - img: "/img/tour-rooms/board-room/details/3.jpg"
-    caption: "Placeholder Image"
+    caption: ""
 events:
   - text: |
       Team

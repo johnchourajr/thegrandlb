@@ -14,20 +14,20 @@
               "title": "Sweet Tooth Treats",
               "description": "Served or Displayed - A la Carte",
               "list": [
-                "Assorted Dessert Bars - Lemon & Pecan",
-                "Tres Leches Cake",
-                "Gourmet Homemade Pie - Caramel Apple or Chocolate Mousse",
-                "Mini Bundt Cakes - Carrot, Lemon, or Chocolate",
-                "Mini Cupcakes - PBJ, Lemon, Chocolate, Red Velvet, Vanilla or Mint Chocolate Chip",
-                "Individual Fruit Tarts",
-                "Tuxedo Trifle Mousse Cake - Chocolate Cake Layered with Vanilla Mousse and Chocolate Shell",
-                "Cheesecake - Traditional New York with Seasonal Berries or Cookies and Cream with Oreo Crust",
-                "Cinnamon Apple Tart - with Fresh Whipped Cream",
-                "Dolce Italiano - Hazelnut Macaroons & Mini Chocolate Chip Cannolis",
-                "Mini Beignets - Dusted with Cinnamon Sugar or Powdered Sugar",
-                "Churros – with Caramel Sauce",
-                "Chocolate Tartlet – with Salted Caramel",
-                "Petite Fours - *Add $1.00 per person*"
+                { "text": "Assorted Dessert Bars - Lemon & Pecan" },
+                { "text": "Tres Leches Cake" },
+                { "text": "Gourmet Homemade Pie - Caramel Apple or Chocolate Mousse" },
+                { "text": "Mini Bundt Cakes - Carrot, Lemon, or Chocolate" },
+                { "text": "Mini Cupcakes - PBJ, Lemon, Chocolate, Red Velvet, Vanilla or Mint Chocolate Chip" },
+                { "text": "Individual Fruit Tarts" },
+                { "text": "Tuxedo Trifle Mousse Cake - Chocolate Cake Layered with Vanilla Mousse and Chocolate Shell" },
+                { "text": "Cheesecake - Traditional New York with Seasonal Berries or Cookies and Cream with Oreo Crust" },
+                { "text": "Cinnamon Apple Tart - with Fresh Whipped Cream" },
+                { "text": "Dolce Italiano - Hazelnut Macaroons & Mini Chocolate Chip Cannolis" },
+                { "text": "Mini Beignets - Dusted with Cinnamon Sugar or Powdered Sugar" },
+                { "text": "Churros – with Caramel Sauce" },
+                { "text": "Chocolate Tartlet – with Salted Caramel" },
+                { "text": "Petite Fours - *Add $1.00 per person*" }
               ],
               "price": "$4.00 *per person*"
             }
@@ -67,10 +67,10 @@
                 {
                   "title": "Select Two Soda Flavors\n*(served with Vanilla Ice Cream)*",
                   "list": [
-                    "Root Beer",
-                    "Orange",
-                    "Grape",
-                    "Coke"
+                    { "text": "Root Beer" },
+                    { "text": "Orange" },
+                    { "text": "Grape" },
+                    { "text": "Coke" }
                   ]
                 }
               ]
@@ -83,9 +83,9 @@
                 {
                   "title": "Includes All",
                   "list": [
-                    "Vanilla Ice Cream",
-                    "Chocolate Sauce",
-                    "Caramel Sauce"
+                    { "text": "Vanilla Ice Cream" },
+                    { "text": "Chocolate Sauce" },
+                    { "text": "Caramel Sauce" }
                   ]
                 }
               ]
@@ -98,43 +98,43 @@
                 {
                   "title": "Includes",
                   "list": [
-                    "Three Hour Fountain Rental",
-                    "20lbs of Belgium Chocolate (choice of dark, semisweet, milk, or white)",
-                    "Round, Skirted Table",
-                    "Napkins, Mini Plates, & 8in Skewers"
+                    { "text": "Three Hour Fountain Rental" },
+                    { "text": "20lbs of Belgium Chocolate (choice of dark, semisweet, milk, or white)" },
+                    { "text": "Round, Skirted Table" },
+                    { "text": "Napkins, Mini Plates, & 8in Skewers" }
                   ]
                 },
                 {
                   "title": "Dipping Items",
                   "list": [
-                    "Choose Three for $8.00 *per person*",
-                    "Choose Four for $10.00 *per person*",
-                    "Choose Five for $11.00 *per person*"
+                    { "text": "Choose Three for $8.00 *per person*" },
+                    { "text": "Choose Four for $10.00 *per person*" },
+                    { "text": "Choose Five for $11.00 *per person*" }
                   ]
                 },
                 {
                   "title": "Choice of",
                   "list": [
-                    "Cheesecake Bites",
-                    "Brownie Squares",
-                    "Strawberries",
-                    "Apples",
-                    "Oreo Cookies",
-                    "Caramel",
-                    "Bananas",
-                    "Peanut Butter Balls",
-                    "Nutter Butter Cookies",
-                    "Shortbread Cookies ",
-                    "Snicker Pieces",
-                    "Pretzel Rods",
-                    "Cream Puffs",
-                    "Pineapple",
-                    "Rice Krispie Treats",
-                    "Graham Cracker Squares",
-                    "Coconut Macaroons",
-                    "Coconut Balls",
-                    "Biscotti",
-                    "Marshmallows"
+                    { "text": "Cheesecake Bites" },
+                    { "text": "Brownie Squares" },
+                    { "text": "Strawberries" },
+                    { "text": "Apples" },
+                    { "text": "Oreo Cookies" },
+                    { "text": "Caramel" },
+                    { "text": "Bananas" },
+                    { "text": "Peanut Butter Balls" },
+                    { "text": "Nutter Butter Cookies" },
+                    { "text": "Shortbread Cookies" },
+                    { "text": "Snicker Pieces" },
+                    { "text": "Pretzel Rods" },
+                    { "text": "Cream Puffs" },
+                    { "text": "Pineapple" },
+                    { "text": "Rice Krispie Treats" },
+                    { "text": "Graham Cracker Squares" },
+                    { "text": "Coconut Macaroons" },
+                    { "text": "Coconut Balls" },
+                    { "text": "Biscotti" },
+                    { "text": "Marshmallows" }
                   ]
                 }
               ]
