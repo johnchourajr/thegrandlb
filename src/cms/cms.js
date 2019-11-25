@@ -8,7 +8,7 @@ import SiteDetailsPreview from './preview-templates/SiteDetailsPreview'
 CMS.registerMediaLibrary(uploadcare);
 CMS.registerMediaLibrary(cloudinary);
 
-CMS.registerPreviewStyle('/styles.css')
+// CMS.registerPreviewStyle('/styles.css')
 CMS.registerPreviewTemplate('siteDetails', SiteDetailsPreview)
 // CMS.registerPreviewTemplate('tourPages', BasicPagePreview)
 //

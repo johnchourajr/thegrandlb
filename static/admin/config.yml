@@ -166,8 +166,7 @@ collections:
                         name: list
                         widget: list
                         required: false
-                        fields:
-                          - {label: text, name: text, widget: string, required: false}
+                        field: {label: text, name: text, widget: string, required: false}
                       - {label: price, name: price, widget: string, required: false}
                       - label: items
                         name: items
@@ -179,8 +178,7 @@ collections:
                             name: list
                             widget: list
                             required: false
-                            fields:
-                              - {label: text, name: text, widget: string, required: false}
+                            field: {label: text, name: text, widget: string, required: false}
       - label: "Menu Basics Mains"
         name: "basics mains"
         description: "Used in Classic Menu"
@@ -216,8 +214,7 @@ collections:
                         name: list
                         widget: list
                         required: false
-                        fields:
-                          - {label: text, name: text, widget: string, required: false}
+                        field: {label: text, name: text, widget: string, required: false}
                       - {label: price, name: price, widget: string, required: false}
                       - label: items
                         name: items
@@ -229,8 +226,7 @@ collections:
                             name: list
                             widget: list
                             required: false
-                            fields:
-                              - {label: text, name: text, widget: string, required: false}
+                            field: {label: text, name: text, widget: string, required: false}
       - label: "Menu Basics Mains Shared"
         name: "basics mains shared"
         description: "Used in Wedding, and Milestones Menu"
@@ -266,8 +262,7 @@ collections:
                         name: list
                         widget: list
                         required: false
-                        fields:
-                          - {label: text, name: text, widget: string, required: false}
+                        field: {label: text, name: text, widget: string, required: false}
                       - {label: price, name: price, widget: string, required: false}
                       - label: items
                         name: items
@@ -279,8 +274,7 @@ collections:
                             name: list
                             widget: list
                             required: false
-                            fields:
-                              - {label: text, name: text, widget: string, required: false}
+                            field: {label: text, name: text, widget: string, required: false}
       - label: "Menu Basics Sweets"
         name: "basics sweets"
         description: "Used in Classic, Wedding, and Milestones Menu"
