@@ -13,12 +13,12 @@
               "title": "The Silver",
               "description": "",
               "list": [
-                "“[The Standard](#the-standard)” Menu",
-                "Complimentary Entrées for Bride & Groom",
-                "Choice of Two “[To Start](#to-start)” Displayed Appetizers",
-                "Wine Service with Dinner *(two bottles per table)*",
-                "Served Champagne & Sparkling Cider Toast",
-                "Cake Cutting & Serving"
+                { "text": "“[The Standard](#the-standard)” Menu" },
+                { "text": "Complimentary Entrées for Bride & Groom" },
+                { "text": "Choice of Two “[To Start](#to-start)” Displayed Appetizers" },
+                { "text": "Wine Service with Dinner *(two bottles per table)*" },
+                { "text": "Served Champagne & Sparkling Cider Toast" },
+                { "text": "Cake Cutting & Serving" }
               ],
               "price": "*Lunch* $55.50 *-* *Dinner* $65.50"
             },
@@ -26,15 +26,15 @@
               "title": "The Gold",
               "description": "",
               "list": [
-                "“[The Grand Standard](#the-grand-standard)” Menu",
-                "Complimentary Entrées for Bride & Groom",
-                "90 Minute Limited Hosted Bar",
-                "Choice of Three “[To Start](#to-start)” Displayed Appetizers",
-                "Choice of Two Tray Passed Hors D’oeuvres",
-                "Wine Service with Dinner *(two bottles per table)*",
-                "Served Champagne & Sparkling Cider Toast",
-                "10” Mirrored Round for Each Guest Table",
-                "Cake Cutting & Serving"
+                { "text": "“[The Grand Standard](#the-grand-standard)” Menu" },
+                { "text": "Complimentary Entrées for Bride & Groom" },
+                { "text": "90 Minute Limited Hosted Bar" },
+                { "text": "Choice of Three “[To Start](#to-start)” Displayed Appetizers" },
+                { "text": "Choice of Two Tray Passed Hors D’oeuvres" },
+                { "text": "Wine Service with Dinner *(two bottles per table)*" },
+                { "text": "Served Champagne & Sparkling Cider Toast" },
+                { "text": "10” Mirrored Round for Each Guest Table" },
+                { "text": "Cake Cutting & Serving" }
               ],
               "price": "*Lunch* $66.50 *-* *Dinner* $76.50"
             },
@@ -42,17 +42,17 @@
               "title": "The Platinum",
               "description": "",
               "list": [
-                "“[The Choura Standard](#the-choura-standard)” Menu",
-                "Complimentary Entrées for Bride & Groom",
-                "90 Minute Hosted Bar w/ Signature Drink",
-                "Choice of Three “[To Start](#to-start)” Displayed Appetizers",
-                "Choice of Three Tray Passed Hors D’oeuvres",
-                "Wine Service with Dinner *(two bottles per table)*",
-                "Served Champagne & Sparkling Cider Toast",
-                "10” Mirrored Round for Each Guest Table",
-                "Chair Covers with Sash -or- Chiavari Chairs",
-                "Cake Cutting & Serving",
-                "Additional Event Hour"
+                { "text": "“[The Choura Standard](#the-choura-standard)” Menu" },
+                { "text": "Complimentary Entrées for Bride & Groom" },
+                { "text": "90 Minute Hosted Bar w/ Signature Drink" },
+                { "text": "Choice of Three “[To Start](#to-start)” Displayed Appetizers" },
+                { "text": "Choice of Three Tray Passed Hors D’oeuvres" },
+                { "text": "Wine Service with Dinner *(two bottles per table)*" },
+                { "text": "Served Champagne & Sparkling Cider Toast" },
+                { "text": "10” Mirrored Round for Each Guest Table" },
+                { "text": "Chair Covers with Sash -or- Chiavari Chairs" },
+                { "text": "Cake Cutting & Serving" },
+                { "text": "Additional Event Hour" }
               ],
               "price": "*Lunch* $79.50 *-* *Dinner* $89.50"
             }
@@ -70,25 +70,25 @@
                 {
                   "title": "Pricing",
                   "list": [
-                    "Without Reception $15.00 *per person*",
-                    "With Reception $12.00 *per person*"
+                    { "text": "Without Reception $15.00 *per person*" },
+                    { "text": "With Reception $12.00 *per person*" }
                   ]
                 },
                 {
                   "title": "Includes",
                   "list": [
-                    "Iced Water Station",
-                    "White Wood Chairs",
-                    "Serene Garden Setting",
-                    "Wedding Arch -or- Columns",
-                    "White Aisle Runner",
-                    "Bridal Suite – Available on a 'First Come, First Served' Basis Upon Booking"
+                    { "text": "Iced Water Station" },
+                    { "text": "White Wood Chairs" },
+                    { "text": "Serene Garden Setting" },
+                    { "text": "Wedding Arch -or- Columns" },
+                    { "text": "White Aisle Runner" },
+                    { "text": "Bridal Suite – Available on a 'First Come, First Served' Basis Upon Booking" }
                   ]
                 },
                 {
                   "title": "Not Included",
                   "list": [
-                    "Groom’s Room, Wedding Coordinator, Photographer, Decorations, Clergy, and Music. *Referrals are available upon request*"
+                    { "text": "Groom’s Room, Wedding Coordinator, Photographer, Decorations, Clergy, and Music. *Referrals are available upon request*" }
                   ]
                 }
               ]
@@ -103,58 +103,58 @@
             {
               "title": "Afternoon Treat",
               "list": [
-                "Ice Cream Bars",
-                "Assorted Cookies",
-                "Coffee, Decaf, Assorted Sodas"
+                { "text": "Ice Cream Bars" },
+                { "text": "Assorted Cookies" },
+                { "text": "Coffee, Decaf, Assorted Sodas" }
               ],
               "price": "$55.00"
             },
             {
               "title": "Spice It Up",
               "list": [
-                "Mini Chicken Quesadillas",
-                "Guacamole and Pico de Gallo",
-                "Tortilla Chips",
-                "Coffee, Decaf, Assorted Sodas"
+                { "text": "Mini Chicken Quesadillas" },
+                { "text": "Guacamole and Pico de Gallo" },
+                { "text": "Tortilla Chips" },
+                { "text": "Coffee, Decaf, Assorted Sodas" }
               ],
               "price": "$72.00"
             },
             {
               "title": "Napa Valley",
               "list": [
-                "Marinated Olives, Goat Cheese, Grapes, and Crostinis Sliced Seasonal Fruit and Berries",
-                "Coffee, Decaf, Tea, Mineral Water, Assorted Sodas"
+                { "text": "Marinated Olives, Goat Cheese, Grapes, and Crostinis Sliced Seasonal Fruit and Berries" },
+                { "text": "Coffee, Decaf, Tea, Mineral Water, Assorted Sodas" }
               ],
               "price": "$72.00"
             },
             {
               "title": "Balance",
               "list": [
-                "Granola Bars",
-                "Whole Fruit",
-                "Vegetable Crudités with Dip",
-                "Assorted Vitamin Water"
+                { "text": "Granola Bars" },
+                { "text": "Whole Fruit" },
+                { "text": "Vegetable Crudités with Dip" },
+                { "text": "Assorted Vitamin Water" }
               ],
               "price": "$82.00"
             },
             {
               "title": "Time For Tea",
               "list": [
-                "Freshly Baked Scones",
-                "Assorted Tea Sandwiches",
-                "Strawberries with Whipped Cream",
-                "Assorted Hot Teas"
+                { "text": "Freshly Baked Scones" },
+                { "text": "Assorted Tea Sandwiches" },
+                { "text": "Strawberries with Whipped Cream" },
+                { "text": "Assorted Hot Teas" }
               ],
               "price": "$93.00"
             },
             {
               "title": "Ultimate Relaxation",
               "list": [
-                "Premium House Chardonnay and Cabernet Sauvignon",
-                "Gourmet Cheese Display with Dried Fruit and Nuts",
-                "Seasonal Fruit Platter",
-                "Assorted Breads & Crostinis",
-                "Mineral Water"
+                { "text": "Premium House Chardonnay and Cabernet Sauvignon" },
+                { "text": "Gourmet Cheese Display with Dried Fruit and Nuts" },
+                { "text": "Seasonal Fruit Platter" },
+                { "text": "Assorted Breads & Crostinis" },
+                { "text": "Mineral Water" }
               ],
               "price": "139.00"
             }

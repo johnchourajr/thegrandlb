@@ -65,6 +65,14 @@ const MenuTemplatePage = ({ data, status }) => {
         <div className="wrapper">
           <MenuTable data={menuData}/>
         </div>
+        <div className="wrapper xs-py6 xs-text-center">
+          <Scrollchor
+            to={`#menutop`}
+            animate={{offset: -150, duration: 600}}
+          >
+            ⇡ Back to Top
+          </Scrollchor>
+        </div>
       </section>
       <PageSection
         heading={"Tell Us About\nYour Event"}

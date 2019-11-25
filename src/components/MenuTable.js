@@ -65,7 +65,7 @@ const MenuItem = props => {
             <ReactMarkdown className="menu--table--item--description" source={listItem.description}/>
             {listItem.list && <ul>
               {listItem.list.map((item, i) => (
-                <li key={i}><ReactMarkdown source={item}/></li>
+                <li key={i}><ReactMarkdown source={item.text}/></li>
               ))}
             </ul>}
             <MenuSubList item={listItem.items}/>
@@ -89,7 +89,7 @@ const MenuSubList = props => {
           <h5><ReactMarkdown className="table--division menu--table--item--title" source={subItem.title}/></h5>
           {subItem.list && <ul>
             {subItem.list.map((item, i) => (
-              <li key={i}><ReactMarkdown source={item}/></li>
+              <li key={i}><ReactMarkdown source={item.text}/></li>
             ))}
           </ul>}
         </div>
