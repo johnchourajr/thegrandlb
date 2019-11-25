@@ -316,8 +316,7 @@ collections:
                         name: list
                         widget: list
                         required: false
-                        fields:
-                          - {label: text, name: text, widget: string, required: false}
+                        field: {label: text, name: text, widget: string, required: false}
                       - {label: price, name: price, widget: string, required: false}
                       - label: items
                         name: items
@@ -329,8 +328,7 @@ collections:
                             name: list
                             widget: list
                             required: false
-                            fields:
-                              - {label: text, name: text, widget: string, required: false}
+                            field: {label: text, name: text, widget: string, required: false}
       - label: "Menu Basics Drinks"
         name: "basics drinks"
         description: "Used in Classic, Wedding, and Milestones Menu"
@@ -366,8 +364,7 @@ collections:
                         name: list
                         widget: list
                         required: false
-                        fields:
-                          - {label: text, name: text, widget: string, required: false}
+                        field: {label: text, name: text, widget: string, required: false}
                       - {label: price, name: price, widget: string, required: false}
                       - label: items
                         name: items
@@ -379,8 +376,7 @@ collections:
                             name: list
                             widget: list
                             required: false
-                            fields:
-                              - {label: text, name: text, widget: string, required: false}
+                            field: {label: text, name: text, widget: string, required: false}
       - label: "Classic Menu"
         name: "classic menu"
         file: "src/data/menus/classicMenu.json"
@@ -415,8 +411,7 @@ collections:
                         name: list
                         widget: list
                         required: false
-                        fields:
-                          - {label: text, name: text, widget: string, required: false}
+                        field: {label: text, name: text, widget: string, required: false}
                       - {label: price, name: price, widget: string, required: false}
                       - label: items
                         name: items
@@ -428,8 +423,7 @@ collections:
                             name: list
                             widget: list
                             required: false
-                            fields:
-                              - {label: text, name: text, widget: string, required: false}
+                            field: {label: text, name: text, widget: string, required: false}
       - label: "Corporate Menu"
         name: "corporate menu"
         file: "src/data/menus/corporateMenu.json"
@@ -464,8 +458,7 @@ collections:
                         name: list
                         widget: list
                         required: false
-                        fields:
-                          - {label: text, name: text, widget: string, required: false}
+                        field: {label: text, name: text, widget: string, required: false}
                       - {label: price, name: price, widget: string, required: false}
                       - label: items
                         name: items
@@ -477,8 +470,7 @@ collections:
                             name: list
                             widget: list
                             required: false
-                            fields:
-                              - {label: text, name: text, widget: string, required: false}
+                            field: {label: text, name: text, widget: string, required: false}
       - label: "Milestone Menu"
         name: "milestone menu"
         file: "src/data/menus/milestoneMenu.json"
@@ -513,8 +505,7 @@ collections:
                         name: list
                         widget: list
                         required: false
-                        fields:
-                          - {label: text, name: text, widget: string, required: false}
+                        field: {label: text, name: text, widget: string, required: false}
                       - {label: price, name: price, widget: string, required: false}
                       - label: items
                         name: items
@@ -526,8 +517,7 @@ collections:
                             name: list
                             widget: list
                             required: false
-                            fields:
-                              - {label: text, name: text, widget: string, required: false}
+                            field: {label: text, name: text, widget: string, required: false}
       - label: "Wedding Menu"
         name: "wedding menu"
         file: "src/data/menus/weddingMenu.json"
@@ -562,8 +552,7 @@ collections:
                         name: list
                         widget: list
                         required: false
-                        fields:
-                          - {label: text, name: text, widget: string, required: false}
+                        field: {label: text, name: text, widget: string, required: false}
                       - {label: price, name: price, widget: string, required: false}
                       - label: items
                         name: items
@@ -575,5 +564,4 @@ collections:
                             name: list
                             widget: list
                             required: false
-                            fields:
-                              - {label: text, name: text, widget: string, required: false}
+                            field: {label: text, name: text, widget: string, required: false}
