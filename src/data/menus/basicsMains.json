@@ -435,34 +435,60 @@
                 {
                   "title": "Salads — Included",
                   "list": [
-                    { "text": "Chinese Chicken Salad - Chicken, Romaine, Thai Basil, Cucumber, Bean Sprout, & Toasted Sesame Vinaigrette" },
-                    { "text": "Green Tea Soba Noodle - Bok Choy, Shiitake Mushrooms, Fresh Mint, & Sweet Soy Vinaigrette" }
+                    {
+                      "text": "Chinese Chicken Salad - Chicken, Romaine, Thai Basil, Cucumber, Bean Sprout, & Toasted Sesame Vinaigrette"
+                    },
+                    {
+                      "text": "Green Tea Soba Noodle - Bok Choy, Shiitake Mushrooms, Fresh Mint, & Sweet Soy Vinaigrette"
+                    }
                   ]
                 },
                 {
                   "title": "Entrées — Select Two",
                   "list": [
-                    { "text": "Orange Chicken - Crispy Chicken Tossed with Orange Zest & Chiles" },
-                    { "text": "Spicy Kung Pao Chicken - Pan Fried Chicken with Dried Chile Pods, Scallions, Peanuts, Cilantro, Peppers, Onions, & Red Chile Sauce " },
-                    { "text": "Beef + Broccoli - with a Sweet Soy Ginger Glaze" },
-                    { "text": "Mongolian Beef - Sautéed Tender Beef with Scallions & Garlic" },
-                    { "text": "Asian Salmon - Shiitake Mushrooms, Bok Choy, & Sweet Soy Reduction *(Add $1.50 per person)*" }
+                    {
+                      "text": "Orange Chicken - Crispy Chicken Tossed with Orange Zest & Chiles"
+                    },
+                    {
+                      "text": "Spicy Kung Pao Chicken - Pan Fried Chicken with Dried Chile Pods, Scallions, Peanuts, Cilantro, Peppers, Onions, & Red Chile Sauce "
+                    },
+                    {
+                      "text": "Beef + Broccoli - with a Sweet Soy Ginger Glaze"
+                    },
+                    {
+                      "text": "Mongolian Beef - Sautéed Tender Beef with Scallions & Garlic"
+                    },
+                    {
+                      "text": "Asian Salmon - Shiitake Mushrooms, Bok Choy, & Sweet Soy Reduction *(Add $1.50 per person)*"
+                    }
                   ]
                 },
                 {
                   "title": "Sides — Select Two",
                   "list": [
-                    { "text": "Pan Fried Noodles - with Bean Sprouts, Asparagus, Shiitake Mushrooms, & Bok Choy" },
-                    { "text": "House Fried Rice - with Fresh Peas, Egg, Carrots, Scallions, & Fresh Herbs" },
-                    { "text": "Vegetable Stir Fry - Assorted Vegetables Sautéed with Garlic, Ginger, Asian Herbs, & Sweet Soy Sauce" },
-                    { "text": "Steamed White Rice *(brown rice available upon request)*" }
+                    {
+                      "text": "Pan Fried Noodles - with Bean Sprouts, Asparagus, Shiitake Mushrooms, & Bok Choy"
+                    },
+                    {
+                      "text": "House Fried Rice - with Fresh Peas, Egg, Carrots, Scallions, & Fresh Herbs"
+                    },
+                    {
+                      "text": "Vegetable Stir Fry - Assorted Vegetables Sautéed with Garlic, Ginger, Asian Herbs, & Sweet Soy Sauce"
+                    },
+                    {
+                      "text": "Steamed White Rice *(brown rice available upon request)*"
+                    }
                   ]
                 },
                 {
                   "title": "Dessert — Select One",
                   "list": [
-                    { "text": "Pineapple Upside-down Cake" },
-                    { "text": "Almond Cookies" }
+                    {
+                      "text": "Pineapple Upside-down Cake"
+                    },
+                    {
+                      "text": "Almond Cookies"
+                    }
                   ]
                 }
               ]
@@ -475,30 +501,48 @@
                 {
                   "title": "Salads — Included",
                   "list": [
-                    { "text": "Tossed Green - Cucumber, Tomato, Carrot, Ranch & Balsamic Dressing" },
-                    { "text": "Cucumber Raita - Cucumber, Yogurt, Lemon, Garlic & Mint" }
+                    {
+                      "text": "Tossed Green - Cucumber, Tomato, Carrot, Ranch & Balsamic Dressing"
+                    },
+                    {
+                      "text": "Cucumber Raita - Cucumber, Yogurt, Lemon, Garlic & Mint"
+                    }
                   ]
                 },
                 {
                   "title": "Entrées — Select Two",
                   "list": [
-                    { "text": "Chicken Tikka Masala - Boneless Chicken Marinated with Cumin, Cardamom, Paprika, Cayenne, and Garlic & Served with Traditional Indian Tikka Masala Sauce" },
-                    { "text": "Curry Chicken - Boneless Chicken with a Classic Indian Curry Sauce *(Add $1.50 per person for Shrimp)*" },
-                    { "text": "Vegetable Skewers - Choose Tikka Masala or Curry Sauce" }
+                    {
+                      "text": "Chicken Tikka Masala - Boneless Chicken Marinated with Cumin, Cardamom, Paprika, Cayenne, and Garlic & Served with Traditional Indian Tikka Masala Sauce"
+                    },
+                    {
+                      "text": "Curry Chicken - Boneless Chicken with a Classic Indian Curry Sauce *(Add $1.50 per person for Shrimp)*"
+                    },
+                    {
+                      "text": "Vegetable Skewers - Choose Tikka Masala or Curry Sauce"
+                    }
                   ]
                 },
                 {
                   "title": "Sides — Select Two",
                   "list": [
-                    { "text": "Basmati Rice" },
-                    { "text": "Panir Tikka - Stir Fried Vegetables with Curry Spice" },
-                    { "text": "Dal Mahkni - Lentils, Onion, Garlic, Cumin & Cream" }
+                    {
+                      "text": "Basmati Rice"
+                    },
+                    {
+                      "text": "Panir Tikka - Stir Fried Vegetables with Curry Spice"
+                    },
+                    {
+                      "text": "Dal Mahkni - Lentils, Onion, Garlic, Cumin & Cream"
+                    }
                   ]
                 },
                 {
                   "title": "Dessert — Included",
                   "list": [
-                    { "text": "Chef’s Choice" }
+                    {
+                      "text": "Chef’s Choice"
+                    }
                   ]
                 }
               ]
@@ -511,33 +555,57 @@
                 {
                   "title": "Salads — Included",
                   "list": [
-                    { "text": "Black Bean - Grilled Corn, Tomatoes, Queso Fresco, & Spicy Honey Lime Vinaigrette" },
-                    { "text": "Mexican Chopped Salad - Mixed Greens with Jicama, Radishes, Tomatoes, Crispy Tortillas Strips, & Spicy Chipotle Dressing" }
+                    {
+                      "text": "Black Bean - Grilled Corn, Tomatoes, Queso Fresco, & Spicy Honey Lime Vinaigrette"
+                    },
+                    {
+                      "text": "Mexican Chopped Salad - Mixed Greens with Jicama, Radishes, Tomatoes, Crispy Tortillas Strips, & Spicy Chipotle Dressing"
+                    }
                   ]
                 },
                 {
                   "title": "Entrées — Select Two",
                   "list": [
-                    { "text": "Beef or Chicken Fajitas - Marinated with Cilantro, Lime, Toasted Cumin, Caramelized Onions, & Mixed Peppers *(Add $4 per person for Shrimp)*" },
-                    { "text": "Chicken Enchilada Casserole - Slow Roasted & Shredded with Mexican Spices, Homemade Red or Green sauce, & Cheese" },
-                    { "text": "Pollo Asado - Marinated Chicken with Fresh Citrus, Cumin, Cilantro, Garlic, & Fresh Herbs *(Add $3 per person for Carne Asada)*" }
+                    {
+                      "text": "Beef or Chicken Fajitas - Marinated with Cilantro, Lime, Toasted Cumin, Caramelized Onions, & Mixed Peppers *(Add $4 per person for Shrimp)*"
+                    },
+                    {
+                      "text": "Chicken Enchilada Casserole - Slow Roasted & Shredded with Mexican Spices, Homemade Red or Green sauce, & Cheese"
+                    },
+                    {
+                      "text": "Pollo Asado - Marinated Chicken with Fresh Citrus, Cumin, Cilantro, Garlic, & Fresh Herbs *(Add $3 per person for Carne Asada)*"
+                    }
                   ]
                 },
                 {
                   "title": "Sides — Included",
                   "list": [
-                    { "text": "Mexican Rice" },
-                    { "text": "Refried, Pinto, or Black Beans with Queso Fresco" },
-                    { "text": "Corn or Flour Tortillas" },
-                    { "text": "Homemade Salsa" },
-                    { "text": "Sour Cream" }
+                    {
+                      "text": "Mexican Rice"
+                    },
+                    {
+                      "text": "Refried, Pinto, or Black Beans with Queso Fresco"
+                    },
+                    {
+                      "text": "Corn or Flour Tortillas"
+                    },
+                    {
+                      "text": "Homemade Salsa"
+                    },
+                    {
+                      "text": "Sour Cream"
+                    }
                   ]
                 },
                 {
                   "title": "Dessert — Select One",
                   "list": [
-                    { "text": "Tres Leches Cake" },
-                    { "text": "Churros with Caramel" }
+                    {
+                      "text": "Tres Leches Cake"
+                    },
+                    {
+                      "text": "Churros with Caramel"
+                    }
                   ]
                 }
               ]
@@ -550,32 +618,54 @@
                 {
                   "title": "Salads — Included",
                   "list": [
-                    { "text": "Classic Cobb - Romaine, Avocado, Smoked Ham, Bleu Cheese Crumbles, Tomatoes, Bacon, Egg, & Buttermilk Ranch" },
-                    { "text": "Cole Slaw - Shredded Napa Cabbage, Apples, Toasted Pecans, Fresh Citrus, & Spicy Dijon Vinaigrette" }
+                    {
+                      "text": "Classic Cobb - Romaine, Avocado, Smoked Ham, Bleu Cheese Crumbles, Tomatoes, Bacon, Egg, & Buttermilk Ranch"
+                    },
+                    {
+                      "text": "Cole Slaw - Shredded Napa Cabbage, Apples, Toasted Pecans, Fresh Citrus, & Spicy Dijon Vinaigrette"
+                    }
                   ]
                 },
                 {
                   "title": "Entrées — Select Two",
                   "list": [
-                    { "text": "Oven Fried Chicken" },
-                    { "text": "Smoked Pork Spare Ribs - Featuring the Choura Signature Rub" },
-                    { "text": "BBQ Brisket - Glazed with BBQ Sauce & Orange Zest" },
-                    { "text": "Tri Tip - Marinated with Fresh Herbs, Garlic, & Lemon *(Add $1.25 per person)*" }
+                    {
+                      "text": "Oven Fried Chicken"
+                    },
+                    {
+                      "text": "Smoked Pork Spare Ribs - Featuring the Choura Signature Rub"
+                    },
+                    {
+                      "text": "BBQ Brisket - Glazed with BBQ Sauce & Orange Zest"
+                    },
+                    {
+                      "text": "Tri Tip - Marinated with Fresh Herbs, Garlic, & Lemon *(Add $1.25 per person)*"
+                    }
                   ]
                 },
                 {
                   "title": "Sides — Select Two",
                   "list": [
-                    { "text": "The Mash - Yukon Gold Potatoes with Roasted Garlic, Sour Cream, & Scallions" },
-                    { "text": "Corn on the Cob - Grilled with Smokey Chipotle Butter" },
-                    { "text": "Mac + Cheese - Elbow Pasta with Farmhouse Cheddar, Crispy Pancetta, Fresh Chives, & Crispy Bread Crumb Crust" },
-                    { "text": "Baked Beans - Slow Baked with Caramelized Onions, Brown Sugar, & Smoked Bacon. Served with Homemade Corn Bread and Honey Butter" }
+                    {
+                      "text": "The Mash - Yukon Gold Potatoes with Roasted Garlic, Sour Cream, & Scallions"
+                    },
+                    {
+                      "text": "Corn on the Cob - Grilled with Smokey Chipotle Butter"
+                    },
+                    {
+                      "text": "Mac + Cheese - Elbow Pasta with Farmhouse Cheddar, Crispy Pancetta, Fresh Chives, & Crispy Bread Crumb Crust"
+                    },
+                    {
+                      "text": "Baked Beans - Slow Baked with Caramelized Onions, Brown Sugar, & Smoked Bacon. Served with Homemade Corn Bread and Honey Butter"
+                    }
                   ]
                 },
                 {
                   "title": "Dessert — Included",
                   "list": [
-                    { "text": "Apple Pan Doude" }
+                    {
+                      "text": "Apple Pan Doude"
+                    }
                   ]
                 }
               ]
@@ -588,32 +678,54 @@
                 {
                   "title": "Salads — Select Two",
                   "list": [
-                    { "text": "Orzo - Cherry Tomatoes, Kalamata Olives, Capers, Grilled Asparagus, & Homemade Pesto" },
-                    { "text": "Angel Hair Pasta - Olives, Capers, Tomatoes, & Roasted Tomato Vinaigrette" },
-                    { "text": "Caesar Salad - Chopped Romaine, Croutons, Shaved Parmesan, & Caesar Dressing" },
-                    { "text": "Antipasto Salad - Chopped Romaine, Roasted Peppers, Marinated Artichokes, Assorted Cured Meats, Provolone Cheese, Olives, & Italian Dressing" }
+                    {
+                      "text": "Orzo - Cherry Tomatoes, Kalamata Olives, Capers, Grilled Asparagus, & Homemade Pesto"
+                    },
+                    {
+                      "text": "Angel Hair Pasta - Olives, Capers, Tomatoes, & Roasted Tomato Vinaigrette"
+                    },
+                    {
+                      "text": "Caesar Salad - Chopped Romaine, Croutons, Shaved Parmesan, & Caesar Dressing"
+                    },
+                    {
+                      "text": "Antipasto Salad - Chopped Romaine, Roasted Peppers, Marinated Artichokes, Assorted Cured Meats, Provolone Cheese, Olives, & Italian Dressing"
+                    }
                   ]
                 },
                 {
                   "title": "Entrées — Select Two",
                   "list": [
-                    { "text": "Chicken or Eggplant Parmesan - Parmesan Panko Crusted Chicken Breast or Baked Eggplant with Provolone & Basil Marinara Sauce" },
-                    { "text": "Bistecca - Grilled Tri Tip with Fresh Lemon, Garlic, Shaved Parmesan & Tomato Basil Vinaigrette *(Add $1.25 per person)*" },
-                    { "text": "Penne Pasta - Italian Sausage, Caramelized Onions, Roasted Peppers, & Rustic Basil-Alfredo Sauce" },
-                    { "text": "Pasta Primavera - Garlic Butter Sautéed Seasonal Vegetables & White Wine Cream Sauce" }
+                    {
+                      "text": "Chicken or Eggplant Parmesan - Parmesan Panko Crusted Chicken Breast or Baked Eggplant with Provolone & Basil Marinara Sauce"
+                    },
+                    {
+                      "text": "Bistecca - Grilled Tri Tip with Fresh Lemon, Garlic, Shaved Parmesan & Tomato Basil Vinaigrette *(Add $1.25 per person)*"
+                    },
+                    {
+                      "text": "Penne Pasta - Italian Sausage, Caramelized Onions, Roasted Peppers, & Rustic Basil-Alfredo Sauce"
+                    },
+                    {
+                      "text": "Pasta Primavera - Garlic Butter Sautéed Seasonal Vegetables & White Wine Cream Sauce"
+                    }
                   ]
                 },
                 {
                   "title": "Sides — Included",
                   "list": [
-                    { "text": "Vegetable Ratatouille - Grilled Zucchini, Peppers, Asparagus, & Roasted Baby Carrots Seasoned with Garlic-Basil Butter" },
-                    { "text": "Fettuccine Olio di Burro - Pasta Tossed with Butter, Fresh Italian Parsley, Extra Virgin Olive Oil and Parmesan Cheese" }
+                    {
+                      "text": "Vegetable Ratatouille - Grilled Zucchini, Peppers, Asparagus, & Roasted Baby Carrots Seasoned with Garlic-Basil Butter"
+                    },
+                    {
+                      "text": "Fettuccine Olio di Burro - Pasta Tossed with Butter, Fresh Italian Parsley, Extra Virgin Olive Oil and Parmesan Cheese"
+                    }
                   ]
                 },
                 {
                   "title": "Dessert — Included",
                   "list": [
-                    { "text": "Coconut Macaroons & Mini Cannolis" }
+                    {
+                      "text": "Coconut Macaroons & Mini Cannolis"
+                    }
                   ]
                 }
               ]
@@ -626,39 +738,72 @@
                 {
                   "title": "Salads — Included",
                   "list": [
-                    { "text": "Antipasto - Chopped Romaine, Roasted Peppers, Marinated Artichokes, Assorted Cured Meats, Provolone Cheese, Olives, & Italian Dressing" },
-                    { "text": "Panzanella – Cucumber, Tomato, Slivered Red Onion, Fresh Basil, Croutons, & Creamy Basil Dressing" }
+                    {
+                      "text": "Antipasto - Chopped Romaine, Roasted Peppers, Marinated Artichokes, Assorted Cured Meats, Provolone Cheese, Olives, & Italian Dressing"
+                    },
+                    {
+                      "text": "Panzanella – Cucumber, Tomato, Slivered Red Onion, Fresh Basil, Croutons, & Creamy Basil Dressing"
+                    }
                   ]
                 },
                 {
                   "title": "Between The Bread — Select Two",
                   "list": [
-                    { "text": "Smoked Ham - Brie & Honey Mustard" },
-                    { "text": "Roast Beef - Cheddar Cheese, Caramelized Onions, & Gorgonzola Spread" },
-                    { "text": "Classic BLT - Bacon, Lettuce, Tomato, & Lemon Aioli" },
-                    { "text": "Chicken Caesar Pita - Romaine Lettuce, Tomato, Parmesan, & Caesar Dressing" },
-                    { "text": "Club Sandwich - Roasted Turkey, Ham, Lettuce, Tomato, Bacon, & Garlic Aioli" },
-                    { "text": "Roasted Turkey - Provolone, Roasted Red Peppers, & Basil Pesto" },
-                    { "text": "Santa Fe Chicken - Ortega Chiles, Pepperjack Cheese, Greens, & Chipotle Aioli" },
-                    { "text": "Roasted Pork Loin - Asian Slaw, Thai Basil, Pea Sprouts, Pickled Cucumber, & Sriracha Aioli" },
-                    { "text": "Albacore Tuna - with Scallions, Fresh Tarragon, & Lemon Zest" },
-                    { "text": "Curry Chicken Salad - with Celery, Fresh Herbs, Dried Cherries, Chives, & Curry Aioli" },
-                    { "text": "Chicken Salad - with Celery, Fresh Herbs, Chives, & Mayo" },
-                    { "text": "Garden Stack - Grilled Vegetables, Feta, & Olive Tapenade Spread" },
-                    { "text": "Caprese Stack - Arugula, Mozzarella, Tomatoes, Balsamic Glaze, & Basil Pesto" },
-                    { "text": "Assorted Cookies & Brownies" }
+                    {
+                      "text": "Smoked Ham - Brie & Honey Mustard"
+                    },
+                    {
+                      "text": "Roast Beef - Cheddar Cheese, Caramelized Onions, & Gorgonzola Spread"
+                    },
+                    {
+                      "text": "Classic BLT - Bacon, Lettuce, Tomato, & Lemon Aioli"
+                    },
+                    {
+                      "text": "Chicken Caesar Pita - Romaine Lettuce, Tomato, Parmesan, & Caesar Dressing"
+                    },
+                    {
+                      "text": "Club Sandwich - Roasted Turkey, Ham, Lettuce, Tomato, Bacon, & Garlic Aioli"
+                    },
+                    {
+                      "text": "Roasted Turkey - Provolone, Roasted Red Peppers, & Basil Pesto"
+                    },
+                    {
+                      "text": "Santa Fe Chicken - Ortega Chiles, Pepperjack Cheese, Greens, & Chipotle Aioli"
+                    },
+                    {
+                      "text": "Roasted Pork Loin - Asian Slaw, Thai Basil, Pea Sprouts, Pickled Cucumber, & Sriracha Aioli"
+                    },
+                    {
+                      "text": "Albacore Tuna - with Scallions, Fresh Tarragon, & Lemon Zest"
+                    },
+                    {
+                      "text": "Curry Chicken Salad - with Celery, Fresh Herbs, Dried Cherries, Chives, & Curry Aioli"
+                    },
+                    {
+                      "text": "Chicken Salad - with Celery, Fresh Herbs, Chives, & Mayo"
+                    },
+                    {
+                      "text": "Garden Stack - Grilled Vegetables, Feta, & Olive Tapenade Spread"
+                    },
+                    {
+                      "text": "Caprese Stack - Arugula, Mozzarella, Tomatoes, Balsamic Glaze, & Basil Pesto"
+                    }
                   ]
                 },
                 {
                   "title": "Side — Included",
                   "list": [
-                    { "text": "Assorted Chips" }
+                    {
+                      "text": "Assorted Chips"
+                    }
                   ]
                 },
                 {
                   "title": "Dessert — Included",
                   "list": [
-                    { "text": "Assorted Cookies & Brownies" }
+                    {
+                      "text": "Assorted Cookies & Brownies"
+                    }
                   ]
                 }
               ]
@@ -671,34 +816,79 @@
                 {
                   "title": "Appetizers — Select Six",
                   "list": [
-                    { "text": "Sesame Crusted Goat Cheese - on Wonton Crisp" },
-                    { "text": "Ahi Poke - Tuna, Soy Sauce, Black Sesame Seeds, & Scallions on a Wonton Crisp" },
-                    { "text": "White Fish Ceviche - on Tostada Round" },
-                    { "text": "Grilled Peach Crostini - Balsamic Glaze, Goat Cheese, & Honey Drizzle" },
-                    { "text": "NY Steak Crostini - Caramelized Onions & Gorgonzola Cream" },
-                    { "text": "Pan Seared Ahi - atop Cucumber Slice with Japanese Spice, Pickled Onions, & Sriracha Aioli" },
-                    { "text": "Roasted Garlic Humus - Served with Pita Chips *(Add $1.00 per person)*" },
-                    { "text": "Fresh Spring Rolls - Green Tea Soba Noodles, Thai Basil, Cucumber, Mint, & Spicy Hoisin" },
-                    { "text": "Caprese Skewers - Cherry Tomato, Bocconcini Mozzarella, Olives, & Basil Pesto" },
-                    { "text": "Roasted Artichoke Crostini - with Fennel Herb Goat Cheese" },
-                    { "text": "Avocado Kale Toast - Lemon, Olive Oil, Salt, & Pepper" },
-                    { "text": "Homemade Meatballs - Teriyaki, Turkey or Italian" },
-                    { "text": "Crispy Spring Rolls - with Sweet + Sour Dipping Sauce" },
-                    { "text": "Chicken Satay - with Spicy Peanut Sauce, Tikka Masala Sauce or Chimichurri Sauce, Mini Beef Wellington - Tender Beef Wrapped in Puff Pastry with Sautéed Mushrooms & Shallots Duxelle, & Madera Wine Demi Glaze" },
-                    { "text": "Tikka Masala Taco - Chicken Tikka Masala, Cilantro, & Cucumber Raita" },
-                    { "text": "Mongolian Beef Skewers - Grilled Scallions" },
-                    { "text": "Short Rib Quesadilla - with Chipotle Crème" },
-                    { "text": "Lobster Corndogs - with Green Peppercorn Aioli *(Add $1.50 per person)*" },
-                    { "text": "Thai Chicken Lettuce Wraps - Asian Inspired Diced Chicken on an Endive Spear" }
+                    {
+                      "text": "Sesame Crusted Goat Cheese - on Wonton Crisp"
+                    },
+                    {
+                      "text": "Ahi Poke - Tuna, Soy Sauce, Black Sesame Seeds, & Scallions on a Wonton Crisp"
+                    },
+                    {
+                      "text": "White Fish Ceviche - on Tostada Round"
+                    },
+                    {
+                      "text": "Grilled Peach Crostini - Balsamic Glaze, Goat Cheese, & Honey Drizzle"
+                    },
+                    {
+                      "text": "NY Steak Crostini - Caramelized Onions & Gorgonzola Cream"
+                    },
+                    {
+                      "text": "Pan Seared Ahi - atop Cucumber Slice with Japanese Spice, Pickled Onions, & Sriracha Aioli"
+                    },
+                    {
+                      "text": "Roasted Garlic Humus - Served with Pita Chips *(Add $1.00 per person)*"
+                    },
+                    {
+                      "text": "Fresh Spring Rolls - Green Tea Soba Noodles, Thai Basil, Cucumber, Mint, & Spicy Hoisin"
+                    },
+                    {
+                      "text": "Caprese Skewers - Cherry Tomato, Bocconcini Mozzarella, Olives, & Basil Pesto"
+                    },
+                    {
+                      "text": "Roasted Artichoke Crostini - with Fennel Herb Goat Cheese"
+                    },
+                    {
+                      "text": "Avocado Kale Toast - Lemon, Olive Oil, Salt, & Pepper"
+                    },
+                    {
+                      "text": "Homemade Meatballs - Teriyaki, Turkey or Italian"
+                    },
+                    {
+                      "text": "Crispy Spring Rolls - with Sweet + Sour Dipping Sauce"
+                    },
+                    "Chicken Satay - with Spicy Peanut Sauce, Tikka Masala Sauce or Chimichurri Sauce ",
+                    "Mini Beef Wellington - Tender Beef Wrapped in Puff Pastry with Sautéed Mushrooms & Shallots Duxelle, & Madera Wine Demi Glaze",
+                    {
+                      "text": "Tikka Masala Taco - Chicken Tikka Masala, Cilantro, & Cucumber Raita"
+                    },
+                    {
+                      "text": "Mongolian Beef Skewers - Grilled Scallions"
+                    },
+                    {
+                      "text": "Short Rib Quesadilla - with Chipotle Crème"
+                    },
+                    {
+                      "text": "Thai Chicken Lettuce Wraps - Asian Inspired Diced Chicken on an Endive Spear"
+                    },
+                    {
+                      "text": "Lobster Corndogs - with Green Peppercorn Aioli *(Add $1.50 per person)*"
+                    }
                   ]
                 },
                 {
                   "title": "Desserts — Select Two",
                   "list": [
-                    { "text": "Traditional New York Cheesecake - with Seasonal Berries" },
-                    { "text": "Cinnamon Apple Tart - with Fresh Whipped Cream" },
-                    { "text": "Dolce Italiano – Coconut Macaroons & Mini Chocolate Chip Cannolis " },
-                    { "text": "Mini Beignets - Dusted with Cinnamon Sugar or Powdered Sugar" }
+                    {
+                      "text": "Traditional New York Cheesecake - with Seasonal Berries"
+                    },
+                    {
+                      "text": "Cinnamon Apple Tart - with Fresh Whipped Cream"
+                    },
+                    {
+                      "text": "Dolce Italiano – Coconut Macaroons & Mini Chocolate Chip Cannolis "
+                    },
+                    {
+                      "text": "Mini Beignets - Dusted with Cinnamon Sugar or Powdered Sugar"
+                    }
                   ]
                 }
               ]
@@ -721,34 +911,70 @@
                 {
                   "title": "Select Two",
                   "list": [
-                    { "text": "Red Bliss Mash" },
-                    { "text": "Cheddar & Chive Mash" },
-                    { "text": "Wasabi Mash" },
-                    { "text": "Garlic Mash" },
-                    { "text": "Sweet Potato Mash" }
+                    {
+                      "text": "Red Bliss Mash"
+                    },
+                    {
+                      "text": "Cheddar & Chive Mash"
+                    },
+                    {
+                      "text": "Wasabi Mash"
+                    },
+                    {
+                      "text": "Garlic Mash"
+                    },
+                    {
+                      "text": "Sweet Potato Mash"
+                    }
                   ]
                 },
                 {
                   "title": "Select Two",
                   "list": [
-                    { "text": "Garlic Chive Butter Shrimp *(Add $1.50 per person)*" },
-                    { "text": "Shredded Rotisserie Chicken" },
-                    { "text": "Beef Short Ribs" },
-                    { "text": "Sautéed Mushrooms" },
-                    { "text": "Chili" },
-                    { "text": "BBQ Brisket" }
+                    {
+                      "text": "Garlic Chive Butter Shrimp *(Add $1.50 per person)*"
+                    },
+                    {
+                      "text": "Shredded Rotisserie Chicken"
+                    },
+                    {
+                      "text": "Beef Short Ribs"
+                    },
+                    {
+                      "text": "Sautéed Mushrooms"
+                    },
+                    {
+                      "text": "Chili"
+                    },
+                    {
+                      "text": "BBQ Brisket"
+                    }
                   ]
                 },
                 {
                   "title": "Includes All",
                   "list": [
-                    { "text": "Sharp Cheddar" },
-                    { "text": "Smoked Bacon Bits" },
-                    { "text": "Sour Cream" },
-                    { "text": "Whipped Butter" },
-                    { "text": "Blue Cheese Crumbles" },
-                    { "text": "Shoe-String Onions" },
-                    { "text": "Scallions" }
+                    {
+                      "text": "Sharp Cheddar"
+                    },
+                    {
+                      "text": "Smoked Bacon Bits"
+                    },
+                    {
+                      "text": "Sour Cream"
+                    },
+                    {
+                      "text": "Whipped Butter"
+                    },
+                    {
+                      "text": "Blue Cheese Crumbles"
+                    },
+                    {
+                      "text": "Shoe-String Onions"
+                    },
+                    {
+                      "text": "Scallions"
+                    }
                   ]
                 }
               ]
@@ -761,30 +987,58 @@
                 {
                   "title": "Select Two",
                   "list": [
-                    { "text": "Cheddar Cheese Sauce" },
-                    { "text": "White Cheddar" },
-                    { "text": "Brown Ale Bacon Cheddar" },
-                    { "text": "Swiss Chive Roasted Garlic" }
+                    {
+                      "text": "Cheddar Cheese Sauce"
+                    },
+                    {
+                      "text": "White Cheddar"
+                    },
+                    {
+                      "text": "Brown Ale Bacon Cheddar"
+                    },
+                    {
+                      "text": "Swiss Chive Roasted Garlic"
+                    }
                   ]
                 },
                 {
                   "title": "Select Two",
                   "list": [
-                    { "text": "Shredded Rotisserie Chicken" },
-                    { "text": "Chili" },
-                    { "text": "BBQ Brisket" },
-                    { "text": "Sautéed Mushrooms" },
-                    { "text": "Beef Short Ribs" }
+                    {
+                      "text": "Shredded Rotisserie Chicken"
+                    },
+                    {
+                      "text": "Chili"
+                    },
+                    {
+                      "text": "BBQ Brisket"
+                    },
+                    {
+                      "text": "Sautéed Mushrooms"
+                    },
+                    {
+                      "text": "Beef Short Ribs"
+                    }
                   ]
                 },
                 {
                   "title": "Includes All",
                   "list": [
-                    { "text": "Sharp Cheddar" },
-                    { "text": "Sour Cream" },
-                    { "text": "Smoked Bacon Bits" },
-                    { "text": "Scallions" },
-                    { "text": "Shoe-String Onions" }
+                    {
+                      "text": "Sharp Cheddar"
+                    },
+                    {
+                      "text": "Sour Cream"
+                    },
+                    {
+                      "text": "Smoked Bacon Bits"
+                    },
+                    {
+                      "text": "Scallions"
+                    },
+                    {
+                      "text": "Shoe-String Onions"
+                    }
                   ]
                 }
               ]
@@ -797,22 +1051,44 @@
                 {
                   "title": "Select Two",
                   "list": [
-                    { "text": "Carne Asada" },
-                    { "text": "Pollo Asado" },
-                    { "text": "Carnitas" },
-                    { "text": "Barbacoa" },
-                    { "text": "Chorizo" }
+                    {
+                      "text": "Carne Asada"
+                    },
+                    {
+                      "text": "Pollo Asado"
+                    },
+                    {
+                      "text": "Carnitas"
+                    },
+                    {
+                      "text": "Barbacoa"
+                    },
+                    {
+                      "text": "Chorizo"
+                    }
                   ]
                 },
                 {
                   "title": "Includes All",
                   "list": [
-                    { "text": "Cheese" },
-                    { "text": "Sour Cream" },
-                    { "text": "Salsa" },
-                    { "text": "Cilantro" },
-                    { "text": "Onion" },
-                    { "text": "Corn -or- Flour Tortillas" }
+                    {
+                      "text": "Cheese"
+                    },
+                    {
+                      "text": "Sour Cream"
+                    },
+                    {
+                      "text": "Salsa"
+                    },
+                    {
+                      "text": "Cilantro"
+                    },
+                    {
+                      "text": "Onion"
+                    },
+                    {
+                      "text": "Corn -or- Flour Tortillas"
+                    }
                   ]
                 },
                 {
@@ -828,21 +1104,41 @@
                 {
                   "title": "Select Two",
                   "list": [
-                    { "text": "Kung Pao Chicken" },
-                    { "text": "Teriyaki Chicken" },
-                    { "text": "Stir Fry Veggies" },
-                    { "text": "Shrimp *(Add $1.50 per person)*" }
+                    {
+                      "text": "Kung Pao Chicken"
+                    },
+                    {
+                      "text": "Teriyaki Chicken"
+                    },
+                    {
+                      "text": "Stir Fry Veggies"
+                    },
+                    {
+                      "text": "Shrimp *(Add $1.50 per person)*"
+                    }
                   ]
                 },
                 {
                   "title": "Includes All",
                   "list": [
-                    { "text": "Wonton Strips" },
-                    { "text": "Scallions" },
-                    { "text": "Roasted Peanuts" },
-                    { "text": "Toasted Sesame Seeds" },
-                    { "text": "Sriracha" },
-                    { "text": "Soy Sauce" }
+                    {
+                      "text": "Wonton Strips"
+                    },
+                    {
+                      "text": "Scallions"
+                    },
+                    {
+                      "text": "Roasted Peanuts"
+                    },
+                    {
+                      "text": "Toasted Sesame Seeds"
+                    },
+                    {
+                      "text": "Sriracha"
+                    },
+                    {
+                      "text": "Soy Sauce"
+                    }
                   ]
                 }
               ]
@@ -855,24 +1151,50 @@
                 {
                   "title": "Select Two",
                   "list": [
-                    { "text": "Kahlua Pulled Pork on Hawaiian Roll" },
-                    { "text": "Angus Beef w/ Caramelized Onions & Blue Cheese" },
-                    { "text": "Blackened Chicken w/ Honey Mustard & Swiss" },
-                    { "text": "Southwest Black Bean w/ Pepperjack & Guacamole" }
+                    {
+                      "text": "Kahlua Pulled Pork on Hawaiian Roll"
+                    },
+                    {
+                      "text": "Angus Beef w/ Caramelized Onions & Blue Cheese"
+                    },
+                    {
+                      "text": "Blackened Chicken w/ Honey Mustard & Swiss"
+                    },
+                    {
+                      "text": "Southwest Black Bean w/ Pepperjack & Guacamole"
+                    }
                   ]
                 },
                 {
                   "title": "Includes All",
                   "list": [
-                    { "text": "Cheddar" },
-                    { "text": "Lettuce" },
-                    { "text": "Tomato" },
-                    { "text": "Onion" },
-                    { "text": "Pickles" },
-                    { "text": "Thousand Island" },
-                    { "text": "Ketchup" },
-                    { "text": "Mustard" },
-                    { "text": "Mayo" }
+                    {
+                      "text": "Cheddar"
+                    },
+                    {
+                      "text": "Lettuce"
+                    },
+                    {
+                      "text": "Tomato"
+                    },
+                    {
+                      "text": "Onion"
+                    },
+                    {
+                      "text": "Pickles"
+                    },
+                    {
+                      "text": "Thousand Island"
+                    },
+                    {
+                      "text": "Ketchup"
+                    },
+                    {
+                      "text": "Mustard"
+                    },
+                    {
+                      "text": "Mayo"
+                    }
                   ]
                 }
               ]
@@ -885,14 +1207,20 @@
                 {
                   "title": "Included",
                   "list": [
-                    { "text": "Butter Bowtie Pasta w/ Shrimp Scampi" }
+                    {
+                      "text": "Butter Bowtie Pasta w/ Shrimp Scampi"
+                    }
                   ]
                 },
                 {
                   "title": "Toppings",
                   "list": [
-                    { "text": "Crushed Red Pepper Flakes" },
-                    { "text": "Parmesan Cheese" }
+                    {
+                      "text": "Crushed Red Pepper Flakes"
+                    },
+                    {
+                      "text": "Parmesan Cheese"
+                    }
                   ]
                 }
               ]
@@ -904,7 +1232,9 @@
                 {
                   "title": "Included",
                   "list": [
-                    { "text": "Carved Tri-Tip Sliders with Spicy Aioli & Micro Arugula on Toasted Asiago Rolls" }
+                    {
+                      "text": "Carved Tri-Tip Sliders with Spicy Aioli & Micro Arugula on Toasted Asiago Rolls"
+                    }
                   ]
                 }
               ]
