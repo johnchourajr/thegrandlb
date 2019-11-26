@@ -855,8 +855,12 @@
                     {
                       "text": "Crispy Spring Rolls - with Sweet + Sour Dipping Sauce"
                     },
-                    "Chicken Satay - with Spicy Peanut Sauce, Tikka Masala Sauce or Chimichurri Sauce ",
-                    "Mini Beef Wellington - Tender Beef Wrapped in Puff Pastry with Sautéed Mushrooms & Shallots Duxelle, & Madera Wine Demi Glaze",
+                    {
+                      "text": "Chicken Satay - with Spicy Peanut Sauce, Tikka Masala Sauce or Chimichurri Sauce "
+                    },
+                    {
+                      "text": "Mini Beef Wellington - Tender Beef Wrapped in Puff Pastry with Sautéed Mushrooms & Shallots Duxelle, & Madera Wine Demi Glaze"
+                    },
                     {
                       "text": "Tikka Masala Taco - Chicken Tikka Masala, Cilantro, & Cucumber Raita"
                     },
