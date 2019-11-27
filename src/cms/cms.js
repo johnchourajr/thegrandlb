@@ -1,6 +1,7 @@
 window.CMS_MANUAL_INIT = true
 
 import CMS, { init } from 'netlify-cms-app'
+const { CMS, initCMS: init } = window
 import uploadcare from 'netlify-cms-media-library-uploadcare'
 import cloudinary from 'netlify-cms-media-library-cloudinary'
 
