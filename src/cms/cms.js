@@ -1,9 +1,6 @@
-// This global flag enables manual initialization.
 window.CMS_MANUAL_INIT = true
 
-// Usage with import from npm package
-import CMS, { init } from 'netlify-cms'
-
+import CMS, { init } from 'netlify-cms-app'
 import uploadcare from 'netlify-cms-media-library-uploadcare'
 import cloudinary from 'netlify-cms-media-library-cloudinary'
 
