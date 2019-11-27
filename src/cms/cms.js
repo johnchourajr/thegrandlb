@@ -1,12 +1,13 @@
-import CMS, { init } from 'netlify-cms-app'
+window.CMS_MANUAL_INIT = true
+
+import { init } from 'netlify-cms'
+import CMS from 'netlify-cms-app'
 import uploadcare from 'netlify-cms-media-library-uploadcare'
 import cloudinary from 'netlify-cms-media-library-cloudinary'
 
 import BasicPagePreview from './preview-templates/BasicPagePreview'
 import SiteDetailsPreview from './preview-templates/SiteDetailsPreview'
 import menuFields from './menuFields'
-
-window.CMS_MANUAL_INIT = true
 
 init({
   config: {

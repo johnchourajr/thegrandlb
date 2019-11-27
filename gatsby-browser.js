@@ -4,6 +4,9 @@ import './src/styles/all.scss'
 
 export const onRouteUpdate = ({ location }) => {
   ReactGA.pageview(location.pathname);
+  ReactGA.ga('send', 'pageview', {
+    'Branch':  '{{ process.env.BRANCH }}'
+  })
 };
 
 export const onClientEntry = () => {
