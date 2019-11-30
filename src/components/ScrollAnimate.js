@@ -58,7 +58,7 @@ const ScrollAnimate = props => {
 const Wrap = styled.div`
   transform-style: preserve-3d;
   transform: translateY(2rem) rotateX(10deg) rotateY(10deg) translateZ(20px);
-  transition: transform 600ms cubic-bezier(0.215, 0.61, 0.355, 1) 300ms, opacity 400ms linear 300ms;
+  transition: transform 500ms cubic-bezier(0.215, 0.61, 0.355, 1) 200ms, opacity 300ms linear 200ms;
   opacity: 0;
 
   &.active {
