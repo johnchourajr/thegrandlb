@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 
 // Components
 import Layout from '../components/core/Layout'
@@ -68,9 +68,9 @@ const IndexPage = ({ data, status, siteBanner }) => {
         {frontmatter.topFeatures.map((item, i) => {
           return (
             <ScrollAnimate delay={150 * i} key={i} className="page-feature page-feature--lower-bar col xs-col-12 md-col-4">
-              <Link to={item.url}>
+              <a href={item.url} target="_blank" rel="noopener noreferrer">
                 <h1 className="xs-text-center">{item.text}</h1>
-              </Link>
+              </a>
             </ScrollAnimate>
           )
         })}

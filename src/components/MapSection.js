@@ -4,7 +4,6 @@ import PageSection from './PageSection'
 import Star from './svg/Star'
 import Map from './Map'
 import ScrollAnimate from './ScrollAnimate'
-import { navigate } from 'gatsby'
 import ReactGA from 'react-ga'
 
 function onClick(event) {

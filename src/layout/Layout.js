@@ -30,6 +30,10 @@ const TemplateWrapper = ({ children, history, location, props }) => {
     }
   }, [bannerDismissState])
 
+  console.groupCollapsed("Site credits ✌️")
+  console.log("Branding, Art Direction, Web Design, and Web Development by John Choura http://john.design/")
+  console.groupEnd()
+
   const kids = React.Children.map(children, child => {
     return React.cloneElement(child, {
       siteBanner: siteBannerMain.siteBanner,
