@@ -1,15 +1,19 @@
 {
   "show": false,
-  "text": "Choose a Friday or Sunday to qualify for our special deal.",
-  "matchText": "You qualify for our Friday & Sunday deal!",
+  "text": "Choose a Thursday, Friday or Sunday to qualify for our special deal.",
+  "matchText": "You qualify for our Thursday, Friday & Sunday deal!",
   "button": "Learn More",
   "startDate": "09/10/2019",
-  "endDate": "12/25/2019",
+  "endDate": "06-01-2020",
+  "toMatch": [
+    "Friday",
+    "Sunday",
+    "Thursday"
+  ],
   "modalDetail": {
-    "title": "Featured Deal",
-    "description": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Sed posuere consectetur est at lobortis. Curabitur blandit tempus porttitor.",
-    "buttonText": "Inquire About Friday or Sunday",
-    "buttonUrl": "/inquire/?deal=fridaysunday"
-  },
-  "toMatch": ["Friday", "Sunday"]
+    "title": "Our Social Event Specials",
+    "description": "“Thursday’s the new Friday”\nParty like it’s Friday on a Thursday. Enjoy a buy one get one free appetizer special for all social events on Thursday nights! \n \n“Chiavari Friday’s”\nTake a load off on one of our Chiavari chairs on us. Free Chiavari Friday’s for all social events! \n \n“Sunday Funday”\nStart your event anytime you want. It’s Sunday Funday!!!",
+    "buttonText": "Inquire About Thursday, Friday or Sunday",
+    "buttonUrl": "/inquire/?deal=thursdayfridaysunday"
+  }
 }
