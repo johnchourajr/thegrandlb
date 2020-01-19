@@ -21,7 +21,7 @@ class HomeABTest extends React.Component {
     return (
       <ScrollAnimate>
         <Experiment ref="experiment" name="Test092919__Home">
-          <Variant name="A">
+          {/*<Variant name="A">
             <PageCta
               accent={"grandPink"}
               heading={`Chat with our\nEvent Pro's today`}
@@ -38,7 +38,7 @@ class HomeABTest extends React.Component {
               ]}
               img={"/img/about/team-sales.jpg"}
             />
-          </Variant>
+        </Variant>*/}
           <Variant name="B">
             <PageCta
               accent={"grandPink"}
