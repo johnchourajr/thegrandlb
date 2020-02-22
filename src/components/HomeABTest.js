@@ -21,24 +21,6 @@ class HomeABTest extends React.Component {
     return (
       <ScrollAnimate>
         <Experiment ref="experiment" name="Test092919__Home">
-          {/*<Variant name="A">
-            <PageCta
-              accent={"grandPink"}
-              heading={`Chat with our\nEvent Pro's today`}
-              buttons={[
-                {
-                  text: "Let's Talk",
-                  url: "/contact/",
-                  event: {
-                    category: "ContactAction",
-                    action: "Test092919__Home__Action_A",
-                    label: "Test092919__Home__Action_A"
-                  }
-                }
-              ]}
-              img={"/img/about/team-sales.jpg"}
-            />
-        </Variant>*/}
           <Variant name="B">
             <PageCta
               accent={"grandPink"}
