@@ -14,13 +14,13 @@ import emitter from "react-ab-test/lib/emitter";
 
 import PageCta from "../components/PageCta";
 import ScrollAnimate from "../components/ScrollAnimate";
-import PromoSection from "../components/PromoSection";
+import PromoSectionOnlineOrder from "../components/PromoSectionOnlineOrder";
 
 class HomeABTest extends React.Component {
   render() {
     return (
       <ScrollAnimate>
-        <Experiment ref="experiment" name="Test092919__Home">
+        {/*<Experiment ref="experiment" name="Test092919__Home">
           <Variant name="B">
             <PageCta
               accent={"grandPink"}
@@ -42,30 +42,31 @@ class HomeABTest extends React.Component {
           <Variant name="C">
             <PromoSection siteBanner={this.props.siteBanner} />
           </Variant>
-        </Experiment>
+        </Experiment>*/}
+        <PromoSectionOnlineOrder siteBanner={this.props.siteBanner} />
       </ScrollAnimate>
     );
   }
 }
 
-// Called when the experiment is displayed to the user.
-emitter.addPlayListener((experimentName, variantName) => {
-  const str = `Displaying experiment '${experimentName}' variant '${variantName}'`;
-
-  ReactGA.event({
-    category: "Test092919__Home",
-    action: str
-  });
-});
-
-// Called when a 'win' is emitted, in this case by this.refs.experiment.win()
-emitter.addWinListener((experimentName, variantName) => {
-  const str = `Variant '${variantName}' of experiment '${experimentName}' was clicked`;
-
-  ReactGA.event({
-    category: "Test092919__Home",
-    action: str
-  });
-});
+// // Called when the experiment is displayed to the user.
+// emitter.addPlayListener((experimentName, variantName) => {
+//   const str = `Displaying experiment '${experimentName}' variant '${variantName}'`;
+//
+//   ReactGA.event({
+//     category: "Test092919__Home",
+//     action: str
+//   });
+// });
+//
+// // Called when a 'win' is emitted, in this case by this.refs.experiment.win()
+// emitter.addWinListener((experimentName, variantName) => {
+//   const str = `Variant '${variantName}' of experiment '${experimentName}' was clicked`;
+//
+//   ReactGA.event({
+//     category: "Test092919__Home",
+//     action: str
+//   });
+// });
 
 export default HomeABTest;

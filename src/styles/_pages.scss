@@ -432,7 +432,7 @@
   }
 
   &--right {
-    background-color: $grandBabyBlue;
+    background-color: $grandCream;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -442,7 +442,7 @@
     @include solid-breakpoint(md) {
       width: 50%;
       margin: 3rem 0;
-      padding: 1rem 0 2rem;
+      padding: 2rem 0 3.25rem;
     }
   }
 

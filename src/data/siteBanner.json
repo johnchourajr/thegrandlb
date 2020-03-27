@@ -1,11 +1,13 @@
 {
   "show": true,
-  "text": "Choose a Thursday, Friday or Sunday to qualify for our event specials.",
+  "text": "We’re offering online ordering of meals and grocery goods.",
   "matchText": "You qualify for our special!",
-  "button": "Learn More",
+  "button": "Order Now",
+  "buttonLink": "https://grandfb.square.site",
+  "hasModal": false,
   "startDate": "09/10/2019",
   "endDate": "06-01-2020",
-  "toMatch": ["Friday", "Sunday", "Thursday"],
+  "toMatch": [""],
   "modalDetail": {
     "title": "Our Social Event Specials",
     "description": "Thursday’s the new Friday\nParty like it’s Friday on a Thursday. Enjoy a buy one get one free appetizer special for all social events on Thursday nights! \n \nChiavari Friday’s\nTake a load off with Chiavari chairs on us. Free Chiavari Friday’s for all social events! \n \nSunday Funday\nStart your event anytime you want. It’s Sunday Funday!!!",
