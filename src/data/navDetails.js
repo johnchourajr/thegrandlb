@@ -3,11 +3,13 @@
 // Nav Sections
 
 export const homeNav = {
-  name: "Home", path: "/",
-}
+  name: "Home",
+  path: "/"
+};
 
 export const tourNav = {
-  name: "Tour", path: "/tour",
+  name: "Tour",
+  path: "/tour",
   subpages: [
     { name: "Overview", path: "/tour" },
     { name: "Interactive Map", path: "/tour/map" },
@@ -17,104 +19,101 @@ export const tourNav = {
     { name: "The Garden Room", path: "/tour/garden-room" },
     { name: "The Pacific Room", path: "/tour/pacific-room" },
     { name: "The Board Room", path: "/tour/board-room" },
-    { name: "The Palm Terrace", path: "/tour/palm-terrace" },
+    { name: "The Palm Terrace", path: "/tour/palm-terrace" }
   ]
-}
+};
 
 export const eventsNav = {
-  name: "Events", path: "/events",
+  name: "Events",
+  path: "/events",
   subpages: [
     { name: "Overview", path: "/events" },
     { name: "For Weddings", path: "/events/weddings" },
     { name: "For Business", path: "/events/business" },
-    { name: "For Milestones", path: "/events/milestones" },
+    { name: "For Milestones", path: "/events/milestones" }
   ]
-}
+};
 
 export const menusNav = {
-  name: "Menus", path: "/menus",
+  name: "Menus",
+  path: "/menus",
   subpages: [
     { name: "Overview", path: "/menus" },
     { name: "Classic Menu", path: "/menus/classic" },
     { name: "For Weddings", path: "/menus/weddings" },
     { name: "For Business", path: "/menus/business" },
-    { name: "For Milestones", path: "/menus/milestones" },
+    { name: "For Milestones", path: "/menus/milestones" }
   ]
-}
+};
 
-export const moreNav = {
-  name: "More", path: "/about",
-  subpages: [
-    { name: "About", path: "/about", },
-    { name: "Contact", path: "/contact", },
-    { name: "Inquire", path: "/inquire", },
-  ]
-}
+export const orderNav = {
+  name: "Order Online↗︎",
+  path: "https://grandfb.square.site",
+  externalPath: true
+};
 
 export const aboutNav = {
-  name: "About", path: "/about",
-}
+  name: "About",
+  path: "/about"
+};
 
 export const contactNav = {
-  name: "Contact", path: "/contact",
-}
+  name: "Contact",
+  path: "/contact"
+};
 
 export const inquireNav = {
-  name: "Inquire", path: "/inquire",
-}
+  name: "Inquire",
+  path: "/inquire"
+};
 
 export const privacyNav = {
-  name: "Privacy Policy", path: "/privacy",
-}
+  name: "Privacy Policy",
+  path: "/privacy"
+};
 
 export const twitterNav = {
   name: "twitter",
   displayName: "Twitter",
-  path: "#",
-}
+  path: "#"
+};
 
 export const facebookNav = {
   name: "facebook",
   displayName: "Facebook",
-  path: "https://www.facebook.com/TheGrandLB",
-}
+  path: "https://www.facebook.com/TheGrandLB"
+};
 
 export const instagramNav = {
   name: "instagram",
   displayName: "Instagram",
-  path: "https://www.instagram.com/thegrandlb/",
-}
-
-
+  path: "https://www.instagram.com/thegrandlb/"
+};
 
 // *********
 // *********
 // Nav Collections
 
-export const mainNav = {
-  left: [
-    { ...tourNav },
-    { ...eventsNav },
-  ],
-  right: [
-    { ...menusNav },
-    { ...moreNav },
-  ]
-}
-
-export const footerNav = {
-  left: [
-    { ...tourNav },
-    { ...eventsNav },
-    { ...menusNav },
+export const moreNav = {
+  name: "More",
+  path: "/about",
+  subpages: [
     { ...aboutNav },
-  ],
-  right: [
     { ...contactNav },
     { ...inquireNav },
-    { ...privacyNav },
+    { ...orderNav }
   ]
-}
+};
+
+export const mainNav = {
+  left: [{ ...tourNav }, { ...eventsNav }],
+  right: [{ ...menusNav }, { ...moreNav }]
+};
+
+export const footerNav = {
+  left: [{ ...tourNav }, { ...eventsNav }, { ...menusNav }, { ...aboutNav }],
+  right: [{ ...contactNav }, { ...orderNav }, { ...privacyNav }]
+};
 
 export const menuNav = [
   { ...homeNav },
@@ -123,28 +122,25 @@ export const menuNav = [
   { ...menusNav },
   { ...aboutNav },
   { ...contactNav },
-  { ...inquireNav },
-]
+  { ...inquireNav }
+];
 
 export const socialNav = [
   // { ...twitterNav },
   { ...facebookNav },
-  { ...instagramNav },
-]
+  { ...instagramNav }
+];
 
 export const subNav = {
-  name: null, path: '',
-  subpages: [
-    { ...aboutNav },
-    { ...contactNav },
-    { ...inquireNav },
-  ]
-}
+  name: null,
+  path: "",
+  subpages: [{ ...aboutNav }, { ...contactNav }, { ...inquireNav }]
+};
 
 export const allNav = [
   { ...homeNav },
   { ...tourNav },
   { ...eventsNav },
   { ...menusNav },
-  { ...subNav },
-]
+  { ...subNav }
+];
