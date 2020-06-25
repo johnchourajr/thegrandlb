@@ -24,31 +24,37 @@ const NavBanner = props => {
 
   if (props.siteBanner) {
     return (
-      <BannerWrap siteBanner={props.siteBanner}>
-        <div className={`nav--banner ${dismissedClass}`}>
-          <div className="wrapper">
-            <p>
-              {text}{" "}
-              {hasModal ? (
-                <NavBannerLink
-                  onClick={e => handleModal(true)}
-                  button={button}
-                />
-              ) : (
-                <a href={buttonLink} target="_blank" rel="noopener noreferrer">
-                  {button}
-                </a>
-              )}
-            </p>
-            {/*<button onClick={e => props.handleBannerDismiss(true)} className="nav--banner--button nav--banner--close"><X/></button>*/}
-          </div>
-          {/*<BannerModal
+      <>
+        <BannerWrap siteBanner={props.siteBanner}>
+          <div className={`nav--banner ${dismissedClass}`}>
+            <div className="wrapper">
+              <p>
+                {text}{" "}
+                {hasModal ? (
+                  <NavBannerLink
+                    onClick={e => handleModal(true)}
+                    button={button}
+                  />
+                ) : (
+                  <a
+                    href={buttonLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {button}
+                  </a>
+                )}
+              </p>
+              {/*<button onClick={e => props.handleBannerDismiss(true)} className="nav--banner--button nav--banner--close"><X/></button>*/}
+            </div>
+            {/*<BannerModal
             modalVisible={modalVisible}
             handleModal={handleModal}
             modalDetail={modalDetail}
           />*/}
-        </div>
-      </BannerWrap>
+          </div>
+        </BannerWrap>
+      </>
     );
   } else return null;
 };
