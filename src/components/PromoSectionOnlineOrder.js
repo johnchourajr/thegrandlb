@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 // Components
 import PageSection from "../components/PageSection";
-import Buttons from "../components/Buttons";
 import BannerModal from "./BannerModal";
 
 const PromoSectionOnlineOrder = props => {

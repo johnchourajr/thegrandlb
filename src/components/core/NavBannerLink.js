@@ -1,13 +1,17 @@
-import React from 'react'
+import React from "react";
 
 const NavBannerLink = props => {
   if (props.button) {
     return (
-      <span className="nav--banner--link" onClick={props.onClick}>
+      <button
+        tabIndex="0"
+        className="nav--banner--link"
+        onClick={props.onClick}
+      >
         {props.button}
-      </span>
-    )
-  } else return null
-}
+      </button>
+    );
+  } else return null;
+};
 
-export default NavBannerLink
+export default NavBannerLink;

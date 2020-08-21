@@ -1,11 +1,12 @@
 html {
-  transition: background-color .5s $easeOutCubic;
+  transition: background-color 0.5s $easeOutCubic;
   max-width: 100vw;
   overflow-x: hidden;
   overflow-y: scroll;
   background-color: $white;
 
-  &.active--mobile-menu, &.active--mobile-menu body {
+  &.active--mobile-menu,
+  &.active--mobile-menu body {
     overflow: hidden;
     height: 100vw;
 
@@ -20,16 +21,28 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
   background-color: transparent;
-  transition: background-color .5s $easeOutCubic;
+  transition: background-color 0.5s $easeOutCubic;
 }
-
 
 /**
  * Reset some basic elements
  */
-body, h1, h2, h3, h4, h5, h6,
-p, blockquote, pre, hr,
-dl, dd, ol, ul, figure {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+hr,
+dl,
+dd,
+ol,
+ul,
+figure {
   margin: 0;
   padding: 0;
   color: $text-black;
@@ -40,10 +53,12 @@ input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-  // outline: 3px solid rgba($black,.1);
-  outline: none;
+  // outline: 3px solid rgba($black, 0.2);
+  // background-color: rgba($black, 0.1);
+  // border-radius: 0.5rem;
+  // transition: none;
+  // outline: none;
 }
-
 
 /**
  * Basic styling
@@ -84,8 +99,6 @@ body {
   }
 }
 
-
-
 /**
  * Images
  */
@@ -94,8 +107,6 @@ img {
   max-width: 100%;
   vertical-align: middle;
 }
-
-
 
 /**
  * Figures
@@ -113,29 +124,25 @@ figcaption {
   font-size: $text-6;
 }
 
-
-
 /**
  * Lists
  */
-ul, ol {
+ul,
+ol {
   margin-left: ($space-1 * 2.5);
 }
 
 li {
   > ul,
   > ol {
-     margin-bottom: 0;
+    margin-bottom: 0;
   }
 }
-
-
 
 /**
  * Clearfix
  */
 %clearfix {
-
   &:after {
     content: "";
     display: table;
@@ -143,15 +150,14 @@ li {
   }
 }
 
-
 /**
  * Grid Mods
  */
 .gutters {
   margin: 0 -#{$space-2} !important;
 
-   > .col {
-    padding: 0 #{$space-2}!important;
+  > .col {
+    padding: 0 #{$space-2} !important;
   }
 }
 
@@ -170,7 +176,6 @@ li {
   padding-right: $incriment;
   padding-left: $incriment;
 
-
   @include solid-breakpoint(lg) {
     $incriment: $space-1 / 2;
     $offset: $space-1;
@@ -184,8 +189,8 @@ li {
 
   @include solid-breakpoint(xl) {
     $unit: 5;
-    $incriment: ($space-1*$unit) / 2;
-    $offset: ($space-1*$unit);
+    $incriment: ($space-1 * $unit) / 2;
+    $offset: ($space-1 * $unit);
     $maxwidth: #{$content-width} - (#{$offset});
 
     max-width: -webkit-calc(#{$maxwidth});
@@ -219,10 +224,8 @@ li {
   }
 }
 
-
-
 .page-card {
-  transition: transform .3s $easeOutCubic;
+  transition: transform 0.3s $easeOutCubic;
 
   &:hover {
     transform: scale(1.025);
@@ -234,7 +237,6 @@ li {
 }
 
 .card a:hover {
-
   .card--inner--upper h1 {
     color: $grandRed;
   }
@@ -257,30 +259,36 @@ li {
   margin: 1rem 0;
   overflow: hidden;
   border: none !important;
-  background-color: rgba($grandBabyBlue,.5);
+  background-color: rgba($grandBabyBlue, 0.5);
   position: relative;
   background-size: cover;
   background-position: center;
 
   &:hover {
     &:after {
-      background-color: rgba($white, .95);
+      background-color: rgba($white, 0.95);
     }
   }
 
   &:after {
     content: "";
     position: absolute;
-    top:-1px; right:-1px; bottom:-1px; left:-1px;
-    background-color: rgba($black, .33);
-    transition: background-color .3s linear;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: -1px;
+    background-color: rgba($black, 0.33);
+    transition: background-color 0.3s linear;
     z-index: 0;
   }
 
   a {
     padding: 3rem;
     position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     text-decoration: none;
   }
 
@@ -302,8 +310,10 @@ li {
       background-color: $grandPink;
       position: absolute;
       padding: 2rem 3rem 2rem 3rem;
-      left: 0; right: 0; bottom: 0rem;
-      transition: all .4s $easeOutCubic;
+      left: 0;
+      right: 0;
+      bottom: 0rem;
+      transition: all 0.4s $easeOutCubic;
       border-bottom-width: 2px;
       border-bottom-style: solid;
       border-bottom-color: $grandRed;
@@ -343,7 +353,7 @@ li {
     opacity: 0;
     transform: translateY(10px);
     margin-top: 1rem;
-    transition: opacity .3s $easeOutCubic, transform .3s $easeOutCubic;
+    transition: opacity 0.3s $easeOutCubic, transform 0.3s $easeOutCubic;
   }
 
   svg {
@@ -354,20 +364,23 @@ li {
 
 .btn--play {
   cursor: pointer;
-  transition: transform .4s $easeOutCubic;
+  transition: transform 0.4s $easeOutCubic;
 
   &:hover {
     transform: scale(1.05);
   }
 
   h6 {
-
   }
 }
 
 .privacy .content {
-
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin: 1.25em 0 1rem;
   }
 
@@ -389,6 +402,6 @@ li {
   hr {
     margin: 0.5em 0 1rem;
     border-color: $grandBlack;
-    opacity: .1;
+    opacity: 0.1;
   }
 }

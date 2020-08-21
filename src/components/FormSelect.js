@@ -1,5 +1,5 @@
-import React from "react"
-import FormFieldset from './FormFieldset'
+import React from "react";
+import FormFieldset from "./FormFieldset";
 
 const FormSelect = props => {
   const {
@@ -15,18 +15,24 @@ const FormSelect = props => {
     formNumber,
     isValid,
     hasError,
-    error,
-  } = props
+    error
+  } = props;
 
-  const errorStyles = hasError ? "field-error" : null
-  const isValidText = required && !isValid ? "Required" : ""
+  const errorStyles = hasError ? "field-error" : null;
+  const isValidText = required && !isValid ? "Required" : "";
 
   const optionsArray = options.map((item, i) => {
-    return <option key={i} value={item}>{item}</option>
-  })
-  return(
+    return (
+      <option key={i} value={item}>
+        {item}
+      </option>
+    );
+  });
+  return (
     <FormFieldset className={`${className} ${errorStyles}`}>
-      <label className="form-label" htmlFor={id}>{label}</label>
+      <label className="form-label" htmlFor={id}>
+        {label}
+      </label>
       <select
         id={id}
         name={id}
@@ -41,14 +47,23 @@ const FormSelect = props => {
         title={label}
         aria-label={label}
         aria-labelledby={`label-${id}`}
-        autoFocus={formNumber === 0 ? true : false}
       >
-        <option value="" style={{display: 'none'}}>{placeholder}</option>
+        <option value="" style={{ display: "none" }}>
+          {placeholder}
+        </option>
         {optionsArray}
       </select>
-      { hasError ? <span className="form-feedback"><h6>{error}</h6></span> : <span className="form-feedback"><h6>{isValidText}</h6></span> }
+      {hasError ? (
+        <span className="form-feedback">
+          <h6>{error}</h6>
+        </span>
+      ) : (
+        <span className="form-feedback">
+          <h6>{isValidText}</h6>
+        </span>
+      )}
     </FormFieldset>
-  )
-}
+  );
+};
 
-export default FormSelect
+export default FormSelect;

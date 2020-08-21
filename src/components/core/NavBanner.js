@@ -45,13 +45,20 @@ const NavBanner = props => {
                   </a>
                 )}
               </p>
-              {/*<button onClick={e => props.handleBannerDismiss(true)} className="nav--banner--button nav--banner--close"><X/></button>*/}
+              {props.siteBanner.mainDismissable && (
+                <button
+                  onClick={e => props.handleBannerDismiss(true)}
+                  className="nav--banner--button nav--banner--close"
+                >
+                  <X />
+                </button>
+              )}
             </div>
-            {/*<BannerModal
-            modalVisible={modalVisible}
-            handleModal={handleModal}
-            modalDetail={modalDetail}
-          />*/}
+            <BannerModal
+              modalVisible={modalVisible}
+              handleModal={handleModal}
+              modalDetail={modalDetail}
+            />
           </div>
         </BannerWrap>
       </>

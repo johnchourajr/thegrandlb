@@ -55,12 +55,12 @@ const StepBanner = props => {
             )}
           </p>
           {!isMatch && (
-            <div
+            <button
               onClick={e => props.handleBannerDismiss(true)}
               className="nav--banner--button nav--banner--close"
             >
               <X />
-            </div>
+            </button>
           )}
           {isMatch && (
             <div className="nav--banner--button">

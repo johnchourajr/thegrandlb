@@ -1,5 +1,5 @@
-import React from "react"
-import FormFieldset from './FormFieldset'
+import React from "react";
+import FormFieldset from "./FormFieldset";
 
 const FormInput = props => {
   const {
@@ -16,15 +16,17 @@ const FormInput = props => {
     error,
     pageNumber,
     formNumber,
-    isValid,
-  } = props
+    isValid
+  } = props;
 
-  const errorStyles = hasError ? "field-error" : null
-  const isValidText = required && !isValid ? "Required" : ""
+  const errorStyles = hasError ? "field-error" : null;
+  const isValidText = required && !isValid ? "Required" : "";
 
   return (
     <FormFieldset className={`${className} ${errorStyles}`}>
-      <label id={`label-${id}`} className="form-label" htmlFor={id}>{label}</label>
+      <label id={`label-${id}`} className="form-label" htmlFor={id}>
+        {label}
+      </label>
       <input
         id={id}
         name={id}
@@ -40,11 +42,18 @@ const FormInput = props => {
         title={label}
         aria-label={label}
         aria-labelledby={`label-${id}`}
-        autoFocus={formNumber === 0 ? true : false}
       />
-      { hasError ? <span className="form-feedback"><h6>{error}</h6></span> : <span className="form-feedback"><h6>{isValidText}</h6></span> }
+      {hasError ? (
+        <span className="form-feedback">
+          <h6>{error}</h6>
+        </span>
+      ) : (
+        <span className="form-feedback">
+          <h6>{isValidText}</h6>
+        </span>
+      )}
     </FormFieldset>
-  )
-}
+  );
+};
 
-export default FormInput
+export default FormInput;

@@ -4,9 +4,10 @@
   "matchText": "You qualify for our special!",
   "button": "Order Now",
   "buttonLink": "https://grandfb.square.site",
+  "mainDismissable": false,
   "hasModal": false,
   "startDate": "09/10/2019",
-  "endDate": "06-01-2020",
+  "endDate": "09-01-2020",
   "toMatch": [""],
   "modalDetail": {
     "title": "Our Social Event Specials",

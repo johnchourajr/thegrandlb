@@ -3,16 +3,16 @@ import React from "react";
 // **
 // ** Using React GA for event tracking
 // https://github.com/pushtell/react-ga
-import ReactGA from "react-ga";
+// import ReactGA from "react-ga";
 
 // **
 // ** Using React AB Test to conduct the AB Testing
 // https://github.com/pushtell/react-ab-test
-import Experiment from "react-ab-test/lib/Experiment";
-import Variant from "react-ab-test/lib/Variant";
-import emitter from "react-ab-test/lib/emitter";
+// import Experiment from "react-ab-test/lib/Experiment";
+// import Variant from "react-ab-test/lib/Variant";
+// import emitter from "react-ab-test/lib/emitter";
 
-import PageCta from "../components/PageCta";
+// import PageCta from "../components/PageCta";
 import ScrollAnimate from "../components/ScrollAnimate";
 import PromoSectionOnlineOrder from "../components/PromoSectionOnlineOrder";
 

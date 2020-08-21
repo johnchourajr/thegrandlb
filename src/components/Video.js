@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
-import VideoCover from './thirdparty/VideoCover'
-import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax'
-import { isMobileBrowswer } from '../components/functions/util'
-import { withPrefix } from 'gatsby'
+import VideoCover from "./thirdparty/VideoCover";
+import { ParallaxProvider, ParallaxBanner } from "react-scroll-parallax";
+import { isMobileBrowswer } from "../components/functions/util";
+import { withPrefix } from "gatsby";
 
 const VideoContent = props => {
   if (!props.isMobileBrowswer) {
@@ -12,24 +12,26 @@ const VideoContent = props => {
         videoOptions={props.videoOptions}
         source={props.source}
         remeasureOnWindowResize
+        muted
       />
-    )
+    );
   } else {
     return (
-      <div className="img" style={{backgroundImage: `url(${withPrefix(props.poster)})`}}/>
-    )
+      <div
+        className="img"
+        style={{ backgroundImage: `url(${withPrefix(props.poster)})` }}
+      />
+    );
   }
-
-
-}
+};
 
 class Video extends React.Component {
   state = {
-    isMobileBrowswer: false,
-  }
+    isMobileBrowswer: false
+  };
 
   componentWillMount() {
-    this.setState({isMobileBrowswer: isMobileBrowswer()})
+    this.setState({ isMobileBrowswer: isMobileBrowswer() });
   }
 
   render() {
@@ -39,10 +41,10 @@ class Video extends React.Component {
       playsInline: true,
       preload: "auto",
       muted: true,
-      loop: true,
-    }
+      loop: true
+    };
 
-    return(
+    return (
       <ParallaxProvider>
         <ParallaxBanner
           className={"video"}
@@ -57,13 +59,13 @@ class Video extends React.Component {
                   poster={this.props.poster}
                 />
               ),
-              slowerScrollRate: true,
-            },
+              slowerScrollRate: true
+            }
           ]}
         />
       </ParallaxProvider>
-    )
+    );
   }
 }
 
-export default Video
+export default Video;
