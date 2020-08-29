@@ -4,11 +4,20 @@ const BannerWrap = props => {
   const { endDate, show, startDate } = props.siteBanner;
 
   if (show) {
-    let startDateFormatted = moment.utc().toISOString();
-    let endDateFormatted = moment.utc().toISOString();
-    const dateRange = moment
+    let startDateFormatted = moment(startDate)
       .utc()
-      .isBetween(startDateFormatted, endDateFormatted);
+      .format();
+    let endDateFormatted = moment(endDate)
+      .utc()
+      .format();
+    console.log({
+      "Start Date": startDateFormatted,
+      "End Date": endDateFormatted
+    });
+    const dateRange = moment().isBetween(
+      moment(startDateFormatted),
+      moment(endDateFormatted)
+    );
     if (dateRange) {
       return props.children;
     } else return null;

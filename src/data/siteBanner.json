@@ -6,8 +6,8 @@
   "buttonLink": "https://grandfb.square.site",
   "mainDismissable": false,
   "hasModal": false,
-  "startDate": "09/10/2019",
-  "endDate": "09-01-2020",
+  "startDate": "2019-09-10T07:00:00Z",
+  "endDate": "2021-09-10T07:00:00Z",
   "toMatch": [""],
   "modalDetail": {
     "title": "Our Social Event Specials",
