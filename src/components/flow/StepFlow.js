@@ -6,7 +6,7 @@ import ReactGA from "react-ga";
 import StepList from "./StepList";
 import Step from "./Step";
 
-import { uuid } from "uuidv4";
+import { v4 as uuidv4 } from "uuid";
 
 // TEST STRING
 // /inquire?glb-event-type=Wedding&glb-event-name=The%20Wedding&glb-rooms=The%20Grand%20Ballroom&glb-guest-count=100&glb-contact-name=John&glb-contact-method=Phone%20and%20Email&glb-contact-email=jchoura@me.com&glb-contact-phone=5555555555
@@ -27,7 +27,7 @@ class StepFlow extends React.Component {
       flowPages: this.props.flowPages,
       doneUrl: "",
       activePageNumber: "0",
-      uuid: uuid()
+      uuid: uuidv4()
     };
 
     this.handleFormChange = this.handleFormChange.bind(this);
