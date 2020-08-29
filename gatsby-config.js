@@ -40,6 +40,13 @@ module.exports = {
         name: "images"
       }
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        path: `${__dirname}/static/img`,
+        name: "static-img"
+      }
+    },
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     {
@@ -47,10 +54,7 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: "gatsby-remark-relative-images",
-            options: {
-              name: "uploads"
-            }
+            resolve: "gatsby-remark-relative-images"
           },
           {
             resolve: "gatsby-remark-images",

@@ -1,12 +1,12 @@
-window.CMS_MANUAL_INIT = true
+import CMS, { init } from "netlify-cms-app";
+import uploadcare from "netlify-cms-media-library-uploadcare";
+import cloudinary from "netlify-cms-media-library-cloudinary";
 
-import CMS, { init } from 'netlify-cms-app'
-import uploadcare from 'netlify-cms-media-library-uploadcare'
-import cloudinary from 'netlify-cms-media-library-cloudinary'
+import BasicPagePreview from "./preview-templates/BasicPagePreview";
+import SiteDetailsPreview from "./preview-templates/SiteDetailsPreview";
+import menuFields from "./menuFields";
 
-import BasicPagePreview from './preview-templates/BasicPagePreview'
-import SiteDetailsPreview from './preview-templates/SiteDetailsPreview'
-import menuFields from './menuFields'
+window.CMS_MANUAL_INIT = true;
 
 init({
   config: {
@@ -201,30 +201,21 @@ init({
                     name: "yelp_rating",
                     widget: "number",
                     default: 4.5,
-                    pattern: [
-                      "([0-5])",
-                      "Should range from 0 to 5"
-                    ]
+                    pattern: ["([0-5])", "Should range from 0 to 5"]
                   },
                   {
                     label: "The Knot Star Rating",
                     name: "knot_rating",
                     widget: "number",
                     default: 5,
-                    pattern: [
-                      "([0-5])",
-                      "Should range from 0 to 5"
-                    ]
+                    pattern: ["([0-5])", "Should range from 0 to 5"]
                   },
                   {
                     label: "WeddingWire Star Rating",
                     name: "ww_rating",
                     widget: "number",
                     default: 4.4,
-                    pattern: [
-                      "([0-5])",
-                      "Should range from 0 to 5"
-                    ]
+                    pattern: ["([0-5])", "Should range from 0 to 5"]
                   }
                 ]
               },
@@ -417,7 +408,7 @@ init({
             description: "Used in Classic Menu",
             file: "src/data/menus/basicsMains.json",
             extension: "json",
-            fields: [ ...menuFields ]
+            fields: [...menuFields]
           },
           {
             label: "Menu Basics Mains Shared",
@@ -425,7 +416,7 @@ init({
             description: "Used in Wedding, and Milestones Menu",
             file: "src/data/menus/basicsMainsShared.json",
             extension: "json",
-            fields: [ ...menuFields ]
+            fields: [...menuFields]
           },
           {
             label: "Menu Basics Sweets",
@@ -433,7 +424,7 @@ init({
             description: "Used in Classic, Wedding, and Milestones Menu",
             file: "src/data/menus/basicsSweets.json",
             extension: "json",
-            fields: [ ...menuFields ]
+            fields: [...menuFields]
           },
           {
             label: "Menu Basics Drinks",
@@ -441,56 +432,56 @@ init({
             description: "Used in Classic, Wedding, and Milestones Menu",
             file: "src/data/menus/basicsDrinks.json",
             extension: "json",
-            fields: [ ...menuFields ]
+            fields: [...menuFields]
           },
           {
             label: "Classic Menu",
             name: "classic menu",
             file: "src/data/menus/classicMenu.json",
             extension: "json",
-            fields: [ ...menuFields ]
+            fields: [...menuFields]
           },
           {
             label: "Corporate Menu",
             name: "corporate menu",
             file: "src/data/menus/corporateMenu.json",
             extension: "json",
-            fields: [ ...menuFields ]
+            fields: [...menuFields]
           },
           {
             label: "Milestone Menu",
             name: "milestone menu",
             file: "src/data/menus/milestoneMenu.json",
             extension: "json",
-            fields: [ ...menuFields ]
+            fields: [...menuFields]
           },
           {
             label: "Wedding Menu",
             name: "wedding menu",
             file: "src/data/menus/weddingMenu.json",
             extension: "json",
-            fields: [ ...menuFields ]
+            fields: [...menuFields]
           }
         ]
       }
     ]
   }
-})
+});
 
 CMS.registerMediaLibrary(uploadcare);
 CMS.registerMediaLibrary(cloudinary);
 
-CMS.registerPreviewStyle('/styles.css')
-CMS.registerPreviewTemplate('siteDetails', SiteDetailsPreview)
-CMS.registerPreviewTemplate('tourPages', BasicPagePreview)
+CMS.registerPreviewStyle("/styles.css");
+CMS.registerPreviewTemplate("siteDetails", SiteDetailsPreview);
+CMS.registerPreviewTemplate("tourPages", BasicPagePreview);
 
-CMS.registerPreviewTemplate('basics', BasicPagePreview)
-CMS.registerPreviewTemplate('basicsAppetizers', BasicPagePreview)
-CMS.registerPreviewTemplate('basicsMains', BasicPagePreview)
-CMS.registerPreviewTemplate('basicsMainsShared', BasicPagePreview)
-CMS.registerPreviewTemplate('basicsSweets', BasicPagePreview)
-CMS.registerPreviewTemplate('basicsDrinks', BasicPagePreview)
-CMS.registerPreviewTemplate('classicMenu', BasicPagePreview)
-CMS.registerPreviewTemplate('corporateMenu', BasicPagePreview)
-CMS.registerPreviewTemplate('milestoneMenu', BasicPagePreview)
-CMS.registerPreviewTemplate('weddingMenu', BasicPagePreview)
+CMS.registerPreviewTemplate("basics", BasicPagePreview);
+CMS.registerPreviewTemplate("basicsAppetizers", BasicPagePreview);
+CMS.registerPreviewTemplate("basicsMains", BasicPagePreview);
+CMS.registerPreviewTemplate("basicsMainsShared", BasicPagePreview);
+CMS.registerPreviewTemplate("basicsSweets", BasicPagePreview);
+CMS.registerPreviewTemplate("basicsDrinks", BasicPagePreview);
+CMS.registerPreviewTemplate("classicMenu", BasicPagePreview);
+CMS.registerPreviewTemplate("corporateMenu", BasicPagePreview);
+CMS.registerPreviewTemplate("milestoneMenu", BasicPagePreview);
+CMS.registerPreviewTemplate("weddingMenu", BasicPagePreview);
