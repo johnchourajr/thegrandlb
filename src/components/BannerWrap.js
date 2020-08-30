@@ -10,10 +10,10 @@ const BannerWrap = props => {
     let endDateFormatted = moment(endDate)
       .utc()
       .format();
-    console.log({
-      "Start Date": startDateFormatted,
-      "End Date": endDateFormatted
-    });
+    // console.log({
+    //   "Start Date": startDateFormatted,
+    //   "End Date": endDateFormatted
+    // });
     const dateRange = moment().isBetween(
       moment(startDateFormatted),
       moment(endDateFormatted)

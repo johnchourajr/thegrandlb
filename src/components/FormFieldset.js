@@ -1,16 +1,9 @@
-import React from "react"
+import React from "react";
 
 const FormFieldset = props => {
-  const {
-    className,
-    children
-  } = props
+  const { className, children } = props;
 
-  return (
-    <fieldset className={`${className} fieldset`}>
-      {children}
-    </fieldset>
-  )
-}
+  return <fieldset className={`${className} fieldset`}>{children}</fieldset>;
+};
 
-export default FormFieldset
+export default FormFieldset;

@@ -1,30 +1,19 @@
 /* eslint-disable */
 
-import React from "react"
+import React from "react";
 
-import FormInput from '../FormInput'
-import FormSelect from '../FormSelect'
-
+import FormInput from "../FormInput";
+import FormSelect from "../FormSelect";
 
 const StepInput = props => {
-  const {
-    type
-  } = props
+  const { type } = props;
 
   if (type === "select") {
-    return(
-      <FormSelect
-        {...props}
-      />
-    )
+    return <FormSelect {...props} />;
   } else {
-    return(
-      <FormInput
-        {...props}
-      />
-    )
+    return <FormInput {...props} />;
   }
-}
+};
 
 const Step = props => {
   const {
@@ -34,14 +23,14 @@ const Step = props => {
     displayNext,
     displaySubmit,
     page,
-    pageNumber,
-  } = props
+    pageNumber
+  } = props;
 
-  const activeStyles = !isActive ? {display: 'none'} : {display: 'inherit'}
+  const activeStyles = !isActive ? { display: "none" } : { display: "inherit" };
 
   return (
     <div style={activeStyles}>
-      <input type="hidden" name="utf8" value="✓"/>
+      <input type="hidden" name="utf8" value="✓" />
       {page.forms.map((item, i) => {
         return (
           <StepInput
@@ -52,7 +41,7 @@ const Step = props => {
             handleBlur={props.handleBlur}
             {...item}
           />
-        )
+        );
       })}
       <div className="inquire-page--footer xs-col-12">
         <Previous
@@ -62,8 +51,8 @@ const Step = props => {
         <Next
           isActive={displayNext}
           goToNextStep={() => {
-            props.goToNextStep()
-            props.setQueryValues()
+            props.goToNextStep();
+            props.setQueryValues();
           }}
           disabled={!page.isValid}
         />
@@ -76,11 +65,11 @@ const Step = props => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
 const Next = props => {
-  const { isActive } = props
+  const { isActive } = props;
 
   // console.log(props);
 
@@ -89,37 +78,51 @@ const Next = props => {
       <div
         role="button"
         className={`button ${props.disabled && "button--disabled"}`}
-        onClick={() => !props.disabled && props.goToNextStep()}
+        onClick={e => !props.disabled && props.goToNextStep(e)}
+        onKeyDown={e => {
+          console.log(`Pressed keyCode ${e.key}`);
+          if (e.key === "Enter") {
+            !props.disabled && props.goToNextStep(e);
+            e.preventDefault();
+          }
+        }}
         type="Next"
         disabled={props.disabled}
         tabIndex="0"
       >
         Next
       </div>
-    )
-  } else return null
-}
+    );
+  } else return null;
+};
 
 const Previous = props => {
-  const { isActive } = props
+  const { isActive } = props;
 
   if (isActive) {
     return (
       <div
         role="button"
         className="button button--secondary"
-        onClick={() => props.goToPreviousStep()}
+        onClick={e => props.goToPreviousStep(e)}
+        onKeyDown={e => {
+          console.log(`Pressed keyCode ${e.key}`);
+          if (e.key === "Enter") {
+            props.goToPreviousStep(e);
+            e.preventDefault();
+          }
+        }}
         type="Previous"
         tabIndex="0"
       >
         Previous
       </div>
-    )
-  } else return null
-}
+    );
+  } else return null;
+};
 
 const Submit = props => {
-  const { isActive, doneUrl, currentStep } = props
+  const { isActive, doneUrl, currentStep } = props;
 
   if (isActive && currentStep === 2) {
     return (
@@ -128,16 +131,22 @@ const Submit = props => {
         className={`button ${props.disabled ? "button--disabled" : null}`}
         onMouseOver={() => props.submitAction(props.disabled)}
         onClick={() => {
-          props.submitAction(props.disabled)
+          props.submitAction(props.disabled);
+        }}
+        onKeyDown={e => {
+          console.log(`Pressed keyCode ${e.key}`);
+          if (e.key === "Enter") {
+            props.submitAction(props.disabled);
+            e.preventDefault();
+          }
         }}
         disabled={props.disabled}
         tabIndex="0"
       >
         Submit
       </button>
-    )
-  } else return null
-}
+    );
+  } else return null;
+};
 
-
-export default Step
+export default Step;

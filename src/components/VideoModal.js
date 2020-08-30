@@ -58,4 +58,6 @@ const MainModal = props => {
   );
 };
 
+ReactModal.setAppElement("#___gatsby");
+
 export default MainModal;
