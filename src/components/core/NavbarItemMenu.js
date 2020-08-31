@@ -5,9 +5,13 @@ const NavbarItemMenu = props => {
   if (props.subpages && !props.noHoverMenu) {
     return (
       <div
+        role="menuitem"
         className="nav--item--menu"
         onMouseOver={props.onMouseOver}
+        onFocus={props.onMouseOver}
+        onBlur={props.onMouseOut}
         onMouseOut={props.onMouseOut}
+        tabIndex="-1"
       >
         {props.subpages.map((item, i) => (
           <div key={i}>

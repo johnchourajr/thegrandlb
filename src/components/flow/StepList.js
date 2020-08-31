@@ -1,28 +1,21 @@
-import React from "react"
-import ReactGA from 'react-ga'
+import React from "react";
+import ReactGA from "react-ga";
 
-import StepBanner from "./StepBanner"
+import StepBanner from "./StepBanner";
 
 const StepIndex = props => {
   const children = React.Children.map(props.children, (child, i) => {
-    const pageNumber = i + 1
-    const isActive = i === props.currentStep
-    const activeStyles = isActive ? {} : {opacity: .2}
+    const pageNumber = i + 1;
+    const isActive = i === props.currentStep;
+    const activeStyles = isActive ? {} : { opacity: 0.2 };
 
-    return(
-      <span style={activeStyles}>{pageNumber}</span>
-    )
-  })
-  return (
-    <div className="inquire-page--index">
-      {children}
-    </div>
-  )
-}
-
+    return <span style={activeStyles}>{pageNumber}</span>;
+  });
+  return <div className="inquire-page--index">{children}</div>;
+};
 
 const StepHeader = props => {
-  const headerText = props.flowPages[props.currentStep].header
+  const headerText = props.flowPages[props.currentStep].header;
 
   return (
     <div className="inquire-page--header">
@@ -33,58 +26,58 @@ const StepHeader = props => {
       />
       <h3 className="display xs-text-center">{headerText}</h3>
     </div>
-  )
-}
+  );
+};
 
 class StepList extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       currentStep: 0,
-      totalSteps: this.props.children.length - 1,
-    }
+      totalSteps: this.props.children.length - 1
+    };
   }
 
-  goToStep = (step) => {
-    this.setState({ currentStep: step })
-  }
+  goToStep = step => {
+    this.setState({ currentStep: step });
+  };
 
-  goToPreviousStep = () => {
-    const step = this.state.currentStep - 1
+  goToPreviousStep = e => {
+    const step = this.state.currentStep - 1;
 
-    this.setState({ currentStep: step })
+    this.setState({ currentStep: step });
     ReactGA.event({
-      category: 'InquiryFlow',
-      action: `Back To Step ${step+1}`
+      category: "InquiryFlow",
+      action: `Back To Step ${step + 1}`
     });
-  }
+  };
 
-  goToNextStep = () => {
-    const step = this.state.currentStep + 1
+  goToNextStep = e => {
+    const step = this.state.currentStep + 1;
 
-    this.setState({ currentStep: step })
+    this.setState({ currentStep: step });
     ReactGA.event({
-      category: 'InquiryFlow',
-      action: `Proceed To Step ${step+1}`
+      category: "InquiryFlow",
+      action: `Proceed To Step ${step + 1}`
     });
-  }
+  };
 
-  submitAction = (disabled) => {
+  submitAction = disabled => {
     if (disabled) {
     } else {
-      sessionStorage.setItem('flowPages', JSON.stringify(this.props.flowPages))
+      sessionStorage.setItem("flowPages", JSON.stringify(this.props.flowPages));
       ReactGA.event({
-        category: 'InquiryFlow',
-        action: 'Inquiry Submitted'
+        category: "InquiryFlow",
+        action: "Inquiry Submitted"
       });
       // ReactGA.set({ userName: this.props.flowPages[2].forms[0].value });
     }
-  }
+  };
 
   renderSteps() {
     const children = React.Children.map(this.props.children, (child, index) => {
-      const { currentStep, totalSteps } = this.state
+      const { currentStep, totalSteps } = this.state;
 
       return React.cloneElement(child, {
         currentStep: currentStep,
@@ -92,13 +85,13 @@ class StepList extends React.Component {
         displayPrevious: currentStep > 0,
         displayNext: currentStep < totalSteps,
         displaySubmit: currentStep === totalSteps,
-        goToPreviousStep: () => this.goToPreviousStep(),
-        goToNextStep: () => this.goToNextStep(),
-        submitAction: () => this.submitAction(),
-      })
-    })
+        goToPreviousStep: e => this.goToPreviousStep(e),
+        goToNextStep: e => this.goToNextStep(e),
+        submitAction: () => this.submitAction()
+      });
+    });
 
-    return children
+    return children;
   }
 
   render() {
@@ -128,8 +121,8 @@ class StepList extends React.Component {
           {this.renderSteps()}
         </form>
       </div>
-    )
+    );
   }
 }
 
-export default StepList
+export default StepList;

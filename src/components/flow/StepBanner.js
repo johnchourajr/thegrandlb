@@ -22,7 +22,7 @@ const StepBanner = props => {
   } = props.siteBanner;
 
   const dateSelected = props.flowPages[1].forms[0].value;
-  const selectedDayOfWeek = moment(dateSelected).format("dddd");
+  const selectedDayOfWeek = moment.utc(dateSelected).format("dddd");
   const isMatch = toMatch.includes(selectedDayOfWeek);
 
   let dismissedCondition = null;
@@ -55,12 +55,12 @@ const StepBanner = props => {
             )}
           </p>
           {!isMatch && (
-            <div
+            <button
               onClick={e => props.handleBannerDismiss(true)}
               className="nav--banner--button nav--banner--close"
             >
               <X />
-            </div>
+            </button>
           )}
           {isMatch && (
             <div className="nav--banner--button">

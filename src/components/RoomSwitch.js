@@ -1,38 +1,56 @@
-import React from 'react'
-import { withPrefix } from 'gatsby'
+import React from "react";
+import { withPrefix } from "gatsby";
 
 const RoomSwitchImage = props => {
-  const isActive = props.index === props.activeItem ? "active" : "inactive"
+  const isActive = props.index === props.activeItem ? "active" : "inactive";
   return (
-    <div className={`room-switch--image-item ${isActive}`} style={{backgroundImage: `url(${withPrefix(props.img)})`}}></div>
-  )
-}
+    <div
+      className={`room-switch--image-item ${isActive}`}
+      style={{ backgroundImage: `url(${withPrefix(props.img)})` }}
+    ></div>
+  );
+};
 
 const RoomSwitchButton = props => {
-  const isActive = props.index === props.activeItem
-  const activeChecked = isActive ? "checked" : ""
-  const activeStyles = isActive ? "" : "button--secondary"
-  return(
+  const isActive = props.index === props.activeItem;
+  const activeChecked = isActive ? "checked" : "";
+  const activeStyles = isActive ? "" : "button--secondary";
+  return (
     <React.Fragment>
-      <input className="button-group__radio" type="radio" id={props.caption} value={props.caption} name={props.caption} defaultChecked={activeChecked} />
-      <label className={`button ${activeStyles} button-group__item`} htmlFor={props.caption} onClick={(e) => props.handleRadio(e, props.index)}>{props.caption}</label>
+      <input
+        className="button-group__radio"
+        aria-hidden="true"
+        type="radio"
+        id={props.caption}
+        value={props.caption}
+        name={props.caption}
+        defaultChecked={activeChecked}
+      />
+      <button
+        className={`button ${activeStyles} button-group__item`}
+        htmlFor={props.caption}
+        onClick={e => props.handleRadio(e, props.index)}
+        onKeyPress={e => props.handleRadio(e, props.index)}
+      >
+        {props.caption}
+      </button>
     </React.Fragment>
-  )
-}
+  );
+};
 
 class RoomSwitch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       activeItem: 0,
-      array: this.props.array,
-    }
+      array: this.props.array
+    };
 
     this._handleRadio = this._handleRadio.bind(this);
   }
 
   _handleRadio(event, index) {
-    this.setState({activeItem: index})
+    this.setState({ activeItem: index });
   }
 
   render() {
@@ -49,7 +67,7 @@ class RoomSwitch extends React.Component {
                     activeItem={this.state.activeItem}
                     img={item.img}
                   />
-                )
+                );
               })}
             </div>
             <div className={`room-switch--button-group wrapper clearfix`}>
@@ -63,16 +81,15 @@ class RoomSwitch extends React.Component {
                       caption={item.caption}
                       handleRadio={this._handleRadio}
                     />
-                  )
+                  );
                 })}
               </div>
             </div>
-
           </div>
         </section>
       </React.Fragment>
-    )
+    );
   }
 }
 
-export default RoomSwitch
+export default RoomSwitch;

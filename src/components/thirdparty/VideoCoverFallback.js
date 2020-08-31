@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class VideoCoverFallback extends Component {
-
   static propTypes = {
     style: PropTypes.object,
     onFallbackDidMount: PropTypes.func,
@@ -10,17 +9,17 @@ class VideoCoverFallback extends Component {
     videoOptions: PropTypes.object,
     forceFallback: PropTypes.bool,
     remeasureOnWindowResize: PropTypes.bool,
-    className: PropTypes.string,
-  }
+    className: PropTypes.string
+  };
 
   state = {
     innerRatio: undefined,
-    outerRatio: undefined,
-  }
+    outerRatio: undefined
+  };
 
   componentDidMount() {
     this.updateContainerRatio();
-    if (typeof this.props.onFallbackDidMount === 'function') {
+    if (typeof this.props.onFallbackDidMount === "function") {
       this.props.onFallbackDidMount(this.updateContainerRatio);
     }
     if (this.props.remeasureOnWindowResize) {
@@ -29,7 +28,9 @@ class VideoCoverFallback extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.remeasureOnWindowResize !== this.props.remeasureOnWindowResize) {
+    if (
+      nextProps.remeasureOnWindowResize !== this.props.remeasureOnWindowResize
+    ) {
       if (nextProps.remeasureOnWindowResize) {
         this.initEventListeners();
       } else {
@@ -40,7 +41,7 @@ class VideoCoverFallback extends Component {
 
   componentWillUnmount() {
     this.removeEventListeners();
-    if (typeof this.props.onFallbackWillUnmount === 'function') {
+    if (typeof this.props.onFallbackWillUnmount === "function") {
       this.props.onFallbackWillUnmount();
     }
   }
@@ -49,28 +50,28 @@ class VideoCoverFallback extends Component {
     if (this.containerRef) {
       const { width, height } = this.containerRef.getBoundingClientRect();
       this.setState({
-        outerRatio: width / height,
+        outerRatio: width / height
       });
     }
-  }
+  };
 
   updateVideoRatio = (width, height) => {
     this.setState({
-      innerRatio: width / height,
+      innerRatio: width / height
     });
   };
 
   initEventListeners = () => {
     if (typeof window != "undefined") {
-      window.addEventListener('resize', this.updateContainerRatio);
+      window.addEventListener("resize", this.updateContainerRatio);
     }
-  }
+  };
 
   removeEventListeners = () => {
     if (typeof window != "undefined") {
-      window.removeEventListener('resize', this.updateContainerRatio);
+      window.removeEventListener("resize", this.updateContainerRatio);
     }
-  }
+  };
 
   /**
    * We can get the width and height of a video after it has started loading.
@@ -81,43 +82,49 @@ class VideoCoverFallback extends Component {
   render() {
     const { innerRatio, outerRatio } = this.state;
     const style = {
-      width: innerRatio > outerRatio ? 'auto' : '100%',
-      height: innerRatio > outerRatio ? '100%' : 'auto',
+      width: innerRatio > outerRatio ? "auto" : "100%",
+      height: innerRatio > outerRatio ? "100%" : "auto",
 
       /* the following is for centering the video.
       There has to be some better solution?!
       any help is very much appreciated :) */
-      position: 'absolute',
-      top: '-9999px',
-      bottom: '-9999px',
-      left: '-9999px',
-      right: '-9999px',
-      margin: 'auto',
+      position: "absolute",
+      top: "-9999px",
+      bottom: "-9999px",
+      left: "-9999px",
+      right: "-9999px",
+      margin: "auto"
     };
 
     const outerStyle = {
-      width: '100%',
-      height: '100%',
+      width: "100%",
+      height: "100%",
       ...this.props.style,
-      position: 'relative',
-      overflow: 'hidden',
+      position: "relative",
+      overflow: "hidden"
     };
 
     return (
       <div
         style={outerStyle}
-        ref={ref => { this.containerRef = ref; }}
+        ref={ref => {
+          this.containerRef = ref;
+        }}
         className={this.props.className}
       >
         <video
           onLoadedData={event => {
-            this.updateVideoRatio(event.target.videoWidth, event.target.videoHeight);
+            this.updateVideoRatio(
+              event.target.videoWidth,
+              event.target.videoHeight
+            );
           }}
           style={style}
           {...this.props.videoOptions}
+          muted
         >
           {this.props.source.map((item, i) => (
-            <source key={i} src={item.src} type={item.type}/>
+            <source key={i} src={item.src} type={item.type} />
           ))}
         </video>
       </div>

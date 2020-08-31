@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import 'intersection-observer';
+import React, { useState } from "react";
+import "intersection-observer";
 
-import NumberItem from './NumberItem'
+import NumberItem from "./NumberItem";
 
 const NumberItemSelect = props => {
-  const { item } = props
-  const [number, setNumber] = useState(item.options[0].number)
+  const { item } = props;
+  const [number, setNumber] = useState(item.options[0].number);
 
   return (
     <NumberItem
@@ -19,16 +19,18 @@ const NumberItemSelect = props => {
       description={item.description}
       isMin={item.isMin}
     >
-      <select
+      <select // eslint-disable-line jsx-a11y/no-onchange
         onChange={e => setNumber(e.target.value)}
         className="number-item--input"
       >
         {item.options.map((option, i) => (
-          <option key={i} value={option.number}>{option.caption}</option>
+          <option key={i} value={option.number}>
+            {option.caption}
+          </option>
         ))}
       </select>
     </NumberItem>
-  )
-}
+  );
+};
 
-export default NumberItemSelect
+export default NumberItemSelect;

@@ -1,7 +1,7 @@
-import React from "react"
+import React from "react";
 
 const NavbarMobileButton = props => (
-  <div
+  <button
     id="nav--mobile-menu"
     onClick={props.onClick}
     className="nav--mobile-menu"
@@ -9,7 +9,7 @@ const NavbarMobileButton = props => (
     <span></span>
     <span></span>
     <span></span>
-  </div>
-)
+  </button>
+);
 
-export default NavbarMobileButton
+export default NavbarMobileButton;

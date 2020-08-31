@@ -29,16 +29,17 @@ const inquiryForms = [
           "Party",
           "Fundraiser",
           "Memorial",
-          "Other",
+          "Other"
         ],
         placeholder: "Wedding ",
         value: "",
         required: true,
         isValid: false,
         hasError: false,
-        error: "Please make a selection",
-        className: "col xs-col-12",
-      },{
+        error: "Make a selection",
+        className: "col xs-col-12"
+      },
+      {
         label: "Name your event",
         id: "glb-event-name",
         type: "text",
@@ -48,11 +49,12 @@ const inquiryForms = [
         required: true,
         isValid: false,
         hasError: false,
-        error: "Please name your event",
-        className: "col xs-col-12",
-      },
+        error: "Name your event",
+        className: "col xs-col-12"
+      }
     ]
-  },{
+  },
+  {
     header: "The Finer Details",
     isValid: false,
     forms: [
@@ -66,9 +68,10 @@ const inquiryForms = [
         required: true,
         isValid: false,
         hasError: false,
-        error: "Please select a date",
-        className: "col xs-col-12 sm-col-6",
-      },{
+        error: "Select a date",
+        className: "col xs-col-12 sm-col-6"
+      },
+      {
         label: "Desired Event Time",
         id: "glb-time",
         type: "select",
@@ -87,7 +90,7 @@ const inquiryForms = [
           "7pm",
           "8pm",
           "9pm",
-          "10pm",
+          "10pm"
         ],
         placeholder: "8am",
         value: "",
@@ -95,9 +98,10 @@ const inquiryForms = [
         required: true,
         isValid: false,
         hasError: false,
-        error: "Please select a time",
-        className: "col xs-col-12 sm-col-6",
-      },{
+        error: "Select a time",
+        className: "col xs-col-12 sm-col-6"
+      },
+      {
         label: "Desired Room",
         id: "glb-rooms",
         type: "select",
@@ -108,16 +112,17 @@ const inquiryForms = [
           "The Garden Room",
           "The Pacific Room",
           "The Board Room",
-          "The Palm Terrace",
+          "The Palm Terrace"
         ],
         placeholder: "The Grand Ballroom ",
         value: "",
         required: true,
         isValid: false,
         hasError: false,
-        error: "Please make a selection",
-        className: "col xs-col-12 sm-col-6",
-      },{
+        error: "Make a selection",
+        className: "col xs-col-12 sm-col-6"
+      },
+      {
         label: "Guest Count",
         id: "glb-guest-count",
         type: "number",
@@ -127,11 +132,12 @@ const inquiryForms = [
         required: true,
         isValid: false,
         hasError: false,
-        error: "Please enter a valid number",
-        className: "col xs-col-12 sm-col-6",
-      },
+        error: "Enter number greater than 1",
+        className: "col xs-col-12 sm-col-6"
+      }
     ]
-  },{
+  },
+  {
     header: "Talk About You",
     isValid: false,
     forms: [
@@ -145,25 +151,23 @@ const inquiryForms = [
         required: true,
         isValid: false,
         hasError: false,
-        error: "Please use a valid name",
-        className: "col xs-col-12 sm-col-6",
-      },{
+        error: "Name isn't valid",
+        className: "col xs-col-12 sm-col-6"
+      },
+      {
         label: "Preferred contact method",
         id: "glb-contact-method",
         type: "select",
-        options: [
-          "Phone and Email",
-          "Phone",
-          "Email",
-        ],
+        options: ["Phone and Email", "Phone", "Email"],
         placeholder: "Phone and Email ",
         value: "",
         required: true,
         isValid: false,
         hasError: false,
         error: "Please make a selection",
-        className: "col xs-col-12 sm-col-6",
-      },{
+        className: "col xs-col-12 sm-col-6"
+      },
+      {
         label: "Email",
         id: "glb-contact-email",
         type: "email",
@@ -173,9 +177,10 @@ const inquiryForms = [
         required: true,
         isValid: false,
         hasError: false,
-        error: "Please use a valid email",
-        className: "col xs-col-12 sm-col-6",
-      },{
+        error: "Email isn't valid",
+        className: "col xs-col-12 sm-col-6"
+      },
+      {
         label: "Phone Number",
         id: "glb-contact-phone",
         type: "text",
@@ -186,11 +191,11 @@ const inquiryForms = [
         required: true,
         isValid: false,
         hasError: false,
-        error: "Please use a valid phone number",
-        className: "col xs-col-12 sm-col-6",
-      },
+        error: "Phone number isn't valid",
+        className: "col xs-col-12 sm-col-6"
+      }
     ]
-  },
-]
+  }
+];
 
-export default inquiryForms
+export default inquiryForms;

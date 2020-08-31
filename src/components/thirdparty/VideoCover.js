@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
-import CoverFallback from './VideoCoverFallback';
+import CoverFallback from "./VideoCoverFallback";
 /*
  * this component is a simple wrapper around <video/> that displays the video filling
  * the container, while preserving it's aspect ratio
@@ -13,7 +13,6 @@ import CoverFallback from './VideoCoverFallback';
  * just have a look at the styles for the non-fallback implementation
  */
 class VideoCover extends Component {
-
   static propTypes = {
     /**
      * This component will use object-fit: cover if available,
@@ -64,26 +63,28 @@ class VideoCover extends Component {
     /**
      * Use this to declair a single or multple sources
      */
-    source: PropTypes.array,
+    source: PropTypes.array
   };
 
   static defaultProps = {
     forceFallback: false,
-    remeasureOnWindowResize: false,
+    remeasureOnWindowResize: false
   };
 
   render() {
     const style = {
-      width: '100%',
-      height: '100%',
+      width: "100%",
+      height: "100%",
       ...this.props.style,
-      objectFit: 'cover',
+      objectFit: "cover"
     };
     if (typeof window != "undefined") {
-      if (this.props.forceFallback || (typeof window !== 'undefined' && /MSIE|Trident|Edge/.test(window.navigator.userAgent))) {
-        return (
-          <CoverFallback {...this.props} />
-        );
+      if (
+        this.props.forceFallback ||
+        (typeof window !== "undefined" &&
+          /MSIE|Trident|Edge/.test(window.navigator.userAgent))
+      ) {
+        return <CoverFallback {...this.props} />;
       }
     }
     return (
@@ -92,9 +93,10 @@ class VideoCover extends Component {
         className={this.props.className}
         style={style}
         {...this.props.videoOptions}
+        muted
       >
         {this.props.source.map((item, i) => (
-          <source key={i} src={item.src} type={item.type}/>
+          <source key={i} src={item.src} type={item.type} />
         ))}
       </video>
     );
