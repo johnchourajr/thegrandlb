@@ -12,14 +12,36 @@ import {
 import "react-netlify-identity-widget/styles.css"; // delete if you want to bring your own CSS
 
 const Login = ({ identity, dialog, setDialog, name, email }) => {
+  const roles =
+    identity &&
+    identity.user &&
+    identity.user.app_metadata &&
+    identity.user.app_metadata.roles &&
+    identity.user.app_metadata.roles.includes("Admin");
+  console.log(identity);
+
   return (
     <div className="xs-flex xs-flex-column xs-flex-align-center">
       {identity && identity.isLoggedIn ? (
         <React.Fragment>
-          <p>{email}</p>
+          <p className="xs-mt2">
+            Email Address: <u>{email}</u>
+          </p>
+          <p className="xs-mt2">
+            User ID: <u>{identity.user.id}</u>
+          </p>
+          <p className="xs-mt2">
+            {roles ? (
+              <a
+                className="button button--small button--secondary xs-mt3"
+                href="https://thegrandlb.com/admin/#/"
+              >
+                View Admin Portal
+              </a>
+            ) : null}
+          </p>
           <button
             className="button button--small button--secondary xs-mt3"
-            style={{ maxWidth: 400, background: "orangered" }}
             onClick={() => setDialog(true)}
           >
             LOG OUT
@@ -29,7 +51,6 @@ const Login = ({ identity, dialog, setDialog, name, email }) => {
         <React.Fragment>
           <button
             className="button button--small button--secondary xs-mt3"
-            style={{ maxWidth: 400, background: "darkgreen" }}
             onClick={() => setDialog(true)}
           >
             LOG IN
@@ -66,11 +87,6 @@ const ProfilePage = ({ data, status }) => {
       identity.user.user_metadata.full_name) ||
     "User";
   const email = (identity && identity.user && identity.user.email) || "Email";
-  const avatar_url =
-    identity &&
-    identity.user &&
-    identity.user.user_metadata &&
-    identity.user.user_metadata.avatar_url;
 
   return (
     <Layout status={status}>
