@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReactMarkdown from "react-markdown";
+// import * as Flickity from "react-flickity-component";
 
 // Component
 const PageCarousel = props => {
   if (typeof window != "undefined") {
-    const Flickity = require("react-flickity-component");
-
     const { items } = props;
+
+    var Flickity = require("react-flickity-component");
 
     const toSlide = (item, i) => {
       return (
