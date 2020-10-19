@@ -1,7 +1,7 @@
 backend:
   name: git-gateway
   repo: johnchourajr/thegrandlb
-  branch: master
+  branch: main
 
 display_url: https://thegrandlb.com
 media_folder: static/img
