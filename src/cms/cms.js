@@ -8,6 +8,8 @@ import menuFields from "./menuFields";
 
 window.CMS_MANUAL_INIT = true;
 
+
+
 init({
   config: {
     backend: {
