@@ -13,7 +13,7 @@ init({
     backend: {
       name: "git-gateway",
       repo: "johnchourajr/thegrandlb",
-      branch: "master"
+      branch: "main"
     },
     load_config_file: false,
     display_url: "https://thegrandlb.com",
