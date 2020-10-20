@@ -57,7 +57,7 @@
                   "text": "Petite Fours - *Add $1.00 per person*"
                 }
               ],
-              "price": "$4.00 *per person*"
+              "price": "$5.50 *per person*"
             }
           ]
         },
@@ -69,17 +69,17 @@
             {
               "title": "3 Sweet Tooth Treats",
               "description": "Select options from Sweet Tooth treat list",
-              "price": "$10.00 *per person*"
+              "price": "$11.00 *per person*"
             },
             {
               "title": "4 Sweet Tooth Treats",
               "description": "Select options from Sweet Tooth treat list",
-              "price": "$11.00 *per person*"
+              "price": "$12.00 *per person*"
             },
             {
               "title": "5 Sweet Tooth Treats",
               "description": "Select options from Sweet Tooth treat list",
-              "price": "$13.00 *per person*"
+              "price": "$14.00 *per person*"
             }
           ]
         },
@@ -90,7 +90,7 @@
             {
               "title": "Float Home Station",
               "description": "Attendant Required; additional labor fee applies",
-              "price": "$4.00 *per person*",
+              "price": "$6.00 *per person*",
               "items": [
                 {
                   "title": "Select Two Soda Flavors\n*(served with Vanilla Ice Cream)*",
@@ -114,7 +114,7 @@
             {
               "title": "Churro Donut Station",
               "description": "Attendant Required; additional labor fee applies",
-              "price": "$6.00 *per person*",
+              "price": "$8.00 *per person*",
               "items": [
                 {
                   "title": "Includes All",
@@ -135,7 +135,7 @@
             {
               "title": "Chocolate Fountain",
               "description": "Warm Belgium Chocolate cascades off a three-tier fountain, specially designed for fondue. Minimum 25 people.",
-              "price": "$350 *rental fee* *-* $8-$11 *per person*",
+              "price": "$350 *rental fee* *-* $10-$13 *per person*",
               "items": [
                 {
                   "title": "Includes",
@@ -158,13 +158,13 @@
                   "title": "Dipping Items",
                   "list": [
                     {
-                      "text": "Choose Three for $8.00 *per person*"
+                      "text": "Choose Three for $10.00 *per person*"
                     },
                     {
-                      "text": "Choose Four for $10.00 *per person*"
+                      "text": "Choose Four for $11.00 *per person*"
                     },
                     {
-                      "text": "Choose Five for $11.00 *per person*"
+                      "text": "Choose Five for $13.00 *per person*"
                     }
                   ]
                 },
