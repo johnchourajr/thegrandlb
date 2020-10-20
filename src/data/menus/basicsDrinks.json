@@ -15,11 +15,11 @@
             },
             {
               "title": "Domestic Beer",
-              "price": "$6"
+              "price": "$8"
             },
             {
               "title": "Import/Specialty Beer",
-              "price": "$7"
+              "price": "$9"
             },
             {
               "title": "Domestic Keg",
@@ -32,51 +32,51 @@
               "price": "$500"
             },
             {
-              "description": " "
+              "description": ""
             },
             {
               "description": "Wine"
             },
             {
               "title": "Wine by the Glass",
-              "price": "$7-$8"
+              "price": "$9-$10"
             },
             {
               "title": "Wine by the Bottle",
-              "price": "$24-$38"
+              "price": "$26-$40"
             },
             {
               "title": "Champagne by the Glass",
-              "price": "$8-$10"
+              "price": "$9-$12"
             },
             {
               "title": "Champagne by the Bottle",
-              "price": "$20-$105"
+              "price": "$22-$105"
             },
             {
-              "description": " "
+              "description": ""
             },
             {
               "description": "Mixed Cocktails"
             },
             {
               "title": "Well Brand",
-              "price": "$8"
-            },
-            {
-              "title": "Call Brand",
-              "price": "$9-$10"
-            },
-            {
-              "title": "Premium Brand",
               "price": "$10"
             },
             {
-              "title": "Martinis",
-              "price": "$11"
+              "title": "Call Brand",
+              "price": "$11-$12"
             },
             {
-              "description": " "
+              "title": "Premium Brand",
+              "price": "$12"
+            },
+            {
+              "title": "Martinis",
+              "price": "$13"
+            },
+            {
+              "description": ""
             },
             {
               "description": "Non-Alcoholic"
@@ -91,19 +91,19 @@
             },
             {
               "title": "Soft Drinks",
-              "price": "$3"
+              "price": "$4"
             },
             {
               "title": "Juices",
-              "price": "$2"
+              "price": "$3"
             },
             {
               "title": "Sparkling Cider",
-              "price": "$13 *per bottle*"
+              "price": "$15 *per bottle*"
             },
             {
               "title": "Unlimited Sodas",
-              "price": "$4 *per person*"
+              "price": "$5 *per person*"
             },
             {
               "title": "Corkage Fee",
@@ -118,40 +118,64 @@
             {
               "title": "Cash Bar",
               "description": "One bartender per 75 guests recommended",
-              "price": "$150 *per bartender*"
+              "price": "$225 *per bar*"
             },
             {
               "title": "Limited Hosted Bar",
               "description": "Bartender fee waived when bar is hosted by client. $500 minimum for flat-rate hosted bars. $6 for each additional hour.",
               "list": [
-                { "text": "1 hour for $13 *per person*" },
-                { "text": "2 hours for $17 *per person*" },
-                { "text": "3 hours for $21 *per person*" },
-                { "text": "Limited Hosted Includes:\nDomestic & Imported Beer, House Wine, Soft Drinks, and Mineral Water." }
+                {
+                  "text": "1 hour for $15 *per person*"
+                },
+                {
+                  "text": "2 hours for $19 *per person*"
+                },
+                {
+                  "text": "3 hours for $23 *per person*"
+                },
+                {
+                  "text": "Limited Hosted Includes:\nDomestic & Imported Beer, House Wine, Soft Drinks, and Mineral Water."
+                }
               ],
-              "price": "$13-$21 *per hour, per person*"
+              "price": "$15-$23 *per hour, per person*"
             },
             {
               "title": "Hosted Bar",
               "description": "Bartender fee waived when bar is hosted by client. $500 minimum for flat-rate hosted bars. $8 for each additional hour.",
               "list": [
-                { "text": "1 hour for $17 *per person*" },
-                { "text": "2 hours for $24 *per person*" },
-                { "text": "3 hours for $29 *per person*" },
-                { "text": "Hosted Bar Includes:\nWell Drinks, Domestic & Imported Beer, House Wine, Soft Drinks, and Mineral Water." }
+                {
+                  "text": "1 hour for $19 *per person*"
+                },
+                {
+                  "text": "2 hours for $26 *per person*"
+                },
+                {
+                  "text": "3 hours for $31 *per person*"
+                },
+                {
+                  "text": "Hosted Bar Includes:\nWell Drinks, Domestic & Imported Beer, House Wine, Soft Drinks, and Mineral Water."
+                }
               ],
-              "price": "$17-$29 *per hour, per person*"
+              "price": "$19-$31 *per hour, per person*"
             },
             {
               "title": "Premium Hosted Bar",
               "description": "Bartender fee waived when bar is hosted by client. $500 minimum for flat-rate hosted bars. $11 for each additional hour.",
               "list": [
-                { "text": "1 hour for $20 *per person*" },
-                { "text": "2 hours for $31 *per person*" },
-                { "text": "3 hours for $36 *per person*" },
-                { "text": "Hosted Bar Includes:\nCall Drinks, Well Drinks, Domestic & Imported Beer, House Wine, Soft Drinks, and Mineral Water." }
+                {
+                  "text": "1 hour for $22 *per person*"
+                },
+                {
+                  "text": "2 hours for $33 *per person*"
+                },
+                {
+                  "text": "3 hours for $38 *per person*"
+                },
+                {
+                  "text": "Hosted Bar Includes:\nCall Drinks, Well Drinks, Domestic & Imported Beer, House Wine, Soft Drinks, and Mineral Water."
+                }
               ],
-              "price": "$20-$36 *per hour, per person*"
+              "price": "$22-$38 *per hour, per person*"
             }
           ]
         }
