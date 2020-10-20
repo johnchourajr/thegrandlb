@@ -32,7 +32,7 @@
                   "text": "Cake Cutting & Serving"
                 }
               ],
-              "price": "*Lunch* $55.50 *-* *Dinner* $65.50"
+              "price": "*Lunch* $57.50 *-* *Dinner* $67.50"
             },
             {
               "title": "The Gold",
@@ -66,7 +66,7 @@
                   "text": "Cake Cutting & Serving"
                 }
               ],
-              "price": "*Lunch* $66.50 *-* *Dinner* $76.50"
+              "price": "*Lunch* $68.50 *-* *Dinner* $78.50"
             },
             {
               "title": "The Platinum",
@@ -106,7 +106,7 @@
                   "text": "Additional Event Hour"
                 }
               ],
-              "price": "*Lunch* $79.50 *-* *Dinner* $89.50"
+              "price": "*Lunch* $81.50 *-* *Dinner* $91.50"
             }
           ]
         },
@@ -117,16 +117,16 @@
             {
               "title": "Garden Ceremony",
               "description": "Have your Garden Ceremony outside on our Palm Terrace or on our Monarch Patio. _Minimum 100 guests_",
-              "price": "$12.00-$15.00 *per person*",
+              "price": "$14.00-$17.00 *per person*",
               "items": [
                 {
                   "title": "Pricing",
                   "list": [
                     {
-                      "text": "Without Reception $15.00 *per person*"
+                      "text": "Without Reception $17.00 *per person*"
                     },
                     {
-                      "text": "With Reception $12.00 *per person*"
+                      "text": "With Reception $14.00 *per person*"
                     }
                   ]
                 },
@@ -183,7 +183,7 @@
                   "text": "Coffee, Decaf, Assorted Sodas"
                 }
               ],
-              "price": "$55.00"
+              "price": "$57.00"
             },
             {
               "title": "Spice It Up",
@@ -201,7 +201,7 @@
                   "text": "Coffee, Decaf, Assorted Sodas"
                 }
               ],
-              "price": "$72.00"
+              "price": "$74.00"
             },
             {
               "title": "Napa Valley",
@@ -213,7 +213,7 @@
                   "text": "Coffee, Decaf, Tea, Mineral Water, Assorted Sodas"
                 }
               ],
-              "price": "$72.00"
+              "price": "$74.00"
             },
             {
               "title": "Balance",
@@ -231,7 +231,7 @@
                   "text": "Assorted Vitamin Water"
                 }
               ],
-              "price": "$82.00"
+              "price": "$84.00"
             },
             {
               "title": "Time For Tea",
@@ -249,7 +249,7 @@
                   "text": "Assorted Hot Teas"
                 }
               ],
-              "price": "$93.00"
+              "price": "$95.00"
             },
             {
               "title": "Ultimate Relaxation",
@@ -270,7 +270,7 @@
                   "text": "Mineral Water"
                 }
               ],
-              "price": "139.00"
+              "price": "141.00"
             }
           ]
         }
