@@ -1,23 +1,23 @@
-import React from "react";
-import Link from "gatsby-link";
+import React from 'react';
+import Link from 'gatsby-link';
 
-import NavbarItemMenu from "./NavbarItemMenu";
-import NavbarCaret from "./NavbarCaret";
-import { slugify } from "../functions/util";
+import NavbarItemMenu from './NavbarItemMenu';
+import NavbarCaret from './NavbarCaret';
+import { slugify } from '../functions/util';
 
 class NavbarItem extends React.Component {
   state = {
     navActive: false
   };
 
-  onMouseOver(e, hasSubpage) {
+  onMouseEnter(e, hasSubpage) {
     if (hasSubpage) {
       this.setState({ navActive: true });
       document.body.classList.add(`nav--hover-active`);
     }
   }
 
-  onMouseOut(e, hasSubpage) {
+  onMouseLeave(e, hasSubpage) {
     if (hasSubpage) {
       this.setState({ navActive: false });
       document.body.classList.remove(`nav--hover-active`);
@@ -28,14 +28,14 @@ class NavbarItem extends React.Component {
     const { path, subpages, noHoverMenu } = this.props;
 
     const pageSlug = path ? `${slugify(path)}-nav` : null;
-    const isActive = this.state.navActive ? "nav--item-active" : "";
+    const isActive = this.state.navActive ? 'nav--item-active' : '';
 
-    let onMouseOver = null;
-    let onMouseOut = null;
+    let onMouseEnter = null;
+    let onMouseLeave = null;
 
     if (!noHoverMenu) {
-      onMouseOver = e => this.onMouseOver(e, subpages);
-      onMouseOut = e => this.onMouseOut(e, subpages);
+      onMouseEnter = (e) => this.onMouseEnter(e, subpages);
+      onMouseLeave = (e) => this.onMouseLeave(e, subpages);
     }
 
     return (
@@ -48,8 +48,8 @@ class NavbarItem extends React.Component {
           <Link
             id={pageSlug}
             to={path}
-            onMouseOver={onMouseOver}
-            onMouseOut={onMouseOut}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
           >
             {this.props.name}
           </Link>
@@ -58,8 +58,8 @@ class NavbarItem extends React.Component {
         <NavbarItemMenu
           noHoverMenu={noHoverMenu}
           subpages={subpages}
-          onMouseOver={e => this.onMouseOver(e, subpages)}
-          onMouseOut={e => this.onMouseOut(e, subpages)}
+          onMouseEnter={(e) => this.onMouseEnter(e, subpages)}
+          onMouseLeave={(e) => this.onMouseLeave(e, subpages)}
         />
       </div>
     );

@@ -1,75 +1,49 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { useEffect, useState, useRef } from 'react';
 
-class VideoCoverFallback extends Component {
-  static propTypes = {
-    style: PropTypes.object,
-    onFallbackDidMount: PropTypes.func,
-    onFallbackWillUnmount: PropTypes.func,
-    videoOptions: PropTypes.object,
-    forceFallback: PropTypes.bool,
-    remeasureOnWindowResize: PropTypes.bool,
-    className: PropTypes.string
-  };
+function VideoCoverFallback(props) {
+  const containerRef = useRef([]);
+  const [innerRatio, setInnerRatio] = useState(0);
+  const [outerRatio, setOuterRatio] = useState(0);
 
-  state = {
-    innerRatio: undefined,
-    outerRatio: undefined
-  };
-
-  componentDidMount() {
-    this.updateContainerRatio();
-    if (typeof this.props.onFallbackDidMount === "function") {
-      this.props.onFallbackDidMount(this.updateContainerRatio);
+  useEffect(() => {
+    updateContainerRatio();
+    if (typeof props.onFallbackDidMount === 'function') {
+      props.onFallbackDidMount(updateContainerRatio);
     }
-    if (this.props.remeasureOnWindowResize) {
-      this.initEventListeners();
+    if (props.remeasureOnWindowResize) {
+      initEventListeners();
     }
-  }
+  });
 
-  componentWillReceiveProps(nextProps) {
-    if (
-      nextProps.remeasureOnWindowResize !== this.props.remeasureOnWindowResize
-    ) {
-      if (nextProps.remeasureOnWindowResize) {
-        this.initEventListeners();
-      } else {
-        this.removeEventListeners();
-      }
-    }
-  }
+  useEffect(() => {
+    initEventListeners();
 
-  componentWillUnmount() {
-    this.removeEventListeners();
-    if (typeof this.props.onFallbackWillUnmount === "function") {
-      this.props.onFallbackWillUnmount();
-    }
-  }
+    return () => {
+      removeEventListeners();
+      props.onFallbackWillUnmount();
+    };
+  });
 
-  updateContainerRatio = () => {
-    if (this.containerRef) {
-      const { width, height } = this.containerRef.getBoundingClientRect();
-      this.setState({
-        outerRatio: width / height
-      });
+  const updateContainerRatio = () => {
+    if (containerRef) {
+      const { width, height } = containerRef.getBoundingClientRect();
+      setOuterRatio(width / height);
     }
   };
 
-  updateVideoRatio = (width, height) => {
-    this.setState({
-      innerRatio: width / height
-    });
+  const updateVideoRatio = (width, height) => {
+    setInnerRatio(width / height);
   };
 
-  initEventListeners = () => {
-    if (typeof window != "undefined") {
-      window.addEventListener("resize", this.updateContainerRatio);
+  const initEventListeners = () => {
+    if (typeof window != 'undefined') {
+      window.addEventListener('resize', updateContainerRatio);
     }
   };
 
-  removeEventListeners = () => {
-    if (typeof window != "undefined") {
-      window.removeEventListener("resize", this.updateContainerRatio);
+  const removeEventListeners = () => {
+    if (typeof window != 'undefined') {
+      window.removeEventListener('resize', updateContainerRatio);
     }
   };
 
@@ -79,57 +53,46 @@ class VideoCoverFallback extends Component {
    * That is all we need to determine if the video fills the container vertically or horizontally.
    * In the other dimension we just have to maintain the original aspect-ratio.
    */
-  render() {
-    const { innerRatio, outerRatio } = this.state;
-    const style = {
-      width: innerRatio > outerRatio ? "auto" : "100%",
-      height: innerRatio > outerRatio ? "100%" : "auto",
 
-      /* the following is for centering the video.
+  const style = {
+    width: innerRatio > outerRatio ? 'auto' : '100%',
+    height: innerRatio > outerRatio ? '100%' : 'auto',
+
+    /* the following is for centering the video.
       There has to be some better solution?!
       any help is very much appreciated :) */
-      position: "absolute",
-      top: "-9999px",
-      bottom: "-9999px",
-      left: "-9999px",
-      right: "-9999px",
-      margin: "auto"
-    };
+    position: 'absolute',
+    top: '-9999px',
+    bottom: '-9999px',
+    left: '-9999px',
+    right: '-9999px',
+    margin: 'auto'
+  };
 
-    const outerStyle = {
-      width: "100%",
-      height: "100%",
-      ...this.props.style,
-      position: "relative",
-      overflow: "hidden"
-    };
+  const outerStyle = {
+    width: '100%',
+    height: '100%',
+    ...props.style,
+    position: 'relative',
+    overflow: 'hidden'
+  };
 
-    return (
-      <div
-        style={outerStyle}
-        ref={ref => {
-          this.containerRef = ref;
+  return (
+    <div style={outerStyle} ref={containerRef} className={props.className}>
+      <video
+        onLoadedData={(event) => {
+          updateVideoRatio(event.target.videoWidth, event.target.videoHeight);
         }}
-        className={this.props.className}
+        style={style}
+        {...props.videoOptions}
+        muted
       >
-        <video
-          onLoadedData={event => {
-            this.updateVideoRatio(
-              event.target.videoWidth,
-              event.target.videoHeight
-            );
-          }}
-          style={style}
-          {...this.props.videoOptions}
-          muted
-        >
-          {this.props.source.map((item, i) => (
-            <source key={i} src={item.src} type={item.type} />
-          ))}
-        </video>
-      </div>
-    );
-  }
+        {props.source.map((item, i) => (
+          <source key={i} src={item.src} type={item.type} />
+        ))}
+      </video>
+    </div>
+  );
 }
 
 export default VideoCoverFallback;

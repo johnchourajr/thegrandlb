@@ -65,7 +65,14 @@
 
 select:invalid,
 input::-webkit-input-placeholder {
-  color: rgba($black, 0.1) !important;
+  color: rgba($black, 0.1);
+}
+
+input:required {
+  box-shadow: none;
+}
+input:invalid {
+  box-shadow: none;
 }
 
 fieldset.field-error {

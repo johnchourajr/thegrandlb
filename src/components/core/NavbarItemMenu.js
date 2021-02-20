@@ -1,16 +1,16 @@
-import React from "react";
-import Link from "gatsby-link";
+import React from 'react';
+import Link from 'gatsby-link';
 
-const NavbarItemMenu = props => {
+const NavbarItemMenu = (props) => {
   if (props.subpages && !props.noHoverMenu) {
     return (
       <div
         role="menuitem"
         className="nav--item--menu"
-        onMouseOver={props.onMouseOver}
-        onFocus={props.onMouseOver}
-        onBlur={props.onMouseOut}
-        onMouseOut={props.onMouseOut}
+        onMouseEnter={props.onMouseEnter}
+        onFocus={props.onMouseEnter}
+        onBlur={props.onMouseLeave}
+        onMouseLeave={props.onMouseLeave}
         tabIndex="-1"
       >
         {props.subpages.map((item, i) => (

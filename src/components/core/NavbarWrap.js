@@ -1,35 +1,34 @@
-import React from 'react'
+import React from 'react';
 
-class NavbarWrap extends React.Component {
+function NavbarWrap(props) {
+  React.useEffect(() => {
+    if (typeof document !== `undefined`) {
+      const navChangeSize = () => {
+        const scrollPos = window.pageYOffset;
+        const trigger = scrollPos >= 50;
 
-  componentDidMount() {
-    document.addEventListener('scroll', () => {
-      this.navChangeSize()
-    })
-    document.addEventListener('load', () => {
-      this.navChangeSize()
-    })
-  }
+        if (trigger) {
+          document.body.classList.add(`nav--min`);
+        } else {
+          document.body.classList.remove(`nav--min`);
+        }
+      };
 
-  navChangeSize() {
-    const scrollPos = window.pageYOffset
-    const trigger = scrollPos >= 50
+      document.addEventListener('scroll', navChangeSize);
+      document.addEventListener('load', navChangeSize);
 
-    if (trigger) {
-      document.body.classList.add(`nav--min`)
-    } else {
-      document.body.classList.remove(`nav--min`)
+      return () => {
+        document.removeEventListener('scroll', navChangeSize);
+        document.removeEventListener('load', navChangeSize);
+      };
     }
-  }
+  });
 
-  render() {
-
-    return (
-      <nav id="nav" className="nav">
-        {this.props.children}
-      </nav>
-    );
-  }
+  return (
+    <nav id="nav" className="nav">
+      {props.children}
+    </nav>
+  );
 }
 
-export default NavbarWrap
+export default NavbarWrap;
