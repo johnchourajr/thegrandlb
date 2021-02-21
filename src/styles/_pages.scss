@@ -654,7 +654,7 @@
 
 .menu-feature {
   &--2 {
-    img {
+    .gatsby-image-wrapper {
       @include solid-breakpoint(md) {
         transform: translateY(13rem);
       }
@@ -797,6 +797,11 @@
     justify-content: center;
     overflow: hidden;
     background-size: cover;
+
+    .gatsby-image-wrapper {
+      width: 100%;
+      height: 100%;
+    }
 
     @include solid-breakpoint(md) {
       // max-height: 600px;
@@ -1133,6 +1138,11 @@
 
     &.active {
       opacity: 1;
+    }
+
+    .gatsby-image-wrapper {
+      width: 100%;
+      height: 100%;
     }
   }
 
@@ -1482,23 +1492,23 @@
       position: relative;
 
       &:hover {
-        img.back {
+        .back {
           opacity: 1;
         }
       }
 
-      img.front,
-      img.back {
+      .front,
+      .back {
         transition: opacity 0.3s linear;
       }
 
-      img.front {
+      .front {
         opacity: 1;
       }
 
-      img.back {
+      .back {
         opacity: 0;
-        position: absolute;
+        position: absolute !important;
         top: 0;
         left: 0;
         right: 0;

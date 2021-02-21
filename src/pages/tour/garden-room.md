@@ -5,7 +5,7 @@ title: The Garden Room
 heading: |
   The Garden
   Room
-hero: "/img/tour-rooms/garden-room/index.sm.jpg"
+hero: "../../../static/img/tour-rooms/garden-room/index.sm.jpg"
 roomMeta:
   eventType:
   - Weddings
@@ -77,23 +77,23 @@ upgrades:
   - text: "Uplighting"
 roomswitch:
   array:
-  - img: "/img/tour-rooms/garden-room/aligned/social.jpg"
+  - img: "../../../static/img/tour-rooms/garden-room/aligned/social.jpg"
     caption: "Social/Wedding Layout"
-  - img: "/img/tour-rooms/garden-room/aligned/corporate.jpg"
+  - img: "../../../static/img/tour-rooms/garden-room/aligned/corporate.jpg"
     caption: "Workshop Layout"
 carousel:
   array:
-  - img: "/img/tour-rooms/garden-room/details/1.jpg"
+  - img: "../../../static/img/tour-rooms/garden-room/details/1.jpg"
     caption: ""
-  - img: "/img/tour-rooms/garden-room/details/2.jpg"
+  - img: "../../../static/img/tour-rooms/garden-room/details/2.jpg"
     caption: ""
-  - img: "/img/tour-rooms/garden-room/details/3.jpg"
+  - img: "../../../static/img/tour-rooms/garden-room/details/3.jpg"
     caption: "Large Private Bar/Cocktail Area"
-  - img: "/img/tour-rooms/garden-room/details/4.jpg"
+  - img: "../../../static/img/tour-rooms/garden-room/details/4.jpg"
     caption: ""
-  - img: "/img/tour-rooms/garden-room/details/5.jpg"
+  - img: "../../../static/img/tour-rooms/garden-room/details/5.jpg"
     caption: ""
-  - img: "/img/tour-rooms/garden-room/details/6.jpg"
+  - img: "../../../static/img/tour-rooms/garden-room/details/6.jpg"
     caption: ""
 events:
   - text: |

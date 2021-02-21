@@ -1,14 +1,10 @@
 import React from 'react';
 import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
 
-import { withPrefix } from 'gatsby';
+import Img from 'gatsby-image';
 
 // Component
 const PageImage = (props) => {
-  const styles = {
-    backgroundImage: `url(${withPrefix(props.img)})`
-  };
-
   return (
     <div className={`page-image page-image-full ${props.className}`}>
       <ParallaxProvider>
@@ -17,7 +13,9 @@ const PageImage = (props) => {
           layers={[
             {
               amount: 0.1,
-              children: <div className="img" style={styles} />,
+              children: (
+                <Img className="img" fluid={props.img.childImageSharp.fluid} />
+              ),
               slowerScrollRate: true
             }
           ]}

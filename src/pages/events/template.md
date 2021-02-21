@@ -6,17 +6,17 @@ heading: EVENT-HEADLINE
 carousel:
   description: "Our Favorites"
   array:
-  - img: "/img/placeholder--front-img.jpg"
+  - img: "../../../static/img/placeholder--front-img.jpg"
     caption: ""
-  - img: "/img/placeholder--front-img.jpg"
+  - img: "../../../static/img/placeholder--front-img.jpg"
     caption: ""
-  - img: "/img/placeholder--front-img.jpg"
+  - img: "../../../static/img/placeholder--front-img.jpg"
     caption: ""
-  - img: "/img/placeholder--front-img.jpg"
+  - img: "../../../static/img/placeholder--front-img.jpg"
     caption: ""
-  - img: "/img/placeholder--front-img.jpg"
+  - img: "../../../static/img/placeholder--front-img.jpg"
     caption: ""
-  - img: "/img/placeholder--front-img.jpg"
+  - img: "../../../static/img/placeholder--front-img.jpg"
     caption: ""
 statement:
 - "The Grand has been there for over 5,000 wedding days over the past decade."

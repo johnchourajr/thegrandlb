@@ -5,7 +5,7 @@ title: The Palm Terrace
 heading: |
   The Palm
   Terrace
-hero: "/img/tour-rooms/palm-terrace/index.sm.jpg"
+hero: "../../../static/img/tour-rooms/palm-terrace/index.sm.jpg"
 roomMeta:
   eventType:
   - Weddings
@@ -64,27 +64,27 @@ upgrades:
   - text: "Uplighting"
 roomswitch:
   array:
-  - img: "/img/tour-rooms/palm-terrace/aligned/social.jpg"
+  - img: "../../../static/img/tour-rooms/palm-terrace/aligned/social.jpg"
     caption: "Social/Wedding Layout"
-  - img: "/img/tour-rooms/palm-terrace/aligned/wedding.jpg"
+  - img: "../../../static/img/tour-rooms/palm-terrace/aligned/wedding.jpg"
     caption: "Wedding Ceremony Layout"
 carousel:
   array:
-  - img: "/img/tour-rooms/palm-terrace/details/7.jpg"
+  - img: "../../../static/img/tour-rooms/palm-terrace/details/7.jpg"
     caption: ""
-  - img: "/img/tour-rooms/palm-terrace/details/2.jpg"
+  - img: "../../../static/img/tour-rooms/palm-terrace/details/2.jpg"
     caption: ""
-  - img: "/img/tour-rooms/palm-terrace/details/3.jpg"
+  - img: "../../../static/img/tour-rooms/palm-terrace/details/3.jpg"
     caption: ""
-  - img: "/img/tour-rooms/palm-terrace/details/4.jpg"
+  - img: "../../../static/img/tour-rooms/palm-terrace/details/4.jpg"
     caption: ""
-  - img: "/img/tour-rooms/palm-terrace/details/5.jpg"
+  - img: "../../../static/img/tour-rooms/palm-terrace/details/5.jpg"
     caption: ""
-  - img: "/img/tour-rooms/palm-terrace/details/6.jpg"
+  - img: "../../../static/img/tour-rooms/palm-terrace/details/6.jpg"
     caption: ""
-  - img: "/img/tour-rooms/palm-terrace/details/1.jpg"
+  - img: "../../../static/img/tour-rooms/palm-terrace/details/1.jpg"
     caption: ""
-  - img: "/img/tour-rooms/palm-terrace/details/8.jpg"
+  - img: "../../../static/img/tour-rooms/palm-terrace/details/8.jpg"
     caption: ""
 events:
   - text: |

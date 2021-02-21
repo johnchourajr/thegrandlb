@@ -8,11 +8,11 @@ heading: |
 carousel:
   description: "Our Favorites"
   array:
-  - img: "/img/events/weddings/1.jpg"
+  - img: "../../../static/img/events/weddings/1.jpg"
     caption: "A ceremony on [The Monarch Room](/tour/monarch-room) Patio"
-  - img: "/img/events/weddings/2.jpg"
+  - img: "../../../static/img/events/weddings/2.jpg"
     caption: "A reception in [The Garden Room](/tour/garden-room)"
-  - img: "/img/events/weddings/3.jpg"
+  - img: "../../../static/img/events/weddings/3.jpg"
     caption: "A reception in [The Monarch Room](/tour/monarch-room)"
 statement:
 - "The Grand has been there for over 5,000 wedding days over the past decade."
@@ -20,24 +20,24 @@ statement:
 numbers:
   array:
   - number: "150"
-    description: |  
+    description: |
       Weddings
       Last Year
     isMin: true
   - number: "5"
     suffix: " hrs"
-    description: |  
+    description: |
       Average
       Wedding Duration
     isMin: true
   - number: ""
     prefix: "Saturday"
-    description: |  
+    description: |
       Most Popular
       Wedding Day
     isMin: true
   - number: "100"
-    description: |  
+    description: |
       Average
       Wedding Attendance
     isMin: true

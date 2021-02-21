@@ -73,10 +73,10 @@ body {
   font-size: $base-font-size;
   color: $text-black;
   -webkit-text-size-adjust: 100%;
-  -webkit-font-feature-settings: "kern" 1;
-  -moz-font-feature-settings: "kern" 1;
-  -o-font-feature-settings: "kern" 1;
-  font-feature-settings: "kern" 1;
+  -webkit-font-feature-settings: 'kern' 1;
+  -moz-font-feature-settings: 'kern' 1;
+  -o-font-feature-settings: 'kern' 1;
+  font-feature-settings: 'kern' 1;
   font-kerning: normal;
 
   @include solid-breakpoint(sm) {
@@ -144,7 +144,7 @@ li {
  */
 %clearfix {
   &:after {
-    content: "";
+    content: '';
     display: table;
     clear: both;
   }
@@ -167,10 +167,9 @@ li {
 .wrapper {
   $incriment: $space-1 / 4;
   $offset: $space-1 / 2;
-  $maxwidth: #{$content-width} - (#{$offset});
 
-  max-width: -webkit-calc(#{$maxwidth});
-  max-width: calc(#{$maxwidth});
+  max-width: -webkit-calc(#{$content-width} - #{$offset});
+  max-width: calc(#{$content-width} - #{$offset});
   margin-right: auto;
   margin-left: auto;
   padding-right: $incriment;
@@ -179,10 +178,9 @@ li {
   @include solid-breakpoint(lg) {
     $incriment: $space-1 / 2;
     $offset: $space-1;
-    $maxwidth: #{$content-width} - (#{$offset});
 
-    max-width: -webkit-calc(#{$maxwidth});
-    max-width: calc(#{$maxwidth});
+    max-width: -webkit-calc(#{$content-width} - #{$offset});
+    max-width: calc(#{$content-width} - #{$offset});
     padding-right: $incriment;
     padding-left: $incriment;
   }
@@ -191,10 +189,9 @@ li {
     $unit: 5;
     $incriment: ($space-1 * $unit) / 2;
     $offset: ($space-1 * $unit);
-    $maxwidth: #{$content-width} - (#{$offset});
 
-    max-width: -webkit-calc(#{$maxwidth});
-    max-width: calc(#{$maxwidth});
+    max-width: -webkit-calc(#{$content-width} - #{$offset});
+    max-width: calc(#{$content-width} - #{$offset});
     padding-right: $incriment;
     padding-left: $incriment;
   }
@@ -203,10 +200,9 @@ li {
     $unit: 5vw;
     $incriment: $unit / 2;
     $offset: $unit;
-    $maxwidth: #{$content-width} - (#{$offset});
 
-    max-width: -webkit-calc(#{$maxwidth});
-    max-width: calc(#{$maxwidth});
+    max-width: -webkit-calc(#{$content-width} - #{$offset});
+    max-width: calc(#{$content-width} - #{$offset});
     padding-right: $incriment;
     padding-left: $incriment;
   }
@@ -215,10 +211,9 @@ li {
     $unit: 7.5vw;
     $incriment: $unit / 2;
     $offset: $unit;
-    $maxwidth: #{$content-width} - (#{$offset});
 
-    max-width: -webkit-calc(#{$maxwidth});
-    max-width: calc(#{$maxwidth});
+    max-width: -webkit-calc(#{$content-width} - #{$offset});
+    max-width: calc(#{$content-width} - #{$offset});
     padding-right: $incriment;
     padding-left: $incriment;
   }
@@ -271,7 +266,7 @@ li {
   }
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     top: -1px;
     right: -1px;

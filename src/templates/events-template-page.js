@@ -1,17 +1,16 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import Layout from '../components/core/Layout'
-import PageHeader from '../components/PageHeader'
-import PageSection from '../components/PageSection'
-import PageCarousel from '../components/PageCarousel'
-import NumberArray from '../components/NumberArray'
-import FilterList from '../components/FilterList'
-
+import Layout from '../components/core/Layout';
+import PageHeader from '../components/PageHeader';
+import PageSection from '../components/PageSection';
+import PageCarousel from '../components/PageCarousel';
+import NumberArray from '../components/NumberArray';
+import FilterList from '../components/FilterList';
 
 const EventsTemplatePage = ({ data, status, location, pageContext }) => {
-  const { frontmatter } = data.pageData
-  const { edges: posts } = data.postData
+  const { frontmatter } = data.pageData;
+  const { edges: posts } = data.postData;
 
   return (
     <Layout status={status}>
@@ -20,23 +19,27 @@ const EventsTemplatePage = ({ data, status, location, pageContext }) => {
         heading={frontmatter.heading}
         caption={frontmatter.carousel && frontmatter.carousel.description}
       />
-      {frontmatter.carousel && <PageSection><PageCarousel
-        items={[...frontmatter.carousel.array]}
-        settings={{
-          showIndicators: true,
-          infiniteLoop: true,
-          emulateTouch: true,
-        }}
-      /></PageSection>}
+      {frontmatter.carousel && (
+        <PageSection>
+          <PageCarousel
+            items={[...frontmatter.carousel.array]}
+            settings={{
+              showIndicators: true,
+              infiniteLoop: true,
+              emulateTouch: true
+            }}
+          />
+        </PageSection>
+      )}
       <PageSection>
         {frontmatter.statement.map((item, i) => {
           return (
-            <p key={i} className="page-statement large xs-text-center">{item}</p>
-          )
+            <p key={i} className="page-statement large xs-text-center">
+              {item}
+            </p>
+          );
         })}
-        <NumberArray
-          array={frontmatter.numbers.array}
-        />
+        <NumberArray array={frontmatter.numbers.array} />
       </PageSection>
 
       <PageSection
@@ -52,14 +55,14 @@ const EventsTemplatePage = ({ data, status, location, pageContext }) => {
       <PageSection
         topDivider
         heading={frontmatter.cta.heading}
-        headingClassName={"xs-mb3"}
+        headingClassName={'xs-mb3'}
         buttons={frontmatter.cta.buttons}
       />
     </Layout>
-  )
-}
+  );
+};
 
-export default EventsTemplatePage
+export default EventsTemplatePage;
 
 export const basicPageQuery = graphql`
   query EventsTemplatePage($id: String!) {
@@ -72,7 +75,13 @@ export const basicPageQuery = graphql`
         carousel {
           description
           array {
-            img
+            img {
+              childImageSharp {
+                fluid(maxWidth: 1600, toFormat: WEBP) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
             caption
           }
         }
@@ -101,7 +110,7 @@ export const basicPageQuery = graphql`
       }
     }
     postData: allMarkdownRemark(
-      filter: { frontmatter: { templateKey: { eq: "tour-template-page" } }}
+      filter: { frontmatter: { templateKey: { eq: "tour-template-page" } } }
     ) {
       edges {
         node {
@@ -112,7 +121,13 @@ export const basicPageQuery = graphql`
           frontmatter {
             heading
             title
-            hero
+            hero {
+              childImageSharp {
+                fluid(maxWidth: 1600, toFormat: WEBP) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
             roomMeta {
               eventType
               eventTypeInfo {
@@ -127,4 +142,4 @@ export const basicPageQuery = graphql`
       }
     }
   }
-`
+`;

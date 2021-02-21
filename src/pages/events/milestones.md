@@ -8,11 +8,11 @@ heading: |
 carousel:
   description: "Our Top Picks"
   array:
-  - img: "/img/events/milestones/1.jpg"
+  - img: "../../../static/img/events/milestones/1.jpg"
     caption: "A red carpet entrance to [The Grand Ballroom](/tour/grand-ballroom)"
-  - img: "/img/events/milestones/2.jpg"
+  - img: "../../../static/img/events/milestones/2.jpg"
     caption: "A [Palm Terrace](/tour/palm-terrace) food tasting event"
-  - img: "/img/events/milestones/3.jpg"
+  - img: "../../../static/img/events/milestones/3.jpg"
     caption: "[The Grand Ballroom](/tour/grand-ballroom) setup for a fundraiser"
 statement:
 - "Life is full of milestones. The Grand has been there for over 4,000 milestone events over the past decade."
@@ -20,29 +20,29 @@ statement:
 numbers:
   array:
   - number: "5"
-    description: |  
+    description: |
       Parties
       Per Week
     isMin: true
   - number: "480"
-    description: |  
+    description: |
       Parties
       Last Year
     isMin: true
   - number: "10"
     suffix: " hrs"
-    description: |  
+    description: |
       Hours of
       Parties Per Day
     isMin: true
   - number: ""
     prefix: "Saturday"
-    description: |  
+    description: |
       Most Popular
       Party Day
     isMin: true
   - number: "115"
-    description: |  
+    description: |
       Average
       Party Attendance
     isMin: true

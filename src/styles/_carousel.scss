@@ -79,7 +79,7 @@
     &.next {
       &:after,
       &:before {
-        content: "";
+        content: '';
         position: absolute;
         transition: all 0.3s $easeOutCubic;
       }
@@ -194,6 +194,11 @@
 
   &:active {
     cursor: grabbing;
+  }
+
+  .gatsby-image-wrapper {
+    width: 100%;
+    height: 100%;
   }
 
   @include solid-breakpoint(sm) {
@@ -360,7 +365,7 @@
   .flickity-viewport {
     &:before,
     &:after {
-      content: "";
+      content: '';
       position: absolute;
       font-size: 434.9px;
       font-family: $serif;
@@ -369,7 +374,7 @@
     }
 
     &:before {
-      content: "“";
+      content: '“';
       top: -160px;
       left: -50px;
 
@@ -379,7 +384,7 @@
     }
 
     &:after {
-      content: "”";
+      content: '”';
       bottom: calc(-405px);
       right: -50px;
 

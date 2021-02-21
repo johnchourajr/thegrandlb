@@ -2,8 +2,8 @@
  * Custom Page Elements
  */
 
-@include body-color(inquire, $grandBabyBlue, $black)
-@include body-color(inquiredone, $grandCream, $black)
+@include body-color(inquire, $grandBabyBlue, $black);
+@include body-color(inquiredone, $grandCream, $black);
 
 .clearfix {
   &:before, &:after {

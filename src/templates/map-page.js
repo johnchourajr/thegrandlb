@@ -143,7 +143,13 @@ export const MapPageQuery = graphql`
           frontmatter {
             heading
             title
-            hero
+            hero {
+              childImageSharp {
+                fluid(maxWidth: 1600, toFormat: WEBP) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
             path
             roomMeta {
               eventType

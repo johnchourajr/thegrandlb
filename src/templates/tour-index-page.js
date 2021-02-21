@@ -92,7 +92,13 @@ export const basicPageQuery = graphql`
       frontmatter {
         title
         heading
-        hero
+        hero {
+          childImageSharp {
+            fluid(maxWidth: 1600, toFormat: WEBP) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         map {
           heading
           buttons {
@@ -115,7 +121,13 @@ export const basicPageQuery = graphql`
         carousel {
           heading
           array {
-            img
+            img {
+              childImageSharp {
+                fluid(maxWidth: 1600, toFormat: WEBP) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
             caption
           }
         }
@@ -140,7 +152,13 @@ export const basicPageQuery = graphql`
           frontmatter {
             heading
             title
-            hero
+            hero {
+              childImageSharp {
+                fluid(maxWidth: 1600, toFormat: WEBP) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
             path
             roomMeta {
               eventType

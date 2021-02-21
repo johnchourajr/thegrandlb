@@ -5,7 +5,7 @@ title: The Monarch Room
 heading: |
   The Monarch
   Room
-hero: "/img/tour-rooms/monarch-room/index.sm.jpg"
+hero: "../../../static/img/tour-rooms/monarch-room/index.sm.jpg"
 roomMeta:
   eventType:
   - Weddings
@@ -76,27 +76,27 @@ upgrades:
   - text: "Uplighting"
 roomswitch:
   array:
-  - img: "/img/tour-rooms/monarch-room/aligned/wedding.jpg"
+  - img: "../../../static/img/tour-rooms/monarch-room/aligned/wedding.jpg"
     caption: "Social/Wedding Layout"
-  - img: "/img/tour-rooms/monarch-room/aligned/corporate.jpg"
+  - img: "../../../static/img/tour-rooms/monarch-room/aligned/corporate.jpg"
     caption: "Workshop Layout"
-  - img: "/img/tour-rooms/monarch-room/aligned/patio-wedding.jpg"
+  - img: "../../../static/img/tour-rooms/monarch-room/aligned/patio-wedding.jpg"
     caption: "Patio Ceremony Layout"
-  - img: "/img/tour-rooms/monarch-room/aligned/patio-social.jpg"
+  - img: "../../../static/img/tour-rooms/monarch-room/aligned/patio-social.jpg"
     caption: "Patio Social Layout"
 carousel:
   array:
-  - img: "/img/tour-rooms/monarch-room/index.sm.jpg"
+  - img: "../../../static/img/tour-rooms/monarch-room/index.sm.jpg"
     caption: ""
-  - img: "/img/tour-rooms/monarch-room/details/1.jpg"
+  - img: "../../../static/img/tour-rooms/monarch-room/details/1.jpg"
     caption: ""
-  - img: "/img/tour-rooms/monarch-room/details/2.jpg"
+  - img: "../../../static/img/tour-rooms/monarch-room/details/2.jpg"
     caption: "Chiffon Ceiling Draping"
-  - img: "/img/tour-rooms/monarch-room/details/3.jpg"
+  - img: "../../../static/img/tour-rooms/monarch-room/details/3.jpg"
     caption: ""
-  - img: "/img/tour-rooms/monarch-room/details/4.jpg"
+  - img: "../../../static/img/tour-rooms/monarch-room/details/4.jpg"
     caption: ""
-  - img: "/img/tour-rooms/monarch-room/details/5.jpg"
+  - img: "../../../static/img/tour-rooms/monarch-room/details/5.jpg"
     caption: ""
 events:
   - text: |

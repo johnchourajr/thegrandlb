@@ -1,19 +1,19 @@
-import React from 'react'
-import { graphql, Link, withPrefix } from 'gatsby'
-import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax'
+import React from 'react';
+import { graphql, Link } from 'gatsby';
+import Img from 'gatsby-image';
+import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
 
-import { slugify } from '../components/functions/util'
-import Layout from '../components/core/Layout'
-import PageHeader from '../components/PageHeader'
-import PageSection from '../components/PageSection'
-import PageSegue from '../components/PageSegue'
-import ScrollAnimate from '../components/ScrollAnimate'
-
+import { slugify } from '../components/functions/util';
+import Layout from '../components/core/Layout';
+import PageHeader from '../components/PageHeader';
+import PageSection from '../components/PageSection';
+import PageSegue from '../components/PageSegue';
+import ScrollAnimate from '../components/ScrollAnimate';
 
 const EventsIndex = ({ data, status, location }) => {
-  const { frontmatter } = data.markdownRemark
-  const { pathname } = location
-  const currentPage = slugify(pathname)
+  const { frontmatter } = data.markdownRemark;
+  const { pathname } = location;
+  const currentPage = slugify(pathname);
 
   return (
     <Layout status={status}>
@@ -25,7 +25,12 @@ const EventsIndex = ({ data, status, location }) => {
       <PageSection disabledAnimation wrapperClassName={'events-feature--wrap'}>
         {frontmatter.featureTiles.map((item, i) => {
           return (
-            <ScrollAnimate key={i} className={`col xs-col-12 events-feature--item events-feature--${i+1}`}>
+            <ScrollAnimate
+              key={i}
+              className={`col xs-col-12 events-feature--item events-feature--${
+                i + 1
+              }`}
+            >
               <Link className="" to={item.url}>
                 <div className="events-feature--text">
                   <h3 className="display">{item.heading}</h3>
@@ -33,55 +38,59 @@ const EventsIndex = ({ data, status, location }) => {
                 </div>
                 <ParallaxProvider>
                   <ParallaxBanner
-                    className={"events-feature--img"}
+                    className={'events-feature--img'}
                     layers={[
                       {
                         amount: 0.2,
                         children: (
-                          <div className="events-feature--img" style={{backgroundImage: `url(${withPrefix(item.img)})`}}></div>
+                          <div className="events-feature--img">
+                            <Img fluid={item.img.childImageSharp.fluid} />
+                          </div>
                         ),
-                        slowerScrollRate: true,
-                      },
+                        slowerScrollRate: true
+                      }
                     ]}
                   />
                 </ParallaxProvider>
               </Link>
             </ScrollAnimate>
-          )
+          );
         })}
       </PageSection>
       <PageSection topDivider>
         {frontmatter.statement.map((item, i) => {
           return (
-            <p key={i} className="page-statement large xs-text-center">{item}</p>
-          )
+            <p key={i} className="page-statement large xs-text-center">
+              {item}
+            </p>
+          );
         })}
       </PageSection>
       <PageSection bottomDivider>
         <div className="clearfix gutters page-list">
           {frontmatter.exampleEvents.array.map((item, i) => {
             return (
-              <ScrollAnimate key={i} className="hash-item page-list--item col xs-col-6 md-col-4">
+              <ScrollAnimate
+                key={i}
+                className="hash-item page-list--item col xs-col-6 md-col-4"
+              >
                 <h2 className="-display">{item}</h2>
               </ScrollAnimate>
-            )
+            );
           })}
         </div>
       </PageSection>
       <PageSection
         heading={frontmatter.cta.heading}
-        headingClassName={"xs-mb3"}
+        headingClassName={'xs-mb3'}
         buttons={frontmatter.cta.buttons}
       />
-      <PageSegue
-        currentPage={currentPage}
-      />
+      <PageSegue currentPage={currentPage} />
     </Layout>
-  )
-}
+  );
+};
 
-
-export default EventsIndex
+export default EventsIndex;
 
 export const basicPageQuery = graphql`
   query EventsIndex($id: String!) {
@@ -95,7 +104,13 @@ export const basicPageQuery = graphql`
           heading
           caption
           url
-          img
+          img {
+            childImageSharp {
+              fluid(maxWidth: 1600, toFormat: WEBP) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
         statement
         exampleEvents {
@@ -111,4 +126,4 @@ export const basicPageQuery = graphql`
       }
     }
   }
-`
+`;
