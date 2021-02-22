@@ -1,62 +1,45 @@
-import React from 'react'
-import _ from 'lodash'
+import React from 'react';
+import _ from 'lodash';
 
-import RoomCard from '../components/RoomCard'
-import ScrollAnimate from '../components/ScrollAnimate'
+import RoomCard from '../components/RoomCard';
+import ScrollAnimate from '../components/ScrollAnimate';
 
-class FilterList extends React.Component {
+function FilterList(props) {
+  const [data] = React.useState(props.data);
 
-  constructor(props) {
-    super(props)
+  return (
+    <div className="clearfix gutters card-wrap">
+      {data.map(({ node: post }) => {
+        let {
+          eventType,
+          eventTypeInfo,
+          guestCount
+        } = post.frontmatter.roomMeta;
 
-    this.state = {
-      data: [],
-    }
-  }
+        const targetAll = props.targetFilter === 'all';
+        const targetCondition = _.includes(eventType, props.targetFilter);
+        const condition = targetAll ? true : targetCondition;
 
-  componentDidMount() {
-    this.setState({
-      data: this.props.data,
-    })
-  }
-
-  render() {
-    const {
-      data,
-    } = this.state
-
-    return(
-      <div className="clearfix gutters card-wrap">
-
-        {data.map(({ node: post }) => {
-          let {
-            eventType,
-            eventTypeInfo,
-            guestCount
-          } = post.frontmatter.roomMeta
-
-          const targetAll = this.props.targetFilter === "all"
-          const targetCondition = _.includes(eventType, this.props.targetFilter)
-          const condition = targetAll ? true : targetCondition
-
-          if (condition) {
-            return (
-              <ScrollAnimate key={post.id} className="col xs-col-12 md-col-6 xxl-col-4" >
-                <RoomCard
-                  hero={post.frontmatter.hero}
-                  heading={post.frontmatter.heading}
-                  slug={post.fields.slug}
-                  guestCount={guestCount}
-                  targetFilter={this.props.targetFilter}
-                  eventTypeInfo={eventTypeInfo}
-                />
-              </ScrollAnimate>
-            )
-          } else return null
-        })}
-      </div>
-    )
-  }
+        if (condition) {
+          return (
+            <ScrollAnimate
+              key={post.id}
+              className="col xs-col-12 md-col-6 xxl-col-4"
+            >
+              <RoomCard
+                hero={post.frontmatter.hero}
+                heading={post.frontmatter.heading}
+                slug={post.fields.slug}
+                guestCount={guestCount}
+                targetFilter={props.targetFilter}
+                eventTypeInfo={eventTypeInfo}
+              />
+            </ScrollAnimate>
+          );
+        } else return null;
+      })}
+    </div>
+  );
 }
 
-export default FilterList
+export default FilterList;

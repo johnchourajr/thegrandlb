@@ -5,7 +5,7 @@ title: The Board Room
 heading: |
   The Board
   Room
-hero: "/img/tour-rooms/board-room/index.sm.jpg"
+hero: "../../../static/img/tour-rooms/board-room/index.sm.jpg"
 metaDescription: |
   Bring your meeting to The Grand’s intimate 570 square foot room designed to accommodate 15 – 40 executives and employees. We have multiple sized projector screens to assist in delivering presentations and ideas to your team, and different seating configurations allow for more presentation-style meetings or brainstorming sessions. A panorama of downtown Long Beach reminds visitors that great cities inspire great leaders, and we welcome them at The Grand.
 roomMeta:
@@ -63,13 +63,13 @@ upgrades:
   - text: "Uplighting"
 carousel:
   array:
-  - img: "/img/tour-rooms/board-room/index.jpg"
+  - img: "../../../static/img/tour-rooms/board-room/index.jpg"
     caption: ""
-  - img: "/img/tour-rooms/board-room/details/1.jpg"
+  - img: "../../../static/img/tour-rooms/board-room/details/1.jpg"
     caption: ""
-  - img: "/img/tour-rooms/board-room/details/2.jpg"
+  - img: "../../../static/img/tour-rooms/board-room/details/2.jpg"
     caption: ""
-  - img: "/img/tour-rooms/board-room/details/3.jpg"
+  - img: "../../../static/img/tour-rooms/board-room/details/3.jpg"
     caption: ""
 events:
   - text: |

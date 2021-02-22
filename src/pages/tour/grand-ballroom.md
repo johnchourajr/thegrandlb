@@ -5,7 +5,7 @@ title: The Grand Ballroom
 heading: |
   The Grand
   Ballroom
-hero: "/img/tour-rooms/grand-ballroom/index.sm.jpg"
+hero: "../../../static/img/tour-rooms/grand-ballroom/index.sm.jpg"
 roomMeta:
   eventType:
   - Weddings
@@ -68,7 +68,7 @@ amenities:
   - img: "twinkle.svg"
     text: "Ceiling Draping"
   - img: "pa.svg"
-    text: "PA Sound System"  
+    text: "PA Sound System"
 upgrades:
   description: "Optional Upgrades"
   array:
@@ -84,29 +84,29 @@ upgrades:
   - text: "Uplighting"
 roomswitch:
   array:
-  - img: "/img/tour-rooms/grand-ballroom/aligned/wedding.jpg"
+  - img: "../../../static/img/tour-rooms/grand-ballroom/aligned/wedding.jpg"
     caption: "Wedding Layout"
-  - img: "/img/tour-rooms/grand-ballroom/aligned/social.jpg"
+  - img: "../../../static/img/tour-rooms/grand-ballroom/aligned/social.jpg"
     caption: "Social  Layout"
-  - img: "/img/tour-rooms/grand-ballroom/aligned/corporate.jpg"
+  - img: "../../../static/img/tour-rooms/grand-ballroom/aligned/corporate.jpg"
     caption: "Workshop Layout"
-  - img: "/img/tour-rooms/grand-ballroom/aligned/theater.jpg"
+  - img: "../../../static/img/tour-rooms/grand-ballroom/aligned/theater.jpg"
     caption: "Theater Layout"
 carousel:
   array:
-  - img: "/img/tour-rooms/grand-ballroom/index.jpg"
+  - img: "../../../static/img/tour-rooms/grand-ballroom/index.jpg"
     caption: "The Main Space"
-  - img: "/img/tour-rooms/grand-ballroom/details/1.jpg"
+  - img: "../../../static/img/tour-rooms/grand-ballroom/details/1.jpg"
     caption: ""
-  - img: "/img/tour-rooms/grand-ballroom/details/2.jpg"
+  - img: "../../../static/img/tour-rooms/grand-ballroom/details/2.jpg"
     caption: "Chiffon Ceiling Draping"
-  - img: "/img/tour-rooms/grand-ballroom/details/3.jpg"
+  - img: "../../../static/img/tour-rooms/grand-ballroom/details/3.jpg"
     caption: ""
-  - img: "/img/tour-rooms/grand-ballroom/details/4.jpg"
+  - img: "../../../static/img/tour-rooms/grand-ballroom/details/4.jpg"
     caption: ""
-  - img: "/img/tour-rooms/grand-ballroom/details/5.jpg"
+  - img: "../../../static/img/tour-rooms/grand-ballroom/details/5.jpg"
     caption: "Patio Landscaping"
-  - img: "/img/tour-rooms/grand-ballroom/details/6.jpg"
+  - img: "../../../static/img/tour-rooms/grand-ballroom/details/6.jpg"
     caption: "Attached Private Patio"
 events:
   - text: |

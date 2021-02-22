@@ -1,26 +1,27 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react';
+import { graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
 // Components
-import Layout from "../components/core/Layout";
-import PageHero from "../components/PageHero";
-import PageSection from "../components/PageSection";
-import PageCta from "../components/PageCta";
-import PageCarousel from "../components/PageCarousel";
-import MapSection from "../components/MapSection";
-import NumberArray from "../components/NumberArray";
-import RatingsSection from "../components/RatingsSection";
-import ReviewsSection from "../components/ReviewsSection";
-import ScrollAnimate from "../components/ScrollAnimate";
+import Layout from '../components/core/Layout';
+import PageHero from '../components/PageHero';
+import PageSection from '../components/PageSection';
+import PageCta from '../components/PageCta';
+import PageCarousel from '../components/PageCarousel';
+import MapSection from '../components/MapSection';
+import NumberArray from '../components/NumberArray';
+import RatingsSection from '../components/RatingsSection';
+import ReviewsSection from '../components/ReviewsSection';
+import ScrollAnimate from '../components/ScrollAnimate';
 
 // AB Tests
-import HomeABTest from "../components/HomeABTest";
+import HomeABTest from '../components/HomeABTest';
 
 // Data
-import { siteDetails } from "../data/siteDetails";
+import { siteDetails } from '../data/siteDetails';
 
 // Util Functions
-import * as util from "../components/functions/util";
+import * as util from '../components/functions/util';
 
 // Page
 const IndexPage = ({ data, status, siteBanner }) => {
@@ -33,28 +34,37 @@ const IndexPage = ({ data, status, siteBanner }) => {
         heading={frontmatter.heading}
         video={{
           source: [
-            { src: "/video/home.compressed.mp4", type: "video/mp4" },
-            { src: "/video/home.compressed.ogv", type: "video/ogv" },
-            { src: "/video/home.compressed.webm", type: "video/webm" }
+            {
+              src: '/video/home.compressed.mp4',
+              type: 'video/mp4'
+            },
+            {
+              src: '/video/home.compressed.ogv',
+              type: 'video/ogv'
+            },
+            {
+              src: '/video/home.compressed.webm',
+              type: 'video/webm'
+            }
           ],
-          poster: "/video/home-poster.jpg"
+          poster: '/video/home-poster.jpg'
         }}
         img="/img/placeholder--front-img.jpg"
         buttons={[
           {
-            text: "Get a Quote",
-            url: "/inquire/",
+            text: 'Get a Quote',
+            url: '/inquire/',
             event: {
-              category: "InquireAction",
-              action: "homeInquireAction"
+              category: 'InquireAction',
+              action: 'homeInquireAction'
             }
           },
           {
-            text: "Take a Tour",
-            url: "/tour/",
+            text: 'Take a Tour',
+            url: '/tour/',
             event: {
-              category: "TourAction",
-              action: "homeTourAction"
+              category: 'TourAction',
+              action: 'homeTourAction'
             },
             isSecondary: true
           }
@@ -114,7 +124,7 @@ const IndexPage = ({ data, status, siteBanner }) => {
       />
       <PageSection
         heading={frontmatter.menuFeature.heading}
-        headingClassName={"xs-mb3"}
+        headingClassName={'xs-mb3'}
         buttons={frontmatter.menuFeature.buttons}
         disabledAnimation
       >
@@ -122,8 +132,8 @@ const IndexPage = ({ data, status, siteBanner }) => {
           <ScrollAnimate
             className={`col xs-offset-1 xs-col-10 md-ml0 md-col-7 xs-my2 menu-feature--1`}
           >
-            <img
-              src={frontmatter.menuFeature.imgs[0]}
+            <Img
+              fluid={frontmatter.menuFeature.imgs[0].childImageSharp.fluid}
               alt="food"
               title="food"
             />
@@ -131,8 +141,8 @@ const IndexPage = ({ data, status, siteBanner }) => {
           <ScrollAnimate
             className={`col xs-offset-1 xs-col-10 md-ml0 md-col-5 xs-my2 menu-feature--2`}
           >
-            <img
-              src={frontmatter.menuFeature.imgs[1]}
+            <Img
+              fluid={frontmatter.menuFeature.imgs[1].childImageSharp.fluid}
               alt="food"
               title="food"
             />
@@ -140,8 +150,8 @@ const IndexPage = ({ data, status, siteBanner }) => {
           <ScrollAnimate
             className={`col xs-offset-1 xs-col-10 md-offset-1 md-col-6 lg-offset-3 lg-col-4 xs-my2 menu-feature--3`}
           >
-            <img
-              src={frontmatter.menuFeature.imgs[2]}
+            <Img
+              fluid={frontmatter.menuFeature.imgs[2].childImageSharp.fluid}
               alt="food"
               title="food"
             />
@@ -172,7 +182,13 @@ export const basicPageQuery = graphql`
           url
         }
         ctaUpper {
-          img
+          img {
+            childImageSharp {
+              fluid(maxWidth: 1600, toFormat: WEBP) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
           accent
           heading
           buttons {
@@ -197,7 +213,13 @@ export const basicPageQuery = graphql`
         }
         carousel {
           array {
-            img
+            img {
+              childImageSharp {
+                fluid(maxWidth: 1600, toFormat: WEBP) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
             caption
           }
         }
@@ -211,7 +233,13 @@ export const basicPageQuery = graphql`
           }
         }
         ctaLower {
-          img
+          img {
+            childImageSharp {
+              fluid(maxWidth: 1600, toFormat: WEBP) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
           accent
           heading
           buttons {
@@ -230,7 +258,13 @@ export const basicPageQuery = graphql`
             url
             isSecondary
           }
-          imgs
+          imgs {
+            childImageSharp {
+              fluid(maxWidth: 1600, toFormat: WEBP) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
     }

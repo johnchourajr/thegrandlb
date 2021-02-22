@@ -1,20 +1,19 @@
-import React from "react";
-import { withPrefix } from "gatsby";
+import React from 'react';
+import Img from 'gatsby-image';
 
-const RoomSwitchImage = props => {
-  const isActive = props.index === props.activeItem ? "active" : "inactive";
+const RoomSwitchImage = (props) => {
+  const isActive = props.index === props.activeItem ? 'active' : 'inactive';
   return (
-    <div
-      className={`room-switch--image-item ${isActive}`}
-      style={{ backgroundImage: `url(${withPrefix(props.img)})` }}
-    ></div>
+    <div className={`room-switch--image-item ${isActive}`}>
+      <Img fluid={props.img.childImageSharp.fluid} />
+    </div>
   );
 };
 
-const RoomSwitchButton = props => {
+const RoomSwitchButton = (props) => {
   const isActive = props.index === props.activeItem;
-  const activeChecked = isActive ? "checked" : "";
-  const activeStyles = isActive ? "" : "button--secondary";
+  const activeChecked = isActive ? 'checked' : '';
+  const activeStyles = isActive ? '' : 'button--secondary';
   return (
     <React.Fragment>
       <input
@@ -29,8 +28,8 @@ const RoomSwitchButton = props => {
       <button
         className={`button ${activeStyles} button-group__item`}
         htmlFor={props.caption}
-        onClick={e => props.handleRadio(e, props.index)}
-        onKeyPress={e => props.handleRadio(e, props.index)}
+        onClick={(e) => props.handleRadio(e, props.index)}
+        onKeyPress={(e) => props.handleRadio(e, props.index)}
       >
         {props.caption}
       </button>

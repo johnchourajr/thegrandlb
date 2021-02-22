@@ -1,45 +1,45 @@
-import React from "react";
-import { graphql, Link } from "gatsby";
+import React from 'react';
+import { graphql, Link } from 'gatsby';
 
-import Layout from "../components/core/Layout";
-import InteractiveMapWrap from "../components/InteractiveMapWrap";
-import Map from "../components/svg/Map";
+import Layout from '../components/core/Layout';
+import InteractiveMapWrap from '../components/InteractiveMapWrap';
+import Map from '../components/svg/Map';
 
 function outputRoomClass(slug) {
   let className;
   let roomNumber;
   switch (slug) {
-    case "/tour/grand-ballroom/":
-      className = "room-g";
-      roomNumber = "";
+    case '/tour/grand-ballroom/':
+      className = 'room-g';
+      roomNumber = '';
       break;
-    case "/tour/catalina-room/":
-      className = "room-f";
-      roomNumber = "";
+    case '/tour/catalina-room/':
+      className = 'room-f';
+      roomNumber = '';
       break;
-    case "/tour/monarch-room/":
-      className = "room-a";
-      roomNumber = "";
+    case '/tour/monarch-room/':
+      className = 'room-a';
+      roomNumber = '';
       break;
-    case "/tour/garden-room/":
-      className = "room-e";
-      roomNumber = "";
+    case '/tour/garden-room/':
+      className = 'room-e';
+      roomNumber = '';
       break;
-    case "/tour/pacific-room/":
-      className = "room-c";
-      roomNumber = "";
+    case '/tour/pacific-room/':
+      className = 'room-c';
+      roomNumber = '';
       break;
-    case "/tour/board-room/":
-      className = "room-board";
-      roomNumber = "";
+    case '/tour/board-room/':
+      className = 'room-board';
+      roomNumber = '';
       break;
-    case "/tour/palm-terrace/":
-      className = "room-d";
-      roomNumber = "";
+    case '/tour/palm-terrace/':
+      className = 'room-d';
+      roomNumber = '';
       break;
     default:
-      className = "";
-      roomNumber = "";
+      className = '';
+      roomNumber = '';
   }
   return {
     className,
@@ -72,12 +72,12 @@ const MapPage = ({ data, status, history }) => {
               return (
                 <button
                   key={i}
-                  onMouseOver={e => mouseEvent(post.fields.slug)}
-                  onMouseOut={e => mouseEvent(post.fields.slug)}
-                  onTouchStart={e => mouseEvent(post.fields.slug)}
-                  onTouchEnd={e => mouseEvent(post.fields.slug)}
-                  onFocus={e => mouseEvent(post.fields.slug)}
-                  onBlur={e => mouseEvent(post.fields.slug)}
+                  onMouseEnter={(e) => mouseEvent(post.fields.slug)}
+                  onMouseLeave={(e) => mouseEvent(post.fields.slug)}
+                  onTouchStart={(e) => mouseEvent(post.fields.slug)}
+                  onTouchEnd={(e) => mouseEvent(post.fields.slug)}
+                  onFocus={(e) => mouseEvent(post.fields.slug)}
+                  onBlur={(e) => mouseEvent(post.fields.slug)}
                   className="interactive-map--nav--item"
                 >
                   <Link key={i} to={post.fields.slug}>
@@ -143,7 +143,13 @@ export const MapPageQuery = graphql`
           frontmatter {
             heading
             title
-            hero
+            hero {
+              childImageSharp {
+                fluid(maxWidth: 1600, toFormat: WEBP) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
             path
             roomMeta {
               eventType

@@ -5,7 +5,7 @@ title: The Catalina Room
 heading: |
   The Catalina
   Room
-hero: "/img/tour-rooms/catalina-room/index.sm.jpg"
+hero: "../../../static/img/tour-rooms/catalina-room/index.sm.jpg"
 roomMeta:
   eventType:
   - Weddings
@@ -78,27 +78,27 @@ upgrades:
   - text: "Uplighting"
 roomswitch:
   array:
-  - img: "/img/tour-rooms/catalina-room/aligned/social.jpg"
+  - img: "../../../static/img/tour-rooms/catalina-room/aligned/social.jpg"
     caption: "Social/Wedding Layout"
-  - img: "/img/tour-rooms/catalina-room/aligned/corporate.jpg"
+  - img: "../../../static/img/tour-rooms/catalina-room/aligned/corporate.jpg"
     caption: "Workshop Layout"
-  - img: "/img/tour-rooms/catalina-room/aligned/theater.jpg"
+  - img: "../../../static/img/tour-rooms/catalina-room/aligned/theater.jpg"
     caption: "Theater Layout"
 carousel:
   array:
-  - img: "/img/tour-rooms/catalina-room/index.sm.jpg"
+  - img: "../../../static/img/tour-rooms/catalina-room/index.sm.jpg"
     caption: ""
-  - img: "/img/tour-rooms/catalina-room/details/1.jpg"
+  - img: "../../../static/img/tour-rooms/catalina-room/details/1.jpg"
     caption: ""
-  - img: "/img/tour-rooms/catalina-room/details/2.jpg"
+  - img: "../../../static/img/tour-rooms/catalina-room/details/2.jpg"
     caption: "Chiffon Ceiling Draping"
-  - img: "/img/tour-rooms/catalina-room/details/3.jpg"
+  - img: "../../../static/img/tour-rooms/catalina-room/details/3.jpg"
     caption: ""
-  - img: "/img/tour-rooms/catalina-room/details/4.jpg"
+  - img: "../../../static/img/tour-rooms/catalina-room/details/4.jpg"
     caption: ""
-  - img: "/img/tour-rooms/catalina-room/details/5.jpg"
+  - img: "../../../static/img/tour-rooms/catalina-room/details/5.jpg"
     caption: ""
-  - img: "/img/tour-rooms/catalina-room/details/6.jpg"
+  - img: "../../../static/img/tour-rooms/catalina-room/details/6.jpg"
     caption: ""
 events:
   - text: |

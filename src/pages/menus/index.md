@@ -7,17 +7,17 @@ heading: |
   Our Menu
 carousel:
   array:
-  - img: "/img/menus/1.jpg"
+  - img: "../../../static/img/menus/1.jpg"
     caption: ""
-  - img: "/img/menus/2.jpg"
+  - img: "../../../static/img/menus/2.jpg"
     caption: ""
-  - img: "/img/menus/3.jpg"
+  - img: "../../../static/img/menus/3.jpg"
     caption: ""
-  - img: "/img/menus/4.jpg"
+  - img: "../../../static/img/menus/4.jpg"
     caption: ""
-  - img: "/img/menus/5.jpg"
+  - img: "../../../static/img/menus/5.jpg"
     caption: ""
-  - img: "/img/menus/6.jpg"
+  - img: "../../../static/img/menus/6.jpg"
     caption: ""
 menus:
   array:
