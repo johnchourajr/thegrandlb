@@ -81,23 +81,23 @@
   );
 }
 .page-hero--headline {
-  @include prefix(
-    (
-      transform-style: preserve-3d
-    ),
-    webkit moz ms o
-  );
-  @include prefix(
-    (
-      transform: translateY(0rem) rotateX(0deg) rotateY(0deg) translateZ(20px)
-        scale(0.9)
-    ),
-    webkit moz ms o
-  );
-  animation-direction: forward;
-  animation: animate-perspective-in 1s $easeOutCubic 0s;
-  will-change: transform, opacity;
-  transform-origin: center;
+  // @include prefix(
+  //   (
+  //     transform-style: preserve-3d
+  //   ),
+  //   webkit moz ms o
+  // );
+  // @include prefix(
+  //   (
+  //     transform: translateY(0rem) rotateX(0deg) rotateY(0deg) translateZ(20px)
+  //       scale(0.9)
+  //   ),
+  //   webkit moz ms o
+  // );
+  // animation-direction: forward;
+  // animation: animate-perspective-in 1s $easeOutCubic 0s;
+  // will-change: transform, opacity;
+  // transform-origin: center;
 }
 
 // Load Group 3
@@ -147,14 +147,14 @@
 .page-hero video,
 .page-image-full .img,
 .page-image-full video {
-  @include prefix(
-    (
-      transform-style: preserve-3d
-    ),
-    webkit moz ms o
-  );
-  animation-direction: forward;
-  animation: animate-perspective-scale-in 3s $easeOutCubic;
-  will-change: transform, opacity;
-  transform-origin: center;
+  // @include prefix(
+  //   (
+  //     transform-style: preserve-3d
+  //   ),
+  //   webkit moz ms o
+  // );
+  // animation-direction: forward;
+  // animation: animate-perspective-scale-in 3s $easeOutCubic;
+  // will-change: transform, opacity;
+  // transform-origin: center;
 }

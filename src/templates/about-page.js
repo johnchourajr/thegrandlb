@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
 
 // Components
@@ -114,15 +114,15 @@ const AboutPage = ({ data, status }) => {
             return (
               <div key={i} className="col people--item xs-col-6 md-col-4">
                 <div className="people--item--img">
-                  <Img
+                  <GatsbyImage
                     className="front"
-                    fluid={item.imgFront.childImageSharp.fluid}
+                    image={item.imgFront.childImageSharp.gatsbyImageData}
                     alt={item.name}
                   />
                   {item.imgBack && (
-                    <Img
+                    <GatsbyImage
                       className="back"
-                      fluid={item.imgBack.childImageSharp.fluid}
+                      image={item.imgBack.childImageSharp.gatsbyImageData}
                       alt={item.name}
                     />
                   )}
@@ -164,6 +164,12 @@ export const aboutPageQuery = graphql`
                 fluid(maxWidth: 1600, toFormat: WEBP) {
                   ...GatsbyImageSharpFluid
                 }
+                gatsbyImageData(
+                  placeholder: DOMINANT_COLOR
+                  layout: FULL_WIDTH
+                  formats: WEBP
+                  blurredOptions: { toFormat: WEBP }
+                )
               }
             }
             imgBack {
@@ -171,6 +177,12 @@ export const aboutPageQuery = graphql`
                 fluid(maxWidth: 1600, toFormat: WEBP) {
                   ...GatsbyImageSharpFluid
                 }
+                gatsbyImageData(
+                  placeholder: DOMINANT_COLOR
+                  layout: FULL_WIDTH
+                  formats: WEBP
+                  blurredOptions: { toFormat: WEBP }
+                )
               }
             }
             quote
@@ -182,6 +194,12 @@ export const aboutPageQuery = graphql`
               fluid(maxWidth: 1600, toFormat: WEBP) {
                 ...GatsbyImageSharpFluid
               }
+              gatsbyImageData(
+                placeholder: DOMINANT_COLOR
+                layout: FULL_WIDTH
+                formats: WEBP
+                blurredOptions: { toFormat: WEBP }
+              )
             }
           }
           accent

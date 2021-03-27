@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 // Component
 const PageCarousel = (props) => {
@@ -17,7 +17,7 @@ const PageCarousel = (props) => {
           className={`carousel-slide carousel-slide--${i}`}
           style={{ backgroundImage: `url(${item.img})` }}
         >
-          <Img fluid={item.img.childImageSharp.fluid} />
+          <GatsbyImage image={item.img.childImageSharp.gatsbyImageData} />
           <ReactMarkdown className="caption">{item.caption}</ReactMarkdown>
         </div>
       );

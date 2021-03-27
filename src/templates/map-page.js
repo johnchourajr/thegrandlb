@@ -148,6 +148,12 @@ export const MapPageQuery = graphql`
                 fluid(maxWidth: 1600, toFormat: WEBP) {
                   ...GatsbyImageSharpFluid
                 }
+                gatsbyImageData(
+                  placeholder: DOMINANT_COLOR
+                  layout: FULL_WIDTH
+                  formats: WEBP
+                  blurredOptions: { toFormat: WEBP }
+                )
               }
             }
             path

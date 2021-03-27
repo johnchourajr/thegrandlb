@@ -1,7 +1,7 @@
 import React from 'react';
 import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
 
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 // Component
 const PageImage = (props) => {
@@ -14,7 +14,10 @@ const PageImage = (props) => {
             {
               amount: 0.1,
               children: (
-                <Img className="img" fluid={props.img.childImageSharp.fluid} />
+                <GatsbyImage
+                  className="img"
+                  image={props.img.childImageSharp.gatsbyImageData}
+                />
               ),
               slowerScrollRate: true
             }

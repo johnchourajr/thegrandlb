@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 // Component
 const RoomCard = (props) => {
   return (
     <div className="card page-card">
-      <Img fluid={props.hero.childImageSharp.fluid} />
+      <GatsbyImage image={props.hero.childImageSharp.gatsbyImageData} />
       <Link className="card--inner" to={props.slug}>
         <div className="card--inner--upper">
           <h1>{props.heading}</h1>
