@@ -90,9 +90,6 @@ export const aboutPageQuery = graphql`
         heading
         ctaImage {
           childImageSharp {
-            fluid(maxWidth: 1600, toFormat: WEBP) {
-              ...GatsbyImageSharpFluid
-            }
             gatsbyImageData(
               placeholder: DOMINANT_COLOR
               layout: FULL_WIDTH

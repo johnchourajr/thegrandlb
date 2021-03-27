@@ -190,9 +190,6 @@ export const basicPageQuery = graphql`
         ctaUpper {
           img {
             childImageSharp {
-              fluid(maxWidth: 1600, toFormat: WEBP) {
-                ...GatsbyImageSharpFluid
-              }
               gatsbyImageData(
                 placeholder: DOMINANT_COLOR
                 layout: FULL_WIDTH
@@ -227,9 +224,6 @@ export const basicPageQuery = graphql`
           array {
             img {
               childImageSharp {
-                fluid(maxWidth: 1600, toFormat: WEBP) {
-                  ...GatsbyImageSharpFluid
-                }
                 gatsbyImageData(
                   placeholder: DOMINANT_COLOR
                   layout: FULL_WIDTH
@@ -253,9 +247,6 @@ export const basicPageQuery = graphql`
         ctaLower {
           img {
             childImageSharp {
-              fluid(maxWidth: 1600, toFormat: WEBP) {
-                ...GatsbyImageSharpFluid
-              }
               gatsbyImageData(
                 placeholder: DOMINANT_COLOR
                 layout: FULL_WIDTH
@@ -284,9 +275,6 @@ export const basicPageQuery = graphql`
           }
           imgs {
             childImageSharp {
-              fluid(maxWidth: 1600, toFormat: WEBP) {
-                ...GatsbyImageSharpFluid
-              }
               gatsbyImageData(
                 placeholder: DOMINANT_COLOR
                 layout: FULL_WIDTH

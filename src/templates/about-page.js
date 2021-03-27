@@ -161,9 +161,6 @@ export const aboutPageQuery = graphql`
             title
             imgFront {
               childImageSharp {
-                fluid(maxWidth: 1600, toFormat: WEBP) {
-                  ...GatsbyImageSharpFluid
-                }
                 gatsbyImageData(
                   placeholder: DOMINANT_COLOR
                   layout: FULL_WIDTH
@@ -174,9 +171,6 @@ export const aboutPageQuery = graphql`
             }
             imgBack {
               childImageSharp {
-                fluid(maxWidth: 1600, toFormat: WEBP) {
-                  ...GatsbyImageSharpFluid
-                }
                 gatsbyImageData(
                   placeholder: DOMINANT_COLOR
                   layout: FULL_WIDTH
@@ -191,9 +185,6 @@ export const aboutPageQuery = graphql`
         ctaLower {
           img {
             childImageSharp {
-              fluid(maxWidth: 1600, toFormat: WEBP) {
-                ...GatsbyImageSharpFluid
-              }
               gatsbyImageData(
                 placeholder: DOMINANT_COLOR
                 layout: FULL_WIDTH
