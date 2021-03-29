@@ -1,11 +1,11 @@
 import React from 'react';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 const RoomSwitchImage = (props) => {
   const isActive = props.index === props.activeItem ? 'active' : 'inactive';
   return (
     <div className={`room-switch--image-item ${isActive}`}>
-      <Img fluid={props.img.childImageSharp.fluid} />
+      <GatsbyImage image={props.img.childImageSharp?.gatsbyImageData} />
     </div>
   );
 };

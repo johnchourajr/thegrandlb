@@ -77,9 +77,12 @@ export const basicPageQuery = graphql`
           array {
             img {
               childImageSharp {
-                fluid(maxWidth: 1600, toFormat: WEBP) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(
+                  placeholder: DOMINANT_COLOR
+                  layout: FULL_WIDTH
+                  formats: WEBP
+                  blurredOptions: { toFormat: WEBP }
+                )
               }
             }
             caption
@@ -123,9 +126,12 @@ export const basicPageQuery = graphql`
             title
             hero {
               childImageSharp {
-                fluid(maxWidth: 1600, toFormat: WEBP) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(
+                  placeholder: DOMINANT_COLOR
+                  layout: FULL_WIDTH
+                  formats: WEBP
+                  blurredOptions: { toFormat: WEBP }
+                )
               }
             }
             roomMeta {

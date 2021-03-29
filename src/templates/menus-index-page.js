@@ -72,9 +72,12 @@ export const basicPageQuery = graphql`
           array {
             img {
               childImageSharp {
-                fluid(maxWidth: 1600, toFormat: WEBP) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(
+                  placeholder: DOMINANT_COLOR
+                  layout: FULL_WIDTH
+                  formats: WEBP
+                  blurredOptions: { toFormat: WEBP }
+                )
               }
             }
             caption

@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 // Components
 import Layout from '../components/core/Layout';
@@ -132,8 +132,10 @@ const IndexPage = ({ data, status, siteBanner }) => {
           <ScrollAnimate
             className={`col xs-offset-1 xs-col-10 md-ml0 md-col-7 xs-my2 menu-feature--1`}
           >
-            <Img
-              fluid={frontmatter.menuFeature.imgs[0].childImageSharp.fluid}
+            <GatsbyImage
+              image={
+                frontmatter.menuFeature.imgs[0].childImageSharp.gatsbyImageData
+              }
               alt="food"
               title="food"
             />
@@ -141,8 +143,10 @@ const IndexPage = ({ data, status, siteBanner }) => {
           <ScrollAnimate
             className={`col xs-offset-1 xs-col-10 md-ml0 md-col-5 xs-my2 menu-feature--2`}
           >
-            <Img
-              fluid={frontmatter.menuFeature.imgs[1].childImageSharp.fluid}
+            <GatsbyImage
+              image={
+                frontmatter.menuFeature.imgs[1].childImageSharp.gatsbyImageData
+              }
               alt="food"
               title="food"
             />
@@ -150,8 +154,10 @@ const IndexPage = ({ data, status, siteBanner }) => {
           <ScrollAnimate
             className={`col xs-offset-1 xs-col-10 md-offset-1 md-col-6 lg-offset-3 lg-col-4 xs-my2 menu-feature--3`}
           >
-            <Img
-              fluid={frontmatter.menuFeature.imgs[2].childImageSharp.fluid}
+            <GatsbyImage
+              image={
+                frontmatter.menuFeature.imgs[2].childImageSharp.gatsbyImageData
+              }
               alt="food"
               title="food"
             />
@@ -184,9 +190,12 @@ export const basicPageQuery = graphql`
         ctaUpper {
           img {
             childImageSharp {
-              fluid(maxWidth: 1600, toFormat: WEBP) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(
+                placeholder: DOMINANT_COLOR
+                layout: FULL_WIDTH
+                formats: WEBP
+                blurredOptions: { toFormat: WEBP }
+              )
             }
           }
           accent
@@ -215,9 +224,12 @@ export const basicPageQuery = graphql`
           array {
             img {
               childImageSharp {
-                fluid(maxWidth: 1600, toFormat: WEBP) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(
+                  placeholder: DOMINANT_COLOR
+                  layout: FULL_WIDTH
+                  formats: WEBP
+                  blurredOptions: { toFormat: WEBP }
+                )
               }
             }
             caption
@@ -235,9 +247,12 @@ export const basicPageQuery = graphql`
         ctaLower {
           img {
             childImageSharp {
-              fluid(maxWidth: 1600, toFormat: WEBP) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(
+                placeholder: DOMINANT_COLOR
+                layout: FULL_WIDTH
+                formats: WEBP
+                blurredOptions: { toFormat: WEBP }
+              )
             }
           }
           accent
@@ -260,9 +275,12 @@ export const basicPageQuery = graphql`
           }
           imgs {
             childImageSharp {
-              fluid(maxWidth: 1600, toFormat: WEBP) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(
+                placeholder: DOMINANT_COLOR
+                layout: FULL_WIDTH
+                formats: WEBP
+                blurredOptions: { toFormat: WEBP }
+              )
             }
           }
         }

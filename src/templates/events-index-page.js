@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
 
 import { slugify } from '../components/functions/util';
@@ -44,7 +44,9 @@ const EventsIndex = ({ data, status, location }) => {
                         amount: 0.2,
                         children: (
                           <div className="events-feature--img">
-                            <Img fluid={item.img.childImageSharp.fluid} />
+                            <GatsbyImage
+                              image={item.img.childImageSharp.gatsbyImageData}
+                            />
                           </div>
                         ),
                         slowerScrollRate: true
@@ -106,9 +108,12 @@ export const basicPageQuery = graphql`
           url
           img {
             childImageSharp {
-              fluid(maxWidth: 1600, toFormat: WEBP) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(
+                placeholder: DOMINANT_COLOR
+                layout: FULL_WIDTH
+                formats: WEBP
+                blurredOptions: { toFormat: WEBP }
+              )
             }
           }
         }
