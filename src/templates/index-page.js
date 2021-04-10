@@ -13,9 +13,7 @@ import NumberArray from '../components/NumberArray';
 import RatingsSection from '../components/RatingsSection';
 import ReviewsSection from '../components/ReviewsSection';
 import ScrollAnimate from '../components/ScrollAnimate';
-
-// AB Tests
-import HomeABTest from '../components/HomeABTest';
+import HomePromo from '../components/HomePromo';
 
 // Data
 import { siteDetails } from '../data/siteDetails';
@@ -72,8 +70,6 @@ const IndexPage = ({ data, status, siteBanner }) => {
       />
       <PageSection heading={frontmatter.subhead} />
 
-      <HomeABTest siteBanner={siteBanner} frontmatter={frontmatter} />
-
       <PageSection wrapperClassName="page-feature--wrapper">
         {frontmatter.topFeatures.map((item, i) => {
           return (
@@ -89,6 +85,8 @@ const IndexPage = ({ data, status, siteBanner }) => {
           );
         })}
       </PageSection>
+
+      <HomePromo frontmatter={frontmatter} />
 
       <MapSection
         heading={frontmatter.map.heading}
@@ -183,6 +181,29 @@ export const basicPageQuery = graphql`
           isSecondary
         }
         subhead
+        promo {
+          accent
+          heading
+          buttons {
+            text
+            url
+            event {
+              category
+              action
+              label
+            }
+          }
+          img {
+            childImageSharp {
+              gatsbyImageData(
+                placeholder: DOMINANT_COLOR
+                layout: FULL_WIDTH
+                formats: WEBP
+                blurredOptions: { toFormat: WEBP }
+              )
+            }
+          }
+        }
         topFeatures {
           text
           url

@@ -14,6 +14,19 @@ headingButtons:
 subhead: |
   40,000 sqft. of
   Whatever You Want
+promo:
+  accent: 'grandPink'
+  heading: |
+    Chat with Elizabeth
+    or Marissa today.
+  buttons:
+    - text: "Let's Talk"
+      url: '/contact/'
+      event:
+        category: 'ContactAction'
+        action: 'Home__PromoAction'
+        label: 'Home__PromoAction'
+  img: '../../static/img/about/team-elizabeth-melissa-2.jpg'
 topFeatures:
   - text: |
       Meetings in
@@ -41,8 +54,8 @@ ctaUpper:
         action: homeCtaUpperInquireAction
 map:
   heading: |
-    So. Cal.
-    Native
+    Serving
+    South Bay
   img: '../../static/img/placeholder--map.jpg'
   features:
     - text: "5 Minutes from\nLong Beach Airport"
