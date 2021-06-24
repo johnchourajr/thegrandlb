@@ -3,13 +3,13 @@
     {
       "title": "Main Courses",
       "type": "section",
-      "description": "Served Meals. All entrées include homemade rolls & butter, one [gourmet salad](#salad), one [starch](#starch), and one [vegetable](#vegetable). Beverage service includes coffee, iced tea & iced water. For split menu *(Add $4.00 per person)*. For buffet choose additional salad & entrée *(Add $4.00 per person)*.",
+      "description": "Served Meals. All entrées include homemade rolls & butter, one [gourmet salad](#salad), one [starch](#starch), and one [vegetable](#vegetable). Beverage service includes coffee, iced tea & iced water. For split menu *(Add $5.00 per person)*. For buffet choose additional salad & entrée *(Add $5.00 per person)*.",
       "caption": "",
       "items": [
         {
           "title": "The Standard",
           "type": "multi-item",
-          "description": "Choose two options for a duet plate *(Add $4.00 per person)*",
+          "description": "Choose two options for a duet plate *(Add $5.00 per person)*",
           "items": [
             {
               "title": "Lemon Rosemary Chicken",
@@ -40,7 +40,7 @@
         {
           "title": "The Grand Standard",
           "type": "multi-item",
-          "description": "Choose two options for a duet plate *(Add $5.50 per person)*",
+          "description": "Choose two options for a duet plate *(Add $7.00 per person)*",
           "items": [
             {
               "title": "Chicken Wellington",
@@ -79,7 +79,7 @@
         {
           "title": "The Choura Standard",
           "type": "multi-item",
-          "description": "Choose two options for a duet plate *(Add $7.00 per person)*",
+          "description": "Choose two options for a duet plate *(Add $9.00 per person)*",
           "items": [
             {
               "title": "Classic Beef Wellington",
@@ -156,12 +156,12 @@
             {
               "title": "Kids Meals",
               "description": "Chicken Strips, Macaroni & Cheese, French Fries, Fresh Fruit & Juice or Milk",
-              "price": "$22.00 *per person*"
+              "price": "$25.00 *per person*"
             },
             {
               "title": "Vendor Meals",
               "description": "Chef's Choice",
-              "price": "$27.00 *per person*"
+              "price": "$30.00 *per person*"
             }
           ]
         },
@@ -173,32 +173,32 @@
             {
               "title": "Spice Rub Pork Loin",
               "description": "Ancho Chile Demi & Avocado Corn Relish",
-              "price": "$11.00 *additional per person*"
+              "price": "$13.00 *additional per person*"
             },
             {
               "title": "Turkey Airline Breast",
               "description": "Cranberry Relish & Sage Turkey Gravy",
-              "price": "$11.00 *additional per person*"
+              "price": "$13.00 *additional per person*"
             },
             {
               "title": "Smoked Pitt Ham",
               "description": "Honey Clove Orange Glaze & Ground Mustard Herb ",
-              "price": "$11.00 *additional per person*"
+              "price": "$13.00 *additional per person*"
             },
             {
               "title": "Roasted Prime Rib of Beef",
               "description": "Horseradish cream & Au Jus ",
-              "price": "$14.00 *additional per person*"
+              "price": "$16.00 *additional per person*"
             },
             {
               "title": "Peppercorn Crusted Beef Filet",
               "description": "Béarnaise & Bordelaise Sauce",
-              "price": "$15.00 *additional per person*"
+              "price": "$17.00 *additional per person*"
             },
             {
               "title": "Pig Lechon",
               "description": "Extra Large 70lb Pig",
-              "price": "$750 *per whole*"
+              "price": "$875 *per whole*"
             }
           ]
         },
@@ -406,7 +406,7 @@
             {
               "title": "Taste of Asia",
               "description": "",
-              "price": "*Lunch* $37.00 *-* *Dinner* $44.00",
+              "price": "*Lunch* $44.00 *-* *Dinner* $52.00",
               "items": [
                 {
                   "title": "Salads — Included",
@@ -472,7 +472,7 @@
             {
               "title": "Taste of India",
               "description": "Served with Naan Bread",
-              "price": "*Lunch* $37.00 *-* *Dinner* $44.00",
+              "price": "*Lunch* $44.00 *-* *Dinner* $52.00",
               "items": [
                 {
                   "title": "Salads — Included",
@@ -526,7 +526,7 @@
             {
               "title": "South of the Border",
               "description": "",
-              "price": "*Lunch* $37.00 *-* *Dinner* $44.00",
+              "price": "*Lunch* $44.00 *-* *Dinner* $52.00",
               "items": [
                 {
                   "title": "Salads — Included",
@@ -589,7 +589,7 @@
             {
               "title": "The Cowboy",
               "description": "",
-              "price": "*Lunch* $37.00 *-* *Dinner* $44.00",
+              "price": "*Lunch* $44.00 *-* *Dinner* $52.00",
               "items": [
                 {
                   "title": "Salads — Included",
@@ -649,7 +649,7 @@
             {
               "title": "Mambo Italiano",
               "description": "",
-              "price": "*Lunch* $37.00 *-* *Dinner* $44.00",
+              "price": "*Lunch* $44.00 *-* *Dinner* $52.00",
               "items": [
                 {
                   "title": "Salads — Select Two",
@@ -709,7 +709,7 @@
             {
               "title": "From The Deli",
               "description": "",
-              "price": "*Lunch* $34.00 *-* *Dinner* $40.00",
+              "price": "*Lunch* $40.00 *-* *Dinner* $48.00",
               "items": [
                 {
                   "title": "Salads — Included",
@@ -787,7 +787,7 @@
             {
               "title": "Eats + Sweets",
               "description": "",
-              "price": "*Lunch* $37.00 *-* *Dinner* $44.00",
+              "price": "*Lunch* $44.00 *-* *Dinner* $52.00",
               "items": [
                 {
                   "title": "Appetizers — Select Six",
@@ -886,7 +886,7 @@
             {
               "title": "Mashed Potato Bar",
               "description": "",
-              "price": "$14.00 *per person*",
+              "price": "$16.00 *per person*",
               "items": [
                 {
                   "title": "Select Two",
@@ -962,7 +962,7 @@
             {
               "title": "Mac n' Cheese Martinis",
               "description": "",
-              "price": "$13.00 *per person*",
+              "price": "$15.00 *per person*",
               "items": [
                 {
                   "title": "Select Two",
@@ -1026,7 +1026,7 @@
             {
               "title": "Taco Experience",
               "description": "",
-              "price": "$12.00 *per person*",
+              "price": "$14.00 *per person*",
               "items": [
                 {
                   "title": "Select Two",
@@ -1079,7 +1079,7 @@
             {
               "title": "Chinese \"To-Go\" Cup",
               "description": "",
-              "price": "$11.00 *per person*",
+              "price": "$13.00 *per person*",
               "items": [
                 {
                   "title": "Select Two",
@@ -1126,7 +1126,7 @@
             {
               "title": "Slider Station",
               "description": "",
-              "price": "$11.00 *per person*",
+              "price": "$13.00 *per person*",
               "items": [
                 {
                   "title": "Select Two",
@@ -1182,7 +1182,7 @@
             {
               "title": "By The Sea",
               "description": "",
-              "price": "$13.00 *per person*",
+              "price": "$15.00 *per person*",
               "items": [
                 {
                   "title": "Included",
@@ -1207,7 +1207,7 @@
             },
             {
               "title": "Butcher Shoppe",
-              "price": "$12.00 *per person*",
+              "price": "$14.00 *per person*",
               "items": [
                 {
                   "title": "Included",
