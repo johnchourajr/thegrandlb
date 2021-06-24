@@ -118,64 +118,64 @@
             {
               "title": "Cash Bar",
               "description": "One bartender per 75 guests recommended",
-              "price": "$225 *per bar*"
+              "price": "$350 *per bar*"
             },
             {
               "title": "Limited Hosted Bar",
               "description": "Bartender fee waived when bar is hosted by client. $500 minimum for flat-rate hosted bars. $6 for each additional hour.",
               "list": [
                 {
-                  "text": "1 hour for $15 *per person*"
+                  "text": "1 hour for $18 *per person*"
                 },
                 {
-                  "text": "2 hours for $19 *per person*"
+                  "text": "2 hours for $23 *per person*"
                 },
                 {
-                  "text": "3 hours for $23 *per person*"
+                  "text": "3 hours for $27 *per person*"
                 },
                 {
                   "text": "Limited Hosted Includes:\nDomestic & Imported Beer, House Wine, Soft Drinks, and Mineral Water."
                 }
               ],
-              "price": "$15-$23 *per hour, per person*"
+              "price": "$18-$27 *per hour, per person*"
             },
             {
               "title": "Hosted Bar",
               "description": "Bartender fee waived when bar is hosted by client. $500 minimum for flat-rate hosted bars. $8 for each additional hour.",
               "list": [
                 {
-                  "text": "1 hour for $19 *per person*"
+                  "text": "1 hour for $23 *per person*"
                 },
                 {
-                  "text": "2 hours for $26 *per person*"
+                  "text": "2 hours for $31 *per person*"
                 },
                 {
-                  "text": "3 hours for $31 *per person*"
+                  "text": "3 hours for $37 *per person*"
                 },
                 {
                   "text": "Hosted Bar Includes:\nWell Drinks, Domestic & Imported Beer, House Wine, Soft Drinks, and Mineral Water."
                 }
               ],
-              "price": "$19-$31 *per hour, per person*"
+              "price": "$23-$37 *per hour, per person*"
             },
             {
               "title": "Premium Hosted Bar",
               "description": "Bartender fee waived when bar is hosted by client. $500 minimum for flat-rate hosted bars. $11 for each additional hour.",
               "list": [
                 {
-                  "text": "1 hour for $22 *per person*"
+                  "text": "1 hour for $26 *per person*"
                 },
                 {
-                  "text": "2 hours for $33 *per person*"
+                  "text": "2 hours for $36 *per person*"
                 },
                 {
-                  "text": "3 hours for $38 *per person*"
+                  "text": "3 hours for $45 *per person*"
                 },
                 {
                   "text": "Hosted Bar Includes:\nCall Drinks, Well Drinks, Domestic & Imported Beer, House Wine, Soft Drinks, and Mineral Water."
                 }
               ],
-              "price": "$22-$38 *per hour, per person*"
+              "price": "$26-$45 *per hour, per person*"
             }
           ]
         }
