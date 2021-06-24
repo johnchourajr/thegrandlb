@@ -18,32 +18,32 @@
             {
               "title": "Cinnamon French Toast",
               "description": "Two Slices Texas Toast, Scrambled Eggs & Bacon or Sausage, Maple Syrup, & Powdered Sugar",
-              "price": "$23.50 *per person*"
+              "price": "$28.00 *per person*"
             },
             {
               "title": "The All American",
               "description": "Scrambled Eggs with Cheese, Choice of Bacon, Sausage or Ham, Hash Browns, & Fresh Fruit",
-              "price": "$23.50 *per person*"
+              "price": "$28.00 *per person*"
             },
             {
               "title": "Traditional Benedict",
               "description": "Two English Muffins Topped with Canadian Bacon, Poached Eggs, & Chipotle Hollandaise Sauce (vegetarian option available upon request)",
-              "price": "$23.50 *per person*"
+              "price": "$28.00 *per person*"
             },
             {
               "title": "Fried Chicken & Waffles",
               "description": "Buttermilk Brined, Oven Fried Chicken on top a Belgian Waffle & Chipotle Syrup",
-              "price": "$23.50 *per person*"
+              "price": "$28.00 *per person*"
             },
             {
               "title": "Breakfast Croissant",
               "description": "Open-faced Croissant with Scrambled Eggs, Cheddar Cheese, & Canadian Bacon. Served with Fresh Fruit",
-              "price": "$23.50 *per person*"
+              "price": "$28.00 *per person*"
             },
             {
               "title": "Mexican Scramble",
               "description": "Scrambled Eggs with Pico de Gallo & Chorizo, Tortillas and Choice of Bacon or Sausage",
-              "price": "$23.50 *per person*"
+              "price": "$28.00 *per person*"
             }
           ]
         },
@@ -55,17 +55,17 @@
             {
               "title": "Continental Breakfast",
               "description": "Assorted Breakfast Breads, Mini Muffins & Mini Danish",
-              "price": "$17.50 *per person*"
+              "price": "$21.00 *per person*"
             },
             {
               "title": "Deluxe Continental",
               "description": "Assorted Breakfast Breads, Mini Muffins & Fresh Fruit",
-              "price": "$18.50 *per person*"
+              "price": "$22.00 *per person*"
             },
             {
               "title": "Healthy Continental",
               "description": "Fresh Fruit, Individual Yogurts, Granola & Assorted Breakfast Breads",
-              "price": "$20.50 *per person*"
+              "price": "$24.00 *per person*"
             }
           ]
         },
@@ -87,7 +87,7 @@
                   "text": "With Vegetables"
                 }
               ],
-              "price": "$22.50 *per person*"
+              "price": "$27.00 *per person*"
             },
             {
               "title": "Side 1 _(Select One)_",
@@ -156,7 +156,7 @@
             {
               "title": "The Standard",
               "description": "Fresh Fruit, Assorted Breakfast Breads, Country Potatoes, Oven Fried Chicken w/ Gravy, Bacon, Sausage, Scrambled Eggs w/ Chives & Cheese, Build Your Own Salad Bar & one [Culinary Enhancement below](#culinary-breakfast-enhancements) (food only).",
-              "price": "$38.50 *per person*"
+              "price": "$46.00 *per person*"
             }
           ]
         },
@@ -168,12 +168,12 @@
             {
               "title": "Waffle Bar",
               "description": "Berries, Banana, Bacon Bits, Chocolate Chips, Whipped Cream, Syrup, Butter, & Powdered Sugar",
-              "price": "Add $10 *per person*"
+              "price": "Add $12 *per person*"
             },
             {
               "title": "Omelet Bar",
               "description": "Cheddar, Feta, Mushroom, Spinach, Diced Tomato, Peppers, Onions, Scallions, Ham, Bacon, & Sausage",
-              "price": "Add $12 *per person*"
+              "price": "Add $14 *per person*"
             },
             {
               "title": "Carving Station _(Select One)_",
@@ -188,17 +188,17 @@
                   "text": "Smoked Pitt Ham with Honey Clove Orange Glaze & Ground Mustard"
                 }
               ],
-              "price": "Add $13 *per person*"
+              "price": "Add $16 *per person*"
             },
             {
               "title": "Juice Bar",
               "description": "Carrots, Apples, Celery, Cucumber, Kale, Spinach, Beets, & Pineapple",
-              "price": "Add $9 *per person*"
+              "price": "Add $11 *per person*"
             },
             {
               "title": "Mimosa Station",
               "description": "Champagne & Assorted Fruit Juices",
-              "price": "Add $8*per person per hour*"
+              "price": "Add $8 *per person per hour*"
             }
           ]
         }
