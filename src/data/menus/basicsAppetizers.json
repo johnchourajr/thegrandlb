@@ -9,44 +9,44 @@
         {
           "title": "To Start",
           "type": "multi-item",
-          "description": "Displayed - *A la Carte*",
+          "description": "Displayed - *A la Carte.*\n$5.00 per person",
           "items": [
             {
               "title": "Domestic Cheese Platter",
               "description": "Domestic Cheese, Dried Fruit, Roasted Rosemary Nuts, & Assorted Crackers",
-              "price": "$5.00 *per person*"
+              "price": ""
             },
             {
               "title": "Gourmet Cheese Platter",
               "description": "Gourmet Cheese, Dried Fruit, & Roasted Rosemary Nuts. Add Assorted Crostinis & Crackers *(Add $1.50 per person)*",
-              "price": "$5.00 *per person*"
+              "price": ""
             },
             {
               "title": "Fruit Platter",
               "description": "Assorted Seasonal Melon & Berries",
-              "price": "$5.00 *per person*"
+              "price": ""
             },
             {
               "title": "Vegetable Crudités",
               "description": "Herb Ranch Dip",
-              "price": "$5.00 *per person*"
+              "price": ""
             },
             {
               "title": "Antipasto Platter",
               "description": "Assorted Cured Meats, Marinated Artichoke Hearts, Assorted Olives, & Roasted Peppers",
-              "price": "$5.00 *per person*"
+              "price": ""
             },
             {
               "title": "Roasted Garlic Hummus",
               "description": "Served with Pita Chips. Add Grilled Vegetables *(Add $2.00 per person)*",
-              "price": "$5.00 *per person*"
+              "price": ""
             }
           ]
         },
         {
           "title": "Cold Hors D’oeuvres",
           "type": "multi-item",
-          "description": "Chilled and ready to eat.\n$6.00 per person for Tray Passed or\n$7.00 per person for Displayed",
+          "description": "Chilled and ready to eat. *A la Carte.*\n$6.00 per person for Tray Passed or\n$7.00 per person for Displayed",
           "items": [
             {
               "title": "Antipasto Skewers",
@@ -128,7 +128,7 @@
         {
           "title": "Warm Hors D’oeuvres",
           "type": "multi-item",
-          "description": "Warm and ready to eat.\n$6.00 per person for Tray Passed or\n$7.00 per person for Displayed",
+          "description": "Warm and ready to eat. *A la Carte.*\n$6.00 per person for Tray Passed or\n$7.00 per person for Displayed",
           "items": [
             {
               "title": "Homemade Meatballs",
