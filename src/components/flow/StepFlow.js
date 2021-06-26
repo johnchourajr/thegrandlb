@@ -15,7 +15,10 @@ import { v4 as uuidv4 } from "uuid";
 // /inquire?glb-contact-email=test%40test.test&glb-contact-method=Phone&glb-contact-name=This+is+just+a+test&glb-contact-phone=5555555555&glb-date=2019-09-22&glb-event-name=Test&glb-event-type=Wedding+Reception&glb-guest-count=100&glb-rooms=The+Grand+Ballroom&glb-time=8am
 
 // ".con" TEST STRING
-// /inquire?glb-contact-email=test%40test.con&glb-contact-method=Phone&glb-contact-name=This+is+just+a+test&glb-contact-phone=5555555555&glb-date=2019-09-22&glb-event-name=Test&glb-event-type=Wedding+Reception&glb-guest-count=100&glb-rooms=The+Grand+Ballroom&glb-time=8am
+// /inquire?glb-contact-email=test%40test.con&glb-conotiontact-method=Phone&glb-contact-name=This+is+just+a+test&glb-contact-phone=5555555555&glb-date=2019-09-22&glb-event-name=Test&glb-event-type=Wedding+Reception&glb-guest-count=100&glb-rooms=The+Grand+Ballroom&glb-time=8am
+
+// new test
+// /inquire/?glb-contact-email=jchoura%40me.com&glb-contact-method=Phone&glb-contact-name=This+is+just+a+test&glb-contact-phone=5555555555&glb-date=2021-09-22&glb-event-name=Test&glb-event-type=Wedding+Reception&glb-guest-count=100&glb-rooms=The+Grand+Ballroom&glb-time=8am
 
 import * as util from "../functions/util";
 

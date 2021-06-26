@@ -134,7 +134,7 @@ collections:
       - label: "Menu Basics Appetizers"
         name: "basics appetizers"
         description: "Used in Classic, Wedding, and Milestones Menu"
-        file: "src/data/menus/basicsAppetizers.json"
+        file: "src/data/grand-menus/basicsAppetizers.json"
         extension: "json"
         fields:
           - label: Items
@@ -184,7 +184,7 @@ collections:
       - label: "Menu Basics Mains"
         name: "basics mains"
         description: "Used in Classic Menu"
-        file: "src/data/menus/basicsMains.json"
+        file: "src/data/grand-menus/basicsMains.json"
         extension: "json"
         fields:
           - label: Items
@@ -234,7 +234,7 @@ collections:
       - label: "Menu Basics Mains Shared"
         name: "basics mains shared"
         description: "Used in Wedding, and Milestones Menu"
-        file: "src/data/menus/basicsMainsShared.json"
+        file: "src/data/grand-menus/basicsMainsShared.json"
         extension: "json"
         fields:
           - label: Items
@@ -284,7 +284,7 @@ collections:
       - label: "Menu Basics Sweets"
         name: "basics sweets"
         description: "Used in Classic, Wedding, and Milestones Menu"
-        file: "src/data/menus/basicsSweets.json"
+        file: "src/data/grand-menus/basicsSweets.json"
         extension: "json"
         fields:
           - label: Items
@@ -334,7 +334,7 @@ collections:
       - label: "Menu Basics Drinks"
         name: "basics drinks"
         description: "Used in Classic, Wedding, and Milestones Menu"
-        file: "src/data/menus/basicsDrinks.json"
+        file: "src/data/grand-menus/basicsDrinks.json"
         extension: "json"
         fields:
           - label: Items
@@ -383,7 +383,7 @@ collections:
                               - {label: Text, name: text, widget: string, required: false}
       - label: "Classic Menu"
         name: "classic menu"
-        file: "src/data/menus/classicMenu.json"
+        file: "src/data/grand-menus/classicMenu.json"
         extension: "json"
         fields:
           - label: Items
@@ -432,7 +432,7 @@ collections:
                               - {label: Text, name: text, widget: string, required: false}
       - label: "Corporate Menu"
         name: "corporate menu"
-        file: "src/data/menus/corporateMenu.json"
+        file: "src/data/grand-menus/corporateMenu.json"
         extension: "json"
         fields:
           - label: Items
@@ -481,7 +481,7 @@ collections:
                               - {label: Text, name: text, widget: string, required: false}
       - label: "Milestone Menu"
         name: "milestone menu"
-        file: "src/data/menus/milestoneMenu.json"
+        file: "src/data/grand-menus/milestoneMenu.json"
         extension: "json"
         fields:
           - label: Items
@@ -530,7 +530,7 @@ collections:
                               - {label: Text, name: text, widget: string, required: false}
       - label: "Wedding Menu"
         name: "wedding menu"
-        file: "src/data/menus/weddingMenu.json"
+        file: "src/data/grand-menus/weddingMenu.json"
         extension: "json"
         fields:
           - label: Items
