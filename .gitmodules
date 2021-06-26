@@ -1,0 +1,3 @@
+[submodule "src/data/grand-menus"]
+	path = src/data/grand-menus
+	url = git@github.com:johnchourajr/grand-menus.git
