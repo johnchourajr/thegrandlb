@@ -1,9 +1,9 @@
 /* eslint-disable */
 
-import classicMenu from "../../data/grand-menus/classic-menu";
-import corporateMenu from "../../data/grand-menus/corporate-menu";
-import milestoneMenu from "../../data/grand-menus/milestone-menu";
-import weddingMenu from "../../data/grand-menus/wedding-menu";
+import classicMenu from "../../data/grand-menus/menus/classic-menu";
+import corporateMenu from "../../data/grand-menus/menus/corporate-menu";
+import milestoneMenu from "../../data/grand-menus/menus/milestone-menu";
+import weddingMenu from "../../data/grand-menus/menus/wedding-menu";
 
 export function slugify(text) {
   return text
