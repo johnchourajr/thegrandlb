@@ -1,9 +1,9 @@
 /* eslint-disable */
 
-import classicMenu from "../../data/menus/classic-menu";
-import corporateMenu from "../../data/menus/corporate-menu";
-import milestoneMenu from "../../data/menus/milestone-menu";
-import weddingMenu from "../../data/menus/wedding-menu";
+// import classicMenu from "../../data/menus/classic-menu";
+// import corporateMenu from "../../data/menus/corporate-menu";
+// import milestoneMenu from "../../data/menus/milestone-menu";
+// import weddingMenu from "../../data/menus/wedding-menu";
 
 export function slugify(text) {
   return text
@@ -94,29 +94,29 @@ export function getQueryVariable(variable) {
   }
 }
 
-export function outputMenuData(key) {
-  let data;
-  switch (key) {
-    case "classicMenu" || "classic":
-      data = classicMenu;
-      break;
-    case "corporateMenu" || "corporate":
-      data = corporateMenu;
-      break;
-    case "milestoneMenu" || "milestone":
-      data = milestoneMenu;
-      break;
-    case "weddingMenu" || "wedding":
-      data = weddingMenu;
-      break;
-    default:
-      data = classicMenu;
-      break;
-  }
-  return data;
-}
+// export function outputMenuData(key) {
+//   let data;
+//   switch (key) {
+//     case "classicMenu" || "classic":
+//       data = classicMenu;
+//       break;
+//     case "corporateMenu" || "corporate":
+//       data = corporateMenu;
+//       break;
+//     case "milestoneMenu" || "milestone":
+//       data = milestoneMenu;
+//       break;
+//     case "weddingMenu" || "wedding":
+//       data = weddingMenu;
+//       break;
+//     default:
+//       data = classicMenu;
+//       break;
+//   }
+//   return data;
+// }
 
-String.prototype.replaceAll = function(searchStr, replaceStr) {
+String.prototype.replaceAll = function (searchStr, replaceStr) {
   var str = this;
 
   // escape regexp special characters in search string
