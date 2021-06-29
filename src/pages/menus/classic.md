@@ -1,5 +1,6 @@
 ---
 templateKey: 'menu-template-page'
+menuKey: 'classic'
 path: /menus/classic
 title: Menus
 heading: |

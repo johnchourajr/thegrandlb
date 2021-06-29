@@ -1,11 +1,31 @@
+require("dotenv").config({
+  path: `.env`,
+});
+
 var proxy = require('http-proxy-middleware');
 const netlifyInstance = 'https://thegrandlb.netlify.app';
+const prismicHtmlSerializer = require("./src/gatsby/htmlSerializer");
 
 module.exports = {
   siteMetadata: {
     title: 'The Grand LB'
   },
   plugins: [
+    {
+      resolve: "gatsby-source-prismic",
+      options: {
+        repositoryName: "grandmenus",
+        typePrefix: 'Menus',
+        accessToken: `${process.env.MENU_API_KEY}`,
+        linkResolver: () => (post) => `/${post.uid}`,
+        htmlSerializer: () => prismicHtmlSerializer,
+        schemas: {
+          menu: require("./src/schemas/menu.json"),
+          menu_collection: require("./src/schemas/menu_collection.json")
+        },
+        lang: "*",
+      },
+    },
     {
       resolve: `gatsby-plugin-layout`,
       options: {

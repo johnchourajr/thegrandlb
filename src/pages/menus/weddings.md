@@ -1,5 +1,6 @@
 ---
-templateKey: 'menu-template-page'
+templateKey: "menu-template-page"
+menuKey: "weddings-the-grand"
 path: /menus/weddings
 title: Menus
 heading: |

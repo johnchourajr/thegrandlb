@@ -1,133 +1,140 @@
-import React from 'react'
-import ReactMarkdown from 'react-markdown'
-import Scrollchor from 'react-scrollchor'
+import React from "react";
+import Scrollchor from "react-scrollchor";
+import styled from "styled-components";
 
-import { slugify } from './functions/util'
+import { slugify } from "./functions/util";
+import { RichText } from "prismic-reactjs";
 
-// eslint-disable-next-line
-const Td = props => {
-  return (
-    <div className={`table--division ${props.className}`}><ReactMarkdown source={props.children}/></div>
-  )
+function formatCurrency(num) {
+  num = num.toFixed(2);
+  return `$${num}`;
 }
 
-const Tr = props => {
+function MenuItem({
+  data: { title, description, price_per, price_min, price_max },
+}) {
   return (
-    <div className={`table--row ${props.className}`}>{props.children}</div>
-  )
-}
-
-const Table = props => {
-  return (
-    <div className={`table--group  ${props.className}`}>{props.children}</div>
-  )
-}
-
-
-
-const MenuSection = props => {
-  const { section } = props
-
-  return (
-    <React.Fragment>
-      {section && section.map((section, i) => (
-        <div key={i} id={section.title && slugify(section.title)} className="menu--section">
-          {section.title && <div className="menu--section--header">
-            {section.title && <h2><Scrollchor to={`#${slugify(section.title)}`} animate={{offset: -100, duration: 300}}><ReactMarkdown source={section.title}/></Scrollchor></h2>}
-            {section.description && <ReactMarkdown className="menu--section--description" source={section.description}/>}
-            {section.price && <ReactMarkdown className="menu--section--price" source={section.price}/>}
-          </div>}
-          <Table className="menu--table">
-            <MenuItem item={section.items}/>
-          </Table>
-          <Tr>
-            {section.annotation && <div className="menu--footer">
-              {section.annotation.map((annoItem, i) => (
-                <ReactMarkdown key={i} source={annoItem}/>
-              ))}
-            </div>}
-          </Tr>
+    <MenuItemWrapper className="table--row menu--table--item">
+      <div className="table--division menu--table--item--main">
+        <h4>{title.text}</h4>
+        <RichText render={description.raw} />
+      </div>
+      {price_min && (
+        <div className="table--division menu--table--item--price">
+          <p>
+            {price_min && <span>{formatCurrency(price_min)}</span>}
+            {price_max && <span> / {formatCurrency(price_max)}</span>}
+            {price_per && (
+              <>
+                <em>—</em>
+                <em>{price_per}</em>
+              </>
+            )}
+          </p>
         </div>
-      ))}
-    </React.Fragment>
-  )
+      )}
+    </MenuItemWrapper>
+  );
 }
 
-const MenuItem = props => {
-  const { item } = props
-
-  return (
-    <React.Fragment>
-      {item && item.map((listItem, i) => (
-        <Tr key={i} className="menu--table--item">
-          <div className="table--division menu--table--item--main">
-            <h4><ReactMarkdown className="table--division menu--table--item--title" source={listItem.title}/></h4>
-            <ReactMarkdown className="menu--table--item--description" source={listItem.description}/>
-            {listItem.list && <ul>
-              {listItem.list.map((item, i) => (
-                <li key={i}><ReactMarkdown source={item.text}/></li>
-              ))}
-            </ul>}
-            <MenuSubList item={listItem.items}/>
-          </div>
-          <div className="table--division menu--table--item--price">
-            <ReactMarkdown source={listItem.price}/>
-          </div>
-        </Tr>
-      ))}
-    </React.Fragment>
-  )
-}
-
-const MenuSubList = props => {
-  const { item } = props
-
-  return (
-    <React.Fragment>
-      {item && item.map((subItem, i) => (
-        <div key={i} className="menu--table--item--sublist">
-          <h5><ReactMarkdown className="table--division menu--table--item--title" source={subItem.title}/></h5>
-          {subItem.list && <ul>
-            {subItem.list.map((item, i) => (
-              <li key={i}><ReactMarkdown source={item.text}/></li>
-            ))}
-          </ul>}
-        </div>
-      ))}
-    </React.Fragment>
-  )
-}
-
-export class MenuTable extends React.Component {
-
-  render() {
-    const { data } = this.props
-
-    return (
-      <React.Fragment>
-        {data.items.map((item, i) => {
-          return (
-            <div key={i} id={item.title && slugify(item.title)} className="menu--wrap sm-col-8 sm-offset-2">
-              <div className="menu--header ">
-                {i > 0 ? <div className="menu--scrolltop no-print">
-                  <Scrollchor
-                    to={`#menutop`}
-                    animate={{offset: -150, duration: 600}}
-                  >
-                    Top
-                  </Scrollchor>
-                </div> : null}
-                <h3 className="display "><Scrollchor to={`#${slugify(item.title)}`} animate={{offset: -100, duration: 300}}>{item.title}</Scrollchor></h3>
-                <ReactMarkdown source={item.description}/>
-              </div>
-              <div className="xs-my5 divider-bar divider-bar--top"/>
-              <MenuSection section={item.items}/>
-            </div>
-          )
-        })}
-      </React.Fragment>
-    )
+const MenuItemWrapper = styled.div`
+  .menu--table--item--main p {
+    font-size: 1rem;
   }
-}
+  ul {
+    font-size: 1rem;
 
-export default MenuTable
+    a {
+      color: inherit;
+    }
+  }
+`;
+
+const MenuTable = ({ data }) => {
+  return (
+    <>
+      {data.group.map(({ menu_link }, i) => {
+        const group = menu_link.document?.data;
+        return (
+          <div
+            key={i}
+            id={group.page_title && slugify(group.page_title)}
+            className="menu--wrap sm-col-8 sm-offset-2"
+          >
+            {group.page_title && (
+              <>
+                <div className="menu--header ">
+                  {i > 0 ? (
+                    <div className="menu--scrolltop no-print">
+                      <Scrollchor
+                        to={`#menutop`}
+                        animate={{ offset: -150, duration: 600 }}
+                      >
+                        Top
+                      </Scrollchor>
+                    </div>
+                  ) : null}
+                  <h3 className="display ">
+                    <Scrollchor
+                      to={`#${group.page_title && slugify(group.page_title)}`}
+                      animate={{ offset: -100, duration: 300 }}
+                    >
+                      {group.page_title}
+                    </Scrollchor>
+                  </h3>
+                  <RichText render={group.page_description.raw} />
+                </div>
+                <div className="xs-my5 divider-bar divider-bar--top" />
+              </>
+            )}
+            {group.body.map(({ items, primary }, i) => {
+              return (
+                <div key={i} className="menu--section">
+                  {primary && (
+                    <div
+                      id={primary.title.text && slugify(primary.title.text)}
+                      className="menu--section--header"
+                    >
+                      {primary.title.text && (
+                        <h2>
+                          <Scrollchor
+                            to={`#${
+                              primary.title.text && slugify(primary.title.text)
+                            }`}
+                            animate={{ offset: -100, duration: 300 }}
+                          >
+                            {primary.title.text}
+                          </Scrollchor>
+                        </h2>
+                      )}
+                      {primary.description.raw && (
+                        <RichText render={primary.description.raw} />
+                      )}
+                    </div>
+                  )}
+                  {items &&
+                    items.map((item, itemIndex) => (
+                      <div
+                        key={itemIndex}
+                        className="table--group  menu--table"
+                      >
+                        <MenuItem key={itemIndex} data={item} />
+                      </div>
+                    ))}
+                  {primary.caption.raw && (
+                    <div className="menu--footer">
+                      <RichText render={primary.caption.raw} />
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+            <RichText render={group.page_disclaimer.raw} />
+          </div>
+        );
+      })}
+    </>
+  );
+};
+
+export default MenuTable;

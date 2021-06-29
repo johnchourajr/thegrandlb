@@ -1,5 +1,6 @@
 ---
 templateKey: 'menu-template-page'
+menuKey: 'milestones'
 path: /menus/milestones
 title: Menus
 heading: |
