@@ -17,6 +17,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
             frontmatter {
               templateKey
+              menuKey
               title
               path
             }
@@ -25,7 +26,9 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `);
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+
+  const pages = result.data.allMarkdownRemark.edges
+  pages.forEach(({ node }) => {
     const id = node.id;
     createPage({
       path: node.fields.slug,
@@ -33,9 +36,9 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(
         `src/templates/${String(node.frontmatter.templateKey)}.js`
       ),
-      // additional data can be passed via context
       context: {
-        id
+        id,
+        menuKey: node.frontmatter.menuKey,
       }
     });
   });

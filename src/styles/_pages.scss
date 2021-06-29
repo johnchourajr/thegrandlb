@@ -169,7 +169,7 @@
     transition: transform 3s $easeOutCubic;
 
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       right: 0;
@@ -218,7 +218,7 @@
     transition: transform 3s $easeOutCubic;
 
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       right: 0;
@@ -255,7 +255,7 @@
   margin: 6em 0 4em;
 
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     top: -2em;
     bottom: -2em;
@@ -384,7 +384,7 @@
     }
 
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       background-color: $grandRed;
       box-shadow: 0 -0.5em 0 $grandRed !important;
@@ -539,7 +539,7 @@
   }
 
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     background-color: $grandRed;
     top: 0;
@@ -712,12 +712,12 @@
     position: relative;
 
     &:after {
-      content: '';
+      content: "";
       background-color: transparent;
       position: absolute;
 
       @include solid-breakpoint(md) {
-        content: '';
+        content: "";
         background-color: $grandBabyBlue;
         position: absolute;
         top: 6rem;
@@ -821,7 +821,7 @@
   position: relative;
 
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
@@ -949,7 +949,7 @@
   margin-top: calc(1.5rem + 44px);
 
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     background-color: $grandRed;
     top: calc(-1.5rem - 44px);
@@ -1264,7 +1264,7 @@
 
       ul {
         list-style: disc;
-        color: rgba($black, 0.3);
+        color: rgba($black, 0.5);
 
         li {
           p {

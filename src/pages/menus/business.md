@@ -1,5 +1,6 @@
 ---
 templateKey: 'menu-template-page'
+menuKey: 'corporate'
 path: /menus/Business
 title: Menus
 heading: |
