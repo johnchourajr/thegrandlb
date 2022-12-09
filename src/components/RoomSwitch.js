@@ -5,7 +5,7 @@ const RoomSwitchImage = (props) => {
   const isActive = props.index === props.activeItem ? 'active' : 'inactive';
   return (
     <div className={`room-switch--image-item ${isActive}`}>
-      <GatsbyImage image={props.img.childImageSharp?.gatsbyImageData} />
+      <GatsbyImage image={props.img.childImageSharp?.gatsbyImageData} alt="" />
     </div>
   );
 };

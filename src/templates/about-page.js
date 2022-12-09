@@ -118,12 +118,14 @@ const AboutPage = ({ data, status }) => {
                     className="front"
                     image={item.imgFront.childImageSharp.gatsbyImageData}
                     alt={item.name}
+
                   />
                   {item.imgBack && (
                     <GatsbyImage
                       className="back"
                       image={item.imgBack.childImageSharp.gatsbyImageData}
                       alt={item.name}
+
                     />
                   )}
                 </div>

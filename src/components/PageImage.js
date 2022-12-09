@@ -17,6 +17,7 @@ const PageImage = (props) => {
                 <GatsbyImage
                   className="img"
                   image={props.img.childImageSharp.gatsbyImageData}
+                  alt=""
                 />
               ),
               slowerScrollRate: true

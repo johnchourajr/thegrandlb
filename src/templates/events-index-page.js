@@ -46,6 +46,7 @@ const EventsIndex = ({ data, status, location }) => {
                           <div className="events-feature--img">
                             <GatsbyImage
                               image={item.img.childImageSharp.gatsbyImageData}
+                              alt=""
                             />
                           </div>
                         ),

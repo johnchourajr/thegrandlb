@@ -6,7 +6,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 const RoomCard = (props) => {
   return (
     <div className="card page-card">
-      <GatsbyImage image={props.hero.childImageSharp.gatsbyImageData} />
+      <GatsbyImage image={props.hero.childImageSharp.gatsbyImageData} alt="" />
       <Link className="card--inner" to={props.slug}>
         <div className="card--inner--upper">
           <h1>{props.heading}</h1>
