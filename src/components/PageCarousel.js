@@ -17,7 +17,7 @@ const PageCarousel = (props) => {
           className={`carousel-slide carousel-slide--${i}`}
           style={{ backgroundImage: `url(${item.img})` }}
         >
-          <GatsbyImage image={item.img.childImageSharp.gatsbyImageData} />
+          <GatsbyImage image={item.img.childImageSharp.gatsbyImageData} alt="" />
           <ReactMarkdown className="caption">{item.caption}</ReactMarkdown>
         </div>
       );

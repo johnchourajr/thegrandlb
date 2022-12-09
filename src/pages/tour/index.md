@@ -57,25 +57,25 @@ carousel:
     Hey,
     Good Lookin’
   array:
-  - img: "../../../static/img/tour-architecture/GLB_Details_Arch_8.jpg"
+  - img: "../../../static/img/tour-architecture/8.jpg"
     caption: "The Grand Entrance"
   - img: "../../../static/img/events/milestones/2.jpg"
     caption: "A [Palm Terrace](/tour/palm-terrace) food tasting event"
-  - img: "../../../static/img/tour-architecture/GLB_Details_Arch_7.jpg"
+  - img: "../../../static/img/tour-architecture/7.jpg"
     caption: "Willow Street View at Night"
-  - img: "../../../static/img/tour-spaces/GLB_Details_Spaces_11.jpg"
+  - img: "../../../static/img/tour-spaces/11.jpg"
     caption: "Terrace Shade & Lights"
   - img: "../../../static/img/events/weddings/1.jpg"
     caption: "A ceremony on [The Monarch Room](/tour/monarch-room) Patio"
-  - img: "../../../static/img/tour-architecture/GLB_Details_Arch_2.jpg"
+  - img: "../../../static/img/tour-architecture/2.jpg"
     caption: "Patio Detail"
   - img: "../../../static/img/events/milestones/1.jpg"
     caption: "A red carpet entrance to [The Grand Ballroom](/tour/grand-ballroom)"
-  - img: "../../../static/img/tour-architecture/GLB_Details_Arch_3.jpg"
+  - img: "../../../static/img/tour-architecture/3.jpg"
     caption: "Building Detail"
-  - img: "../../../static/img/tour-architecture/GLB_Details_Arch_4.jpg"
+  - img: "../../../static/img/tour-architecture/4.jpg"
     caption: "The Grand Entrance"
-  - img: "../../../static/img/tour-architecture/GLB_Details_Arch_5.jpg"
+  - img: "../../../static/img/tour-architecture/5.jpg"
     caption: "Building Detail"
 cta:
   heading: |

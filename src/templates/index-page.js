@@ -33,19 +33,15 @@ const IndexPage = ({ data, status, siteBanner }) => {
         video={{
           source: [
             {
-              src: '/video/home.compressed.mp4',
+              src: 'https://prismic-io.s3.amazonaws.com/the-grand/e21bc953-a445-4ff1-976d-1978f84e281a_home.compressed.mp4',
               type: 'video/mp4'
             },
             {
-              src: '/video/home.compressed.ogv',
-              type: 'video/ogv'
-            },
-            {
-              src: '/video/home.compressed.webm',
+              src: 'https://prismic-io.s3.amazonaws.com/the-grand/846e52be-fb23-4b39-86de-4ceec3508fb3_home.compressed.webm',
               type: 'video/webm'
             }
           ],
-          poster: '/video/home-poster.jpg'
+          poster: 'https://images.prismic.io/the-grand/78e1eff7-4ec1-4293-b5ad-e2b14c6c6e51_home-poster.jpg?auto=compress,format'
         }}
         img="/img/placeholder--front-img.jpg"
         buttons={[

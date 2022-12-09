@@ -8,7 +8,8 @@ const prismicHtmlSerializer = require("./src/gatsby/htmlSerializer");
 
 module.exports = {
   siteMetadata: {
-    title: 'The Grand LB'
+    title: 'The Grand LB',
+    siteUrl: "https://thegrandlb.com",
   },
   plugins: [
     {
@@ -33,6 +34,7 @@ module.exports = {
       }
     },
     'gatsby-plugin-react-helmet',
+    "gatsby-plugin-sitemap",
     {
       resolve: `gatsby-plugin-sass`,
       options: {

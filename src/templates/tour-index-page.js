@@ -26,17 +26,15 @@ const TourIndex = ({ data, status, location }) => {
       <div className="page-image-full page-image-full--clean">
         <Video
           source={[
-            { src: '/video/tour.compressed.mp4', type: 'video/mp4' },
-            { src: '/video/tour.compressed.ogv', type: 'video/ogv' },
-            { src: '/video/tour.compressed.webm', type: 'video/webm' }
+            { src: 'https://prismic-io.s3.amazonaws.com/the-grand/1dcb31ab-4e6a-4b01-bcd3-e775d11e855d_tour.compressed.mp4', type: 'video/mp4' },
+            { src: 'https://prismic-io.s3.amazonaws.com/the-grand/b1251a58-f395-4cd6-ad39-972bb478c2c6_tour.compressed.webm', type: 'video/webm' }
           ]}
-          poster={'/video/tour-poster.jpg'}
+          poster={'https://images.prismic.io/the-grand/c1815b3d-b253-4523-9001-9cf43cdba951_tour-poster.jpg?auto=compress,format'}
         />
         <VideoPlayAction
           source={[
-            { src: '/video/tour.compressed.mp4', type: 'video/mp4' },
-            { src: '/video/tour.compressed.ogv', type: 'video/ogv' },
-            { src: '/video/tour.compressed.webm', type: 'video/webm' }
+            { src: 'https://prismic-io.s3.amazonaws.com/the-grand/1dcb31ab-4e6a-4b01-bcd3-e775d11e855d_tour.compressed.mp4', type: 'video/mp4' },
+            { src: 'https://prismic-io.s3.amazonaws.com/the-grand/b1251a58-f395-4cd6-ad39-972bb478c2c6_tour.compressed.webm', type: 'video/webm' }
           ]}
         />
       </div>
