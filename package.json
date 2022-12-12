@@ -47,7 +47,7 @@
     "react-ab-test": "^2.0.1",
     "react-countup": "^4.2.2",
     "react-dom": "^16.8.4",
-    "react-flickity-component": "^3.5.0",
+    "react-flickity-component": "^3.6.3",
     "react-ga": "^3.3.0",
     "react-helmet": "^6.1.0",
     "react-intersection-observer": "^8.31.0",
