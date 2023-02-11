@@ -348,6 +348,10 @@
     margin-top: 0.3em;
   }
 
+  .btn--play--wrapper {
+    z-index: 10;
+  }
+
   &--buttons {
     margin-top: -2em;
     z-index: 5;
