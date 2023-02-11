@@ -1,18 +1,18 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import React from "react";
+import { graphql } from "gatsby";
 
-import { slugify } from '../components/functions/util';
-import Layout from '../components/core/Layout';
-import PageHeader from '../components/PageHeader';
-import PageSection from '../components/PageSection';
-import PageCarousel from '../components/PageCarousel';
-import PageSegue from '../components/PageSegue';
-import NumberArray from '../components/NumberArray';
-import FilterList from '../components/FilterList';
-import Video from '../components/Video';
-import VideoPlayAction from '../components/VideoPlayAction';
+import { slugify } from "../components/functions/util";
+import Layout from "../components/core/Layout";
+import PageHeader from "../components/PageHeader";
+import PageSection from "../components/PageSection";
+import PageCarousel from "../components/PageCarousel";
+import PageSegue from "../components/PageSegue";
+import NumberArray from "../components/NumberArray";
+import FilterList from "../components/FilterList";
+import Video from "../components/Video";
+import VideoPlayAction from "../components/VideoPlayAction";
 
-import Map from '../components/svg/Map';
+import Map from "../components/svg/Map";
 
 const TourIndex = ({ data, status, location }) => {
   const { frontmatter } = data.pageData;
@@ -26,43 +26,68 @@ const TourIndex = ({ data, status, location }) => {
       <div className="page-image-full page-image-full--clean">
         <Video
           source={[
-            { src: 'https://prismic-io.s3.amazonaws.com/the-grand/1dcb31ab-4e6a-4b01-bcd3-e775d11e855d_tour.compressed.mp4', type: 'video/mp4' },
-            { src: 'https://prismic-io.s3.amazonaws.com/the-grand/b1251a58-f395-4cd6-ad39-972bb478c2c6_tour.compressed.webm', type: 'video/webm' }
+            {
+              src:
+                "https://prismic-io.s3.amazonaws.com/the-grand/1dcb31ab-4e6a-4b01-bcd3-e775d11e855d_tour.compressed.mp4",
+              type: "video/mp4",
+            },
+            {
+              src:
+                "https://prismic-io.s3.amazonaws.com/the-grand/b1251a58-f395-4cd6-ad39-972bb478c2c6_tour.compressed.webm",
+              type: "video/webm",
+            },
           ]}
-          poster={'https://images.prismic.io/the-grand/c1815b3d-b253-4523-9001-9cf43cdba951_tour-poster.jpg?auto=compress,format'}
+          poster={
+            "https://images.prismic.io/the-grand/c1815b3d-b253-4523-9001-9cf43cdba951_tour-poster.jpg?auto=compress,format"
+          }
         />
         <VideoPlayAction
           source={[
-            { src: 'https://prismic-io.s3.amazonaws.com/the-grand/1dcb31ab-4e6a-4b01-bcd3-e775d11e855d_tour.compressed.mp4', type: 'video/mp4' },
-            { src: 'https://prismic-io.s3.amazonaws.com/the-grand/b1251a58-f395-4cd6-ad39-972bb478c2c6_tour.compressed.webm', type: 'video/webm' }
+            {
+              src:
+                "https://prismic-io.s3.amazonaws.com/the-grand/1dcb31ab-4e6a-4b01-bcd3-e775d11e855d_tour.compressed.mp4",
+              type: "video/mp4",
+            },
+            {
+              src:
+                "https://prismic-io.s3.amazonaws.com/the-grand/b1251a58-f395-4cd6-ad39-972bb478c2c6_tour.compressed.webm",
+              type: "video/webm",
+            },
           ]}
         />
       </div>
-      <PageSection heading={frontmatter.map.heading} />
+      <PageSection heading={frontmatter.map.heading} headingTag="h2" />
       <div className="map-svg--wrapper map-svg">
         <Map />
       </div>
       <PageSection buttons={frontmatter.map.buttons} />
-      <PageSection heading={'Yours By Design'} disabledAnimation>
-        <FilterList data={posts} targetFilter={'all'} />
+      <PageSection
+        heading={`Yours\nBy Design`}
+        headingTag="h2"
+        disabledAnimation
+      >
+        <FilterList data={posts} targetFilter={"all"} />
       </PageSection>
       <NumberArray
         heading={frontmatter.numbers.heading}
         array={frontmatter.numbers.array}
       />
-      <PageSection heading={frontmatter.carousel.heading}>
+      <PageSection heading={frontmatter.carousel.heading} headingTag="h2">
         <PageCarousel
           items={[...frontmatter.carousel.array]}
           settings={{
             showIndicators: true,
             infiniteLoop: true,
-            emulateTouch: true
+            emulateTouch: true,
           }}
         />
       </PageSection>
       <PageSection
         heading={frontmatter.cta.heading}
-        headingClassName={'xs-mb3'}
+        headingClassName={"xs-mb3"}
+        headingTag="h2"
+        caption={frontmatter.cta.caption}
+        captionClassName={"caption--small"}
         buttons={frontmatter.cta.buttons}
       />
       <PageSegue currentPage={currentPage} />
@@ -126,6 +151,7 @@ export const basicPageQuery = graphql`
         }
         cta {
           heading
+          caption
           buttons {
             text
             url

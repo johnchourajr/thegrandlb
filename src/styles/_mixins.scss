@@ -260,7 +260,7 @@ $breakpoints: (
 
 @mixin nav-color($color) {
   .nav--mobile-menu span { background-color: $color; }
-  a { color: $color; }
+  a, p { color: $color; }
   path { fill: $color; }
 }
 

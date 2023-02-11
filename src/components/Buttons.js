@@ -1,9 +1,9 @@
 /* eslint-disable */
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import { navigate } from 'gatsby'
-import ReactGA from 'react-ga'
+import React from "react";
+import PropTypes from "prop-types";
+import { Link, navigate } from "gatsby";
+import ReactGA from "react-ga";
 
 function buttonClick(url, event, modal) {
   if (event) {
@@ -14,36 +14,40 @@ function buttonClick(url, event, modal) {
   }
 
   if (modal) {
-    modal(false)
+    modal(false);
   }
 
-  navigate(url)
+  // navigate(url)
 }
 
 // Component
-const Buttons = props => {
+const Buttons = (props) => {
   if (props.buttons) {
-
     return (
       <div className={props.className}>
-        {props.buttons.map(( item, i ) => {
-          const secondary = item.isSecondary ? "button--secondary" : ""
-          return(
-            <a
+        {props.buttons.map((item, i) => {
+          const secondary = item.isSecondary ? "button--secondary" : "";
+          return (
+            <Link
               key={i}
               className={`button ${secondary}`}
-              onClick={() => {buttonClick(item.url, item.event, item.modal)}}
-            >{item.text}</a>
-          )
+              onClick={() => {
+                buttonClick(item.url, item.event, item.modal);
+              }}
+              to={item.url}
+            >
+              {item.text}
+            </Link>
+          );
         })}
       </div>
-    )
-  } else return null
-}
+    );
+  } else return null;
+};
 
 Buttons.propTypes = {
   wrapClass: PropTypes.string,
   buttons: PropTypes.array.isRequired,
-}
+};
 
-export default Buttons
+export default Buttons;

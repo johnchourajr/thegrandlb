@@ -3,7 +3,7 @@ import ReactGA from "react-ga";
 
 import StepBanner from "./StepBanner";
 
-const StepIndex = props => {
+const StepIndex = (props) => {
   const children = React.Children.map(props.children, (child, i) => {
     const pageNumber = i + 1;
     const isActive = i === props.currentStep;
@@ -14,7 +14,7 @@ const StepIndex = props => {
   return <div className="inquire-page--index">{children}</div>;
 };
 
-const StepHeader = props => {
+const StepHeader = (props) => {
   const headerText = props.flowPages[props.currentStep].header;
 
   return (
@@ -24,7 +24,7 @@ const StepHeader = props => {
         children={props.children}
         goToStep={props.goToStep}
       />
-      <h3 className="display xs-text-center">{headerText}</h3>
+      <h1 className="h3 display xs-text-center">{headerText}</h1>
     </div>
   );
 };
@@ -35,41 +35,41 @@ class StepList extends React.Component {
 
     this.state = {
       currentStep: 0,
-      totalSteps: this.props.children.length - 1
+      totalSteps: this.props.children.length - 1,
     };
   }
 
-  goToStep = step => {
+  goToStep = (step) => {
     this.setState({ currentStep: step });
   };
 
-  goToPreviousStep = e => {
+  goToPreviousStep = (e) => {
     const step = this.state.currentStep - 1;
 
     this.setState({ currentStep: step });
     ReactGA.event({
       category: "InquiryFlow",
-      action: `Back To Step ${step + 1}`
+      action: `Back To Step ${step + 1}`,
     });
   };
 
-  goToNextStep = e => {
+  goToNextStep = (e) => {
     const step = this.state.currentStep + 1;
 
     this.setState({ currentStep: step });
     ReactGA.event({
       category: "InquiryFlow",
-      action: `Proceed To Step ${step + 1}`
+      action: `Proceed To Step ${step + 1}`,
     });
   };
 
-  submitAction = disabled => {
+  submitAction = (disabled) => {
     if (disabled) {
     } else {
       sessionStorage.setItem("flowPages", JSON.stringify(this.props.flowPages));
       ReactGA.event({
         category: "InquiryFlow",
-        action: "Inquiry Submitted"
+        action: "Inquiry Submitted",
       });
       // ReactGA.set({ userName: this.props.flowPages[2].forms[0].value });
     }
@@ -85,9 +85,9 @@ class StepList extends React.Component {
         displayPrevious: currentStep > 0,
         displayNext: currentStep < totalSteps,
         displaySubmit: currentStep === totalSteps,
-        goToPreviousStep: e => this.goToPreviousStep(e),
-        goToNextStep: e => this.goToNextStep(e),
-        submitAction: () => this.submitAction()
+        goToPreviousStep: (e) => this.goToPreviousStep(e),
+        goToNextStep: (e) => this.goToNextStep(e),
+        submitAction: () => this.submitAction(),
       });
     });
 

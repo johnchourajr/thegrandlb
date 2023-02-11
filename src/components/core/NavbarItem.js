@@ -1,13 +1,13 @@
-import React from 'react';
-import Link from 'gatsby-link';
+import React from "react";
+import Link from "gatsby-link";
 
-import NavbarItemMenu from './NavbarItemMenu';
-import NavbarCaret from './NavbarCaret';
-import { slugify } from '../functions/util';
+import NavbarItemMenu from "./NavbarItemMenu";
+import NavbarCaret from "./NavbarCaret";
+import { slugify } from "../functions/util";
 
 class NavbarItem extends React.Component {
   state = {
-    navActive: false
+    navActive: false,
   };
 
   onMouseEnter(e, hasSubpage) {
@@ -28,7 +28,8 @@ class NavbarItem extends React.Component {
     const { path, subpages, noHoverMenu } = this.props;
 
     const pageSlug = path ? `${slugify(path)}-nav` : null;
-    const isActive = this.state.navActive ? 'nav--item-active' : '';
+    const pageFooterSlug = path ? `${slugify(path)}-footer` : null;
+    const isActive = this.state.navActive ? "nav--item-active" : "";
 
     let onMouseEnter = null;
     let onMouseLeave = null;
@@ -46,7 +47,7 @@ class NavbarItem extends React.Component {
           </a>
         ) : (
           <Link
-            id={pageSlug}
+            id={noHoverMenu ? pageFooterSlug : pageSlug}
             to={path}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}

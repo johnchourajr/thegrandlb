@@ -14,8 +14,10 @@ const PageSection = props => {
           <SectionHead
             heading={props.heading}
             headingClassName={props.headingClassName}
+            headingTag={props.headingTag}
             subHead={props.subHead}
             subHeadClassName={props.subHeadClassName}
+            subHeadTag={props.subHeadTag}
             caption={props.caption}
             captionClassName={props.captionClassName}
             buttons={props.buttons}

@@ -5,7 +5,7 @@ import { reviewsArray } from "../data/contentReviews.json";
 
 // import * as Flickity from "react-flickity-component";
 
-const ReviewsCarousel = props => {
+const ReviewsCarousel = (props) => {
   if (typeof window != "undefined") {
     var Flickity = require("react-flickity-component");
 
@@ -16,7 +16,7 @@ const ReviewsCarousel = props => {
           className={`carousel-slide carousel-slide--${i}`}
         >
           <div className="review-upper">
-            {item.blurb && <h1>{item.blurb}</h1>}
+            {item.blurb && <h3 className="h1">{item.blurb}</h3>}
           </div>
           <div className="review-lower">
             {item.rating && (
@@ -82,7 +82,7 @@ const ReviewsCarousel = props => {
       prevNextButtons: false,
       pageDots: false,
       selectedAttraction: 0.2,
-      friction: 0.8
+      friction: 0.8,
     };
 
     return (
@@ -99,7 +99,7 @@ const ReviewsCarousel = props => {
   } else return null;
 };
 
-const ReviewsSection = props => {
+const ReviewsSection = (props) => {
   return (
     <React.Fragment>
       <ReviewsCarousel />

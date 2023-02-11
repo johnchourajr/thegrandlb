@@ -1,49 +1,49 @@
-import React from 'react';
-import { graphql, Link } from 'gatsby';
+import React from "react";
+import { graphql, Link } from "gatsby";
 
-import Layout from '../components/core/Layout';
-import InteractiveMapWrap from '../components/InteractiveMapWrap';
-import Map from '../components/svg/Map';
+import Layout from "../components/core/Layout";
+import InteractiveMapWrap from "../components/InteractiveMapWrap";
+import Map from "../components/svg/Map";
 
 function outputRoomClass(slug) {
   let className;
   let roomNumber;
   switch (slug) {
-    case '/tour/grand-ballroom/':
-      className = 'room-g';
-      roomNumber = '';
+    case "/tour/grand-ballroom/":
+      className = "room-g";
+      roomNumber = "";
       break;
-    case '/tour/catalina-room/':
-      className = 'room-f';
-      roomNumber = '';
+    case "/tour/catalina-room/":
+      className = "room-f";
+      roomNumber = "";
       break;
-    case '/tour/monarch-room/':
-      className = 'room-a';
-      roomNumber = '';
+    case "/tour/monarch-room/":
+      className = "room-a";
+      roomNumber = "";
       break;
-    case '/tour/garden-room/':
-      className = 'room-e';
-      roomNumber = '';
+    case "/tour/garden-room/":
+      className = "room-e";
+      roomNumber = "";
       break;
-    case '/tour/pacific-room/':
-      className = 'room-c';
-      roomNumber = '';
+    case "/tour/pacific-room/":
+      className = "room-c";
+      roomNumber = "";
       break;
-    case '/tour/board-room/':
-      className = 'room-board';
-      roomNumber = '';
+    case "/tour/board-room/":
+      className = "room-board";
+      roomNumber = "";
       break;
-    case '/tour/palm-terrace/':
-      className = 'room-d';
-      roomNumber = '';
+    case "/tour/palm-terrace/":
+      className = "room-d";
+      roomNumber = "";
       break;
     default:
-      className = '';
-      roomNumber = '';
+      className = "";
+      roomNumber = "";
   }
   return {
     className,
-    roomNumber
+    roomNumber,
   };
 }
 
@@ -66,7 +66,7 @@ const MapPage = ({ data, status, history }) => {
     <Layout status={status}>
       <InteractiveMapWrap history={history}>
         <div className="interactive-map--nav">
-          <h6>Rooms</h6>
+          <h1 className="h6">Rooms</h1>
           <div className="interactive-map--nav--inner">
             {posts.map(({ node: post }, i) => {
               return (
@@ -81,7 +81,9 @@ const MapPage = ({ data, status, history }) => {
                   className="interactive-map--nav--item"
                 >
                   <Link key={i} to={post.fields.slug}>
-                    {post.frontmatter.heading}
+                    <h2 className="xs-block xs-text-left">
+                      {post.frontmatter.heading}
+                    </h2>
                   </Link>
                   <div className="interactive-map--nav--lower">
                     {post.frontmatter.numbers.array.map((item, i) => {
@@ -91,8 +93,8 @@ const MapPage = ({ data, status, history }) => {
                             className="interactive-map--nav--lower-inner"
                             key={i}
                           >
-                            <h3>{item.number}</h3>
-                            <h6>{item.caption}</h6>
+                            <span className="h3">{item.number}</span>
+                            <span className="h6">{item.caption}</span>
                           </div>
                         );
                       } else return null;
@@ -102,8 +104,8 @@ const MapPage = ({ data, status, history }) => {
                       className="interactive-map--nav--lower-inner"
                       key={i}
                     >
-                      <h3>➝</h3>
-                      <h6>View Room</h6>
+                      <p className="h3">➝</p>
+                      <p className="h6">View Room</p>
                     </Link>
                   </div>
                 </button>

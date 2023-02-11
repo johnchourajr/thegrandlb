@@ -1,34 +1,68 @@
-import React from 'react'
-import Buttons from '../components/Buttons'
-import ReactMarkdown from 'react-markdown'
+import React from "react";
+import Buttons from "../components/Buttons";
+import ReactMarkdown from "react-markdown";
 
 // Component
-const SectionHead = props => {
+const SectionHead = ({
+  heading,
+  headingClassName,
+  headingTag: HeadingTag = "p",
+  subHead,
+  subHeadClassName,
+  subHeadTag: SubHeadingTag = "p",
+  caption,
+  captionClassName,
+  buttons,
+}) => {
   return (
     <div className="section--head">
-      {
-        props.heading &&
-        <h2 className={`clearfix display xs-text-center ${props.headingClassName}`}><ReactMarkdown source={props.heading}/></h2>
-      }
-      {
-        props.subHead &&
-        <span className={`clearfix xs-text-center section--head--caption ${props.subHeadClassName}`}><ReactMarkdown source={props.subHead}/></span>
-      }
-      {
-        props.caption &&
-        <div className={`clearfix ${props.captionClassName}`}>
-          <span className="page-header--caption"><ReactMarkdown source={props.caption}/></span>
-        </div>
-      }
-      {
-        props.buttons &&
+      {heading && (
+        <ReactMarkdown
+          children={heading}
+          components={{
+            p: ({ node, ...props }) => (
+              <HeadingTag
+                className={`h2 clearfix display xs-text-center ${headingClassName}`}
+                {...props}
+              />
+            ),
+          }}
+        />
+      )}
+      {subHead && (
+        <ReactMarkdown
+          children={subHead}
+          components={{
+            p: ({ node, ...props }) => (
+              <SubHeadingTag
+                className={`clearfix xs-text-center section--head--caption ${subHeadClassName}`}
+                {...props}
+              />
+            ),
+          }}
+        />
+      )}
+      {caption && (
+        <ReactMarkdown
+          children={caption}
+          components={{
+            p: ({ node, ...props }) => (
+              <p
+                className={`page-header--caption clearfix xs-mb5 ${captionClassName}`}
+                {...props}
+              />
+            ),
+          }}
+        />
+      )}
+      {buttons && (
         <Buttons
           className="clearfix xs-flex xs-flex-justify-center"
-          buttons={props.buttons ? props.buttons : []}
+          buttons={buttons ? buttons : []}
         />
-      }
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default SectionHead
+export default SectionHead;

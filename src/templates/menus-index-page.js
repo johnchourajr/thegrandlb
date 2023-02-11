@@ -1,12 +1,12 @@
-import React from 'react';
-import { graphql, Link } from 'gatsby';
+import React from "react";
+import { graphql, Link } from "gatsby";
 
-import { slugify } from '../components/functions/util';
-import Layout from '../components/core/Layout';
-import PageHeader from '../components/PageHeader';
-import PageSection from '../components/PageSection';
-import PageCarousel from '../components/PageCarousel';
-import PageSegue from '../components/PageSegue';
+import { slugify } from "../components/functions/util";
+import Layout from "../components/core/Layout";
+import PageHeader from "../components/PageHeader";
+import PageSection from "../components/PageSection";
+import PageCarousel from "../components/PageCarousel";
+import PageSegue from "../components/PageSegue";
 
 const MenusIndex = ({ data, status, location }) => {
   const { frontmatter } = data.markdownRemark;
@@ -18,7 +18,7 @@ const MenusIndex = ({ data, status, location }) => {
       <PageHeader
         title={frontmatter.title}
         heading={frontmatter.heading}
-        caption={frontmatter.description}
+        caption={frontmatter.caption}
       />
       <PageSection>
         <PageCarousel
@@ -26,11 +26,11 @@ const MenusIndex = ({ data, status, location }) => {
           settings={{
             showIndicators: true,
             infiniteLoop: true,
-            emulateTouch: true
+            emulateTouch: true,
           }}
         />
       </PageSection>
-      <PageSection bottomDivider>
+      <PageSection caption="We offer a variety of menu options to suit the tastes and needs of all of our guests. ">
         <div className="clearfix gutters menu-list">
           {frontmatter.menus.array.map((item, i) => {
             return (
@@ -40,7 +40,7 @@ const MenusIndex = ({ data, status, location }) => {
               >
                 <Link to={item.path} className="menu-list--item--inner">
                   <div className="hash-item">
-                    <h2 className="-display">{item.name}</h2>
+                    <h2 className="h2">{item.name}</h2>
                   </div>
                 </Link>
               </div>
@@ -49,8 +49,18 @@ const MenusIndex = ({ data, status, location }) => {
         </div>
       </PageSection>
       <PageSection
+        heading={"Need something custom?"}
+        headingClassName={"h3"}
+        headingTag={"h2"}
+        caption={
+          "Our team will work with you to create a custom menu that meets your specific needs and ensures that your event is a success. We offer a range of dietary options, including vegetarian, vegan, gluten-free, as well as cultural dishes."
+        }
+        captionClassName={"caption--small"}
+        bottomDivider
+      />
+      <PageSection
         heading={frontmatter.cta.heading}
-        headingClassName={'xs-mb3'}
+        headingClassName={"xs-mb3"}
         buttons={frontmatter.cta.buttons}
       />
       <PageSegue currentPage={currentPage} />
@@ -68,6 +78,7 @@ export const basicPageQuery = graphql`
         title
         heading
         description
+        caption
         carousel {
           array {
             img {

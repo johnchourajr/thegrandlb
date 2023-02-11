@@ -137,6 +137,13 @@
     font-size: 1.25em;
     margin: 1.5em 0 0;
     display: block;
+
+    &.caption--small {
+      max-width: 32.875rem;
+      line-height: 1.73;
+      font-size: 0.9em;
+      margin: 1em 0 0;
+    }
   }
 }
 
@@ -325,10 +332,12 @@
   justify-content: center;
   overflow: hidden;
 
+
   &--wrap {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
   }
 
   &--headline,
@@ -464,7 +473,7 @@
       justify-content: center;
     }
 
-    h6 {
+    .h6 {
       margin-bottom: 2rem;
 
       @include solid-breakpoint(lg) {
@@ -476,7 +485,7 @@
       }
     }
 
-    h1 {
+    .h1 {
       max-width: 7em;
       margin-bottom: 2rem;
 
@@ -610,7 +619,7 @@
   }
 
   &--value-min {
-    h1 {
+    .h1 {
       font-size: 2em;
 
       &.display {
@@ -630,7 +639,7 @@
     color: rgba($black, 0.5);
   }
 
-  h1,
+  .h1,
   p {
     text-align: center;
   }
@@ -686,9 +695,9 @@
 
       &:hover {
         &,
-        h1,
-        h2,
-        h3,
+        .h1,
+        .h2,
+        .h3,
         p {
           text-decoration: none !important;
         }
@@ -743,7 +752,7 @@
       }
     }
 
-    h3,
+    .h3,
     p {
       @include solid-breakpoint(md) {
         text-align: right;
@@ -774,7 +783,7 @@
     margin: 1.5rem 0;
     transition: all 0.5s $easeOutCubic;
 
-    h3 {
+    .h3 {
       margin-bottom: 1rem;
       white-space: normal;
     }
@@ -1219,7 +1228,7 @@
       text-align: center;
       padding-bottom: $space-4;
 
-      h2 {
+      h1, h2, h3 {
         padding-bottom: $space-1;
 
         a {
@@ -1435,7 +1444,12 @@
       margin-top: 5rem;
     }
 
-    h1 {
+    .page-header--caption {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    p.h1 {
       position: absolute;
       top: -4rem;
       left: -5vw;
@@ -1526,7 +1540,7 @@
   &--item {
     position: relative;
 
-    h1.display {
+    .h1.display {
       position: absolute;
       top: 2rem;
       left: 0;

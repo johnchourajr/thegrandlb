@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withPrefix } from 'gatsby';
-import ReactMarkdown from 'react-markdown';
+import React from "react";
+import PropTypes from "prop-types";
+import { withPrefix } from "gatsby";
+import ReactMarkdown from "react-markdown";
 
 // Components
-import Buttons from './Buttons';
-import Video from './Video';
-import VideoPlayAction from './VideoPlayAction';
-import Box from './john-motion/motion-box';
+import Buttons from "./Buttons";
+import Video from "./Video";
+import VideoPlayAction from "./VideoPlayAction";
+import Box from "./john-motion/motion-box";
 
 // Component
 const PageHero = (props) => {
@@ -25,10 +25,16 @@ const PageHero = (props) => {
         )}
         <div className="wrapper">
           <Box className="page-hero--wrap">
-            <h1 className="page-hero--headline display">
-              <ReactMarkdown source={props.heading} />
-              <VideoPlayAction source={props.video.source} />
-            </h1>
+            {/* <ReactMarkdown children={props.heading} /> */}
+            <ReactMarkdown
+              children={props.heading}
+              components={{
+                p: ({ node, ...props }) => (
+                  <h1 className="h1 page-hero--headline display" {...props} />
+                ),
+              }}
+            />
+            <VideoPlayAction source={props.video.source} />
           </Box>
         </div>
       </section>
@@ -47,7 +53,7 @@ const PageHero = (props) => {
 PageHero.propTypes = {
   heading: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired
+  img: PropTypes.string.isRequired,
 };
 
 export default PageHero;

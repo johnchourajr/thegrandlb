@@ -237,7 +237,7 @@ li {
 }
 
 .card a:hover {
-  .card--inner--upper h1 {
+  .card--inner--upper .h1 {
     color: $grandRed;
   }
 
@@ -341,13 +341,13 @@ li {
   align-items: center;
 
   &:hover {
-    h6 {
+    .h6 {
       opacity: 1;
       transform: none;
     }
   }
 
-  h6 {
+  .h6 {
     font-size: 1rem;
     color: white;
     opacity: 0;
@@ -370,7 +370,7 @@ li {
     transform: scale(1.05);
   }
 
-  h6 {
+  .h6 {
   }
 }
 

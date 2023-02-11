@@ -1,12 +1,12 @@
-import React from 'react';
-import Img from 'gatsby-image';
-import Box from '.';
-import styled from 'styled-components';
+import React from "react";
+import Img from "gatsby-image";
+import Box from ".";
+import styled from "styled-components";
 
-export default function ImageBox({ fluid, ...rest }) {
+export default function ImageBox({ fluid, alt, ...rest }) {
   return (
     <ImageBoxWrap {...rest}>
-      <Img fluid={fluid} />
+      <Img fluid={fluid} alt={alt || " "} />
     </ImageBoxWrap>
   );
 }

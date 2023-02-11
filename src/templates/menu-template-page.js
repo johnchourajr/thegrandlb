@@ -105,6 +105,7 @@ const MenuTemplatePage = ({
         <PageSection
           heading={"Tell Us About\nYour Event"}
           headingClassName={"xs-mb3"}
+          headingTag={"h2"}
           buttons={[{ text: "Plan Your Private Event", url: "/inquire/" }]}
         />
         <PageSegue currentPage={"menus"} />

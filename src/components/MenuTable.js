@@ -16,7 +16,7 @@ function MenuItem({
   return (
     <MenuItemWrapper className="table--row menu--table--item">
       <div className="table--division menu--table--item--main">
-        <h4>{title.text}</h4>
+        <h4 className="h4">{title.text}</h4>
         <RichText render={description.raw} />
       </div>
       {price_min && (
@@ -74,14 +74,14 @@ const MenuTable = ({ data }) => {
                       </Scrollchor>
                     </div>
                   ) : null}
-                  <h3 className="display ">
+                  <h2 className="display h3">
                     <Scrollchor
                       to={`#${group.page_title && slugify(group.page_title)}`}
                       animate={{ offset: -100, duration: 300 }}
                     >
                       {group.page_title}
                     </Scrollchor>
-                  </h3>
+                  </h2>
                   <RichText render={group.page_description.raw} />
                 </div>
                 <div className="xs-my5 divider-bar divider-bar--top" />
@@ -96,7 +96,7 @@ const MenuTable = ({ data }) => {
                       className="menu--section--header"
                     >
                       {primary.title.text && (
-                        <h2>
+                        <h3 className="h1">
                           <Scrollchor
                             to={`#${
                               primary.title.text && slugify(primary.title.text)
@@ -105,7 +105,7 @@ const MenuTable = ({ data }) => {
                           >
                             {primary.title.text}
                           </Scrollchor>
-                        </h2>
+                        </h3>
                       )}
                       {primary.description.raw && (
                         <RichText render={primary.description.raw} />
