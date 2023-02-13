@@ -1,14 +1,16 @@
-import React from 'react'
+import React from "react";
 
-import PageSection from './PageSection'
-import NumberItem from './NumberItem'
-import NumberItemSelect from './NumberItemSelect'
+import PageSection from "./PageSection";
+import NumberItem from "./NumberItem";
+import NumberItemSelect from "./NumberItemSelect";
 
-const NumberArray = props => {
+const NumberArray = (props) => {
   return (
     <PageSection
       heading={props.heading}
+      headingTag={props.headingTag || "h2"}
       subHead={props.subHead}
+      subHeadTag={props.subHeadTag}
     >
       <div className="number-wrap clearfix">
         {props.array.map((item, i) => {
@@ -25,7 +27,7 @@ const NumberArray = props => {
                 description={item.description}
                 isMin={item.isMin}
               />
-            )
+            );
           } else {
             return (
               <NumberItemSelect
@@ -34,12 +36,12 @@ const NumberArray = props => {
                 className="col xs-col-6 sm-col-6 md-col-4"
                 item={item}
               />
-            )
+            );
           }
         })}
       </div>
     </PageSection>
-  )
-}
+  );
+};
 
-export default NumberArray
+export default NumberArray;

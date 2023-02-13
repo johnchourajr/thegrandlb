@@ -3,91 +3,91 @@
 // Nav Sections
 
 export const homeNav = {
-  name: 'Home',
-  path: '/'
+  name: "Home",
+  path: "/",
 };
 
 export const tourNav = {
-  name: 'Tour',
-  path: '/tour',
+  name: "Tour",
+  path: "/tour",
   subpages: [
-    { name: 'Overview', path: '/tour' },
-    { name: 'Interactive Map', path: '/tour/map' },
-    { name: 'The Grand Ballroom', path: '/tour/grand-ballroom' },
-    { name: 'The Catalina Room', path: '/tour/catalina-room' },
-    { name: 'The Monarch Room', path: '/tour/monarch-room' },
-    { name: 'The Garden Room', path: '/tour/garden-room' },
-    { name: 'The Pacific Room', path: '/tour/pacific-room' },
-    { name: 'The Board Room', path: '/tour/board-room' },
-    { name: 'The Palm Terrace', path: '/tour/palm-terrace' }
-  ]
+    { name: "Tour Overview", path: "/tour" },
+    { name: "Interactive Map", path: "/tour/map" },
+    { name: "The Grand Ballroom", path: "/tour/grand-ballroom" },
+    { name: "The Catalina Room", path: "/tour/catalina-room" },
+    { name: "The Monarch Room", path: "/tour/monarch-room" },
+    { name: "The Garden Room", path: "/tour/garden-room" },
+    { name: "The Pacific Room", path: "/tour/pacific-room" },
+    { name: "The Board Room", path: "/tour/board-room" },
+    { name: "The Palm Terrace", path: "/tour/palm-terrace" },
+  ],
 };
 
 export const eventsNav = {
-  name: 'Events',
-  path: '/events',
+  name: "Events",
+  path: "/events",
   subpages: [
-    { name: 'Overview', path: '/events' },
-    { name: 'For Weddings', path: '/events/weddings' },
-    { name: 'For Business', path: '/events/business' },
-    { name: 'For Milestones', path: '/events/milestones' }
-  ]
+    { name: "Events Overview", path: "/events" },
+    { name: "For Weddings", path: "/events/weddings" },
+    { name: "For Business", path: "/events/business" },
+    { name: "For Milestones", path: "/events/milestones" },
+  ],
 };
 
 export const menusNav = {
-  name: 'Menus',
-  path: '/menus',
+  name: "Menus",
+  path: "/menus",
   subpages: [
-    { name: 'Overview', path: '/menus' },
-    { name: 'Classic Menu', path: '/menus/classic' },
-    { name: 'For Weddings', path: '/menus/weddings' },
-    { name: 'For Business', path: '/menus/business' },
-    { name: 'For Milestones', path: '/menus/milestones' }
-  ]
+    { name: "Menus Overview", path: "/menus" },
+    { name: "Classic Menu", path: "/menus/classic" },
+    { name: "For Weddings", path: "/menus/weddings" },
+    { name: "For Business", path: "/menus/business" },
+    { name: "For Milestones", path: "/menus/milestones" },
+  ],
 };
 
 export const orderNav = {
-  name: 'Order Online↗︎',
-  path: 'https://grandfb.square.site',
-  externalPath: true
+  name: "Order Online↗︎",
+  path: "https://grandfb.square.site",
+  externalPath: true,
 };
 
 export const aboutNav = {
-  name: 'About',
-  path: '/about'
+  name: "About Overview",
+  path: "/about",
 };
 
 export const contactNav = {
-  name: 'Contact',
-  path: '/contact'
+  name: "Contact",
+  path: "/contact",
 };
 
 export const inquireNav = {
-  name: 'Inquire',
-  path: '/inquire'
+  name: "Inquire",
+  path: "/inquire",
 };
 
 export const privacyNav = {
-  name: 'Privacy Policy',
-  path: '/privacy'
+  name: "Privacy Policy",
+  path: "/privacy",
 };
 
 export const twitterNav = {
-  name: 'twitter',
-  displayName: 'Twitter',
-  path: '#'
+  name: "twitter",
+  displayName: "Twitter",
+  path: "#",
 };
 
 export const facebookNav = {
-  name: 'facebook',
-  displayName: 'Facebook',
-  path: 'https://www.facebook.com/TheGrandLB'
+  name: "facebook",
+  displayName: "Facebook",
+  path: "https://www.facebook.com/TheGrandLB",
 };
 
 export const instagramNav = {
-  name: 'instagram',
-  displayName: 'Instagram',
-  path: 'https://www.instagram.com/thegrandlb/'
+  name: "instagram",
+  displayName: "Instagram",
+  path: "https://www.instagram.com/thegrandlb/",
 };
 
 // *********
@@ -95,19 +95,19 @@ export const instagramNav = {
 // Nav Collections
 
 export const moreNav = {
-  name: 'More',
-  path: '/about',
-  subpages: [{ ...aboutNav }, { ...contactNav }, { ...inquireNav }]
+  name: "About",
+  path: "/about",
+  subpages: [{ ...aboutNav }, { ...contactNav }, { ...inquireNav }],
 };
 
 export const mainNav = {
   left: [{ ...tourNav }, { ...eventsNav }],
-  right: [{ ...menusNav }, { ...moreNav }]
+  right: [{ ...menusNav }, { ...moreNav }],
 };
 
 export const footerNav = {
   left: [{ ...homeNav }, { ...tourNav }, { ...eventsNav }, { ...menusNav }],
-  right: [{ ...aboutNav }, { ...contactNav }, { ...privacyNav }]
+  right: [{ ...aboutNav }, { ...contactNav }, { ...privacyNav }],
 };
 
 export const menuNav = [
@@ -117,19 +117,19 @@ export const menuNav = [
   { ...menusNav },
   { ...aboutNav },
   { ...contactNav },
-  { ...inquireNav }
+  { ...inquireNav },
 ];
 
 export const socialNav = [
   // { ...twitterNav },
   { ...facebookNav },
-  { ...instagramNav }
+  { ...instagramNav },
 ];
 
 export const subNav = {
   name: null,
-  path: '',
-  subpages: [{ ...aboutNav }, { ...contactNav }, { ...inquireNav }]
+  path: "",
+  subpages: [{ ...aboutNav }, { ...contactNav }, { ...inquireNav }],
 };
 
 export const allNav = [
@@ -137,5 +137,5 @@ export const allNav = [
   { ...tourNav },
   { ...eventsNav },
   { ...menusNav },
-  { ...subNav }
+  { ...subNav },
 ];

@@ -1,15 +1,15 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
-import { ParallaxProvider, ParallaxBanner } from 'react-scroll-parallax';
+import React from "react";
+import { graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import { ParallaxProvider, ParallaxBanner } from "react-scroll-parallax";
 
 // Components
-import Layout from '../components/core/Layout';
-import PageHeader from '../components/PageHeader';
-import PageSection from '../components/PageSection';
-import PageCta from '../components/PageCta';
-import RatingsSection from '../components/RatingsSection';
-import ReviewsSection from '../components/ReviewsSection';
+import Layout from "../components/core/Layout";
+import PageHeader from "../components/PageHeader";
+import PageSection from "../components/PageSection";
+import PageCta from "../components/PageCta";
+import RatingsSection from "../components/RatingsSection";
+import ReviewsSection from "../components/ReviewsSection";
 
 // Page
 const AboutPage = ({ data, status }) => {
@@ -24,15 +24,15 @@ const AboutPage = ({ data, status }) => {
             <ParallaxBanner
               layers={[
                 {
-                  image: '/img/about/team-cheers.jpg',
+                  image: "/img/about/team-cheers.jpg",
                   amount: 0.2,
-                  slowerScrollRate: true
-                }
+                  slowerScrollRate: true,
+                },
               ]}
               style={{
-                height: '35vw',
-                maxHeight: '700px',
-                minHeight: '400px'
+                height: "35vw",
+                maxHeight: "700px",
+                minHeight: "400px",
               }}
             />
           </ParallaxProvider>
@@ -41,54 +41,54 @@ const AboutPage = ({ data, status }) => {
       <PageSection
         wrapperClassName="about--founding"
         caption={
-          'Built on a 40+ year legacy.\n\nWe are a family-oriented team creating once in a lifetime experiences for our guests.\n\nOur 65+ talented, energetic, and professional team members produce over 1,000 unique events every year.'
+          "Built on a 40+ year legacy.\n\nWe are a family-oriented team creating once in a lifetime experiences for our guests.\n\nOur 65+ talented, energetic, and professional team members produce over 1,000 unique events every year."
         }
       >
-        <h1>Since 1969</h1>
+        <p className="h1">Since 1969</p>
       </PageSection>
       <PageSection
-        wrapperClassName={'about--highlights about--highlights--reverse'}
+        wrapperClassName={"about--highlights about--highlights--reverse"}
       >
         <div className="about--highlights--text col xs-col-12 md-col-5">
-          <h3 className="display">{'Bar None\nEvent Pros'}</h3>
+          <h2 className="h3 display">{"Bar None\nEvent Pros"}</h2>
         </div>
         <div className="col xs-col-12 md-col-7 ">
           <ParallaxProvider>
             <ParallaxBanner
               layers={[
                 {
-                  image: '/img/about/team-sales.jpg',
+                  image: "/img/about/team-sales.jpg",
                   amount: 0.2,
-                  slowerScrollRate: true
-                }
+                  slowerScrollRate: true,
+                },
               ]}
               style={{
-                height: '30vw',
-                maxHeight: '600px',
-                minHeight: '300px'
+                height: "30vw",
+                maxHeight: "600px",
+                minHeight: "300px",
               }}
             />
           </ParallaxProvider>
         </div>
       </PageSection>
-      <PageSection wrapperClassName={'about--highlights'}>
+      <PageSection wrapperClassName={"about--highlights"}>
         <div className="about--highlights--text col xs-col-12 md-col-5">
-          <h3 className="display">{'Top Notch\nKitchen Staff'}</h3>
+          <h2 className="display h3">{"Top Notch\nKitchen Staff"}</h2>
         </div>
         <div className="col xs-col-12 md-col-7 ">
           <ParallaxProvider>
             <ParallaxBanner
               layers={[
                 {
-                  image: '/img/about/team-jesus.jpg',
+                  image: "/img/about/team-jesus.jpg",
                   amount: 0.2,
-                  slowerScrollRate: true
-                }
+                  slowerScrollRate: true,
+                },
               ]}
               style={{
-                height: '30vw',
-                maxHeight: '600px',
-                minHeight: '300px'
+                height: "30vw",
+                maxHeight: "600px",
+                minHeight: "300px",
               }}
             />
           </ParallaxProvider>
@@ -96,6 +96,7 @@ const AboutPage = ({ data, status }) => {
       </PageSection>
       <PageSection
         heading={"We're\nValidated"}
+        headingTag="h2"
         sectionClassName="section--flush-bottom"
         topDivider
       >
@@ -106,6 +107,7 @@ const AboutPage = ({ data, status }) => {
       </PageSection>
       <PageSection
         heading={frontmatter.people.heading}
+        headingTag="h2"
         topDivider
         disabledAnimation
       >
@@ -118,20 +120,18 @@ const AboutPage = ({ data, status }) => {
                     className="front"
                     image={item.imgFront.childImageSharp.gatsbyImageData}
                     alt={item.name}
-
                   />
                   {item.imgBack && (
                     <GatsbyImage
                       className="back"
                       image={item.imgBack.childImageSharp.gatsbyImageData}
                       alt={item.name}
-
                     />
                   )}
                 </div>
                 <div key={i} className="hash-item">
-                  <h2 className="">{item.name}</h2>
-                  <h6 className="xs-mt1 xs-text-6">{item.title}</h6>
+                  <h3 className="h2">{item.name}</h3>
+                  <p className="h6 xs-mt1 xs-text-6">{item.title}</p>
                 </div>
               </div>
             );

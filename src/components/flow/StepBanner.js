@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import moment from "moment";
 
 // Components
 import X from "../svg/X";
@@ -8,7 +7,7 @@ import BannerWrap from "../BannerWrap";
 import NavBannerLink from "../core/NavBannerLink";
 import BannerModal from "../BannerModal";
 
-const StepBanner = props => {
+const StepBanner = (props) => {
   const [modalVisible, handleModal] = useState(false);
 
   const {
@@ -18,11 +17,13 @@ const StepBanner = props => {
     modalDetail,
     text,
     matchText,
-    toMatch
+    toMatch,
   } = props.siteBanner;
 
   const dateSelected = props.flowPages[1].forms[0].value;
-  const selectedDayOfWeek = moment.utc(dateSelected).format("dddd");
+  const selectedDayOfWeek = new Date(dateSelected).toLocaleDateString("en-US", {
+    weekday: "long",
+  });
   const isMatch = toMatch.includes(selectedDayOfWeek);
 
   let dismissedCondition = null;
@@ -40,14 +41,18 @@ const StepBanner = props => {
   return (
     <BannerWrap siteBanner={props.siteBanner}>
       <div
-        className={`nav--banner ${dismissedClass} ${isMatch &&
-          "nav--banner--confirm"} nav--banner--inline`}
+        className={`nav--banner ${dismissedClass} ${
+          isMatch && "nav--banner--confirm"
+        } nav--banner--inline`}
       >
         <div className="nav--banner--inner">
           <p>
             {!isMatch ? text : matchText}{" "}
             {hasModal ? (
-              <NavBannerLink onClick={e => handleModal(true)} button={button} />
+              <NavBannerLink
+                onClick={(e) => handleModal(true)}
+                button={button}
+              />
             ) : (
               <a href={buttonLink} target="_blank" rel="noopener noreferrer">
                 {button}
@@ -56,7 +61,7 @@ const StepBanner = props => {
           </p>
           {!isMatch && (
             <button
-              onClick={e => props.handleBannerDismiss(true)}
+              onClick={(e) => props.handleBannerDismiss(true)}
               className="nav--banner--button nav--banner--close"
             >
               <X />

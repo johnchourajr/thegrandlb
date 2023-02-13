@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import PageCta from './PageCta';
-import ScrollAnimate from './ScrollAnimate';
+import PageCta from "./PageCta";
+import ScrollAnimate from "./ScrollAnimate";
 
 function HomePromo({ frontmatter: { promo } }) {
   return (
@@ -9,16 +9,19 @@ function HomePromo({ frontmatter: { promo } }) {
       <PageCta
         accent={promo.accent}
         heading={promo.heading}
+        headingTag="h2"
+        caption={promo.caption}
+        captionClassName="caption--small"
         buttons={[
           {
             text: "Let's Talk",
-            url: '/contact/',
+            url: "/contact/",
             event: {
-              category: 'ContactAction',
-              action: 'Home__PromoAction',
-              label: 'Home__PromoAction'
-            }
-          }
+              category: "ContactAction",
+              action: "Home__PromoAction",
+              label: "Home__PromoAction",
+            },
+          },
         ]}
         img={promo.img}
       />

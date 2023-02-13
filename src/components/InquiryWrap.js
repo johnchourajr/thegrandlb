@@ -1,7 +1,6 @@
 import React from "react";
 import { navigate } from "gatsby";
 import ReactGA from "react-ga";
-import _ from "lodash";
 
 export const style = {
   display: "flex",
@@ -13,10 +12,10 @@ export const style = {
   top: "0",
   width: "100vw",
   opacity: 1,
-  zIndex: 9
+  zIndex: 9,
 };
 
-const InquiryCloseButton = props => (
+const InquiryCloseButton = (props) => (
   <button
     id="inquiry-page--close-button"
     onClick={props.onClick}
@@ -27,17 +26,17 @@ const InquiryCloseButton = props => (
 );
 
 function handleBack(history) {
-  if (_.isUndefined(history)) {
+  if (typeof history === "undefined") {
     navigate("/");
     ReactGA.event({
       category: "InquiryFlow",
-      action: `Exit Inquiry Flow`
+      action: `Exit Inquiry Flow`,
     });
   } else {
     history.goBack();
     ReactGA.event({
       category: "InquiryFlow",
-      action: `Exit Inquiry Flow`
+      action: `Exit Inquiry Flow`,
     });
   }
 }

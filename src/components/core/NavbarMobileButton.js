@@ -1,10 +1,11 @@
 import React from "react";
 
-const NavbarMobileButton = props => (
+const NavbarMobileButton = (props) => (
   <button
     id="nav--mobile-menu"
     onClick={props.onClick}
     className="nav--mobile-menu"
+    aria-label="Open/Close Mobile Menu"
   >
     <span></span>
     <span></span>

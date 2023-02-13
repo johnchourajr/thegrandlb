@@ -1,25 +1,25 @@
-import React from 'react';
-import { graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import React from "react";
+import { graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 // Components
-import Layout from '../components/core/Layout';
-import PageHero from '../components/PageHero';
-import PageSection from '../components/PageSection';
-import PageCta from '../components/PageCta';
-import PageCarousel from '../components/PageCarousel';
-import MapSection from '../components/MapSection';
-import NumberArray from '../components/NumberArray';
-import RatingsSection from '../components/RatingsSection';
-import ReviewsSection from '../components/ReviewsSection';
-import ScrollAnimate from '../components/ScrollAnimate';
-import HomePromo from '../components/HomePromo';
+import Layout from "../components/core/Layout";
+import PageHero from "../components/PageHero";
+import PageSection from "../components/PageSection";
+import PageCta from "../components/PageCta";
+import PageCarousel from "../components/PageCarousel";
+import MapSection from "../components/MapSection";
+import NumberArray from "../components/NumberArray";
+import RatingsSection from "../components/RatingsSection";
+import ReviewsSection from "../components/ReviewsSection";
+import ScrollAnimate from "../components/ScrollAnimate";
+import HomePromo from "../components/HomePromo";
 
 // Data
-import { siteDetails } from '../data/siteDetails';
+import { siteDetails } from "../data/siteDetails";
 
 // Util Functions
-import * as util from '../components/functions/util';
+import * as util from "../components/functions/util";
 
 // Page
 const IndexPage = ({ data, status, siteBanner }) => {
@@ -33,38 +33,46 @@ const IndexPage = ({ data, status, siteBanner }) => {
         video={{
           source: [
             {
-              src: 'https://prismic-io.s3.amazonaws.com/the-grand/e21bc953-a445-4ff1-976d-1978f84e281a_home.compressed.mp4',
-              type: 'video/mp4'
+              src:
+                "https://prismic-io.s3.amazonaws.com/the-grand/e21bc953-a445-4ff1-976d-1978f84e281a_home.compressed.mp4",
+              type: "video/mp4",
             },
             {
-              src: 'https://prismic-io.s3.amazonaws.com/the-grand/846e52be-fb23-4b39-86de-4ceec3508fb3_home.compressed.webm',
-              type: 'video/webm'
-            }
+              src:
+                "https://prismic-io.s3.amazonaws.com/the-grand/846e52be-fb23-4b39-86de-4ceec3508fb3_home.compressed.webm",
+              type: "video/webm",
+            },
           ],
-          poster: 'https://images.prismic.io/the-grand/78e1eff7-4ec1-4293-b5ad-e2b14c6c6e51_home-poster.jpg?auto=compress,format'
+          poster:
+            "https://images.prismic.io/the-grand/78e1eff7-4ec1-4293-b5ad-e2b14c6c6e51_home-poster.jpg?auto=compress,format",
         }}
         img="/img/placeholder--front-img.jpg"
         buttons={[
           {
-            text: 'Get a Quote',
-            url: '/inquire/',
+            text: "Get a Quote",
+            url: "/inquire/",
             event: {
-              category: 'InquireAction',
-              action: 'homeInquireAction'
-            }
+              category: "InquireAction",
+              action: "homeInquireAction",
+            },
           },
           {
-            text: 'Take a Tour',
-            url: '/tour/',
+            text: "Take a Tour",
+            url: "/tour/",
             event: {
-              category: 'TourAction',
-              action: 'homeTourAction'
+              category: "TourAction",
+              action: "homeTourAction",
             },
-            isSecondary: true
-          }
+            isSecondary: true,
+          },
         ]}
       />
-      <PageSection heading={frontmatter.subhead} />
+      <PageSection
+        heading={frontmatter.subhead}
+        headingTag="h2"
+        caption={frontmatter.subheadCaption}
+        captionClassName="caption--small"
+      />
 
       <PageSection wrapperClassName="page-feature--wrapper">
         {frontmatter.topFeatures.map((item, i) => {
@@ -75,7 +83,7 @@ const IndexPage = ({ data, status, siteBanner }) => {
               className="page-feature page-feature--lower-bar col xs-col-12 md-col-4"
             >
               <a href={item.url} target="_blank" rel="noopener noreferrer">
-                <h1 className="xs-text-center">{item.text}</h1>
+                <h3 className="h1 xs-text-center">{item.text}</h3>
               </a>
             </ScrollAnimate>
           );
@@ -86,6 +94,7 @@ const IndexPage = ({ data, status, siteBanner }) => {
 
       <MapSection
         heading={frontmatter.map.heading}
+        caption={frontmatter.map.caption}
         mapLink={util.addressLink(siteDetails.address1, siteDetails.address2)}
         address1={siteDetails.address1}
         address2={siteDetails.address2}
@@ -97,15 +106,20 @@ const IndexPage = ({ data, status, siteBanner }) => {
           settings={{
             showIndicators: true,
             infiniteLoop: true,
-            emulateTouch: true
+            emulateTouch: true,
           }}
         />
       </PageSection>
       <NumberArray
         heading={frontmatter.numbers.heading}
+        headingTag="h2"
+        caption={frontmatter.numbers.caption}
         array={frontmatter.numbers.array}
       />
-      <PageSection sectionClassName="section--flush-bottom">
+      <PageSection
+        heading={`We're\nValidated`}
+        sectionClassName="section--flush-bottom"
+      >
         <RatingsSection />
       </PageSection>
       <PageSection sectionClassName="section--flush-top">
@@ -113,12 +127,16 @@ const IndexPage = ({ data, status, siteBanner }) => {
       </PageSection>
       <PageCta
         heading={frontmatter.ctaLower.heading}
+        caption={frontmatter.ctaLower.caption}
+        captionClassName="caption--small"
         buttons={frontmatter.ctaLower.buttons}
         img={frontmatter.ctaLower.img}
       />
       <PageSection
         heading={frontmatter.menuFeature.heading}
-        headingClassName={'xs-mb3'}
+        headingClassName={"xs-mb3"}
+        caption={frontmatter.menuFeature.caption}
+        captionClassName="caption--small"
         buttons={frontmatter.menuFeature.buttons}
         disabledAnimation
       >
@@ -177,9 +195,11 @@ export const basicPageQuery = graphql`
           isSecondary
         }
         subhead
+        subheadCaption
         promo {
           accent
           heading
+          caption
           buttons {
             text
             url
@@ -228,6 +248,7 @@ export const basicPageQuery = graphql`
         }
         map {
           heading
+          caption
           features {
             text
             url
@@ -254,6 +275,7 @@ export const basicPageQuery = graphql`
         }
         numbers {
           heading
+          caption
           array {
             prefix
             number
@@ -274,6 +296,7 @@ export const basicPageQuery = graphql`
           }
           accent
           heading
+          caption
           buttons {
             text
             url
@@ -285,6 +308,7 @@ export const basicPageQuery = graphql`
         }
         menuFeature {
           heading
+          caption
           buttons {
             text
             url
