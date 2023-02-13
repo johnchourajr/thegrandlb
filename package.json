@@ -53,7 +53,7 @@
     "react-modal": "^3.10.1",
     "react-netlify-identity-widget": "^0.2.5",
     "react-player": "^2.9.0",
-    "react-scroll-parallax": "^2.1.2",
+    "react-scroll-parallax": "^3.3.2",
     "react-scrollchor": "^6.0.0",
     "styled-components": "^5.2.1",
     "uuid": "^8.3.2",
