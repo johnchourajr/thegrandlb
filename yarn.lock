@@ -3233,6 +3233,15 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
+"@types/react@>=16.8.0 || 17.x.x":
+  version "18.0.28"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.28.tgz#accaeb8b86f4908057ad629a26635fe641480065"
+  integrity sha512-RD0ivG1kEztNBdoAK7lekI9M+azSnitIn85h4iOiaLjaTrMjzslhaqCGaI4IyCJ1RljWiLCEu4jyrLLgqxBTew==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
 "@types/readable-stream@^2.3.9":
   version "2.3.9"
   resolved "https://registry.yarnpkg.com/@types/readable-stream/-/readable-stream-2.3.9.tgz#40a8349e6ace3afd2dd1b6d8e9b02945de4566a9"
@@ -18872,12 +18881,14 @@ react-scroll-sync@^0.8.0:
   resolved "https://registry.yarnpkg.com/react-scroll-sync/-/react-scroll-sync-0.8.0.tgz#61fabed2afc47d41e6938819d620799da3610548"
   integrity sha512-Ms9srm41UM+lWexuqdocXjqaqqt6ZRSFxcudgB0sYhC7Or+m12WemTwY8BaQCRf7hA8zHDk55FHvMkqsH7gF+w==
 
-react-scrollchor@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/react-scrollchor/-/react-scrollchor-6.0.0.tgz#7c2545e743355c0069f4c6a5ab4f9d9875182b4d"
-  integrity sha512-Ryc3SoxG/urLrqQ4rFIsj1nWfW9pPGZK30CSlJ670zJWpPFQtVfYOmiZmQUwY96P8L+LcCVmV4q1ZdBlZsuW/Q==
+react-scrollchor@^7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/react-scrollchor/-/react-scrollchor-7.0.2.tgz#8a4710e71c0a72fe24a1a9be96360c774a258390"
+  integrity sha512-l3bVTy8LAYK4dWEaB3Tr437hIyPMIzRzSJt9c0jss1y9wy/Mvq/y5Q+wwEceeSRziN2Hh6mu7mpCkFHjMb2xjA==
   dependencies:
-    requestanimationframe-timer "1.x.x"
+    requestanimationframe-timer "^3.0.0"
+  optionalDependencies:
+    "@types/react" ">=16.8.0 || 17.x.x"
 
 react-select@^2.4.2, react-select@^2.4.3:
   version "2.4.4"
@@ -19601,10 +19612,10 @@ request@^2.87.0:
     tunnel-agent "^0.6.0"
     uuid "^3.3.2"
 
-requestanimationframe-timer@1.x.x:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/requestanimationframe-timer/-/requestanimationframe-timer-1.0.5.tgz#55f75f33f123812c6db245b6ad72a1c8b4bfc1dd"
-  integrity sha512-H5+kyPmkZiEHYMdbcWsyMi50AT0piuGTPqfEM5YcEpQc9DJqK8npi8UePcFpDwz5tmQUGs0ceitgp/li5F4sbg==
+requestanimationframe-timer@^3.0.0:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/requestanimationframe-timer/-/requestanimationframe-timer-3.0.3.tgz#a3dcb7a70df6752858cab25f37b636a6cfff9133"
+  integrity sha512-2gCvk7jCQTq0nyukEdLI06X5zogy0DSj0j+mwVz12q29DnelCefxByiUsRovpjdc06cvSLTV6vyhw7g8b0AZ1A==
   dependencies:
     raf "^3.4.1"
 
