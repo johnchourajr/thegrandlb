@@ -53,7 +53,7 @@ const Ratings = (props) => {
     <div
       className="star-group"
       role="img"
-      aria-description={`${props.rating} Star Rating`}
+      aria-label={`${props.rating} Star Rating`}
     >
       {outputStarRating(
         props.rating,

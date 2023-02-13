@@ -1,8 +1,6 @@
-import React from 'react';
-import _ from 'lodash';
-
-import RoomCard from '../components/RoomCard';
-import ScrollAnimate from '../components/ScrollAnimate';
+import React from "react";
+import RoomCard from "../components/RoomCard";
+import ScrollAnimate from "../components/ScrollAnimate";
 
 function FilterList(props) {
   const [data] = React.useState(props.data);
@@ -13,11 +11,12 @@ function FilterList(props) {
         let {
           eventType,
           eventTypeInfo,
-          guestCount
+          guestCount,
         } = post.frontmatter.roomMeta;
 
-        const targetAll = props.targetFilter === 'all';
-        const targetCondition = _.includes(eventType, props.targetFilter);
+        const targetAll = props.targetFilter === "all";
+
+        const targetCondition = eventType.includes(props.targetFilter);
         const condition = targetAll ? true : targetCondition;
 
         if (condition) {

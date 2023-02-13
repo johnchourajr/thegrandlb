@@ -1,8 +1,7 @@
-import React from 'react'
-import { navigate } from 'gatsby'
-import _ from 'lodash'
+import React from "react";
+import { navigate } from "gatsby";
 
-const CloseButton = props => (
+const CloseButton = (props) => (
   <button
     id="inquiry-page--close-button"
     onClick={props.onClick}
@@ -10,23 +9,23 @@ const CloseButton = props => (
   >
     <span></span>
   </button>
-)
+);
 
 function handleBack(history) {
-  if (_.isUndefined(history)) {
-    navigate("/")
+  if (typeof history === "undefined") {
+    navigate("/");
   } else {
-    history.goBack()
+    history.goBack();
   }
 }
 
 const InteractiveMapWrap = ({ history, children }) => {
   return (
     <div className="interactive-map">
-      <CloseButton onClick={() => handleBack(history)}/>
+      <CloseButton onClick={() => handleBack(history)} />
       {children}
     </div>
-  )
-}
+  );
+};
 
-export default InteractiveMapWrap
+export default InteractiveMapWrap;

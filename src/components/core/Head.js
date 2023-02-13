@@ -11,7 +11,6 @@ const Head = ({ location }) => {
   return (
     <Helmet
       title={siteDetails.title}
-      htmlAttributes={{ lang: "en-US" }}
       link={[
         {
           rel: "apple-touch-icon",
@@ -66,7 +65,7 @@ const Head = ({ location }) => {
         { property: "twitter:description", content: siteDetails.description },
         { property: "twitter:image", content: siteDetails.socialCard },
       ]}
-      htmlAttributes={{ class: pathname }}
+      htmlAttributes={{ class: pathname, lang: "en" }}
       bodyAttributes={{ class: pathname }}
     />
   );
