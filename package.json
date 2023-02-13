@@ -29,7 +29,7 @@
     "gatsby-remark-relative-images": "^2.0.2",
     "gatsby-source-filesystem": "^2.0.26",
     "gatsby-source-prismic": "^4.0.0-beta.17",
-    "gatsby-transformer-remark": "^2.6.9",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.1.9",
     "google-map-react": "^2.1.9",
     "intersection-observer": "^0.12.0",
