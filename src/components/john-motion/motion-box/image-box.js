@@ -6,7 +6,7 @@ import styled from "styled-components";
 export default function ImageBox({ fluid, alt, ...rest }) {
   return (
     <ImageBoxWrap {...rest}>
-      <Img fluid={fluid} alt={alt || " "} />
+      <Img fluid={fluid} alt={alt || " "} loading="lazy" />
     </ImageBoxWrap>
   );
 }

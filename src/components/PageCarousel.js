@@ -21,6 +21,7 @@ const PageCarousel = (props) => {
           <GatsbyImage
             image={item.img.childImageSharp.gatsbyImageData}
             alt={item.caption}
+            loading="lazy"
           />
           <ReactMarkdown className="caption">{item.caption}</ReactMarkdown>
         </div>
