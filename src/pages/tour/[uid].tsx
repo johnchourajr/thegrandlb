@@ -4,7 +4,7 @@ import Link from "@components/Link";
 import { createClient } from "../../../prismicio";
 import { components } from "../../../slices";
 
-const Page = ({ page }) => {
+const Page = ({ page }: any) => {
   return (
     <>
       <div>
@@ -26,7 +26,7 @@ const Page = ({ page }) => {
 
 export default Page;
 
-export async function getStaticProps({ params, previewData }) {
+export async function getStaticProps({ params, previewData }: any) {
   const client = createClient({ previewData });
 
   const page = await client.getByUID("tour_page", params.uid);

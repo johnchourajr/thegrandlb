@@ -4,7 +4,6 @@ import * as prismic from "@prismicio/client";
 import { getPrismicMenus } from "../../services/get-prismic-menus";
 
 const Page = ({ menus }: any) => {
-  console.log({ menus });
   return (
     <div>
       <div className={"flex gap-1"}>
@@ -17,7 +16,7 @@ const Page = ({ menus }: any) => {
         </Link>
       </div>
       <ul>
-        {menus.map((menu) => (
+        {menus.map((menu: any) => (
           <li key={menu.id}>
             <a href={`/menus/${menu.uid}`}>{menu.data.page_title}</a>
           </li>

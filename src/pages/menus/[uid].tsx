@@ -3,7 +3,6 @@ import Link from "@components/Link";
 import { getPrismicMenus } from "@/services/get-prismic-menus";
 
 const Page = ({ menu }: any) => {
-  console.log(menu);
   return (
     <div>
       <div className={"flex gap-1"}>
