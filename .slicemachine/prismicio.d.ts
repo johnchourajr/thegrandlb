@@ -31,7 +31,19 @@ interface EventPageDocumentData {
  */
 export type EventPageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<EventPageDocumentData>, "event_page", Lang>;
 /** Content for Tour Page documents */
-type TourPageDocumentData = Record<string, never>;
+interface TourPageDocumentData {
+    /**
+     * Title field in *Tour Page*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: tour_page.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+}
 /**
  * Tour Page document from Prismic
  *
@@ -41,13 +53,62 @@ type TourPageDocumentData = Record<string, never>;
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type TourPageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithoutUID<Simplify<TourPageDocumentData>, "tour_page", Lang>;
+export type TourPageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<TourPageDocumentData>, "tour_page", Lang>;
 export type AllDocumentTypes = EventPageDocument | TourPageDocument;
+/**
+ * Primary content in PageHero → Primary
+ *
+ */
+interface PageHeroSliceDefaultPrimary {
+    /**
+     * Title field in *PageHero → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: page_hero.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Description field in *PageHero → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: A nice description of your feature
+     * - **API ID Path**: page_hero.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Default variation for PageHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `PageHero`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PageHeroSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<PageHeroSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *PageHero*
+ *
+ */
+type PageHeroSliceVariation = PageHeroSliceDefault;
+/**
+ * PageHero Shared Slice
+ *
+ * - **API ID**: `page_hero`
+ * - **Description**: `PageHero`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PageHeroSlice = prismicT.SharedSlice<"page_hero", PageHeroSliceVariation>;
 declare module "@prismicio/client" {
     interface CreateClient {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { EventPageDocumentData, EventPageDocument, TourPageDocumentData, TourPageDocument, AllDocumentTypes };
+        export type { EventPageDocumentData, EventPageDocument, TourPageDocumentData, TourPageDocument, AllDocumentTypes, PageHeroSliceDefaultPrimary, PageHeroSliceDefault, PageHeroSliceVariation, PageHeroSlice };
     }
 }

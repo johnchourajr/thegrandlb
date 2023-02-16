@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@components/Link";
 import * as prismic from "@prismicio/client";
 
 import { getPrismicMenus } from "../../services/get-prismic-menus";
@@ -27,6 +27,8 @@ const Page = ({ menus }: any) => {
   );
 };
 
+export default Page;
+
 export async function getStaticProps() {
   // use client to fetch menus
   const res = async () => {
@@ -46,5 +48,3 @@ export async function getStaticProps() {
     },
   };
 }
-
-export default Page;
