@@ -14,8 +14,8 @@ function HomePromo({ frontmatter: { promo } }) {
         captionClassName="caption--small"
         buttons={[
           {
-            text: "Let's Talk",
-            url: "/contact/",
+            text: "Make an Inquiry",
+            url: "/inquire?ref=salesteam/",
             event: {
               category: "ContactAction",
               action: "Home__PromoAction",

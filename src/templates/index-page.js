@@ -49,8 +49,8 @@ const IndexPage = ({ data, status, siteBanner }) => {
         img="/img/placeholder--front-img.jpg"
         buttons={[
           {
-            text: "Get a Quote",
-            url: "/inquire/",
+            text: "Make an Inquiry",
+            url: "/inquire?ref=hero/",
             event: {
               category: "InquireAction",
               action: "homeInquireAction",

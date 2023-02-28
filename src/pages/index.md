@@ -6,8 +6,8 @@ heading: |
   So Cal’s *Premier*
   Event Venue
 headingButtons:
-  - text: "Get a Quote"
-    url: "/inquire/"
+  - text: "Make an Inquiry"
+    url: "/inquire?ref=hero/"
   - text: "Take a Tour"
     url: "/tour/"
     isSecondary: true
@@ -24,8 +24,8 @@ promo:
   caption: |
     Discover the endless possibilities of The Grand Long Beach's 40,000 sqft. of event space - talk to one of our sales professionals today
   buttons:
-    - text: "Let's Talk"
-      url: "/contact/"
+    - text: "Make an Inquiry"
+      url: "/inquire?ref=salesteam/"
       event:
         category: "ContactAction"
         action: "Home__PromoAction"
@@ -51,7 +51,7 @@ ctaUpper:
     Plan Your
     Next Event
   buttons:
-    - text: "Plan Your Private Event"
+    - text: "Make an Inquiry"
       url: "/inquire/"
       event:
         category: InquireAction
@@ -145,8 +145,8 @@ ctaLower:
   caption: |
     So why wait? Book your event at The Grand today and experience the premier event center in Long Beach for yourself. Contact us to learn more about our spaces, services, and to start planning the event of a lifetime.
   buttons:
-    - text: "Plan Your Private Event"
-      url: "/inquire/"
+    - text: "Make an Inquiry"
+      url: "/inquire?ref=footer/"
       event:
         category: InquireAction
         action: homeCtaLowerInquireAction
