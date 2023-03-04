@@ -1,12 +1,12 @@
-import ReactGA from 'react-ga';
-import { siteDetails } from './src/data/siteDetails';
-import './src/styles/fonts/fonts.css';
-import './src/styles/all.scss';
+import ReactGA from "react-ga";
+import { siteDetails } from "./src/data/siteDetails";
+import "./src/styles/fonts/fonts.css";
+import "./src/styles/all.scss";
 
 export const onRouteUpdate = ({ location }) => {
   ReactGA.pageview(location.pathname);
-  ReactGA.ga('send', 'pageview', {
-    Branch: '{{ process.env.BRANCH }}'
+  ReactGA.ga("send", "pageview", {
+    Branch: "{{ process.env.BRANCH }}",
   });
 };
 
