@@ -42,6 +42,11 @@ const Head = ({ location }) => {
           name: "viewport",
           content: "width=device-width, initial-scale=1, shrink-to-fit=yes",
         },
+        {
+          httpEquiv: "Content-Security-Policy",
+          content:
+            "default-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google-analytics.com https://www.googletagmanager.com https://www.google.com; img-src https://*; child-src='none'; ",
+        },
         { name: "title", content: siteDetails.title },
         { name: "description", content: siteDetails.description },
         { name: "msapplication-TileColor", content: "#edfaff" },

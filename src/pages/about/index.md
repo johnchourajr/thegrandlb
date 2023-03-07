@@ -103,7 +103,7 @@ ctaLower:
     Plan Your
     Next Event
   buttons:
-    - text: "Plan Your Private Event"
+    - text: "Make an Inquiry"
       url: "/inquire/"
 ---
 

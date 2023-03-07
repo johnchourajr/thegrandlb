@@ -4,7 +4,7 @@ import ReactModal from "react-modal";
 // Components
 import X from "./svg/X";
 
-const MainModal = props => {
+const MainModal = (props) => {
   const styles = {
     overlay: {
       position: "fixed",
@@ -14,7 +14,7 @@ const MainModal = props => {
       bottom: 0,
       display: "flex",
       alignItems: "center",
-      justifyContent: "center"
+      justifyContent: "center",
     },
     content: {
       position: "absolute",
@@ -24,29 +24,29 @@ const MainModal = props => {
       bottom: "unset",
       border: "none",
       width: "90vw",
-      maxWidth: "620px",
+      // maxWidth: "620px",
       minHeight: "200px",
       background: "#fff",
       overflow: "auto",
       WebkitOverflowScrolling: "touch",
       borderRadius: "0px",
       outline: "none",
-      padding: "20px"
-    }
+      padding: "20px",
+    },
   };
 
   return (
     <ReactModal
       isOpen={props.modalVisible}
       contentLabel="Minimal Modal Example"
-      onRequestClose={e => props.handleModal(false)}
+      onRequestClose={(e) => props.handleModal(false)}
       shouldCloseOnOverlayClick={true}
       closeTimeoutMS={500}
       style={styles}
     >
       <button
         aria-label="Close"
-        onClick={e => props.handleModal(false)}
+        onClick={(e) => props.handleModal(false)}
         className="nav--banner--close"
       >
         <X />

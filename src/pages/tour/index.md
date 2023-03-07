@@ -84,6 +84,6 @@ cta:
   caption: |
     At The Grand Long Beach, we believe that every event is unique and deserving of a personalized touch. That's why we want to hear all about your special occasion. Fill out our event inquiry form and let us know the details of your wedding, conference, or any other special event.
   buttons:
-    - text: "Plan Your Private Event"
+    - text: "Make an Inquiry"
       url: "/inquire/"
 ---

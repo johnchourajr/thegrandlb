@@ -65,7 +65,7 @@ const ContactPage = ({ data, status }) => {
         heading={"Plan Your\nEvent Today"}
         buttons={[
           {
-            text: "Plan Your Private Event",
+            text: "Make an Inquiry",
             url: "/inquire/",
             event: {
               category: "InquireAction",
