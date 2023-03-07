@@ -12,6 +12,7 @@
     "gatsby": "^2.32.3",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-create-client-paths": "^2.3.10",
+    "gatsby-plugin-hotjar": "^1.1.1",
     "gatsby-plugin-image": "^1.1.2",
     "gatsby-plugin-layout": "^1.10.0",
     "gatsby-plugin-modal-routing": "^1.0.2",
@@ -77,10 +78,10 @@
   },
   "devDependencies": {
     "http-proxy-middleware": "^1.0.6",
+    "netlify-cli": "^12.2.9",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.2.1",
-    "sass": "^1.32.8",
     "resolve-url-loader": "^3.1.2",
-    "netlify-cli": "^12.2.9"
+    "sass": "^1.32.8"
   }
 }

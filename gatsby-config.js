@@ -136,5 +136,13 @@ module.exports = {
       options: { prefixes: [`/profile/*`] },
     },
     `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-plugin-hotjar`,
+      options: {
+        includeInDevelopment: true, // optional parameter to include script in development
+        id: 3396404,
+        sv: 6,
+      },
+    },
   ],
 };
