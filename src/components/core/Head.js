@@ -72,6 +72,11 @@ const Head = ({ location }) => {
       ]}
       htmlAttributes={{ class: pathname, lang: "en" }}
       bodyAttributes={{ class: pathname }}
+      script={[
+        {
+          src: "https://www.googleoptimize.com/optimize.js?id=OPT-KH5JBHN",
+        },
+      ]}
     />
   );
 };
