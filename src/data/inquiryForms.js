@@ -29,15 +29,15 @@ const inquiryForms = [
           "Party",
           "Fundraiser",
           "Memorial",
-          "Other"
+          "Other",
         ],
-        placeholder: "Wedding ",
+        placeholder: "Choose Event Type ",
         value: "",
         required: true,
         isValid: false,
         hasError: false,
         error: "Make a selection",
-        className: "col xs-col-12"
+        className: "col xs-col-12",
       },
       {
         label: "Name your event",
@@ -50,9 +50,9 @@ const inquiryForms = [
         isValid: false,
         hasError: false,
         error: "Name your event",
-        className: "col xs-col-12"
-      }
-    ]
+        className: "col xs-col-12",
+      },
+    ],
   },
   {
     header: "The Finer Details",
@@ -69,7 +69,7 @@ const inquiryForms = [
         isValid: false,
         hasError: false,
         error: "Select a date",
-        className: "col xs-col-12 sm-col-6"
+        className: "col xs-col-12 sm-col-6",
       },
       {
         label: "Desired Event Time",
@@ -90,7 +90,7 @@ const inquiryForms = [
           "7pm",
           "8pm",
           "9pm",
-          "10pm"
+          "10pm",
         ],
         placeholder: "8am",
         value: "",
@@ -99,7 +99,7 @@ const inquiryForms = [
         isValid: false,
         hasError: false,
         error: "Select a time",
-        className: "col xs-col-12 sm-col-6"
+        className: "col xs-col-12 sm-col-6",
       },
       {
         label: "Desired Room",
@@ -112,7 +112,7 @@ const inquiryForms = [
           "The Garden Room",
           "The Pacific Room",
           "The Board Room",
-          "The Palm Terrace"
+          "The Palm Terrace",
         ],
         placeholder: "The Grand Ballroom ",
         value: "",
@@ -120,7 +120,7 @@ const inquiryForms = [
         isValid: false,
         hasError: false,
         error: "Make a selection",
-        className: "col xs-col-12 sm-col-6"
+        className: "col xs-col-12 sm-col-6",
       },
       {
         label: "Guest Count",
@@ -133,9 +133,9 @@ const inquiryForms = [
         isValid: false,
         hasError: false,
         error: "Enter number greater than 1",
-        className: "col xs-col-12 sm-col-6"
-      }
-    ]
+        className: "col xs-col-12 sm-col-6",
+      },
+    ],
   },
   {
     header: "Talk About You",
@@ -145,27 +145,29 @@ const inquiryForms = [
         label: "Your Name",
         id: "glb-contact-name",
         type: "text",
-        validate: /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/,
+        // validate: /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/,
+        // write a validation for a string more than two alpha letters
+        validate: /^.{2,}$/,
         placeholder: "Elle Wagner",
         value: "",
         required: true,
         isValid: false,
         hasError: false,
         error: "Name isn't valid",
-        className: "col xs-col-12 sm-col-6"
+        className: "col xs-col-12 sm-col-6",
       },
       {
         label: "Preferred contact method",
         id: "glb-contact-method",
         type: "select",
         options: ["Phone and Email", "Phone", "Email"],
-        placeholder: "Phone and Email ",
+        placeholder: "Choose Option ",
         value: "",
         required: true,
         isValid: false,
         hasError: false,
         error: "Please make a selection",
-        className: "col xs-col-12 sm-col-6"
+        className: "col xs-col-12 sm-col-6",
       },
       {
         label: "Email",
@@ -178,7 +180,7 @@ const inquiryForms = [
         isValid: false,
         hasError: false,
         error: "Email isn't valid",
-        className: "col xs-col-12 sm-col-6"
+        className: "col xs-col-12 sm-col-6",
       },
       {
         label: "Phone Number",
@@ -192,10 +194,10 @@ const inquiryForms = [
         isValid: false,
         hasError: false,
         error: "Phone number isn't valid",
-        className: "col xs-col-12 sm-col-6"
-      }
-    ]
-  }
+        className: "col xs-col-12 sm-col-6",
+      },
+    ],
+  },
 ];
 
 export default inquiryForms;
