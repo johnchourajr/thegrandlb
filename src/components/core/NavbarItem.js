@@ -44,6 +44,7 @@ class NavbarItem extends React.Component {
         {this.props.externalPath ? (
           <a href={this.props.path} target="_blank" rel="noopener noreferrer">
             {this.props.name}
+            <NavbarCaret noHoverMenu={noHoverMenu} subpages={subpages} />
           </a>
         ) : (
           <Link
@@ -53,9 +54,9 @@ class NavbarItem extends React.Component {
             onMouseLeave={onMouseLeave}
           >
             {this.props.name}
+            <NavbarCaret noHoverMenu={noHoverMenu} subpages={subpages} />
           </Link>
         )}
-        <NavbarCaret noHoverMenu={noHoverMenu} subpages={subpages} />
         <NavbarItemMenu
           noHoverMenu={noHoverMenu}
           subpages={subpages}

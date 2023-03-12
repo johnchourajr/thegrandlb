@@ -25,12 +25,13 @@ const PageHero = (props) => {
         )}
         <div className="wrapper">
           <Box className="page-hero--wrap">
-            {/* <ReactMarkdown children={props.heading} /> */}
             <ReactMarkdown
               children={props.heading}
               components={{
-                p: ({ node, ...props }) => (
-                  <h1 className="h1 page-hero--headline display" {...props} />
+                p: ({ node, children, ...props }) => (
+                  <h1 className="h1 page-hero--headline display" {...props}>
+                    {children}
+                  </h1>
                 ),
               }}
             />
