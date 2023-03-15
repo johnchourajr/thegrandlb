@@ -1,14 +1,14 @@
 /* eslint-disable */
 
-import React from 'react';
+import React from "react";
 
-import FormInput from '../FormInput';
-import FormSelect from '../FormSelect';
+import FormInput from "../FormInput";
+import FormSelect from "../FormSelect";
 
 const StepInput = (props) => {
   const { type } = props;
 
-  if (type === 'select') {
+  if (type === "select") {
     return <FormSelect {...props} />;
   } else {
     return <FormInput {...props} />;
@@ -23,10 +23,12 @@ const Step = (props) => {
     displayNext,
     displaySubmit,
     page,
-    pageNumber
+    pageNumber,
   } = props;
 
-  const activeStyles = !isActive ? { display: 'none' } : { display: 'inherit' };
+  const activeStyles = !isActive ? { display: "none" } : { display: "inherit" };
+
+  console.log({ page, isValid: page?.isValid });
 
   return (
     <div style={activeStyles}>
@@ -77,11 +79,11 @@ const Next = (props) => {
     return (
       <div
         role="button"
-        className={`button ${props.disabled && 'button--disabled'}`}
+        className={`button ${props.disabled && "button--disabled"}`}
         onClick={(e) => !props.disabled && props.goToNextStep(e)}
         onKeyDown={(e) => {
           console.log(`Pressed keyCode ${e.key}`);
-          if (e.key === 'Enter') {
+          if (e.key === "Enter") {
             !props.disabled && props.goToNextStep(e);
             e.preventDefault();
           }
@@ -107,7 +109,7 @@ const Previous = (props) => {
         onClick={(e) => props.goToPreviousStep(e)}
         onKeyDown={(e) => {
           console.log(`Pressed keyCode ${e.key}`);
-          if (e.key === 'Enter') {
+          if (e.key === "Enter") {
             props.goToPreviousStep(e);
             e.preventDefault();
           }
@@ -124,18 +126,18 @@ const Previous = (props) => {
 const Submit = (props) => {
   const { isActive, doneUrl, currentStep } = props;
 
-  if (isActive && currentStep === 2) {
+  if (isActive && currentStep === 1) {
     return (
       <button
         type="submit"
-        className={`button ${props.disabled ? 'button--disabled' : null}`}
+        className={`button ${props.disabled ? "button--disabled" : null}`}
         onMouseEnter={() => props.submitAction(props.disabled)}
         onClick={() => {
           props.submitAction(props.disabled);
         }}
         onKeyDown={(e) => {
           console.log(`Pressed keyCode ${e.key}`);
-          if (e.key === 'Enter') {
+          if (e.key === "Enter") {
             props.submitAction(props.disabled);
             e.preventDefault();
           }

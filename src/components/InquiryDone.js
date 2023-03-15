@@ -55,12 +55,12 @@ function InquiryDone(props) {
           </p>
         </div>
         <div className="inquire-page--footer xs-flex xs-flex-align-center xs-flex-justify-center">
-          <Link
+          {/* <Link
             className={`button button--secondary`}
             to={`/inquire${urlQuery}`}
           >
             Change Answers
-          </Link>
+          </Link> */}
           <Link className={`button`} to={`/`}>
             Return to Website
           </Link>

@@ -27,7 +27,7 @@ class StepFlow extends React.Component {
       flowPages: this.props.flowPages,
       doneUrl: "",
       activePageNumber: "0",
-      uuid: uuidv4()
+      uuid: uuidv4(),
     };
 
     this.handleFormChange = this.handleFormChange.bind(this);
@@ -39,7 +39,7 @@ class StepFlow extends React.Component {
 
     ReactGA.event({
       category: "InquiryFlow",
-      action: `Started at Step 1`
+      action: `Started at Step 1`,
     });
   }
 
@@ -89,6 +89,27 @@ class StepFlow extends React.Component {
       const fieldThree = thisPage.forms[2].isValid;
       const fieldFour = thisPage.forms[3].isValid;
       isValid = fieldOne && fieldTwo && fieldThree && fieldFour ? true : false;
+    } else if (thisPage.forms.length === 5) {
+      const fieldOne = thisPage.forms[0].isValid;
+      const fieldTwo = thisPage.forms[1].isValid;
+      const fieldThree = thisPage.forms[2].isValid;
+      const fieldFour = thisPage.forms[3].isValid;
+      const fieldFive = thisPage.forms[4].isValid;
+      isValid =
+        fieldOne && fieldTwo && fieldThree && fieldFour && fieldFive
+          ? true
+          : false;
+    } else if (thisPage.forms.length === 6) {
+      const fieldOne = thisPage.forms[0].isValid;
+      const fieldTwo = thisPage.forms[1].isValid;
+      const fieldThree = thisPage.forms[2].isValid;
+      const fieldFour = thisPage.forms[3].isValid;
+      const fieldFive = thisPage.forms[4].isValid;
+      const fieldSix = thisPage.forms[5].isValid;
+      isValid =
+        fieldOne && fieldTwo && fieldThree && fieldFour && fieldFive && fieldSix
+          ? true
+          : false;
     }
 
     let newState = Object.assign({}, this.state);

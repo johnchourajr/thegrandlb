@@ -69,13 +69,15 @@ class StepList extends React.Component {
       sessionStorage.setItem("flowPages", JSON.stringify(this.props.flowPages));
       ReactGA.event({
         category: "InquiryFlow",
-        action: "Inquiry Submitted",
+        action: "Inquiry Submitted v2",
       });
       // ReactGA.set({ userName: this.props.flowPages[2].forms[0].value });
     }
   };
 
   renderSteps() {
+    // console.log({currentStep: this.state.currentStep, totalSteps: this.state.totalSteps});
+
     const children = React.Children.map(this.props.children, (child, index) => {
       const { currentStep, totalSteps } = this.state;
 

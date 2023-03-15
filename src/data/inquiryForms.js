@@ -52,12 +52,6 @@ const inquiryForms = [
         error: "Name your event",
         className: "col xs-col-12",
       },
-    ],
-  },
-  {
-    header: "The Finer Details",
-    isValid: false,
-    forms: [
       {
         label: "Desired Event Date",
         id: "glb-date",
