@@ -69,7 +69,7 @@ class StepList extends React.Component {
       sessionStorage.setItem("flowPages", JSON.stringify(this.props.flowPages));
       ReactGA.event({
         category: "InquiryFlow",
-        action: "Inquiry Submitted v2",
+        action: "Inquiry Submitted",
       });
       // ReactGA.set({ userName: this.props.flowPages[2].forms[0].value });
     }
