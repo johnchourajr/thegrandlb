@@ -1,6 +1,8 @@
 import React from "react";
 import ReactGA from "react-ga";
 
+import { AnimatePresence, motion } from "framer-motion";
+
 import StepBanner from "./StepBanner";
 
 const StepIndex = (props) => {
@@ -17,6 +19,50 @@ const StepIndex = (props) => {
 const StepHeader = (props) => {
   const headerText = props.flowPages[props.currentStep].header;
 
+  const nameValue = props.flowPages[0].forms[0].value;
+  const nameValid = props.flowPages[0].forms[0].isValid;
+  const eventType = props.flowPages[1].forms[1].value;
+
+  // use eventTypes to switch through text for each event type
+  const eventText = (eventType) => {
+    switch (eventType) {
+      case "Wedding Ceremony & Reception":
+        return "Let's make your special day unforgettable!";
+      case "Wedding Reception":
+        return "We'll create the perfect setting for your reception!";
+      case "Wedding Ceremony":
+        return "Your beautiful ceremony awaits!";
+      case "Business":
+        return "Let's help you make your event a success!";
+      case "Conference/Workshop":
+        return "We'll set the stage for learning and collaboration!";
+      case "Luncheon":
+        return "Ready for a delightful meal together?";
+      case "Dinner":
+        return "We'll ensure a memorable dining experience!";
+      case "School Event":
+        return "Let's celebrate your school's achievements!";
+      case "Anniversary":
+        return "Here's to making more cherished memories!";
+      case "Sweet 16/Quince":
+        return "A special day for a milestone celebration!";
+      case "Birthday Party":
+        return "Let's plan an amazing birthday party!";
+      case "Holiday Party":
+        return "Celebrate the season in style!";
+      case "Party":
+        return "We're excited to help plan your party!";
+      case "Fundraiser":
+        return "We'll support your cause every step of the way!";
+      case "Memorial":
+        return "Our condolences, together we'll honor their memory.";
+      case "Other":
+        return "Tell us your vision, and we'll make it a reality!";
+      default:
+        return false;
+    }
+  };
+
   return (
     <div className="inquire-page--header">
       <StepIndex
@@ -25,6 +71,26 @@ const StepHeader = (props) => {
         goToStep={props.goToStep}
       />
       <h1 className="h3 display xs-text-center">{headerText}</h1>
+      <AnimatePresence>
+        {nameValid && (
+          <motion.div
+            animate={{ opacity: 1, height: "auto", marginTop: "1rem" }}
+            initial={{ opacity: 0, height: 0, marginTop: 0 }}
+            exit={{ opacity: 0, height: 0, marginTop: 0 }}
+          >
+            <p style={{ textAlign: "center" }}>Hello, {nameValue}!</p>
+          </motion.div>
+        )}
+        {props.currentStep >= 1 && eventText(eventType) && (
+          <motion.div
+            animate={{ opacity: 1, height: "auto", marginTop: "1rem" }}
+            initial={{ opacity: 0, height: 0, marginTop: 0 }}
+            exit={{ opacity: 0, height: 0, marginTop: 0 }}
+          >
+            <p style={{ textAlign: "center" }}>{eventText(eventType)}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

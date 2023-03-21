@@ -39,47 +39,49 @@ const StepBanner = (props) => {
   const dismissedClass = isMatch ? null : dismissedCondition;
 
   return (
-    <BannerWrap siteBanner={props.siteBanner}>
-      <div
-        className={`nav--banner ${dismissedClass} ${
-          isMatch && "nav--banner--confirm"
-        } nav--banner--inline`}
-      >
-        <div className="nav--banner--inner">
-          <p>
-            {!isMatch ? text : matchText}{" "}
-            {hasModal ? (
-              <NavBannerLink
-                onClick={(e) => handleModal(true)}
-                button={button}
-              />
-            ) : (
-              <a href={buttonLink} target="_blank" rel="noopener noreferrer">
-                {button}
-              </a>
+    <>
+      <BannerWrap siteBanner={props.siteBanner}>
+        <div
+          className={`nav--banner ${dismissedClass} ${
+            isMatch && "nav--banner--confirm"
+          } nav--banner--inline`}
+        >
+          <div className="nav--banner--inner">
+            <p>
+              {!isMatch ? text : matchText}{" "}
+              {hasModal ? (
+                <NavBannerLink
+                  onClick={(e) => handleModal(true)}
+                  button={button}
+                />
+              ) : (
+                <a href={buttonLink} target="_blank" rel="noopener noreferrer">
+                  {button}
+                </a>
+              )}
+            </p>
+            {!isMatch && (
+              <button
+                onClick={(e) => props.handleBannerDismiss(true)}
+                className="nav--banner--button nav--banner--close"
+              >
+                <X />
+              </button>
             )}
-          </p>
-          {!isMatch && (
-            <button
-              onClick={(e) => props.handleBannerDismiss(true)}
-              className="nav--banner--button nav--banner--close"
-            >
-              <X />
-            </button>
-          )}
-          {isMatch && (
-            <div className="nav--banner--button">
-              <Check />
-            </div>
-          )}
+            {isMatch && (
+              <div className="nav--banner--button">
+                <Check />
+              </div>
+            )}
+          </div>
+          <BannerModal
+            modalVisible={modalVisible}
+            handleModal={handleModal}
+            modalDetail={modalDetail}
+          />
         </div>
-        <BannerModal
-          modalVisible={modalVisible}
-          handleModal={handleModal}
-          modalDetail={modalDetail}
-        />
-      </div>
-    </BannerWrap>
+      </BannerWrap>
+    </>
   );
 };
 

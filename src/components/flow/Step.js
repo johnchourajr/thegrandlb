@@ -126,7 +126,7 @@ const Previous = (props) => {
 const Submit = (props) => {
   const { isActive, doneUrl, currentStep } = props;
 
-  if (isActive && currentStep === 1) {
+  if (isActive && currentStep === 2) {
     return (
       <button
         type="submit"
