@@ -1,5 +1,5 @@
 ---
-templateKey: 'tour-template-page'
+templateKey: "tour-template-page"
 path: /tour/palm-terrace
 title: The Palm Terrace
 heading: |
@@ -8,84 +8,83 @@ heading: |
 hero: "../../../static/img/tour-rooms/palm-terrace/index.sm.jpg"
 roomMeta:
   eventType:
-  - Weddings
-  - Social
+    - Weddings
+    - Social
   eventTypeInfo:
-  - type: "Weddings"
-    description: "Great for large Weddings ceremonies and receptions."
-  - type: "Social"
-    description: "Great for open and outdoor social events."
+    - type: "Weddings"
+      description: "Great for large Weddings ceremonies and receptions."
+    - type: "Social"
+      description: "Great for open and outdoor social events."
   roomFeatures:
-  - Outdoors
-  - Dance Floor
-  - Sound System
-  - Cocktail Area
+    - Outdoors
+    - Dance Floor
+    - Sound System
+    - Cocktail Area
   guestCount:
-  - 400
+    - 400
 numbers:
   description: |
     The Palm Terrace
     by Purely the Numbers
   array:
-  - number: "3400"
-    caption: "Total Square Feet"
-  - number: ""
-    caption: ""
-    options:
-    - number: "400"
-      caption: "Max Capacity"
-    - number: "320"
-      caption: "Banquet Capacity"
+    - number: "3400"
+      caption: "Total Square Feet"
+    - number: ""
+      caption: ""
+      options:
+        - number: "400"
+          caption: "Max Capacity"
+        - number: "320"
+          caption: "Banquet Capacity"
 amenities:
   description: "Amenities"
   array:
-  - img: "outdoor-2.svg"
-    text: "Tropical Landscaping"
-  - img: "dancing.svg"
-    text: "Dance Floor"
-  - img: "twinkle.svg"
-    text: "String Twinkle Lights"
-  - img: "cocktail.svg"
-    text: "Side Cocktail Areas"
-  - img: "lighting.svg"
-    text: "Dynamic Lighting"
+    - img: "outdoor-2.svg"
+      text: "Tropical Landscaping"
+    - img: "twinkle.svg"
+      text: "String Twinkle Lights"
+    - img: "cocktail.svg"
+      text: "Side Cocktail Areas"
+    - img: "lighting.svg"
+      text: "Dynamic Lighting"
 upgrades:
   description: "Optional Upgrades"
   array:
-  - text: "100 Mbps Wi-fi"
-  - text: "AV Equipment"
-  - text: "Fire-pits & Heaters"
-  - text: "Bar Service"
-  - text: "Lounge Furniture"
-  - text: "Chiavari Chairs"
-  - text: "Specialty Linens"
-  - text: "Dressing Rooms"
-  - text: "Red Carpet"
-  - text: "Uplighting"
+    - text: "100 Mbps Wi-fi"
+    - text: "AV Equipment"
+    - text: "Dance Floor"
+    - text: "Fire-pits & Heaters"
+    - text: "Bar Service"
+    - text: "Lounge Furniture"
+    - text: "Chiavari Chairs"
+    - text: "Specialty Linens"
+    - text: "Dressing Rooms"
+    - text: "Red Carpet"
+    - text: "Uplighting"
 roomswitch:
   array:
-  - img: "../../../static/img/tour-rooms/palm-terrace/aligned/social.jpg"
-    caption: "Social/Wedding Layout"
-  - img: "../../../static/img/tour-rooms/palm-terrace/aligned/wedding.jpg"
-    caption: "Wedding Ceremony Layout"
+    - img: "../../../static/img/tour-rooms/palm-terrace/aligned/social.jpg"
+      caption: "Social/Wedding Layout"
+    - img: "../../../static/img/tour-rooms/palm-terrace/aligned/wedding.jpg"
+      caption: "Wedding Ceremony Layout"
 carousel:
   array:
-  - img: "../../../static/img/tour-rooms/palm-terrace/details/7.jpg"
-    caption: ""
-  - img: "../../../static/img/tour-rooms/palm-terrace/details/2.jpg"
-    caption: ""
-  - img: "../../../static/img/tour-rooms/palm-terrace/details/3.jpg"
-    caption: ""
-  - img: "../../../static/img/tour-rooms/palm-terrace/details/4.jpg"
-    caption: ""
-  - img: "../../../static/img/tour-rooms/palm-terrace/details/5.jpg"
-    caption: ""
-  - img: "../../../static/img/tour-rooms/palm-terrace/details/6.jpg"
-    caption: ""
-  - img: "../../../static/img/tour-rooms/palm-terrace/details/1.jpg"
-    caption: ""
-  - img: "../../../static/img/tour-rooms/palm-terrace/details/8.jpg"
-    caption: ""
+    - img: "../../../static/img/tour-rooms/palm-terrace/details/7.jpg"
+      caption: ""
+    - img: "../../../static/img/tour-rooms/palm-terrace/details/2.jpg"
+      caption: ""
+    - img: "../../../static/img/tour-rooms/palm-terrace/details/3.jpg"
+      caption: ""
+    - img: "../../../static/img/tour-rooms/palm-terrace/details/4.jpg"
+      caption: ""
+    - img: "../../../static/img/tour-rooms/palm-terrace/details/5.jpg"
+      caption: ""
+    - img: "../../../static/img/tour-rooms/palm-terrace/details/6.jpg"
+      caption: ""
+    - img: "../../../static/img/tour-rooms/palm-terrace/details/1.jpg"
+      caption: ""
+    - img: "../../../static/img/tour-rooms/palm-terrace/details/8.jpg"
+      caption: ""
 events:
   - text: |
       Pageants
@@ -127,19 +126,19 @@ cta:
     Book The Palm
     Terrace
   buttons:
-  - text: "Let's Do It"
-    url: "/inquire?glb-rooms=The Palm Terrace"
-    event:
-      category: 'InquireAction'
-      action: 'tourPalmTerrace-InquireAction'
+    - text: "Let's Do It"
+      url: "/inquire?glb-rooms=The Palm Terrace"
+      event:
+        category: "InquireAction"
+        action: "tourPalmTerrace-InquireAction"
 ctaAllRoom:
   subhead: |
     Keep Touring
   buttons:
-  - text: "View All Rooms"
-    url: "/tour/map"
-    event:
-      category: 'TourAction'
-      action: 'tourPalmTerrace-ViewAll'
-    isSecondary: true
+    - text: "View All Rooms"
+      url: "/tour/map"
+      event:
+        category: "TourAction"
+        action: "tourPalmTerrace-ViewAll"
+      isSecondary: true
 ---
