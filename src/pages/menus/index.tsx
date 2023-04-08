@@ -1,22 +1,14 @@
 import Link from "@components/Link";
 import * as prismic from "@prismicio/client";
+import { createClient } from "../../../prismicio";
 
 import { getPrismicMenus } from "../../services/get-prismic-menus";
 
-const Page = ({ menus }: any) => {
+const Page = ({ childPages }: any) => {
   return (
     <div>
-      <div className={"flex gap-1"}>
-        <Link href={"/"} className={"underline"}>
-          Home
-        </Link>
-        /
-        <Link href={"/menus"} className={""}>
-          Menus
-        </Link>
-      </div>
       <ul>
-        {menus.map((menu: any) => (
+        {childPages.map((menu: any) => (
           <li key={menu.id}>
             <a href={`/menus/${menu.uid}`}>{menu.data.page_title}</a>
           </li>
@@ -28,7 +20,9 @@ const Page = ({ menus }: any) => {
 
 export default Page;
 
-export async function getStaticProps() {
+export async function getStaticProps({ params, previewData }: any) {
+  const client = createClient({ previewData });
+
   // use client to fetch menus
   const res = async () => {
     const response = getPrismicMenus.getAllByType("menu_collection");
@@ -37,13 +31,20 @@ export async function getStaticProps() {
   };
   const result = await res();
   // filter array to only include items with a tag of "The Grand"
-  const menus = result.filter((menu) => {
+  const childPages = result.filter((menu) => {
     return menu.tags.includes("The Grand");
   });
 
+  const [navigation, page] = await Promise.all([
+    client.getByType("nav_links"),
+    client.getByUID("event_index_page", "events"),
+  ]);
+
   return {
     props: {
-      menus,
+      navigation,
+      page,
+      childPages,
     },
   };
 }

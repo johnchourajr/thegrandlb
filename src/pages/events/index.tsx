@@ -1,39 +1,26 @@
 import Link from "@components/Link";
-import { createClient } from "prismicio";
+import { createClient } from "../../../prismicio";
 
-const Page = ({ eventsPages }: any) => {
-  return (
-    <div>
-      <div className={"flex gap-1"}>
-        <Link href={"/"} className={"underline"}>
-          Home
-        </Link>
-        /
-        <Link href={"/events"} className={""}>
-          Events
-        </Link>
-      </div>
-      <ul>
-        {eventsPages.results.map((item: any) => (
-          <li key={item.id}>
-            <a href={`/events/${item.uid}`}>{item.data.title}</a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+const Page = ({ childPages }: any) => {
+  return <div></div>;
 };
 
 export default Page;
 
-export async function getStaticProps({ previewData }: any) {
+export async function getStaticProps({ params, previewData }: any) {
   const client = createClient({ previewData });
 
-  const eventsPages = await client.getByType("event_page");
+  const [navigation, page, childPages] = await Promise.all([
+    client.getByType("nav_links"),
+    client.getByUID("event_index_page", "events"),
+    client.getByType("event_page"),
+  ]);
 
   return {
     props: {
-      eventsPages,
+      navigation,
+      page,
+      childPages,
     },
   };
 }

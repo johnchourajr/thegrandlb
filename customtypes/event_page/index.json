@@ -1,6 +1,6 @@
 {
   "id": "event_page",
-  "label": "Event Page",
+  "label": "Event Child Page",
   "repeatable": true,
   "status": true,
   "json": {

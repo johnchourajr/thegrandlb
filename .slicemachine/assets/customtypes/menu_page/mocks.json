@@ -1,0 +1,16 @@
+{
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "zebra"
+  },
+  "title": {
+    "__TYPE__": "FieldContent",
+    "value": "smile",
+    "type": "Text"
+  },
+  "menu_api_uid": {
+    "__TYPE__": "FieldContent",
+    "value": "design",
+    "type": "Text"
+  }
+}

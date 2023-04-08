@@ -6,10 +6,34 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = {
     [KeyType in keyof T]: T[KeyType];
 };
-/** Content for Event Page documents */
+/** Content for Event Index Page documents */
+interface EventIndexPageDocumentData {
+    /**
+     * Title field in *Event Index Page*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: event_index_page.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+}
+/**
+ * Event Index Page document from Prismic
+ *
+ * - **API ID**: `event_index_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type EventIndexPageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<EventIndexPageDocumentData>, "event_index_page", Lang>;
+/** Content for Event Child Page documents */
 interface EventPageDocumentData {
     /**
-     * Title field in *Event Page*
+     * Title field in *Event Child Page*
      *
      * - **Field Type**: Text
      * - **Placeholder**: *None*
@@ -21,7 +45,7 @@ interface EventPageDocumentData {
     title: prismicT.KeyTextField;
 }
 /**
- * Event Page document from Prismic
+ * Event Child Page document from Prismic
  *
  * - **API ID**: `event_page`
  * - **Repeatable**: `true`
@@ -30,10 +54,194 @@ interface EventPageDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type EventPageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<EventPageDocumentData>, "event_page", Lang>;
-/** Content for Tour Page documents */
+/** Content for Inquire Page documents */
+interface InquirePageDocumentData {
+    /**
+     * Title field in *Inquire Page*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: inquire_page.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+}
+/**
+ * Inquire Page document from Prismic
+ *
+ * - **API ID**: `inquire_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type InquirePageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<InquirePageDocumentData>, "inquire_page", Lang>;
+/** Content for Menu Page documents */
+interface MenuPageDocumentData {
+    /**
+     * Title field in *Menu Page*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: menu_page.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+    /**
+     * Menu API UID field in *Menu Page*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: menu_page.menu_api_uid
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    menu_api_uid: prismicT.KeyTextField;
+}
+/**
+ * Menu Page document from Prismic
+ *
+ * - **API ID**: `menu_page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type MenuPageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<MenuPageDocumentData>, "menu_page", Lang>;
+/** Content for Nav Links documents */
+interface NavLinksDocumentData {
+    /**
+     * Slice Zone field in *Nav Links*
+     *
+     * - **Field Type**: Slice Zone
+     * - **Placeholder**: *None*
+     * - **API ID Path**: nav_links.slices[]
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+     *
+     */
+    slices: prismicT.SliceZone<NavLinksDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *Nav Links → Slice Zone*
+ *
+ */
+type NavLinksDocumentDataSlicesSlice = NavLinkTreeSlice;
+/**
+ * Nav Links document from Prismic
+ *
+ * - **API ID**: `nav_links`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type NavLinksDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<NavLinksDocumentData>, "nav_links", Lang>;
+/** Content for Offsite Index Page documents */
+interface OffsiteIndexPageDocumentData {
+    /**
+     * Title field in *Offsite Index Page*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: offsite_index_page.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+}
+/**
+ * Offsite Index Page document from Prismic
+ *
+ * - **API ID**: `offsite_index_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type OffsiteIndexPageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<OffsiteIndexPageDocumentData>, "offsite_index_page", Lang>;
+/** Content for Offsite Child Page documents */
+interface OffsitePageDocumentData {
+    /**
+     * Title field in *Offsite Child Page*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: offsite_page.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+}
+/**
+ * Offsite Child Page document from Prismic
+ *
+ * - **API ID**: `offsite_page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type OffsitePageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<OffsitePageDocumentData>, "offsite_page", Lang>;
+/** Content for Page documents */
+interface PageDocumentData {
+    /**
+     * Title field in *Page*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: page.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+}
+/**
+ * Page document from Prismic
+ *
+ * - **API ID**: `page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
+/** Content for Tour Index Page documents */
+interface TourIndexPageDocumentData {
+    /**
+     * Title field in *Tour Index Page*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: tour_index_page.title
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    title: prismicT.KeyTextField;
+}
+/**
+ * Tour Index Page document from Prismic
+ *
+ * - **API ID**: `tour_index_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TourIndexPageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<TourIndexPageDocumentData>, "tour_index_page", Lang>;
+/** Content for Tour Child Page documents */
 interface TourPageDocumentData {
     /**
-     * Title field in *Tour Page*
+     * Title field in *Tour Child Page*
      *
      * - **Field Type**: Text
      * - **Placeholder**: *None*
@@ -45,7 +253,7 @@ interface TourPageDocumentData {
     title: prismicT.KeyTextField;
 }
 /**
- * Tour Page document from Prismic
+ * Tour Child Page document from Prismic
  *
  * - **API ID**: `tour_page`
  * - **Repeatable**: `true`
@@ -54,7 +262,152 @@ interface TourPageDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type TourPageDocument<Lang extends string = string> = prismicT.PrismicDocumentWithUID<Simplify<TourPageDocumentData>, "tour_page", Lang>;
-export type AllDocumentTypes = EventPageDocument | TourPageDocument;
+export type AllDocumentTypes = EventIndexPageDocument | EventPageDocument | InquirePageDocument | MenuPageDocument | NavLinksDocument | OffsiteIndexPageDocument | OffsitePageDocument | PageDocument | TourIndexPageDocument | TourPageDocument;
+/**
+ * Primary content in NavLinkTree → Primary
+ *
+ */
+interface NavLinkTreeSliceDefaultPrimary {
+    /**
+     * Link Title field in *NavLinkTree → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: nav_link_tree.primary.link_title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    link_title: prismicT.KeyTextField;
+    /**
+     * Link Source field in *NavLinkTree → Primary*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: nav_link_tree.primary.link_source
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link_source: prismicT.LinkField;
+}
+/**
+ * Default variation for NavLinkTree Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `NavLinkTree`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type NavLinkTreeSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<NavLinkTreeSliceDefaultPrimary>, never>;
+/**
+ * Primary content in NavLinkTree → Primary
+ *
+ */
+interface NavLinkTreeSliceWithChildrenPrimary {
+    /**
+     * Link Title field in *NavLinkTree → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: nav_link_tree.primary.link_title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    link_title: prismicT.KeyTextField;
+    /**
+     * Link Source field in *NavLinkTree → Primary*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: nav_link_tree.primary.link_source
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link_source: prismicT.LinkField;
+}
+/**
+ * Item in NavLinkTree → Items
+ *
+ */
+export interface NavLinkTreeSliceWithChildrenItem {
+    /**
+     * Child Link Title field in *NavLinkTree → Items*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: nav_link_tree.items[].child_link_title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    child_link_title: prismicT.KeyTextField;
+    /**
+     * Child Link Source field in *NavLinkTree → Items*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: nav_link_tree.items[].child_link_source
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    child_link_source: prismicT.LinkField;
+}
+/**
+ * With Children variation for NavLinkTree Slice
+ *
+ * - **API ID**: `withChildren`
+ * - **Description**: `NavLinkTree`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type NavLinkTreeSliceWithChildren = prismicT.SharedSliceVariation<"withChildren", Simplify<NavLinkTreeSliceWithChildrenPrimary>, Simplify<NavLinkTreeSliceWithChildrenItem>>;
+/**
+ * Primary content in NavLinkTree → Primary
+ *
+ */
+interface NavLinkTreeSliceForMenusPrimary {
+    /**
+     * Link Title field in *NavLinkTree → Primary*
+     *
+     * - **Field Type**: Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: nav_link_tree.primary.link_title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+     *
+     */
+    link_title: prismicT.KeyTextField;
+    /**
+     * Link Source field in *NavLinkTree → Primary*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: nav_link_tree.primary.link_source
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link_source: prismicT.LinkField;
+}
+/**
+ * For Menus variation for NavLinkTree Slice
+ *
+ * - **API ID**: `forMenus`
+ * - **Description**: `NavLinkTree`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type NavLinkTreeSliceForMenus = prismicT.SharedSliceVariation<"forMenus", Simplify<NavLinkTreeSliceForMenusPrimary>, never>;
+/**
+ * Slice variation for *NavLinkTree*
+ *
+ */
+type NavLinkTreeSliceVariation = NavLinkTreeSliceDefault | NavLinkTreeSliceWithChildren | NavLinkTreeSliceForMenus;
+/**
+ * NavLinkTree Shared Slice
+ *
+ * - **API ID**: `nav_link_tree`
+ * - **Description**: `NavLinkTree`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type NavLinkTreeSlice = prismicT.SharedSlice<"nav_link_tree", NavLinkTreeSliceVariation>;
 /**
  * Primary content in PageHero → Primary
  *
@@ -109,6 +462,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { EventPageDocumentData, EventPageDocument, TourPageDocumentData, TourPageDocument, AllDocumentTypes, PageHeroSliceDefaultPrimary, PageHeroSliceDefault, PageHeroSliceVariation, PageHeroSlice };
+        export type { EventIndexPageDocumentData, EventIndexPageDocument, EventPageDocumentData, EventPageDocument, InquirePageDocumentData, InquirePageDocument, MenuPageDocumentData, MenuPageDocument, NavLinksDocumentData, NavLinksDocumentDataSlicesSlice, NavLinksDocument, OffsiteIndexPageDocumentData, OffsiteIndexPageDocument, OffsitePageDocumentData, OffsitePageDocument, PageDocumentData, PageDocument, TourIndexPageDocumentData, TourIndexPageDocument, TourPageDocumentData, TourPageDocument, AllDocumentTypes, NavLinkTreeSliceDefaultPrimary, NavLinkTreeSliceDefault, NavLinkTreeSliceWithChildrenPrimary, NavLinkTreeSliceWithChildrenItem, NavLinkTreeSliceWithChildren, NavLinkTreeSliceForMenusPrimary, NavLinkTreeSliceForMenus, NavLinkTreeSliceVariation, NavLinkTreeSlice, PageHeroSliceDefaultPrimary, PageHeroSliceDefault, PageHeroSliceVariation, PageHeroSlice };
     }
 }

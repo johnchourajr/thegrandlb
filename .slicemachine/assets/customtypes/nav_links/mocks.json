@@ -1,0 +1,39 @@
+{
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "enough"
+  },
+  "slices": {
+    "__TYPE__": "SliceContentType",
+    "value": [
+      {
+        "key": "nav_link_tree$90d21eda-6098-4f15-8766-4d3b26fbed82",
+        "name": "nav_link_tree",
+        "widget": {
+          "__TYPE__": "SharedSliceContent",
+          "variation": "default",
+          "primary": {
+            "link_title": {
+              "__TYPE__": "FieldContent",
+              "value": "art",
+              "type": "Text"
+            },
+            "link_source": {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "http://twitter.com"
+              }
+            }
+          },
+          "items": [
+            {
+              "__TYPE__": "GroupItemContent",
+              "value": []
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

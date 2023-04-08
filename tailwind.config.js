@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
+const { fontFamily } = require("tailwindcss/defaultTheme");
+
 function clampBuilder(minWidthPx, maxWidthPx, minFontSize, maxFontSize) {
   const minWidth = minWidthPx / 16;
   const maxWidth = maxWidthPx / 16;
@@ -110,7 +112,13 @@ module.exports = {
         "2xl": "6rem",
       },
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-atkinson)", ...fontFamily.sans],
+        serif: ["var(--font-domaine)", ...fontFamily.serif],
+        lexend: ["var(--font-lexend)", ...fontFamily.sans],
+      },
+    },
   },
   plugins: [],
 };

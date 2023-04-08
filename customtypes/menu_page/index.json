@@ -1,0 +1,31 @@
+{
+  "id": "menu_page",
+  "label": "Menu Page",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "uid",
+          "placeholder": ""
+        }
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "menu_api_uid": {
+        "type": "Text",
+        "config": {
+          "label": "Menu API UID",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}

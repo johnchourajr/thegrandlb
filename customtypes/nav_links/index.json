@@ -1,0 +1,28 @@
+{
+  "id": "nav_links",
+  "label": "Nav Links",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "uid",
+          "placeholder": ""
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "nav_link_tree": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

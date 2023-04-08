@@ -15,15 +15,27 @@ export const repositoryName = prismic.getRepositoryName(sm.apiEndpoint);
  * @type {prismicH.LinkResolverFunction}
  */
 export const linkResolver = (doc) => {
-  if (doc.type === "page") {
-    if (doc.uid === "home") {
-      return "/";
-    } else {
-      return `/${doc.uid}`;
-    }
+  if (doc.uid === "home") {
+    return "/";
   }
 
-  return "/";
+  if (doc.type === "tour_page") {
+    return `/tour/${doc.uid}`;
+  }
+
+  if (doc.type === "event_page") {
+    return `/events/${doc.uid}`;
+  }
+
+  if (doc.type === "menu_page") {
+    return `/menus/${doc.uid}`;
+  }
+
+  if (doc.type === "offsite_page") {
+    return `/offsite/${doc.uid}`;
+  }
+
+  return `/${doc.uid}`;
 };
 
 /**

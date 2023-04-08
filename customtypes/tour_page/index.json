@@ -1,6 +1,6 @@
 {
   "id": "tour_page",
-  "label": "Tour Page",
+  "label": "Tour Child Page",
   "repeatable": true,
   "status": true,
   "json": {

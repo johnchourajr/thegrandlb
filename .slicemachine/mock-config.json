@@ -1,9 +1,26 @@
 {
   "_cts": {
     "event_page": {},
-    "tour_page": {}
+    "tour_page": {},
+    "nav_links": {},
+    "inquire_page": {},
+    "tour_index_page": {},
+    "event_index_page": {},
+    "offsite_index_page": {},
+    "offsite_page": {},
+    "page": {},
+    "menu_page": {}
   },
   "slices": {
-    "PageHero": {}
+    "PageHero": {},
+    "NavLinkTree": {
+      "default": {
+        "primary": {},
+        "items": {}
+      },
+      "forMenus": {
+        "items": {}
+      }
+    }
   }
 }

@@ -8,7 +8,7 @@ const Page = ({ page }: any) => {
   return (
     <>
       <div>
-        <div className={"flex gap-1"}>
+        {/* <div className={"flex gap-1"}>
           <Link href={"/"} className={"underline"}>
             Home
           </Link>
@@ -17,7 +17,7 @@ const Page = ({ page }: any) => {
             Tour
           </Link>
           /<h1>{page.data.title}</h1>
-        </div>
+        </div> */}
       </div>
       <SliceZone slices={page.data.slices} components={components} />
     </>
@@ -29,15 +29,15 @@ export default Page;
 export async function getStaticProps({ params, previewData }: any) {
   const client = createClient({ previewData });
 
-  const page = await client.getByUID("tour_page", params.uid);
-  // const navigation = await client.getSingle("navigation");
-  // const settings = await client.getSingle("settings");
+  const [navigation, page] = await Promise.all([
+    client.getByType("nav_links"),
+    client.getByUID("tour_page", params.uid),
+  ]);
 
   return {
     props: {
+      navigation,
       page,
-      // navigation,
-      // settings,
     },
   };
 }

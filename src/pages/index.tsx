@@ -1,28 +1,34 @@
+// import SendSMS from "@/components/SendSMS";
 import Link from "@components/Link";
+import Layout from "@components/Layout";
 import React from "react";
+import { SliceZone } from "@prismicio/react";
 
-const Page = () => {
+import { createClient } from "../../prismicio";
+
+const Page = ({ page }: any) => {
   return (
-    <div>
-      <ul>
-        <li>
-          <Link href="/about">About</Link>
-        </li>
-        <li>
-          <Link href="/contact">Contact</Link>
-        </li>
-        <li>
-          <Link href="/events">Events</Link>
-        </li>
-        <li>
-          <Link href="/tour">Tour</Link>
-        </li>
-        <li>
-          <Link href="/menus">Menus</Link>
-        </li>
-      </ul>
-    </div>
+    <Layout>
+      <></>
+      {/* <SendSMS /> */}
+    </Layout>
   );
 };
 
 export default Page;
+
+export async function getStaticProps({ params, previewData }: any) {
+  const client = createClient({ previewData });
+
+  const [navigation, page] = await Promise.all([
+    client.getByType("nav_links"),
+    client.getByUID("page", "home"),
+  ]);
+
+  return {
+    props: {
+      navigation,
+      page,
+    },
+  };
+}
