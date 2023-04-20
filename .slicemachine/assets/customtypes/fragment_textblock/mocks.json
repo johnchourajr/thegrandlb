@@ -1,0 +1,54 @@
+{
+  "uid": {
+    "__TYPE__": "UIDContent",
+    "value": "best"
+  },
+  "media": {
+    "__TYPE__": "ImageContent",
+    "origin": {
+      "id": "main",
+      "url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab",
+      "width": 12288,
+      "height": 16384
+    },
+    "url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab",
+    "width": 12288,
+    "height": 16384,
+    "edit": {
+      "zoom": 1,
+      "crop": {
+        "x": 0,
+        "y": 0
+      },
+      "background": "transparent"
+    },
+    "thumbnails": {}
+  },
+  "eyebrow": {
+    "__TYPE__": "FieldContent",
+    "value": "cross",
+    "type": "Text"
+  },
+  "number": {
+    "__TYPE__": "FieldContent",
+    "value": "reach",
+    "type": "Text"
+  },
+  "body": {
+    "__TYPE__": "FieldContent",
+    "value": "blind",
+    "type": "Text"
+  },
+  "action_text": {
+    "__TYPE__": "FieldContent",
+    "value": "breathing",
+    "type": "Text"
+  },
+  "action_link": {
+    "__TYPE__": "LinkContent",
+    "value": {
+      "__TYPE__": "ExternalLink",
+      "url": "https://prismic.io"
+    }
+  }
+}

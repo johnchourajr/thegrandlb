@@ -1,0 +1,92 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "section_id": {
+        "__TYPE__": "FieldContent",
+        "value": "golden",
+        "type": "Text"
+      },
+      "title": {
+        "__TYPE__": "FieldContent",
+        "value": "information",
+        "type": "Text"
+      },
+      "gallery": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "DocumentLink",
+          "id": "mock_document_id"
+        }
+      },
+      "video_media": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "id": "mock_Media_link",
+          "kind": "image/jpeg",
+          "name": "mock_name",
+          "url": "https://source.unsplash.com/daily",
+          "size": "0",
+          "__TYPE__": "FileLink"
+        }
+      },
+      "media": {
+        "__TYPE__": "ImageContent",
+        "origin": {
+          "id": "main",
+          "url": "https://images.unsplash.com/photo-1560762484-813fc97650a0",
+          "width": 3344,
+          "height": 2509
+        },
+        "url": "https://images.unsplash.com/photo-1560762484-813fc97650a0",
+        "width": 3344,
+        "height": 2509,
+        "edit": {
+          "zoom": 1,
+          "crop": {
+            "x": 0,
+            "y": 0
+          },
+          "background": "transparent"
+        },
+        "thumbnails": {}
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "question",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Pariatur amet non ipsum."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "answer",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Irure reprehenderit est et id tempor eiusmod. Sint amet minim dolor exercitation occaecat duis sint duis do veniam quis officia eiusmod. Eiusmod qui excepteur amet tempor duis ipsum esse veniam."
+                  }
+                }
+              ]
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]

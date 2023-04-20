@@ -1,0 +1,65 @@
+{
+  "id": "homepage_numbers",
+  "type": "SharedSlice",
+  "name": "HomepageNumbers",
+  "description": "HomepageNumbers",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "HomepageNumbers",
+      "primary": {
+        "section_id": {
+          "type": "Text",
+          "config": {
+            "label": "Section Id",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": "This is where it all begins..."
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "single": "paragraph",
+            "label": "Description",
+            "placeholder": "A nice description of your feature"
+          }
+        },
+        "top_spacer": {
+          "type": "Select",
+          "config": {
+            "label": "Top Spacer",
+            "placeholder": "",
+            "options": ["Small", "Large", "None"]
+          }
+        },
+        "bottom_spacer": {
+          "type": "Select",
+          "config": {
+            "label": "Bottom Spacer",
+            "placeholder": "",
+            "options": ["Small", "Large", "None"]
+          }
+        },
+        "number_list": {
+          "type": "Link",
+          "config": {
+            "label": "Number List",
+            "select": "document",
+            "customtypes": ["fragment_number_list"]
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}

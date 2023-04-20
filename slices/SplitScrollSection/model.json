@@ -1,0 +1,148 @@
+{
+  "id": "split_scroll_section",
+  "type": "SharedSlice",
+  "name": "SplitScrollSection",
+  "description": "SplitScrollSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "SplitScrollSection",
+      "primary": {
+        "section_id": {
+          "type": "Text",
+          "config": {
+            "label": "Section Id",
+            "placeholder": ""
+          }
+        },
+        "gallery": {
+          "type": "Link",
+          "config": {
+            "label": "Gallery (Overrides all media)",
+            "select": "document",
+            "customtypes": [
+              "fragment_gallery"
+            ]
+          }
+        },
+        "video_media": {
+          "type": "Link",
+          "config": {
+            "label": "Video Media (Overrides Image Media)",
+            "placeholder": "",
+            "select": "media"
+          }
+        },
+        "media": {
+          "type": "Image",
+          "config": {
+            "label": "Media",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "top_spacer": {
+          "type": "Select",
+          "config": {
+            "label": "Top Spacer",
+            "placeholder": "",
+            "options": [
+              "Small",
+              "Large",
+              "None"
+            ]
+          }
+        },
+        "bottom_spacer": {
+          "type": "Select",
+          "config": {
+            "label": "Bottom Spacer",
+            "placeholder": "",
+            "options": [
+              "Small",
+              "Large",
+              "None"
+            ]
+          }
+        },
+        "asset_position": {
+          "type": "Boolean",
+          "config": {
+            "label": "Asset Position",
+            "placeholder_false": "Left",
+            "placeholder_true": "Right",
+            "default_value": true
+          }
+        }
+      },
+      "items": {
+        "media": {
+          "type": "Image",
+          "config": {
+            "label": "Media",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "headline": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Headline",
+            "placeholder": "",
+            "multi": "heading1,heading2,heading3"
+          }
+        },
+        "eyebrow": {
+          "type": "Text",
+          "config": {
+            "label": "Eyebrow",
+            "placeholder": ""
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "primary_action_text": {
+          "type": "Text",
+          "config": {
+            "label": "Primary Action Text",
+            "placeholder": ""
+          }
+        },
+        "primary_action_link": {
+          "type": "Link",
+          "config": {
+            "label": "Primary Action Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "secondary_action_text": {
+          "type": "Text",
+          "config": {
+            "label": "Secondary Action Text",
+            "placeholder": ""
+          }
+        },
+        "secondary_action_link": {
+          "type": "Link",
+          "config": {
+            "label": "Secondary Action Link",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}

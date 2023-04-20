@@ -1,21 +1,27 @@
-import type { AppProps } from "next/app";
-import clsx from "clsx";
-import { Lexend_Zetta, Atkinson_Hyperlegible } from "@next/font/google";
-import localFont from "@next/font/local";
 import Header from "@/components/Header";
+import { Atkinson_Hyperlegible, Lexend_Zetta } from "@next/font/google";
+import localFont from "@next/font/local";
+import clsx from "clsx";
+import type { AppProps } from "next/app";
 
 import "@/styles/globals.css";
-import { LazyMotion, domAnimation, MotionConfig } from "framer-motion";
+import { domAnimation, LazyMotion, MotionConfig } from "framer-motion";
 
 const lexend = Lexend_Zetta({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: "400",
   variable: "--font-lexend",
+});
+
+const lexendBold = Lexend_Zetta({
+  subsets: ["latin"],
+  weight: "700",
+  variable: "--font-lexend-bold",
 });
 
 const atkinson = Atkinson_Hyperlegible({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: "400",
   variable: "--font-atkinson",
 });
 
@@ -37,14 +43,21 @@ const domaine = localFont({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <MotionConfig>
+    <MotionConfig
+      transition={{
+        ease: [0.19, 1, 0.22, 1],
+        duration: 0.3,
+      }}
+      reducedMotion="user"
+    >
       <LazyMotion features={domAnimation}>
         <div
           className={clsx(
             lexend.variable,
             atkinson.variable,
             domaine.variable,
-            "font-sans"
+            lexendBold.variable,
+            "min-h-screen bg-bg font-sans"
           )}
         >
           {/* HEADER NAV */}

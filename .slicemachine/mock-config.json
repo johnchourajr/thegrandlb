@@ -1,18 +1,36 @@
 {
   "_cts": {
     "event_page": {},
-    "tour_page": {},
+    "tour_page": {
+      "features": {}
+    },
     "nav_links": {},
     "inquire_page": {},
-    "tour_index_page": {},
+    "tour_index_page": {
+      "spaces": {}
+    },
     "event_index_page": {},
     "offsite_index_page": {},
     "offsite_page": {},
     "page": {},
-    "menu_page": {}
+    "menu_page": {},
+    "gallery": {},
+    "fragment_textblock": {},
+    "fragment_number_list": {
+      "numberlist": {}
+    },
+    "fragment_gallery": {},
+    "fragment_media": {},
+    "card": {},
+    "fragment_moment_action_footer": {},
+    "fragment_cta_footer": {}
   },
   "slices": {
-    "PageHero": {},
+    "PageHero": {
+      "default": {
+        "primary": {}
+      }
+    },
     "NavLinkTree": {
       "default": {
         "primary": {},
@@ -20,6 +38,97 @@
       },
       "forMenus": {
         "items": {}
+      }
+    },
+    "TileGrid": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
+    },
+    "ScrollText": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "Gallery": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
+    },
+    "SplitGallery": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "HomepageNumbers": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "HomepageLocation": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "StarSection": {
+      "default": {
+        "items": {},
+        "primary": {}
+      }
+    },
+    "MomentsScrollSection": {
+      "default": {
+        "primary": {},
+        "items": {}
+      }
+    },
+    "SplitScrollSection": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "NumbersSection": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "ColumnSection": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "TextSection": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "FaqSection": {
+      "default": {
+        "items": {}
+      }
+    }
+  },
+  "fragments": {
+    "Number": {},
+    "TextBlock": {
+      "withIcon": {
+        "primary": {}
+      }
+    }
+  },
+  "homepage": {
+    "HomepageNumbers": {
+      "default": {
+        "primary": {}
+      }
+    }
+  },
+  "slices/fragments": {
+    "NavLinkTree": {
+      "default": {
+        "primary": {}
       }
     }
   }

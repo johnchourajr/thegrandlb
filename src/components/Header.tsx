@@ -1,26 +1,59 @@
-import { useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Link from "./Link";
 
-import { useRouter } from "next/router";
-import { PrismicLink } from "@prismicio/react";
-import { linkResolver } from "../../prismicio";
-import { m, useAnimation } from "framer-motion";
-import clsx from "clsx";
-import HeaderLogo from "./svg/HeaderLogo";
-import { GridSection } from "./GridSection";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import { PrismicLink } from "@prismicio/react";
+import clsx from "clsx";
+import { m, useAnimation, useScroll } from "framer-motion";
+import { useRouter } from "next/router";
+import { linkResolver } from "../../prismicio";
+import Button from "./Button";
+import { GridSection } from "./GridSection";
+import StringText from "./StringText";
+import HeaderLogo from "./svg/HeaderLogo";
+
+const NavItem = ({
+  field,
+  text,
+  linkProps,
+  linkClassName,
+  show = true,
+  className,
+}: any) => {
+  if (show === false) return null;
+  return (
+    <m.li className={clsx(className)}>
+      <PrismicLink
+        linkResolver={linkResolver}
+        field={field}
+        className={clsx("group relative z-10", linkClassName)}
+        {...linkProps}
+      >
+        <StringText
+          as="span"
+          className={clsx(
+            "inline-flex py-[0.65rem]",
+            "after:absolute after:bottom-0 after:left-0 after:z-20 after:h-[1.5px] after:w-[100%] after:origin-top-right after:scale-x-0 after:bg-black after:transition-transform after:duration-300 after:ease-out-expo after:content-['']",
+            "group-hover:after:origin-top-left group-hover:after:scale-x-100"
+          )}
+        >
+          {text}
+        </StringText>
+      </PrismicLink>
+    </m.li>
+  );
+};
 
 const NavParentItem = ({
   href,
   link_source,
   link_title,
   items,
-  ...rest
+  show = true,
 }: any) => {
   const router = useRouter();
   const controls = useAnimation();
   const [isHovering, setIsHovering] = useState(false);
-  const [isControlsVisible, setIsControlsVisible] = useState(true);
   const isMobile = useMediaQuery(1280);
 
   const link = href ? href : linkResolver(link_source);
@@ -74,8 +107,7 @@ const NavParentItem = ({
   };
 
   const handleToggleControls = () => {
-    setIsControlsVisible(!isControlsVisible);
-    if (isHovering && !isControlsVisible) {
+    if (isHovering) {
       controls.start(dropdownVariants.closed);
       setIsHovering(false);
     } else {
@@ -84,24 +116,51 @@ const NavParentItem = ({
     }
   };
 
+  if (show === false) return null;
+
   return (
-    <m.li className={clsx("--bg-yellow-400 list-none")} {...desktopParentProps}>
-      <span className={clsx("relative flex justify-between xl:justify-start")}>
+    <m.li
+      className={clsx(
+        "w-full list-none transition-opacity duration-300 ease-out-expo xl:w-fit",
+        hasChildren &&
+          "via-100% after:xl:pointer-events-none after:xl:absolute after:xl:inset-0 after:xl:z-[1] after:xl:h-[var(--height)] after:xl:bg-gradient-to-b after:xl:from-bg after:xl:via-bg after:xl:opacity-0 after:xl:transition-opacity after:xl:duration-700 after:xl:ease-out-expo after:xl:content-[''] hover:after:xl:opacity-90"
+      )}
+      initial={!isMobile && ({ "--height": "50vh" } as any)}
+      whileHover={!isMobile && ({ "--height": "100vh" } as any)}
+      transition={{ duration: 0.3 }}
+      {...desktopParentProps}
+    >
+      <span
+        className={clsx(
+          "relative flex justify-between xl:justify-start",
+          "--bg-yellow-100 border-b-[1.5px] border-black py-3",
+          "xl:border-none xl:py-0"
+        )}
+      >
         <CategoryAction
           tabIndex={1}
-          className={clsx(activeLink && "underline", "flex-grow text-left")}
+          className={clsx("group relative z-10 flex-grow text-left")}
           {...categoryActionProps()}
         >
-          {link_title}
+          <StringText
+            as="span"
+            className={clsx(
+              activeLink && "after:scale-x-100",
+              "after:absolute after:bottom-0 after:left-0 after:z-10 after:h-[1.5px] after:w-[100%] after:origin-top-right after:scale-x-0 after:bg-black after:opacity-0 after:transition-transform after:duration-300 after:ease-out-expo after:content-[''] after:xl:opacity-100",
+              "group-hover:opacity-100 group-hover:after:origin-top-left group-hover:after:scale-x-100"
+            )}
+          >
+            {link_title}
+          </StringText>
         </CategoryAction>
         {hasChildren && (
-          <span>
+          <span className="z-10">
             <button
               className={clsx(
                 "flex w-6 flex-row items-center justify-center !no-underline"
               )}
               onClick={handleToggleControls}
-              tabIndex={1}
+              tabIndex={isMobile ? -1 : 1}
             >
               {isHovering ? "-" : "+"}
             </button>
@@ -112,34 +171,42 @@ const NavParentItem = ({
       {hasChildren && (
         <m.ul
           className={clsx(
-            "flex flex-col gap-1 overflow-hidden bg-green-400 xl:absolute xl:overflow-visible xl:pt-2",
+            "bg-green-400 flex flex-col overflow-hidden xl:absolute xl:overflow-visible xl:pt-2 xl:pb-4",
+            "z-10 border-b-[1.5px] border-black",
+            "xl:border-none",
             !isHovering && "pointer-events-none"
           )}
           initial={"closed"}
           animate={controls}
           variants={dropdownVariants}
         >
-          <m.li>
-            <PrismicLink
-              linkResolver={linkResolver}
-              field={link_source}
-              tabIndex={1}
-            >
-              {link_title} Overview
-            </PrismicLink>
-          </m.li>
+          <NavItem
+            field={link_source}
+            text={`${link_title} Overview`}
+            linkProps={{
+              tabIndex: isHovering ? 1 : -1,
+            }}
+            linkClassName={"group relative"}
+            className={"pt-2"}
+          />
           {items.map(
-            ({ child_link_title, child_link_source }: any, index: number) => {
+            (
+              { child_link_title, child_link_source, show }: any,
+              index: number
+            ) => {
+              if (show === false) return null;
               return (
-                <m.li key={index}>
-                  <PrismicLink
-                    linkResolver={linkResolver}
-                    field={child_link_source}
-                    tabIndex={1}
-                  >
-                    {child_link_title}
-                  </PrismicLink>
-                </m.li>
+                <NavItem
+                  key={index}
+                  field={child_link_source}
+                  text={child_link_title}
+                  show={show}
+                  linkProps={{
+                    tabIndex: isHovering ? 1 : -1,
+                  }}
+                  linkClassName={"group relative"}
+                  className={"last-of-type:pb-2 last-of-type:xl:pb-0 "}
+                />
               );
             }
           )}
@@ -150,9 +217,31 @@ const NavParentItem = ({
 };
 
 export default function Header({ navigation }: any) {
-  // nav menu state
+  const [navScrolled, setNavScrolled] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const isMobile = useMediaQuery(1280);
+  const { scrollY } = useScroll();
+
+  const controls = useAnimation();
+
+  useEffect(() => {
+    const onChange = scrollY.on("change", async (currentScrollY) => {
+      setNavScrolled(currentScrollY > 100);
+    });
+
+    return () => {
+      onChange();
+    };
+  }, [scrollY]);
+
+  useEffect(() => {
+    controls.start({
+      "--navTop": navScrolled ? "-1rem" : "0",
+      "--logoScale": navScrolled ? 0.8 : 1,
+    } as any);
+  }, [navScrolled, controls]);
+
+  if (!navigation) return null;
 
   const { data } = navigation.results[0];
 
@@ -178,44 +267,68 @@ export default function Header({ navigation }: any) {
   };
 
   return (
-    <GridSection className="items-center bg-blue-100 ">
-      <div className={clsx("col-span-3 col-start-1 row-start-1 ml-4 xl:ml-16")}>
+    <GridSection
+      gridSectionType="flex"
+      className={clsx(
+        "sticky top-[var(--navTop)] z-[9999] h-fit flex-col items-center gap-[4vw] overflow-visible pt-4 transition-colors duration-300 ease-out-expo xl:flex-row",
+        navScrolled ? "bg-white" : "bg-bg"
+      )}
+      initial={{ "--navTop": "0rem" } as any}
+      animate={controls}
+      transition={{ duration: 0.2 }}
+    >
+      <m.div
+        className={clsx(
+          "grid-inset z-10 flex w-full origin-left justify-between xl:w-auto",
+          "scale-[var(--logoScale)]"
+        )}
+        initial={{ "--logoScale": "1", transformOrigin: "0% 70%" } as any}
+        animate={controls}
+      >
         <Link href="/" title="The Grand LB">
           <HeaderLogo />
         </Link>
-      </div>
-      {isMobile && (
-        <div
-          className={clsx(
-            "col-span-1 col-start-4 row-start-1 mr-4 flex justify-self-end xl:mr-16"
-          )}
-        >
-          <button onClick={() => setIsNavOpen(!isNavOpen)}>
-            {isNavOpen ? "Close" : "Open"}
-          </button>
-        </div>
-      )}
+        {isMobile && (
+          <div
+            className={clsx(
+              "col-span-1 col-start-4 row-start-1 mr-4 flex justify-self-end xl:mr-16"
+            )}
+          >
+            <button onClick={() => setIsNavOpen(!isNavOpen)}>
+              {isNavOpen ? "Close" : "Open"}
+            </button>
+          </div>
+        )}
+      </m.div>
       <AnimatedNav
         className={clsx(
-          "bg-red-200",
-          "col-span-full row-start-2 mx-4 flex grow flex-col justify-between gap-4",
-          "xl:col-span-9 xl:col-start-4 xl:row-start-1 xl:mr-16 xl:flex-row"
+          "group-one grid-inset overflow-hidden xl:overflow-visible",
+          "col-span-full row-start-2 flex w-full grow flex-col items-center justify-between xl:gap-4",
+          "xl:col-span-9 xl:col-start-4 xl:row-start-1 xl:flex-row xl:!pl-0"
         )}
         {...animationProps}
       >
         {data.slices.map(
           ({ variation, primary, ...rest }: any, index: number) => {
+            if (primary.show === false) return null;
             return (
               <NavParentItem
                 key={index}
                 link_source={primary.link_source}
                 link_title={primary.link_title}
+                show={primary.show}
                 variation={variation}
                 {...rest}
               />
             );
           }
         )}
+        <span className="z-10">•</span>
+        <span className="z-10">
+          <Button href="/inquire" size="small" target="_self" className="z-10">
+            Make an inquiry
+          </Button>
+        </span>
       </AnimatedNav>
     </GridSection>
   );

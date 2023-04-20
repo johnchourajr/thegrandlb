@@ -1,0 +1,126 @@
+{
+  "id": "fragment_number_list",
+  "label": "Fragment / Number List",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID",
+          "placeholder": ""
+        }
+      },
+      "numberlist": {
+        "type": "Group",
+        "config": {
+          "label": "NumberList",
+          "fields": {
+            "number": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Number",
+                "placeholder": "",
+                "multi": "heading1, heading2, heading3"
+              }
+            },
+            "eyebrow": {
+              "type": "Text",
+              "config": {
+                "label": "Eyebrow",
+                "placeholder": ""
+              }
+            },
+            "body": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Body",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,strong,em,hyperlink"
+              }
+            },
+            "action_text": {
+              "type": "Text",
+              "config": {
+                "label": "Action Text",
+                "placeholder": ""
+              }
+            },
+            "action_link": {
+              "type": "Link",
+              "config": {
+                "label": "Action Link",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "bullet_list": {
+        "type": "Group",
+        "config": {
+          "label": "Bullet List",
+          "fields": {
+            "media": {
+              "type": "Image",
+              "config": {
+                "label": "Media",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "eyebrow": {
+              "type": "Text",
+              "config": {
+                "label": "Eyebrow",
+                "placeholder": ""
+              }
+            },
+            "body": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Body",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "multi": "paragraph,strong,em,hyperlink"
+              }
+            },
+            "action_text": {
+              "type": "Text",
+              "config": {
+                "label": "Action Text",
+                "placeholder": ""
+              }
+            },
+            "action_link": {
+              "type": "Link",
+              "config": {
+                "label": "Action Link",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "primary_action": {
+        "type": "Text",
+        "config": {
+          "label": "Primary Action",
+          "placeholder": ""
+        }
+      },
+      "primary_action_link": {
+        "type": "Link",
+        "config": {
+          "label": "Primary Action Link",
+          "placeholder": "",
+          "select": null
+        }
+      }
+    }
+  }
+}

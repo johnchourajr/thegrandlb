@@ -1,0 +1,47 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "section_id": {
+        "__TYPE__": "FieldContent",
+        "value": "truck",
+        "type": "Text"
+      },
+      "gallery_left": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "DocumentLink",
+          "id": "mock_document_id"
+        }
+      },
+      "gallery_right": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "DocumentLink",
+          "id": "mock_document_id"
+        }
+      },
+      "offset_reverse": {
+        "__TYPE__": "BooleanContent",
+        "value": true
+      },
+      "top_spacer": {
+        "__TYPE__": "FieldContent",
+        "value": "Small",
+        "type": "Select"
+      },
+      "bottom_spacer": {
+        "__TYPE__": "FieldContent",
+        "value": "Small",
+        "type": "Select"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  }
+]

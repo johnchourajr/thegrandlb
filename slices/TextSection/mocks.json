@@ -1,0 +1,35 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "section_id": {
+        "__TYPE__": "FieldContent",
+        "value": "means",
+        "type": "Text"
+      },
+      "eyebrow": {
+        "__TYPE__": "FieldContent",
+        "value": "straw",
+        "type": "Text"
+      },
+      "body": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Nulla laborum non aliquip commodo aute laboris anim. Incididunt ex dolore magna labore minim ullamco excepteur eu dolore ipsum exercitation cupidatat."
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  }
+]

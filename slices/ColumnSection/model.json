@@ -1,0 +1,109 @@
+{
+  "id": "numbers_section",
+  "type": "SharedSlice",
+  "name": "ColumnSection",
+  "description": "NumbersSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "NumbersSection",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading1",
+            "label": "Title",
+            "placeholder": "This is where it all begins..."
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "single": "paragraph",
+            "label": "Description",
+            "placeholder": "A nice description of your feature"
+          }
+        },
+        "number_list": {
+          "type": "Link",
+          "config": {
+            "label": "Number List",
+            "select": "document",
+            "customtypes": [
+              "fragment_number_list"
+            ]
+          }
+        },
+        "columns": {
+          "type": "Select",
+          "config": {
+            "label": "Columns",
+            "placeholder": "",
+            "options": [
+              "3 Column",
+              "4 Column",
+              "6 Column",
+              "Inline"
+            ]
+          }
+        },
+        "inset": {
+          "type": "Boolean",
+          "config": {
+            "label": "Inset Columns",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        },
+        "top_spacer": {
+          "type": "Select",
+          "config": {
+            "label": "Top Spacer",
+            "placeholder": "",
+            "options": [
+              "Small",
+              "Large",
+              "None"
+            ]
+          }
+        },
+        "top_border": {
+          "type": "Boolean",
+          "config": {
+            "label": "Top Border",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "bottom_spacer": {
+          "type": "Select",
+          "config": {
+            "label": "Bottom Spacer",
+            "placeholder": "",
+            "options": [
+              "Small",
+              "Large",
+              "None"
+            ]
+          }
+        },
+        "bottom_border": {
+          "type": "Boolean",
+          "config": {
+            "label": "Bottom Border",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}

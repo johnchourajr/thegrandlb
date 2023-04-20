@@ -18,6 +18,113 @@
           "label": "Title",
           "placeholder": ""
         }
+      },
+      "gallery": {
+        "type": "Link",
+        "config": {
+          "label": "Gallery (Overrides all media)",
+          "select": "document",
+          "customtypes": ["fragment_gallery"]
+        }
+      },
+      "video_media": {
+        "type": "Link",
+        "config": {
+          "label": "Video Media (Overrides Image Media)",
+          "placeholder": "",
+          "select": "media"
+        }
+      },
+      "media": {
+        "type": "Image",
+        "config": {
+          "label": "Media",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "event_pages": {
+        "type": "Group",
+        "config": {
+          "label": "Event Pages",
+          "fields": {
+            "page": {
+              "type": "Link",
+              "config": {
+                "label": "Page",
+                "select": "document"
+              }
+            }
+          }
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "homepage_numbers": {
+              "type": "SharedSlice"
+            },
+            "page_hero": {
+              "type": "SharedSlice"
+            },
+            "moments_scroll_section": {
+              "type": "SharedSlice"
+            },
+            "homepage_location": {
+              "type": "SharedSlice"
+            },
+            "split_gallery": {
+              "type": "SharedSlice"
+            },
+            "star_section": {
+              "type": "SharedSlice"
+            },
+            "split_scroll_section": {
+              "type": "SharedSlice"
+            },
+            "tile_grid": {
+              "type": "SharedSlice"
+            },
+            "scroll_text": {
+              "type": "SharedSlice"
+            },
+            "text_section": {
+              "type": "SharedSlice"
+            },
+            "numbers_section": {
+              "type": "SharedSlice"
+            },
+            "faq_section": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "Meta": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": ""
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": ""
+        }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": {
+          "label": "Meta Image",
+          "constraint": {},
+          "thumbnails": []
+        }
       }
     }
   }

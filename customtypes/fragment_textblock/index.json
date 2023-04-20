@@ -1,0 +1,61 @@
+{
+  "id": "fragment_textblock",
+  "label": "Fragment / TextBlock",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID",
+          "placeholder": ""
+        }
+      },
+      "media": {
+        "type": "Image",
+        "config": {
+          "label": "Media",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "eyebrow": {
+        "type": "Text",
+        "config": {
+          "label": "Eyebrow",
+          "placeholder": ""
+        }
+      },
+      "number": {
+        "type": "Text",
+        "config": {
+          "label": "Number",
+          "placeholder": ""
+        }
+      },
+      "body": {
+        "type": "Text",
+        "config": {
+          "label": "Body",
+          "placeholder": ""
+        }
+      },
+      "action_text": {
+        "type": "Text",
+        "config": {
+          "label": "Action Text",
+          "placeholder": ""
+        }
+      },
+      "action_link": {
+        "type": "Link",
+        "config": {
+          "label": "Action Link",
+          "placeholder": "",
+          "select": null
+        }
+      }
+    }
+  }
+}

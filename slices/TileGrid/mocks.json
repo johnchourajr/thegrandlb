@@ -1,0 +1,134 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "section_id": {
+        "__TYPE__": "FieldContent",
+        "value": "herself",
+        "type": "Text"
+      },
+      "headline": {
+        "__TYPE__": "FieldContent",
+        "value": "writing",
+        "type": "Text"
+      },
+      "body": {
+        "__TYPE__": "FieldContent",
+        "value": "enemy",
+        "type": "Text"
+      },
+      "top_spacer": {
+        "__TYPE__": "FieldContent",
+        "value": "Large",
+        "type": "Select"
+      },
+      "bottom_spacer": {
+        "__TYPE__": "FieldContent",
+        "value": "Small",
+        "type": "Select"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "media",
+            {
+              "origin": {
+                "id": "main",
+                "url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88",
+                "width": 3168,
+                "height": 4752
+              },
+              "url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88",
+              "width": 3168,
+              "height": 4752,
+              "edit": {
+                "zoom": 1,
+                "crop": {
+                  "x": 0,
+                  "y": 0
+                },
+                "background": "transparent"
+              },
+              "credits": null,
+              "alt": null,
+              "__TYPE__": "ImageContent",
+              "thumbnails": {}
+            }
+          ],
+          [
+            "eyebrow",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "fought",
+              "type": "Text"
+            }
+          ],
+          [
+            "headline",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "firm",
+              "type": "Text"
+            }
+          ],
+          [
+            "body",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "waste",
+              "type": "Text"
+            }
+          ],
+          [
+            "link",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": "http://google.com"
+              }
+            }
+          ],
+          [
+            "theme",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "2",
+              "type": "Select"
+            }
+          ],
+          [
+            "col_start_span",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Start 2, Span 3",
+              "type": "Select"
+            }
+          ],
+          [
+            "row_start_span",
+            {
+              "__TYPE__": "FieldContent",
+              "value": "Start 2, Span 1",
+              "type": "Select"
+            }
+          ],
+          [
+            "card_fragment",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "DocumentLink",
+                "id": "mock_document_id"
+              }
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]

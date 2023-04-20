@@ -8,10 +8,14 @@
   margin: 0;
 }
 
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
 }
 
 body {
@@ -27,4 +31,16 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.grid-inset {
+  @apply px-4 md:px-8 xl:px-16;
+}
+
+.grid-inset-left {
+  @apply pl-4 md:pl-8 xl:pl-16 !pr-0 md:!pr-0 xl:!pr-0;
+}
+
+.grid-inset-right {
+  @apply pr-4 md:pr-8 xl:pr-16 !pl-0 md:!pl-0 xl:!pl-0;
 }

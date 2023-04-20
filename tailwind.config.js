@@ -19,71 +19,96 @@ function ms(base, ratio, n) {
   return base * Math.pow(ratio, n);
 }
 
-const MAX_RATIO = 1.5;
-const MIN_RATIO = 1.25;
+const MAX_RATIO = 1.275;
+const MIN_RATIO = 1.125;
 
 const headline = {
   max: {
-    1: ms(1, MAX_RATIO, 6),
-    2: ms(1, MAX_RATIO, 5),
-    3: ms(1, MAX_RATIO, 4),
-    4: ms(1, MAX_RATIO, 3),
-    5: ms(1, MAX_RATIO, 2),
-    6: ms(1, MAX_RATIO, 1),
+    0: ms(2, MAX_RATIO, 10),
+    1: ms(2, MAX_RATIO, 6),
+    2: ms(2, MAX_RATIO, 5),
+    3: ms(2, MAX_RATIO, 4),
+    4: ms(2, MAX_RATIO, 3),
+    5: ms(2, MAX_RATIO, 2),
+    6: ms(2, MAX_RATIO, 1),
   },
   min: {
-    1: ms(1, MIN_RATIO, 6),
-    2: ms(1, MIN_RATIO, 5),
-    3: ms(1, MIN_RATIO, 4),
-    4: ms(1, MIN_RATIO, 3),
-    5: ms(1, MIN_RATIO, 2),
-    6: ms(1, MIN_RATIO, 1),
+    0: ms(2, MIN_RATIO, 10),
+    1: ms(1.4, MIN_RATIO, 6),
+    2: ms(1.4, MIN_RATIO, 5),
+    3: ms(1.4, MIN_RATIO, 4),
+    4: ms(1.4, MIN_RATIO, 3),
+    5: ms(1.4, MIN_RATIO, 2),
+    6: ms(1.4, MIN_RATIO, 1),
   },
 };
 
+const colors = {
+  black: "#311514",
+  cream: "#FAF2EB",
+  white: "#FFFFFF",
+};
+
 module.exports = {
+  mode: "jit",
   content: [
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./slices/**/*.{js,ts,jsx,tsx}",
+  ],
+  plugins: [
+    require("tailwindcss-scoped-groups")({
+      groups: ["one", "two", "three"],
+    }),
   ],
   theme: {
-    olors: {
-      mark: "#f74c04",
-      highlight: "#ccbb00",
-      "highlight-dim": "rgba(204, 187, 0, 0.5)",
-      steel: "#304855",
-      black: "#0b1418",
-      glacier: "#f7f7f7",
-      white: "#fff",
-      transparent: "transparent",
-    },
-    fontFamily: {
-      sans: 'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+    colors: {
+      bg: colors.cream,
+      text: colors.black,
+      primary: colors.black,
+      black: colors.black,
+      cream: colors.cream,
+      white: colors.white,
     },
     fontSize: {
-      base: "1rem",
-      paragraph: "1.15rem",
-      string: "1.15rem",
-      linkString: "1.15rem",
-      caption: "0.85rem",
+      "string-large": "1rem",
+      "string-default": "0.8125rem",
+      "string-small": "0.6875rem",
+      "string-extra-small": "0.625rem",
+      "paragraph-large": "1.25rem",
+      "paragraph-default": "1rem",
+      "paragraph-small": "0.875rem",
+      "headline-4xl": clampBuilder(640, 1920, headline.min[0], headline.max[0]),
       "headline-3xl": clampBuilder(640, 1920, headline.min[1], headline.max[1]),
       "headline-2xl": clampBuilder(640, 1920, headline.min[2], headline.max[2]),
       "headline-xl": clampBuilder(640, 1920, headline.min[3], headline.max[3]),
       "headline-lg": clampBuilder(640, 1920, headline.min[4], headline.max[4]),
       "headline-md": clampBuilder(640, 1920, headline.min[5], headline.max[5]),
+      "headline-sm": clampBuilder(640, 1920, headline.min[6], headline.max[6]),
     },
     lineHeight: {
       base: 1.2,
-      paragraph: 1.5,
+      paragraph: 1.45,
       string: 1.5,
       linkString: 1.2,
-      "headline-3xl": 1.1,
-      "headline-2xl": 1.1,
-      "headline-xl": 1.2,
-      "headline-lg": 1.2,
-      "headline-md": 1.3,
-      "headline-sm": 1.3,
+      "headline-4xl": 0.88,
+      "headline-3xl": 0.91,
+      "headline-2xl": 0.95,
+      "headline-xl": 0.98,
+      "headline-lg": 1,
+      "headline-md": 1.1,
+      "headline-sm": 1.2,
     },
+    letterSpacing: {
+      "headline-4xl": "-0.04em",
+      "headline-3xl": "-0.04em",
+      "headline-2xl": "-0.04em",
+      "headline-xl": "-0.04em",
+      "headline-lg": "-0.03em",
+      "headline-md": "-0.015em",
+      "headline-sm": "-0.015em",
+    },
+
     screens: {
       sm: "640px",
       // => @media (min-width: 640px) { ... }
@@ -117,8 +142,31 @@ module.exports = {
         sans: ["var(--font-atkinson)", ...fontFamily.sans],
         serif: ["var(--font-domaine)", ...fontFamily.serif],
         lexend: ["var(--font-lexend)", ...fontFamily.sans],
+        "lexend-bold": ["var(--font-lexend-bold)", ...fontFamily.sans],
+      },
+      spacing: {
+        "layout-sm": "1.5rem",
+        "layout-md": "2rem",
+        "layout-lg": "2.5rem",
+        "layout-xl": "3rem",
+        "layout-2xl": "3.5rem",
+        "layout-3xl": "4rem",
+        "layout-4xl": "4.5rem",
+        "layout-5xl": "5rem",
+      },
+      transitionTimingFunction: {
+        "out-expo": "cubic-bezier(0.19, 1, 0.22, 1)",
+      },
+      maxWidth: {
+        DEFAULT: "92%",
+        "inner-rail": "92%",
+        "outer-rail": "100%",
+        xl: "1280px",
+        lg: "880px",
+        md: "720px",
+        sm: "540px",
+        xs: "360px",
       },
     },
   },
-  plugins: [],
 };

@@ -1,6 +1,7 @@
 import Head from "next/head";
 
 import * as prismicH from "@prismicio/helpers";
+import clsx from "clsx";
 // import Consent from "./consent";
 
 const LayoutHead = ({ settings, page, headContent }: any) => {
@@ -44,11 +45,25 @@ const LayoutHead = ({ settings, page, headContent }: any) => {
   );
 };
 
-const Layout = ({ settings, headContent, children, page }: any) => {
+const Layout = ({
+  settings,
+  headContent,
+  children,
+  page,
+  hidePageUid = false,
+  className,
+  wrapperClassName,
+}: any) => {
   return (
-    <div className="mx-auto w-full max-w-[2000px] text-black">
-      <LayoutHead page={page} settings={settings} headContent={headContent} />
-      <main className="min-h-[50vh]">{children}</main>
+    <div
+      className={clsx(
+        "--overflow-x-hidden relative z-0 mx-auto w-full max-w-[2500px] bg-bg text-black",
+        wrapperClassName
+      )}
+    >
+      {page && !hidePageUid && <pre>"uid": {page?.uid}</pre>}
+      {/* <LayoutHead page={page} settings={settings} headContent={headContent} /> */}
+      <main className={clsx("min-h-[150vh]", className)}>{children}</main>
       {/* <Consent /> */}
     </div>
   );

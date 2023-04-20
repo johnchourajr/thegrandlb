@@ -1,0 +1,44 @@
+{
+  "id": "settings",
+  "label": "Settings",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "site_title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Site Title",
+          "placeholder": "Title of the site",
+          "allowTargetBlank": false,
+          "single": "heading1"
+        }
+      },
+      "site_description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Site Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "logo": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "Logo"
+        }
+      },
+      "og_image": {
+        "type": "Image",
+        "config": {
+          "label": "Open Graph Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

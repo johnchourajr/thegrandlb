@@ -1,7 +1,6 @@
 {
   "apiEndpoint": "https://the-grand.prismic.io/api/v2",
-  "libraries": [
-    "@/slices"
-  ],
+  "libraries": ["@/slices", "@/slices/fragments"],
+  "localSliceSimulatorURL": "http://localhost:3000/slice-simulator",
   "_latest": "0.6.1"
 }

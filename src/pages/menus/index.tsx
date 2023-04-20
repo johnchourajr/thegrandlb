@@ -1,20 +1,25 @@
-import Link from "@components/Link";
-import * as prismic from "@prismicio/client";
+import { SliceZone } from "@prismicio/react";
+
+import Layout from "@/components/Layout";
+import { getPrismicMenus } from "@/services/get-prismic-menus";
+import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../../prismicio";
+import { components } from "../../../slices/";
 
-import { getPrismicMenus } from "../../services/get-prismic-menus";
-
-const Page = ({ childPages }: any) => {
+const Page = ({ navigation, settings, cta, page, childPages }: any) => {
   return (
-    <div>
-      <ul>
-        {childPages.map((menu: any) => (
-          <li key={menu.id}>
-            <a href={`/menus/${menu.uid}`}>{menu.data.page_title}</a>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Layout page={page}>
+      <div>
+        <ul>
+          {childPages.map((menu: any) => (
+            <li key={menu.id}>
+              <a href={`/menus/${menu.uid}`}>{menu.data.page_title}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <SliceZone slices={page.data.slices} components={components} />
+    </Layout>
   );
 };
 
@@ -35,14 +40,20 @@ export async function getStaticProps({ params, previewData }: any) {
     return menu.tags.includes("The Grand");
   });
 
-  const [navigation, page] = await Promise.all([
+  const [navigation, settings, cta, page] = await Promise.all([
     client.getByType("nav_links"),
-    client.getByUID("event_index_page", "events"),
+    client.getByType("settings"),
+    client.getByType("fragment_cta_footer"),
+    client.getByUID("event_index_page", "events", {
+      fetchLinks,
+    }),
   ]);
 
   return {
     props: {
       navigation,
+      settings,
+      cta,
       page,
       childPages,
     },

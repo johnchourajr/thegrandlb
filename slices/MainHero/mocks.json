@@ -1,0 +1,85 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "headline": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading1",
+            "content": {
+              "text": "Where Moments \nBecome Memories",
+              "spans": []
+            },
+            "direction": "ltr"
+          }
+        ]
+      },
+      "video_media": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "id": "mock_Media_link",
+          "kind": "image/jpeg",
+          "name": "mock_name",
+          "url": "https://source.unsplash.com/daily",
+          "size": "0",
+          "__TYPE__": "FileLink"
+        }
+      },
+      "primary_action": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "Primary Action"
+      },
+      "media": {
+        "url": "https://images.unsplash.com/photo-1532117472055-4d0734b51f31?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHw1fHx0YWJsZSUyMGVsZWdhbnR8ZW58MHx8fHwxNjgxMzY3ODQw&ixlib=rb-4.0.3&q=85",
+        "origin": {
+          "id": "_qZOwG2oaj4",
+          "url": "https://images.unsplash.com/photo-1532117472055-4d0734b51f31?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMzc0NjN8MHwxfHNlYXJjaHw1fHx0YWJsZSUyMGVsZWdhbnR8ZW58MHx8fHwxNjgxMzY3ODQw&ixlib=rb-4.0.3&q=85",
+          "width": 3456,
+          "height": 5184
+        },
+        "width": 3456,
+        "height": 5184,
+        "edit": {
+          "background": "transparent",
+          "zoom": 1,
+          "crop": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "credits": null,
+        "alt": null,
+        "__TYPE__": "ImageContent",
+        "thumbnails": {}
+      },
+      "secondary_action": {
+        "__TYPE__": "FieldContent",
+        "type": "Text",
+        "value": "Secondary Action"
+      },
+      "primary_action_link": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "/action"
+        }
+      },
+      "secondary_action_link": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "/action"
+        }
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  }
+]

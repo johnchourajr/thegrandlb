@@ -18,6 +18,74 @@
           "label": "Title",
           "placeholder": ""
         }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "tile_grid": {
+              "type": "SharedSlice"
+            },
+            "text_section": {
+              "type": "SharedSlice"
+            },
+            "star_section": {
+              "type": "SharedSlice"
+            },
+            "scroll_text": {
+              "type": "SharedSlice"
+            },
+            "split_gallery": {
+              "type": "SharedSlice"
+            },
+            "split_scroll_section": {
+              "type": "SharedSlice"
+            },
+            "moments_scroll_section": {
+              "type": "SharedSlice"
+            },
+            "page_hero": {
+              "type": "SharedSlice"
+            },
+            "homepage_numbers": {
+              "type": "SharedSlice"
+            },
+            "numbers_section": {
+              "type": "SharedSlice"
+            },
+            "faq_section": {
+              "type": "SharedSlice"
+            },
+            "homepage_location": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "Meta": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": ""
+        }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description",
+          "placeholder": ""
+        }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": {
+          "label": "Meta Image",
+          "constraint": {},
+          "thumbnails": []
+        }
       }
     }
   }

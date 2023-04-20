@@ -1,81 +1,130 @@
+import clsx from "clsx";
 import React from "react";
+
+import { m } from "framer-motion";
 
 interface TextProps {
   as?: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "span";
-  size?: "3xl" | "2xl" | "xl" | "lg" | "md" | "sm";
+  size?: "4xl" | "3xl" | "2xl" | "xl" | "lg" | "md" | "sm";
+  uppercase?: boolean;
+  emphasis?: boolean;
   className?: string;
   text?: string;
   children?: React.ReactNode;
 }
 
+const wrapEachWordInSpan = (txt?: string, children?: any) => {
+  if (!txt && !children) return null;
+  const words =
+    txt?.split(" ") ||
+    React.Children.map(children, (child: React.ReactNode) => {
+      if (typeof child === "string") {
+        return child.split(" ").map((word, index) => `${word} `);
+      }
+      return child;
+    });
+
+  const wrappedWords = words?.map((word, index) => (
+    <m.span key={index} className="inline-block">
+      {word}
+    </m.span>
+  ));
+
+  const wordsAsString = words?.join("");
+
+  return {
+    wrappedWords,
+    wordsAsString,
+  };
+};
+
+const getHeadlineStyles = (size: TextProps["size"]) => {
+  switch (size) {
+    case "4xl":
+      return {
+        size: "text-headline-4xl",
+        leading: "leading-headline-4xl",
+        tracking: "tracking-headline-4xl",
+      };
+    case "3xl":
+      return {
+        size: "text-headline-3xl",
+        leading: "leading-headline-3xl",
+        tracking: "tracking-headline-3xl",
+      };
+    case "2xl":
+      return {
+        size: "text-headline-2xl",
+        leading: "leading-headline-2xl",
+        tracking: "tracking-headline-2xl",
+      };
+    case "xl":
+      return {
+        size: "text-headline-xl",
+        leading: "leading-headline-xl",
+        tracking: "tracking-headline-xl",
+      };
+    case "lg":
+      return {
+        size: "text-headline-lg",
+        leading: "leading-headline-lg",
+        tracking: "tracking-headline-lg",
+      };
+    case "md":
+      return {
+        size: "text-headline-md",
+        leading: "leading-headline-md",
+        tracking: "tracking-headline-md",
+      };
+    case "sm":
+      return {
+        size: "text-headline-sm",
+        leading: "leading-headline-sm",
+        tracking: "tracking-headline-sm",
+      };
+    default:
+      return {
+        size: "text-headline-3xl",
+        leading: "leading-headline-3xl",
+        tracking: "tracking-headline-3xl",
+      };
+  }
+};
+
 function Headline({
   as: Comp = "p",
   size = "3xl",
+  uppercase = false,
+  emphasis = false,
   text,
   children,
   className,
   ...rest
 }: TextProps) {
-  const getHeadlineStyles = () => {
-    switch (size) {
-      case "3xl":
-        return {
-          size: "text-headline-3xl",
-          leading: "text-headline-3xl-leading",
-          letterSpacing: "-0.06em",
-        };
-      case "2xl":
-        return {
-          size: "text-headline-2xl",
-          leading: "text-headline-2xl-leading",
-          letterSpacing: "-0.06em",
-        };
-      case "xl":
-        return {
-          size: "text-headline-xl",
-          leading: "leading-headline-xl",
-          letterSpacing: "-0.05em",
-        };
-      case "lg":
-        return {
-          size: "text-headline-lg",
-          leading: "leading-headline-lg",
-          letterSpacing: "-0.04em",
-        };
-      case "md":
-        return {
-          size: "text-headline-md",
-          leading: "leading-headline-md",
-          letterSpacing: "-0.015em",
-        };
-      case "sm":
-        return {
-          size: "text-headline-sm",
-          leading: "leading-headline-sm",
-          letterSpacing: "-0.015em",
-        };
-      default:
-        return {
-          size: "text-headline-3xl",
-          leading: "leading-headline-3xl",
-          letterSpacing: "-0.04em",
-        };
-    }
-  };
+  const MotionComp = m[Comp];
+
+  const { wordsAsString, wrappedWords }: any = wrapEachWordInSpan(
+    text,
+    children
+  );
 
   return (
-    <Comp
-      className={`
-        headline
-        ${getHeadlineStyles().size}
-        ${getHeadlineStyles().leading}
-        ${className}
-      `}
-      style={{ letterSpacing: getHeadlineStyles().letterSpacing }}
+    <MotionComp
+      className={clsx(
+        "headline font-serif",
+        uppercase && "uppercase",
+        emphasis && "italic",
+        getHeadlineStyles(size).size,
+        getHeadlineStyles(size).leading,
+        getHeadlineStyles(size).tracking,
+        "whitespace-pre-wrap",
+        className
+      )}
+      aria-label={wordsAsString}
       {...rest}
     >
-      {text || children}
-    </Comp>
+      {wrappedWords}
+    </MotionComp>
   );
 }
 

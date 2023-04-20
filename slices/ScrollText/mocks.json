@@ -1,0 +1,61 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "section_id": {
+        "__TYPE__": "FieldContent",
+        "value": "rod",
+        "type": "Text"
+      },
+      "top_title": {
+        "__TYPE__": "FieldContent",
+        "value": "equipment",
+        "type": "Text"
+      },
+      "line_one": {
+        "__TYPE__": "FieldContent",
+        "value": "again",
+        "type": "Text"
+      },
+      "line_two": {
+        "__TYPE__": "FieldContent",
+        "value": "block",
+        "type": "Text"
+      },
+      "bottom_title": {
+        "__TYPE__": "FieldContent",
+        "value": "silk",
+        "type": "Text"
+      },
+      "primary_action": {
+        "__TYPE__": "FieldContent",
+        "value": "youth",
+        "type": "Text"
+      },
+      "primary_action_link": {
+        "__TYPE__": "LinkContent",
+        "value": {
+          "__TYPE__": "ExternalLink",
+          "url": "http://google.com"
+        }
+      },
+      "top_spacer": {
+        "__TYPE__": "FieldContent",
+        "value": "Large",
+        "type": "Select"
+      },
+      "bottom_spacer": {
+        "__TYPE__": "FieldContent",
+        "value": "None",
+        "type": "Select"
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": []
+      }
+    ]
+  }
+]
