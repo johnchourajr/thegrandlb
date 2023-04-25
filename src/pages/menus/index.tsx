@@ -7,13 +7,24 @@ import { createClient } from "../../../prismicio";
 import { components } from "../../../slices/";
 
 const Page = ({ navigation, settings, cta, page, childPages }: any) => {
+  const updateUID = (uid: any) => {
+    switch (uid) {
+      case "weddings-the-grand":
+        return "weddings";
+      default:
+        return uid;
+    }
+  };
+
   return (
     <Layout page={page}>
       <div>
         <ul>
           {childPages.map((menu: any) => (
             <li key={menu.id}>
-              <a href={`/menus/${menu.uid}`}>{menu.data.page_title}</a>
+              <a href={`/menus/${updateUID(menu.uid)}`}>
+                {menu.data.page_title}
+              </a>
             </li>
           ))}
         </ul>

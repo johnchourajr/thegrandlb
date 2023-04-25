@@ -6,7 +6,7 @@ import { createClient } from "../../../prismicio";
 import { components } from "../../../slices";
 
 const Page = ({ navigation, settings, cta, page }: any) => {
-  console.log({ navigation, settings, cta });
+  // console.log({ navigation, settings, cta });
 
   return (
     <Layout page={page}>

@@ -1,19 +1,19 @@
-import { SliceZone } from "@prismicio/react";
+// import { SliceZone } from "@prismicio/react";
 
 import { getPrismicMenus } from "@/services/get-prismic-menus";
 import fetchLinks from "@/utils/fetchLinks";
 import Layout from "@components/Layout";
 import { createClient } from "../../../prismicio";
-import { components } from "../../../slices";
+// import { components } from "../../../slices";
 
 const Page = ({ navigation, settings, cta, page, source }: any) => {
-  console.log({ source });
+  // console.log({ source });
 
   return (
     <Layout page={source}>
       <h1>{page.data.page_title}</h1>
       <></>
-      <SliceZone slices={page.data.slices} components={components} />
+      {/* <SliceZone slices={page.data.slices} components={components} /> */}
     </Layout>
   );
 };
@@ -69,10 +69,19 @@ export async function getStaticPaths() {
     return page.tags.includes("The Grand");
   });
 
+  const updateUID = (uid: any) => {
+    switch (uid) {
+      case "weddings-the-grand":
+        return "weddings";
+      default:
+        return uid;
+    }
+  };
+
   const paths = menus.map((page) => {
     return {
       params: {
-        uid: page.uid,
+        uid: updateUID(page.uid),
       },
     };
   });

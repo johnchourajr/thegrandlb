@@ -110,7 +110,7 @@ const TileItem = ({
     }
   };
 
-  console.log({ theme, media, link, headline, eyebrow, card_fragment, body });
+  // console.log({ theme, media, link, headline, eyebrow, card_fragment, body });
 
   const MotionLink: any = m(PrismicLink);
 
