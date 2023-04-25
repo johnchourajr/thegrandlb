@@ -10,8 +10,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<SmsResponse>
 ): Promise<void> {
-  const accountSid: string = process.env.NEXT_TWILIO_ACCOUNT_SID;
-  const authToken: string = process.env.NEXT_TWILIO_AUTH_TOKEN;
+  const accountSid: string | undefined = process.env.NEXT_TWILIO_ACCOUNT_SID;
+  const authToken: string | undefined = process.env.NEXT_TWILIO_AUTH_TOKEN;
   const client = twilio(accountSid, authToken);
 
   const { to, message } = req.body;

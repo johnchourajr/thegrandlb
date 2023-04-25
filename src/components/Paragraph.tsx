@@ -10,20 +10,6 @@ interface TextProps {
   children?: React.ReactNode;
 }
 
-function getTextLengthFromChildren(children: any): any {
-  let totalLength = 0;
-
-  React.Children.forEach(children, (child: any) => {
-    if (typeof child === "string") {
-      totalLength += child.length;
-    } else if (React.isValidElement(child)) {
-      totalLength += getTextLengthFromChildren(child.props.children);
-    }
-  });
-
-  return totalLength;
-}
-
 function Text({
   as: Comp = "p",
   size = "default",

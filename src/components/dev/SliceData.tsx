@@ -12,7 +12,7 @@ const SliceData = ({ slice }: any) => {
         )}
       >
         <pre>
-          "slice_type": <strong>{slice.slice_type}</strong>
+          slice_type: <strong>{slice.slice_type}</strong>
         </pre>
 
         <pre>{open ? "Close" : "Open"}</pre>

@@ -83,7 +83,7 @@ const InlineVideoPlayer = ({
 
   React.useEffect(() => {
     if (reducedMotion) {
-      ref?.current.pause();
+      ref?.current?.pause();
       setIsPlaying(false);
     }
   }, [reducedMotion]);

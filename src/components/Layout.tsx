@@ -32,7 +32,7 @@ const LayoutHead = ({ settings, page, headContent }: any) => {
       <meta name="og:description" content={desc} />
       <meta property="og:type" content="website" />
       <meta property="og:image" content={img} />
-      <meta property="og:site_name" content={siteTitle} />
+      <meta property="og:site_name" content={siteTitle || ""} />
       <meta property="og:locale" content="en_US" />
 
       <meta name="twitter:title" content={metaTitle} />
@@ -61,7 +61,7 @@ const Layout = ({
         wrapperClassName
       )}
     >
-      {page && !hidePageUid && <pre>"uid": {page?.uid}</pre>}
+      {page && !hidePageUid && <pre>uid: {page?.uid}</pre>}
       {/* <LayoutHead page={page} settings={settings} headContent={headContent} /> */}
       <main className={clsx("min-h-[150vh]", className)}>{children}</main>
       {/* <Consent /> */}
