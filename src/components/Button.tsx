@@ -29,7 +29,7 @@ interface ButtonTypes {
   onClick?: () => void | ButtonTypes;
   text?: string;
   buttonType?: "submit" | "button" | "reset";
-  type?: "black" | "white" | "outline";
+  type?: "black" | "white" | "outline" | "outline-black";
   size?: "large" | "default" | "small";
   className?: string;
   classNameInner?: string;
@@ -56,8 +56,14 @@ const getButtonStyles = (type: ButtonTypes["type"]) => {
       };
     case "outline":
       return {
+        parent: "text-white",
+        inner: "bg-transparent border-2 border-white rounded-full",
+        innerCurrentPage: "",
+      };
+    case "outline-black":
+      return {
         parent: "text-black",
-        inner: "bg-white rounded-full",
+        inner: "bg-transparent border-2 border-black rounded-full",
         innerCurrentPage: "",
       };
     default:
@@ -77,7 +83,7 @@ const getButtonSize = (size: ButtonTypes["size"]) => {
     case "small":
       return "px-4 py-3";
     case "large":
-      return "px-6 py-4";
+      return "px-8 py-5";
     default:
       return "py-4 px-3";
   }
@@ -147,7 +153,7 @@ function Button({
     >
       <StringText
         className="relative z-10 w-full flex-shrink-0"
-        size={size}
+        size={"small"}
         uppercase={true}
         bold={true}
       >
@@ -155,7 +161,7 @@ function Button({
       </StringText>
       <span
         className={clsx(
-          `absolute inset-0 z-0 transition-all duration-300 ease-out-expo will-change-auto group-hover:-inset-1 group-active:inset-1`,
+          `absolute inset-0 z-0 transition-all duration-500 ease-out-expo will-change-auto group-hover:inset-[-2px] group-active:inset-[2px]`,
           getButtonStyles(type).inner,
           currentPage ? getButtonStyles(type).innerCurrentPage : "",
           classNameInner ? classNameInner : ""

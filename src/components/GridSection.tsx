@@ -7,6 +7,7 @@ interface GridSectionProps {
   gridSectionType?: "grid" | "flex";
   as?: "section" | "div";
   className?: string;
+  bottomSpacer?: "None" | "Small" | "Large";
 }
 
 // have GridSectionProps extend framer motion props to allow for motion

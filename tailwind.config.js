@@ -47,6 +47,7 @@ const colors = {
   black: "#311514",
   cream: "#FAF2EB",
   white: "#FFFFFF",
+  gold: "#FFC42D",
 };
 
 module.exports = {
@@ -69,6 +70,7 @@ module.exports = {
       black: colors.black,
       cream: colors.cream,
       white: colors.white,
+      gold: colors.gold,
     },
     fontSize: {
       "string-large": "1rem",
@@ -153,6 +155,10 @@ module.exports = {
         "layout-3xl": "4rem",
         "layout-4xl": "4.5rem",
         "layout-5xl": "5rem",
+      },
+      borderRadius: {
+        sm: "0.25rem",
+        DEFAULT: "0.25rem",
       },
       transitionTimingFunction: {
         "out-expo": "cubic-bezier(0.19, 1, 0.22, 1)",
