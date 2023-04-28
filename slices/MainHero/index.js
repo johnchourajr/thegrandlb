@@ -23,7 +23,7 @@ const PageHero = ({ slice }) => {
       >
         <div
           className={clsx(
-            "relative col-span-full col-start-1 flex aspect-square max-h-[80vmin] w-full flex-col items-center justify-center gap-10 overflow-hidden rounded-sm bg-black px-4 text-center text-white lg:aspect-[16/7]"
+            "relative col-span-full col-start-1 flex aspect-square max-h-[calc(100vh-8.8125rem)] w-full flex-col items-center justify-center gap-10 overflow-hidden rounded-sm bg-black px-4 text-center text-white lg:aspect-[4/3] lg:max-h-[calc(100vh-9.8125rem)]"
           )}
         >
           <Headline
