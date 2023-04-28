@@ -13,17 +13,11 @@
       "primary": {
         "section_id": {
           "type": "Text",
-          "config": {
-            "label": "Section Id",
-            "placeholder": ""
-          }
+          "config": { "label": "Section Id", "placeholder": "" }
         },
         "eyebrow": {
           "type": "Text",
-          "config": {
-            "label": "Eyebrow",
-            "placeholder": ""
-          }
+          "config": { "label": "Eyebrow", "placeholder": "" }
         },
         "body": {
           "type": "StructuredText",
@@ -36,10 +30,7 @@
         },
         "primary_action": {
           "type": "Text",
-          "config": {
-            "label": "Primary Action",
-            "placeholder": ""
-          }
+          "config": { "label": "Primary Action", "placeholder": "" }
         },
         "primary_action_link": {
           "type": "Link",
@@ -51,10 +42,7 @@
         },
         "secondary_action": {
           "type": "Text",
-          "config": {
-            "label": "Secondary Action",
-            "placeholder": ""
-          }
+          "config": { "label": "Secondary Action", "placeholder": "" }
         },
         "secondary_action_link": {
           "type": "Link",
@@ -109,7 +97,7 @@
         }
       },
       "items": {},
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+      "imageUrl": "https://images.prismic.io/the-grand/shared-slices/text_section/default/97bc92c877a8df10d25ef4b5d76a325f6c5203ba.png?auto=compress%2Cformat"
     }
   ]
 }

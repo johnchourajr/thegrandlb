@@ -112,18 +112,37 @@ function Button({
   const isNextLink = href && !isButton;
   const isPrismicLink = field && !isButton;
 
-  const getGeneralProps = () => {
+  const getType = () => {
     if (isButton) {
-      return {
-        onClick,
-        type: buttonType,
-      } as ButtonHTMLAttributes<HTMLButtonElement>;
+      return "button";
     } else if (isNextLink) {
-      return { href } as LinkProps;
+      return "next-link";
     } else if (isPrismicLink) {
-      return { field, linkResolver } as PrismicLinkProps;
+      return "prismic-link";
     } else {
-      return {};
+      return "button";
+    }
+  };
+
+  const buttonTypeName = getType();
+
+  const getLinkProps = (
+    type: "button" | "next-link" | "prismic-link"
+  ):
+    | LinkProps
+    | PrismicLinkProps
+    | ButtonHTMLAttributes<HTMLButtonElement>
+    | any => {
+    switch (type) {
+      case "next-link":
+        return { href } as LinkProps;
+      case "prismic-link":
+        return { field, linkResolver } as PrismicLinkProps;
+      default:
+        return {
+          onClick,
+          type: buttonType,
+        } as ButtonHTMLAttributes<HTMLButtonElement>;
     }
   };
 
@@ -148,8 +167,7 @@ function Button({
       tabIndex={0}
       aria-label={text}
       aria-current={currentPage}
-      {...(getGeneralProps() as any)}
-      {...rest}
+      {...getLinkProps(buttonTypeName)}
     >
       <StringText
         className="relative z-10 w-full flex-shrink-0"

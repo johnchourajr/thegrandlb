@@ -21,6 +21,7 @@ function StringText({
   className,
   ...rest
 }: TextProps) {
+  if (!text && !children) return null;
   // switch for mapping size is to output leading
   const getUppercaseStyles = () => {
     switch (uppercase) {

@@ -1,66 +1,66 @@
 [
-  {
-    "__TYPE__": "SharedSliceContent",
-    "variation": "default",
-    "primary": {
-      "title": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "heading1",
-            "content": {
-              "text": "Typical"
-            }
-          }
-        ]
-      },
-      "description": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Esse irure aliqua dolore deserunt elit officia nostrud minim ea aliquip dolor."
-            }
-          }
-        ]
-      },
-      "gallery": {
-        "__TYPE__": "LinkContent",
-        "value": {
-          "__TYPE__": "DocumentLink",
-          "id": "mock_document_id"
-        }
-      },
-      "address_label": {
-        "__TYPE__": "FieldContent",
-        "value": "improve",
-        "type": "Text"
-      },
-      "address": {
-        "__TYPE__": "StructuredTextContent",
-        "value": [
-          {
-            "type": "paragraph",
-            "content": {
-              "text": "Nostrud elit officia et."
-            }
-          }
-        ]
-      },
-      "bullet_list": {
-        "__TYPE__": "LinkContent",
-        "value": {
-          "__TYPE__": "DocumentLink",
-          "id": "mock_document_id"
-        }
-      }
-    },
-    "items": [
-      {
-        "__TYPE__": "GroupItemContent",
-        "value": []
-      }
-    ]
-  }
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Typical"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Esse irure aliqua dolore deserunt elit officia nostrud minim ea aliquip dolor."
+						}
+					}
+				]
+			},
+			"gallery": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "DocumentLink",
+					"id": "mock_document_id"
+				}
+			},
+			"address_label": {
+				"__TYPE__": "FieldContent",
+				"value": "improve",
+				"type": "Text"
+			},
+			"address": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Nostrud elit officia et."
+						}
+					}
+				]
+			},
+			"bullet_list": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "DocumentLink",
+					"id": "mock_document_id"
+				}
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
 ]

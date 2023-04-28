@@ -13,10 +13,7 @@
       "primary": {
         "link_title": {
           "type": "Text",
-          "config": {
-            "label": "Link Title",
-            "placeholder": ""
-          }
+          "config": { "label": "Link Title", "placeholder": "" }
         },
         "link_source": {
           "type": "Link",
@@ -38,7 +35,7 @@
         }
       },
       "items": {},
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+      "imageUrl": "https://images.prismic.io/the-grand/shared-slices/nav_link_tree/default/6725a8a188b7b201cdda9241a86a552e0c28b7d5.png?auto=compress%2Cformat"
     },
     {
       "id": "withChildren",
@@ -49,10 +46,7 @@
       "primary": {
         "link_title": {
           "type": "Text",
-          "config": {
-            "label": "Link Title",
-            "placeholder": ""
-          }
+          "config": { "label": "Link Title", "placeholder": "" }
         },
         "link_source": {
           "type": "Link",
@@ -76,10 +70,7 @@
       "items": {
         "child_link_title": {
           "type": "Text",
-          "config": {
-            "label": "Child Link Title",
-            "placeholder": ""
-          }
+          "config": { "label": "Child Link Title", "placeholder": "" }
         },
         "child_link_source": {
           "type": "Link",
@@ -99,7 +90,7 @@
           }
         }
       },
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+      "imageUrl": "https://images.prismic.io/the-grand/shared-slices/nav_link_tree/withChildren/c07cdc21af1704a85e7052c133181c78f4bdcdf8.png?auto=compress%2Cformat"
     },
     {
       "id": "forMenus",
@@ -110,10 +101,7 @@
       "primary": {
         "link_title": {
           "type": "Text",
-          "config": {
-            "label": "Link Title",
-            "placeholder": ""
-          }
+          "config": { "label": "Link Title", "placeholder": "" }
         },
         "link_source": {
           "type": "Link",
@@ -135,7 +123,7 @@
         }
       },
       "items": {},
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+      "imageUrl": "https://images.prismic.io/the-grand/shared-slices/nav_link_tree/forMenus/6c51278b38425ab910dfb5053d16b486ab7a4141.png?auto=compress%2Cformat"
     }
   ]
 }

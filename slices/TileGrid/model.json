@@ -13,23 +13,22 @@
       "primary": {
         "section_id": {
           "type": "Text",
-          "config": {
-            "label": "Section Id",
-            "placeholder": ""
-          }
+          "config": { "label": "Section Id", "placeholder": "" }
         },
         "headline": {
           "type": "Text",
-          "config": {
-            "label": "Headline",
-            "placeholder": ""
-          }
+          "config": { "label": "Headline", "placeholder": "" }
         },
         "body": {
           "type": "Text",
+          "config": { "label": "Body", "placeholder": "" }
+        },
+        "theme": {
+          "type": "Select",
           "config": {
-            "label": "Body",
-            "placeholder": ""
+            "label": "Theme",
+            "placeholder": "",
+            "options": ["Cream", "White", "Black"]
           }
         },
         "top_spacer": {
@@ -37,11 +36,7 @@
           "config": {
             "label": "Top Spacer",
             "placeholder": "",
-            "options": [
-              "Small",
-              "Large",
-              "None"
-            ]
+            "options": ["Small", "Large", "None"]
           }
         },
         "bottom_spacer": {
@@ -49,11 +44,7 @@
           "config": {
             "label": "Bottom Spacer",
             "placeholder": "",
-            "options": [
-              "Small",
-              "Large",
-              "None"
-            ]
+            "options": ["Small", "Large", "None"]
           }
         }
       },
@@ -63,47 +54,28 @@
           "config": {
             "label": "Card Fragment (Overrides content)",
             "select": "document",
-            "customtypes": [
-              "fragment_card"
-            ]
+            "customtypes": ["fragment_card"]
           }
         },
         "media": {
           "type": "Image",
-          "config": {
-            "label": "Media",
-            "constraint": {},
-            "thumbnails": []
-          }
+          "config": { "label": "Media", "constraint": {}, "thumbnails": [] }
         },
         "eyebrow": {
           "type": "Text",
-          "config": {
-            "label": "Eyebrow",
-            "placeholder": ""
-          }
+          "config": { "label": "Eyebrow", "placeholder": "" }
         },
         "headline": {
           "type": "Text",
-          "config": {
-            "label": "Headline",
-            "placeholder": ""
-          }
+          "config": { "label": "Headline", "placeholder": "" }
         },
         "body": {
           "type": "Text",
-          "config": {
-            "label": "Body",
-            "placeholder": ""
-          }
+          "config": { "label": "Body", "placeholder": "" }
         },
         "link": {
           "type": "Link",
-          "config": {
-            "label": "Link",
-            "placeholder": "",
-            "select": null
-          }
+          "config": { "label": "Link", "placeholder": "", "select": null }
         },
         "theme": {
           "type": "Select",
@@ -118,6 +90,22 @@
               "Gold/Black",
               "Outlined"
             ]
+          }
+        },
+        "size": {
+          "type": "Select",
+          "config": {
+            "label": "Size",
+            "placeholder": "",
+            "options": ["Default", "Large"]
+          }
+        },
+        "direction": {
+          "type": "Select",
+          "config": {
+            "label": "Direction",
+            "placeholder": "",
+            "options": ["Col", "Col Reverse"]
           }
         },
         "col_start": {
@@ -193,7 +181,7 @@
           }
         }
       },
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+      "imageUrl": "https://images.prismic.io/the-grand/shared-slices/tile_grid/default/2fead3d6f602f3b488cae974525486a77516f148.png?auto=compress%2Cformat"
     }
   ]
 }

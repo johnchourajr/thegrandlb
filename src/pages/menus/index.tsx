@@ -41,7 +41,7 @@ export async function getStaticProps({ params, previewData }: any) {
 
   // use client to fetch menus
   const res = async () => {
-    const response = getPrismicMenus.getAllByType("menu_collection");
+    const response = getPrismicMenus.getAllByType("menu_collection" as any);
 
     return response;
   };

@@ -123,7 +123,7 @@ const NavParentItem = ({
       className={clsx(
         "w-full list-none transition-opacity duration-300 ease-out-expo xl:w-fit",
         hasChildren &&
-          "via-100% after:xl:pointer-events-none after:xl:absolute after:xl:inset-0 after:xl:z-[1] after:xl:h-[var(--height)] after:xl:bg-gradient-to-b after:xl:from-bg after:xl:via-bg after:xl:opacity-0 after:xl:transition-opacity after:xl:duration-700 after:xl:ease-out-expo after:xl:content-[''] hover:after:xl:opacity-90"
+          "via-100% after:xl:pointer-events-none after:xl:absolute after:xl:inset-0 after:xl:top-0 after:xl:z-[1] after:xl:h-[110vh] after:xl:bg-gradient-to-b after:xl:from-bg after:xl:to-bg after:xl:opacity-0 after:xl:transition-opacity after:xl:duration-700 after:xl:ease-out-expo after:xl:content-[''] hover:after:xl:opacity-90"
       )}
       initial={!isMobile && ({ "--height": "50vh" } as any)}
       whileHover={!isMobile && ({ "--height": "100vh" } as any)}
@@ -270,12 +270,13 @@ export default function Header({ navigation }: any) {
     <GridSection
       gridSectionType="flex"
       className={clsx(
-        "sticky top-[var(--navTop)] z-[9999] h-fit flex-col items-center gap-[4vw] overflow-visible pt-4 transition-colors duration-300 ease-out-expo xl:flex-row",
+        "sticky top-[var(--navTop)] z-[9999] h-fit !max-w-[100vw] flex-col items-center gap-[4vw] overflow-visible !pt-4 transition-colors duration-300 ease-out-expo xl:flex-row 2xl:gap-[5vw] 4xl:gap-[6vw]",
         navScrolled ? "bg-white" : "bg-bg"
       )}
       initial={{ "--navTop": "0rem" } as any}
       animate={controls}
       transition={{ duration: 0.2 }}
+      topSpacer="None"
     >
       <m.div
         className={clsx(
@@ -325,9 +326,19 @@ export default function Header({ navigation }: any) {
         )}
         <span className="z-10">•</span>
         <span className="z-10">
-          <Button href="/inquire" size="small" target="_self" className="z-10">
-            Make an inquiry
-          </Button>
+          <Button
+            field={{
+              id: "ZC5YBhAAACEA0ymB",
+              link_type: "Document",
+              slug: "inquire-page",
+              type: "inquire_page",
+              uid: "inquire",
+            }}
+            size="small"
+            target="_self"
+            className="z-10"
+            text="Make an inquiry"
+          />
         </span>
       </AnimatedNav>
     </GridSection>

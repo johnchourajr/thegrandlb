@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React from "react";
 
-import { m } from "framer-motion";
+import { m, Variants } from "framer-motion";
 
 export type TextSize = "4xl" | "3xl" | "2xl" | "xl" | "lg" | "md" | "sm";
 
@@ -12,46 +12,92 @@ interface TextProps {
   emphasis?: boolean;
   className?: string;
   text?: string;
+  duration?: number;
   disableMotion?: boolean;
   disableStagger?: boolean;
+  animationType?: "word" | "letter";
+  animateOnce?: boolean;
   children?: React.ReactNode;
 }
-
-const wrapEachWordInSpan = (txt?: string, children?: any) => {
+const wrapEachLetterInSpan = (word: string, index: number) => {
   const item = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1 },
+    hidden: { opacity: 0, y: "0.5em" },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 1, ease: [0.19, 1, 0.22, 1] },
+    },
   };
+  const letters = word.split("");
+  const wrappedLetters = letters.map((letter, idx) => (
+    <m.span
+      key={idx}
+      variants={item}
+      data-letter={letter}
+      style={{ "--animation-order": `${idx * 0.05 * 100}ms` } as any}
+      className={clsx("relative inline-block")}
+    >
+      {letter}
+    </m.span>
+  ));
+  return <>{wrappedLetters}</>;
+};
+
+const wrapEachWordInSpan = (word: string, index: number) => {
+  const item = {
+    hidden: { opacity: 0, y: "0.5em" },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 2, ease: [0.19, 1, 0.22, 1] },
+    },
+  };
+
+  return (
+    <m.span
+      key={index}
+      variants={item}
+      data-word={word}
+      style={{ "--animation-order": `${index * 0.05 * 100}ms` } as any}
+      className={clsx("relative")}
+    >
+      {word}{" "}
+    </m.span>
+  );
+};
+
+const renderContent = (
+  txt?: string,
+  children?: any,
+  type: "word" | "letter" = "word"
+) => {
   if (!txt && !children) return null;
   const words =
     txt?.split(" ") ||
     React.Children.map(children, (child: React.ReactNode) => {
       if (typeof child === "string") {
-        return child.split(" ").map((word) => `${word} `);
+        return child.split(" ").map((word) => `${word}`);
       }
       return child;
     });
 
-  const wrappedWords = words?.map((word, index) => (
-    <m.span
-      key={index}
-      variants={item}
-      data-word={word}
-      style={{ "--animation-order": `${index * 0.1 * 100}ms` } as any}
-      className={clsx(
-        "relative inline-block"
-        // "before:absolute before:bottom-[var(--before-b,0)] before:left-0 before:opacity-[var(--before-o,1)] before:content-[attr(data-word)]",
-        // "after:absolute after:bottom-[var(--after-b,-1em)] after:left-0 after:opacity-[var(--after-o,0)] after:content-[attr(data-word)]",
-        // "after:delay-[var(--animation-order)]"
-      )}
-    >
-      {/* <span className="!text-[transparent]">{word}</span> */}
-      {word}
-    </m.span>
-  ));
+  const wrappedWords = words?.map((word: any, index: number): any => {
+    if (type === "word") {
+      return (
+        <React.Fragment key={index}>
+          {wrapEachWordInSpan(word, index)}
+        </React.Fragment>
+      );
+    } else {
+      return (
+        <span key={index} className="relative inline-block">
+          {wrapEachLetterInSpan(word, index)}
+        </span>
+      );
+    }
+  });
 
-  const wordsAsString = words?.join("");
-
+  const wordsAsString = words?.join(" ");
   return {
     wrappedWords,
     wordsAsString,
@@ -118,19 +164,39 @@ function Headline({
   emphasis = false,
   text,
   children,
+  duration,
   disableMotion = false,
   disableStagger = false,
+  animationType = "word",
+  animateOnce = false,
   className,
   ...rest
 }: TextProps) {
-  const MotionComp = m[Comp];
-
   if (!text && !children) return null;
 
-  const { wordsAsString, wrappedWords }: any = wrapEachWordInSpan(
+  const { wordsAsString, wrappedWords }: any = renderContent(
     text,
-    children
+    children,
+    animationType
   );
+
+  const staggerChildren = () => {
+    if (disableStagger) return 0;
+    if (animationType === "word") {
+      return 0.1;
+    } else {
+      return 0.05;
+    }
+  };
+
+  const delayChildren = () => {
+    if (disableStagger) return 0;
+    if (animationType === "word") {
+      return 0.1;
+    } else {
+      return 0;
+    }
+  };
 
   const container = {
     hidden: { opacity: 0, y: "0.1em", scale: 1.1 },
@@ -139,23 +205,29 @@ function Headline({
       y: 0,
       scale: [1.1, 1],
       transition: {
-        staggerChildren: !disableStagger && 0.05,
-        delayChildren: !disableStagger && 0.1,
-        duration: 2,
+        staggerChildren: staggerChildren(),
+        delayChildren: delayChildren(),
+        duration: duration || 2,
         ease: [0.19, 1, 0.22, 1],
       },
     },
-  };
+  } as Variants;
 
   const motionProps = !disableMotion && {
-    variants: container as any,
+    variants: container,
     initial: "hidden",
     whileInView: "show",
+    viewport: {
+      once: animateOnce,
+    },
   };
+
+  const MotionComp = m[Comp];
 
   return (
     <MotionComp
       {...motionProps}
+      layout="position"
       className={clsx(
         "headline font-serif",
         uppercase && "uppercase",

@@ -24,14 +24,18 @@ export async function getStaticProps({ params, previewData }: any) {
   const client = createClient({ previewData });
 
   const res = async () => {
-    const response = getPrismicMenus.getByUID("menu_collection", params.uid, {
-      fetchLinks: [
-        "menu.page_title",
-        "menu.page_description",
-        "menu.page_disclaimer",
-        "menu.body",
-      ],
-    });
+    const response = getPrismicMenus.getByUID(
+      "menu_collection" as any,
+      params.uid,
+      {
+        fetchLinks: [
+          "menu.page_title",
+          "menu.page_description",
+          "menu.page_disclaimer",
+          "menu.body",
+        ],
+      }
+    );
 
     return response;
   };
@@ -59,7 +63,7 @@ export async function getStaticProps({ params, previewData }: any) {
 
 export async function getStaticPaths() {
   const res = async () => {
-    const response = getPrismicMenus.getAllByType("menu_collection");
+    const response = getPrismicMenus.getAllByType("menu_collection" as any);
 
     return response;
   };

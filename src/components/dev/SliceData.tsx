@@ -4,7 +4,7 @@ import { useState } from "react";
 const SliceData = ({ slice }: any) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className={clsx("my-4")}>
+    <div className={clsx("my-4 lg:my-6")}>
       <button
         onClick={() => setOpen(!open)}
         className={clsx(

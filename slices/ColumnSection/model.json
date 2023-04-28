@@ -32,9 +32,7 @@
           "config": {
             "label": "Number List",
             "select": "document",
-            "customtypes": [
-              "fragment_number_list"
-            ]
+            "customtypes": ["fragment_number_list"]
           }
         },
         "columns": {
@@ -42,12 +40,7 @@
           "config": {
             "label": "Columns",
             "placeholder": "",
-            "options": [
-              "3 Column",
-              "4 Column",
-              "6 Column",
-              "Inline"
-            ]
+            "options": ["3 Column", "4 Column", "6 Column", "Inline"]
           }
         },
         "inset": {
@@ -64,11 +57,7 @@
           "config": {
             "label": "Top Spacer",
             "placeholder": "",
-            "options": [
-              "Small",
-              "Large",
-              "None"
-            ]
+            "options": ["Small", "Large", "None"]
           }
         },
         "top_border": {
@@ -85,11 +74,7 @@
           "config": {
             "label": "Bottom Spacer",
             "placeholder": "",
-            "options": [
-              "Small",
-              "Large",
-              "None"
-            ]
+            "options": ["Small", "Large", "None"]
           }
         },
         "bottom_border": {
@@ -103,7 +88,7 @@
         }
       },
       "items": {},
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+      "imageUrl": "https://images.prismic.io/the-grand/shared-slices/numbers_section/default/40a5cc0fdaed091257e813c4b05132031b11fbea.png?auto=compress%2Cformat"
     }
   ]
 }

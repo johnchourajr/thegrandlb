@@ -13,10 +13,7 @@
       "primary": {
         "section_id": {
           "type": "Text",
-          "config": {
-            "label": "Section Id",
-            "placeholder": ""
-          }
+          "config": { "label": "Section Id", "placeholder": "" }
         },
         "title": {
           "type": "Text",
@@ -59,7 +56,7 @@
         }
       },
       "items": {},
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+      "imageUrl": "https://images.prismic.io/the-grand/shared-slices/homepage_numbers/default/a985caf3cc36676e90a56f39c5beba680a26b755.png?auto=compress%2Cformat"
     }
   ]
 }

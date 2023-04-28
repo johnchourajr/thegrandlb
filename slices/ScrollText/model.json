@@ -13,45 +13,27 @@
       "primary": {
         "section_id": {
           "type": "Text",
-          "config": {
-            "label": "Section Id",
-            "placeholder": ""
-          }
+          "config": { "label": "Section Id", "placeholder": "" }
         },
         "top_title": {
           "type": "Text",
-          "config": {
-            "label": "Top Title",
-            "placeholder": ""
-          }
+          "config": { "label": "Top Title", "placeholder": "" }
         },
         "line_one": {
           "type": "Text",
-          "config": {
-            "label": "Line One",
-            "placeholder": ""
-          }
+          "config": { "label": "Line One", "placeholder": "" }
         },
         "line_two": {
           "type": "Text",
-          "config": {
-            "label": "Line Two",
-            "placeholder": ""
-          }
+          "config": { "label": "Line Two", "placeholder": "" }
         },
         "bottom_title": {
           "type": "Text",
-          "config": {
-            "label": "Bottom Title",
-            "placeholder": ""
-          }
+          "config": { "label": "Bottom Title", "placeholder": "" }
         },
         "primary_action": {
           "type": "Text",
-          "config": {
-            "label": "Primary Action",
-            "placeholder": ""
-          }
+          "config": { "label": "Primary Action", "placeholder": "" }
         },
         "primary_action_link": {
           "type": "Link",
@@ -79,7 +61,7 @@
         }
       },
       "items": {},
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+      "imageUrl": "https://images.prismic.io/the-grand/shared-slices/scroll_text/default/d309eb7b84518bd8eb06f127a2399ec686167c2d.png?auto=compress%2Cformat"
     }
   ]
 }

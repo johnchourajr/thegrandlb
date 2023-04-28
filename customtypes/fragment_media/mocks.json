@@ -1,0 +1,41 @@
+[
+  {
+    "video_media": {
+      "__TYPE__": "LinkContent",
+      "value": {
+        "id": "mock_Media_link",
+        "kind": "image/jpeg",
+        "name": "mock_name",
+        "url": "https://source.unsplash.com/daily",
+        "size": "0",
+        "__TYPE__": "FileLink"
+      }
+    },
+    "media": {
+      "__TYPE__": "ImageContent",
+      "origin": {
+        "id": "main",
+        "url": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db",
+        "width": 4380,
+        "height": 2895
+      },
+      "url": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db",
+      "width": 4380,
+      "height": 2895,
+      "edit": {
+        "zoom": 1,
+        "crop": {
+          "x": 0,
+          "y": 0
+        },
+        "background": "transparent"
+      },
+      "thumbnails": {}
+    },
+    "caption": {
+      "__TYPE__": "FieldContent",
+      "value": "ball",
+      "type": "Text"
+    }
+  }
+]

@@ -11,26 +11,14 @@
       "version": "sktwi1xtmkfgx8626",
       "description": "FaqSection",
       "primary": {
-        "section_id": {
-          "type": "Text",
-          "config": {
-            "label": "Section Id"
-          }
-        },
-        "title": {
-          "type": "Text",
-          "config": {
-            "label": "Title"
-          }
-        },
+        "section_id": { "type": "Text", "config": { "label": "Section Id" } },
+        "title": { "type": "Text", "config": { "label": "Title" } },
         "gallery": {
           "type": "Link",
           "config": {
             "label": "Gallery (Overrides all media)",
             "select": "document",
-            "customtypes": [
-              "fragment_gallery"
-            ]
+            "customtypes": ["fragment_gallery"]
           }
         },
         "video_media": {
@@ -43,11 +31,7 @@
         },
         "media": {
           "type": "Image",
-          "config": {
-            "label": "Media",
-            "constraint": {},
-            "thumbnails": []
-          }
+          "config": { "label": "Media", "constraint": {}, "thumbnails": [] }
         }
       },
       "items": {
@@ -70,7 +54,7 @@
           }
         }
       },
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+      "imageUrl": "https://images.prismic.io/the-grand/shared-slices/faq_section/default/4ad179cbbb479380b048b9796833013d1418bdaf.png?auto=compress%2Cformat"
     }
   ]
 }

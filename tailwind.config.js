@@ -24,12 +24,12 @@ const MIN_RATIO = 1.125;
 
 const headline = {
   max: {
-    0: ms(2, MAX_RATIO, 10),
-    1: ms(2, MAX_RATIO, 6),
-    2: ms(2, MAX_RATIO, 5),
-    3: ms(2, MAX_RATIO, 4),
-    4: ms(2, MAX_RATIO, 3),
-    5: ms(2, MAX_RATIO, 2),
+    0: ms(2.3, MAX_RATIO, 10),
+    1: ms(2.3, MAX_RATIO, 6),
+    2: ms(2.3, MAX_RATIO, 5),
+    3: ms(2.3, MAX_RATIO, 4),
+    4: ms(2.2, MAX_RATIO, 3),
+    5: ms(2.1, MAX_RATIO, 2),
     6: ms(2, MAX_RATIO, 1),
   },
   min: {
@@ -48,6 +48,7 @@ const colors = {
   cream: "#FAF2EB",
   white: "#FFFFFF",
   gold: "#FFC42D",
+  blue: "#CEEAEB",
 };
 
 module.exports = {
@@ -71,6 +72,7 @@ module.exports = {
       cream: colors.cream,
       white: colors.white,
       gold: colors.gold,
+      blue: colors.blue,
     },
     fontSize: {
       "string-large": "1rem",
@@ -80,13 +82,28 @@ module.exports = {
       "paragraph-large": "1.25rem",
       "paragraph-default": "1rem",
       "paragraph-small": "0.875rem",
-      "headline-4xl": clampBuilder(640, 1920, headline.min[0], headline.max[0]),
-      "headline-3xl": clampBuilder(640, 1920, headline.min[1], headline.max[1]),
-      "headline-2xl": clampBuilder(640, 1920, headline.min[2], headline.max[2]),
-      "headline-xl": clampBuilder(640, 1920, headline.min[3], headline.max[3]),
-      "headline-lg": clampBuilder(640, 1920, headline.min[4], headline.max[4]),
-      "headline-md": clampBuilder(640, 1920, headline.min[5], headline.max[5]),
-      "headline-sm": clampBuilder(640, 1920, headline.min[6], headline.max[6]),
+      "headline-4xl": clampBuilder(
+        1024,
+        1920,
+        headline.min[0],
+        headline.max[0]
+      ),
+      "headline-3xl": clampBuilder(
+        1024,
+        1920,
+        headline.min[1],
+        headline.max[1]
+      ),
+      "headline-2xl": clampBuilder(
+        1024,
+        1920,
+        headline.min[2],
+        headline.max[2]
+      ),
+      "headline-xl": clampBuilder(1024, 1920, headline.min[3], headline.max[3]),
+      "headline-lg": clampBuilder(1024, 1920, headline.min[4], headline.max[4]),
+      "headline-md": clampBuilder(1024, 1920, headline.min[5], headline.max[5]),
+      "headline-sm": clampBuilder(1024, 1920, headline.min[6], headline.max[6]),
     },
     lineHeight: {
       base: 1.2,
@@ -129,6 +146,9 @@ module.exports = {
 
       "3xl": "1920px",
       // => @media (min-width: 1920px) { ... }
+
+      "4xl": "2560px",
+      // => @media (min-width: 2560px) { ... }
     },
     container: {
       padding: {

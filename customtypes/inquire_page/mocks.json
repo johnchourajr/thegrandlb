@@ -1,0 +1,44 @@
+[
+  {
+    "uid": {
+      "__TYPE__": "UIDContent",
+      "value": "crack"
+    },
+    "title": {
+      "__TYPE__": "FieldContent",
+      "value": "farm",
+      "type": "Text"
+    },
+    "meta_title": {
+      "__TYPE__": "FieldContent",
+      "value": "age",
+      "type": "Text"
+    },
+    "meta_description": {
+      "__TYPE__": "FieldContent",
+      "value": "nodded",
+      "type": "Text"
+    },
+    "meta_image": {
+      "__TYPE__": "ImageContent",
+      "origin": {
+        "id": "main",
+        "url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
+        "width": 3024,
+        "height": 3778
+      },
+      "url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
+      "width": 3024,
+      "height": 3778,
+      "edit": {
+        "zoom": 1,
+        "crop": {
+          "x": 0,
+          "y": 0
+        },
+        "background": "transparent"
+      },
+      "thumbnails": {}
+    }
+  }
+]

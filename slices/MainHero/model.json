@@ -13,10 +13,7 @@
       "primary": {
         "section_id": {
           "type": "Text",
-          "config": {
-            "label": "Section Id",
-            "placeholder": ""
-          }
+          "config": { "label": "Section Id", "placeholder": "" }
         },
         "headline": {
           "type": "StructuredText",
@@ -45,10 +42,7 @@
         },
         "primary_action": {
           "type": "Text",
-          "config": {
-            "label": "Primary Action",
-            "placeholder": ""
-          }
+          "config": { "label": "Primary Action", "placeholder": "" }
         },
         "primary_action_link": {
           "type": "Link",
@@ -60,10 +54,7 @@
         },
         "secondary_action": {
           "type": "Text",
-          "config": {
-            "label": "Secondary Action",
-            "placeholder": ""
-          }
+          "config": { "label": "Secondary Action", "placeholder": "" }
         },
         "secondary_action_link": {
           "type": "Link",
@@ -83,7 +74,7 @@
         }
       },
       "items": {},
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+      "imageUrl": "https://images.prismic.io/the-grand/shared-slices/page_hero/default/1ab7247d5e65a984ec38895a9c1e2d773f02e7f1.png?auto=compress%2Cformat"
     }
   ]
 }

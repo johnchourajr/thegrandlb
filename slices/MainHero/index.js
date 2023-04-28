@@ -11,27 +11,41 @@ import { m } from "framer-motion";
  * @param { PageHeroProps }
  */
 const PageHero = ({ slice }) => {
+  console.log({
+    field: slice.primary.primary_action_link,
+    text: slice.primary.primary_action,
+  });
   return (
     <>
-      <GridSection className="mt-4" bottomSpacer={slice.primary.bottom_spacer}>
+      <GridSection
+        id={slice.primary.section_id}
+        bottomSpacer={slice.primary.bottom_spacer}
+      >
         <div
           className={clsx(
             "relative col-span-full col-start-1 flex aspect-square max-h-[80vmin] w-full flex-col items-center justify-center gap-10 overflow-hidden rounded-sm bg-black px-4 text-center text-white lg:aspect-[16/7]"
           )}
         >
-          <Headline size="3xl" uppercase className="relative z-10 max-w-[10em]">
+          <Headline
+            size="3xl"
+            uppercase
+            className="relative z-10 max-w-[10em]"
+            animateOnce={true}
+            animationType="word"
+          >
             {slice.primary.headline[0].text}
           </Headline>
           <MediaFrame
             media={slice.primary.media}
             video_media={slice.primary.video_media}
             className="absolute inset-0 z-0 h-full w-full"
+            priority={true}
           />
           <m.div
             className="hidden gap-6 md:flex"
             initial={{
               opacity: 0,
-              y: 20,
+              y: "3rem",
             }}
             animate={{
               opacity: 1,

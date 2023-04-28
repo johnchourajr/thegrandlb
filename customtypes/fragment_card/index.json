@@ -64,6 +64,28 @@
           ]
         }
       },
+      "size": {
+        "type": "Select",
+        "config": {
+          "label": "Size",
+          "placeholder": "",
+          "options": [
+            "Default",
+            "Large"
+          ]
+        }
+      },
+      "direction": {
+        "type": "Select",
+        "config": {
+          "label": "Direction",
+          "placeholder": "",
+          "options": [
+            "Col",
+            "Col Reverse"
+          ]
+        }
+      },
       "col_start": {
         "type": "Select",
         "config": {

@@ -13,10 +13,7 @@
       "primary": {
         "section_id": {
           "type": "Text",
-          "config": {
-            "label": "Section Id",
-            "placeholder": ""
-          }
+          "config": { "label": "Section Id", "placeholder": "" }
         },
         "gallery": {
           "type": "Link",
@@ -36,19 +33,11 @@
         },
         "media": {
           "type": "Image",
-          "config": {
-            "label": "Media",
-            "constraint": {},
-            "thumbnails": []
-          }
+          "config": { "label": "Media", "constraint": {}, "thumbnails": [] }
         },
         "caption": {
           "type": "Text",
-          "config": {
-            "label": "Media Caption",
-            "placeholder": "",
-            "constraint": {}
-          }
+          "config": { "label": "Media Caption", "placeholder": "" }
         },
         "title": {
           "type": "StructuredText",
@@ -84,10 +73,7 @@
         },
         "address_label": {
           "type": "Text",
-          "config": {
-            "label": "Address Label",
-            "placeholder": ""
-          }
+          "config": { "label": "Address Label", "placeholder": "" }
         },
         "address": {
           "type": "StructuredText",
@@ -100,10 +86,7 @@
         },
         "action_text": {
           "type": "Text",
-          "config": {
-            "label": "Action Text",
-            "placeholder": ""
-          }
+          "config": { "label": "Action Text", "placeholder": "" }
         },
         "action_link": {
           "type": "Link",
@@ -124,7 +107,7 @@
         }
       },
       "items": {},
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+      "imageUrl": "https://images.prismic.io/the-grand/shared-slices/homepage_location/default/cf984a270282d8997c0a57d84ff7d439c0500bf0.png?auto=compress%2Cformat"
     }
   ]
 }

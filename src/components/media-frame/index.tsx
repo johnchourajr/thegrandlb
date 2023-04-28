@@ -18,6 +18,7 @@ interface MediaFrameProps {
     loop?: boolean;
     controls?: boolean;
   };
+  priority?: boolean;
   overlay?: boolean;
 }
 
@@ -30,8 +31,10 @@ const MediaFrame = ({
     loop: true,
     controls: false,
   },
+  priority = false,
   overlay = true,
 }: MediaFrameProps) => {
+  if (!media && !video_media) return null;
   return (
     <m.div className={clsx("media-frame", className)}>
       {video_media && (
@@ -46,6 +49,7 @@ const MediaFrame = ({
         <PrismicNextImage
           field={media}
           className="absolute inset-0 z-10 h-full w-full object-cover"
+          priority={priority}
         />
       )}
     </m.div>

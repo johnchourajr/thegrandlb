@@ -19,6 +19,8 @@ const fetchLinks = [
   "fragment_card.body",
   "fragment_card.link",
   "fragment_card.theme",
+  "fragment_card.size",
+  "fragment_card.direction",
   "fragment_card.col_start",
   "fragment_card.col_span",
   "fragment_card.row_start",

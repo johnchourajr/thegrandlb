@@ -13,19 +13,14 @@
       "primary": {
         "section_id": {
           "type": "Text",
-          "config": {
-            "label": "Section Id",
-            "placeholder": ""
-          }
+          "config": { "label": "Section Id", "placeholder": "" }
         },
         "gallery": {
           "type": "Link",
           "config": {
             "label": "Gallery (Overrides all media)",
             "select": "document",
-            "customtypes": [
-              "fragment_gallery"
-            ]
+            "customtypes": ["fragment_gallery"]
           }
         },
         "video_media": {
@@ -38,22 +33,14 @@
         },
         "media": {
           "type": "Image",
-          "config": {
-            "label": "Media",
-            "constraint": {},
-            "thumbnails": []
-          }
+          "config": { "label": "Media", "constraint": {}, "thumbnails": [] }
         },
         "top_spacer": {
           "type": "Select",
           "config": {
             "label": "Top Spacer",
             "placeholder": "",
-            "options": [
-              "Small",
-              "Large",
-              "None"
-            ]
+            "options": ["Small", "Large", "None"]
           }
         },
         "bottom_spacer": {
@@ -61,11 +48,7 @@
           "config": {
             "label": "Bottom Spacer",
             "placeholder": "",
-            "options": [
-              "Small",
-              "Large",
-              "None"
-            ]
+            "options": ["Small", "Large", "None"]
           }
         },
         "asset_position": {
@@ -81,11 +64,7 @@
       "items": {
         "media": {
           "type": "Image",
-          "config": {
-            "label": "Media",
-            "constraint": {},
-            "thumbnails": []
-          }
+          "config": { "label": "Media", "constraint": {}, "thumbnails": [] }
         },
         "headline": {
           "type": "StructuredText",
@@ -97,10 +76,7 @@
         },
         "eyebrow": {
           "type": "Text",
-          "config": {
-            "label": "Eyebrow",
-            "placeholder": ""
-          }
+          "config": { "label": "Eyebrow", "placeholder": "" }
         },
         "body": {
           "type": "StructuredText",
@@ -113,10 +89,7 @@
         },
         "primary_action_text": {
           "type": "Text",
-          "config": {
-            "label": "Primary Action Text",
-            "placeholder": ""
-          }
+          "config": { "label": "Primary Action Text", "placeholder": "" }
         },
         "primary_action_link": {
           "type": "Link",
@@ -128,10 +101,7 @@
         },
         "secondary_action_text": {
           "type": "Text",
-          "config": {
-            "label": "Secondary Action Text",
-            "placeholder": ""
-          }
+          "config": { "label": "Secondary Action Text", "placeholder": "" }
         },
         "secondary_action_link": {
           "type": "Link",
@@ -142,7 +112,7 @@
           }
         }
       },
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+      "imageUrl": "https://images.prismic.io/the-grand/shared-slices/split_scroll_section/default/e228dfe0d0f8af153935eddec2ea4c7bcd7f65d1.png?auto=compress%2Cformat"
     }
   ]
 }
