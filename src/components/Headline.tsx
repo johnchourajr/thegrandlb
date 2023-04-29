@@ -239,9 +239,10 @@ function Headline({
         className
       )}
       aria-label={wordsAsString}
+      data-cursor="text"
       {...rest}
     >
-      {wrappedWords}
+      {disableMotion ? children : wrappedWords}
     </MotionComp>
   );
 }

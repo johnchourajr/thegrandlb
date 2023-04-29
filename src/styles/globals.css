@@ -44,3 +44,45 @@ a {
 .grid-inset-right {
   @apply pr-4 md:pr-8 xl:pr-16 !pl-0 md:!pl-0 xl:!pl-0;
 }
+
+.ticker {
+  @apply flex !overflow-visible;
+}
+
+.animate_ticker p {
+  @apply !mb-1;
+}
+
+.animate_ticker_reverse p {
+  @apply !mb-1;
+}
+
+.animate_ticker {
+  animation: ticker var(--ticker-speed, 100s) linear infinite;
+  will-change: transform;
+}
+
+.animate_ticker_reverse {
+  animation: ticker var(--ticker-speed, 100s) linear infinite;
+  animation-direction: reverse;
+  will-change: transform;
+}
+
+.ticker-mask {
+  --maskSpacing: 10%;
+  mask-image: linear-gradient(90deg,
+      transparent,
+      #000 var(--maskSpacing),
+      #000 calc(100% - var(--maskSpacing)),
+      transparent);
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(var(--ticker-width, -50vw));
+  }
+}

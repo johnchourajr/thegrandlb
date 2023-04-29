@@ -57,7 +57,7 @@ const Layout = ({
   return (
     <div
       className={clsx(
-        "--overflow-x-hidden relative z-0 mx-auto w-full max-w-[2500px] bg-bg text-black",
+        "--overflow-x-hidden relative z-0 mx-auto w-full max-w-[2500px]  bg-bg text-black",
         wrapperClassName
       )}
     >

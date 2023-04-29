@@ -25,13 +25,6 @@
 					}
 				]
 			},
-			"number_list": {
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "DocumentLink",
-					"id": "mock_document_id"
-				}
-			},
 			"columns": {
 				"__TYPE__": "FieldContent",
 				"value": "6 Column",

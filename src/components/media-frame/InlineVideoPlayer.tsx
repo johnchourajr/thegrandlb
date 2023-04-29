@@ -105,6 +105,7 @@ const InlineVideoPlayer = ({
         onClick={() => handleChange()}
         aria-label={isPlaying ? "Pause" : "Play"}
         tabIndex={-1}
+        data-cursor="video"
       >
         <div
           className={clsx(

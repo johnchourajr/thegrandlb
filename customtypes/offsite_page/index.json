@@ -18,48 +18,24 @@
           "label": "Title",
           "placeholder": ""
         }
-      },
+      }
+    },
+    "Sections": {
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "tile_grid": {
-              "type": "SharedSlice"
-            },
-            "text_section": {
-              "type": "SharedSlice"
-            },
-            "star_section": {
-              "type": "SharedSlice"
-            },
-            "scroll_text": {
-              "type": "SharedSlice"
-            },
-            "split_gallery": {
-              "type": "SharedSlice"
-            },
-            "split_scroll_section": {
-              "type": "SharedSlice"
-            },
-            "moments_scroll_section": {
-              "type": "SharedSlice"
-            },
-            "page_hero": {
-              "type": "SharedSlice"
-            },
-            "homepage_numbers": {
-              "type": "SharedSlice"
-            },
-            "numbers_section": {
-              "type": "SharedSlice"
-            },
-            "faq_section": {
-              "type": "SharedSlice"
-            },
-            "homepage_location": {
-              "type": "SharedSlice"
-            }
+            "page_hero": { "type": "SharedSlice" },
+            "split_gallery": { "type": "SharedSlice" },
+            "star_section": { "type": "SharedSlice" },
+            "split_scroll_section": { "type": "SharedSlice" },
+            "tile_grid": { "type": "SharedSlice" },
+            "scroll_text": { "type": "SharedSlice" },
+            "text_section": { "type": "SharedSlice" },
+            "numbers_section": { "type": "SharedSlice" },
+            "faq_section": { "type": "SharedSlice" },
+            "image_section": { "type": "SharedSlice" }
           }
         }
       }

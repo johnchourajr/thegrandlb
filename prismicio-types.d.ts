@@ -53,6 +53,28 @@ interface EventIndexPageDocumentData {
    */
   media: prismicT.ImageField<never>;
   /**
+   * Headline field in *Event Index Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_index_page.headline
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  headline: prismicT.KeyTextField;
+  /**
+   * Body field in *Event Index Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_index_page.body
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  body: prismicT.KeyTextField;
+  /**
    * Event Pages field in *Event Index Page*
    *
    * - **Field Type**: Group
@@ -71,7 +93,7 @@ interface EventIndexPageDocumentData {
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
    * - **API ID Path**: event_index_page.slices[]
-   * - **Tab**: Main
+   * - **Tab**: Sections
    * - **Documentation**: https://prismic.io/docs/core-concepts/slices
    *
    */
@@ -133,7 +155,6 @@ export interface EventIndexPageDocumentDataEventPagesItem {
 type EventIndexPageDocumentDataSlicesSlice =
   | HomepageNumbersSlice
   | PageHeroSlice
-  | MomentsScrollSectionSlice
   | HomepageLocationSlice
   | SplitGallerySlice
   | StarSectionSlice
@@ -142,7 +163,8 @@ type EventIndexPageDocumentDataSlicesSlice =
   | ScrollTextSlice
   | TextSectionSlice
   | NumbersSectionSlice
-  | FaqSectionSlice;
+  | FaqSectionSlice
+  | ImageSectionSlice;
 /**
  * Event Index Page document from Prismic
  *
@@ -172,12 +194,56 @@ interface EventPageDocumentData {
    */
   title: prismicT.KeyTextField;
   /**
+   * Headlline field in *Event Child Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_page.headlline
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  headlline: prismicT.KeyTextField;
+  /**
+   * Gallery (Overrides all media) field in *Event Child Page*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_page.gallery
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  gallery: prismicT.RelationField<"fragment_gallery">;
+  /**
+   * Video Media (Overrides Image Media) field in *Event Child Page*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_page.video_media
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  video_media: prismicT.LinkToMediaField;
+  /**
+   * Media field in *Event Child Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_page.media
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  media: prismicT.ImageField<never>;
+  /**
    * Slice Zone field in *Event Child Page*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
    * - **API ID Path**: event_page.slices[]
-   * - **Tab**: Main
+   * - **Tab**: Sections
    * - **Documentation**: https://prismic.io/docs/core-concepts/slices
    *
    */
@@ -224,7 +290,6 @@ type EventPageDocumentDataSlicesSlice =
   | NumbersSectionSlice
   | FaqSectionSlice
   | HomepageLocationSlice
-  | MomentsScrollSectionSlice
   | PageHeroSlice
   | HomepageNumbersSlice
   | ScrollTextSlice
@@ -1119,7 +1184,7 @@ interface OffsiteIndexPageDocumentData {
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
    * - **API ID Path**: offsite_index_page.slices[]
-   * - **Tab**: Main
+   * - **Tab**: Sections
    * - **Documentation**: https://prismic.io/docs/core-concepts/slices
    *
    */
@@ -1209,7 +1274,7 @@ interface OffsitePageDocumentData {
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
    * - **API ID Path**: offsite_page.slices[]
-   * - **Tab**: Main
+   * - **Tab**: Sections
    * - **Documentation**: https://prismic.io/docs/core-concepts/slices
    *
    */
@@ -1299,7 +1364,7 @@ interface PageDocumentData {
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
    * - **API ID Path**: page.slices[]
-   * - **Tab**: Main
+   * - **Tab**: Sections
    * - **Documentation**: https://prismic.io/docs/core-concepts/slices
    *
    */
@@ -1488,25 +1553,25 @@ interface TourIndexPageDocumentData {
   /**
    * Headline field in *Tour Index Page*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: tour_index_page.headline
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
    *
    */
-  headline: prismicT.RichTextField;
+  headline: prismicT.KeyTextField;
   /**
    * Body field in *Tour Index Page*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: tour_index_page.body
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
    *
    */
-  body: prismicT.RichTextField;
+  body: prismicT.KeyTextField;
   /**
    * Spaces field in *Tour Index Page*
    *
@@ -1524,7 +1589,7 @@ interface TourIndexPageDocumentData {
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
    * - **API ID Path**: tour_index_page.slices[]
-   * - **Tab**: Main
+   * - **Tab**: Sections
    * - **Documentation**: https://prismic.io/docs/core-concepts/slices
    *
    */
@@ -1669,12 +1734,45 @@ interface TourPageDocumentData {
    */
   media: prismicT.ImageField<never>;
   /**
+   * Headline field in *Tour Child Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tour_page.headline
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  headline: prismicT.KeyTextField;
+  /**
+   * Body field in *Tour Child Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tour_page.body
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  body: prismicT.KeyTextField;
+  /**
+   * Slice Zone field in *Tour Child Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tour_page.slices[]
+   * - **Tab**: Sections
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices: prismicT.SliceZone<TourPageDocumentDataSlicesSlice>;
+  /**
    * Square Feet field in *Tour Child Page*
    *
    * - **Field Type**: Number
    * - **Placeholder**: *None*
    * - **API ID Path**: tour_page.square_feet
-   * - **Tab**: Main
+   * - **Tab**: Data
    * - **Documentation**: https://prismic.io/docs/core-concepts/number
    *
    */
@@ -1685,7 +1783,7 @@ interface TourPageDocumentData {
    * - **Field Type**: Number
    * - **Placeholder**: *None*
    * - **API ID Path**: tour_page.max_capacity
-   * - **Tab**: Main
+   * - **Tab**: Data
    * - **Documentation**: https://prismic.io/docs/core-concepts/number
    *
    */
@@ -1696,22 +1794,11 @@ interface TourPageDocumentData {
    * - **Field Type**: Group
    * - **Placeholder**: *None*
    * - **API ID Path**: tour_page.features[]
-   * - **Tab**: Main
+   * - **Tab**: Data
    * - **Documentation**: https://prismic.io/docs/core-concepts/group
    *
    */
   features: prismicT.GroupField<Simplify<TourPageDocumentDataFeaturesItem>>;
-  /**
-   * Slice Zone field in *Tour Child Page*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: tour_page.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
-   *
-   */
-  slices: prismicT.SliceZone<TourPageDocumentDataSlicesSlice>;
   /**
    * Meta Title field in *Tour Child Page*
    *
@@ -1747,6 +1834,22 @@ interface TourPageDocumentData {
   meta_image: prismicT.ImageField<never>;
 }
 /**
+ * Slice for *Tour Child Page → Slice Zone*
+ *
+ */
+type TourPageDocumentDataSlicesSlice =
+  | NumbersSectionSlice
+  | FaqSectionSlice
+  | HomepageLocationSlice
+  | HomepageNumbersSlice
+  | PageHeroSlice
+  | SplitScrollSectionSlice
+  | SplitGallerySlice
+  | ScrollTextSlice
+  | StarSectionSlice
+  | TextSectionSlice
+  | TileGridSlice;
+/**
  * Item in Tour Child Page → Features
  *
  */
@@ -1769,23 +1872,6 @@ export interface TourPageDocumentDataFeaturesItem {
     | "Dance Floor"
   >;
 }
-/**
- * Slice for *Tour Child Page → Slice Zone*
- *
- */
-type TourPageDocumentDataSlicesSlice =
-  | NumbersSectionSlice
-  | FaqSectionSlice
-  | HomepageLocationSlice
-  | HomepageNumbersSlice
-  | PageHeroSlice
-  | MomentsScrollSectionSlice
-  | SplitScrollSectionSlice
-  | SplitGallerySlice
-  | ScrollTextSlice
-  | StarSectionSlice
-  | TextSectionSlice
-  | TileGridSlice;
 /**
  * Tour Child Page document from Prismic
  *
@@ -2204,6 +2290,102 @@ export type HomepageNumbersSlice = prismicT.SharedSlice<
   HomepageNumbersSliceVariation
 >;
 /**
+ * Primary content in ImageSection → Primary
+ *
+ */
+interface ImageSectionSliceDefaultPrimary {
+  /**
+   * Section Id field in *ImageSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_section.primary.section_id
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  section_id: prismicT.KeyTextField;
+  /**
+   * Gallery (Overrides all media) field in *ImageSection → Primary*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_section.primary.gallery
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  gallery: prismicT.RelationField<"fragment_gallery">;
+  /**
+   * Video Media (Overrides Image Media) field in *ImageSection → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_section.primary.video_media
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  video_media: prismicT.LinkToMediaField;
+  /**
+   * Media field in *ImageSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_section.primary.media
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  media: prismicT.ImageField<never>;
+  /**
+   * Top Spacer field in *ImageSection → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_section.primary.top_spacer
+   * - **Documentation**: https://prismic.io/docs/core-concepts/select
+   *
+   */
+  top_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  /**
+   * Bottom Spacer field in *ImageSection → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_section.primary.bottom_spacer
+   * - **Documentation**: https://prismic.io/docs/core-concepts/select
+   *
+   */
+  bottom_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+}
+/**
+ * Default variation for ImageSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ImageSectionSliceDefault = prismicT.SharedSliceVariation<
+  "default",
+  Simplify<ImageSectionSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *ImageSection*
+ *
+ */
+type ImageSectionSliceVariation = ImageSectionSliceDefault;
+/**
+ * ImageSection Shared Slice
+ *
+ * - **API ID**: `image_section`
+ * - **Description**: `ImageSection`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ImageSectionSlice = prismicT.SharedSlice<
+  "image_section",
+  ImageSectionSliceVariation
+>;
+/**
  * Primary content in MomentsScrollSection → Primary
  *
  */
@@ -2307,33 +2489,23 @@ interface NumbersSectionSliceDefaultPrimary {
   /**
    * Title field in *ColumnSection → Primary*
    *
-   * - **Field Type**: Title
-   * - **Placeholder**: This is where it all begins...
+   * - **Field Type**: Text
+   * - **Placeholder**: Optional headline for section
    * - **API ID Path**: numbers_section.primary.title
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
    *
    */
-  title: prismicT.TitleField;
+  title: prismicT.KeyTextField;
   /**
    * Description field in *ColumnSection → Primary*
    *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: A nice description of your feature
+   * - **Field Type**: Text
+   * - **Placeholder**: Optional description for section
    * - **API ID Path**: numbers_section.primary.description
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
    *
    */
-  description: prismicT.RichTextField;
-  /**
-   * Number List field in *ColumnSection → Primary*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: numbers_section.primary.number_list
-   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
-   *
-   */
-  number_list: prismicT.RelationField<"fragment_number_list">;
+  description: prismicT.KeyTextField;
   /**
    * Columns field in *ColumnSection → Primary*
    *
@@ -2401,6 +2573,72 @@ interface NumbersSectionSliceDefaultPrimary {
   bottom_border: prismicT.BooleanField;
 }
 /**
+ * Item in ColumnSection → Items
+ *
+ */
+export interface NumbersSectionSliceDefaultItem {
+  /**
+   * Media field in *ColumnSection → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: numbers_section.items[].media
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  media: prismicT.ImageField<never>;
+  /**
+   * Number field in *ColumnSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: numbers_section.items[].number
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  number: prismicT.RichTextField;
+  /**
+   * Eyebrow field in *ColumnSection → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: numbers_section.items[].eyebrow
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  eyebrow: prismicT.KeyTextField;
+  /**
+   * Body field in *ColumnSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: numbers_section.items[].body
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  body: prismicT.RichTextField;
+  /**
+   * Action Text field in *ColumnSection → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: numbers_section.items[].action_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  action_text: prismicT.KeyTextField;
+  /**
+   * Action Link field in *ColumnSection → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: numbers_section.items[].action_link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  action_link: prismicT.LinkField;
+}
+/**
  * Default variation for ColumnSection Slice
  *
  * - **API ID**: `default`
@@ -2411,7 +2649,7 @@ interface NumbersSectionSliceDefaultPrimary {
 export type NumbersSectionSliceDefault = prismicT.SharedSliceVariation<
   "default",
   Simplify<NumbersSectionSliceDefaultPrimary>,
-  never
+  Simplify<NumbersSectionSliceDefaultItem>
 >;
 /**
  * Slice variation for *ColumnSection*
@@ -3804,8 +4042,8 @@ declare module "@prismicio/client" {
       TourIndexPageDocumentDataSlicesSlice,
       TourIndexPageDocument,
       TourPageDocumentData,
-      TourPageDocumentDataFeaturesItem,
       TourPageDocumentDataSlicesSlice,
+      TourPageDocumentDataFeaturesItem,
       TourPageDocument,
       AllDocumentTypes,
       FaqSectionSliceDefaultPrimary,
@@ -3821,11 +4059,16 @@ declare module "@prismicio/client" {
       HomepageNumbersSliceDefault,
       HomepageNumbersSliceVariation,
       HomepageNumbersSlice,
+      ImageSectionSliceDefaultPrimary,
+      ImageSectionSliceDefault,
+      ImageSectionSliceVariation,
+      ImageSectionSlice,
       MomentsScrollSectionSliceDefaultPrimary,
       MomentsScrollSectionSliceDefault,
       MomentsScrollSectionSliceVariation,
       MomentsScrollSectionSlice,
       NumbersSectionSliceDefaultPrimary,
+      NumbersSectionSliceDefaultItem,
       NumbersSectionSliceDefault,
       NumbersSectionSliceVariation,
       NumbersSectionSlice,

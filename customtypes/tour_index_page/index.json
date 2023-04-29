@@ -52,21 +52,17 @@
         }
       },
       "headline": {
-        "type": "StructuredText",
+        "type": "Text",
         "config": {
           "label": "Headline",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          "placeholder": ""
         }
       },
       "body": {
-        "type": "StructuredText",
+        "type": "Text",
         "config": {
           "label": "Body",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          "placeholder": ""
         }
       },
       "spaces": {
@@ -84,48 +80,24 @@
             }
           }
         }
-      },
+      }
+    },
+    "Sections": {
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "homepage_numbers": {
-              "type": "SharedSlice"
-            },
-            "page_hero": {
-              "type": "SharedSlice"
-            },
-            "moments_scroll_section": {
-              "type": "SharedSlice"
-            },
-            "homepage_location": {
-              "type": "SharedSlice"
-            },
-            "split_gallery": {
-              "type": "SharedSlice"
-            },
-            "star_section": {
-              "type": "SharedSlice"
-            },
-            "split_scroll_section": {
-              "type": "SharedSlice"
-            },
-            "tile_grid": {
-              "type": "SharedSlice"
-            },
-            "scroll_text": {
-              "type": "SharedSlice"
-            },
-            "text_section": {
-              "type": "SharedSlice"
-            },
-            "numbers_section": {
-              "type": "SharedSlice"
-            },
-            "faq_section": {
-              "type": "SharedSlice"
-            }
+            "page_hero": { "type": "SharedSlice" },
+            "split_gallery": { "type": "SharedSlice" },
+            "star_section": { "type": "SharedSlice" },
+            "split_scroll_section": { "type": "SharedSlice" },
+            "tile_grid": { "type": "SharedSlice" },
+            "scroll_text": { "type": "SharedSlice" },
+            "text_section": { "type": "SharedSlice" },
+            "numbers_section": { "type": "SharedSlice" },
+            "faq_section": { "type": "SharedSlice" },
+            "image_section": { "type": "SharedSlice" }
           }
         }
       }

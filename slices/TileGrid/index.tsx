@@ -64,7 +64,7 @@ const TileGrid = ({ slice }: any) => {
           })}
         </GridSection>
       </GridSection>
-      <SliceData slice={slice} />
+      <SliceData slice={slice} hidden />
     </>
   );
 };

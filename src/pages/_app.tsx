@@ -4,6 +4,7 @@ import localFont from "@next/font/local";
 import clsx from "clsx";
 import type { AppProps } from "next/app";
 
+import Cursor from "@/components/Cursor";
 import "@/styles/globals.css";
 import { domAnimation, LazyMotion, MotionConfig } from "framer-motion";
 
@@ -64,6 +65,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <Header {...pageProps} />
           {/* PAGE CONTENT */}
           <Component {...pageProps} />
+          <Cursor />
         </div>
       </LazyMotion>
     </MotionConfig>

@@ -18,7 +18,9 @@
           "label": "Title",
           "placeholder": ""
         }
-      },
+      }
+    },
+    "Sections": {
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
@@ -59,7 +61,8 @@
             },
             "faq_section": {
               "type": "SharedSlice"
-            }
+            },
+            "image_section": { "type": "SharedSlice" }
           }
         }
       }

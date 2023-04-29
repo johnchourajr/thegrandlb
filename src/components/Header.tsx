@@ -271,7 +271,7 @@ export default function Header({ navigation }: any) {
       gridSectionType="flex"
       className={clsx(
         "sticky top-[var(--navTop)] z-[9999] h-fit !max-w-[100vw] flex-col items-center gap-[4vw] overflow-visible !pt-4 transition-colors duration-300 ease-out-expo xl:flex-row 2xl:gap-[5vw] 4xl:gap-[6vw]",
-        navScrolled ? "bg-white" : "bg-bg"
+        navScrolled ? "border-b-2 border-red bg-bg" : "bg-bg"
       )}
       initial={{ "--navTop": "0rem" } as any}
       animate={controls}

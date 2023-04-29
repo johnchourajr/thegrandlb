@@ -1,8 +1,11 @@
 import clsx from "clsx";
 import { useState } from "react";
 
-const SliceData = ({ slice }: any) => {
+const SliceData = ({ slice, hidden }: any) => {
   const [open, setOpen] = useState(false);
+  if (hidden) {
+    return null;
+  }
   return (
     <div className={clsx("my-4 lg:my-6")}>
       <button

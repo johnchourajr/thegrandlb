@@ -5,26 +5,14 @@
   "status": true,
   "json": {
     "Main": {
-      "uid": {
-        "type": "UID",
-        "config": {
-          "label": "UID",
-          "placeholder": ""
-        }
-      },
+      "uid": { "type": "UID", "config": { "label": "UID", "placeholder": "" } },
       "title": {
         "type": "Text",
-        "config": {
-          "label": "Title",
-          "placeholder": ""
-        }
+        "config": { "label": "Title", "placeholder": "" }
       },
       "headlline": {
         "type": "Text",
-        "config": {
-          "label": "Headlline",
-          "placeholder": ""
-        }
+        "config": { "label": "Headlline", "placeholder": "" }
       },
       "gallery": {
         "type": "Link",
@@ -44,25 +32,51 @@
       },
       "media": {
         "type": "Image",
-        "config": {
-          "label": "Media",
-          "constraint": {},
-          "thumbnails": []
-        }
+        "config": { "label": "Media", "constraint": {}, "thumbnails": [] }
       },
-      "square_feet": {
-        "type": "Number",
+      "headline": {
+        "type": "Text",
         "config": {
-          "label": "Square Feet",
+          "label": "Headline",
           "placeholder": ""
         }
+      },
+      "body": {
+        "type": "Text",
+        "config": {
+          "label": "Body",
+          "placeholder": ""
+        }
+      }
+    },
+    "Sections": {
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "page_hero": { "type": "SharedSlice" },
+            "split_gallery": { "type": "SharedSlice" },
+            "star_section": { "type": "SharedSlice" },
+            "split_scroll_section": { "type": "SharedSlice" },
+            "tile_grid": { "type": "SharedSlice" },
+            "scroll_text": { "type": "SharedSlice" },
+            "text_section": { "type": "SharedSlice" },
+            "numbers_section": { "type": "SharedSlice" },
+            "faq_section": { "type": "SharedSlice" },
+            "image_section": { "type": "SharedSlice" }
+          }
+        }
+      }
+    },
+    "Data": {
+      "square_feet": {
+        "type": "Number",
+        "config": { "label": "Square Feet", "placeholder": "" }
       },
       "max_capacity": {
         "type": "Number",
-        "config": {
-          "label": "Max Capacity",
-          "placeholder": ""
-        }
+        "config": { "label": "Max Capacity", "placeholder": "" }
       },
       "features": {
         "type": "Group",
@@ -86,74 +100,20 @@
             }
           }
         }
-      },
-      "slices": {
-        "type": "Slices",
-        "fieldset": "Slice Zone",
-        "config": {
-          "choices": {
-            "numbers_section": {
-              "type": "SharedSlice"
-            },
-            "faq_section": {
-              "type": "SharedSlice"
-            },
-            "homepage_location": {
-              "type": "SharedSlice"
-            },
-            "homepage_numbers": {
-              "type": "SharedSlice"
-            },
-            "page_hero": {
-              "type": "SharedSlice"
-            },
-            "moments_scroll_section": {
-              "type": "SharedSlice"
-            },
-            "split_scroll_section": {
-              "type": "SharedSlice"
-            },
-            "split_gallery": {
-              "type": "SharedSlice"
-            },
-            "scroll_text": {
-              "type": "SharedSlice"
-            },
-            "star_section": {
-              "type": "SharedSlice"
-            },
-            "text_section": {
-              "type": "SharedSlice"
-            },
-            "tile_grid": {
-              "type": "SharedSlice"
-            }
-          }
-        }
       }
     },
     "Meta": {
       "meta_title": {
         "type": "Text",
-        "config": {
-          "label": "Meta Title",
-          "placeholder": ""
-        }
+        "config": { "label": "Meta Title", "placeholder": "" }
       },
       "meta_description": {
         "type": "Text",
-        "config": {
-          "label": "Meta Description",
-          "placeholder": ""
-        }
+        "config": { "label": "Meta Description", "placeholder": "" }
       },
       "meta_image": {
         "type": "Image",
-        "config": {
-          "label": "Meta Image",
-          "constraint": {},
-          "thumbnails": []
-        }
+        "config": { "label": "Meta Image", "constraint": {}, "thumbnails": [] }
       }
     }
   }

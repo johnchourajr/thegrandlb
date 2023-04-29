@@ -48,6 +48,7 @@ const colors = {
   cream: "#FAF2EB",
   white: "#FFFFFF",
   gold: "#FFC42D",
+  red: "#8A2432",
   blue: "#CEEAEB",
 };
 
@@ -73,6 +74,7 @@ module.exports = {
       white: colors.white,
       gold: colors.gold,
       blue: colors.blue,
+      red: colors.red,
     },
     fontSize: {
       "string-large": "1rem",
