@@ -66,6 +66,7 @@ export interface TileItemProps {
   eyebrow?: any;
   card_fragment?: any;
   body?: any;
+  className?: string;
 }
 export type TileStyleProps = {
   container?: string;

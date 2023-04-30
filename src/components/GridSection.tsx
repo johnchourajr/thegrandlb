@@ -58,7 +58,7 @@ export function GridSection({
     <MotionComp
       id={id}
       className={clsx(
-        "mx-auto w-full max-w-[2500px] gap-4  lg:gap-6",
+        "mx-auto w-full max-w-[2500px] gap-4 lg:gap-6",
         gridSectionType === "grid" &&
           "grid grid-cols-4 px-4 lg:px-6 xl:grid-cols-12",
         gridSectionType === "flex" && "flex",

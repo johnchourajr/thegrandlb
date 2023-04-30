@@ -28,6 +28,7 @@ export const TileItem = ({
   eyebrow,
   card_fragment,
   body,
+  className,
   ...rest
 }: TileItemProps) => {
   const hasCardFragment = card_fragment?.data ? true : false;
@@ -155,7 +156,8 @@ export const TileItem = ({
         row_start && getNumberForRowStart(row_start),
         row_span && getNumberForRowSpan(row_span),
         getSize().container,
-        getStyles().container
+        getStyles().container,
+        className
       )}
       {...rest}
     >

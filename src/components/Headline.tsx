@@ -28,7 +28,7 @@ const wrapEachLetterInSpan = (word: string, index: number) => {
       transition: { duration: 1, ease: [0.19, 1, 0.22, 1] },
     },
   };
-  const letters = word.split("");
+  const letters = word.toString().split("");
   const wrappedLetters = letters.map((letter, idx) => (
     <m.span
       key={idx}

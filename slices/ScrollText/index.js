@@ -31,6 +31,7 @@ const ScrollText = ({ slice }) => {
   return (
     <>
       <GridSection
+        id={slice.primary.section_id}
         aria-label={makeAriaLabel()}
         className={clsx("!gap-0")}
         bottomSpacer={slice.primary.bottom_spacer}

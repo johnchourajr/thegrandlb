@@ -12,6 +12,7 @@ import clsx from "clsx";
 const SplitGallery = ({ slice }) => (
   <>
     <GridSection
+      id={slice.primary.section_id}
       bottomSpacer={slice.primary.bottom_spacer}
       topSpacer={slice.primary.top_spacer}
       className={clsx("!gap-0")}

@@ -1,6 +1,6 @@
 import { PrismicNextImage } from "@prismicio/next";
 import clsx from "clsx";
-import { m } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import GalleryControls from "./GalleryControls";
 
@@ -43,6 +43,8 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
   outerControls = false,
   controlPosition = "Bottom Right",
 }) => {
+  const ref = React.useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [nextImageIndex, setNextImageIndex] = useState(1);
   const [isPlaying, setIsPlaying] = useState(autoPlay);
@@ -82,6 +84,14 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
         };
     }
   };
+
+  useEffect(() => {
+    if (isInView) {
+      setIsPlaying(true);
+    } else {
+      setIsPlaying(false);
+    }
+  }, [isInView]);
 
   useEffect(() => {
     if (autoPlay) {
@@ -177,6 +187,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
 
   return (
     <div
+      ref={ref}
       className={clsx(
         "relative z-10 my-4 flex flex-col",
         setPosition(controlPosition).container,
@@ -190,7 +201,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
         )}
       >
         <div className="relative z-10 h-full w-full">
-          {images.map((image, i) => {
+          {images.map(({ media, caption }: any, i) => {
             const isActive = i === currentImageIndex;
             return (
               <m.div
@@ -207,7 +218,8 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
               >
                 <PrismicNextImage
                   className="absolute top-0 left-0 h-full w-full object-cover"
-                  field={image.media as any}
+                  field={media as any}
+                  alt={caption || " "}
                 />
               </m.div>
             );
