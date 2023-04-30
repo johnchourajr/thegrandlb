@@ -286,7 +286,7 @@ export default function Header({ navigation }: any) {
         animate={controls}
       >
         <Link href="/" title="The Grand LB">
-          <HeaderLogo className="h-16 w-32 origin-left scale-[var(--logoScale)] lg:w-[inherit]" />
+          <HeaderLogo className="h-16 w-32 origin-left scale-[var(--logoScale)] lg:h-24 lg:w-56" />
         </Link>
         {isMobile && (
           <div

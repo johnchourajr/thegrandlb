@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-const { fontFamily } = require("tailwindcss/defaultTheme");
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 function clampBuilder(minWidthPx, maxWidthPx, minFontSize, maxFontSize) {
   const minWidth = minWidthPx / 16;
@@ -48,7 +48,7 @@ const colors = {
   cream: "#FAF2EB",
   white: "#FFFFFF",
   gold: "#FFC42D",
-  red: "#8A2432",
+  red: "##8A2432",
   blue: "#CEEAEB",
 };
 
@@ -161,13 +161,16 @@ module.exports = {
         "2xl": "6rem",
       },
     },
+    fontFamily: {
+      sans: ["var(--font-atkinson)", ...defaultTheme.fontFamily.sans],
+      serif: ["var(--font-domaine)", ...defaultTheme.fontFamily.serif],
+      lexend: ["var(--font-lexend)", ...defaultTheme.fontFamily.sans],
+      "lexend-bold": [
+        "var(--font-lexend-bold)",
+        ...defaultTheme.fontFamily.sans,
+      ],
+    },
     extend: {
-      fontFamily: {
-        sans: ["var(--font-atkinson)", ...fontFamily.sans],
-        serif: ["var(--font-domaine)", ...fontFamily.serif],
-        lexend: ["var(--font-lexend)", ...fontFamily.sans],
-        "lexend-bold": ["var(--font-lexend-bold)", ...fontFamily.sans],
-      },
       spacing: {
         "layout-sm": "1.5rem",
         "layout-md": "2rem",

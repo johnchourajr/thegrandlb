@@ -4,7 +4,7 @@ import { SliceZone } from "@prismicio/react";
 import fetchLinks from "@/utils/fetchLinks";
 import Layout from "@components/Layout";
 import { createClient } from "../../prismicio";
-import { components } from "../../slices/";
+import { components } from "../../slices";
 
 const Page = ({ navigation, settings, cta, page }: any) => {
   // console.log({ navigation, settings, cta });

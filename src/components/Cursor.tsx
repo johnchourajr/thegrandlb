@@ -75,26 +75,26 @@ const Cursor: React.FC = () => {
     );
     addEventListenerTemplate(prevArrow, handlePrevArrow, handleMouseLeave);
     addEventListenerTemplate(nextArrow, handleNextArrow, handleMouseLeave);
-    // return () => {
-    //   removeEventListenerTemplate(
-    //     anchorLinks,
-    //     handleMouseEnterLink,
-    //     handleMouseLeave
-    //   );
-    //   removeEventListenerTemplate(
-    //     buttonsElements,
-    //     handleMouseEnterLink,
-    //     handleMouseLeave
-    //   );
-    //   removeEventListenerTemplate(
-    //     videosElements,
-    //     handleMouseEnterVideo,
-    //     handleMouseLeave
-    //   );
-    //   removeEventListenerTemplate(prevArrow, handlePrevArrow, handleMouseLeave);
-    //   removeEventListenerTemplate(nextArrow, handleNextArrow, handleMouseLeave);
-    // };
-  }, [setHovering, hovering]);
+    return () => {
+      removeEventListenerTemplate(
+        anchorLinks,
+        handleMouseEnterLink,
+        handleMouseLeave
+      );
+      removeEventListenerTemplate(
+        buttonsElements,
+        handleMouseEnterLink,
+        handleMouseLeave
+      );
+      removeEventListenerTemplate(
+        videosElements,
+        handleMouseEnterVideo,
+        handleMouseLeave
+      );
+      removeEventListenerTemplate(prevArrow, handlePrevArrow, handleMouseLeave);
+      removeEventListenerTemplate(nextArrow, handleNextArrow, handleMouseLeave);
+    };
+  }, [setHovering, hovering, pressed, setPressed]);
 
   useEffect(() => {
     const handleMouseDown = () => {
@@ -112,7 +112,7 @@ const Cursor: React.FC = () => {
       document.removeEventListener("mousedown", handleMouseDown);
       document.removeEventListener("mouseup", handleMouseUp);
     };
-  }, [pressed, setPressed]);
+  }, [setHovering, hovering, pressed, setPressed]);
 
   useEffect(() => {
     const setFromEvent = (e: any) => {
@@ -140,35 +140,32 @@ const Cursor: React.FC = () => {
       "--height": "3rem",
       "--top": ".35rem",
       "--left": ".2rem",
-      "--bkg": "tranparent",
+      "--bkg": "rgba(60,56,54,0)",
     },
     link: {
       "--width": "2rem",
       "--height": "2rem",
       "--top": ".35rem",
       "--left": ".2rem",
-      "--bkg": "#3C3836",
+      "--bkg": "rgba(60,56,54,1)",
     },
     video: {
       "--width": "3rem",
       "--height": "3rem",
       "--top": ".35rem",
       "--left": ".2rem",
-      // "--bkg": "white",
     },
     "arrow-left": {
       "--width": "4rem",
       "--height": "4rem",
       "--top": ".35rem",
       "--left": ".2rem",
-      // "--bkg": "black",
     },
     "arrow-right": {
       "--width": "4rem",
       "--height": "4rem",
       "--top": ".35rem",
       "--left": ".2rem",
-      // "--bkg": "black",
     },
   } as any;
 

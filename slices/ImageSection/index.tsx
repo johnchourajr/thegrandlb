@@ -1,3 +1,4 @@
+import SliceData from "@/components/dev/SliceData";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 
@@ -11,12 +12,8 @@ export type ImageSectionProps = SliceComponentProps<Content.ImageSectionSlice>;
  */
 const ImageSection = ({ slice }: ImageSectionProps): JSX.Element => {
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      Placeholder component for image_section (variation: {slice.variation})
-      Slices
+    <section>
+      <SliceData slice={slice} />
     </section>
   );
 };
