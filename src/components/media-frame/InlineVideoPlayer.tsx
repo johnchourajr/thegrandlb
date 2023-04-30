@@ -25,6 +25,7 @@ export interface InlineVideoPlayerProps {
   auto_play?: boolean;
   loop?: boolean;
   controls?: boolean;
+  controlPosition?: "Top Right" | "Bottom Left" | "Bottom Right";
 }
 
 const InlineVideoPlayer = ({
@@ -35,6 +36,7 @@ const InlineVideoPlayer = ({
   auto_play,
   controls,
   loop,
+  controlPosition = "Bottom Right",
 }: InlineVideoPlayerProps) => {
   const ref = React.useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -74,6 +76,21 @@ const InlineVideoPlayer = ({
     return 0;
   };
 
+  const setPosition = (
+    controlPosition: "Bottom Right" | "Top Right" | "Bottom Left"
+  ) => {
+    switch (controlPosition) {
+      case "Bottom Right":
+        return "bottom-4 right-4 xl:bottom-6 xl:right-6";
+      case "Top Right":
+        return "top-4 right-4 xl:top-6 xl:right-6";
+      case "Bottom Left":
+        return "bottom-4 left-4 xl:bottom-6 xl:left-6";
+      default:
+        return "bottom-4 right-4 xl:bottom-6 xl:right-6";
+    }
+  };
+
   React.useEffect(() => {
     if (auto_play) {
       ref?.current?.play();
@@ -100,12 +117,12 @@ const InlineVideoPlayer = ({
 
   return (
     <div className={clsx(className)}>
-      <button
+      <div
         className={clsx("absolute inset-0")}
-        onClick={() => handleChange()}
-        aria-label={isPlaying ? "Pause" : "Play"}
-        tabIndex={-1}
-        data-cursor="video"
+        // onClick={() => handleChange()}
+        // aria-label={isPlaying ? "Pause" : "Play"}
+        // tabIndex={-1}
+        // data-cursor="video"
       >
         <div
           className={clsx(
@@ -120,9 +137,14 @@ const InlineVideoPlayer = ({
         >
           <source src={media?.url} type="video/mp4" />
         </video>
-      </button>
+      </div>
       {!controls && (
-        <div className="absolute bottom-4 right-4 z-30 h-9 w-9 xl:bottom-6 xl:right-6">
+        <div
+          className={clsx(
+            "absolute  z-30 h-9 w-9 ",
+            setPosition(controlPosition)
+          )}
+        >
           <VideoProgressButton
             className="h-9 w-9"
             onClick={() => handleChange()}

@@ -22,7 +22,7 @@ const PlayIcon = (props: SVGProps<SVGSVGElement>) => {
       }}
       {...props}
     >
-      <path fill="#fff" d="m26 18-12 6.928V11.072L26 18Z" />
+      <path fill="currentColor" d="m26 18-12 6.928V11.072L26 18Z" />
     </Svg>
   );
 };

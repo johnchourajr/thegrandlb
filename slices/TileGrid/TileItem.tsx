@@ -46,43 +46,42 @@ export const TileItem = ({
     body = card_fragment.data.body;
   }
 
-  const sharedStyles = "relative overflow-hidden h-full w-full rounded-sm p-10";
   const getStyles = (): TileStyleProps => {
     switch (theme) {
       case "Outlined":
         return {
           container:
-            "text-black uppercase border-2 border-white bg-transparent !rounded-full",
+            "text-black uppercase !border-2 !border-white bg-transparent !rounded-full hover:!border-0 hover:!border-[transparent] hover:bg-white ",
           headline: "!text-sm",
           content: "",
         };
       case "Black/White":
         return {
-          container: "bg-black text-white",
+          container: "bg-red text-white border-black",
           headline: "",
           content: "",
         };
       case "White/Black":
         return {
-          container: "bg-white text-black",
+          container: "bg-white text-black border-black",
           headline: "",
           content: "",
         };
       case "Creme/Black":
         return {
-          container: "bg-cream text-black",
+          container: "bg-cream text-black border-black",
           headline: "",
           content: "",
         };
       case "Blue/Black":
         return {
-          container: "bg-blue text-black",
+          container: "bg-blue text-black border-black",
           headline: "",
           content: "",
         };
       case "Gold/Black":
         return {
-          container: "bg-gold text-black",
+          container: "bg-gold text-black border-black",
           headline: "",
           content: "",
         };
@@ -150,7 +149,7 @@ export const TileItem = ({
       whileTap={{ scale: 0.98, willChange: "scale" }}
       transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
       className={clsx(
-        sharedStyles,
+        "relative h-full w-full overflow-hidden rounded-sm border-b-4 p-10 transition-all duration-700 ease-out-expo hover:border-b-0 hover:border-b-[transparent] lg:rounded-md",
         col_start && getNumberForColStart(col_start),
         col_span && getNumberForColSpan(col_span),
         row_start && getNumberForRowStart(row_start),
@@ -171,7 +170,7 @@ export const TileItem = ({
           <>
             <PrismicNextImage
               field={media}
-              className=" h-[13vw] max-h-[15rem] w-[13vw] max-w-[15rem]"
+              className=" h-32 max-h-[15rem] w-32 max-w-[15rem] lg:h-[13vw] lg:w-[13vw]"
             />
           </>
         )}

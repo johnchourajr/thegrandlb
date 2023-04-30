@@ -57,7 +57,7 @@ const TileGrid = ({ slice }: any) => {
         )}
         <GridSection
           as="div"
-          className="xl:auto-rows-[14vw] 2xl:auto-rows-[12vw]"
+          className="xl:auto-rows-[16vw] 2xl:auto-rows-[14vw] 3xl:auto-rows-[12vw]"
         >
           {items.map((item: TileItemProps, index: number) => {
             return <TileItem key={index} {...item} />;

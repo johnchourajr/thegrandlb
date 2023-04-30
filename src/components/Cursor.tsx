@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { m, useMotionValue } from "framer-motion";
 import { useEffect, useState } from "react";
+import ArrowRight from "./svg/ArrowRight";
 
 const addEventListenerTemplate = (
   element: any,
@@ -34,7 +35,8 @@ const Cursor: React.FC = () => {
     const anchorLinks = document.querySelectorAll("a");
     const buttonsElements = document.querySelectorAll("button");
     const videosElements = document.querySelectorAll("[data-cursor='video']");
-    const textElements = document.querySelectorAll("[data-cursor='text']");
+    const prevArrow = document.querySelectorAll("[data-cursor='arrow-left']");
+    const nextArrow = document.querySelectorAll("[data-cursor='arrow-right']");
 
     const handleMouseEnterLink = () => {
       setHovering("link");
@@ -44,8 +46,12 @@ const Cursor: React.FC = () => {
       setHovering("video");
     };
 
-    const handleMouseEnterText = () => {
-      setHovering("text");
+    const handlePrevArrow = () => {
+      setHovering("arrow-left");
+    };
+
+    const handleNextArrow = () => {
+      setHovering("arrow-right");
     };
 
     const handleMouseLeave = () => {
@@ -67,34 +73,27 @@ const Cursor: React.FC = () => {
       handleMouseEnterVideo,
       handleMouseLeave
     );
-    // addEventListenerTemplate(
-    //   textElements,
-    //   handleMouseEnterText,
-    //   handleMouseLeave
-    // );
-
-    return () => {
-      removeEventListenerTemplate(
-        anchorLinks,
-        handleMouseEnterLink,
-        handleMouseLeave
-      );
-      removeEventListenerTemplate(
-        buttonsElements,
-        handleMouseEnterLink,
-        handleMouseLeave
-      );
-      removeEventListenerTemplate(
-        videosElements,
-        handleMouseEnterVideo,
-        handleMouseLeave
-      );
-      // removeEventListenerTemplate(
-      //   textElements,
-      //   handleMouseEnterText,
-      //   handleMouseLeave
-      // );
-    };
+    addEventListenerTemplate(prevArrow, handlePrevArrow, handleMouseLeave);
+    addEventListenerTemplate(nextArrow, handleNextArrow, handleMouseLeave);
+    // return () => {
+    //   removeEventListenerTemplate(
+    //     anchorLinks,
+    //     handleMouseEnterLink,
+    //     handleMouseLeave
+    //   );
+    //   removeEventListenerTemplate(
+    //     buttonsElements,
+    //     handleMouseEnterLink,
+    //     handleMouseLeave
+    //   );
+    //   removeEventListenerTemplate(
+    //     videosElements,
+    //     handleMouseEnterVideo,
+    //     handleMouseLeave
+    //   );
+    //   removeEventListenerTemplate(prevArrow, handlePrevArrow, handleMouseLeave);
+    //   removeEventListenerTemplate(nextArrow, handleNextArrow, handleMouseLeave);
+    // };
   }, [setHovering, hovering]);
 
   useEffect(() => {
@@ -131,31 +130,46 @@ const Cursor: React.FC = () => {
     hidden: {
       opacity: 0.5,
       scale: 0.5,
+      "--top": ".35rem",
+      "--left": ".2rem",
     },
     default: {
       opacity: 0,
       scale: 1,
       "--width": "3rem",
       "--height": "3rem",
+      "--top": ".35rem",
+      "--left": ".2rem",
       "--bkg": "tranparent",
     },
     link: {
       "--width": "2rem",
       "--height": "2rem",
-      "--bkg": "white",
+      "--top": ".35rem",
+      "--left": ".2rem",
+      "--bkg": "#3C3836",
     },
     video: {
       "--width": "3rem",
       "--height": "3rem",
+      "--top": ".35rem",
+      "--left": ".2rem",
       // "--bkg": "white",
     },
-    // text: {
-    //   "--width": ".1rem",
-    //   "--height": "2rem",
-    //   "--top": "50%",
-    //   "--left": "50%",
-    //   "--bkg": "white",
-    // },
+    "arrow-left": {
+      "--width": "4rem",
+      "--height": "4rem",
+      "--top": ".35rem",
+      "--left": ".2rem",
+      // "--bkg": "black",
+    },
+    "arrow-right": {
+      "--width": "4rem",
+      "--height": "4rem",
+      "--top": ".35rem",
+      "--left": ".2rem",
+      // "--bkg": "black",
+    },
   } as any;
 
   const cursorAnimate = () => {
@@ -166,21 +180,25 @@ const Cursor: React.FC = () => {
       return "default";
     } else if (hovering === "video") {
       return "video";
-      // } else if (hovering === "text") {
-      //   return "text";
+    } else if (hovering === "arrow-left") {
+      return "arrow-left";
+    } else if (hovering === "arrow-right") {
+      return "arrow-right";
     } else {
       return "link";
     }
   };
 
+  const isHoveringArrow =
+    hovering === "arrow-left" || hovering === "arrow-right";
+
   return (
     <m.div
       className={clsx(
-        "pointer-events-none h-[1px] w-[1px] mix-blend-difference",
+        "pointer-events-none h-[1px] w-[1px] items-center justify-center text-[#3C3836] mix-blend-difference",
         "fixed top-0 left-0 z-[9999] origin-center transform transition-transform duration-150 ease-out",
-        // "after:absolute after:top-1/2 after:left-1/2 after:h-[var(--height)] after:w-[var(--width)] after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:border-2 after:border-white after:bg-[var(--bkg)] ",
-        // after element arrow like arrow with svg data uri
-        "after:top-[var(--top, .43rem)] after:left-[var(--left, .22rem)] after:absolute after:h-[var(--height)] after:w-[var(--width)] after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:border-2 after:border-white after:bg-[var(--bkg)] "
+        "after:--backdrop-blur-[.5rem] after:absolute after:top-[var(--top)] after:left-[var(--left)] after:h-[var(--height)] after:w-[var(--width)] after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:border-2 after:border-[#3C3836] after:bg-[var(--bkg)] after:opacity-60",
+        isHoveringArrow && "!mix-blend-normal after:!border-white"
       )}
       style={{
         x,
@@ -188,7 +206,16 @@ const Cursor: React.FC = () => {
       }}
       variants={cursorVariant}
       animate={cursorAnimate()}
-    />
+    >
+      {isHoveringArrow && (
+        <ArrowRight
+          className="absolute top-[-.38rem] left-[-.48rem] z-40 h-6 w-6 transform text-white"
+          animate={{
+            rotate: hovering === "arrow-right" ? 0 : 180,
+          }}
+        />
+      )}
+    </m.div>
   );
 };
 

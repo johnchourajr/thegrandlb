@@ -83,9 +83,9 @@ const getButtonSize = (size: ButtonTypes["size"]) => {
     case "small":
       return "px-4 py-3";
     case "large":
-      return "px-8 py-5";
+      return "px-10 py-7";
     default:
-      return "py-4 px-3";
+      return "px-6 py-5";
   }
 };
 
@@ -157,7 +157,7 @@ function Button({
   return (
     <ButtonTag
       className={clsx(
-        `group relative inline-flex flex-row items-center justify-center text-center transition-all`,
+        `group relative inline-flex h-fit flex-row items-center justify-center whitespace-nowrap text-center transition-all`,
         getButtonStyles(type).parent,
         getButtonSize(size),
         className

@@ -22,7 +22,7 @@ const PauseIcon = (props: SVGProps<SVGSVGElement>) => {
       }}
       {...props}
     >
-      <path fill="#fff" d="M13 12h3v11h-3V12ZM20 12h3v11h-3V12Z" />
+      <path fill="currentColor" d="M13 12h3v11h-3V12ZM20 12h3v11h-3V12Z" />
     </Svg>
   );
 };

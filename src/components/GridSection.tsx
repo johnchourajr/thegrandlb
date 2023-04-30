@@ -37,7 +37,7 @@ export function GridSection({
     } else if (space?.includes("Small")) {
       return "pt-4 lg:pt-6";
     } else if (space?.includes("Large")) {
-      return "pt-8 md:pt-12 lg:pt-16 xl:pt-20";
+      return "pt-20 lg:pt-24 xl:pt-28";
     }
     return "pt-0";
   };
@@ -58,7 +58,7 @@ export function GridSection({
     <MotionComp
       id={id}
       className={clsx(
-        "mx-auto w-full max-w-[2500px] gap-4 overflow-hidden lg:gap-6",
+        "mx-auto w-full max-w-[2500px] gap-4  lg:gap-6",
         gridSectionType === "grid" &&
           "grid grid-cols-4 px-4 lg:px-6 xl:grid-cols-12",
         gridSectionType === "flex" && "flex",

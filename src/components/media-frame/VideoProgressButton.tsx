@@ -6,16 +6,33 @@ import PlayIcon from "../svg/PlayIcon";
 
 interface VideoProgressButtonProps {
   className?: string;
-  progress: number;
-  playing?: boolean;
-  onClick?: VideoHTMLAttributes<HTMLButtonElement>["onClick"];
+  progress?: number;
+  playing: boolean;
+  onClick: VideoHTMLAttributes<HTMLButtonElement>["onClick"];
+  inverted?: boolean;
+  transition?: any;
 }
 export const VideoProgressButton = ({
   className,
-  progress,
+  progress = 0,
   playing,
   onClick,
+  inverted = false,
 }: VideoProgressButtonProps) => {
+  const colorStyles = () => {
+    if (inverted) {
+      return {
+        stroke: "stroke-black",
+        fill: "fill-black",
+      };
+    } else {
+      return {
+        stroke: "stroke-white",
+        fill: "fill-white",
+      };
+    }
+  };
+
   return (
     <m.button
       className={clsx(
@@ -33,7 +50,9 @@ export const VideoProgressButton = ({
       >
         <m.circle
           className={clsx(
-            "text-gray-300 fill-white stroke-white opacity-30",
+            "text-gray-300  opacity-30",
+            colorStyles().stroke,
+            colorStyles().fill,
             !playing && "opacity-10"
           )}
           cx="50"
@@ -42,24 +61,36 @@ export const VideoProgressButton = ({
           strokeWidth="6"
           fill="none"
         />
-        <m.circle
-          className={clsx("stroke-white text-black", !playing && "opacity-30")}
-          cx="50"
-          cy="50"
-          r="45"
-          strokeWidth="6"
-          fill="none"
-          pathLength="1"
-          animate={{
-            pathLength: progress / 100,
-          }}
-        />
+        {progress && (
+          <m.circle
+            className={clsx(colorStyles().stroke, !playing && "opacity-30")}
+            cx="50"
+            cy="50"
+            r="45"
+            strokeWidth="6"
+            fill="none"
+            pathLength="1"
+            animate={{
+              pathLength: progress ? progress / 100 : 0,
+            }}
+          />
+        )}
       </m.svg>
       <AnimatePresence mode="wait">
         {playing ? (
-          <PauseIcon className="absolute inset-0 z-0 h-full w-full" />
+          <PauseIcon
+            className={clsx(
+              "absolute inset-0 z-0 h-full w-full",
+              colorStyles().fill
+            )}
+          />
         ) : (
-          <PlayIcon className="absolute inset-0 z-0 h-full w-full" />
+          <PlayIcon
+            className={clsx(
+              "absolute inset-0 z-0 h-full w-full",
+              colorStyles().fill
+            )}
+          />
         )}
       </AnimatePresence>
     </m.button>

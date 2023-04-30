@@ -270,7 +270,7 @@ export default function Header({ navigation }: any) {
     <GridSection
       gridSectionType="flex"
       className={clsx(
-        "sticky top-[var(--navTop)] z-[9999] h-fit !max-w-[100vw] flex-col items-center gap-[4vw] overflow-visible !pt-4 transition-colors duration-300 ease-out-expo xl:flex-row 2xl:gap-[5vw] 4xl:gap-[6vw]",
+        "sticky top-[var(--navTop)] z-[9999] h-fit !max-w-[100vw] flex-col items-center gap-0 overflow-visible !pt-4 transition-colors duration-300 ease-out-expo lg:gap-[inherit] xl:flex-row xl:gap-[4vw] 2xl:gap-[5vw] 4xl:gap-[6vw]",
         navScrolled ? "border-b-2 border-red bg-bg" : "bg-bg"
       )}
       initial={{ "--navTop": "0rem" } as any}
@@ -280,14 +280,13 @@ export default function Header({ navigation }: any) {
     >
       <m.div
         className={clsx(
-          "grid-inset z-10 flex w-full origin-left justify-between xl:w-auto",
-          "scale-[var(--logoScale)]"
+          "grid-inset z-10 flex w-full justify-between xl:w-auto"
         )}
         initial={{ "--logoScale": "1", transformOrigin: "0% 70%" } as any}
         animate={controls}
       >
         <Link href="/" title="The Grand LB">
-          <HeaderLogo />
+          <HeaderLogo className="h-16 w-32 origin-left scale-[var(--logoScale)] lg:w-[inherit]" />
         </Link>
         {isMobile && (
           <div

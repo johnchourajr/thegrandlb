@@ -1,9 +1,14 @@
 import clsx from "clsx";
 import { useState } from "react";
 
-const SliceData = ({ slice, hidden }: any) => {
+interface SliceDataProps {
+  slice?: any;
+  hidden?: boolean;
+}
+
+const SliceData = ({ slice, hidden }: SliceDataProps) => {
   const [open, setOpen] = useState(false);
-  if (hidden) {
+  if (hidden || !slice) {
     return null;
   }
   return (

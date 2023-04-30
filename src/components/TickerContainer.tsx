@@ -6,12 +6,14 @@ interface TickProps {
   toLeft?: boolean;
   className?: string;
   children?: React.ReactNode;
+  animateOnce?: boolean;
 }
 
 export default function Tick({
   toLeft,
   className,
   children,
+  animateOnce = false,
   ...rest
 }: TickProps) {
   const ref = React.useRef(null);
@@ -52,6 +54,23 @@ export default function Tick({
     <motion.div
       className={clsx("relative z-10 flex w-full overflow-hidden", className)}
       tabIndex={-1}
+      variants={{
+        hidden: { opacity: 0, y: "0.1em", scale: 1.1 },
+        show: {
+          opacity: [0, 1],
+          y: 0,
+          scale: [1.1, 1],
+          transition: {
+            duration: 2,
+            ease: [0.19, 1, 0.22, 1],
+          },
+        },
+      }}
+      viewport={{
+        once: animateOnce,
+      }}
+      initial="hidden"
+      whileInView="show"
       {...rest}
     >
       <div className="ticker-mask flex w-full">
@@ -65,7 +84,7 @@ export default function Tick({
           <span ref={ref} className="inline-flex whitespace-pre">
             {children}
             <span
-              className="inline-flex whitespace-pre"
+              className="inline-flex select-none whitespace-pre"
               tabIndex={-1}
               aria-hidden
             >
@@ -73,7 +92,7 @@ export default function Tick({
             </span>
           </span>
           <span
-            className="inline-flex whitespace-pre"
+            className="inline-flex select-none whitespace-pre"
             tabIndex={-1}
             aria-hidden
           >
