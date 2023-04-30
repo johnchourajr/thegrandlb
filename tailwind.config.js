@@ -48,7 +48,7 @@ const colors = {
   cream: "#FAF2EB",
   white: "#FFFFFF",
   gold: "#FFC42D",
-  red: "##8A2432",
+  red: "#8A2432",
   blue: "#CEEAEB",
 };
 
