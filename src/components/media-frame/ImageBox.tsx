@@ -19,10 +19,7 @@ const ImageBox = ({
   return (
     <PrismicNextImage
       field={media}
-      className={clsx(
-        "absolute inset-0 z-10 h-full w-full object-cover",
-        className
-      )}
+      className={clsx(className)}
       priority={priority}
       loading={priority ? "eager" : "lazy"}
       imgixParams={{

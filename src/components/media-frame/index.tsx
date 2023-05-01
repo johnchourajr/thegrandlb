@@ -32,7 +32,12 @@ const MediaFrame = ({
         />
       )}
       {!videoUrl && media && <Image media={media} priority={priority} />}
-      {gallery && <ImageGallery images={gallery} />}
+      {gallery && (
+        <ImageGallery
+          images={gallery}
+          className="absolute inset-0 z-10 h-full w-full object-cover"
+        />
+      )}
 
       <div className="noise" />
     </m.div>
