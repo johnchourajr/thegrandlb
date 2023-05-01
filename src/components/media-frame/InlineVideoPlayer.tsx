@@ -46,7 +46,7 @@ const InlineVideoPlayer = ({
 
   const { url: mediaUrl }: any = media || {};
   const { url: posterUrl }: any = poster || {};
-  const posterUrlWithParams = posterUrl && `${posterUrl}?q=10&fm=webp&w=1200`;
+  const posterUrlWithParams = posterUrl && `${posterUrl}?q=10&fm=webp&w=800`;
 
   const videoOptions = {
     autoPlay: auto_play,

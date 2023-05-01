@@ -234,6 +234,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
           )}
           data-cursor="arrow-left"
           data-content="Go to previous"
+          title="Go to previous"
           onClick={handleNavigateToPrevious}
         />
         <button
@@ -243,6 +244,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
           )}
           data-cursor="arrow-right"
           data-content="Go to next"
+          title="Go to next"
           onClick={handleNavigateToNext}
         />
         {!outerControls && (

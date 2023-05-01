@@ -44,6 +44,7 @@ export const VideoProgressButton = ({
       whileHover={{ scale: 1.12 }}
       whileTap={{ scale: 0.9 }}
       data-content={playing ? "Pause" : "Play"}
+      title={playing ? "Pause" : "Play"}
     >
       <m.svg
         className="absolute inset-0 z-0 h-full w-full origin-center rotate-[-90deg]"

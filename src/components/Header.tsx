@@ -308,7 +308,8 @@ export default function Header({ navigation }: any) {
         className={clsx(
           "group-one grid-inset overflow-hidden xl:overflow-visible",
           "col-span-full row-start-2 flex w-full grow flex-col items-center justify-between xl:gap-4",
-          "xl:col-span-9 xl:col-start-4 xl:row-start-1 xl:flex-row xl:!pl-0"
+          "xl:col-span-9 xl:col-start-4 xl:row-start-1 xl:flex-row xl:!pl-0",
+          "h-0 opacity-0 xl:h-fit xl:opacity-100"
         )}
         {...animationProps}
       >
@@ -339,7 +340,7 @@ export default function Header({ navigation }: any) {
             }}
             size="small"
             target="_self"
-            className="z-10"
+            className="z-10 w-[12rem]"
             text="Make an inquiry"
           />
         </span>

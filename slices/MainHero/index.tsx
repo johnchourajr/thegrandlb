@@ -2,7 +2,6 @@ import Button from "@/components/Button";
 import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
 import MediaFrame from "@/components/media-frame";
-import MotionBox from "@/components/MotionBox";
 import { Content } from "@prismicio/client";
 import * as prismicH from "@prismicio/helpers";
 import { SliceComponentProps } from "@prismicio/react";
@@ -34,7 +33,7 @@ const PageHero = ({ slice }: PageHeroProps): JSX.Element => {
         bottomSpacer={slice.primary.bottom_spacer}
         topSpacer={"Small"}
       >
-        <MotionBox
+        <div
           className={clsx(
             "relative col-span-full col-start-1 flex aspect-square max-h-[calc(100vh-8.8125rem)] w-full flex-col items-center justify-center gap-10 overflow-hidden rounded-sm bg-black px-4 text-center text-white lg:aspect-[4/3] lg:max-h-[calc(100vh-9rem-3rem)] lg:rounded-md"
           )}
@@ -89,7 +88,7 @@ const PageHero = ({ slice }: PageHeroProps): JSX.Element => {
               />
             )}
           </m.div>
-        </MotionBox>
+        </div>
       </GridSection>
       <div className="flex w-full flex-col justify-between gap-2 px-4 py-2 md:hidden">
         {slice.primary.primary_action && (
