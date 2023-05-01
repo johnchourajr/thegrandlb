@@ -86,3 +86,121 @@ a {
     transform: translateX(var(--ticker-width, -50vw));
   }
 }
+
+body {
+  /* large spacer */
+  --space-lg-3xl: 7vw;
+  --space-lg-xl: 7vw;
+  --space-lg-lg: 6vw;
+  --space-lg: 5vw;
+  /* default spacer */
+  --space-md-lg: 1.5rem;
+  --space-md: 1rem;
+}
+
+
+.padding-bottom-lg {
+  @apply pb-[var(--space-lg)] lg:pb-[var(--space-lg-lg)] xl:pb-[var(--space-lg-xl)] 3xl:pb-36;
+}
+
+.padding-bottom {
+  @apply pb-[var(--space-md)] lg:pb-[var(--space-md-lg)];
+}
+
+.padding-top-lg {
+  @apply pt-[var(--space-lg)] lg:pt-[var(--space-lg-lg)] xl:pt-[var(--space-lg-xl)] 3xl:pt-36;
+}
+
+.padding-top {
+  @apply pt-[var(--space-md)] lg:pt-[var(--space-md-lg)];
+}
+
+.margin-bottom-lg {
+  @apply mb-[var(--space-lg)] lg:mb-[var(--space-lg-lg)] xl:mb-[var(--space-lg-xl)] 3xl:mb-36;
+}
+
+.margin-bottom {
+  @apply mb-[var(--space-md)] lg:mb-[var(--space-md-lg)];
+}
+
+.margin-top-lg {
+  @apply mt-[var(--space-lg)] lg:mt-[var(--space-lg-lg)] xl:mt-[var(--space-lg-xl)] 3xl:mt-36;
+}
+
+.margin-top {
+  @apply mt-[var(--space-md)] lg:mt-[var(--space-md-lg)];
+}
+
+.gap-space-lg {
+  @apply gap-x-[var(--space-lg)] lg:gap-x-[var(--space-lg-lg)] xl:gap-x-[var(--space-lg-xl)] 3xl:gap-x-36;
+}
+
+.gap-space {
+  @apply gap-x-[var(--space-md)] lg:gap-x-[var(--space-md-lg)];
+}
+
+.gap-y-lg {
+  @apply gap-y-[var(--space-lg)] lg:gap-y-[var(--space-lg-lg)] xl:gap-y-[var(--space-lg-xl)];
+}
+
+.gap-y {
+  @apply gap-y-[var(--space-md)] lg:gap-y-[var(--space-md-lg)];
+}
+
+.noise {
+  @apply absolute opacity-[0.05] inset-0 w-full h-full;
+  background: url('https://images.prismic.io/the-grand/356af45d-3339-4213-a793-db40e61dfa99_noise.png?auto=compress,format');
+  opacity: 0.1;
+  animation: noise 2s steps(3) infinite both;
+  pointer-events: none;
+  will-change: auto;
+  z-index: 9999;
+  background-repeat: repeat;
+  background-position: center;
+}
+
+@keyframes noise {
+  0% {
+    background-position: 1% 1%;
+  }
+
+  10% {
+    background-position: -5% -2%;
+  }
+
+  20% {
+    background-position: 10% 5%;
+  }
+
+  30% {
+    background-position: 5% -11%;
+  }
+
+  40% {
+    background-position: -12% -5%;
+  }
+
+  50% {
+    background-position: 10% 9%;
+  }
+
+  60% {
+    background-position: 15% 0%;
+  }
+
+  70% {
+    background-position: -10% 8%;
+  }
+
+  80% {
+    background-position: 10% 2%;
+  }
+
+  90% {
+    background-position: 1% 5%;
+  }
+
+  100% {
+    background-position: 0% 8%;
+  }
+}

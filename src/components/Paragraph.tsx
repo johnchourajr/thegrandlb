@@ -34,7 +34,10 @@ function Text({
   };
 
   return (
-    <Comp className={clsx(getStyles(), className)} {...rest}>
+    <Comp
+      className={clsx(getStyles(), paragraph && "leading-[1.75]", className)}
+      {...rest}
+    >
       {text || children}
     </Comp>
   );

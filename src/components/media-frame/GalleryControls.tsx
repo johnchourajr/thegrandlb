@@ -2,21 +2,9 @@ import clsx from "clsx";
 import { AnimatePresence, m } from "framer-motion";
 import React from "react";
 import Text from "../Paragraph";
-import type { ImageItem } from "./ImageGallery";
+import type { GalleryControlsProps } from "./types";
 import { VideoProgressButton } from "./VideoProgressButton";
 
-interface GalleryControlsProps {
-  outerControls?: boolean;
-  setPosition: (
-    position: "Bottom Right" | "Top Right" | "Bottom Left" | "Top Left"
-  ) => any;
-  images: ImageItem[];
-  controlPosition: "Bottom Right" | "Top Right" | "Bottom Left" | "Top Left";
-  currentImageIndex: number;
-  handleNavigateToIndex: (index: number) => void;
-  isPlaying: boolean;
-  handlePlayPauseClick: () => void;
-}
 const GalleryControls: React.FC<GalleryControlsProps> = ({
   outerControls,
   setPosition,

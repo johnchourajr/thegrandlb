@@ -29,7 +29,7 @@ interface ImageGalleryProps {
   autoPlay?: boolean;
   cycleDuration?: number;
   delayStart?: number;
-  outerControls?: false;
+  outerControls?: boolean;
   controlPosition?: "Bottom Right" | "Top Right" | "Bottom Left" | "Top Left";
 }
 
@@ -88,8 +88,10 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
   useEffect(() => {
     if (isInView) {
       setIsPlaying(true);
+      // console.log("playing");
     } else {
       setIsPlaying(false);
+      // console.log("paused");
     }
   }, [isInView]);
 
@@ -226,13 +228,21 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
           })}
         </div>
         <button
-          className="--bg-red absolute top-0 z-10 h-full w-1/2 cursor-none bg-opacity-30"
+          className={clsx(
+            "--bg-red absolute top-0 z-10 h-full w-1/2 cursor-none bg-opacity-30",
+            "after:absolute after:left-0 after:top-0 after:rounded-sm after:p-3 after:py-2 focus-visible:after:bg-black focus-visible:after:text-white focus-visible:after:content-[attr(data-content)]"
+          )}
           data-cursor="arrow-left"
+          data-content="Go to previous"
           onClick={handleNavigateToPrevious}
         />
         <button
-          className="--bg-blue absolute top-0 right-0 z-10 h-full w-1/2 cursor-none bg-opacity-30"
+          className={clsx(
+            "--bg-blue absolute top-0 right-0 z-10 h-full w-1/2 cursor-none bg-opacity-30",
+            "after:absolute after:right-0 after:top-0 after:rounded-sm after:p-3 after:py-2 focus-visible:after:bg-black focus-visible:after:text-white focus-visible:after:content-[attr(data-content)]"
+          )}
           data-cursor="arrow-right"
+          data-content="Go to next"
           onClick={handleNavigateToNext}
         />
         {!outerControls && (
@@ -249,6 +259,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
             />
           </div>
         )}
+        <div className="noise" />
       </div>
       {outerControls && (
         <GalleryControls

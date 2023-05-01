@@ -157,10 +157,12 @@ const NavParentItem = ({
           <span className="z-10">
             <button
               className={clsx(
-                "flex w-6 flex-row items-center justify-center !no-underline"
+                "relative flex w-6 flex-row items-center justify-center !no-underline",
+                "after:absolute after:left-[105%] after:top-0 after:rounded-sm after:p-3 after:py-2 focus-visible:after:bg-black focus-visible:after:text-white focus-visible:after:content-[attr(data-content)]"
               )}
               onClick={handleToggleControls}
               tabIndex={isMobile ? -1 : 1}
+              data-content={isHovering ? "Close" : "Open"}
             >
               {isHovering ? "-" : "+"}
             </button>
@@ -268,6 +270,7 @@ export default function Header({ navigation }: any) {
 
   return (
     <GridSection
+      id={"header"}
       gridSectionType="flex"
       className={clsx(
         "sticky top-[var(--navTop)] z-[9999] h-fit !max-w-[100vw] flex-col items-center gap-0 overflow-visible !pt-4 transition-colors duration-300 ease-out-expo lg:gap-[inherit] xl:flex-row xl:gap-[4vw] 2xl:gap-[5vw] 4xl:gap-[6vw]",
@@ -277,6 +280,7 @@ export default function Header({ navigation }: any) {
       animate={controls}
       transition={{ duration: 0.2 }}
       topSpacer="None"
+      bottomSpacer="None"
     >
       <m.div
         className={clsx(
@@ -286,7 +290,7 @@ export default function Header({ navigation }: any) {
         animate={controls}
       >
         <Link href="/" title="The Grand LB">
-          <HeaderLogo className="h-16 w-32 origin-left scale-[var(--logoScale)] lg:h-24 lg:w-56" />
+          <HeaderLogo className="h-12 w-32 origin-left scale-[var(--logoScale)] xl:h-32 xl:w-64" />
         </Link>
         {isMobile && (
           <div

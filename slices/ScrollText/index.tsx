@@ -3,14 +3,16 @@ import SliceData from "@/components/dev/SliceData";
 import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
 import Tick from "@/components/TickerContainer";
+import { Content } from "@prismicio/client";
+import { SliceComponentProps } from "@prismicio/react";
 import clsx from "clsx";
 
 /**
- * @typedef {import("@prismicio/client").Content.ScrollTextSlice} ScrollTextSlice
- * @typedef {import("@prismicio/react").SliceComponentProps<ScrollTextSlice>} ScrollTextProps
- * @param { ScrollTextProps }
+ * Props for `ScrollText`.
  */
-const ScrollText = ({ slice }) => {
+export type ScrollTextProps = SliceComponentProps<Content.ScrollTextSlice>;
+
+const ScrollText = ({ slice }: ScrollTextProps): JSX.Element => {
   const makeAriaLabel = () => {
     let ariaLabel = "";
     if (slice.primary.top_title) {

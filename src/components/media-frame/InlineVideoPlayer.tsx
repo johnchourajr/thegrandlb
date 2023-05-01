@@ -1,20 +1,15 @@
 // inline video player component
+import { EmptyLinkField, FilledLinkToMediaField } from "@prismicio/types";
 import clsx from "clsx";
-import { useReducedMotion } from "framer-motion";
-import React, { useState, VideoHTMLAttributes } from "react";
+import { useInView, useReducedMotion } from "framer-motion";
+import React, { useEffect, useState, VideoHTMLAttributes } from "react";
 import { VideoProgressButton } from "./VideoProgressButton";
 
 export interface InlineVideoPlayerProps {
   className?: string;
   videoClassName?: string;
   uid?: string;
-  media?: {
-    link_type: string;
-    name: string;
-    kind: string;
-    url: string;
-    size: number;
-  };
+  media?: FilledLinkToMediaField | EmptyLinkField<"Media">;
   poster?: {
     link_type: string;
     name: string;
@@ -39,6 +34,7 @@ const InlineVideoPlayer = ({
   controlPosition = "Bottom Right",
 }: InlineVideoPlayerProps) => {
   const ref = React.useRef<HTMLVideoElement>(null);
+  const isInView = useInView(ref);
   const [isPlaying, setIsPlaying] = useState(false);
   const [videoProgress, setVideoProgress] = useState(0);
   const reducedMotion = useReducedMotion();
@@ -61,6 +57,16 @@ const InlineVideoPlayer = ({
       setIsPlaying(false);
     }
   };
+
+  useEffect(() => {
+    if (isInView) {
+      setIsPlaying(true);
+      // console.log("playing");
+    } else {
+      setIsPlaying(false);
+      // console.log("paused");
+    }
+  }, [isInView]);
 
   const getVideoProgress = (): any => {
     const video = ref?.current;

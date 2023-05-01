@@ -6,10 +6,10 @@ interface GridSectionProps {
   children: React.ReactNode;
   gridSectionType?: "grid" | "flex";
   as?: "section" | "div";
-  id?: string;
+  id: string | null;
   className?: string;
-  topSpacer?: "None" | "Small" | "Large";
-  bottomSpacer?: "None" | "Small" | "Large";
+  topSpacer: "None" | "Small" | "Large" | null;
+  bottomSpacer: "None" | "Small" | "Large" | null;
 }
 
 // have GridSectionProps extend framer motion props to allow for motion
@@ -21,7 +21,7 @@ export function GridSection({
   children,
   gridSectionType = "grid",
   as: Comp = "section",
-  id,
+  id = null,
   className,
   topSpacer = "Small",
   bottomSpacer = "None",
@@ -35,9 +35,9 @@ export function GridSection({
     if (space?.includes("None")) {
       return "pt-0";
     } else if (space?.includes("Small")) {
-      return "pt-4 lg:pt-6";
+      return "padding-top";
     } else if (space?.includes("Large")) {
-      return "pt-20 lg:pt-24 xl:pt-28";
+      return "padding-top-lg";
     }
     return "pt-0";
   };
@@ -47,9 +47,9 @@ export function GridSection({
     if (space?.includes("None")) {
       return "pb-0";
     } else if (space?.includes("Small")) {
-      return "pb-4 lg:pb-6";
+      return "padding-bottom";
     } else if (space?.includes("Large")) {
-      return "pb-20 lg:pb-24 xl:pb-28";
+      return "padding-bottom-lg";
     }
     return "pb-0";
   };

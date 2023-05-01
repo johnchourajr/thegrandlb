@@ -37,11 +37,13 @@ export const VideoProgressButton = ({
     <m.button
       className={clsx(
         "relative z-10 inline-flex items-center justify-center",
+        "after:absolute after:right-0 after:top-0 after:translate-y-[-105%] after:rounded-sm after:p-3 after:py-2 focus-visible:after:bg-black focus-visible:after:text-white focus-visible:after:content-[attr(data-content)]",
         className
       )}
       onClick={onClick}
       whileHover={{ scale: 1.12 }}
       whileTap={{ scale: 0.9 }}
+      data-content={playing ? "Pause" : "Play"}
     >
       <m.svg
         className="absolute inset-0 z-0 h-full w-full origin-center rotate-[-90deg]"

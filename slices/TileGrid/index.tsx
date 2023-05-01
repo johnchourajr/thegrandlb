@@ -2,19 +2,21 @@ import SliceData from "@/components/dev/SliceData";
 import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
 import Text from "@/components/Paragraph";
+import { Content } from "@prismicio/client";
+import { SliceComponentProps } from "@prismicio/react";
 import clsx from "clsx";
 import { TileItem } from "./TileItem";
 import type { TileItemProps } from "./types";
 
 /**
- * @typedef {import("@prismicio/client").Content.TileGridSlice} TileGridSlice
- * @typedef {import("@prismicio/react").SliceComponentProps<TileGridSlice>} TileGridProps
- * @param { TileGridProps }
+ * Props for `TileGrid`.
  */
-const TileGrid = ({ slice }: any) => {
-  const { items, primary } = slice;
+export type TileGridProps = SliceComponentProps<Content.TileGridSlice>;
+
+const TileGrid = ({ slice }: TileGridProps): JSX.Element => {
+  const { items, primary } = slice as any;
   const { section_id, headline, theme, body, top_spacer, bottom_spacer } =
-    primary;
+    primary as any;
 
   const getTheme = () => {
     switch (theme) {
@@ -32,14 +34,20 @@ const TileGrid = ({ slice }: any) => {
   return (
     <>
       <GridSection
-        id={primary.section_id}
+        id={section_id}
         gridSectionType="flex"
         className={clsx("max-w-[2000px] flex-col gap-8 lg:gap-12", getTheme())}
         topSpacer={top_spacer}
         bottomSpacer={bottom_spacer}
       >
         {headline && (
-          <GridSection as="div" className="">
+          <GridSection
+            id=""
+            as="div"
+            className=""
+            topSpacer="None"
+            bottomSpacer="None"
+          >
             <div className={"col-span-full xl:col-start-2"}>
               {headline && (
                 <Headline
@@ -56,8 +64,11 @@ const TileGrid = ({ slice }: any) => {
           </GridSection>
         )}
         <GridSection
+          id=""
           as="div"
           className="xl:auto-rows-[16vw] 2xl:auto-rows-[14vw] 3xl:auto-rows-[12vw]"
+          topSpacer="Small"
+          bottomSpacer="None"
         >
           {items.map((item: TileItemProps, index: number) => {
             return <TileItem key={index} {...item} />;

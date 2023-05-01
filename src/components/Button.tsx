@@ -27,7 +27,7 @@ interface ButtonTypes {
   as?: "span" | "button";
   target?: "_blank" | "_self" | "_parent" | "_top";
   onClick?: () => void | ButtonTypes;
-  text?: string;
+  text?: string | null;
   buttonType?: "submit" | "button" | "reset";
   type?: "black" | "white" | "outline" | "outline-black";
   size?: "large" | "default" | "small";

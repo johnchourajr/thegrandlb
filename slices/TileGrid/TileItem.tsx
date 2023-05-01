@@ -52,7 +52,7 @@ export const TileItem = ({
       case "Outlined":
         return {
           container:
-            "text-black uppercase !border-2 !border-white bg-transparent !rounded-full hover:!border-0 hover:!border-[transparent] hover:bg-white ",
+            "text-black uppercase !border-2 border-white bg-transparent !rounded-full hover:!border-0 hover:!border-[transparent] hover:bg-white ",
           headline: "!text-sm",
           content: "",
         };

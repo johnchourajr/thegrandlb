@@ -2,69 +2,10 @@ import SliceData from "@/components/dev/SliceData";
 import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
 import MotionBox from "@/components/MotionBox";
-import Text from "@/components/Paragraph";
-import StringText from "@/components/StringText";
+import { NumberItem } from "@components/NumberItem";
 import { Content } from "@prismicio/client";
-import * as prismicH from "@prismicio/helpers";
-import { PrismicNextImage } from "@prismicio/next";
-import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { SliceComponentProps } from "@prismicio/react";
 import { TileItem } from "slices/TileGrid/TileItem";
-
-interface NumberItemProps {
-  media?: any;
-  number: any;
-  eyebrow: any;
-  body: any;
-  action_text: any;
-  action_link: any;
-}
-
-const NumberItem: React.FC<NumberItemProps> = ({
-  media,
-  number,
-  eyebrow,
-  body,
-  action_text,
-  action_link,
-  ...rest
-}) => {
-  console.log({ action_text, action_link });
-
-  const numberAsString = prismicH.asText(number);
-  const bodyAsString = prismicH.asText(body);
-
-  return (
-    <MotionBox
-      className="flex w-full flex-col items-center justify-center gap-6 text-center"
-      {...rest}
-    >
-      {media && (
-        <PrismicNextImage
-          field={media}
-          className=" h-[4.375rem] w-[4.375rem]"
-        />
-      )}
-      {numberAsString && (
-        <Headline as="h3" className={"!whitespace-normal"} animateOnce>
-          {numberAsString}
-        </Headline>
-      )}
-      {eyebrow && (
-        <StringText uppercase bold>
-          {eyebrow}
-        </StringText>
-      )}
-      {bodyAsString && (
-        <PrismicRichText
-          field={body}
-          components={{
-            paragraph: ({ children }) => <Text as="span">{children}</Text>,
-          }}
-        />
-      )}
-    </MotionBox>
-  );
-};
 
 /**
  * Props for `HomepageNumbers`.
@@ -83,9 +24,9 @@ const HomepageNumbers = ({ slice }: HomepageNumbersProps): JSX.Element => {
     <>
       <GridSection
         id={slice.primary.section_id || ""}
-        bottomSpacer={slice.primary.bottom_spacer || undefined}
-        topSpacer={slice.primary.top_spacer || undefined}
-        className={"!gap-y-28 xl:!gap-y-20"}
+        bottomSpacer={slice.primary.bottom_spacer || null}
+        topSpacer={slice.primary.top_spacer || null}
+        className={"!gap-y-28 xl:!gap-y-32"}
       >
         {slice.primary.title && (
           <Headline
@@ -155,13 +96,13 @@ const HomepageNumbers = ({ slice }: HomepageNumbersProps): JSX.Element => {
             link={primary_action_link}
             headline={primary_action}
             theme={"Outlined"}
-            col_span={"Span 10"}
-            col_start={"Start 2"}
-            className={"h-[12vw]"}
+            className={
+              "col-span-full !h-[12vw] xl:col-span-10 xl:col-start-2 3xl:!h-56 "
+            }
           />
         )}
       </GridSection>
-      <SliceData slice={slice} />
+      <SliceData slice={slice} hidden />
     </>
   );
 };
