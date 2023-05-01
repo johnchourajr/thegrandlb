@@ -220,7 +220,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
               >
                 <ImageBox
                   className="absolute top-0 left-0 h-full w-full object-cover"
-                  field={media as any}
+                  media={media}
                   alt={caption || " "}
                 />
               </m.div>

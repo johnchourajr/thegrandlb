@@ -7,6 +7,7 @@ interface ImageBoxProps {
   priority?: PrismicNextImageProps["priority"];
   imgixParams?: PrismicNextImageProps["imgixParams"];
   className?: string;
+  alt?: "";
 }
 
 const ImageBox = ({
@@ -14,8 +15,9 @@ const ImageBox = ({
   priority,
   imgixParams,
   className,
+  alt,
   ...rest
-}: ImageProps) => {
+}: ImageBoxProps) => {
   return (
     <PrismicNextImage
       field={media}
@@ -28,6 +30,7 @@ const ImageBox = ({
         fm: "webp",
         ...imgixParams,
       }}
+      alt={alt || undefined}
       {...rest}
     />
   );
