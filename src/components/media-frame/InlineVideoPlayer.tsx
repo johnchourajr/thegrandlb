@@ -28,6 +28,7 @@ const InlineVideoPlayer = ({
   videoClassName,
   uid,
   media,
+  poster,
   auto_play,
   controls,
   loop,
@@ -35,9 +36,17 @@ const InlineVideoPlayer = ({
 }: InlineVideoPlayerProps) => {
   const ref = React.useRef<HTMLVideoElement>(null);
   const isInView = useInView(ref);
+  const loadInView = useInView(ref, {
+    once: true,
+    margin: "50% 0px",
+  });
   const [isPlaying, setIsPlaying] = useState(false);
   const [videoProgress, setVideoProgress] = useState(0);
   const reducedMotion = useReducedMotion();
+
+  const { url: mediaUrl }: any = media || {};
+  const { url: posterUrl }: any = poster || {};
+  const posterUrlWithParams = posterUrl && `${posterUrl}?q=10&fm=webp&w=1200`;
 
   const videoOptions = {
     autoPlay: auto_play,
@@ -123,13 +132,7 @@ const InlineVideoPlayer = ({
 
   return (
     <div className={clsx(className)}>
-      <div
-        className={clsx("absolute inset-0")}
-        // onClick={() => handleChange()}
-        // aria-label={isPlaying ? "Pause" : "Play"}
-        // tabIndex={-1}
-        // data-cursor="video"
-      >
+      <div className={clsx("absolute inset-0")}>
         <div
           className={clsx(
             "absolute inset-0 z-10 h-full w-full bg-black object-cover opacity-20"
@@ -139,9 +142,9 @@ const InlineVideoPlayer = ({
           ref={ref}
           className={clsx("h-full w-full object-cover", videoClassName)}
           {...videoOptions}
-          poster={media?.url}
+          poster={posterUrlWithParams}
         >
-          <source src={media?.url} type="video/mp4" />
+          {loadInView && <source src={mediaUrl} type="video/mp4" />}
         </video>
       </div>
       {!controls && (

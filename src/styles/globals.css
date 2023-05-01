@@ -160,47 +160,16 @@ body {
 }
 
 @keyframes noise {
-  0% {
-    background-position: 1% 1%;
-  }
-
-  10% {
-    background-position: -5% -2%;
-  }
-
-  20% {
-    background-position: 10% 5%;
-  }
-
-  30% {
-    background-position: 5% -11%;
-  }
-
-  40% {
-    background-position: -12% -5%;
-  }
-
-  50% {
-    background-position: 10% 9%;
-  }
-
-  60% {
-    background-position: 15% 0%;
-  }
-
-  70% {
-    background-position: -10% 8%;
-  }
-
-  80% {
-    background-position: 10% 2%;
-  }
-
-  90% {
-    background-position: 1% 5%;
-  }
-
-  100% {
-    background-position: 0% 8%;
-  }
+  0% { background-position: 1% 1%; }
+  10% { background-position: -5% -2%; }
+  20% { background-position: 10% 5%; }
+  30% { background-position: 5% -11%; }
+  40% { background-position: -12% -5%; }
+  50% { background-position: 10% 9%; }
+  60% { background-position: 15% 0%; }
+  70% { background-position: -10% 8%; }
+  80% { background-position: 10% 2%; }
+  90% { background-position: 1% 5%; }
+  100% { background-position: 0% 8%;}
 }
+

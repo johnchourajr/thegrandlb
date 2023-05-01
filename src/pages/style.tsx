@@ -10,7 +10,12 @@ import { createClient } from "../../prismicio";
 const Page = ({ navigation, settings, cta }: any) => {
   return (
     <Layout className="">
-      <GridSection className="py-10">
+      <GridSection
+        className="py-10"
+        id=""
+        topSpacer={"Large"}
+        bottomSpacer={"Large"}
+      >
         <div className="col-span-full flex flex-col gap-10 xl:col-span-10 xl:col-start-2">
           <Headline size="3xl" uppercase>
             Headline 3xl Morbi leo risus, porta ac consectetur ac, vestibulum at

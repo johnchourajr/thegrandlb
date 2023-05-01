@@ -1,4 +1,5 @@
-import { ImageItem } from "./ImageGallery";
+import type { EmptyLinkField, FilledLinkToMediaField } from "@prismicio/types";
+import type { ImageItem } from "./ImageGallery";
 
 export interface GalleryControlsProps {
   outerControls?: boolean;
@@ -11,4 +12,18 @@ export interface GalleryControlsProps {
   handleNavigateToIndex: (index: number) => void;
   isPlaying: boolean;
   handlePlayPauseClick: () => void;
+}
+
+export interface MediaFrameProps {
+  className?: string;
+  media: any;
+  video_media?: FilledLinkToMediaField | EmptyLinkField<"Media">;
+  video_options?: {
+    auto_play?: boolean;
+    loop?: boolean;
+    controls?: boolean;
+  };
+  gallery?: any;
+  priority?: boolean;
+  overlay?: boolean;
 }

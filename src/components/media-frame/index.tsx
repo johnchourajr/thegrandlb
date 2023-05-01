@@ -1,23 +1,9 @@
-import { PrismicNextImage } from "@prismicio/next";
-import { EmptyLinkField, FilledLinkToMediaField } from "@prismicio/types";
 import clsx from "clsx";
 import { m } from "framer-motion";
+import Image from "./ImageBox";
 import ImageGallery from "./ImageGallery";
 import InlineVideoPlayer from "./InlineVideoPlayer";
-
-interface MediaFrameProps {
-  className?: string;
-  media: any;
-  video_media?: FilledLinkToMediaField | EmptyLinkField<"Media">;
-  video_options?: {
-    auto_play?: boolean;
-    loop?: boolean;
-    controls?: boolean;
-  };
-  gallery?: any;
-  priority?: boolean;
-  overlay?: boolean;
-}
+import { MediaFrameProps } from "./types";
 
 const MediaFrame = ({
   className,
@@ -30,9 +16,9 @@ const MediaFrame = ({
   },
   gallery,
   priority = false,
-  overlay = true,
 }: MediaFrameProps) => {
   const { url: videoUrl }: any = video_media || {};
+  const { url: mediaUrl }: any = media || {};
 
   if (!media.kind && !videoUrl && !gallery) return null;
   return (
@@ -45,13 +31,7 @@ const MediaFrame = ({
           {...video_options}
         />
       )}
-      {media && (
-        <PrismicNextImage
-          field={media}
-          className="absolute inset-0 z-10 h-full w-full object-cover"
-          priority={priority}
-        />
-      )}
+      {!videoUrl && media && <Image media={media} priority={priority} />}
       {gallery && <ImageGallery images={gallery} />}
 
       <div className="noise" />

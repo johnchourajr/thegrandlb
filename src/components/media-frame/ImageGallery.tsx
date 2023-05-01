@@ -1,8 +1,8 @@
-import { PrismicNextImage } from "@prismicio/next";
 import clsx from "clsx";
 import { m, useInView } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import GalleryControls from "./GalleryControls";
+import ImageBox from "./ImageBox";
 
 export type ImageItem = {
   caption: string;
@@ -218,7 +218,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                 data-active={isActive ? true : false}
                 aria-hidden={isActive ? "false" : "true"}
               >
-                <PrismicNextImage
+                <ImageBox
                   className="absolute top-0 left-0 h-full w-full object-cover"
                   field={media as any}
                   alt={caption || " "}

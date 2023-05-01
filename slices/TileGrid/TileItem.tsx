@@ -1,7 +1,7 @@
 import Headline from "@/components/Headline";
+import ImageBox from "@/components/media-frame/ImageBox";
 import Text from "@/components/Paragraph";
 import StringText from "@/components/StringText";
-import { PrismicNextImage } from "@prismicio/next";
 import { PrismicLink } from "@prismicio/react";
 import clsx from "clsx";
 import { m } from "framer-motion";
@@ -170,9 +170,10 @@ export const TileItem = ({
       >
         {media && (
           <>
-            <PrismicNextImage
-              field={media}
+            <ImageBox
+              media={media}
               className=" h-32 max-h-[15rem] w-32 max-w-[15rem] lg:h-[13vw] lg:w-[13vw]"
+              imgixParams={{ maxWidth: 600 }}
             />
           </>
         )}

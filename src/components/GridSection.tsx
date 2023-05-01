@@ -6,7 +6,7 @@ interface GridSectionProps {
   children: React.ReactNode;
   gridSectionType?: "grid" | "flex";
   as?: "section" | "div";
-  id: string | null;
+  id: string | null | undefined;
   className?: string;
   topSpacer: "None" | "Small" | "Large" | null;
   bottomSpacer: "None" | "Small" | "Large" | null;
@@ -56,7 +56,7 @@ export function GridSection({
 
   return (
     <MotionComp
-      id={id}
+      id={id ? id : undefined}
       className={clsx(
         "mx-auto w-full max-w-[2500px] gap-4 lg:gap-6",
         gridSectionType === "grid" &&
