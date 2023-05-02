@@ -80,17 +80,17 @@ const NumbersSection = ({ slice }: NumbersSectionProps): JSX.Element => {
       case "3 Column":
         return {
           container: "",
-          item: "!w-1/3",
+          item: "!w-1/2 md:w-1/3 xl:!w-1/3",
         };
       case "4 Column":
         return {
           container: "",
-          item: "!w-1/4",
+          item: "!w-1/2 md:w-1/3 xl:!w-1/4",
         };
       case "6 Column":
         return {
           container: "",
-          item: "!w-1/6",
+          item: "!w-1/2 md:w-1/3 xl:!w-1/6",
         };
       case "Inline":
         return {
@@ -100,7 +100,7 @@ const NumbersSection = ({ slice }: NumbersSectionProps): JSX.Element => {
       default:
         return {
           container: "",
-          item: "!w-1/4",
+          item: "!w-1/2 md:w-1/3 xl:!w-1/4",
         };
     }
   };
@@ -132,7 +132,7 @@ const NumbersSection = ({ slice }: NumbersSectionProps): JSX.Element => {
         {slice.items && (
           <MotionBox
             className={clsx(
-              "relative flex flex-col flex-wrap items-center justify-center gap-y-12 xl:flex-row",
+              "relative flex flex-row flex-wrap items-center justify-center gap-y-12",
               getColumns().container,
               getInset()
             )}

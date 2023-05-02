@@ -74,12 +74,12 @@ const HeroDetailPage = ({
       </GridSection>
       {hasSubheadandBody && (
         <GridSection id={"sub-hero"} bottomSpacer={"Small"} topSpacer={"Small"}>
-          <MotionBox className="col-span-full pt-10 pb-0 xl:col-span-6 xl:col-start-2 xl:pb-20">
+          <MotionBox className="col-span-full pt-10 pb-0 xl:col-span-6 xl:col-start-2 xl:pt-12 xl:pb-20">
             <Headline size={"xl"} className={"max-w-[9em]"} animateOnce>
               {subhead}
             </Headline>
           </MotionBox>
-          <MotionBox className="col-span-full pb-12 xl:col-span-4 xl:col-start-auto xl:mt-4 xl:pt-16">
+          <MotionBox className="col-span-full pb-12 xl:col-span-4 xl:col-start-auto xl:mt-4 xl:pt-12">
             <Text paragraph size="large" className="max-w-[30em]">
               {body}
             </Text>

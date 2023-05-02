@@ -132,6 +132,7 @@ const Cursor: React.FC = () => {
       scale: 0.5,
       "--top": ".35rem",
       "--left": ".2rem",
+      "--bkg": "rgba(60,56,54,0)",
     },
     default: {
       opacity: 0,
@@ -154,18 +155,21 @@ const Cursor: React.FC = () => {
       "--height": "3rem",
       "--top": ".35rem",
       "--left": ".2rem",
+      "--bkg": "rgba(60,56,54,0)",
     },
     "arrow-left": {
-      "--width": "4rem",
-      "--height": "4rem",
+      "--width": "6rem",
+      "--height": "6rem",
       "--top": ".35rem",
       "--left": ".2rem",
+      "--bkg": "rgba(60,56,54,0)",
     },
     "arrow-right": {
-      "--width": "4rem",
-      "--height": "4rem",
+      "--width": "6rem",
+      "--height": "6rem",
       "--top": ".35rem",
       "--left": ".2rem",
+      "--bkg": "rgba(60,56,54,0)",
     },
   } as any;
 

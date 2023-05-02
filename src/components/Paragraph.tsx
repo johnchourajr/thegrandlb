@@ -35,7 +35,7 @@ function Text({
 
   return (
     <Comp
-      className={clsx(getStyles(), paragraph && "leading-[2]", className)}
+      className={clsx(getStyles(), paragraph && "!leading-[2]", className)}
       {...rest}
     >
       {text || children}
