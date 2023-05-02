@@ -10,9 +10,9 @@
         "type": "Text",
         "config": { "label": "Title", "placeholder": "" }
       },
-      "headlline": {
+      "headline": {
         "type": "Text",
-        "config": { "label": "Headlline", "placeholder": "" }
+        "config": { "label": "Headline", "placeholder": "" }
       },
       "gallery": {
         "type": "Link",
@@ -34,10 +34,10 @@
         "type": "Image",
         "config": { "label": "Media", "constraint": {}, "thumbnails": [] }
       },
-      "headline": {
+      "subhead": {
         "type": "Text",
         "config": {
-          "label": "Headline",
+          "label": "Subhead",
           "placeholder": ""
         }
       },

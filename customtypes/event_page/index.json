@@ -16,9 +16,9 @@
         "type": "Text",
         "config": { "label": "Title", "placeholder": "" }
       },
-      "headlline": {
+      "headline": {
         "type": "Text",
-        "config": { "label": "Headlline", "placeholder": "" }
+        "config": { "label": "Headline", "placeholder": "" }
       },
       "gallery": {
         "type": "Link",

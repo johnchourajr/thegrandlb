@@ -5,6 +5,7 @@ import StringText from "@/components/StringText";
 import * as prismicH from "@prismicio/helpers";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
+import clsx from "clsx";
 
 interface NumberItemProps {
   media?: any;
@@ -13,6 +14,7 @@ interface NumberItemProps {
   body: any;
   action_text: any;
   action_link: any;
+  className?: string;
 }
 export const NumberItem: React.FC<NumberItemProps> = ({
   media,
@@ -21,16 +23,20 @@ export const NumberItem: React.FC<NumberItemProps> = ({
   body,
   action_text,
   action_link,
+  className,
   ...rest
 }) => {
-  console.log({ action_text, action_link });
+  // console.log({ action_text, action_link });
 
   const numberAsString = prismicH.asText(number);
   const bodyAsString = prismicH.asText(body);
 
   return (
     <MotionBox
-      className="flex w-full flex-col items-center justify-center gap-6 text-center"
+      className={clsx(
+        "flex w-full flex-col items-center justify-center gap-6 text-center",
+        className
+      )}
       {...rest}
     >
       {media && (
@@ -53,7 +59,11 @@ export const NumberItem: React.FC<NumberItemProps> = ({
         <PrismicRichText
           field={body}
           components={{
-            paragraph: ({ children }) => <Text as="span">{children}</Text>,
+            paragraph: ({ children }) => (
+              <Text as="span" className="max-w-[18em]">
+                {children}
+              </Text>
+            ),
           }}
         />
       )}

@@ -153,9 +153,7 @@ export interface EventIndexPageDocumentDataEventPagesItem {
  *
  */
 type EventIndexPageDocumentDataSlicesSlice =
-  | HomepageNumbersSlice
   | PageHeroSlice
-  | HomepageLocationSlice
   | SplitGallerySlice
   | StarSectionSlice
   | SplitScrollSectionSlice
@@ -198,12 +196,12 @@ interface EventPageDocumentData {
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: event_page.headlline
+   * - **API ID Path**: event_page.headline
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
    *
    */
-  headlline: prismicT.KeyTextField;
+  headline: prismicT.KeyTextField;
   /**
    * Gallery (Overrides all media) field in *Event Child Page*
    *
@@ -287,17 +285,16 @@ interface EventPageDocumentData {
  *
  */
 type EventPageDocumentDataSlicesSlice =
-  | NumbersSectionSlice
-  | FaqSectionSlice
-  | HomepageLocationSlice
   | PageHeroSlice
-  | HomepageNumbersSlice
-  | ScrollTextSlice
   | SplitGallerySlice
+  | StarSectionSlice
   | SplitScrollSectionSlice
   | TileGridSlice
+  | ScrollTextSlice
   | TextSectionSlice
-  | StarSectionSlice;
+  | NumbersSectionSlice
+  | FaqSectionSlice
+  | ImageSectionSlice;
 /**
  * Event Child Page document from Prismic
  *
@@ -1228,18 +1225,16 @@ interface OffsiteIndexPageDocumentData {
  *
  */
 type OffsiteIndexPageDocumentDataSlicesSlice =
+  | PageHeroSlice
+  | SplitGallerySlice
+  | StarSectionSlice
+  | SplitScrollSectionSlice
+  | TileGridSlice
+  | ScrollTextSlice
+  | TextSectionSlice
   | NumbersSectionSlice
   | FaqSectionSlice
-  | HomepageLocationSlice
-  | HomepageNumbersSlice
-  | PageHeroSlice
-  | MomentsScrollSectionSlice
-  | SplitScrollSectionSlice
-  | SplitGallerySlice
-  | ScrollTextSlice
-  | StarSectionSlice
-  | TextSectionSlice
-  | TileGridSlice;
+  | ImageSectionSlice;
 /**
  * Offsite Index Page document from Prismic
  *
@@ -1318,18 +1313,16 @@ interface OffsitePageDocumentData {
  *
  */
 type OffsitePageDocumentDataSlicesSlice =
-  | TileGridSlice
-  | TextSectionSlice
-  | StarSectionSlice
-  | ScrollTextSlice
-  | SplitGallerySlice
-  | SplitScrollSectionSlice
-  | MomentsScrollSectionSlice
   | PageHeroSlice
-  | HomepageNumbersSlice
+  | SplitGallerySlice
+  | StarSectionSlice
+  | SplitScrollSectionSlice
+  | TileGridSlice
+  | ScrollTextSlice
+  | TextSectionSlice
   | NumbersSectionSlice
   | FaqSectionSlice
-  | HomepageLocationSlice;
+  | ImageSectionSlice;
 /**
  * Offsite Child Page document from Prismic
  *
@@ -1419,7 +1412,8 @@ type PageDocumentDataSlicesSlice =
   | ScrollTextSlice
   | TextSectionSlice
   | NumbersSectionSlice
-  | FaqSectionSlice;
+  | FaqSectionSlice
+  | ImageSectionSlice;
 /**
  * Page document from Prismic
  *
@@ -1649,10 +1643,7 @@ export interface TourIndexPageDocumentDataSpacesItem {
  *
  */
 type TourIndexPageDocumentDataSlicesSlice =
-  | HomepageNumbersSlice
   | PageHeroSlice
-  | MomentsScrollSectionSlice
-  | HomepageLocationSlice
   | SplitGallerySlice
   | StarSectionSlice
   | SplitScrollSectionSlice
@@ -1660,7 +1651,8 @@ type TourIndexPageDocumentDataSlicesSlice =
   | ScrollTextSlice
   | TextSectionSlice
   | NumbersSectionSlice
-  | FaqSectionSlice;
+  | FaqSectionSlice
+  | ImageSectionSlice;
 /**
  * Tour Index Page document from Prismic
  *
@@ -1694,12 +1686,12 @@ interface TourPageDocumentData {
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: tour_page.headlline
+   * - **API ID Path**: tour_page.headline
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
    *
    */
-  headlline: prismicT.KeyTextField;
+  headline: prismicT.KeyTextField;
   /**
    * Gallery (Overrides all media) field in *Tour Child Page*
    *
@@ -1838,17 +1830,16 @@ interface TourPageDocumentData {
  *
  */
 type TourPageDocumentDataSlicesSlice =
+  | PageHeroSlice
+  | SplitGallerySlice
+  | StarSectionSlice
+  | SplitScrollSectionSlice
+  | TileGridSlice
+  | ScrollTextSlice
+  | TextSectionSlice
   | NumbersSectionSlice
   | FaqSectionSlice
-  | HomepageLocationSlice
-  | HomepageNumbersSlice
-  | PageHeroSlice
-  | SplitScrollSectionSlice
-  | SplitGallerySlice
-  | ScrollTextSlice
-  | StarSectionSlice
-  | TextSectionSlice
-  | TileGridSlice;
+  | ImageSectionSlice;
 /**
  * Item in Tour Child Page → Features
  *
@@ -2482,12 +2473,22 @@ export type MomentsScrollSectionSlice = prismicT.SharedSlice<
   MomentsScrollSectionSliceVariation
 >;
 /**
- * Primary content in ColumnSection → Primary
+ * Primary content in NumbersSection → Primary
  *
  */
 interface NumbersSectionSliceDefaultPrimary {
   /**
-   * Title field in *ColumnSection → Primary*
+   * Section ID field in *NumbersSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Optional ID to add to section
+   * - **API ID Path**: numbers_section.primary.section_id
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  section_id: prismicT.KeyTextField;
+  /**
+   * Title field in *NumbersSection → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: Optional headline for section
@@ -2497,7 +2498,7 @@ interface NumbersSectionSliceDefaultPrimary {
    */
   title: prismicT.KeyTextField;
   /**
-   * Description field in *ColumnSection → Primary*
+   * Description field in *NumbersSection → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: Optional description for section
@@ -2507,7 +2508,7 @@ interface NumbersSectionSliceDefaultPrimary {
    */
   description: prismicT.KeyTextField;
   /**
-   * Columns field in *ColumnSection → Primary*
+   * Columns field in *NumbersSection → Primary*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
@@ -2519,7 +2520,7 @@ interface NumbersSectionSliceDefaultPrimary {
     "3 Column" | "4 Column" | "6 Column" | "Inline"
   >;
   /**
-   * Inset Columns field in *ColumnSection → Primary*
+   * Inset Columns field in *NumbersSection → Primary*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
@@ -2530,7 +2531,7 @@ interface NumbersSectionSliceDefaultPrimary {
    */
   inset: prismicT.BooleanField;
   /**
-   * Top Spacer field in *ColumnSection → Primary*
+   * Top Spacer field in *NumbersSection → Primary*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
@@ -2540,7 +2541,7 @@ interface NumbersSectionSliceDefaultPrimary {
    */
   top_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
   /**
-   * Top Border field in *ColumnSection → Primary*
+   * Top Border field in *NumbersSection → Primary*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
@@ -2551,7 +2552,7 @@ interface NumbersSectionSliceDefaultPrimary {
    */
   top_border: prismicT.BooleanField;
   /**
-   * Bottom Spacer field in *ColumnSection → Primary*
+   * Bottom Spacer field in *NumbersSection → Primary*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
@@ -2561,7 +2562,7 @@ interface NumbersSectionSliceDefaultPrimary {
    */
   bottom_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
   /**
-   * Bottom Border field in *ColumnSection → Primary*
+   * Bottom Border field in *NumbersSection → Primary*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: *None*
@@ -2573,12 +2574,12 @@ interface NumbersSectionSliceDefaultPrimary {
   bottom_border: prismicT.BooleanField;
 }
 /**
- * Item in ColumnSection → Items
+ * Item in NumbersSection → Items
  *
  */
 export interface NumbersSectionSliceDefaultItem {
   /**
-   * Media field in *ColumnSection → Items*
+   * Media field in *NumbersSection → Items*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -2588,7 +2589,7 @@ export interface NumbersSectionSliceDefaultItem {
    */
   media: prismicT.ImageField<never>;
   /**
-   * Number field in *ColumnSection → Items*
+   * Number field in *NumbersSection → Items*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -2598,7 +2599,7 @@ export interface NumbersSectionSliceDefaultItem {
    */
   number: prismicT.RichTextField;
   /**
-   * Eyebrow field in *ColumnSection → Items*
+   * Eyebrow field in *NumbersSection → Items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -2608,7 +2609,7 @@ export interface NumbersSectionSliceDefaultItem {
    */
   eyebrow: prismicT.KeyTextField;
   /**
-   * Body field in *ColumnSection → Items*
+   * Body field in *NumbersSection → Items*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -2618,7 +2619,7 @@ export interface NumbersSectionSliceDefaultItem {
    */
   body: prismicT.RichTextField;
   /**
-   * Action Text field in *ColumnSection → Items*
+   * Action Text field in *NumbersSection → Items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -2628,7 +2629,7 @@ export interface NumbersSectionSliceDefaultItem {
    */
   action_text: prismicT.KeyTextField;
   /**
-   * Action Link field in *ColumnSection → Items*
+   * Action Link field in *NumbersSection → Items*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -2639,7 +2640,7 @@ export interface NumbersSectionSliceDefaultItem {
   action_link: prismicT.LinkField;
 }
 /**
- * Default variation for ColumnSection Slice
+ * Default variation for NumbersSection Slice
  *
  * - **API ID**: `default`
  * - **Description**: `NumbersSection`
@@ -2652,12 +2653,12 @@ export type NumbersSectionSliceDefault = prismicT.SharedSliceVariation<
   Simplify<NumbersSectionSliceDefaultItem>
 >;
 /**
- * Slice variation for *ColumnSection*
+ * Slice variation for *NumbersSection*
  *
  */
 type NumbersSectionSliceVariation = NumbersSectionSliceDefault;
 /**
- * ColumnSection Shared Slice
+ * NumbersSection Shared Slice
  *
  * - **API ID**: `numbers_section`
  * - **Description**: `NumbersSection`

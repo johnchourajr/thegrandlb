@@ -20,7 +20,13 @@ const SliceData = ({ slice, hidden }: SliceDataProps) => {
         )}
       >
         <pre>
-          slice_type: <strong>{slice.slice_type}</strong>
+          {slice.slice_type ? (
+            <>
+              slice_type: <strong>{slice.slice_type}</strong>
+            </>
+          ) : (
+            "data"
+          )}
         </pre>
 
         <pre>{open ? "Close" : "Open"}</pre>

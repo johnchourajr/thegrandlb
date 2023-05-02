@@ -34,6 +34,9 @@ const SplitGallery = ({ slice }: SplitGalleryProps): JSX.Element => {
               controlPosition="Bottom Left"
               outerControls={true}
               className={clsx("aspect-square", "!rounded-br-none")}
+              imgixParams={{
+                w: 640,
+              }}
             />
           </MotionBox>
         )}
@@ -51,6 +54,9 @@ const SplitGallery = ({ slice }: SplitGalleryProps): JSX.Element => {
               controlPosition="Top Right"
               outerControls={true}
               className={clsx("aspect-square", "!rounded-tl-none")}
+              imgixParams={{
+                w: 1280,
+              }}
             />
           </MotionBox>
         )}

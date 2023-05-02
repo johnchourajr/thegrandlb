@@ -17,7 +17,7 @@ const GalleryControls: React.FC<GalleryControlsProps> = ({
 }) => (
   <div
     className={clsx(
-      "self flex items-center justify-center gap-4",
+      "self pointer-events-auto flex items-center justify-center gap-4",
       outerControls ? "text-black" : "text-white",
       setPosition(controlPosition).controls
     )}
@@ -60,7 +60,7 @@ const GalleryControls: React.FC<GalleryControlsProps> = ({
                     className={clsx(
                       "inline whitespace-nowrap",
                       outerControls ? "text-black" : "text-white",
-                      "after:absolute after:bottom-0 after:left-0 after:z-20 after:h-[1.5px] after:w-[100%] after:origin-top-right after:scale-x-0 after:bg-black after:transition-transform after:duration-300 after:ease-out-expo after:content-['']",
+                      "after:absolute after:bottom-0 after:left-0 after:z-20 after:h-[1.5px] after:w-[100%] after:origin-top-right after:scale-x-0 after:bg-[currentColor] after:transition-transform after:duration-300 after:ease-out-expo after:content-['']",
                       "after:origin-top-left after:scale-x-[var(--scalex)]"
                     )}
                   >
@@ -74,7 +74,7 @@ const GalleryControls: React.FC<GalleryControlsProps> = ({
                   exit={{ opacity: 0, width: 0 }}
                   className={clsx(
                     "bg-gray-300 relative z-10 flex h-6 w-6 items-center justify-center rounded-full px-1",
-                    "hover:after:opacity-20",
+                    "hover:before:scale-150 hover:after:opacity-20",
                     "before:absolute before:z-10 before:h-[5px] before:w-[5px] before:transform before:rounded-full before:bg-black before:transition-all before:duration-300 before:ease-in-out before:content-['']",
                     "relative after:absolute after:-z-10 after:h-4 after:w-4 after:transform after:rounded-full after:bg-black after:opacity-0 after:transition-all after:duration-300 after:ease-in-out after:content-['']",
                     outerControls

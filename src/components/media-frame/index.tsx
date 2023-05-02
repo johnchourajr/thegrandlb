@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { m } from "framer-motion";
-import Image from "./ImageBox";
+import ImageBox from "./ImageBox";
 import ImageGallery from "./ImageGallery";
 import InlineVideoPlayer from "./InlineVideoPlayer";
 import { MediaFrameProps } from "./types";
@@ -31,11 +31,13 @@ const MediaFrame = ({
           {...video_options}
         />
       )}
-      {!videoUrl && media && <Image media={media} priority={priority} />}
+      {!gallery && !videoUrl && media && (
+        <ImageBox media={media} priority={priority} />
+      )}
       {gallery && (
         <ImageGallery
           images={gallery}
-          className="absolute inset-0 z-10 h-full w-full object-cover"
+          containerClassName="absolute inset-0 z-10 h-full w-full object-cover"
         />
       )}
 

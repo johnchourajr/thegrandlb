@@ -1,7 +1,7 @@
 {
   "id": "numbers_section",
   "type": "SharedSlice",
-  "name": "ColumnSection",
+  "name": "NumbersSection",
   "description": "NumbersSection",
   "variations": [
     {
@@ -11,6 +11,13 @@
       "version": "sktwi1xtmkfgx8626",
       "description": "NumbersSection",
       "primary": {
+        "section_id": {
+          "type": "Text",
+          "config": {
+            "label": "Section ID",
+            "placeholder": "Optional ID to add to section"
+          }
+        },
         "title": {
           "type": "Text",
           "config": {

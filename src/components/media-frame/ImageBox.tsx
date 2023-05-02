@@ -7,7 +7,8 @@ interface ImageBoxProps {
   priority?: PrismicNextImageProps["priority"];
   imgixParams?: PrismicNextImageProps["imgixParams"];
   className?: string;
-  alt?: "";
+  customAlt?: string;
+  decorative?: boolean;
 }
 
 const ImageBox = ({
@@ -15,22 +16,28 @@ const ImageBox = ({
   priority,
   imgixParams,
   className,
-  alt,
+  customAlt,
+  decorative,
   ...rest
 }: ImageBoxProps) => {
+  const hasCustomAlt = customAlt && { alt: customAlt };
+
+  // const srcSet = buildWidthSrcSet(media.url, media.dimensions.width);
+
   return (
     <PrismicNextImage
-      field={media}
+      field={{ ...media, hasCustomAlt }}
       className={clsx(className)}
       priority={priority}
       loading={priority ? "eager" : "lazy"}
+      sizes="(min-width: 60em) 24vw, (min-width: 28em) 45vw, 100vw"
       imgixParams={{
-        q: 60,
-        maxWidth: 1280,
+        q: 70,
+        dpr: 2,
         fm: "webp",
         ...imgixParams,
       }}
-      alt={alt || undefined}
+      alt={decorative ? "" : undefined}
       {...rest}
     />
   );

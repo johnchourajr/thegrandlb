@@ -1,3 +1,4 @@
+import type { PrismicNextImageProps } from "@prismicio/next";
 import clsx from "clsx";
 import { m, useInView } from "framer-motion";
 import React, { useEffect, useState } from "react";
@@ -31,6 +32,7 @@ interface ImageGalleryProps {
   delayStart?: number;
   outerControls?: boolean;
   controlPosition?: "Bottom Right" | "Top Right" | "Bottom Left" | "Top Left";
+  imgixParams?: PrismicNextImageProps["imgixParams"];
 }
 
 const ImageGallery: React.FC<ImageGalleryProps> = ({
@@ -42,6 +44,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
   delayStart = 0,
   outerControls = false,
   controlPosition = "Bottom Right",
+  imgixParams,
 }) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
@@ -152,7 +155,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
     );
     setTimeout(() => {
       setIsPlaying(true);
-      console.log("playing again");
+      // console.log("playing again");
     }, cycleDuration);
   };
 
@@ -164,7 +167,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
     );
     setTimeout(() => {
       setIsPlaying(true);
-      console.log("playing again");
+      // console.log("playing again");
     }, cycleDuration);
   };
 
@@ -191,18 +194,18 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
     <div
       ref={ref}
       className={clsx(
-        "relative z-10 my-4 flex flex-col",
+        "relative z-10 flex flex-col gap-y-4",
         setPosition(controlPosition).container,
         containerClassName
       )}
     >
       <div
         className={clsx(
-          "relative z-10 my-4 h-full w-full overflow-hidden rounded-sm lg:rounded-md",
+          "relative z-10 h-full w-full gap-y-4 overflow-hidden rounded-sm lg:rounded-md",
           className
         )}
       >
-        <div className="relative z-10 h-full w-full">
+        <div className="relative z-10 h-full w-full ">
           {images.map(({ media, caption }: any, i) => {
             const isActive = i === currentImageIndex;
             return (
@@ -221,16 +224,18 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                 <ImageBox
                   className="absolute top-0 left-0 h-full w-full object-cover"
                   media={media}
-                  alt={caption || " "}
+                  customAlt={caption}
+                  imgixParams={imgixParams}
                 />
+                <div className="noise" />
               </m.div>
             );
           })}
         </div>
         <button
           className={clsx(
-            "--bg-red absolute top-0 z-10 h-full w-1/2 cursor-none bg-opacity-30",
-            "after:absolute after:left-0 after:top-0 after:rounded-sm after:p-3 after:py-2 focus-visible:after:bg-black focus-visible:after:text-white focus-visible:after:content-[attr(data-content)]"
+            "--bg-red absolute top-0 left-0 z-[100] h-full w-1/2 cursor-none bg-opacity-30",
+            "after:absolute after:left-0 after:top-0 after:right-0 after:rounded-sm after:p-3 after:py-2 focus-visible:after:bg-black focus-visible:after:text-white focus-visible:after:content-[attr(data-content)]"
           )}
           data-cursor="arrow-left"
           data-content="Go to previous"
@@ -239,7 +244,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
         />
         <button
           className={clsx(
-            "--bg-blue absolute top-0 right-0 z-10 h-full w-1/2 cursor-none bg-opacity-30",
+            "--bg-blue absolute top-0 right-0 z-[100] h-full w-1/2 cursor-none bg-opacity-30",
             "after:absolute after:right-0 after:top-0 after:rounded-sm after:p-3 after:py-2 focus-visible:after:bg-black focus-visible:after:text-white focus-visible:after:content-[attr(data-content)]"
           )}
           data-cursor="arrow-right"
@@ -248,7 +253,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
           onClick={handleNavigateToNext}
         />
         {!outerControls && (
-          <div className="absolute inset-6 z-50 flex flex-col-reverse">
+          <div className="pointer-events-none absolute inset-6 z-[150] flex flex-col-reverse">
             <GalleryControls
               outerControls={outerControls}
               setPosition={setPosition}
@@ -261,7 +266,6 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
             />
           </div>
         )}
-        <div className="noise" />
       </div>
       {outerControls && (
         <GalleryControls

@@ -18,7 +18,7 @@ const HomepageNumbers = ({ slice }: HomepageNumbersProps): JSX.Element => {
     data: { bullet_list, numberlist, primary_action_link, primary_action },
   } = slice.primary.number_list as any;
 
-  console.log({ bullet_list });
+  // console.log({ bullet_list });
 
   return (
     <>
