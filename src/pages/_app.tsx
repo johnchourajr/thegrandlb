@@ -10,7 +10,7 @@ import { PrismicPreview } from "@prismicio/next";
 import { PrismicProvider } from "@prismicio/react";
 import { domAnimation, LazyMotion, MotionConfig } from "framer-motion";
 import Link from "next/link";
-import { linkResolver, repositoryName } from "prismicio";
+import { repositoryName } from "prismicio";
 
 const lexend = Lexend_Zetta({
   subsets: ["latin"],
@@ -53,10 +53,7 @@ const domaine = localFont({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <PrismicProvider
-      linkResolver={linkResolver}
-      internalLinkComponent={(props) => <Link {...props} />}
-    >
+    <PrismicProvider internalLinkComponent={(props) => <Link {...props} />}>
       <PrismicPreview repositoryName={repositoryName}>
         <MotionConfig
           transition={{

@@ -126,29 +126,9 @@ export const TileItem = ({
   const MotionLink: any = m(PrismicLink);
 
   return (
-    <MotionLink
+    <PrismicLink
       field={link}
       linkResolver={linkResolver}
-      initial={
-        {
-          opacity: 0,
-          y: 10,
-        } as any
-      }
-      whileInView={
-        {
-          opacity: 1,
-          y: 0,
-        } as any
-      }
-      whileHover={
-        {
-          scale: 0.99,
-          willChange: "scale",
-        } as any
-      }
-      whileTap={{ scale: 0.98, willChange: "scale" }}
-      transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
       className={clsx(
         "relative h-full w-full overflow-hidden rounded-sm border-b-4 p-10 transition-all duration-700 ease-out-expo hover:border-b-0 hover:border-b-[transparent] lg:rounded-md",
         col_start && getNumberForColStart(col_start),
@@ -162,44 +142,69 @@ export const TileItem = ({
       {...rest}
     >
       <m.div
-        className={clsx(
-          "align-center flex h-full w-full flex-col items-center justify-center gap-4 text-center",
-          getSize().content,
-          getDirection()
-        )}
+        initial={
+          {
+            opacity: 0,
+            y: 10,
+          } as any
+        }
+        whileInView={
+          {
+            opacity: 1,
+            y: 0,
+          } as any
+        }
+        whileHover={
+          {
+            scale: 0.99,
+            willChange: "scale",
+          } as any
+        }
+        whileTap={{ scale: 0.98, willChange: "scale" }}
+        transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+        tabIndex={-1}
+        className="absolute inset-0 z-[0]"
       >
-        {media && (
-          <>
-            <ImageBox
-              media={media}
-              className=" h-32 max-h-[15rem] w-32 max-w-[15rem] lg:h-[13vw] lg:w-[13vw]"
-              imgixParams={{ maxWidth: 600 }}
-            />
-          </>
-        )}
-        <div className="flex flex-col items-center justify-center gap-4">
-          {headline && (
-            <Headline
-              className={clsx(getStyles().headline, getSize().headline)}
-              size={getSize().headlineSize}
-              disableMotion={true}
-            >
-              {headline}
-            </Headline>
+        <m.div
+          className={clsx(
+            "align-center flex h-full w-full flex-col items-center justify-center gap-4 text-center",
+            getSize().content,
+            getDirection()
           )}
+        >
+          {media && (
+            <>
+              <ImageBox
+                media={media}
+                className=" h-32 max-h-[15rem] w-32 max-w-[15rem] lg:h-[13vw] lg:w-[13vw]"
+                imgixParams={{ maxWidth: 600 }}
+              />
+            </>
+          )}
+          <div className="flex flex-col items-center justify-center gap-4">
+            {headline && (
+              <Headline
+                className={clsx(getStyles().headline, getSize().headline)}
+                size={getSize().headlineSize}
+                disableMotion={true}
+              >
+                {headline}
+              </Headline>
+            )}
 
-          {body && (
-            <Text size="default" className={"max-w-[25em]"}>
-              {body}
-            </Text>
+            {body && (
+              <Text size="default" className={"max-w-[25em]"}>
+                {body}
+              </Text>
+            )}
+          </div>
+          {eyebrow && (
+            <StringText size="large" bold uppercase>
+              {eyebrow}
+            </StringText>
           )}
-        </div>
-        {eyebrow && (
-          <StringText size="large" bold uppercase>
-            {eyebrow}
-          </StringText>
-        )}
+        </m.div>
       </m.div>
-    </MotionLink>
+    </PrismicLink>
   );
 };

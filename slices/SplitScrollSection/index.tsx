@@ -6,6 +6,7 @@ import { NumberItem } from "@/components/NumberItem";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import clsx from "clsx";
+import { Fragment } from "react";
 
 /**
  * @typedef {import("@prismicio/client").Content.SplitScrollSectionSlice} SplitScrollSectionSlice
@@ -57,12 +58,8 @@ const SplitScrollSection = ({
         <MotionBox className="padding-top-lg padding-bottom-lg gap-y-md col-span-full flex flex-col items-center justify-center xl:col-span-6 xl:col-start-auto xl:row-start-1">
           {items.map((item, index: number) => {
             return (
-              <>
-                <NumberItem
-                  number={item.headline}
-                  {...(item as any)}
-                  key={index}
-                />
+              <Fragment key={index}>
+                <NumberItem number={item.headline} {...(item as any)} />
                 {index != items.length - 1 && (
                   <div
                     key={index + 10}
@@ -71,7 +68,7 @@ const SplitScrollSection = ({
                     }
                   />
                 )}
-              </>
+              </Fragment>
             );
           })}
         </MotionBox>
