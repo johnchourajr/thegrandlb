@@ -6,7 +6,11 @@ import type { AppProps } from "next/app";
 
 import Cursor from "@/components/Cursor";
 import "@/styles/globals.css";
+import { PrismicPreview } from "@prismicio/next";
+import { PrismicProvider } from "@prismicio/react";
 import { domAnimation, LazyMotion, MotionConfig } from "framer-motion";
+import Link from "next/link";
+import { linkResolver, repositoryName } from "prismicio";
 
 const lexend = Lexend_Zetta({
   subsets: ["latin"],
@@ -49,30 +53,37 @@ const domaine = localFont({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <MotionConfig
-      transition={{
-        ease: [0.19, 1, 0.22, 1],
-        duration: 0.3,
-      }}
-      reducedMotion="user"
+    <PrismicProvider
+      linkResolver={linkResolver}
+      internalLinkComponent={(props) => <Link {...props} />}
     >
-      <LazyMotion features={domAnimation}>
-        <div
-          className={clsx(
-            lexend.variable,
-            atkinson.variable,
-            domaine.variable,
-            lexendBold.variable,
-            "min-h-screen bg-bg font-sans"
-          )}
+      <PrismicPreview repositoryName={repositoryName}>
+        <MotionConfig
+          transition={{
+            ease: [0.19, 1, 0.22, 1],
+            duration: 0.3,
+          }}
+          reducedMotion="user"
         >
-          {/* HEADER NAV */}
-          <Header {...pageProps} />
-          {/* PAGE CONTENT */}
-          <Component {...pageProps} />
-          <Cursor />
-        </div>
-      </LazyMotion>
-    </MotionConfig>
+          <LazyMotion features={domAnimation}>
+            <div
+              className={clsx(
+                lexend.variable,
+                atkinson.variable,
+                domaine.variable,
+                lexendBold.variable,
+                "min-h-screen bg-bg font-sans"
+              )}
+            >
+              {/* HEADER NAV */}
+              <Header {...pageProps} />
+              {/* PAGE CONTENT */}
+              <Component {...pageProps} />
+              <Cursor />
+            </div>
+          </LazyMotion>
+        </MotionConfig>
+      </PrismicPreview>
+    </PrismicProvider>
   );
 }
