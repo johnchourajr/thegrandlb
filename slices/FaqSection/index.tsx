@@ -10,6 +10,7 @@ import * as prismicH from "@prismicio/helpers";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import clsx from "clsx";
 import { m } from "framer-motion";
+import Head from "next/head";
 import { useState } from "react";
 
 export const FaqItem = ({ question, answer }: any) => {
@@ -121,8 +122,40 @@ const FaqSection = ({ slice }: FaqSectionProps): JSX.Element => {
     }
   };
 
+  function faqJsonLd() {
+    return {
+      __html: `{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+        ${slice.items.map(
+          ({ question, answer }) =>
+            `{
+              "@type": "Question",
+              "name": "${prismicH.asText(question)}",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "${prismicH.asHTML(answer)}",
+              },
+            }`
+        )}
+        ]
+      }
+    `,
+    };
+  }
+
   return (
     <>
+      <Head>
+        {
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={faqJsonLd()}
+            key={`faq-${slice.id}-jsonld`}
+          />
+        }
+      </Head>
       <GridSection
         id={section_id || slice.id}
         bottomSpacer={"Medium"}
@@ -135,15 +168,17 @@ const FaqSection = ({ slice }: FaqSectionProps): JSX.Element => {
               {title}
             </StringText>
           )}
-          {items.map((item, index: number) => {
-            return (
-              <FaqItem
-                key={index}
-                question={item.question}
-                answer={item.answer}
-              />
-            );
-          })}
+          <MotionBox className="flex flex-col items-start justify-start">
+            {items.map((item, index: number) => {
+              return (
+                <FaqItem
+                  key={index}
+                  question={item.question}
+                  answer={item.answer}
+                />
+              );
+            })}
+          </MotionBox>
         </MotionBox>
         <MediaFrame
           className={clsx(

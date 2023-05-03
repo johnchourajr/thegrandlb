@@ -34,7 +34,7 @@ const TextSection = ({
 
   const { uid } = context;
 
-  console.log({ context });
+  // console.log({ context });
 
   return (
     <>
