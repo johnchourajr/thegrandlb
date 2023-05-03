@@ -41,7 +41,7 @@
           "config": {
             "label": "Top Spacer",
             "placeholder": "",
-            "options": ["Small", "Large", "None"]
+            "options": ["Small", "Medium", "Large", "None"]
           }
         },
         "bottom_spacer": {
@@ -49,10 +49,11 @@
           "config": {
             "label": "Bottom Spacer",
             "placeholder": "",
-            "options": ["Small", "Large", "None"]
+            "options": ["Small", "Medium", "Large", "None"]
           }
         }
-      }
+      },
+      "items": {}
     }
   ]
 }

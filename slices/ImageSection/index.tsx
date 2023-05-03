@@ -15,16 +15,12 @@ export type ImageSectionProps = SliceComponentProps<Content.ImageSectionSlice>;
  * Component for "ImageSection" Slices.
  */
 const ImageSection = ({ slice }: ImageSectionProps): JSX.Element => {
-  const {
-    data: { gallery_items },
-  } = slice.primary.gallery as any;
-
   return (
     <>
       <GridSection
         id={slice.primary.section_id}
-        bottomSpacer={slice.primary.bottom_spacer}
         topSpacer={slice.primary.top_spacer}
+        bottomSpacer={slice.primary.bottom_spacer}
       >
         <MotionBox
           className={clsx(
@@ -34,7 +30,7 @@ const ImageSection = ({ slice }: ImageSectionProps): JSX.Element => {
           <MediaFrame
             media={slice.primary.media}
             video_media={slice.primary.video_media}
-            gallery={gallery_items}
+            gallery={slice.primary.gallery}
             className="absolute inset-0 h-full w-full"
           />
         </MotionBox>

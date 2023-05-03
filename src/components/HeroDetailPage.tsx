@@ -14,6 +14,8 @@ const HeroDetailPage = ({
   video_media,
   subhead,
   body,
+  primary_action,
+  primary_action_link,
 }: any) => {
   const hasSubheadandBody = subhead && body;
   return (
@@ -42,7 +44,7 @@ const HeroDetailPage = ({
             priority={true}
           />
           <m.div
-            className="!hidden gap-6 md:flex"
+            className="gap-6 md:flex"
             initial={{
               opacity: 0,
               y: "3rem",
@@ -57,18 +59,23 @@ const HeroDetailPage = ({
               delay: 0.5,
             }}
           >
-            <Button
-              // field={slice.primary.primary_action_link}
-              // text={slice.primary.primary_action}
-              type="black"
-              size="large"
-            />
-            <Button
-              // field={slice.primary.secondary_action_link}
-              // text={slice.primary.secondary_action}
-              type="outline"
-              size="large"
-            />
+            {primary_action && (
+              <Button
+                field={primary_action_link}
+                text={primary_action}
+                type="black"
+                size="large"
+                params={uid && `ref=${uid}`}
+              />
+            )}
+            {false && (
+              <Button
+                // field={slice.primary.secondary_action_link}
+                // text={slice.primary.secondary_action}
+                type="outline"
+                size="large"
+              />
+            )}
           </m.div>
         </div>
       </GridSection>

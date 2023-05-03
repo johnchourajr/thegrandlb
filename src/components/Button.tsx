@@ -24,6 +24,7 @@ interface ButtonTypes {
     | FilledLinkToMediaField
     | any;
   href?: string;
+  params?: string;
   as?: "span" | "button";
   target?: "_blank" | "_self" | "_parent" | "_top";
   onClick?: () => void | ButtonTypes;
@@ -97,6 +98,7 @@ function Button({
   target,
   onClick,
   href,
+  params,
   as: ButtonElement = "button",
   type = "white",
   size = "default",
@@ -137,6 +139,10 @@ function Button({
       case "next-link":
         return { href } as LinkProps;
       case "prismic-link":
+        if (params) {
+          return { href: `${linkResolver(field)}?${params}` } as any;
+        }
+
         return { field, linkResolver } as PrismicLinkProps;
       default:
         return {
@@ -157,7 +163,7 @@ function Button({
   return (
     <ButtonTag
       className={clsx(
-        `group relative inline-flex h-fit flex-row items-center justify-center whitespace-nowrap text-center transition-all`,
+        `group relative z-50 inline-flex h-fit flex-row items-center justify-center whitespace-nowrap text-center transition-all`,
         getButtonStyles(type).parent,
         getButtonSize(size),
         className

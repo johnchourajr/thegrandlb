@@ -143,6 +143,7 @@ const InlineVideoPlayer = ({
           className={clsx("h-full w-full object-cover", videoClassName)}
           {...videoOptions}
           poster={posterUrlWithParams}
+          playsInline
         >
           {loadInView && <source src={mediaUrl} type="video/mp4" />}
         </video>

@@ -281,6 +281,7 @@ export default function Header({ navigation }: any) {
       transition={{ duration: 0.2 }}
       topSpacer="None"
       bottomSpacer="None"
+      overflowHidden={false}
     >
       <m.div
         className={clsx(

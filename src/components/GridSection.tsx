@@ -2,14 +2,17 @@ import clsx from "clsx";
 import type { MotionProps } from "framer-motion";
 import { m } from "framer-motion";
 
+type Spacer = "None" | "Small" | "Medium" | "Large" | null;
+
 interface GridSectionProps {
   children: React.ReactNode;
   gridSectionType?: "grid" | "flex";
   as?: "section" | "div";
   id: string | null | undefined;
   className?: string;
-  topSpacer: "None" | "Small" | "Large" | null;
-  bottomSpacer: "None" | "Small" | "Large" | null;
+  topSpacer: Spacer;
+  bottomSpacer: Spacer;
+  overflowHidden?: boolean;
 }
 
 // have GridSectionProps extend framer motion props to allow for motion
@@ -25,29 +28,34 @@ export function GridSection({
   className,
   topSpacer = "Small",
   bottomSpacer = "None",
+  overflowHidden = true,
   ...rest
 }: GridSectionPropsWithMotion) {
   // create motion component based on the as prop
   const MotionComp = m[Comp];
 
-  const getSpacerTopStyles = (space?: "None" | "Small" | "Large") => {
+  const getSpacerTopStyles = (space?: Spacer) => {
     if (!space) return "!pt-0";
     if (space?.includes("None")) {
       return "pt-0";
     } else if (space?.includes("Small")) {
       return "padding-top";
+    } else if (space?.includes("Medium")) {
+      return "padding-top-md";
     } else if (space?.includes("Large")) {
       return "padding-top-lg";
     }
     return "pt-0";
   };
 
-  const getSpacerBottomStyles = (space?: "None" | "Small" | "Large") => {
+  const getSpacerBottomStyles = (space?: Spacer) => {
     if (!space) return "!mb-0";
     if (space?.includes("None")) {
       return "pb-0";
     } else if (space?.includes("Small")) {
       return "padding-bottom";
+    } else if (space?.includes("Medium")) {
+      return "padding-bottom-md";
     } else if (space?.includes("Large")) {
       return "padding-bottom-lg";
     }
@@ -64,6 +72,7 @@ export function GridSection({
         gridSectionType === "flex" && "flex",
         topSpacer && getSpacerTopStyles(topSpacer),
         bottomSpacer && getSpacerBottomStyles(bottomSpacer),
+        overflowHidden && "overflow-hidden",
         className
       )}
       {...rest}

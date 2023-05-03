@@ -93,6 +93,11 @@ body {
   --space-lg-xl: 7vw;
   --space-lg-lg: 6vw;
   --space-lg: 5vw;
+  /* medium spacer */
+  --space-md-3xl: 4vw;
+  --space-md-xl: 4vw;
+  --space-md-lg: 3vw;
+  --space-md: 2vw;
   /* default spacer */
   --space-md-lg: 1.5rem;
   --space-md: 1rem;
@@ -103,6 +108,10 @@ body {
   @apply pb-[var(--space-lg)] lg:pb-[var(--space-lg-lg)] xl:pb-[var(--space-lg-xl)] 3xl:pb-36;
 }
 
+.padding-bottom-md {
+  @apply pb-[var(--space-md)] lg:pb-[var(--space-md-lg)] xl:pb-[var(--space-md-xl)];
+}
+
 .padding-bottom {
   @apply pb-[var(--space-md)] lg:pb-[var(--space-md-lg)];
 }
@@ -111,12 +120,44 @@ body {
   @apply pt-[var(--space-lg)] lg:pt-[var(--space-lg-lg)] xl:pt-[var(--space-lg-xl)] 3xl:pt-36;
 }
 
+.padding-top-md {
+  @apply pt-[var(--space-md)] lg:pt-[var(--space-md-lg)] xl:pt-[var(--space-md-xl)];
+}
+
 .padding-top {
   @apply pt-[var(--space-md)] lg:pt-[var(--space-md-lg)];
 }
 
+.padding-left-lg {
+  @apply pl-[var(--space-lg)] lg:pl-[var(--space-lg-lg)] xl:pl-[var(--space-lg-xl)] 3xl:pl-36;
+}
+
+.padding-left-md {
+  @apply pl-[var(--space-md)] lg:pl-[var(--space-md-lg)] xl:pl-[var(--space-md-xl)];
+}
+
+.padding-left {
+  @apply pl-[var(--space-md)] lg:pl-[var(--space-md-lg)];
+}
+
+.padding-right-lg {
+  @apply pr-[var(--space-lg)] lg:pr-[var(--space-lg-lg)] xl:pr-[var(--space-lg-xl)] 3xl:pr-36;
+}
+
+.padding-right-md {
+  @apply pr-[var(--space-md)] lg:pr-[var(--space-md-lg)] xl:pr-[var(--space-md-xl)];
+}
+
+.padding-right {
+  @apply pr-[var(--space-md)] lg:pr-[var(--space-md-lg)];
+}
+
 .margin-bottom-lg {
   @apply mb-[var(--space-lg)] lg:mb-[var(--space-lg-lg)] xl:mb-[var(--space-lg-xl)] 3xl:mb-36;
+}
+
+.margin-bottom-md {
+  @apply mb-[var(--space-md)] lg:mb-[var(--space-md-lg)] xl:mb-[var(--space-md-xl)];
 }
 
 .margin-bottom {
@@ -127,6 +168,10 @@ body {
   @apply mt-[var(--space-lg)] lg:mt-[var(--space-lg-lg)] xl:mt-[var(--space-lg-xl)] 3xl:mt-36;
 }
 
+.margin-top-md {
+  @apply mt-[var(--space-md)] lg:mt-[var(--space-md-lg)] xl:mt-[var(--space-md-xl)];
+}
+
 .margin-top {
   @apply mt-[var(--space-md)] lg:mt-[var(--space-md-lg)];
 }
@@ -135,12 +180,20 @@ body {
   @apply gap-x-[var(--space-lg)] lg:gap-x-[var(--space-lg-lg)] xl:gap-x-[var(--space-lg-xl)] 3xl:gap-x-36;
 }
 
+.gap-space-md {
+  @apply gap-x-[var(--space-md)] lg:gap-x-[var(--space-md-lg)] xl:gap-x-[var(--space-md-xl)];
+}
+
 .gap-space {
   @apply gap-x-[var(--space-md)] lg:gap-x-[var(--space-md-lg)];
 }
 
 .gap-y-lg {
   @apply gap-y-[var(--space-lg)] lg:gap-y-[var(--space-lg-lg)] xl:gap-y-[var(--space-lg-xl)];
+}
+
+.gap-y-md {
+  @apply gap-y-[var(--space-md)] lg:gap-y-[var(--space-md-lg)] xl:gap-y-[var(--space-md-xl)];
 }
 
 .gap-y {

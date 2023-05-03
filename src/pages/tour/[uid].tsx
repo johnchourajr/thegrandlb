@@ -8,8 +8,6 @@ import { createClient } from "../../../prismicio";
 import { components } from "../../../slices";
 
 const Page = ({ navigation, settings, cta, page }: any) => {
-  // console.log({ navigation, settings, cta });
-
   const {
     data: { slices, ...pageRest },
   } = page;
@@ -23,9 +21,18 @@ const Page = ({ navigation, settings, cta, page }: any) => {
         video_media={pageRest.video_media}
         subhead={pageRest.subhead}
         body={pageRest.body}
+        primary_action={"Book this space"}
+        primary_action_link={{
+          id: "ZC5YBhAAACEA0ymB",
+          type: "inquire_page",
+          lang: "en-us",
+          slug: "inquire-page",
+          uid: "inquire",
+          link_type: "Document",
+        }}
       />
       <SliceData slice={pageRest} hidden />
-      <SliceZone slices={slices} components={components} />
+      <SliceZone context={page} slices={slices} components={components} />
     </Layout>
   );
 };

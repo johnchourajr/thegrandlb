@@ -52,21 +52,12 @@
             "select": null
           }
         },
-        "inset": {
-          "type": "Boolean",
-          "config": {
-            "label": "Inset Columns",
-            "placeholder_false": "false",
-            "placeholder_true": "true",
-            "default_value": false
-          }
-        },
         "top_spacer": {
           "type": "Select",
           "config": {
             "label": "Top Spacer",
             "placeholder": "",
-            "options": ["Small", "Large", "None"]
+            "options": ["Small", "Medium", "Large", "None"]
           }
         },
         "top_border": {
@@ -83,7 +74,7 @@
           "config": {
             "label": "Bottom Spacer",
             "placeholder": "",
-            "options": ["Small", "Large", "None"]
+            "options": ["Small", "Medium", "Large", "None"]
           }
         },
         "bottom_border": {

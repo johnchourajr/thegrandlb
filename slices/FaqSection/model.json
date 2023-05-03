@@ -32,6 +32,15 @@
         "media": {
           "type": "Image",
           "config": { "label": "Media", "constraint": {}, "thumbnails": [] }
+        },
+        "asset_position": {
+          "type": "Boolean",
+          "config": {
+            "label": "Asset Position",
+            "placeholder_false": "Left",
+            "placeholder_true": "Right",
+            "default_value": true
+          }
         }
       },
       "items": {

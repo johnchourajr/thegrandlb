@@ -192,7 +192,7 @@ interface EventPageDocumentData {
    */
   title: prismicT.KeyTextField;
   /**
-   * Headlline field in *Event Child Page*
+   * Headline field in *Event Child Page*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -1682,7 +1682,7 @@ interface TourPageDocumentData {
    */
   title: prismicT.KeyTextField;
   /**
-   * Headlline field in *Tour Child Page*
+   * Headline field in *Tour Child Page*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -1726,16 +1726,16 @@ interface TourPageDocumentData {
    */
   media: prismicT.ImageField<never>;
   /**
-   * Headline field in *Tour Child Page*
+   * Subhead field in *Tour Child Page*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: tour_page.headline
+   * - **API ID Path**: tour_page.subhead
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
    *
    */
-  headline: prismicT.KeyTextField;
+  subhead: prismicT.KeyTextField;
   /**
    * Body field in *Tour Child Page*
    *
@@ -1951,6 +1951,17 @@ interface FaqSectionSliceDefaultPrimary {
    *
    */
   media: prismicT.ImageField<never>;
+  /**
+   * Asset Position field in *FaqSection → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: faq_section.primary.asset_position
+   * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
+   *
+   */
+  asset_position: prismicT.BooleanField;
 }
 /**
  * Item in FaqSection → Items
@@ -2092,7 +2103,7 @@ interface HomepageLocationSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  top_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  top_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
   /**
    * Bottom Spacer field in *HomepageLocation → Primary*
    *
@@ -2102,7 +2113,7 @@ interface HomepageLocationSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  bottom_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  bottom_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
   /**
    * Address Label field in *HomepageLocation → Primary*
    *
@@ -2228,7 +2239,7 @@ interface HomepageNumbersSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  top_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  top_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
   /**
    * Bottom Spacer field in *HomepageNumbers → Primary*
    *
@@ -2238,7 +2249,7 @@ interface HomepageNumbersSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  bottom_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  bottom_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
   /**
    * Number List field in *HomepageNumbers → Primary*
    *
@@ -2334,7 +2345,7 @@ interface ImageSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  top_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  top_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
   /**
    * Bottom Spacer field in *ImageSection → Primary*
    *
@@ -2344,7 +2355,7 @@ interface ImageSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  bottom_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  bottom_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
 }
 /**
  * Default variation for ImageSection Slice
@@ -2430,7 +2441,7 @@ interface MomentsScrollSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  top_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  top_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
   /**
    * Bottom Spacer field in *MomentsScrollSection → Primary*
    *
@@ -2440,7 +2451,7 @@ interface MomentsScrollSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  bottom_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  bottom_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
 }
 /**
  * Default variation for MomentsScrollSection Slice
@@ -2539,7 +2550,7 @@ interface NumbersSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  top_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  top_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
   /**
    * Top Border field in *NumbersSection → Primary*
    *
@@ -2560,7 +2571,7 @@ interface NumbersSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  bottom_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  bottom_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
   /**
    * Bottom Border field in *NumbersSection → Primary*
    *
@@ -2879,7 +2890,7 @@ interface ScrollTextSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  top_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  top_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
   /**
    * Bottom Spacer field in *ScrollText → Primary*
    *
@@ -2889,7 +2900,7 @@ interface ScrollTextSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  bottom_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  bottom_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
 }
 /**
  * Default variation for ScrollText Slice
@@ -2976,7 +2987,7 @@ interface SplitGallerySliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  top_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  top_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
   /**
    * Bottom Spacer field in *SplitGallery → Primary*
    *
@@ -2986,7 +2997,7 @@ interface SplitGallerySliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  bottom_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  bottom_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
 }
 /**
  * Default variation for SplitGallery Slice
@@ -3072,7 +3083,7 @@ interface SplitScrollSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  top_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  top_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
   /**
    * Bottom Spacer field in *SplitScrollSection → Primary*
    *
@@ -3082,7 +3093,7 @@ interface SplitScrollSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  bottom_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  bottom_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
   /**
    * Asset Position field in *SplitScrollSection → Primary*
    *
@@ -3245,7 +3256,7 @@ interface StarSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  top_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  top_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
   /**
    * Bottom Spacer field in *StarSection → Primary*
    *
@@ -3255,7 +3266,7 @@ interface StarSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  bottom_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  bottom_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
   /**
    * Show Customer Reviews field in *StarSection → Primary*
    *
@@ -3430,17 +3441,6 @@ interface TextSectionSliceDefaultPrimary {
    */
   secondary_action_link: prismicT.LinkField;
   /**
-   * Inset Columns field in *TextSection → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: text_section.primary.inset
-   * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
-   *
-   */
-  inset: prismicT.BooleanField;
-  /**
    * Top Spacer field in *TextSection → Primary*
    *
    * - **Field Type**: Select
@@ -3449,7 +3449,7 @@ interface TextSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  top_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  top_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
   /**
    * Top Border field in *TextSection → Primary*
    *
@@ -3470,7 +3470,7 @@ interface TextSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  bottom_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  bottom_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
   /**
    * Bottom Border field in *TextSection → Primary*
    *
@@ -3567,7 +3567,7 @@ interface TileGridSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  top_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  top_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
   /**
    * Bottom Spacer field in *TileGrid → Primary*
    *
@@ -3577,7 +3577,7 @@ interface TileGridSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  bottom_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  bottom_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
 }
 /**
  * Item in TileGrid → Items

@@ -30,7 +30,7 @@ import clsx from "clsx";
 //   "config": {
 //     "label": "Top Spacer",
 //     "placeholder": "",
-//     "options": ["Small", "Large", "None"]
+//     "options": ["Small", "Medium", "Large", "None"]
 //   }
 // },
 // "top_border": {
@@ -143,18 +143,16 @@ const NumbersSection = ({ slice }: NumbersSectionProps): JSX.Element => {
                 i: number
               ) => {
                 return (
-                  <>
-                    <NumberItem
-                      key={i}
-                      media={media}
-                      number={number}
-                      eyebrow={eyebrow}
-                      body={body}
-                      action_text={action_text}
-                      action_link={action_link}
-                      className={clsx("px-10", getColumns().item)}
-                    />
-                  </>
+                  <NumberItem
+                    key={i}
+                    media={media}
+                    number={number}
+                    eyebrow={eyebrow}
+                    body={body}
+                    action_text={action_text}
+                    action_link={action_link}
+                    className={clsx("px-10", getColumns().item)}
+                  />
                 );
               }
             )}

@@ -13,6 +13,7 @@ interface TextProps {
   className?: string;
   text?: string;
   duration?: number;
+  staggerDuration?: number;
   disableMotion?: boolean;
   disableStagger?: boolean;
   animationType?: "word" | "letter";
@@ -165,6 +166,7 @@ function Headline({
   text,
   children,
   duration,
+  staggerDuration,
   disableMotion = false,
   disableStagger = false,
   animationType = "word",
@@ -183,18 +185,18 @@ function Headline({
   const staggerChildren = () => {
     if (disableStagger) return 0;
     if (animationType === "word") {
-      return 0.1;
+      return staggerDuration || 0.1;
     } else {
-      return 0.05;
+      return staggerDuration || 0.05;
     }
   };
 
   const delayChildren = () => {
     if (disableStagger) return 0;
     if (animationType === "word") {
-      return 0.1;
+      return staggerDuration || 0.1;
     } else {
-      return 0;
+      return staggerDuration || 0;
     }
   };
 

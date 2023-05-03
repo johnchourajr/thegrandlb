@@ -20,27 +20,41 @@ const MediaFrame = ({
   const { url: videoUrl }: any = video_media || {};
   const { url: mediaUrl }: any = media || {};
 
-  if (!media.kind && !videoUrl && !gallery) return null;
-  return (
-    <m.div className={clsx("media-frame", className)}>
-      {videoUrl && (
+  const renderMedia = () => {
+    if (gallery?.data) {
+      const {
+        data: { gallery_items },
+      } = gallery as any;
+      return (
+        <ImageGallery
+          images={gallery_items}
+          containerClassName="absolute inset-0 z-10 h-full w-full object-cover"
+        />
+      );
+    } else if (videoUrl) {
+      return (
         <InlineVideoPlayer
           media={video_media}
           className="absolute inset-0 z-20 h-full w-full object-cover"
           poster={media}
           {...video_options}
         />
-      )}
-      {!gallery && !videoUrl && media && (
-        <ImageBox media={media} priority={priority} />
-      )}
-      {gallery && (
-        <ImageGallery
-          images={gallery}
-          containerClassName="absolute inset-0 z-10 h-full w-full object-cover"
+      );
+    } else if (mediaUrl) {
+      return (
+        <ImageBox
+          media={media}
+          priority={priority}
+          className="absolute inset-0 z-20 h-full w-full object-cover"
         />
-      )}
+      );
+    } else return null;
+  };
 
+  if (!media?.kind && !videoUrl && !gallery) return null;
+  return (
+    <m.div className={clsx("media-frame", className)}>
+      {renderMedia()}
       <div className="noise" />
     </m.div>
   );

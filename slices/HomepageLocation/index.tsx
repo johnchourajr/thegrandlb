@@ -66,6 +66,7 @@ const HomepageLocation = ({ slice }: HomepageLocationProps): JSX.Element => {
         topSpacer={"None"}
         bottomSpacer={"None"}
         className={clsx("border-t-2 border-b-2 border-white !py-12 xl:!py-0")}
+        overflowHidden={false}
       >
         <MotionBox className="col-span-full self-center xl:col-span-3 xl:col-start-2">
           {address_label && (

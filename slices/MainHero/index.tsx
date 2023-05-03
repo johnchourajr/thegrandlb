@@ -20,11 +20,6 @@ import { m } from "framer-motion";
 export type PageHeroProps = SliceComponentProps<Content.PageHeroSlice>;
 
 const PageHero = ({ slice }: PageHeroProps): JSX.Element => {
-  // console.log({
-  //   field: slice.primary.primary_action_link,
-  //   text: slice.primary.primary_action,
-  // });
-
   const headline = prismicH.asText(slice.primary.headline);
   return (
     <>

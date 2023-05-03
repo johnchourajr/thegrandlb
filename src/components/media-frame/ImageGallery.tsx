@@ -121,7 +121,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
       return () => clearInterval(interval);
     }
 
-    if (isPlaying) {
+    if (isInView && isPlaying) {
       interval = setInterval(() => {
         setCurrentImageIndex(nextImageIndex);
         setNextImageIndex((nextImageIndex) =>
@@ -137,7 +137,15 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
     return () => {
       if (interval) clearInterval(interval);
     };
-  }, [autoPlay, cycleDuration, isPlaying, delayStart, images, nextImageIndex]);
+  }, [
+    autoPlay,
+    cycleDuration,
+    isInView,
+    isPlaying,
+    delayStart,
+    images,
+    nextImageIndex,
+  ]);
 
   if (!images) {
     return null;
