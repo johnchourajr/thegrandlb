@@ -32,9 +32,6 @@
             "page_hero": {
               "type": "SharedSlice"
             },
-            "moments_scroll_section": {
-              "type": "SharedSlice"
-            },
             "homepage_location": {
               "type": "SharedSlice"
             },

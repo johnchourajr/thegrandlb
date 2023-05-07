@@ -36,17 +36,11 @@
       },
       "subhead": {
         "type": "Text",
-        "config": {
-          "label": "Subhead",
-          "placeholder": ""
-        }
+        "config": { "label": "Subhead", "placeholder": "" }
       },
       "body": {
         "type": "Text",
-        "config": {
-          "label": "Body",
-          "placeholder": ""
-        }
+        "config": { "label": "Body", "placeholder": "" }
       }
     },
     "Sections": {
@@ -94,7 +88,22 @@
                   "Large Stage",
                   "Stage",
                   "Large Dance Floor",
-                  "Dance Floor"
+                  "Dance Floor",
+                  "Large Attached Bar",
+                  "Attached Bar",
+                  "Natural Sunlight",
+                  "View of Palm Terrace",
+                  "Adjacent of Palm Terrace",
+                  "Access to Monarch Room",
+                  "Built-in Dance Floor",
+                  "Stylish columns",
+                  "Stylish Chandelier",
+                  "Catalina Island Artwork",
+                  "Large Mahogany Table",
+                  "Perfect for Large Gatherings",
+                  "Perfect for Medium to Large Gatherings",
+                  "Perfect for Small Gatherings",
+                  "Perfect for Meeting Space"
                 ]
               }
             }

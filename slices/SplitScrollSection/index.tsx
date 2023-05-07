@@ -25,8 +25,8 @@ const SplitScrollSection = ({
 }: SplitScrollSectionProps): JSX.Element => {
   const {
     section_id,
-    top_spacer,
-    bottom_spacer,
+    top_spacer = "Medium",
+    bottom_spacer = "",
     gallery,
     video_media,
     media,
@@ -55,7 +55,7 @@ const SplitScrollSection = ({
         topSpacer={top_spacer || "Medium"}
         overflowHidden={false}
       >
-        <MotionBox className="padding-top-lg padding-bottom-lg gap-y-md col-span-full flex flex-col items-center justify-center xl:col-span-6 xl:col-start-auto xl:row-start-1">
+        <MotionBox className="padding-top-lg padding-bottom-lg gap-y-lg col-span-full flex flex-col items-center justify-center xl:col-span-6 xl:col-start-auto xl:row-start-1">
           {items.map((item, index: number) => {
             return (
               <Fragment key={index}>

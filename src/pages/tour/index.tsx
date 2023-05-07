@@ -1,15 +1,21 @@
 import { SliceZone } from "@prismicio/react";
 
+import SliceData from "@/components/dev/SliceData";
 import Layout from "@/components/Layout";
 import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../../prismicio";
 import { components } from "../../../slices/";
 
 const Page = ({ navigation, settings, cta, page, childPages }: any) => {
+  const {
+    data: { slices, ...pageRest },
+  } = page;
+
   return (
     <Layout page={page}>
       <></>
-      <SliceZone slices={page.data.slices} components={components} />
+      <SliceData slice={pageRest} />
+      <SliceZone slices={slices} components={components} />
     </Layout>
   );
 };

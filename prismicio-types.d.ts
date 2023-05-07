@@ -542,7 +542,7 @@ interface FragmentCtaFooterDocumentData {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  top_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  top_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
   /**
    * Bottom Spacer field in *Fragment / CTA Footer*
    *
@@ -553,7 +553,7 @@ interface FragmentCtaFooterDocumentData {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  bottom_spacer: prismicT.SelectField<"Small" | "Large" | "None">;
+  bottom_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
 }
 /**
  * Fragment / CTA Footer document from Prismic
@@ -1403,7 +1403,6 @@ interface PageDocumentData {
 type PageDocumentDataSlicesSlice =
   | HomepageNumbersSlice
   | PageHeroSlice
-  | MomentsScrollSectionSlice
   | HomepageLocationSlice
   | SplitGallerySlice
   | StarSectionSlice
@@ -1861,6 +1860,20 @@ export interface TourPageDocumentDataFeaturesItem {
     | "Stage"
     | "Large Dance Floor"
     | "Dance Floor"
+    | "Large Attached Bar"
+    | "Attached Bar"
+    | "Natural Sunlight"
+    | "View of Palm Terrace"
+    | "Adjacent of Palm Terrace"
+    | "Stylish columns"
+    | "Built-in Dance Floor"
+    | "Stylish Chandelier"
+    | "Perfect for Large Gatherings"
+    | "Perfect for Medium to Large Gatherings"
+    | "Perfect for Small Gatherings"
+    | "Catalina Island Artwork"
+    | "Large Mahogany Table"
+    | "Meeting Space"
   >;
 }
 /**
