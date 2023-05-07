@@ -38,6 +38,7 @@ const ImageBox = ({
         ...imgixParams,
       }}
       alt={decorative ? "" : undefined}
+      fallbackAlt={""}
       {...rest}
     />
   );

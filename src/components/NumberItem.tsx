@@ -43,6 +43,7 @@ export const NumberItem: React.FC<NumberItemProps> = ({
         <PrismicNextImage
           field={media}
           className=" h-[4.375rem] w-[4.375rem]"
+          fallbackAlt={""}
         />
       )}
       {numberAsString && (

@@ -72,15 +72,19 @@ const SplitScrollSection = ({
             );
           })}
         </MotionBox>
-        <MediaFrame
+        <MotionBox
           className={clsx(
-            "top-[9.5rem] col-span-full row-start-1 aspect-square overflow-hidden rounded-sm bg-white lg:max-h-[calc(100vh-9rem-2rem)] lg:rounded-md xl:sticky xl:col-span-6 xl:aspect-auto xl:h-[100vh]",
+            "relative col-span-full row-start-1 aspect-square overflow-hidden rounded-sm bg-white lg:aspect-[4/3] lg:rounded-md xl:sticky xl:top-[9.5rem] xl:col-span-6 xl:aspect-auto xl:h-[100vh] xl:max-h-[calc(100vh-9rem-2rem)]",
             getAssetPosition(asset_position)
           )}
-          gallery={gallery}
-          video_media={video_media}
-          media={media}
-        />
+        >
+          <MediaFrame
+            gallery={gallery}
+            video_media={video_media}
+            media={media}
+            className="absolute inset-0 h-full w-full overflow-hidden"
+          />
+        </MotionBox>
       </GridSection>
       <SliceData slice={slice} hidden />
     </>

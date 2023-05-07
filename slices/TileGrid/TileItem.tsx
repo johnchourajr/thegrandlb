@@ -52,7 +52,7 @@ export const TileItem = ({
       case "Outlined":
         return {
           container:
-            "text-black uppercase !border-2 border-white bg-transparent !rounded-full hover:!border-0 hover:!border-[transparent] hover:bg-white ",
+            "text-black uppercase !border-2 border-white bg-transparent !rounded-full hover:!border-0 hover:!border-[transparent] hover:bg-white !min-h-[10rem] ",
           headline: "!text-sm",
           content: "",
         };
@@ -99,14 +99,14 @@ export const TileItem = ({
     switch (size) {
       case "Large":
         return {
-          container: "lg:col-span-4",
+          container: "lg:col-span-4 min-h-[25rem]",
           headline: "uppercase max-w-[6em]",
           content: "!gap-20",
           headlineSize: "xl",
         };
       default:
         return {
-          container: "",
+          container: "min-h-[25rem]",
           headline: "",
           content: "",
           headlineSize: "md",
@@ -130,7 +130,7 @@ export const TileItem = ({
       field={link}
       linkResolver={linkResolver}
       className={clsx(
-        "relative h-full w-full overflow-hidden rounded-sm border-b-4 p-10 transition-all duration-700 ease-out-expo hover:border-b-0 hover:border-b-[transparent] lg:rounded-md",
+        "relative h-full w-full overflow-hidden rounded-sm border-b-4 transition-all duration-700 ease-out-expo hover:border-b-0 hover:border-b-[transparent] lg:rounded-md",
         col_start && getNumberForColStart(col_start),
         col_span && getNumberForColSpan(col_span),
         row_start && getNumberForRowStart(row_start),
@@ -163,47 +163,43 @@ export const TileItem = ({
         whileTap={{ scale: 0.98, willChange: "scale" }}
         transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
         tabIndex={-1}
-        className="absolute inset-0 z-[0]"
+        className={clsx(
+          "align-center flex h-full w-full flex-col items-center justify-center gap-4 p-10 text-center",
+          getSize().content,
+          getDirection()
+        )}
       >
-        <m.div
-          className={clsx(
-            "align-center flex h-full w-full flex-col items-center justify-center gap-4 text-center",
-            getSize().content,
-            getDirection()
+        {media && (
+          <>
+            <ImageBox
+              media={media}
+              className=" h-32 max-h-[15rem] w-32 max-w-[15rem] lg:h-[13vw] lg:w-[13vw]"
+              imgixParams={{ maxWidth: 600 }}
+            />
+          </>
+        )}
+        <div className="flex flex-col items-center justify-center gap-4">
+          {headline && (
+            <Headline
+              className={clsx(getStyles().headline, getSize().headline)}
+              size={getSize().headlineSize}
+              disableMotion={true}
+            >
+              {headline}
+            </Headline>
           )}
-        >
-          {media && (
-            <>
-              <ImageBox
-                media={media}
-                className=" h-32 max-h-[15rem] w-32 max-w-[15rem] lg:h-[13vw] lg:w-[13vw]"
-                imgixParams={{ maxWidth: 600 }}
-              />
-            </>
-          )}
-          <div className="flex flex-col items-center justify-center gap-4">
-            {headline && (
-              <Headline
-                className={clsx(getStyles().headline, getSize().headline)}
-                size={getSize().headlineSize}
-                disableMotion={true}
-              >
-                {headline}
-              </Headline>
-            )}
 
-            {body && (
-              <Text size="default" className={"max-w-[25em]"}>
-                {body}
-              </Text>
-            )}
-          </div>
-          {eyebrow && (
-            <StringText size="large" bold uppercase>
-              {eyebrow}
-            </StringText>
+          {body && (
+            <Text size="default" className={"max-w-[25em]"}>
+              {body}
+            </Text>
           )}
-        </m.div>
+        </div>
+        {eyebrow && (
+          <StringText size="large" bold uppercase>
+            {eyebrow}
+          </StringText>
+        )}
       </m.div>
     </PrismicLink>
   );

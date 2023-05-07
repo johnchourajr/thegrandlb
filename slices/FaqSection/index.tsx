@@ -1,99 +1,14 @@
-import { BasicRichText } from "@/components/BasicRichText";
 import SliceData from "@/components/dev/SliceData";
 import { GridSection } from "@/components/GridSection";
-import Headline from "@/components/Headline";
 import MediaFrame from "@/components/media-frame";
 import MotionBox from "@/components/MotionBox";
 import StringText from "@/components/StringText";
 import { Content } from "@prismicio/client";
 import * as prismicH from "@prismicio/helpers";
-import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { SliceComponentProps } from "@prismicio/react";
 import clsx from "clsx";
-import { m } from "framer-motion";
 import Head from "next/head";
-import { useState } from "react";
-
-export const FaqItem = ({ question, answer }: any) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleOpen = () => setIsOpen(!isOpen);
-
-  return (
-    <MotionBox
-      className={clsx(
-        "relative flex w-full flex-col border-t-2 border-white pt-8 pb-8 text-left",
-        "last-of-type:border-b-2"
-      )}
-    >
-      <button
-        className={clsx(
-          "relative flex w-full items-center text-left",
-          "after:bg-transparent after:absolute after:-inset-2 after:z-[-1] after:rounded-2xl after:transition-all after:duration-500 after:ease-out-expo after:content-['']"
-        )}
-        onClick={toggleOpen}
-      >
-        {prismicH.asText(question) && (
-          <PrismicRichText
-            field={question}
-            components={{
-              paragraph: ({ children }) => (
-                <Headline
-                  size={"sm"}
-                  as="span"
-                  className="max-w-[80%]"
-                  animateOnce
-                  disableMotion
-                >
-                  {children}
-                </Headline>
-              ),
-            }}
-          />
-        )}
-        <m.span
-          variants={{
-            open: { rotate: -180 },
-            closed: { rotate: 0 },
-          }}
-          animate={isOpen ? "open" : "closed"}
-          transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
-          className="absolute right-0 flex h-8 w-8 items-center justify-center rounded-full "
-        >
-          <m.span className="absolute h-[2px] w-6 bg-black" />
-          <m.span
-            variants={{ closed: { rotate: 90 }, open: { rotate: 0 } }}
-            animate={isOpen ? "open" : "closed"}
-            transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
-            className="absolute h-[2px] w-6 rotate-90 bg-black"
-          />
-        </m.span>
-      </button>
-      <m.div
-        variants={{
-          open: {
-            height: "auto",
-            opacity: 1,
-            marginTop: "1rem",
-          },
-          closed: {
-            height: 0,
-            opacity: 0,
-            marginTop: "0rem",
-            transitionEnd: { display: "none" },
-          },
-        }}
-        animate={isOpen ? "open" : "closed"}
-        transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
-        className="relative max-w-[90%] overflow-hidden will-change-transform"
-      >
-        {prismicH.asText(answer) && (
-          <div className="mb-2 mt-4 whitespace-pre-wrap leading-[2] last:mb-0 ">
-            <BasicRichText field={answer} paragraphSize="large" />
-          </div>
-        )}
-      </m.div>
-    </MotionBox>
-  );
-};
+import { FaqItem } from "./FaqItem";
 
 /**
  * Props for `FaqSection`.
@@ -168,7 +83,7 @@ const FaqSection = ({ slice }: FaqSectionProps): JSX.Element => {
               {title}
             </StringText>
           )}
-          <MotionBox className="flex flex-col items-start justify-start">
+          <MotionBox className="flex w-full flex-col items-start justify-start">
             {items.map((item, index: number) => {
               return (
                 <FaqItem
@@ -180,17 +95,21 @@ const FaqSection = ({ slice }: FaqSectionProps): JSX.Element => {
             })}
           </MotionBox>
         </MotionBox>
-        <MediaFrame
+        <MotionBox
           className={clsx(
-            "top-[9.5rem] col-span-full row-start-1 aspect-square overflow-hidden rounded-sm bg-white lg:max-h-[calc(100vh-9rem-2rem)] lg:rounded-md xl:sticky xl:col-span-6 xl:aspect-auto xl:h-[100vh]",
+            "relative col-span-full row-start-1 flex aspect-square overflow-hidden rounded-sm bg-white lg:max-h-[calc(100vh-9rem-2rem)] lg:rounded-md xl:sticky xl:top-[9.5rem] xl:col-span-6 xl:aspect-auto xl:h-[100vh]",
             getAssetPosition(asset_position)
           )}
-          gallery={gallery}
-          video_media={video_media}
-          media={media}
-        />
+        >
+          <MediaFrame
+            className="absolute inset-0 h-full w-full overflow-hidden"
+            gallery={gallery}
+            video_media={video_media}
+            media={media}
+          />
+        </MotionBox>
       </GridSection>
-      <SliceData slice={slice} />
+      <SliceData slice={slice} hidden />
     </>
   );
 };
