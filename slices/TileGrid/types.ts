@@ -1,4 +1,10 @@
 import type { TextSize } from "@/components/Headline";
+import {
+  MotionProps,
+  MotionStyle,
+  TargetAndTransition,
+  VariantLabels,
+} from "framer-motion";
 
 export type TileTheme =
   | "Black/White"
@@ -42,7 +48,9 @@ export type RowStart =
   | "Start 3"
   | "Start 4"
   | "Start 5"
-  | "Start 6";
+  | "Start 6"
+  | "Start 7"
+  | "Start 8";
 
 export type RowSpan =
   | "Span 1"
@@ -50,7 +58,9 @@ export type RowSpan =
   | "Span 3"
   | "Span 4"
   | "Span 5"
-  | "Span 6";
+  | "Span 6"
+  | "Span 7"
+  | "Span 8";
 
 export interface TileItemProps {
   col_span?: ColSpan;
@@ -67,6 +77,11 @@ export interface TileItemProps {
   card_fragment?: any;
   body?: any;
   className?: string;
+  gridOptions?: boolean;
+  motionStyles?: MotionStyle;
+  initial?: TargetAndTransition | VariantLabels; //@deprecated
+  whileInView?: TargetAndTransition | VariantLabels; //@deprecated
+  viewport?: MotionProps["viewport"];
 }
 export type TileStyleProps = {
   container?: string;

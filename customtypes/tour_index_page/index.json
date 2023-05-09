@@ -5,19 +5,10 @@
   "status": true,
   "json": {
     "Main": {
-      "uid": {
-        "type": "UID",
-        "config": {
-          "label": "UID",
-          "placeholder": ""
-        }
-      },
+      "uid": { "type": "UID", "config": { "label": "UID", "placeholder": "" } },
       "title": {
         "type": "Text",
-        "config": {
-          "label": "Title",
-          "placeholder": ""
-        }
+        "config": { "label": "Title", "placeholder": "" }
       },
       "gallery": {
         "type": "Link",
@@ -37,39 +28,33 @@
       },
       "media": {
         "type": "Image",
-        "config": {
-          "label": "Media",
-          "constraint": {},
-          "thumbnails": []
-        }
+        "config": { "label": "Media", "constraint": {}, "thumbnails": [] }
       },
       "icon_media": {
         "type": "Image",
-        "config": {
-          "label": "Icon Media",
-          "constraint": {},
-          "thumbnails": []
-        }
+        "config": { "label": "Icon Media", "constraint": {}, "thumbnails": [] }
       },
       "headline": {
         "type": "Text",
-        "config": {
-          "label": "Headline",
-          "placeholder": ""
-        }
+        "config": { "label": "Headline", "placeholder": "" }
       },
       "body": {
         "type": "Text",
-        "config": {
-          "label": "Body",
-          "placeholder": ""
-        }
+        "config": { "label": "Body", "placeholder": "" }
       },
       "spaces": {
         "type": "Group",
         "config": {
           "label": "Spaces",
           "fields": {
+            "page_media": {
+              "type": "Image",
+              "config": {
+                "label": "Page Media",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
             "page": {
               "type": "Link",
               "config": {
@@ -105,25 +90,15 @@
     "Meta": {
       "meta_title": {
         "type": "Text",
-        "config": {
-          "label": "Meta Title",
-          "placeholder": ""
-        }
+        "config": { "label": "Meta Title", "placeholder": "" }
       },
       "meta_description": {
         "type": "Text",
-        "config": {
-          "label": "Meta Description",
-          "placeholder": ""
-        }
+        "config": { "label": "Meta Description", "placeholder": "" }
       },
       "meta_image": {
         "type": "Image",
-        "config": {
-          "label": "Meta Image",
-          "constraint": {},
-          "thumbnails": []
-        }
+        "config": { "label": "Meta Image", "constraint": {}, "thumbnails": [] }
       }
     }
   }

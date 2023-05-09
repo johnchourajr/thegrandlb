@@ -74,7 +74,7 @@ const SplitScrollSection = ({
         </MotionBox>
         <MotionBox
           className={clsx(
-            "relative col-span-full row-start-1 aspect-square overflow-hidden rounded-sm bg-white lg:aspect-[4/3] lg:rounded-md xl:sticky xl:top-[9.5rem] xl:col-span-6 xl:aspect-auto xl:h-[100vh] xl:max-h-[calc(100vh-9rem-2rem)]",
+            "relative col-span-full row-start-1 aspect-square overflow-hidden rounded-sm bg-black lg:aspect-[4/3] lg:rounded-md xl:sticky xl:top-[9.5rem] xl:col-span-6 xl:aspect-auto xl:h-[100vh] xl:max-h-[calc(100vh-9rem-2rem)]",
             getAssetPosition(asset_position)
           )}
         >

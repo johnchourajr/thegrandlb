@@ -20,7 +20,12 @@ const HeroDetailPage = ({
   const hasSubheadandBody = subhead && body;
   return (
     <>
-      <GridSection id={"hero"} bottomSpacer={"Small"} topSpacer={"Small"}>
+      <GridSection
+        id={`hero-${uid}`}
+        layoutId={`hero-${uid}`}
+        bottomSpacer={"Small"}
+        topSpacer={"Small"}
+      >
         <div
           className={clsx(
             "relative col-span-full col-start-1 flex aspect-square max-h-[calc(100vh-8.8125rem)] w-full flex-col items-center justify-center gap-10 overflow-hidden rounded-sm bg-black px-4 text-center text-white lg:aspect-[4/3] lg:max-h-[calc(100vh-9rem-3rem)] lg:rounded-md"
@@ -33,11 +38,15 @@ const HeroDetailPage = ({
               className="relative z-10 max-w-[10em]"
               animateOnce={true}
               animationType="word"
+              layoutId={`hero-${uid}-headline`}
+              key={`hero-${uid}-headline`}
             >
               {headline}
             </Headline>
           )}
           <MediaFrame
+            key={`hero-${uid}-media`}
+            id={`hero-${uid}-media`}
             media={media}
             video_media={video_media}
             className="absolute inset-0 z-0 h-full w-full"
@@ -80,13 +89,17 @@ const HeroDetailPage = ({
         </div>
       </GridSection>
       {hasSubheadandBody && (
-        <GridSection id={"sub-hero"} bottomSpacer={"Small"} topSpacer={"Small"}>
+        <GridSection
+          id={"sub-hero"}
+          bottomSpacer={"Medium"}
+          topSpacer={"Medium"}
+        >
           <MotionBox className="col-span-full pt-10 pb-0 xl:col-span-6 xl:col-start-2 xl:pt-12 xl:pb-20">
             <Headline size={"xl"} className={"max-w-[9em]"} animateOnce>
               {subhead}
             </Headline>
           </MotionBox>
-          <MotionBox className="col-span-full pb-12 xl:col-span-4 xl:col-start-auto xl:mt-4 xl:pt-12">
+          <MotionBox className="col-span-full pb-12 xl:col-span-4 xl:col-start-auto xl:pt-12">
             <Text paragraph size="large" className="max-w-[30em]">
               {body}
             </Text>

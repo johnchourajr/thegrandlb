@@ -29,7 +29,9 @@ export const NumberItem: React.FC<NumberItemProps> = ({
   // console.log({ action_text, action_link });
 
   const numberAsString = prismicH.asText(number);
-  const bodyAsString = prismicH.asText(body);
+  const bodyAsString = prismicH.asText(body) || "";
+
+  const bodyLong = bodyAsString?.length > 100;
 
   return (
     <MotionBox
@@ -61,7 +63,10 @@ export const NumberItem: React.FC<NumberItemProps> = ({
           field={body}
           components={{
             paragraph: ({ children }) => (
-              <Text as="span" className="max-w-[18em]">
+              <Text
+                as="span"
+                className={clsx(bodyLong ? "max-w-[24em]" : "max-w-[18em]")}
+              >
                 {children}
               </Text>
             ),

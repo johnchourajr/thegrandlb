@@ -11,6 +11,7 @@ interface TextProps {
   uppercase?: boolean;
   emphasis?: boolean;
   className?: string;
+  style?: React.CSSProperties | any;
   text?: string;
   duration?: number;
   staggerDuration?: number;
@@ -19,6 +20,7 @@ interface TextProps {
   animationType?: "word" | "letter";
   animateOnce?: boolean;
   children?: React.ReactNode;
+  layoutId?: string;
 }
 const wrapEachLetterInSpan = (word: string, index: number) => {
   const item = {
@@ -172,6 +174,7 @@ function Headline({
   animationType = "word",
   animateOnce = false,
   className,
+  style,
   ...rest
 }: TextProps) {
   if (!text && !children) return null;
@@ -240,6 +243,7 @@ function Headline({
         "whitespace-pre-wrap",
         className
       )}
+      style={style}
       aria-label={wordsAsString}
       data-cursor="text"
       {...rest}

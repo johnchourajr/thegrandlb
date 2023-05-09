@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { MediaFrameProps } from "./types";
 
 interface ImageBoxProps {
+  id?: string;
   media: MediaFrameProps["media"];
   priority?: PrismicNextImageProps["priority"];
   imgixParams?: PrismicNextImageProps["imgixParams"];
@@ -12,6 +13,7 @@ interface ImageBoxProps {
 }
 
 const ImageBox = ({
+  id,
   media,
   priority,
   imgixParams,
@@ -26,6 +28,7 @@ const ImageBox = ({
 
   return (
     <PrismicNextImage
+      id={id}
       field={{ ...media, hasCustomAlt }}
       className={clsx(className)}
       priority={priority}

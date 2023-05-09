@@ -24,6 +24,7 @@ export type ImageItem = {
 };
 
 interface ImageGalleryProps {
+  id?: string;
   className?: string;
   containerClassName?: string;
   images?: ImageItem[];
@@ -36,6 +37,7 @@ interface ImageGalleryProps {
 }
 
 const ImageGallery: React.FC<ImageGalleryProps> = ({
+  id,
   className,
   containerClassName,
   images,
@@ -200,6 +202,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
 
   return (
     <div
+      id={id}
       ref={ref}
       className={clsx(
         "relative z-10 flex flex-col gap-y-4",

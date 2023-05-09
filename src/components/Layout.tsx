@@ -56,6 +56,7 @@ const Layout = ({
 }: any) => {
   return (
     <div
+      id="page"
       className={clsx(
         "relative z-0 mx-auto w-full max-w-[100vw] bg-bg  text-black 4xl:max-w-[2500px]",
         wrapperClassName
@@ -63,8 +64,12 @@ const Layout = ({
     >
       {page && !hidePageUid && <pre>uid: {page?.uid}</pre>}
       {/* <LayoutHead page={page} settings={settings} headContent={headContent} /> */}
-      <main className={clsx("min-h-[150vh]", className)}>{children}</main>
+      <main id={page?.uid} className={clsx("min-h-[150vh]", className)}>
+        {children}
+      </main>
       {/* <Consent /> */}
+
+      <div className="min-h-[50vh] w-full bg-white"></div>
     </div>
   );
 };

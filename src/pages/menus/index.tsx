@@ -1,5 +1,6 @@
 import { SliceZone } from "@prismicio/react";
 
+import CtaFooter from "@/components/CtaFooter";
 import Layout from "@/components/Layout";
 import { getPrismicMenus } from "@/services/get-prismic-menus";
 import fetchLinks from "@/utils/fetchLinks";
@@ -30,6 +31,7 @@ const Page = ({ navigation, settings, cta, page, childPages }: any) => {
         </ul>
       </div>
       <SliceZone slices={page.data.slices} components={components} />
+      <CtaFooter data={cta} />
     </Layout>
   );
 };
@@ -54,7 +56,9 @@ export async function getStaticProps({ params, previewData }: any) {
   const [navigation, settings, cta, page] = await Promise.all([
     client.getByType("nav_links"),
     client.getByType("settings"),
-    client.getByType("fragment_cta_footer"),
+    client.getByType("fragment_cta_footer", {
+      fetchLinks,
+    }),
     client.getByUID("event_index_page", "events", {
       fetchLinks,
     }),

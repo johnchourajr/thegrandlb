@@ -6,13 +6,14 @@ import InlineVideoPlayer from "./InlineVideoPlayer";
 import { MediaFrameProps } from "./types";
 
 const MediaFrame = ({
+  id,
   className,
   media,
   video_media,
   video_options = {
     auto_play: true,
     loop: true,
-    controls: false,
+    controls: true,
   },
   gallery,
   priority = false,
@@ -27,6 +28,7 @@ const MediaFrame = ({
       } = gallery as any;
       return (
         <ImageGallery
+          id={id}
           images={gallery_items}
           containerClassName="absolute inset-0 z-10 h-full w-full object-cover"
         />
@@ -34,6 +36,7 @@ const MediaFrame = ({
     } else if (videoUrl) {
       return (
         <InlineVideoPlayer
+          id={id}
           media={video_media}
           className="absolute inset-0 z-20 h-full w-full object-cover"
           poster={media}
@@ -43,6 +46,7 @@ const MediaFrame = ({
     } else if (mediaUrl) {
       return (
         <ImageBox
+          id={id}
           media={media}
           priority={priority}
           className="absolute inset-0 z-20 h-full w-full object-cover"
@@ -53,7 +57,7 @@ const MediaFrame = ({
 
   if (!media?.kind && !videoUrl && !gallery) return null;
   return (
-    <m.div className={clsx("media-frame", className)}>
+    <m.div id={id} layoutId={id} className={clsx("media-frame", className)}>
       {renderMedia()}
       <div className="noise" />
     </m.div>

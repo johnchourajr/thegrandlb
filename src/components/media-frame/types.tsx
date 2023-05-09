@@ -15,6 +15,7 @@ export interface GalleryControlsProps {
 }
 
 export interface MediaFrameProps {
+  id?: string;
   className?: string;
   media: any;
   video_media?: FilledLinkToMediaField | EmptyLinkField<"Media">;

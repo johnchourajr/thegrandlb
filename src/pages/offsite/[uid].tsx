@@ -23,7 +23,9 @@ export async function getStaticProps({ params, previewData }: any) {
   const [navigation, settings, cta, page] = await Promise.all([
     client.getByType("nav_links"),
     client.getByType("settings"),
-    client.getByType("fragment_cta_footer"),
+    client.getByType("fragment_cta_footer", {
+      fetchLinks,
+    }),
     client.getByUID("offsite_page", params.uid, {
       fetchLinks,
     }),

@@ -1,6 +1,9 @@
 import { SliceZone } from "@prismicio/react";
 
+import CtaFooter from "@/components/CtaFooter";
 import SliceData from "@/components/dev/SliceData";
+import GridTourIndex from "@/components/grid-tour-index/GridTourIndex";
+import HeroCategoryPage from "@/components/HeroCategoryPage";
 import Layout from "@/components/Layout";
 import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../../prismicio";
@@ -8,14 +11,26 @@ import { components } from "../../../slices/";
 
 const Page = ({ navigation, settings, cta, page, childPages }: any) => {
   const {
-    data: { slices, ...pageRest },
+    data: { slices, title, gallery, video_media, media, ...pageRest },
   } = page;
 
+  const { icon_media, headline, body, spaces } = pageRest;
+
   return (
-    <Layout page={page}>
-      <></>
+    <Layout page={page} hidePageUid>
+      <HeroCategoryPage
+        headline={title}
+        gallery={gallery}
+        video_media={video_media}
+        media={media}
+        icon_media={icon_media}
+        subhead={headline}
+        body={body}
+      />
+      <GridTourIndex sectionId="tour-index" spaces={spaces} />
       <SliceData slice={pageRest} />
       <SliceZone slices={slices} components={components} />
+      <CtaFooter data={cta} />
     </Layout>
   );
 };
@@ -28,7 +43,9 @@ export async function getStaticProps({ params, previewData }: any) {
   const [navigation, settings, cta, page, childPages] = await Promise.all([
     client.getByType("nav_links"),
     client.getByType("settings"),
-    client.getByType("fragment_cta_footer"),
+    client.getByType("fragment_cta_footer", {
+      fetchLinks,
+    }),
     client.getByUID("tour_index_page", "tour", {
       fetchLinks,
     }),

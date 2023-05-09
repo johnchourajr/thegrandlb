@@ -1,20 +1,30 @@
 import { m } from "framer-motion";
+import { ComponentType } from "react";
 
-interface MotionBoxProps {
-  as?: "div" | "section" | "article" | "header" | "footer";
+type MotionBoxElementType = "div" | "section" | "article" | "header" | "footer";
+
+type MotionBoxComponentType<Props = any> = ComponentType<Props> | undefined;
+
+type MotionBoxProps<Props = any> = {
+  ref?: any;
   whileInView?: boolean;
   children: React.ReactNode;
   className?: string;
-}
+  /* @deprecated */
+  as?: MotionBoxElementType;
+} & Props;
 
-const MotionBox: React.FC<MotionBoxProps> = ({
+type MotionBoxType<Props = any> = React.FC<MotionBoxProps<Props>> &
+  MotionBoxProps<Props> &
+  any;
+
+const MotionBox: React.FC<MotionBoxType> = ({
+  ref = null,
   as = "div",
   whileInView = true,
   children,
   ...rest
 }) => {
-  const MotionComp = m[as];
-
   const variants = {
     hidden: { opacity: 0, y: "0.1em", scale: 1 },
     show: {
@@ -48,9 +58,9 @@ const MotionBox: React.FC<MotionBoxProps> = ({
   };
 
   return (
-    <MotionComp {...motionProps} {...rest}>
+    <m.div ref={ref} {...motionProps} {...rest}>
       {children}
-    </MotionComp>
+    </m.div>
   );
 };
 

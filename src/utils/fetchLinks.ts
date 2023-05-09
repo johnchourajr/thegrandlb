@@ -30,6 +30,11 @@ const fetchLinks = [
   "fragment_cta_footer.inquire_card",
   "fragment_cta_footer.top_spacer",
   "fragment_cta_footer.bottom_spacer",
+  "tour_page.title",
+  "tour_page.headline",
+  "tour_page.max_capacity",
+  "tour_page.square_feet",
+  "tour_page.features",
 ];
 
 export default fetchLinks;

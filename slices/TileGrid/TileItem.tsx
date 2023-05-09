@@ -29,6 +29,11 @@ export const TileItem = ({
   card_fragment,
   body,
   className,
+  gridOptions = true,
+  initial,
+  whileInView,
+  motionStyles,
+  viewport,
   ...rest
 }: TileItemProps) => {
   const hasCardFragment = card_fragment?.data ? true : false;
@@ -52,7 +57,7 @@ export const TileItem = ({
       case "Outlined":
         return {
           container:
-            "text-black uppercase !border-2 border-white bg-transparent !rounded-full hover:!border-0 hover:!border-[transparent] hover:bg-white !min-h-[10rem] ",
+            "text-black uppercase !border-2 border-white bg-transparent !rounded-full hover:!border-0 hover:!border-[transparent] hover:bg-white ",
           headline: "!text-sm",
           content: "",
         };
@@ -99,14 +104,20 @@ export const TileItem = ({
     switch (size) {
       case "Large":
         return {
-          container: "lg:col-span-4 min-h-[25rem]",
+          container: clsx(
+            "lg:col-span-4 min-h-[25rem]",
+            theme === "Outlined" && "min-h-full"
+          ),
           headline: "uppercase max-w-[6em]",
           content: "!gap-20",
           headlineSize: "xl",
         };
       default:
         return {
-          container: "min-h-[25rem]",
+          container: clsx(
+            "min-h-[25rem]",
+            theme === "Outlined" && "min-h-full"
+          ),
           headline: "",
           content: "",
           headlineSize: "md",
@@ -123,36 +134,45 @@ export const TileItem = ({
     }
   };
 
-  const MotionLink: any = m(PrismicLink);
+  const gridOptionStyles =
+    gridOptions &&
+    clsx(
+      col_start && getNumberForColStart(col_start),
+      col_span && getNumberForColSpan(col_span),
+      row_start && getNumberForRowStart(row_start),
+      row_span && getNumberForRowSpan(row_span)
+    );
+
+  const MotionComp = m(PrismicLink) as any;
 
   return (
-    <PrismicLink
+    <MotionComp
       field={link}
       linkResolver={linkResolver}
-      className={clsx(
-        "relative h-full w-full overflow-hidden rounded-sm border-b-4 transition-all duration-700 ease-out-expo hover:border-b-0 hover:border-b-[transparent] lg:rounded-md",
-        col_start && getNumberForColStart(col_start),
-        col_span && getNumberForColSpan(col_span),
-        row_start && getNumberForRowStart(row_start),
-        row_span && getNumberForRowSpan(row_span),
-        getSize().container,
-        getStyles().container,
-        className
-      )}
+      className={
+        clsx(
+          "relative h-full w-full",
+          gridOptionStyles,
+          getSize().container,
+          className
+        ) as any
+      }
       {...rest}
     >
       <m.div
         initial={
-          {
+          initial ||
+          ({
             opacity: 0,
             y: 10,
-          } as any
+          } as any)
         }
         whileInView={
-          {
+          whileInView ||
+          ({
             opacity: 1,
             y: 0,
-          } as any
+          } as any)
         }
         whileHover={
           {
@@ -160,14 +180,17 @@ export const TileItem = ({
             willChange: "scale",
           } as any
         }
+        viewport={viewport}
         whileTap={{ scale: 0.98, willChange: "scale" }}
         transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
         tabIndex={-1}
         className={clsx(
-          "align-center flex h-full w-full flex-col items-center justify-center gap-4 p-10 text-center",
+          "align-center absolute h-full w-full flex-col items-center justify-center gap-4 rounded-sm border-b-4 p-10 text-center transition-all duration-700 ease-out-expo hover:border-b-0 hover:border-b-[transparent] lg:rounded-md",
           getSize().content,
+          getStyles().container,
           getDirection()
         )}
+        style={motionStyles}
       >
         {media && (
           <>
@@ -201,6 +224,6 @@ export const TileItem = ({
           </StringText>
         )}
       </m.div>
-    </PrismicLink>
+    </MotionComp>
   );
 };

@@ -19,6 +19,14 @@
           "placeholder": ""
         }
       },
+      "video_media": {
+        "type": "Link",
+        "config": {
+          "label": "Video Media",
+          "placeholder": "",
+          "select": "media"
+        }
+      },
       "media": {
         "type": "Image",
         "config": {

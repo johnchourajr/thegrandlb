@@ -103,6 +103,21 @@ body {
   --space-md: 1rem;
 }
 
+/* .mask-text {
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+} */
+
+.clip-text {
+  /*
+  Ensure background is added first
+  */
+  background: linear-gradient(to bottom, #eee, rgba(222, 112, 6, 0.2), #de7006), var(--clip-image, "");
+
+  background-attachment: fixed;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
 
 .padding-bottom-lg {
   @apply pb-[var(--space-lg)] lg:pb-[var(--space-lg-lg)] xl:pb-[var(--space-lg-xl)] 3xl:pb-36;
@@ -224,5 +239,17 @@ body {
   80% { background-position: 10% 2%; }
   90% { background-position: 1% 5%; }
   100% { background-position: 0% 8%;}
+}
+
+@media (hover: hover) {
+  .hover-black-text {
+    @apply hover:text-black
+  }
+}
+
+@media (hover: none) {
+  .hover-black-text {
+    @apply text-black
+  }
 }
 

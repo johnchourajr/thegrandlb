@@ -511,6 +511,17 @@ interface FragmentCtaFooterDocumentData {
    */
   headline: prismicT.KeyTextField;
   /**
+   * Video Media field in *Fragment / CTA Footer*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fragment_cta_footer.video_media
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  video_media: prismicT.LinkToMediaField;
+  /**
    * Media field in *Fragment / CTA Footer*
    *
    * - **Field Type**: Image
@@ -1627,6 +1638,16 @@ interface TourIndexPageDocumentData {
  */
 export interface TourIndexPageDocumentDataSpacesItem {
   /**
+   * Page Media field in *Tour Index Page → Spaces*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tour_index_page.spaces[].page_media
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  page_media: prismicT.ImageField<never>;
+  /**
    * Page field in *Tour Index Page → Spaces*
    *
    * - **Field Type**: Content Relationship
@@ -1865,15 +1886,16 @@ export interface TourPageDocumentDataFeaturesItem {
     | "Natural Sunlight"
     | "View of Palm Terrace"
     | "Adjacent of Palm Terrace"
-    | "Stylish columns"
+    | "Access to Monarch Room"
     | "Built-in Dance Floor"
+    | "Stylish columns"
     | "Stylish Chandelier"
+    | "Catalina Island Artwork"
+    | "Large Mahogany Table"
     | "Perfect for Large Gatherings"
     | "Perfect for Medium to Large Gatherings"
     | "Perfect for Small Gatherings"
-    | "Catalina Island Artwork"
-    | "Large Mahogany Table"
-    | "Meeting Space"
+    | "Perfect for Meeting Space"
   >;
 }
 /**

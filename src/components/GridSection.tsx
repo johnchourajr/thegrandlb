@@ -5,6 +5,7 @@ import { m } from "framer-motion";
 type Spacer = "None" | "Small" | "Medium" | "Large" | null;
 
 interface GridSectionProps {
+  gridSectionRef?: React.RefObject<HTMLDivElement> | null;
   children: React.ReactNode;
   gridSectionType?: "grid" | "flex";
   as?: "section" | "div";
@@ -21,6 +22,7 @@ interface GridSectionProps {
 type GridSectionPropsWithMotion = GridSectionProps & MotionProps;
 
 export function GridSection({
+  gridSectionRef = null,
   children,
   gridSectionType = "grid",
   as: Comp = "section",
@@ -65,6 +67,7 @@ export function GridSection({
   return (
     <MotionComp
       id={id ? id : undefined}
+      ref={gridSectionRef}
       className={clsx(
         "mx-auto w-full max-w-[2500px] gap-4 lg:gap-6",
         gridSectionType === "grid" &&

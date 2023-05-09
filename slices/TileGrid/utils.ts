@@ -1,6 +1,6 @@
 import { ColSpan, ColStart, RowSpan, RowStart } from "./types";
 
-export const getNumberForColStart = (string: ColStart) => {
+export const getNumberForColStart = (string?: ColStart) => {
   switch (string) {
     case "Start 1":
       return `col-start-auto xl:col-start-1`;
@@ -27,11 +27,11 @@ export const getNumberForColStart = (string: ColStart) => {
     case "Start 12":
       return `col-start-auto xl:col-start-12`;
     default:
-      return `col-start-auto xl:col-start-1`;
+      return `col-start-1`;
   }
 };
 
-export const getNumberForColSpan = (string: ColSpan) => {
+export const getNumberForColSpan = (string?: ColSpan) => {
   switch (string) {
     case "Span 1":
       return `col-span-4 lg:col-span-2 xl:col-span-1`;
@@ -58,11 +58,11 @@ export const getNumberForColSpan = (string: ColSpan) => {
     case "Span 12":
       return `col-span-4 lg:col-span-2 xl:col-span-12`;
     default:
-      return `col-span-4 lg:col-span-2 xl:col-span-1`;
+      return `col-span-full`;
   }
 };
 
-export const getNumberForRowStart = (string: RowStart) => {
+export const getNumberForRowStart = (string?: RowStart) => {
   switch (string) {
     case "Start 1":
       return `row-auto xl:row-start-1`;
@@ -76,12 +76,16 @@ export const getNumberForRowStart = (string: RowStart) => {
       return `row-auto xl:row-start-5`;
     case "Start 6":
       return `row-auto xl:row-start-6`;
+    case "Start 7":
+      return `row-auto xl:row-start-7`;
+    case "Start 8":
+      return `row-auto xl:row-start-8`;
     default:
-      return `row-auto xl:row-start-1`;
+      return `row-auto`;
   }
 };
 
-export const getNumberForRowSpan = (string: RowSpan) => {
+export const getNumberForRowSpan = (string?: RowSpan) => {
   switch (string) {
     case "Span 1":
       return `row-auto xl:row-span-1`;
@@ -95,7 +99,11 @@ export const getNumberForRowSpan = (string: RowSpan) => {
       return `row-auto xl:row-span-5`;
     case "Span 6":
       return `row-auto xl:row-span-6`;
+    case "Span 7":
+      return `row-auto xl:row-span-7`;
+    case "Span 8":
+      return `row-auto xl:row-span-8`;
     default:
-      return `row-auto xl:row-span-1`;
+      return `row-auto`;
   }
 };

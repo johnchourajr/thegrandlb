@@ -6,6 +6,7 @@ import React, { useEffect, useState, VideoHTMLAttributes } from "react";
 import { VideoProgressButton } from "./VideoProgressButton";
 
 export interface InlineVideoPlayerProps {
+  id?: string;
   className?: string;
   videoClassName?: string;
   uid?: string;
@@ -24,6 +25,7 @@ export interface InlineVideoPlayerProps {
 }
 
 const InlineVideoPlayer = ({
+  id,
   className,
   videoClassName,
   uid,
@@ -131,7 +133,7 @@ const InlineVideoPlayer = ({
   }, []);
 
   return (
-    <div className={clsx(className)}>
+    <div id={id} className={clsx(className)}>
       <div className={clsx("absolute inset-0")}>
         <div
           className={clsx(
@@ -142,13 +144,14 @@ const InlineVideoPlayer = ({
           ref={ref}
           className={clsx("h-full w-full object-cover", videoClassName)}
           {...videoOptions}
+          controls={false}
           poster={posterUrlWithParams}
           playsInline
         >
           {loadInView && <source src={mediaUrl} type="video/mp4" />}
         </video>
       </div>
-      {!controls && (
+      {controls && (
         <div
           className={clsx(
             "absolute  z-30 h-9 w-9 ",
