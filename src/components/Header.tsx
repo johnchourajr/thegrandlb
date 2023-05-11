@@ -20,6 +20,7 @@ const NavItem = ({
   linkClassName,
   show = true,
   className,
+  ...rest
 }: any) => {
   if (show === false) return null;
   return (
@@ -28,6 +29,7 @@ const NavItem = ({
         linkResolver={linkResolver}
         field={field}
         className={clsx("group relative z-10", linkClassName)}
+        {...rest}
         {...linkProps}
       >
         <StringText
@@ -51,6 +53,7 @@ const NavParentItem = ({
   link_title,
   items,
   show = true,
+  isNavOpen,
   setIsNavOpen,
 }: any) => {
   const router = useRouter();
@@ -155,7 +158,11 @@ const NavParentItem = ({
         <CategoryAction
           tabIndex={1}
           className={clsx("group relative z-10 flex-grow text-left")}
+          aria-label={`Navigate to ${link_title}`}
           {...categoryActionProps()}
+          {...(isMobile && hasChildren && { "aria-expanded": isHovering })}
+          {...(isMobile &&
+            hasChildren && { "aria-label": "Open or close sub-menu" })}
         >
           <StringText
             as="span"
@@ -178,6 +185,8 @@ const NavParentItem = ({
               onClick={handleToggleControls}
               tabIndex={isMobile ? -1 : 1}
               data-content={isHovering ? "Close" : "Open"}
+              aria-hidden={isMobile}
+              aria-label="Open or close sub-menu"
             >
               {isHovering ? "-" : "+"}
             </button>
@@ -205,6 +214,7 @@ const NavParentItem = ({
             }}
             linkClassName={"group relative"}
             className={"pt-2"}
+            // aria-hidden={isMobile && !isNavOpen}
           />
           {items.map(
             (
@@ -223,6 +233,8 @@ const NavParentItem = ({
                   }}
                   linkClassName={"group relative"}
                   className={"last-of-type:pb-2 last-of-type:xl:pb-0 "}
+                  aria-label={`Navigate to ${child_link_title}`}
+                  // aria-hidden={!isHovering || !isNavOpen}
                 />
               );
             }
@@ -305,7 +317,7 @@ export default function Header({ navigation }: any) {
         initial={{ "--logoScale": "1", transformOrigin: "0% 70%" } as any}
         animate={controls}
       >
-        <Link href="/" title="The Grand LB">
+        <Link href="/" title="The Grand LB" aria-label="homepage">
           <HeaderLogo className="h-12 w-32 origin-left scale-[var(--logoScale)] xl:h-32 xl:w-64" />
         </Link>
         {isMobile && (
@@ -339,6 +351,7 @@ export default function Header({ navigation }: any) {
                 link_title={primary.link_title}
                 show={primary.show}
                 variation={variation}
+                isNavOpen={isNavOpen}
                 setIsNavOpen={setIsNavOpen}
                 {...rest}
               />

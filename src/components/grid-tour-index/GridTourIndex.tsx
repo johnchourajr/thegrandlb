@@ -1,3 +1,4 @@
+import useMediaQuery from "@/hooks/useMediaQuery";
 import useTouchDevice from "@/hooks/useTouchDevice";
 import { PrismicLink } from "@prismicio/react";
 import clsx from "clsx";
@@ -27,6 +28,9 @@ const GridIndexItem = ({
 }: any) => {
   const [isHovered, setIsHovered] = useState(false);
   const touchDevice = useTouchDevice();
+  const w1024 = useMediaQuery(1024);
+  const w1280 = useMediaQuery(1280);
+  const w1440 = useMediaQuery(1440);
 
   useEffect(() => {
     if (touchDevice) {
@@ -53,12 +57,20 @@ const GridIndexItem = ({
     show: { opacity: 1 },
   };
 
+  const bottomMargin = w1024
+    ? `6rem`
+    : w1280
+    ? `7rem`
+    : w1440
+    ? `8rem`
+    : `5rem`;
+
   return (
     <m.div
       key={id}
       layoutId={`tour-index-${uid}`}
       className={clsx(
-        "hover-black-text relative flex min-h-[25rem] gap-4 overflow-hidden rounded-sm bg-white p-6 text-white transition-colors duration-700 ease-out-expo lg:rounded-md xl:min-h-[20rem] xl:p-8",
+        "tour-index-tile hover-black-text relative flex min-h-[25rem] gap-4 overflow-hidden rounded-sm bg-white p-6 text-white transition-colors duration-700 ease-out-expo lg:rounded-md xl:min-h-[20rem] xl:p-8",
         getNumberForColStart(getIndexLayout(uid).col_start),
         getNumberForColSpan(getIndexLayout(uid).col_span),
         getNumberForRowStart(getIndexLayout(uid).row_start),
@@ -101,7 +113,7 @@ const GridIndexItem = ({
         className="absolute inset-0 z-0 overflow-hidden rounded-sm bg-black"
         initial={{ margin: 0 }}
         animate={{
-          margin: isHovered ? "1.5rem 1.5rem 8rem" : "0px",
+          margin: isHovered ? `1.5rem 1.5rem ${bottomMargin}` : "0px",
         }}
         exit={{ margin: 0 }}
       >

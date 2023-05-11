@@ -24,7 +24,7 @@ export const getIndexLayout = (uid: string): GetIndexReturn => {
         col_span: "Span 4",
         row_start: "Start 1",
         row_span: "Span 4",
-        container: "lg:flex-col-reverse",
+        container: "flex-col-reverse",
       };
     case "palm-terrace":
       return {
@@ -32,7 +32,7 @@ export const getIndexLayout = (uid: string): GetIndexReturn => {
         col_span: "Span 8",
         row_start: "Start 1",
         row_span: "Span 2",
-        container: "lg:flex-col-reverse",
+        container: "flex-col-reverse",
       };
     case "monarch-room":
       return {
@@ -40,7 +40,7 @@ export const getIndexLayout = (uid: string): GetIndexReturn => {
         col_span: "Span 8",
         row_start: "Start 3",
         row_span: "Span 2",
-        container: "lg:flex-col-reverse",
+        container: "flex-col-reverse",
       };
     case "catalina-room":
       return {
@@ -48,7 +48,7 @@ export const getIndexLayout = (uid: string): GetIndexReturn => {
         col_span: "Span 8",
         row_start: "Start 5",
         row_span: "Span 2",
-        container: "lg:flex-col-reverse",
+        container: "flex-col-reverse",
       };
     case "garden-room":
       return {
@@ -56,7 +56,7 @@ export const getIndexLayout = (uid: string): GetIndexReturn => {
         col_span: "Span 4",
         row_start: "Start 5",
         row_span: "Span 4",
-        container: "lg:flex-col-reverse",
+        container: "flex-col-reverse",
       };
     case "pacific-room":
       return {
@@ -64,7 +64,7 @@ export const getIndexLayout = (uid: string): GetIndexReturn => {
         col_span: "Span 4",
         row_start: "Start 7",
         row_span: "Span 2",
-        container: "lg:flex-col-reverse",
+        container: "flex-col-reverse",
       };
     case "board-room":
       return {
@@ -72,11 +72,11 @@ export const getIndexLayout = (uid: string): GetIndexReturn => {
         col_span: "Span 4",
         row_start: "Start 7",
         row_span: "Span 2",
-        container: "lg:flex-col-reverse",
+        container: "flex-col-reverse",
       };
     default:
       return {
-        container: "lg:flex-col-reverse",
+        container: "flex-col-reverse",
       };
   }
 };

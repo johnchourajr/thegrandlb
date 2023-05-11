@@ -1,10 +1,8 @@
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 import NextLink from "next/link";
 
-export default function Link({ href, children, className }: any) {
+export default function Link({ href, children, className, ...props }: any) {
   return (
-    <NextLink href={href} className={className}>
+    <NextLink href={href} className={className} {...props}>
       {children}
     </NextLink>
   );

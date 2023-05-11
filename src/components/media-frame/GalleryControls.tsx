@@ -26,7 +26,11 @@ const GalleryControls: React.FC<GalleryControlsProps> = ({
       {images.map(({ caption }: any, i: number) => {
         const isActive = i === currentImageIndex;
         return (
-          <button key={i} onClick={() => handleNavigateToIndex(i)}>
+          <button
+            key={i}
+            onClick={() => handleNavigateToIndex(i)}
+            aria-label={`navigate to image ${i + 1}`}
+          >
             <AnimatePresence>
               {isActive ? (
                 <m.div

@@ -16,7 +16,7 @@ const Page = ({ navigation, settings, cta, page, childPages }: any) => {
 
   const { icon_media, headline, body, spaces } = pageRest;
 
-  console.log(page);
+  // console.log(page);
 
   return (
     <Layout page={page} hidePageUid>

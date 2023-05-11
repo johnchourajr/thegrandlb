@@ -99,7 +99,10 @@ const HeroDetailPage = ({
               {subhead}
             </Headline>
           </MotionBox>
-          <MotionBox className="col-span-full pb-12 xl:col-span-4 xl:col-start-auto xl:pt-12">
+          <MotionBox
+            className="col-span-full pb-12 xl:col-span-4 xl:col-start-auto xl:pt-12"
+            transition={{ delay: 1 }}
+          >
             <Text paragraph size="large" className="max-w-[30em]">
               {body}
             </Text>
