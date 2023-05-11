@@ -16,6 +16,8 @@ const Page = ({ navigation, settings, cta, page, childPages }: any) => {
 
   const { icon_media, headline, body, spaces } = pageRest;
 
+  console.log(page);
+
   return (
     <Layout page={page} hidePageUid>
       <HeroCategoryPage
@@ -27,8 +29,8 @@ const Page = ({ navigation, settings, cta, page, childPages }: any) => {
         subhead={headline}
         body={body}
       />
+      <SliceData slice={pageRest} hidden />
       <GridTourIndex sectionId="tour-index" spaces={spaces} />
-      <SliceData slice={pageRest} />
       <SliceZone slices={slices} components={components} />
       <CtaFooter data={cta} />
     </Layout>

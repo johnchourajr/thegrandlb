@@ -66,7 +66,7 @@ const TileGrid = ({ slice }: TileGridProps): JSX.Element => {
         <GridSection
           id=""
           as="div"
-          className=" auto-rows-min xl:auto-rows-[16vw] 2xl:auto-rows-[14vw] 3xl:auto-rows-[12vw]"
+          className=" auto-rows-min xl:auto-rows-[16vw] 2xl:auto-rows-[15vw] 3xl:auto-rows-[14vw]"
           topSpacer="Small"
           bottomSpacer="None"
         >

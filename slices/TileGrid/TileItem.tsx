@@ -1,8 +1,8 @@
+import ForwardedPrismicLink from "@/components/ForwardPrismicLink";
 import Headline from "@/components/Headline";
 import ImageBox from "@/components/media-frame/ImageBox";
 import Text from "@/components/Paragraph";
 import StringText from "@/components/StringText";
-import { PrismicLink } from "@prismicio/react";
 import clsx from "clsx";
 import { m } from "framer-motion";
 import { linkResolver } from "prismicio";
@@ -13,6 +13,8 @@ import {
   getNumberForRowSpan,
   getNumberForRowStart,
 } from "./utils";
+
+const MotionComp = m(ForwardedPrismicLink, { forwardMotionProps: true }) as any;
 
 export const TileItem = ({
   col_span,
@@ -142,8 +144,6 @@ export const TileItem = ({
       row_start && getNumberForRowStart(row_start),
       row_span && getNumberForRowSpan(row_span)
     );
-
-  const MotionComp = m(PrismicLink) as any;
 
   return (
     <MotionComp

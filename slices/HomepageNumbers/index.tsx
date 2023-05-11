@@ -5,6 +5,7 @@ import MotionBox from "@/components/MotionBox";
 import { NumberItem } from "@components/NumberItem";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
+import { Fragment } from "react";
 import { TileItem } from "slices/TileGrid/TileItem";
 
 /**
@@ -17,8 +18,6 @@ const HomepageNumbers = ({ slice }: HomepageNumbersProps): JSX.Element => {
   const {
     data: { bullet_list, numberlist, primary_action_link, primary_action },
   } = slice.primary.number_list as any;
-
-  // console.log({ bullet_list });
 
   return (
     <>
@@ -46,7 +45,7 @@ const HomepageNumbers = ({ slice }: HomepageNumbersProps): JSX.Element => {
                 i: number
               ) => {
                 return (
-                  <>
+                  <Fragment key={i}>
                     <NumberItem
                       key={i}
                       number={number}
@@ -63,7 +62,7 @@ const HomepageNumbers = ({ slice }: HomepageNumbersProps): JSX.Element => {
                         }
                       />
                     )}
-                  </>
+                  </Fragment>
                 );
               }
             )}

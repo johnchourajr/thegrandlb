@@ -31,6 +31,7 @@ const MediaFrame = ({
           id={id}
           images={gallery_items}
           containerClassName="absolute inset-0 z-10 h-full w-full object-cover"
+          overlay={true}
         />
       );
     } else if (videoUrl) {

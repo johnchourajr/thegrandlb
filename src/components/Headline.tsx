@@ -207,7 +207,7 @@ function Headline({
     hidden: { opacity: 0, y: "0.1em", scale: 1.1 },
     show: {
       opacity: [0, 1],
-      y: 0,
+      y: "0em",
       scale: [1.1, 1],
       transition: {
         staggerChildren: staggerChildren(),

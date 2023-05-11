@@ -6,6 +6,7 @@ import * as prismicH from "@prismicio/helpers";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import clsx from "clsx";
+import { m } from "framer-motion";
 
 interface NumberItemProps {
   media?: any;
@@ -33,45 +34,85 @@ export const NumberItem: React.FC<NumberItemProps> = ({
 
   const bodyLong = bodyAsString?.length > 100;
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        ease: [0.19, 1, 0.22, 1],
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 32 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: [0.19, 1, 0.22, 1],
+      },
+    },
+  };
+
   return (
     <MotionBox
       className={clsx(
         "flex w-full flex-col items-center justify-center gap-6 text-center",
         className
       )}
+      variants={container}
       {...rest}
     >
       {media && (
-        <PrismicNextImage
-          field={media}
-          className=" h-[4.375rem] w-[4.375rem]"
-          fallbackAlt={""}
-        />
+        <m.div variants={item}>
+          <PrismicNextImage
+            field={media}
+            className=" h-[4.375rem] w-[4.375rem]"
+            fallbackAlt={""}
+          />
+        </m.div>
       )}
       {numberAsString && (
-        <Headline as="h3" className={"!whitespace-normal"} animateOnce>
-          {numberAsString}
-        </Headline>
+        <m.div variants={item}>
+          <Headline
+            as="h3"
+            className={"mb-4 !whitespace-normal"}
+            animationType={"letter"}
+            animateOnce
+          >
+            {numberAsString}
+          </Headline>
+        </m.div>
       )}
       {eyebrow && (
-        <StringText uppercase bold>
-          {eyebrow}
-        </StringText>
+        <m.div variants={item}>
+          <StringText uppercase bold>
+            {eyebrow}
+          </StringText>
+        </m.div>
       )}
       {bodyAsString && (
-        <PrismicRichText
-          field={body}
-          components={{
-            paragraph: ({ children }) => (
-              <Text
-                as="span"
-                className={clsx(bodyLong ? "max-w-[24em]" : "max-w-[18em]")}
-              >
-                {children}
-              </Text>
-            ),
-          }}
-        />
+        <m.div
+          variants={item}
+          className={clsx(bodyLong ? "max-w-[24em]" : "max-w-[18em]")}
+        >
+          <PrismicRichText
+            field={body}
+            components={{
+              paragraph: ({ children }) => (
+                <Text
+                  as="span"
+                  className={clsx(bodyLong ? "max-w-[24em]" : "max-w-[18em]")}
+                >
+                  {children}
+                </Text>
+              ),
+            }}
+          />
+        </m.div>
       )}
     </MotionBox>
   );

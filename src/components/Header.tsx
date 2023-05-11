@@ -11,6 +11,7 @@ import Button from "./Button";
 import { GridSection } from "./GridSection";
 import StringText from "./StringText";
 import HeaderLogo from "./svg/HeaderLogo";
+import Star from "./svg/Star";
 
 const NavItem = ({
   field,
@@ -50,6 +51,7 @@ const NavParentItem = ({
   link_title,
   items,
   show = true,
+  setIsNavOpen,
 }: any) => {
   const router = useRouter();
   const controls = useAnimation();
@@ -105,6 +107,19 @@ const NavParentItem = ({
       };
     }
   };
+
+  const onRouteChangeCloseMenu = () => {
+    controls.start(dropdownVariants.closed);
+    setIsHovering(false);
+    setIsNavOpen(false);
+  };
+
+  useEffect(() => {
+    router.events.on("routeChangeStart", onRouteChangeCloseMenu);
+    return () => {
+      router.events.off("routeChangeStart", onRouteChangeCloseMenu);
+    };
+  }, [router.events]);
 
   const handleToggleControls = () => {
     if (isHovering) {
@@ -324,12 +339,13 @@ export default function Header({ navigation }: any) {
                 link_title={primary.link_title}
                 show={primary.show}
                 variation={variation}
+                setIsNavOpen={setIsNavOpen}
                 {...rest}
               />
             );
           }
         )}
-        <span className="z-10">•</span>
+        <Star className="z-10" />
         <span className="z-10">
           <Button
             field={{

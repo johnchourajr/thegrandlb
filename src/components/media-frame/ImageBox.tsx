@@ -24,8 +24,6 @@ const ImageBox = ({
 }: ImageBoxProps) => {
   const hasCustomAlt = customAlt && { alt: customAlt };
 
-  // const srcSet = buildWidthSrcSet(media.url, media.dimensions.width);
-
   return (
     <PrismicNextImage
       id={id}

@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { LayoutGroup } from "framer-motion";
 import { GridSection } from "./GridSection";
 import Headline from "./Headline";
 import MediaFrame from "./media-frame";
@@ -9,6 +10,7 @@ import Text from "./Paragraph";
 const HeroCategoryPage = ({
   uid,
   headline,
+  gallery,
   media,
   video_media,
   subhead,
@@ -19,7 +21,7 @@ const HeroCategoryPage = ({
 }: any) => {
   const hasSubheadandBody = subhead && body;
   return (
-    <>
+    <LayoutGroup>
       <GridSection
         id={`hero-${uid}`}
         layoutId={`hero-${uid}`}
@@ -47,6 +49,7 @@ const HeroCategoryPage = ({
           <MediaFrame
             key={`hero-${uid}-media`}
             id={`hero-${uid}-media`}
+            gallery={gallery}
             media={media}
             video_media={video_media}
             className="absolute inset-0 z-0 h-full w-full"
@@ -78,7 +81,7 @@ const HeroCategoryPage = ({
           </MotionBox>
         </GridSection>
       )}
-    </>
+    </LayoutGroup>
   );
 };
 

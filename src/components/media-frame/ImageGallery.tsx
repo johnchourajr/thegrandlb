@@ -34,6 +34,7 @@ interface ImageGalleryProps {
   outerControls?: boolean;
   controlPosition?: "Bottom Right" | "Top Right" | "Bottom Left" | "Top Left";
   imgixParams?: PrismicNextImageProps["imgixParams"];
+  overlay?: boolean;
 }
 
 const ImageGallery: React.FC<ImageGalleryProps> = ({
@@ -47,6 +48,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
   outerControls = false,
   controlPosition = "Bottom Right",
   imgixParams,
+  overlay = false,
 }) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
@@ -238,6 +240,9 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                   customAlt={caption}
                   imgixParams={imgixParams}
                 />
+                {overlay && (
+                  <div className="absolute inset-0 z-10 bg-black bg-opacity-20" />
+                )}
                 <div className="noise" />
               </m.div>
             );

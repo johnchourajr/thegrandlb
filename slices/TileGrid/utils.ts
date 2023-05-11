@@ -104,6 +104,6 @@ export const getNumberForRowSpan = (string?: RowSpan) => {
     case "Span 8":
       return `row-auto xl:row-span-8`;
     default:
-      return `row-auto`;
+      return `row-auto xl:row-span-2`;
   }
 };

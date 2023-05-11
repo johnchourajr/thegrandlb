@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { m } from "framer-motion";
+import { LayoutGroup, m } from "framer-motion";
 import Button from "./Button";
 import { GridSection } from "./GridSection";
 import Headline from "./Headline";
@@ -19,7 +19,7 @@ const HeroDetailPage = ({
 }: any) => {
   const hasSubheadandBody = subhead && body;
   return (
-    <>
+    <LayoutGroup>
       <GridSection
         id={`hero-${uid}`}
         layoutId={`hero-${uid}`}
@@ -106,7 +106,7 @@ const HeroDetailPage = ({
           </MotionBox>
         </GridSection>
       )}
-    </>
+    </LayoutGroup>
   );
 };
 

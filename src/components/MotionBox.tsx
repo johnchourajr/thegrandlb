@@ -26,7 +26,7 @@ const MotionBox: React.FC<MotionBoxType> = ({
   ...rest
 }) => {
   const variants = {
-    hidden: { opacity: 0, y: "0.1em", scale: 1 },
+    hidden: { opacity: 0, y: 4, scale: 1 },
     show: {
       opacity: [0, 1],
       y: 0,

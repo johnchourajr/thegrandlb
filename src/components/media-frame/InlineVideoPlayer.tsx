@@ -59,10 +59,19 @@ const InlineVideoPlayer = ({
     controls,
   } as VideoHTMLAttributes<HTMLVideoElement>;
 
-  const handleChange = () => {
-    if (!isPlaying) {
-      ref?.current?.play();
-      setIsPlaying(true);
+  const handleChange = (play = true): any => {
+    if (play && !isPlaying) {
+      let playPromise = ref?.current?.play();
+
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            setIsPlaying(true);
+          })
+          .catch((error) => {
+            setIsPlaying(false);
+          });
+      }
     } else {
       ref?.current?.pause();
       setIsPlaying(false);
@@ -72,11 +81,13 @@ const InlineVideoPlayer = ({
   useEffect(() => {
     if (isInView) {
       setIsPlaying(true);
-      // console.log("playing");
     } else {
       setIsPlaying(false);
-      // console.log("paused");
     }
+
+    return () => {
+      setIsPlaying(false);
+    };
   }, [isInView]);
 
   const getVideoProgress = (): any => {
@@ -110,17 +121,19 @@ const InlineVideoPlayer = ({
 
   React.useEffect(() => {
     if (auto_play) {
-      ref?.current?.play();
+      handleChange();
+      // ref?.current?.play();
       setIsPlaying(true);
     }
-  }, [auto_play]);
+  }, [auto_play]); // eslint-disable-line react-hooks/exhaustive-deps
 
   React.useEffect(() => {
     if (reducedMotion) {
-      ref?.current?.pause();
+      handleChange(false);
+      // ref?.current?.pause();
       setIsPlaying(false);
     }
-  }, [reducedMotion]);
+  }, [reducedMotion]); // eslint-disable-line react-hooks/exhaustive-deps
 
   React.useEffect(() => {
     const video = ref?.current;
