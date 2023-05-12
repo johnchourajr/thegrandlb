@@ -239,6 +239,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                   media={media}
                   customAlt={caption}
                   imgixParams={imgixParams}
+                  priority={i === 0 ? true : false}
                 />
                 {overlay && (
                   <div className="absolute inset-0 z-10 bg-black bg-opacity-20" />

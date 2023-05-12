@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Link from "./Link";
 
 import useMediaQuery from "@/hooks/useMediaQuery";
+import { clampBuilder } from "@/utils/utils";
 import { PrismicLink } from "@prismicio/react";
 import clsx from "clsx";
 import { m, useAnimation, useScroll } from "framer-motion";
@@ -122,7 +123,7 @@ const NavParentItem = ({
     return () => {
       router.events.off("routeChangeStart", onRouteChangeCloseMenu);
     };
-  }, [router.events]);
+  }, [router.events]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleToggleControls = () => {
     if (isHovering) {
@@ -287,6 +288,8 @@ export default function Header({ navigation }: any) {
     },
   };
 
+  const gap = clampBuilder(1280, 1920, 0, 14);
+
   const AnimatedNav = isMobile ? m.nav : "nav";
 
   const animationProps = isMobile && {
@@ -300,7 +303,7 @@ export default function Header({ navigation }: any) {
       id={"header"}
       gridSectionType="flex"
       className={clsx(
-        "sticky top-[var(--navTop)] z-[9999] h-fit !max-w-[100vw] flex-col items-center gap-0 overflow-visible !pt-4 transition-colors duration-300 ease-out-expo lg:gap-[inherit] xl:flex-row xl:gap-[4vw] 2xl:gap-[5vw] 4xl:gap-[6vw]",
+        "sticky top-[var(--navTop)] z-[9999] h-fit !max-w-[100vw] flex-col items-center gap-0 overflow-visible !pt-4 transition-colors duration-300 ease-out-expo lg:gap-[inherit] xl:flex-row xl:gap-[var(--navGap)]",
         navScrolled ? "border-b-2 border-red bg-bg" : "bg-bg"
       )}
       initial={{ "--navTop": "0rem" } as any}
@@ -309,6 +312,11 @@ export default function Header({ navigation }: any) {
       topSpacer="None"
       bottomSpacer="None"
       overflowHidden={false}
+      style={
+        {
+          "--navGap": gap,
+        } as any
+      }
     >
       <m.div
         className={clsx(

@@ -1,5 +1,5 @@
-import useMediaQuery from "@/hooks/useMediaQuery";
 import useTouchDevice from "@/hooks/useTouchDevice";
+import { clampBuilder } from "@/utils/utils";
 import { PrismicLink } from "@prismicio/react";
 import clsx from "clsx";
 import { m } from "framer-motion";
@@ -28,9 +28,7 @@ const GridIndexItem = ({
 }: any) => {
   const [isHovered, setIsHovered] = useState(false);
   const touchDevice = useTouchDevice();
-  const w1024 = useMediaQuery(1024);
-  const w1280 = useMediaQuery(1280);
-  const w1440 = useMediaQuery(1440);
+  const bottomMargin = clampBuilder(1024, 1920, 6, 8.5);
 
   useEffect(() => {
     if (touchDevice) {
@@ -56,14 +54,6 @@ const GridIndexItem = ({
     hidden: { opacity: 0 },
     show: { opacity: 1 },
   };
-
-  const bottomMargin = w1024
-    ? `6rem`
-    : w1280
-    ? `7rem`
-    : w1440
-    ? `8rem`
-    : `5rem`;
 
   return (
     <m.div
@@ -113,9 +103,13 @@ const GridIndexItem = ({
         className="absolute inset-0 z-0 overflow-hidden rounded-sm bg-black"
         initial={{ margin: 0 }}
         animate={{
-          margin: isHovered ? `1.5rem 1.5rem ${bottomMargin}` : "0px",
+          margin: isHovered ? `1.25rem 1.25rem ${bottomMargin}` : "0px",
         }}
         exit={{ margin: 0 }}
+        transition={{
+          duration: 0.8,
+          ease: [0.16, 1, 0.3, 1],
+        }}
       >
         <ImageBox
           media={page_media}

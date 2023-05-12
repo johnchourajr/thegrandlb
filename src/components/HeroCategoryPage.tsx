@@ -30,7 +30,7 @@ const HeroCategoryPage = ({
       >
         {headline && (
           <Headline
-            size="xl"
+            size="lg"
             uppercase
             className="margin-bottom-md margin-top padding-top relative z-10 col-span-full text-center"
             animateOnce={true}
