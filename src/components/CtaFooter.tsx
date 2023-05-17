@@ -1,5 +1,6 @@
 // setup react component
 
+import { splitTextIntoArray } from "@/utils/utils";
 import { useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { TileItem } from "slices/TileGrid/TileItem";
@@ -8,13 +9,7 @@ import { GridSection } from "./GridSection";
 import Headline from "./Headline";
 import MediaFrame from "./media-frame";
 
-const CtaFooterHeadlineItem = ({
-  media,
-  array,
-  word,
-  index,
-  scrollYProgress,
-}: any) => {
+const CtaFooterHeadlineItem = ({ word, index, scrollYProgress }: any) => {
   const keyframes = [0, 1];
 
   const x = useTransform(scrollYProgress, keyframes, [
@@ -27,7 +22,7 @@ const CtaFooterHeadlineItem = ({
       key={index}
       text={word}
       uppercase
-      size={"4xl"}
+      size={"5xl"}
       animationType={"letter"}
       className="w-[100vw] !whitespace-nowrap text-[black]"
       style={{ x }}
@@ -59,10 +54,6 @@ const CtaFooter = ({ data }: any) => {
       inquire_card,
     },
   } = result;
-
-  const splitTextIntoArray = (text: string) => {
-    return text.split(" ");
-  };
 
   const headlineArray = splitTextIntoArray(headline);
 
@@ -108,7 +99,7 @@ const CtaFooter = ({ data }: any) => {
             media={media}
             video_media={video_media}
             video_options={{ controls: false, auto_play: true, loop: true }}
-            className="mix-blend-screen absolute inset-0 z-10 col-span-6 h-full w-full"
+            className="absolute inset-0 z-10 col-span-6 h-full w-full mix-blend-screen"
           />
         </GridSection>
       )}

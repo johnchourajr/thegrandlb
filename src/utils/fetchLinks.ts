@@ -35,6 +35,10 @@ const fetchLinks = [
   "tour_page.max_capacity",
   "tour_page.square_feet",
   "tour_page.features",
+  "event_page.title",
+  "event_page.headline",
+  "event_page.caption",
+  "page.title",
 ];
 
 export default fetchLinks;

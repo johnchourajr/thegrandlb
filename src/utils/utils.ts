@@ -24,3 +24,7 @@ export function clampBuilder(
     slope * 100
   }vw, ${maxFontSize}rem)`;
 }
+
+export const splitTextIntoArray = (text: string) => {
+  return text.split(" ");
+};

@@ -43,6 +43,14 @@
         "config": {
           "label": "Event Pages",
           "fields": {
+            "page_media": {
+              "type": "Image",
+              "config": {
+                "label": "Page Media",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
             "page": {
               "type": "Link",
               "config": { "label": "Page", "select": "document" }

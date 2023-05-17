@@ -3,7 +3,15 @@ import React from "react";
 
 import { m, Variants } from "framer-motion";
 
-export type TextSize = "4xl" | "3xl" | "2xl" | "xl" | "lg" | "md" | "sm";
+export type TextSize =
+  | "5xl"
+  | "4xl"
+  | "3xl"
+  | "2xl"
+  | "xl"
+  | "lg"
+  | "md"
+  | "sm";
 
 interface TextProps {
   as?: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "span";
@@ -109,6 +117,12 @@ const renderContent = (
 
 const getHeadlineStyles = (size: TextProps["size"]) => {
   switch (size) {
+    case "5xl":
+      return {
+        size: "text-headline-5xl",
+        leading: "leading-headline-5xl",
+        tracking: "tracking-headline-5xl",
+      };
     case "4xl":
       return {
         size: "text-headline-4xl",

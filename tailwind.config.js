@@ -24,7 +24,8 @@ const MIN_RATIO = 1.125;
 
 const headline = {
   max: {
-    0: ms(2.3, MAX_RATIO, 10),
+    "-1": ms(2.3, MAX_RATIO, 10),
+    0: ms(2.3, MAX_RATIO, 9.2),
     1: ms(2.3, MAX_RATIO, 6),
     2: ms(2.3, MAX_RATIO, 5),
     3: ms(2.3, MAX_RATIO, 4),
@@ -33,7 +34,8 @@ const headline = {
     6: ms(2, MAX_RATIO, 1),
   },
   min: {
-    0: ms(2, MIN_RATIO, 10),
+    "-1": ms(2, MIN_RATIO, 10),
+    0: ms(2, MIN_RATIO, 9.2),
     1: ms(1.4, MIN_RATIO, 6),
     2: ms(1.4, MIN_RATIO, 5),
     3: ms(1.4, MIN_RATIO, 4),
@@ -84,12 +86,13 @@ module.exports = {
       "paragraph-large": "1.25rem",
       "paragraph-default": "1rem",
       "paragraph-small": "0.875rem",
-      "headline-4xl": clampBuilder(
-        1024,
+      "headline-5xl": clampBuilder(
+        375,
         1920,
-        headline.min[0],
-        headline.max[0]
+        headline.min["-1"],
+        headline.max["-1"]
       ),
+      "headline-4xl": clampBuilder(375, 1920, headline.min[0], headline.max[0]),
       "headline-3xl": clampBuilder(
         1024,
         1920,
@@ -112,6 +115,7 @@ module.exports = {
       paragraph: 1.45,
       string: 1.5,
       linkString: 1.2,
+      "headline-5xl": 0.88,
       "headline-4xl": 0.88,
       "headline-3xl": 0.91,
       "headline-2xl": 0.95,
@@ -121,6 +125,7 @@ module.exports = {
       "headline-sm": 1.2,
     },
     letterSpacing: {
+      "headline-5xl": "-0.04em",
       "headline-4xl": "-0.04em",
       "headline-3xl": "-0.04em",
       "headline-2xl": "-0.04em",

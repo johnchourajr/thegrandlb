@@ -3,6 +3,7 @@ import { EmptyLinkField, FilledLinkToMediaField } from "@prismicio/types";
 import clsx from "clsx";
 import { useInView, useReducedMotion } from "framer-motion";
 import React, { useEffect, useState, VideoHTMLAttributes } from "react";
+import ParallaxWrapper from "../ParallaxWrapper";
 import { VideoProgressButton } from "./VideoProgressButton";
 
 export interface InlineVideoPlayerProps {
@@ -147,23 +148,25 @@ const InlineVideoPlayer = ({
 
   return (
     <div id={id} className={clsx(className)}>
-      <div className={clsx("absolute inset-0")}>
-        <div
-          className={clsx(
-            "absolute inset-0 z-10 h-full w-full bg-black object-cover opacity-20"
-          )}
-        />
-        <video
-          ref={ref}
-          className={clsx("h-full w-full object-cover", videoClassName)}
-          {...videoOptions}
-          controls={false}
-          poster={posterUrlWithParams}
-          playsInline
-        >
-          {loadInView && <source src={mediaUrl} type="video/mp4" />}
-        </video>
-      </div>
+      <ParallaxWrapper>
+        <div className={clsx("absolute inset-0")}>
+          <div
+            className={clsx(
+              "absolute inset-0 z-10 h-full w-full bg-black object-cover opacity-20"
+            )}
+          />
+          <video
+            ref={ref}
+            className={clsx("h-full w-full object-cover", videoClassName)}
+            {...videoOptions}
+            controls={false}
+            poster={posterUrlWithParams}
+            playsInline
+          >
+            {loadInView && <source src={mediaUrl} type="video/mp4" />}
+          </video>
+        </div>
+      </ParallaxWrapper>
       {controls && (
         <div
           className={clsx(

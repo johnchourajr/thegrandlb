@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { m } from "framer-motion";
+import ParallaxWrapper from "../ParallaxWrapper";
 import ImageBox from "./ImageBox";
 import ImageGallery from "./ImageGallery";
 import InlineVideoPlayer from "./InlineVideoPlayer";
@@ -46,12 +47,14 @@ const MediaFrame = ({
       );
     } else if (mediaUrl) {
       return (
-        <ImageBox
-          id={id}
-          media={media}
-          priority={priority}
-          className="absolute inset-0 z-20 h-full w-full object-cover"
-        />
+        <ParallaxWrapper>
+          <ImageBox
+            id={id}
+            media={media}
+            priority={priority}
+            className="absolute inset-0 z-20 h-full w-full object-cover"
+          />
+        </ParallaxWrapper>
       );
     } else return null;
   };

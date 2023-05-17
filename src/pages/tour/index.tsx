@@ -2,7 +2,8 @@ import { SliceZone } from "@prismicio/react";
 
 import CtaFooter from "@/components/CtaFooter";
 import SliceData from "@/components/dev/SliceData";
-import GridTourIndex from "@/components/grid-tour-index/GridTourIndex";
+import GridBase from "@/components/grid-index/GridBase";
+import { getTourIndexLayout } from "@/components/grid-index/utils";
 import HeroCategoryPage from "@/components/HeroCategoryPage";
 import Layout from "@/components/Layout";
 import fetchLinks from "@/utils/fetchLinks";
@@ -30,7 +31,11 @@ const Page = ({ navigation, settings, cta, page, childPages }: any) => {
         body={body}
       />
       <SliceData slice={pageRest} hidden />
-      <GridTourIndex sectionId="tour-index" spaces={spaces} />
+      <GridBase
+        sectionId="tour-index"
+        items={spaces}
+        layoutLoader={getTourIndexLayout}
+      />
       <SliceZone slices={slices} components={components} />
       <CtaFooter data={cta} />
     </Layout>

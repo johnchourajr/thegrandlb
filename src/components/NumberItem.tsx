@@ -16,6 +16,7 @@ interface NumberItemProps {
   action_text: any;
   action_link: any;
   className?: string;
+  delay?: number;
 }
 export const NumberItem: React.FC<NumberItemProps> = ({
   media,
@@ -25,6 +26,7 @@ export const NumberItem: React.FC<NumberItemProps> = ({
   action_text,
   action_link,
   className,
+  delay = 0,
   ...rest
 }) => {
   // console.log({ action_text, action_link });
@@ -39,7 +41,9 @@ export const NumberItem: React.FC<NumberItemProps> = ({
     show: {
       opacity: 1,
       transition: {
+        delay,
         staggerChildren: 0.2,
+        duration: 2,
         ease: [0.19, 1, 0.22, 1],
       },
     },
@@ -79,7 +83,9 @@ export const NumberItem: React.FC<NumberItemProps> = ({
         <m.div variants={item}>
           <Headline
             as="h3"
-            className={"mb-4 !whitespace-normal"}
+            className={
+              "--!whitespace-normal mb-4 flex-nowrap !whitespace-nowrap"
+            }
             animationType={"letter"}
             animateOnce
           >

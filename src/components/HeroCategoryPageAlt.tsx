@@ -1,42 +1,11 @@
 import clsx from "clsx";
-import { LayoutGroup, useScroll, useSpring, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { LayoutGroup } from "framer-motion";
 import { GridSection } from "./GridSection";
 import Headline from "./Headline";
 import MediaFrame from "./media-frame";
 import ImageBox from "./media-frame/ImageBox";
 import MotionBox from "./MotionBox";
 import Text from "./Paragraph";
-
-const HeadlineItem = ({ headline, scrollYProgress }: any) => {
-  const keyframes = [0, 1];
-
-  const xTop = useTransform(scrollYProgress, keyframes, [`0%`, `-20%`]);
-  const xBottom = useTransform(scrollYProgress, keyframes, [`0%`, `20%`]);
-
-  return (
-    <>
-      <Headline
-        text={`${headline}`}
-        uppercase
-        size={"4xl"}
-        animationType={"letter"}
-        className="inline-flex max-w-[100vw] gap-[.15em] !whitespace-nowrap text-[black]"
-        style={{ x: xTop }}
-        animateOnce={true}
-      />
-      <Headline
-        text={`${headline}`}
-        uppercase
-        size={"4xl"}
-        animationType={"letter"}
-        className="inline-flex max-w-[100vw] justify-end gap-[.15em] self-end !whitespace-nowrap text-[black]"
-        style={{ x: xBottom }}
-        animateOnce={true}
-      />
-    </>
-  );
-};
 
 const HeroCategoryPage = ({
   uid,
@@ -48,40 +17,43 @@ const HeroCategoryPage = ({
   body,
   icon_media,
 }: any) => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["-30%", "end start"],
-  });
   const hasSubheadandBody = subhead && body;
-
-  const progress = useSpring(scrollYProgress, { damping: 100, stiffness: 300 });
-
   return (
     <LayoutGroup>
       <GridSection
-        gridSectionRef={ref}
         id={`hero-${uid}`}
         layoutId={`hero-${uid}`}
-        bottomSpacer={"None"}
+        bottomSpacer={"Small"}
         topSpacer={"Small"}
-        overflowHidden={true}
-        className="relative bg-[white] text-[black]"
       >
-        <div className="absolute inset-0 z-20 bg-cream mix-blend-multiply" />
-        <div className="col-span-full flex translate-x-[-1%] flex-col justify-start whitespace-normal">
-          <HeadlineItem
-            scrollYProgress={progress}
-            headline={headline}
+        {headline && (
+          <Headline
+            size="lg"
+            uppercase
+            className="margin-bottom-md margin-top padding-top relative z-10 col-span-full text-center"
+            animateOnce={true}
+            animationType="word"
+            layoutId={`hero-${uid}-headline`}
+            key={`hero-${uid}-headline`}
+          >
+            {headline}
+          </Headline>
+        )}
+        <MotionBox
+          className={clsx(
+            "relative col-span-full col-start-1 flex aspect-square max-h-[calc(100vh-8.8125rem)] w-full flex-col items-center justify-center gap-10 overflow-hidden rounded-sm bg-black px-4 text-center text-white lg:aspect-[18/9] lg:max-h-[calc(100vh-9rem-3rem)] lg:rounded-md"
+          )}
+        >
+          <MediaFrame
+            key={`hero-${uid}-media`}
+            id={`hero-${uid}-media`}
+            gallery={gallery}
             media={media}
+            video_media={video_media}
+            className="absolute inset-0 z-0 h-full w-full"
+            priority={true}
           />
-        </div>
-        <MediaFrame
-          media={media}
-          video_media={video_media}
-          video_options={{ controls: false, auto_play: true, loop: true }}
-          className="absolute inset-0 z-10 col-span-6 h-full w-full mix-blend-screen"
-        />
+        </MotionBox>
       </GridSection>
       {hasSubheadandBody && (
         <GridSection

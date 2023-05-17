@@ -8,41 +8,6 @@ import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import clsx from "clsx";
 
-// "columns": {
-//   "type": "Select",
-//   "config": {
-//     "label": "Columns",
-//     "placeholder": "",
-//     "options": ["3 Column", "4 Column", "6 Column", "Inline"]
-//   }
-// },
-// "inset": {
-//   "type": "Boolean",
-//   "config": {
-//     "label": "Inset Columns",
-//     "placeholder_false": "false",
-//     "placeholder_true": "true",
-//     "default_value": false
-//   }
-// },
-// "top_spacer": {
-//   "type": "Select",
-//   "config": {
-//     "label": "Top Spacer",
-//     "placeholder": "",
-//     "options": ["Small", "Medium", "Large", "None"]
-//   }
-// },
-// "top_border": {
-//   "type": "Boolean",
-//   "config": {
-//     "label": "Top Border",
-//     "default_value": false,
-//     "placeholder_true": "true",
-//     "placeholder_false": "false"
-//   }
-// },
-
 /**
  * Props for `NumbersSection`.
  */
@@ -145,6 +110,7 @@ const NumbersSection = ({ slice }: NumbersSectionProps): JSX.Element => {
                 return (
                   <NumberItem
                     key={i}
+                    delay={i * 0.2}
                     media={media}
                     number={number}
                     eyebrow={eyebrow}

@@ -2,6 +2,7 @@ import type { PrismicNextImageProps } from "@prismicio/next";
 import clsx from "clsx";
 import { m, useInView } from "framer-motion";
 import React, { useEffect, useState } from "react";
+import ParallaxWrapper from "../ParallaxWrapper";
 import GalleryControls from "./GalleryControls";
 import ImageBox from "./ImageBox";
 
@@ -219,35 +220,37 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
         )}
       >
         <div className="relative z-10 h-full w-full ">
-          {images.map(({ media, caption }: any, i) => {
-            const isActive = i === currentImageIndex;
-            return (
-              <m.div
-                key={i}
-                className="absolute top-0 left-0 h-full w-full object-cover"
-                variants={boxVariants}
-                transition={{
-                  ease: [0.1, 0.25, 0.3, 1],
-                  duration: 1,
-                }}
-                animate={isActive ? "visible" : "hidden"}
-                data-active={isActive ? true : false}
-                aria-hidden={isActive ? "false" : "true"}
-              >
-                <ImageBox
+          <ParallaxWrapper>
+            {images.map(({ media, caption }: any, i) => {
+              const isActive = i === currentImageIndex;
+              return (
+                <m.div
+                  key={i}
                   className="absolute top-0 left-0 h-full w-full object-cover"
-                  media={media}
-                  customAlt={caption}
-                  imgixParams={imgixParams}
-                  priority={i === 0 ? true : false}
-                />
-                {overlay && (
-                  <div className="absolute inset-0 z-10 bg-black bg-opacity-20" />
-                )}
-                <div className="noise" />
-              </m.div>
-            );
-          })}
+                  variants={boxVariants}
+                  transition={{
+                    ease: [0.1, 0.25, 0.3, 1],
+                    duration: 1,
+                  }}
+                  animate={isActive ? "visible" : "hidden"}
+                  data-active={isActive ? true : false}
+                  aria-hidden={isActive ? "false" : "true"}
+                >
+                  <ImageBox
+                    className="absolute top-0 left-0 h-full w-full object-cover"
+                    media={media}
+                    customAlt={caption}
+                    imgixParams={imgixParams}
+                    priority={i === 0 ? true : false}
+                  />
+                  {overlay && (
+                    <div className="absolute inset-0 z-10 bg-black bg-opacity-20" />
+                  )}
+                  <div className="noise" />
+                </m.div>
+              );
+            })}
+          </ParallaxWrapper>
         </div>
         <button
           className={clsx(

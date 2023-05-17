@@ -59,7 +59,7 @@ export async function getStaticProps({ params, previewData }: any) {
     client.getByType("fragment_cta_footer", {
       fetchLinks,
     }),
-    client.getByUID("event_index_page", "events", {
+    client.getByUID("page", "menus", {
       fetchLinks,
     }),
   ]);

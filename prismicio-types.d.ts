@@ -138,6 +138,16 @@ interface EventIndexPageDocumentData {
  */
 export interface EventIndexPageDocumentDataEventPagesItem {
   /**
+   * Page Media field in *Event Index Page → Event Pages*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_index_page.event_pages[].page_media
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  page_media: prismicT.ImageField<never>;
+  /**
    * Page field in *Event Index Page → Event Pages*
    *
    * - **Field Type**: Content Relationship
@@ -202,6 +212,17 @@ interface EventPageDocumentData {
    *
    */
   headline: prismicT.KeyTextField;
+  /**
+   * Caption field in *Event Child Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_page.caption
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  caption: prismicT.KeyTextField;
   /**
    * Gallery (Overrides all media) field in *Event Child Page*
    *
