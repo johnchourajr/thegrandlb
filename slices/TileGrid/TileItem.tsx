@@ -59,7 +59,7 @@ export const TileItem = ({
       case "Outlined":
         return {
           container:
-            "text-black uppercase !border-2 border-white bg-transparent !rounded-full hover:!border-0 hover:!border-[transparent] hover:bg-white ",
+            "text-black uppercase !border-2 border-white bg-transparent !rounded-full hover:!border-0 hover:!border-[transparent] hover:bg-white  ",
           headline: "!text-sm",
           content: "",
         };
@@ -108,7 +108,7 @@ export const TileItem = ({
         return {
           container: clsx(
             "lg:col-span-4 min-h-[25rem]",
-            theme === "Outlined" && "min-h-full"
+            theme === "Outlined" && "min-h-[8rem]"
           ),
           headline: "uppercase max-w-[6em]",
           content: "!gap-20",
@@ -118,7 +118,7 @@ export const TileItem = ({
         return {
           container: clsx(
             "min-h-[25rem]",
-            theme === "Outlined" && "min-h-full"
+            theme === "Outlined" && "min-h-[8rem]"
           ),
           headline: "",
           content: "",

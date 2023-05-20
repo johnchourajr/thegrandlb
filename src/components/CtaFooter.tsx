@@ -81,7 +81,7 @@ const CtaFooter = ({ data }: any) => {
             {...inquire_card.data}
           />
           <div className="absolute inset-0 z-20 bg-cream mix-blend-multiply" />
-          <div className="absolute inset-0 flex translate-x-[-1%] flex-col justify-center">
+          <div className="overflow-mask absolute inset-0 flex translate-x-[-1%] flex-col justify-center">
             {headlineArray.map((word: string, index: number) => {
               return (
                 <CtaFooterHeadlineItem

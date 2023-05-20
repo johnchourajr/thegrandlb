@@ -1,6 +1,7 @@
 import { SliceZone } from "@prismicio/react";
 
 import CtaFooter from "@/components/CtaFooter";
+import HeroDetailPage from "@/components/HeroDetailPage";
 import fetchLinks from "@/utils/fetchLinks";
 import Layout from "@components/Layout";
 import { createClient } from "../../../prismicio";
@@ -8,10 +9,17 @@ import { components } from "../../../slices";
 
 const Page = ({ navigation, settings, cta, page }: any) => {
   // console.log({ navigation, settings, cta });
+  const {
+    data: { slices, ...pageRest },
+  } = page;
 
   return (
-    <Layout page={page}>
-      <></>
+    <Layout page={page} hidePageUid>
+      <HeroDetailPage
+        uid={page.uid}
+        title={pageRest.title}
+        headline={pageRest.headline}
+      />
       <SliceZone slices={page.data.slices} components={components} />
       <CtaFooter data={cta} />
     </Layout>

@@ -6,9 +6,11 @@ import Headline from "./Headline";
 import MediaFrame from "./media-frame";
 import MotionBox from "./MotionBox";
 import Text from "./Paragraph";
+import StringText from "./StringText";
 
 const HeroDetailPage = ({
   uid,
+  title,
   headline,
   media,
   video_media,
@@ -18,6 +20,8 @@ const HeroDetailPage = ({
   primary_action_link,
 }: any) => {
   const hasSubheadandBody = subhead && body;
+  const hasMedia = media || video_media;
+
   return (
     <LayoutGroup>
       <GridSection
@@ -28,9 +32,16 @@ const HeroDetailPage = ({
       >
         <div
           className={clsx(
-            "relative col-span-full col-start-1 flex aspect-square max-h-[calc(100vh-8.8125rem)] w-full flex-col items-center justify-center gap-10 overflow-hidden rounded-sm bg-black px-4 text-center text-white lg:aspect-[4/3] lg:max-h-[calc(100vh-9rem-3rem)] lg:rounded-md"
+            "padding-top-md padding-bottom-md relative col-span-full col-start-1 flex w-full flex-col items-center justify-center gap-4 overflow-hidden px-4 text-center",
+            hasMedia &&
+              "aspect-square max-h-[calc(100vh-8.8125rem)] gap-10 rounded-sm bg-black text-white lg:aspect-[4/3] lg:max-h-[calc(100vh-9rem-3rem)] lg:rounded-md"
           )}
         >
+          {title && (
+            <StringText size={"default"} uppercase bold>
+              {title}
+            </StringText>
+          )}
           {headline && (
             <Headline
               size="3xl"
@@ -52,40 +63,42 @@ const HeroDetailPage = ({
             className="absolute inset-0 z-0 h-full w-full"
             priority={true}
           />
-          <m.div
-            className="gap-6 md:flex"
-            initial={{
-              opacity: 0,
-              y: "3rem",
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 2,
-              ease: [0.19, 1, 0.22, 1],
-              delay: 0.5,
-            }}
-          >
-            {primary_action && (
-              <Button
-                field={primary_action_link}
-                text={primary_action}
-                type="black"
-                size="large"
-                params={uid && `ref=${uid}`}
-              />
-            )}
-            {false && (
-              <Button
-                // field={slice.primary.secondary_action_link}
-                // text={slice.primary.secondary_action}
-                type="outline"
-                size="large"
-              />
-            )}
-          </m.div>
+          {hasMedia && (
+            <m.div
+              className="gap-6 md:flex"
+              initial={{
+                opacity: 0,
+                y: "3rem",
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 2,
+                ease: [0.19, 1, 0.22, 1],
+                delay: 0.5,
+              }}
+            >
+              {primary_action && (
+                <Button
+                  field={primary_action_link}
+                  text={primary_action}
+                  type="black"
+                  size="large"
+                  params={uid && `ref=${uid}`}
+                />
+              )}
+              {false && (
+                <Button
+                  // field={slice.primary.secondary_action_link}
+                  // text={slice.primary.secondary_action}
+                  type="outline"
+                  size="large"
+                />
+              )}
+            </m.div>
+          )}
         </div>
       </GridSection>
       {hasSubheadandBody && (

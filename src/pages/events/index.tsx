@@ -29,6 +29,7 @@ const Page = ({ navigation, settings, cta, page, childPages }: any) => {
       />
       <SliceData slice={pageRest} hidden />
       <GridBase
+        uid={page.uid}
         sectionId="event-index"
         items={event_pages}
         layoutLoader={getEventIndexLayout}

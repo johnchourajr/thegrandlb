@@ -18,6 +18,26 @@
           "label": "Title",
           "placeholder": ""
         }
+      },
+      "gallery": {
+        "type": "Link",
+        "config": {
+          "label": "Gallery (Overrides all media)",
+          "select": "document",
+          "customtypes": ["fragment_gallery"]
+        }
+      },
+      "video_media": {
+        "type": "Link",
+        "config": {
+          "label": "Video Media (Overrides Image Media)",
+          "placeholder": "",
+          "select": "media"
+        }
+      },
+      "media": {
+        "type": "Image",
+        "config": { "label": "Media", "constraint": {}, "thumbnails": [] }
       }
     },
     "Sections": {

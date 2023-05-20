@@ -13,8 +13,6 @@ const Page = ({ navigation, settings, cta, page }: any) => {
     data: { slices, ...pageRest },
   } = page;
 
-  // console.log(pageRest);
-
   return (
     <Layout page={page} hidePageUid>
       <HeroDetailPage

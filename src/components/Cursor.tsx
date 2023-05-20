@@ -1,3 +1,4 @@
+import useTouchDevice from "@/hooks/useTouchDevice";
 import clsx from "clsx";
 import { m, useMotionValue } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -30,6 +31,7 @@ const Cursor: React.FC = () => {
   const y = useMotionValue(0);
   const [hovering, setHovering] = useState("none");
   const [pressed, setPressed] = useState(false);
+  const isTouch = useTouchDevice();
 
   useEffect(() => {
     const anchorLinks = document.querySelectorAll("a");
@@ -192,6 +194,10 @@ const Cursor: React.FC = () => {
 
   const isHoveringArrow =
     hovering === "arrow-left" || hovering === "arrow-right";
+
+  if (isTouch) {
+    return null;
+  }
 
   return (
     <m.div

@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import React from "react";
 
+import { convertToSlug } from "@/utils/utils";
 import { m, Variants } from "framer-motion";
 
 export type TextSize =
@@ -28,8 +29,10 @@ interface TextProps {
   animationType?: "word" | "letter";
   animateOnce?: boolean;
   children?: React.ReactNode;
+  id?: string;
   layoutId?: string;
 }
+
 const wrapEachLetterInSpan = (word: string, index: number) => {
   const item = {
     hidden: { opacity: 0, y: "0.5em" },
@@ -45,6 +48,7 @@ const wrapEachLetterInSpan = (word: string, index: number) => {
       key={idx}
       variants={item}
       data-letter={letter}
+      layoutId={convertToSlug(letter)}
       style={{ "--animation-order": `${idx * 0.05 * 100}ms` } as any}
       className={clsx("relative inline-block")}
     >
@@ -70,6 +74,7 @@ const wrapEachWordInSpan = (word: string, index: number) => {
       variants={item}
       data-word={word}
       style={{ "--animation-order": `${index * 0.05 * 100}ms` } as any}
+      layout
       className={clsx("relative")}
     >
       {word}{" "}
@@ -83,6 +88,7 @@ const renderContent = (
   type: "word" | "letter" = "word"
 ) => {
   if (!txt && !children) return null;
+
   const words =
     txt?.split(" ") ||
     React.Children.map(children, (child: React.ReactNode) => {
@@ -92,7 +98,12 @@ const renderContent = (
       return child;
     });
 
+  // console.log({ words });
+
   const wrappedWords = words?.map((word: any, index: number): any => {
+    if (typeof word === "object") {
+      return word;
+    }
     if (type === "word") {
       return (
         <React.Fragment key={index}>
@@ -189,6 +200,7 @@ function Headline({
   animateOnce = false,
   className,
   style,
+  layoutId,
   ...rest
 }: TextProps) {
   if (!text && !children) return null;

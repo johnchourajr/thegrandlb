@@ -20,6 +20,7 @@ import { getTourIndexLayout } from "./utils";
 export const GridIndexItem = ({
   id,
   uid,
+  parentUid,
   title,
   max_capacity,
   square_feet,
@@ -67,7 +68,7 @@ export const GridIndexItem = ({
   return (
     <m.div
       key={id}
-      layoutId={`tour-index-${uid}`}
+      layoutId={`${parentUid}-index-${uid}`}
       className={clsx(
         "tour-index-tile hover-black-text relative flex min-h-[25rem] gap-4 overflow-hidden rounded-sm bg-white p-6 text-white transition-colors duration-700 ease-out-expo lg:rounded-md xl:min-h-[20rem] xl:p-8",
         getNumberForColStart(layoutLoader(uid).col_start),
@@ -80,7 +81,7 @@ export const GridIndexItem = ({
       {...hoverProps()}
     >
       <PrismicLink
-        href={`/tour/${uid}`}
+        href={`/${parentUid}/${uid}`}
         linkResolver={linkResolver}
         className="absolute inset-0 z-20"
       />

@@ -77,6 +77,17 @@ a {
       transparent);
 }
 
+@media (min-width: 2500px) {
+  .overflow-mask {
+      --maskSpacing: 5%;
+      mask-image: linear-gradient(90deg,
+          transparent,
+          #000 var(--maskSpacing),
+          #000 calc(100% - var(--maskSpacing)),
+          transparent);
+    }
+}
+
 @keyframes ticker {
   0% {
     transform: translateX(0);

@@ -33,6 +33,7 @@ const Page = ({ navigation, settings, cta, page, childPages }: any) => {
       <SliceData slice={pageRest} hidden />
       <GridBase
         sectionId="tour-index"
+        uid={page.uid}
         items={spaces}
         layoutLoader={getTourIndexLayout}
       />

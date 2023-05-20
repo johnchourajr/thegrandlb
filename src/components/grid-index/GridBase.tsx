@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { TileItem } from "slices/TileGrid/TileItem";
 import { GridSection } from "../GridSection";
 import { GridIndexItem } from "./GridItem";
@@ -14,7 +15,7 @@ const container = {
   },
 };
 
-const GridBase = ({ sectionId, items, layoutLoader }: any) => {
+const GridBase = ({ uid: parentUid, sectionId, items, layoutLoader }: any) => {
   return (
     <GridSection
       id={sectionId}
@@ -35,7 +36,7 @@ const GridBase = ({ sectionId, items, layoutLoader }: any) => {
           page: { id, uid, data },
           page_media,
         } = space;
-        console.log({ space });
+        // console.log({ space });
 
         if (uid === "map") {
           return (
@@ -55,6 +56,7 @@ const GridBase = ({ sectionId, items, layoutLoader }: any) => {
               col_span={"Span 12"}
               col_start={"Start 1"}
               row_span={"Span 1"}
+              className={clsx(" !col-span-full ")}
             />
           );
         }
@@ -78,6 +80,7 @@ const GridBase = ({ sectionId, items, layoutLoader }: any) => {
               col_span={"Span 12"}
               col_start={"Start 1"}
               row_span={"Span 1"}
+              className={clsx("!col-span-full ")}
             />
           );
         }
@@ -89,6 +92,7 @@ const GridBase = ({ sectionId, items, layoutLoader }: any) => {
             uid={uid}
             page_media={page_media}
             layoutLoader={layoutLoader}
+            parentUid={parentUid}
             {...data}
           />
         );

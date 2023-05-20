@@ -1,6 +1,6 @@
 import type { PrismicNextImageProps } from "@prismicio/next";
 import clsx from "clsx";
-import { m, useInView } from "framer-motion";
+import { AnimatePresence, m, useInView } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import ParallaxWrapper from "../ParallaxWrapper";
 import GalleryControls from "./GalleryControls";
@@ -56,6 +56,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [nextImageIndex, setNextImageIndex] = useState(1);
   const [isPlaying, setIsPlaying] = useState(autoPlay);
+  const [loadRest, setLoadRest] = useState(false);
 
   const setPosition = (
     controlPosition: ImageGalleryProps["controlPosition"]
@@ -152,6 +153,20 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
     nextImageIndex,
   ]);
 
+  useEffect(() => {
+    // after cycleDuration minus 100 ms set loadRest to true
+    // this will load the rest of the images in the background
+    // so that they are ready to be displayed when the user
+    // navigates to them
+    const timeout = setTimeout(() => {
+      setLoadRest(true);
+    }, cycleDuration / 2);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [cycleDuration]);
+
   if (!images) {
     return null;
   }
@@ -176,7 +191,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
     setIsPlaying(false);
     setCurrentImageIndex(nextImageIndex);
     setNextImageIndex(
-      nextImageIndex === 0 ? images.length - 1 : nextImageIndex - 1
+      nextImageIndex === 0 ? images?.length - 1 : nextImageIndex - 1
     );
     setTimeout(() => {
       setIsPlaying(true);
@@ -187,7 +202,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
   const handleNavigateToIndex = (index: number) => {
     setIsPlaying(false);
     setCurrentImageIndex(index);
-    setNextImageIndex(index === images.length - 1 ? 0 : index + 1);
+    setNextImageIndex(index === images?.length - 1 ? 0 : index + 1);
   };
 
   const boxVariants = {
@@ -221,35 +236,39 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
       >
         <div className="relative z-10 h-full w-full ">
           <ParallaxWrapper>
-            {images.map(({ media, caption }: any, i) => {
-              const isActive = i === currentImageIndex;
-              return (
-                <m.div
-                  key={i}
-                  className="absolute top-0 left-0 h-full w-full object-cover"
-                  variants={boxVariants}
-                  transition={{
-                    ease: [0.1, 0.25, 0.3, 1],
-                    duration: 1,
-                  }}
-                  animate={isActive ? "visible" : "hidden"}
-                  data-active={isActive ? true : false}
-                  aria-hidden={isActive ? "false" : "true"}
-                >
-                  <ImageBox
+            <AnimatePresence mode={"wait"}>
+              {images.map(({ media, caption }: any, i) => {
+                const isActive = i === currentImageIndex;
+                return (
+                  <m.div
+                    key={i}
                     className="absolute top-0 left-0 h-full w-full object-cover"
-                    media={media}
-                    customAlt={caption}
-                    imgixParams={imgixParams}
-                    priority={i === 0 ? true : false}
-                  />
-                  {overlay && (
-                    <div className="absolute inset-0 z-10 bg-black bg-opacity-20" />
-                  )}
-                  <div className="noise" />
-                </m.div>
-              );
-            })}
+                    variants={boxVariants}
+                    transition={{
+                      ease: [0.1, 0.25, 0.3, 1],
+                      duration: 1,
+                    }}
+                    initial="hidden"
+                    animate={isActive ? "visible" : "hidden"}
+                    data-item={i}
+                    data-active={isActive ? true : false}
+                    aria-hidden={isActive ? "false" : "true"}
+                  >
+                    <ImageBox
+                      className="absolute top-0 left-0 h-full w-full object-cover"
+                      media={media}
+                      customAlt={caption}
+                      imgixParams={imgixParams}
+                      priority={i === 0 ? true : false}
+                    />
+                    {overlay && (
+                      <div className="absolute inset-0 z-10 bg-black bg-opacity-20" />
+                    )}
+                    <div className="noise" />
+                  </m.div>
+                );
+              })}
+            </AnimatePresence>
           </ParallaxWrapper>
         </div>
         <button
