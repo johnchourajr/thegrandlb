@@ -29,3 +29,8 @@ export function clampBuilder(
 export const splitTextIntoArray = (text: string) => {
   return text.split(" ");
 };
+
+export function isEmptyObject(obj: any) {
+  if (!obj) return true;
+  return Object.keys(obj).length === 0;
+}

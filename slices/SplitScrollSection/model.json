@@ -66,6 +66,14 @@
           "type": "Image",
           "config": { "label": "Media", "constraint": {}, "thumbnails": [] }
         },
+        "headline_size": {
+          "type": "Select",
+          "config": {
+            "label": "Headline Size",
+            "placeholder": "",
+            "options": ["md", "lg", "xl", "2xl", "3xl"]
+          }
+        },
         "headline": {
           "type": "StructuredText",
           "config": {

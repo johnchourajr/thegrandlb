@@ -226,6 +226,26 @@ body {
   @apply gap-y-[var(--space-md)] lg:gap-y-[var(--space-md-lg)];
 }
 
+.inset-grid-gutter {
+  --inset: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .inset-grid-gutter {
+    --inset: 1.5rem;
+  }
+}
+
+.header-height {
+  --header-height: 4.75rem;
+}
+
+@media (min-width: 1280px) {
+  .header-height {
+    --header-height: 9rem;
+  }
+}
+
 .noise {
   @apply absolute opacity-[0.05] inset-0 w-full h-full;
   background: url('https://images.prismic.io/the-grand/356af45d-3339-4213-a793-db40e61dfa99_noise.png?auto=compress,format');

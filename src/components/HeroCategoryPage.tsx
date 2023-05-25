@@ -130,7 +130,7 @@ const HeroCategoryPage = ({
           topSpacer={"Medium"}
         >
           {icon_media && (
-            <MotionBox className="col-span-2 row-span-2 flex items-center justify-center pt-10 pb-0 xl:col-span-3 xl:col-start-1 xl:row-span-1 xl:pt-3 xl:pb-3">
+            <MotionBox className="col-span-full flex pt-10 pb-0 md:col-span-2 md:row-span-2 md:items-center md:justify-center xl:col-span-3 xl:col-start-1 xl:row-span-1 xl:pt-3 xl:pb-3">
               <ImageBox
                 media={icon_media}
                 className={clsx(
@@ -143,7 +143,7 @@ const HeroCategoryPage = ({
             className={clsx(
               "col-span-full pt-10 pb-0  xl:pt-12 xl:pb-20",
               icon_media
-                ? "col-start-3 xl:col-span-5 xl:col-start-auto"
+                ? "md:col-start-3 xl:col-span-5 xl:col-start-auto"
                 : "xl:col-span-5 xl:col-start-2"
             )}
           >
@@ -155,7 +155,7 @@ const HeroCategoryPage = ({
             className={clsx(
               "col-span-full pb-12 xl:pt-16",
               icon_media
-                ? "col-start-3 xl:col-span-3 xl:col-start-9"
+                ? "md:col-start-3 xl:col-span-3 xl:col-start-9"
                 : "xl:col-span-4 xl:col-start-7"
             )}
           >

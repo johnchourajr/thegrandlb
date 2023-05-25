@@ -6,11 +6,13 @@ import GridBase from "@/components/grid-index/GridBase";
 import { getEventIndexLayout } from "@/components/grid-index/utils";
 import HeroCategoryPage from "@/components/HeroCategoryPage";
 import Layout from "@/components/Layout";
+import TileFooter from "@/components/TileFooter";
+import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../../prismicio";
 import { components } from "../../../slices/";
 
-const Page = ({ navigation, settings, cta, page, childPages }: any) => {
+const Page = ({ page, cta, footer_cards }: any) => {
   const {
     data: { slices, title, gallery, video_media, media, ...pageRest },
   } = page;
@@ -36,6 +38,7 @@ const Page = ({ navigation, settings, cta, page, childPages }: any) => {
       />
       <SliceZone slices={page.data.slices} components={components} />
       <CtaFooter data={cta} />
+      <TileFooter uid={page.uid} footer_cards={footer_cards} />
     </Layout>
   );
 };
@@ -44,13 +47,9 @@ export default Page;
 
 export async function getStaticProps({ params, previewData }: any) {
   const client = createClient({ previewData });
+  const extra = await getExtra({ previewData });
 
-  const [navigation, settings, cta, page, childPages] = await Promise.all([
-    client.getByType("nav_links"),
-    client.getByType("settings"),
-    client.getByType("fragment_cta_footer", {
-      fetchLinks,
-    }),
+  const [page, childPages] = await Promise.all([
     client.getByUID("event_index_page", "events", {
       fetchLinks,
     }),
@@ -59,11 +58,9 @@ export async function getStaticProps({ params, previewData }: any) {
 
   return {
     props: {
-      navigation,
-      settings,
-      cta,
       page,
       childPages,
+      ...extra,
     },
   };
 }

@@ -111,7 +111,7 @@ export const TileItem = ({
             theme === "Outlined" && "min-h-[8rem]"
           ),
           headline: "uppercase max-w-[6em]",
-          content: "!gap-20",
+          content: "!gap-10 !lg:gap-20",
           headlineSize: "xl",
         };
       default:

@@ -4,13 +4,17 @@ import localFont from "@next/font/local";
 import clsx from "clsx";
 import type { AppProps } from "next/app";
 
+import AppWrapper from "@/components/AppWrapper";
 import Cursor from "@/components/Cursor";
+import FormOverlay from "@/components/form/FormOverlay";
 import "@/styles/globals.css";
 import { PrismicPreview } from "@prismicio/next";
 import { PrismicProvider } from "@prismicio/react";
 import { domAnimation, LazyMotion, MotionConfig } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { repositoryName } from "prismicio";
+import { useEffect, useState } from "react";
 
 const lexend = Lexend_Zetta({
   subsets: ["latin"],
@@ -52,6 +56,46 @@ const domaine = localFont({
 });
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [modalOverlay, setModalOverlay] = useState(false);
+  const router = useRouter();
+  // when navigating to /inquire set state to true
+
+  const openInquire = () => {
+    if (router.pathname === "/inquire") return;
+    router.push("/inquire");
+    setModalOverlay(true);
+  };
+
+  const closeInquire = () => {
+    // navigate to previous page
+    router.back();
+    setModalOverlay(false);
+  };
+
+  const toggleModalOverlay = () => {
+    if (modalOverlay) {
+      closeInquire();
+    } else {
+      openInquire();
+    }
+  };
+
+  useEffect(() => {
+    if (router.pathname === "/inquire") {
+      setModalOverlay(true);
+    } else {
+      setModalOverlay(false);
+    }
+  }, [router.pathname]);
+
+  const fontStack = clsx(
+    lexend.variable,
+    atkinson.variable,
+    domaine.variable,
+    lexendBold.variable,
+    "font-sans"
+  );
+
   return (
     <PrismicProvider internalLinkComponent={(props) => <Link {...props} />}>
       <PrismicPreview repositoryName={repositoryName}>
@@ -63,21 +107,28 @@ export default function App({ Component, pageProps }: AppProps) {
           reducedMotion="user"
         >
           <LazyMotion features={domAnimation}>
-            <div
+            <AppWrapper
               className={clsx(
-                lexend.variable,
-                atkinson.variable,
-                domaine.variable,
-                lexendBold.variable,
-                "min-h-screen bg-bg font-sans"
+                fontStack,
+                "relative min-h-screen bg-bg transition-colors duration-1000 ease-out-expo",
+                modalOverlay && "overflow-hidden bg-black"
               )}
             >
               {/* HEADER NAV */}
-              <Header {...pageProps} />
+              <Header
+                modalOverlay={modalOverlay}
+                toggleModalOverlay={toggleModalOverlay}
+                {...pageProps}
+              />
               {/* PAGE CONTENT */}
               <Component {...pageProps} />
+              <FormOverlay
+                className={fontStack}
+                modalOverlay={modalOverlay}
+                toggleModalOverlay={toggleModalOverlay}
+              />
               <Cursor />
-            </div>
+            </AppWrapper>
           </LazyMotion>
         </MotionConfig>
       </PrismicPreview>

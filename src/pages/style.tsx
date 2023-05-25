@@ -4,6 +4,7 @@ import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
 import Text from "@/components/Paragraph";
 import StringText from "@/components/StringText";
+import { getExtra } from "@/services/get-extra";
 import Layout from "@components/Layout";
 import { createClient } from "../../prismicio";
 
@@ -86,16 +87,11 @@ export default Page;
 
 export async function getStaticProps({ params, previewData }: any) {
   const client = createClient({ previewData });
-
-  const [navigation, settings] = await Promise.all([
-    client.getByType("nav_links"),
-    client.getByType("settings"),
-  ]);
+  const extra = await getExtra({ previewData });
 
   return {
     props: {
-      navigation,
-      settings,
+      ...extra,
     },
   };
 }

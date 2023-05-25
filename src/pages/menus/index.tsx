@@ -3,6 +3,7 @@ import { SliceZone } from "@prismicio/react";
 import CtaFooter from "@/components/CtaFooter";
 import HeroCategoryPage from "@/components/HeroCategoryPage";
 import Layout from "@/components/Layout";
+import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../../prismicio";
 import { components } from "../../../slices/";
@@ -41,13 +42,9 @@ export default Page;
 
 export async function getStaticProps({ params, previewData }: any) {
   const client = createClient({ previewData });
+  const extra = await getExtra({ previewData });
 
-  const [navigation, settings, cta, page] = await Promise.all([
-    client.getByType("nav_links"),
-    client.getByType("settings"),
-    client.getByType("fragment_cta_footer", {
-      fetchLinks,
-    }),
+  const [page] = await Promise.all([
     client.getByUID("page", "menus", {
       fetchLinks,
     }),
@@ -55,10 +52,8 @@ export async function getStaticProps({ params, previewData }: any) {
 
   return {
     props: {
-      navigation,
-      settings,
-      cta,
       page,
+      ...extra,
     },
     revalidate: 60,
   };

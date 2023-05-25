@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import React from "react";
 
-import { convertToSlug } from "@/utils/utils";
 import { m, Variants } from "framer-motion";
 
 export type TextSize =
@@ -23,6 +22,7 @@ interface TextProps {
   style?: React.CSSProperties | any;
   text?: string;
   duration?: number;
+  delay?: number;
   staggerDuration?: number;
   disableMotion?: boolean;
   disableStagger?: boolean;
@@ -48,7 +48,6 @@ const wrapEachLetterInSpan = (word: string, index: number) => {
       key={idx}
       variants={item}
       data-letter={letter}
-      layoutId={convertToSlug(letter)}
       style={{ "--animation-order": `${idx * 0.05 * 100}ms` } as any}
       className={clsx("relative inline-block")}
     >
@@ -74,7 +73,6 @@ const wrapEachWordInSpan = (word: string, index: number) => {
       variants={item}
       data-word={word}
       style={{ "--animation-order": `${index * 0.05 * 100}ms` } as any}
-      layout
       className={clsx("relative")}
     >
       {word}{" "}
@@ -193,6 +191,7 @@ function Headline({
   text,
   children,
   duration,
+  delay = 0,
   staggerDuration,
   disableMotion = false,
   disableStagger = false,
@@ -236,6 +235,7 @@ function Headline({
       y: "0em",
       scale: [1.1, 1],
       transition: {
+        delay,
         staggerChildren: staggerChildren(),
         delayChildren: delayChildren(),
         duration: duration || 2,
@@ -258,7 +258,6 @@ function Headline({
   return (
     <MotionComp
       {...motionProps}
-      layout="position"
       className={clsx(
         "headline font-serif",
         uppercase && "uppercase",

@@ -1,3 +1,4 @@
+import { isEmptyObject } from "@/utils/utils";
 import clsx from "clsx";
 import { LayoutGroup, m } from "framer-motion";
 import Button from "./Button";
@@ -12,28 +13,30 @@ const HeroDetailPage = ({
   uid,
   title,
   headline,
+  caption,
   media,
   video_media,
   subhead,
   body,
   primary_action,
   primary_action_link,
+  bottomSpacer = "Small",
 }: any) => {
   const hasSubheadandBody = subhead && body;
-  const hasMedia = media || video_media;
+  const noMedia = isEmptyObject(media) && isEmptyObject(video_media?.src);
 
   return (
     <LayoutGroup>
       <GridSection
         id={`hero-${uid}`}
         layoutId={`hero-${uid}`}
-        bottomSpacer={"Small"}
+        bottomSpacer={bottomSpacer}
         topSpacer={"Small"}
       >
         <div
           className={clsx(
             "padding-top-md padding-bottom-md relative col-span-full col-start-1 flex w-full flex-col items-center justify-center gap-4 overflow-hidden px-4 text-center",
-            hasMedia &&
+            !noMedia &&
               "aspect-square max-h-[calc(100vh-8.8125rem)] gap-10 rounded-sm bg-black text-white lg:aspect-[4/3] lg:max-h-[calc(100vh-9rem-3rem)] lg:rounded-md"
           )}
         >
@@ -55,6 +58,11 @@ const HeroDetailPage = ({
               {headline}
             </Headline>
           )}
+          {caption && (
+            <Headline size="lg" animateOnce={true} delay={0.5} emphasis>
+              {caption}
+            </Headline>
+          )}
           <MediaFrame
             key={`hero-${uid}-media`}
             id={`hero-${uid}-media`}
@@ -63,12 +71,12 @@ const HeroDetailPage = ({
             className="absolute inset-0 z-0 h-full w-full"
             priority={true}
           />
-          {hasMedia && (
+          {primary_action && (
             <m.div
-              className="gap-6 md:flex"
+              className="gap-6 pt-6 md:flex"
               initial={{
                 opacity: 0,
-                y: "3rem",
+                y: "2rem",
               }}
               animate={{
                 opacity: 1,
@@ -77,26 +85,16 @@ const HeroDetailPage = ({
               transition={{
                 duration: 2,
                 ease: [0.19, 1, 0.22, 1],
-                delay: 0.5,
+                delay: 0.7,
               }}
             >
-              {primary_action && (
-                <Button
-                  field={primary_action_link}
-                  text={primary_action}
-                  type="black"
-                  size="large"
-                  params={uid && `ref=${uid}`}
-                />
-              )}
-              {false && (
-                <Button
-                  // field={slice.primary.secondary_action_link}
-                  // text={slice.primary.secondary_action}
-                  type="outline"
-                  size="large"
-                />
-              )}
+              <Button
+                field={primary_action_link}
+                text={primary_action}
+                type="black"
+                size="large"
+                params={uid && `ref=${uid}`}
+              />
             </m.div>
           )}
         </div>

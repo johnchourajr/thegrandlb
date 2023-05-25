@@ -25,7 +25,9 @@ const HomepageNumbers = ({ slice }: HomepageNumbersProps): JSX.Element => {
         id={slice.primary.section_id || ""}
         bottomSpacer={slice.primary.bottom_spacer || null}
         topSpacer={slice.primary.top_spacer || null}
-        className={"!gap-y-28 xl:!gap-y-32"}
+        className={
+          "!lg:gap-y-28 !lg:pt-[inherit] !gap-y-10 !pt-20 xl:!gap-y-32"
+        }
       >
         {slice.primary.title && (
           <Headline

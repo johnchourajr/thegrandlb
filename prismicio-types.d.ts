@@ -1384,6 +1384,50 @@ interface PageDocumentData {
    */
   title: prismicT.KeyTextField;
   /**
+   * Gallery (Overrides all media) field in *Page*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.gallery
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  gallery: prismicT.RelationField<"fragment_gallery">;
+  /**
+   * Video Media (Overrides Image Media) field in *Page*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.video_media
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  video_media: prismicT.LinkToMediaField;
+  /**
+   * Media field in *Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.media
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  media: prismicT.ImageField<never>;
+  /**
+   * Slice Zone field in *Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices: prismicT.SliceZone<PageDocumentDataSlicesSlice>;
+  /**
    * Slice Zone field in *Page*
    *
    * - **Field Type**: Slice Zone
@@ -1428,6 +1472,11 @@ interface PageDocumentData {
    */
   meta_image: prismicT.ImageField<never>;
 }
+/**
+ * Slice for *Page → Slice Zone*
+ *
+ */
+type PageDocumentDataSlicesSlice = HeroDetailPageSliceSlice;
 /**
  * Slice for *Page → Slice Zone*
  *
@@ -2074,6 +2123,132 @@ type FaqSectionSliceVariation = FaqSectionSliceDefault;
 export type FaqSectionSlice = prismicT.SharedSlice<
   "faq_section",
   FaqSectionSliceVariation
+>;
+/**
+ * Primary content in HeroDetailPageSlice → Primary
+ *
+ */
+interface HeroDetailPageSliceSliceDefaultPrimary {
+  /**
+   * Section Id field in *HeroDetailPageSlice → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_detail_page_slice.primary.section_id
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  section_id: prismicT.KeyTextField;
+  /**
+   * Title field in *HeroDetailPageSlice → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_detail_page_slice.primary.title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  title: prismicT.KeyTextField;
+  /**
+   * Headline field in *HeroDetailPageSlice → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_detail_page_slice.primary.headline
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  headline: prismicT.KeyTextField;
+  /**
+   * Caption field in *HeroDetailPageSlice → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_detail_page_slice.primary.caption
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  caption: prismicT.KeyTextField;
+  /**
+   * Video Media (Overrides Image Media) field in *HeroDetailPageSlice → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_detail_page_slice.primary.video_media
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  video_media: prismicT.LinkToMediaField;
+  /**
+   * Media field in *HeroDetailPageSlice → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_detail_page_slice.primary.media
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  media: prismicT.ImageField<never>;
+  /**
+   * Primary Action field in *HeroDetailPageSlice → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_detail_page_slice.primary.primary_action
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  primary_action: prismicT.KeyTextField;
+  /**
+   * Primary Action Link field in *HeroDetailPageSlice → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_detail_page_slice.primary.primary_action_link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  primary_action_link: prismicT.LinkField;
+  /**
+   * Bottom Spacer field in *HeroDetailPageSlice → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_detail_page_slice.primary.bottom_spacer
+   * - **Documentation**: https://prismic.io/docs/core-concepts/select
+   *
+   */
+  bottom_spacer: prismicT.SelectField<"None" | "Small" | "Large">;
+}
+/**
+ * Default variation for HeroDetailPageSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeroDetailPageSliceSliceDefault = prismicT.SharedSliceVariation<
+  "default",
+  Simplify<HeroDetailPageSliceSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *HeroDetailPageSlice*
+ *
+ */
+type HeroDetailPageSliceSliceVariation = HeroDetailPageSliceSliceDefault;
+/**
+ * HeroDetailPageSlice Shared Slice
+ *
+ * - **API ID**: `hero_detail_page_slice`
+ * - **Description**: `HeroDetailPageSlice`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HeroDetailPageSliceSlice = prismicT.SharedSlice<
+  "hero_detail_page_slice",
+  HeroDetailPageSliceSliceVariation
 >;
 /**
  * Primary content in HomepageLocation → Primary
@@ -4108,6 +4283,10 @@ declare module "@prismicio/client" {
       FaqSectionSliceDefault,
       FaqSectionSliceVariation,
       FaqSectionSlice,
+      HeroDetailPageSliceSliceDefaultPrimary,
+      HeroDetailPageSliceSliceDefault,
+      HeroDetailPageSliceSliceVariation,
+      HeroDetailPageSliceSlice,
       HomepageLocationSliceDefaultPrimary,
       HomepageLocationSliceDefault,
       HomepageLocationSliceVariation,

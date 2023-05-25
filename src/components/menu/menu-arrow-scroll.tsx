@@ -36,7 +36,7 @@ const MenuArrowScroll: React.FC = () => {
 
   return (
     <m.a
-      href="#page"
+      href="#top"
       initial="hidden"
       variants={wrapperVariants}
       animate={min ? "show" : "hidden"}

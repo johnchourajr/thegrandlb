@@ -200,29 +200,36 @@ const Cursor: React.FC = () => {
   }
 
   return (
-    <m.div
+    <div
       className={clsx(
-        "pointer-events-none h-[1px] w-[1px] items-center justify-center text-[#3C3836] mix-blend-difference",
-        "fixed top-0 left-0 z-[9999] origin-center transform transition-transform duration-150 ease-out",
-        "after:--backdrop-blur-[.5rem] after:absolute after:top-[var(--top)] after:left-[var(--left)] after:h-[var(--height)] after:w-[var(--width)] after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:border-2 after:border-[#3C3836] after:bg-[var(--bkg)] after:opacity-60",
-        isHoveringArrow && "!mix-blend-normal after:!border-white"
+        "--mix-blend-difference pointer-events-none fixed inset-0 z-[9999] overflow-hidden"
       )}
-      style={{
-        x,
-        y,
-      }}
-      variants={cursorVariant}
-      animate={cursorAnimate()}
     >
-      {isHoveringArrow && (
-        <ArrowRight
-          className="absolute top-[-.38rem] left-[-.48rem] z-40 h-6 w-6 transform text-white"
-          animate={{
-            rotate: hovering === "arrow-right" ? 0 : 180,
-          }}
-        />
-      )}
-    </m.div>
+      <m.div
+        className={clsx(
+          "pointer-events-none h-[1px] w-[1px] items-center justify-center text-[#3C3836] ",
+          " origin-center transform transition-transform duration-150 ease-out",
+          "after:--backdrop-blur-[.5rem] after:absolute after:top-[var(--top)] after:left-[var(--left)] after:h-[var(--height)] after:w-[var(--width)] after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:border-2 after:border-[#3C3836] after:bg-[var(--bkg)] after:opacity-60",
+          isHoveringArrow && "!mix-blend-normal after:!border-white"
+          // "fixed top-0 left-0 "
+        )}
+        style={{
+          x,
+          y,
+        }}
+        variants={cursorVariant}
+        animate={cursorAnimate()}
+      >
+        {isHoveringArrow && (
+          <ArrowRight
+            className="absolute top-[-.38rem] left-[-.48rem] z-40 h-6 w-6 transform text-white"
+            animate={{
+              rotate: hovering === "arrow-right" ? 0 : 180,
+            }}
+          />
+        )}
+      </m.div>
+    </div>
   );
 };
 

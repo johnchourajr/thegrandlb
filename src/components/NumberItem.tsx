@@ -2,6 +2,7 @@ import Headline from "@/components/Headline";
 import MotionBox from "@/components/MotionBox";
 import Text from "@/components/Paragraph";
 import StringText from "@/components/StringText";
+import { isEmptyObject } from "@/utils/utils";
 import * as prismicH from "@prismicio/helpers";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
@@ -10,6 +11,7 @@ import { m } from "framer-motion";
 
 interface NumberItemProps {
   media?: any;
+  headline_size?: "3xl" | "2xl" | "xl" | "lg" | "md";
   number: any;
   eyebrow: any;
   body: any;
@@ -20,6 +22,7 @@ interface NumberItemProps {
 }
 export const NumberItem: React.FC<NumberItemProps> = ({
   media,
+  headline_size = "3xl",
   number,
   eyebrow,
   body,
@@ -35,6 +38,10 @@ export const NumberItem: React.FC<NumberItemProps> = ({
   const bodyAsString = prismicH.asText(body) || "";
 
   const bodyLong = bodyAsString?.length > 100;
+  const hasMedia = isEmptyObject(media) ? false : true;
+
+  const isMoreThanOneWord =
+    numberAsString && numberAsString.split(" ").length > 1;
 
   const container = {
     hidden: { opacity: 0 },
@@ -61,6 +68,8 @@ export const NumberItem: React.FC<NumberItemProps> = ({
     },
   };
 
+  // console.log({ media });
+
   return (
     <MotionBox
       className={clsx(
@@ -70,7 +79,7 @@ export const NumberItem: React.FC<NumberItemProps> = ({
       variants={container}
       {...rest}
     >
-      {media && (
+      {hasMedia && (
         <m.div variants={item}>
           <PrismicNextImage
             field={media}
@@ -83,10 +92,12 @@ export const NumberItem: React.FC<NumberItemProps> = ({
         <m.div variants={item}>
           <Headline
             as="h3"
-            className={
-              "--!whitespace-normal mb-4 flex-nowrap !whitespace-nowrap"
-            }
-            animationType={"letter"}
+            size={headline_size}
+            className={clsx(
+              "mb-4 flex-nowrap whitespace-nowrap",
+              isMoreThanOneWord && "max-w-[8em] whitespace-normal"
+            )}
+            animationType={isMoreThanOneWord ? "word" : "letter"}
             animateOnce
           >
             {numberAsString}

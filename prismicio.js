@@ -35,6 +35,10 @@ export const linkResolver = (doc) => {
     return `/offsite/${doc.uid}`;
   }
 
+  // if (doc.uid === "inquire") {
+  //   () => alert("inquire");
+  // }
+
   return `/${doc.uid}`;
 };
 

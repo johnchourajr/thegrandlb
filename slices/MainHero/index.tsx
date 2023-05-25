@@ -51,7 +51,7 @@ const PageHero = ({ slice }: PageHeroProps): JSX.Element => {
             priority={true}
           />
           <m.div
-            className="!hidden gap-6 md:flex"
+            className="!hidden gap-6 md:!flex"
             initial={{
               opacity: 0,
               y: "3rem",

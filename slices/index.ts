@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 
 export const components = {
   faq_section: dynamic(() => import("./FaqSection")),
+  hero_detail_page_slice: dynamic(() => import("./HeroDetailPageSlice")),
   homepage_location: dynamic(() => import("./HomepageLocation")),
   homepage_numbers: dynamic(() => import("./HomepageNumbers")),
   image_section: dynamic(() => import("./ImageSection")),

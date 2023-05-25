@@ -45,7 +45,7 @@ const NumbersSection = ({ slice }: NumbersSectionProps): JSX.Element => {
       case "3 Column":
         return {
           container: "",
-          item: "!w-1/2 md:w-1/3 xl:!w-1/3",
+          item: "!w-full md:w-1/3 xl:!w-1/3",
         };
       case "4 Column":
         return {
@@ -59,8 +59,8 @@ const NumbersSection = ({ slice }: NumbersSectionProps): JSX.Element => {
         };
       case "Inline":
         return {
-          container: " gap-x-4 xl:gap-x-15",
-          item: "!w-auto",
+          container: "gap-y-2 lg:gap-y-12 gap-x-4 xl:gap-x-15",
+          item: "!w-auto !py-0 !px-8",
         };
       default:
         return {
@@ -117,7 +117,7 @@ const NumbersSection = ({ slice }: NumbersSectionProps): JSX.Element => {
                     body={body}
                     action_text={action_text}
                     action_link={action_link}
-                    className={clsx("px-10", getColumns().item)}
+                    className={clsx("p-4 md:p-10", getColumns().item)}
                   />
                 );
               }

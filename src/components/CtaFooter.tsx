@@ -1,6 +1,7 @@
 // setup react component
 
 import { splitTextIntoArray } from "@/utils/utils";
+import clsx from "clsx";
 import { useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { TileItem } from "slices/TileGrid/TileItem";
@@ -37,12 +38,13 @@ const CtaFooter = ({ data }: any) => {
     target: ref,
     offset: ["start end", "end end"],
   });
+  const progress = useSpring(scrollYProgress, { damping: 100, stiffness: 300 });
+
+  if (!data) return null;
 
   const {
     results: [result],
   } = data;
-
-  const progress = useSpring(scrollYProgress, { damping: 100, stiffness: 300 });
 
   const {
     data: {
@@ -66,10 +68,10 @@ const CtaFooter = ({ data }: any) => {
           bottomSpacer={bottom_spacer}
           topSpacer={top_spacer}
           overflowHidden={true}
-          className="relative h-[65vmax] max-h-[35rem] bg-[white] text-[black] lg:max-h-[40rem] xl:max-h-[80rem]"
+          className={clsx("relative min-h-[65vmax] bg-[white] text-[black]")}
         >
           <TileItem
-            className="z-50 !col-span-2 !col-start-3 w-full xl:!col-span-5 xl:!col-start-7 3xl:!col-span-4 3xl:!col-start-8"
+            className="z-50 w-full md:!col-span-2 md:!col-start-3 xl:!col-span-5 xl:!col-start-7 3xl:!col-span-4 3xl:!col-start-8"
             initial={{
               opacity: 0,
               y: 60,
@@ -103,7 +105,7 @@ const CtaFooter = ({ data }: any) => {
           />
         </GridSection>
       )}
-      <SliceData slice={result} />
+      <SliceData slice={result} hidden />
     </>
   );
 };
