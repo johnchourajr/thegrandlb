@@ -38,10 +38,15 @@ export const HeaderLeft = ({
               animate={{ opacity: 1, y: "-12%", x: 0 }}
               transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
               exit={{ opacity: 0, y: -30, x: "0" }}
-              className={clsx("xl:absolute xl:right-[10%] xl:w-[0]")}
+              className={clsx(" xl:absolute xl:right-[10%] xl:w-[0]")}
             >
               {subtitle && (
-                <Headline size={"sm"} className="!whitespace-nowrap" uppercase>
+                <Headline
+                  size={"sm"}
+                  className="hidden !whitespace-pre lg:flex"
+                  animationType={"word"}
+                  uppercase
+                >
                   {subtitle}
                 </Headline>
               )}

@@ -60,28 +60,28 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   // when navigating to /inquire set state to true
 
-  const openInquire = () => {
-    if (router.pathname === "/inquire") return;
-    router.push("/inquire");
+  const openOverlay = (route: "/inquire" | "/map") => {
+    if (router.pathname === route) return;
+    router.push(route);
     setModalOverlay(true);
   };
 
-  const closeInquire = () => {
+  const closeOverlay = () => {
     // navigate to previous page
     router.back();
     setModalOverlay(false);
   };
 
-  const toggleModalOverlay = () => {
+  const toggleModalOverlay = (route: "/inquire" | "/map") => {
     if (modalOverlay) {
-      closeInquire();
+      closeOverlay();
     } else {
-      openInquire();
+      openOverlay(route);
     }
   };
 
   useEffect(() => {
-    if (router.pathname === "/inquire") {
+    if (router.pathname === "/inquire" || router.pathname === "/map") {
       setModalOverlay(true);
     } else {
       setModalOverlay(false);

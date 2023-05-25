@@ -103,7 +103,7 @@ export const NavParentItem = ({
       className={clsx(
         "w-full list-none transition-opacity duration-300 ease-out-expo xl:w-fit",
         hasChildren &&
-          "via-100% after:xl:pointer-events-none after:xl:absolute after:xl:inset-0 after:xl:top-0 after:xl:z-[1] after:xl:h-[110vh] after:xl:bg-gradient-to-b after:xl:from-bg after:xl:to-bg after:xl:opacity-0 after:xl:transition-opacity after:xl:duration-700 after:xl:ease-out-expo after:xl:content-[''] hover:after:xl:opacity-90",
+          "via-100% after:xl:pointer-events-none after:xl:fixed after:xl:inset-0 after:xl:top-0 after:xl:z-[1] after:xl:h-[110vh] after:xl:bg-gradient-to-b after:xl:from-bg after:xl:to-bg after:xl:opacity-0 after:xl:transition-opacity after:xl:duration-700 after:xl:ease-out-expo after:xl:content-[''] hover:after:xl:opacity-90",
         className
       )}
       initial={!isMobile && ({ "--height": "50vh" } as any)}

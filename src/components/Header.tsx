@@ -53,7 +53,7 @@ export default function Header({
 
   useEffect(() => {
     const onChange = scrollY.on("change", async (currentScrollY) => {
-      setNavScrolled(currentScrollY > 100);
+      setNavScrolled(currentScrollY > 10);
     });
 
     return () => {
@@ -86,7 +86,7 @@ export default function Header({
         backgroundColor: null,
         color: null,
         y: 0,
-        transition: { duration: 1, ease: [0.19, 1, 0.22, 1] },
+        transition: { duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0.2 },
       } as any);
     }
   }, [navScrolled, modalOverlay, controls]);
@@ -103,7 +103,7 @@ export default function Header({
         "sticky top-[var(--navTop)] z-[9999] h-fit !max-w-[100vw] overflow-visible !pt-4",
         "transition-colors duration-300 ease-out-expo",
         "flex-col items-center gap-0 lg:gap-[inherit] xl:flex-row xl:gap-[var(--navGap)]",
-        navScrolled ? "border-b-2 border-red bg-bg" : "bg-bg"
+        navScrolled || isNavOpen ? "border-b-2 border-red bg-bg" : "bg-bg"
       )}
       initial={{ "--navTop": "0rem" } as any}
       animate={controls}

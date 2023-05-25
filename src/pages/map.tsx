@@ -1,19 +1,21 @@
 // import SendSMS from "@/components/SendSMS";
 import Layout from "@components/Layout";
-import { SliceZone } from "@prismicio/react";
 
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../prismicio";
-import { components } from "../../slices";
 
 const Page = ({ navigation, settings, cta, page }: any) => {
   // console.log({ navigation, settings, cta });
 
   return (
-    <Layout page={page}>
+    <Layout
+      page={page}
+      className={"!min-h-[0vh]"}
+      wrapperClassName={"!min-h-[0vh]"}
+      hidePageUid
+    >
       <></>
-      <SliceZone slices={page.data.slices} components={components} />
     </Layout>
   );
 };

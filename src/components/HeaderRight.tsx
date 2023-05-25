@@ -62,6 +62,7 @@ export const HeaderRight = ({
                     delay: 0.4,
                   }}
                   exit={{ opacity: 0, y: 20 }}
+                  className="w-full xl:w-fit"
                 >
                   <NavParentItem
                     link_source={primary.link_source}
@@ -77,14 +78,14 @@ export const HeaderRight = ({
             }
           )}
           <Star
-            className={clsx("z-10")}
+            className={clsx("z-10 my-4 xl:my-0")}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0.3 }}
             exit={{ opacity: 0, y: 20 }}
           />
           <m.span
-            className="z-10"
+            className="z-10 mb-4 w-full xl:mb-0 xl:w-fit"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0.2 }}
@@ -100,7 +101,7 @@ export const HeaderRight = ({
               }}
               size="small"
               target="_self"
-              className="z-10 w-[12rem]"
+              className="z-10 w-full xl:w-[12rem] "
               text="Make an inquiry"
             />
           </m.span>
@@ -115,7 +116,7 @@ export const HeaderRight = ({
           exit={{ opacity: 0, y: -30 }}
         >
           <Button
-            onClick={buttonAction}
+            onClick={() => buttonAction("/inquire")}
             size="small"
             target="_self"
             text={button}
