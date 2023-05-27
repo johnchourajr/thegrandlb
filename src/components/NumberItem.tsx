@@ -94,8 +94,8 @@ export const NumberItem: React.FC<NumberItemProps> = ({
             as="h3"
             size={headline_size}
             className={clsx(
-              "mb-4 flex-nowrap whitespace-nowrap",
-              isMoreThanOneWord && "max-w-[8em] whitespace-normal"
+              "mb-4 flex-nowrap !whitespace-pre",
+              isMoreThanOneWord && "max-w-[8em] !whitespace-normal"
             )}
             animationType={isMoreThanOneWord ? "word" : "letter"}
             animateOnce

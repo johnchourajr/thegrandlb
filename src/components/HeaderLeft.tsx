@@ -31,7 +31,7 @@ export const HeaderLeft = ({
         className="flex flex-nowrap items-center justify-center"
       >
         <HeaderLogo className="h-12 w-32 origin-left scale-[var(--logoScale)] xl:h-32 xl:w-64" />
-        <AnimatePresence>
+        <AnimatePresence mode="sync">
           {modalOverlay && (
             <m.div
               initial={{ opacity: 0, y: -30, x: "0" }}

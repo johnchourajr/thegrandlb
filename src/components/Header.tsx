@@ -86,7 +86,7 @@ export default function Header({
         backgroundColor: null,
         color: null,
         y: 0,
-        transition: { duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0.2 },
+        transition: { duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0 },
       } as any);
     }
   }, [navScrolled, modalOverlay, controls]);

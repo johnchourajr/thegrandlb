@@ -27,6 +27,7 @@ const PageHero = ({ slice }: PageHeroProps): JSX.Element => {
         id={slice.primary.section_id}
         bottomSpacer={slice.primary.bottom_spacer}
         topSpacer={"Small"}
+        className="!pt-0 lg:!pt-4"
       >
         <div
           className={clsx(
