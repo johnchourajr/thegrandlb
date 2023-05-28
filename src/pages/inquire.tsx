@@ -12,9 +12,7 @@ const Page = ({ navigation, settings, cta, page }: any) => {
       className={"!min-h-[0vh]"}
       wrapperClassName={"!min-h-[0vh]"}
       hidePageUid
-    >
-      <></>
-    </Layout>
+    />
   );
 };
 
