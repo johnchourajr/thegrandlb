@@ -1,0 +1,327 @@
+{
+  "pages": [
+    {
+      "title": "About your event",
+      "decription": "Tell us everything this is to be know about the special event you're planning",
+      "page_key": "page_1",
+      "questions": [
+        {
+          "title": "Event Name",
+          "placeholder": "What do we call this thing?",
+          "question_type": "text",
+          "question_key": "event_name",
+          "required": true,
+          "options": [],
+          "validations": [
+            {
+              "rule": "regex",
+              "value": "^.{2,}$",
+              "error_message": "Name too short"
+            }
+          ],
+          "error_message": "Name your event",
+          "data_type": "string"
+        },
+        {
+          "title": "Event Type",
+          "placeholder": "Select your event type",
+          "question_type": "dropdown",
+          "question_key": "event_type",
+          "required": true,
+          "options": [
+            {
+              "title": "Birthday Party",
+              "value": "birthday_party"
+            },
+            {
+              "title": "Wedding Reception",
+              "value": "wedding_reception"
+            },
+            {
+              "title": "Wedding Ceremony",
+              "value": "wedding_ceremony"
+            },
+            {
+              "title": "Sweet 16",
+              "value": "sweet_16"
+            },
+            {
+              "title": "Quince",
+              "value": "quince"
+            },
+						{
+              "title": "Graduation Party",
+              "value": "graduation_party"
+            },
+            {
+              "title": "Baby Shower",
+              "value": "baby_shower"
+            },
+            {
+              "title": "Bridal Shower",
+              "value": "bridal_shower"
+            },
+            {
+              "title": "Surprise Party",
+              "value": "surprise_party"
+            },
+            {
+              "title": "Party",
+              "value": "party"
+            },
+            {
+              "title": "Wedding Ceremony & Reception",
+              "value": "wedding_ceremony_and_reception"
+            },
+            {
+              "title": "Business",
+              "value": "business"
+            },
+            {
+              "title": "Conference/Workshop",
+              "value": "conference_workshop"
+            },
+            {
+              "title": "Luncheon",
+              "value": "luncheon"
+            },
+            {
+              "title": "Dinner",
+              "value": "dinner"
+            },
+            {
+              "title": "School Event",
+              "value": "school_event"
+            },
+            {
+              "title": "Anniversary",
+              "value": "anniversary"
+            },
+            {
+              "title": "Holiday Party",
+              "value": "holiday_party"
+            },
+            {
+              "title": "Fundraiser",
+              "value": "fundraiser"
+            },
+            {
+              "title": "Memorial",
+              "value": "memorial"
+            },
+            {
+              "title": "Other",
+              "value": "other"
+            }
+          ],
+          "error_message": "Make a selection",
+          "data_type": "string"
+        },
+        {
+          "title": "Desired Date",
+          "placeholder": "mm/dd/yyyy",
+          "question_type": "date_picker",
+          "question_key": "desired_date",
+          "required": true,
+          "validations": [],
+          "error_message": "Select a date",
+          "data_type": "date"
+        },
+        {
+          "title": "Desired Time",
+          "placeholder": "8am",
+          "question_type": "dropdown",
+          "question_key": "desired_time",
+          "required": true,
+          "options": [
+            {
+              "title": "8 am",
+              "value": "8am"
+            },
+            {
+              "title": "9 am",
+              "value": "9am"
+            },
+            {
+              "title": "10 am",
+              "value": "10am"
+            },
+            {
+              "title": "11 am",
+              "value": "11am"
+            },
+            {
+              "title": "12 pm",
+              "value": "12pm"
+            },
+            {
+              "title": "1 pm",
+              "value": "1pm"
+            },
+            {
+              "title": "2 pm",
+              "value": "2pm"
+            },
+            {
+              "title": "3 pm",
+              "value": "3pm"
+            },
+            {
+              "title": "4 pm",
+              "value": "4pm"
+            },
+            {
+              "title": "5 pm",
+              "value": "5pm"
+            },
+            {
+              "title": "6 pm",
+              "value": "6pm"
+            },
+            {
+              "title": "7 pm",
+              "value": "7pm"
+            },
+            {
+              "title": "8 pm",
+              "value": "8pm"
+            },
+            {
+              "title": "9 pm",
+              "value": "9pm"
+            }
+          ],
+          "validations": [],
+          "error_message": "Select a time",
+          "data_type": "string"
+        },
+        {
+          "title": "Head Count",
+          "placeholder": "100",
+          "question_type": "number",
+          "question_key": "head_count",
+          "required": true,
+          "options": [],
+          "validations": [
+            {
+              "rule": "min_value",
+              "value": 2,
+              "error_message": "That's too few"
+            },
+            {
+              "rule": "max_value",
+              "value": 10000,
+              "error_message": "That's too big"
+            }
+          ],
+          "error_message": "Please provide a valid number",
+          "data_type": "number"
+        },
+        {
+          "title": "Desired Space",
+          "placeholder": "The Ballroom",
+          "question_type": "dropdown",
+          "question_key": "desired_space",
+          "required": true,
+          "options": [
+            {
+              "title": "The Grand Ballroom",
+              "value": "grand-ballroom"
+            },
+            {
+              "title": "The Catalina Room",
+              "value": "catalina-room"
+            },
+            {
+              "title": "The Monarch Room",
+              "value": "monarch-room"
+            },
+            {
+              "title": "The Garden Room",
+              "value": "garden-room"
+            },
+            {
+              "title": "The Pacific Room",
+              "value": "pacific-room"
+            },
+            {
+              "title": "The Palm Terrace",
+              "value": "palm-terrace"
+            },
+            {
+              "title": "The Board Room",
+              "value": "board-room"
+            }
+          ],
+          "validations": [],
+          "error_message": "Select a space",
+          "data_type": "string"
+        }
+      ]
+    },
+    {
+      "title": "Contact details",
+      "decription": "Amazing, let us know how can we get ahold of you so we can talk further.",
+      "page_key": "page_2",
+      "questions": [
+        {
+          "title": "Full Name",
+          "placeholder": "What's your full name",
+          "question_type": "text",
+          "question_key": "full_name",
+          "required": true,
+          "options": [],
+          "validations": [],
+          "error_message": "Enter your full name",
+          "data_type": "string"
+        },
+        {
+          "title": "Email",
+          "placeholder": "elle@website.com",
+          "question_type": "email",
+          "question_key": "email",
+          "required": true,
+          "options": [],
+          "validations": [],
+          "error_message": "Enter an email",
+          "data_type": "email"
+        },
+        {
+          "title": "Phone",
+          "placeholder": "562-426-0555",
+          "question_type": "phone",
+          "question_key": "phone",
+          "required": true,
+          "options": [],
+          "validations": [],
+          "error_message": "Enter a phone number",
+          "data_type": "phone"
+        }
+      ]
+    },
+    {
+      "title": "Recap",
+      "description": "Here’s what we’ve heard, if everything looks okay hit “submit.”",
+      "page_key": "review_and_submit",
+      "questions": [
+        {
+          "title": "Additional Details",
+          "placeholder": "Share anything else we need to know",
+          "question_type": "text_area",
+          "question_key": "additional_details",
+          "required": false,
+          "options": [],
+          "validations": [
+            {
+              "rule": "max_length",
+              "value": 500,
+              "error_message": "Please provide 500 characters or less"
+            }
+          ],
+          "error_message": "Please provide a valid answer",
+          "data_type": "string"
+        }
+      ]
+    }
+  ]
+}
