@@ -3,6 +3,7 @@
   "label": "Tour Child Page",
   "repeatable": true,
   "status": true,
+  "format": "page",
   "json": {
     "Main": {
       "uid": { "type": "UID", "config": { "label": "UID", "placeholder": "" } },

@@ -63,9 +63,15 @@ export const TileItem = ({
           headline: "!text-sm",
           content: "",
         };
-      case "Black/White":
+      case "Red/White":
         return {
           container: "bg-red text-white border-black",
+          headline: "",
+          content: "",
+        };
+      case "Black/White":
+        return {
+          container: "bg-black text-white border-white",
           headline: "",
           content: "",
         };
@@ -89,7 +95,7 @@ export const TileItem = ({
         };
       case "Gold/Black":
         return {
-          container: "bg-gold text-black border-black",
+          container: "bg-red text-white border-black",
           headline: "",
           content: "",
         };

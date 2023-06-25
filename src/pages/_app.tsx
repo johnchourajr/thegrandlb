@@ -7,6 +7,7 @@ import type { AppProps } from "next/app";
 import AppWrapper from "@/components/AppWrapper";
 import Cursor from "@/components/Cursor";
 import FormOverlay from "@/components/form/FormOverlay";
+import ToastRoot from "@/components/ToastRoot";
 import "@/styles/globals.css";
 import { PrismicPreview } from "@prismicio/next";
 import { PrismicProvider } from "@prismicio/react";
@@ -128,6 +129,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 toggleModalOverlay={toggleModalOverlay}
               />
               <Cursor />
+              <ToastRoot />
             </AppWrapper>
           </LazyMotion>
         </MotionConfig>

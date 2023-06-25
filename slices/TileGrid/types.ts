@@ -7,6 +7,7 @@ import {
 } from "framer-motion";
 
 export type TileTheme =
+  | "Red/White"
   | "Black/White"
   | "White/Black"
   | "Creme/Black"

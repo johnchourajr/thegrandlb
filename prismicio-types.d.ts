@@ -1422,17 +1422,6 @@ interface PageDocumentData {
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
    * - **API ID Path**: page.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
-   *
-   */
-  slices: prismicT.SliceZone<PageDocumentDataSlicesSlice>;
-  /**
-   * Slice Zone field in *Page*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: page.slices[]
    * - **Tab**: Sections
    * - **Documentation**: https://prismic.io/docs/core-concepts/slices
    *
@@ -1476,12 +1465,8 @@ interface PageDocumentData {
  * Slice for *Page → Slice Zone*
  *
  */
-type PageDocumentDataSlicesSlice = HeroDetailPageSliceSlice;
-/**
- * Slice for *Page → Slice Zone*
- *
- */
 type PageDocumentDataSlicesSlice =
+  | HeroDetailPageSliceSlice
   | HomepageNumbersSlice
   | PageHeroSlice
   | HomepageLocationSlice
@@ -3352,6 +3337,16 @@ export interface SplitScrollSectionSliceDefaultItem {
    *
    */
   media: prismicT.ImageField<never>;
+  /**
+   * Headline Size field in *SplitScrollSection → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: split_scroll_section.items[].headline_size
+   * - **Documentation**: https://prismic.io/docs/core-concepts/select
+   *
+   */
+  headline_size: prismicT.SelectField<"md" | "lg" | "xl" | "2xl" | "3xl">;
   /**
    * Headline field in *SplitScrollSection → Items*
    *

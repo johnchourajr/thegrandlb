@@ -12,11 +12,11 @@ export type ValidationRule = {
 export type Question = {
   title: string;
   placeholder: string;
-  question_type: string;
+  question_type: "dropdown" | "number" | "text" | "date_picker";
   question_key: string;
   required: boolean;
   options: Option[];
-  validations: ValidationRule[];
+  validations: ValidationRule;
   error_message: string;
   data_type: string;
 };
@@ -28,13 +28,9 @@ export type FormPage = {
   questions: Question[];
 };
 
-export type FormDataType = {
-  pages: FormPage[];
-};
-
-export function validateForm(formData: FormDataType): boolean {
+export function validateForm(formData: FormPage[]): boolean {
   // Iterate over the form pages
-  for (const page of formData.pages) {
+  for (const page of formData) {
     // Iterate over the questions in each page
     for (const question of page.questions) {
       // Perform your validation logic here for each question
@@ -49,12 +45,67 @@ export function validateForm(formData: FormDataType): boolean {
   return true; // Replace this with your actual validation logic
 }
 
-export function getFormData(): FormData {
+export function getFormData(): FormPage[] {
   const jsonData = require("./form.json");
-  return jsonData as FormData;
+  return jsonData as FormPage[];
 }
 
-export function getFormPages(): FormPage[] {
-  const jsonData = require("./form.json");
-  return jsonData.pages as FormPage[];
+export const fieldTypes = {
+  event_name: "",
+  event_type: "",
+  desired_date: "",
+  desired_time: "",
+  head_count: "",
+  desired_space: "",
+  full_name: "",
+  email: "",
+  phone: "",
+  additional_details: "",
+};
+
+export type FieldTypeValues =
+  | "event_name"
+  | "event_type"
+  | "desired_date"
+  | "desired_time"
+  | "head_count"
+  | "desired_space"
+  | "full_name"
+  | "email"
+  | "phone"
+  | "additional_details";
+
+export type FieldTypes = {
+  [K in keyof typeof fieldTypes]: string | number;
+};
+
+export interface FormStateType {
+  [key: string]: FieldTypes;
+}
+
+export interface FieldValue {
+  value: any;
+  isValid?: boolean;
+  page_key?: string;
+}
+
+export interface FormState {
+  [fieldName: string]: FieldValue;
+}
+
+export interface InputProps {
+  name: FieldTypes;
+  page_key: string;
+  onBlur: () => void;
+  placeholder: string;
+  handleFormChange: (
+    fieldName: FieldTypes,
+    value: any,
+    pageKey: string,
+    validations?: any
+  ) => void;
+  validations: any;
+  value: any;
+  options: string[]; // Update with the appropriate type for options
+  className?: string;
 }

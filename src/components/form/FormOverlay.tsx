@@ -1,11 +1,19 @@
 import clsx from "clsx";
 import { m } from "framer-motion";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { GridSection } from "../GridSection";
+import MapContainer from "../MapContainer";
+import InquireFormContainer from "./InquireFormContainer";
 
-const FormOverlay = ({ className, toggleModalOverlay, modalOverlay }: any) => {
+const FormOverlay = ({
+  className,
+  toggleModalOverlay,
+  modalOverlay,
+  ...extra
+}: any) => {
   const [formInProgress, setFormInProgress] = useState(false);
+  const { pathname } = useRouter();
 
   useEffect(() => {
     if (modalOverlay) {
@@ -26,7 +34,16 @@ const FormOverlay = ({ className, toggleModalOverlay, modalOverlay }: any) => {
     };
   }, [modalOverlay]);
 
-  const formMinAndInProgress = formInProgress && !modalOverlay;
+  const getContent = () => {
+    switch (pathname) {
+      case "/inquire":
+        return <InquireFormContainer {...extra} />;
+      case "/map":
+        return <MapContainer {...extra} />;
+      default:
+        return "";
+    }
+  };
 
   return (
     <>
@@ -39,7 +56,7 @@ const FormOverlay = ({ className, toggleModalOverlay, modalOverlay }: any) => {
       </Head>
       <m.div
         className={clsx(
-          "header-height inset-grid-gutter fixed bottom-0 left-0 z-40 bg-[white]",
+          "header-height inset-grid-gutter fixed bottom-0 left-0 z-40 bg-bg",
           className
         )}
         variants={{
@@ -67,16 +84,7 @@ const FormOverlay = ({ className, toggleModalOverlay, modalOverlay }: any) => {
         initial="initial"
         animate={modalOverlay ? "animate" : "initial"}
       >
-        <GridSection
-          id="inquire-form"
-          topSpacer={"None"}
-          bottomSpacer={"None"}
-          className="relative"
-        >
-          <div className="grid-inset col-span-full flex items-center justify-center lg:justify-end">
-            <></>
-          </div>
-        </GridSection>
+        {getContent()}
       </m.div>
     </>
   );

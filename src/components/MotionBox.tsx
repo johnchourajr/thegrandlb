@@ -10,6 +10,7 @@ type MotionBoxProps<Props = any> = {
   whileInView?: boolean;
   children: React.ReactNode;
   className?: string;
+  delay?: number;
   /* @deprecated */
   as?: MotionBoxElementType;
 } & Props;
@@ -22,6 +23,7 @@ const MotionBox: React.FC<MotionBoxType> = ({
   ref = null,
   as = "div",
   whileInView = true,
+  delay = 0,
   children,
   ...rest
 }) => {
@@ -35,6 +37,7 @@ const MotionBox: React.FC<MotionBoxType> = ({
         staggerChildren: 0.1,
         delayChildren: 0.1,
         duration: 2,
+        delay: delay,
         ease: [0.19, 1, 0.22, 1],
       },
     },

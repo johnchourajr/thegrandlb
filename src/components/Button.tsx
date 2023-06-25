@@ -27,15 +27,16 @@ interface ButtonTypes {
   params?: string;
   as?: "span" | "button";
   target?: "_blank" | "_self" | "_parent" | "_top";
-  onClick?: () => void | ButtonTypes;
+  onClick?: () => void | ButtonTypes | any;
   text?: string | null;
   buttonType?: "submit" | "button" | "reset";
-  type?: "black" | "white" | "outline" | "outline-black";
+  type?: "black" | "white" | "outline" | "outline-black" | "naked";
   size?: "large" | "default" | "small";
   className?: string;
   classNameInner?: string;
   children?: React.ReactNode;
   currentPage?: boolean;
+  tabIndex?: number;
 }
 
 /**
@@ -65,6 +66,12 @@ const getButtonStyles = (type: ButtonTypes["type"]) => {
       return {
         parent: "text-black",
         inner: "bg-transparent border-2 border-black rounded-full",
+        innerCurrentPage: "",
+      };
+    case "naked":
+      return {
+        parent: "text-black !px-0",
+        inner: "bg-transparent border-0 border-none rounded-0 ",
         innerCurrentPage: "",
       };
     default:
@@ -174,6 +181,7 @@ function Button({
       aria-label={text}
       aria-current={currentPage}
       {...getLinkProps(buttonTypeName)}
+      {...rest}
     >
       <StringText
         className="relative z-10 w-full flex-shrink-0"
