@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import MapContainer from "../MapContainer";
 import InquireFormContainer from "./InquireFormContainer";
+import InquireThanks from "./InquireThanks";
 
 const FormOverlay = ({
   className,
@@ -38,6 +39,8 @@ const FormOverlay = ({
     switch (pathname) {
       case "/inquire":
         return <InquireFormContainer {...extra} />;
+      case "/thanks":
+        return <InquireThanks {...extra} />;
       case "/map":
         return <MapContainer {...extra} />;
       default:
@@ -56,7 +59,7 @@ const FormOverlay = ({
       </Head>
       <m.div
         className={clsx(
-          "header-height inset-grid-gutter fixed bottom-0 left-0 z-40 bg-bg",
+          "header-height inset-grid-gutter fixed bottom-0 left-0 z-40",
           className
         )}
         variants={{

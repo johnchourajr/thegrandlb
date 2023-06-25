@@ -69,3 +69,17 @@ export function formatDate(date: string) {
 
   return `${month} ${day}, ${year}`;
 }
+
+// replace dashes and underscores with spaces and title case
+export function formatTitle(str: string) {
+  if (!str) return "";
+  // Replace dashes and underscores with spaces
+  const modifiedStr = str.replace(/[-_]/g, " ");
+
+  // Convert string to title case
+  const titleCaseStr = modifiedStr
+    .toLowerCase()
+    .replace(/(^|\s)\w/g, (match) => match.toUpperCase());
+
+  return titleCaseStr;
+}

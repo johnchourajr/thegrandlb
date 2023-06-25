@@ -32,6 +32,14 @@ export default function Header({
           button: "Close",
           buttonAction: toggleModalOverlay,
         };
+      case "/thanks":
+        return {
+          title: "Inquire",
+          subtitle: "",
+          showInquire: false,
+          button: "Close",
+          buttonAction: toggleModalOverlay,
+        };
       case "/map":
         return {
           title: "Map",

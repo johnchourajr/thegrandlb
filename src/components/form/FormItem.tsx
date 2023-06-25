@@ -19,7 +19,7 @@ interface FormItemProps extends Question {
   showError?: string | boolean;
   onBlur?: () => void;
   onChange?: () => void;
-  handleFormChange: HandleFormFunction; // Update the type
+  handleFormChange: HandleFormFunction;
   handleFormBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
 }
 
@@ -61,7 +61,13 @@ const FormItem = ({
   const hasError = !isValid && hasBlurred && showError;
 
   return (
-    <m.div className="relative flex h-16 flex-col" data-valid={hasError}>
+    <m.div
+      className={clsx(
+        "relative flex h-16 flex-col",
+        question_type === "text_area" && "h-48"
+      )}
+      data-valid={hasError}
+    >
       <label className="relative z-10 translate-x-[-.075em] px-3 py-1">
         <StringText as="span" size={"small"} bold uppercase>
           {title}

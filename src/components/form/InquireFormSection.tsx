@@ -1,4 +1,5 @@
 import { FormPage } from "@/data/form.types";
+import { formatDate, formatTitle } from "@/utils/utils";
 import clsx from "clsx";
 import { m } from "framer-motion";
 import { toast } from "react-hot-toast";
@@ -138,10 +139,52 @@ export const InquireFormSection = ({
             )}
           </div>
         </div>
-        <div
-          className="--bg-[yellow] flex w-1/2 flex-col gap-2 pt-4"
-          tabIndex={-1}
-        >
+        <div className="flex w-1/2 flex-col gap-2 pt-4" tabIndex={-1}>
+          {step === lastPage && (
+            <div className="flex flex-col gap-10 pb-10">
+              <div className="flex flex-col gap-4">
+                <StringText size={"small"} uppercase bold>
+                  Your Information
+                </StringText>
+                <div className="flex flex-row flex-wrap gap-5">
+                  <Text>{formState["full_name"]?.value || ""}</Text>
+                  <Text className="opacity-20">/</Text>
+                  <Text>{formState["email"]?.value || ""}</Text>
+                  <Text className="opacity-20">/</Text>
+                  <Text>{formState["phone"]?.value || ""}</Text>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <StringText size={"small"} uppercase bold>
+                  Your Message
+                </StringText>
+                <Headline size={"lg"} disableMotion>
+                  You’re inquiring about having a{" "}
+                  <span className="underline decoration-[2px] underline-offset-4">
+                    {formatTitle(formState["event_type"]?.value) || ""}
+                  </span>{" "}
+                  in{" "}
+                  <span className="underline decoration-[2px] underline-offset-4">
+                    {formatTitle(formState["desired_space"]?.value) || ""}
+                  </span>{" "}
+                  on{" "}
+                  <span className="underline decoration-[2px] underline-offset-4">
+                    {formatDate(formState["desired_date"]?.value) || ""}
+                  </span>{" "}
+                  at{" "}
+                  <span className="underline decoration-[2px] underline-offset-4">
+                    {formatTitle(formState["desired_time"]?.value) || ""}
+                  </span>{" "}
+                  for{" "}
+                  <span className="underline decoration-[2px] underline-offset-4">
+                    {formState["head_count"]?.value || ""}
+                  </span>{" "}
+                  guests.
+                </Headline>
+              </div>
+            </div>
+          )}
           {questions.map((item, index) => {
             return (
               <FormItem

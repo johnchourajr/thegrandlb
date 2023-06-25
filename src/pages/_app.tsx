@@ -73,7 +73,7 @@ export default function App({ Component, pageProps }: AppProps) {
     setModalOverlay(false);
   };
 
-  const toggleModalOverlay = (route: "/inquire" | "/map") => {
+  const toggleModalOverlay = (route: "/inquire" | "/map" | "/thanks") => {
     if (modalOverlay) {
       closeOverlay();
     } else {
@@ -82,7 +82,11 @@ export default function App({ Component, pageProps }: AppProps) {
   };
 
   useEffect(() => {
-    if (router.pathname === "/inquire" || router.pathname === "/map") {
+    if (
+      router.pathname === "/inquire" ||
+      router.pathname === "/thanks" ||
+      router.pathname === "/map"
+    ) {
       setModalOverlay(true);
     } else {
       setModalOverlay(false);

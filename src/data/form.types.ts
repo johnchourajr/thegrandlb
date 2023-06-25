@@ -12,7 +12,7 @@ export type ValidationRule = {
 export type Question = {
   title: string;
   placeholder: string;
-  question_type: "dropdown" | "number" | "text" | "date_picker";
+  question_type: "dropdown" | "number" | "text" | "date_picker" | "text_area";
   question_key: string;
   required: boolean;
   options: Option[];

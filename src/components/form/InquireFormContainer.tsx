@@ -5,6 +5,7 @@ import {
   getFormData,
 } from "@/data/form.types";
 import axios from "axios";
+import clsx from "clsx";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -87,6 +88,7 @@ const InquireFormContainer = ({ ...extra }) => {
       });
 
       toast.success("Email sent successfully");
+      router.push("/thanks");
     } catch (error) {
       console.error(error);
       toast.error("Something went wrong check inputs and try again");
@@ -126,7 +128,9 @@ const InquireFormContainer = ({ ...extra }) => {
       id="inquire-form"
       topSpacer={"None"}
       bottomSpacer={"None"}
-      className="relative h-[100%] min-h-[100%] auto-rows-[min-content] !gap-0 overflow-y-scroll rounded-tl-md rounded-tr-md !px-0"
+      className={clsx(
+        "relative h-[100%] min-h-[100%] auto-rows-[min-content] !gap-0 overflow-y-scroll rounded-tl-md rounded-tr-md bg-bg !px-0"
+      )}
     >
       {data.map((item: FormPage, index: number) => {
         return (
