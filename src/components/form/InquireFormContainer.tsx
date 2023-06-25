@@ -129,7 +129,7 @@ const InquireFormContainer = ({ ...extra }) => {
       topSpacer={"None"}
       bottomSpacer={"None"}
       className={clsx(
-        "relative h-[100%] min-h-[100%] auto-rows-[min-content] !gap-0 overflow-y-scroll rounded-tl-md rounded-tr-md bg-bg !px-0"
+        "relative h-[100%] min-h-[100%] auto-rows-[min-content] !gap-0 overflow-y-scroll rounded-tl-md rounded-tr-md bg-bg !px-0 pb-12 lg:pb-0"
       )}
     >
       {data.map((item: FormPage, index: number) => {

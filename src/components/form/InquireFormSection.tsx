@@ -30,6 +30,54 @@ const checkIfAllPageValuesAreValid = (pageInputValues: any) => {
   return allPageValuesAreValid;
 };
 
+const InquireLastPage = ({ formState }: any) => {
+  return (
+    <div className="flex flex-col gap-10 pb-10">
+      <div className="flex flex-col gap-4">
+        <StringText size={"small"} uppercase bold>
+          Your Information
+        </StringText>
+        <div className="flex flex-row flex-wrap gap-5">
+          <Text>{formState["full_name"]?.value || ""}</Text>
+          <Text className="opacity-20">/</Text>
+          <Text>{formState["email"]?.value || ""}</Text>
+          <Text className="opacity-20">/</Text>
+          <Text>{formState["phone"]?.value || ""}</Text>
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-4">
+        <StringText size={"small"} uppercase bold>
+          Your Message
+        </StringText>
+        <Headline size={"lg"} disableMotion>
+          You’re inquiring about having a{" "}
+          <span className="underline decoration-[2px] underline-offset-4">
+            {formatTitle(formState["event_type"]?.value) || ""}
+          </span>{" "}
+          in{" "}
+          <span className="underline decoration-[2px] underline-offset-4">
+            {formatTitle(formState["desired_space"]?.value) || ""}
+          </span>{" "}
+          on{" "}
+          <span className="underline decoration-[2px] underline-offset-4">
+            {formatDate(formState["desired_date"]?.value) || ""}
+          </span>{" "}
+          at{" "}
+          <span className="underline decoration-[2px] underline-offset-4">
+            {formatTitle(formState["desired_time"]?.value) || ""}
+          </span>{" "}
+          for{" "}
+          <span className="underline decoration-[2px] underline-offset-4">
+            {formState["head_count"]?.value || ""}
+          </span>{" "}
+          guests.
+        </Headline>
+      </div>
+    </div>
+  );
+};
+
 export interface InquireFormSectionProps extends FormPage {
   step: number;
   currentPage: number;
@@ -74,7 +122,7 @@ export const InquireFormSection = ({
         "after:content[''] after:absolute after:bottom-0 after:h-[3px] after:w-full after:bg-white"
       )}
     >
-      <div className="--bg-[red] w-full">
+      <div className="w-full">
         <StringText size={"default"}>
           <StringText as="span" size={"small"} bold>
             {step + 1}
@@ -90,18 +138,24 @@ export const InquireFormSection = ({
         </StringText>
       </div>
       <AppearWrap
-        className="gap-space --overflow-y-hidden --overflow-x-visible relative flex w-full"
+        className="gap-space relative flex w-full flex-col lg:flex-row"
         currentPage={currentPage}
         step={step}
       >
-        <div className="flex w-1/4 grow flex-col justify-between gap-8 pt-4">
+        <div className="flex grow flex-col justify-between gap-8 pt-4 lg:w-1/4">
           <div className="flex flex-col gap-2">
             <Headline size={"sm"} disableMotion>
               {title}
             </Headline>
             <Text className={"max-w-[18em]"}>{description}</Text>
           </div>
-          <div className="flex gap-6">
+          <div
+            className={clsx(
+              "fixed bottom-0 left-0 z-50 flex w-full items-center justify-center gap-6 p-2",
+              "lg:relative lg:left-[unset] lg:bottom-[unset] lg:items-start lg:justify-start lg:p-0",
+              "via-50% bg-gradient-to-b from-[transparent] to-bg"
+            )}
+          >
             {step !== 0 && (
               <Button
                 as="button"
@@ -139,52 +193,8 @@ export const InquireFormSection = ({
             )}
           </div>
         </div>
-        <div className="flex w-1/2 flex-col gap-2 pt-4" tabIndex={-1}>
-          {step === lastPage && (
-            <div className="flex flex-col gap-10 pb-10">
-              <div className="flex flex-col gap-4">
-                <StringText size={"small"} uppercase bold>
-                  Your Information
-                </StringText>
-                <div className="flex flex-row flex-wrap gap-5">
-                  <Text>{formState["full_name"]?.value || ""}</Text>
-                  <Text className="opacity-20">/</Text>
-                  <Text>{formState["email"]?.value || ""}</Text>
-                  <Text className="opacity-20">/</Text>
-                  <Text>{formState["phone"]?.value || ""}</Text>
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <StringText size={"small"} uppercase bold>
-                  Your Message
-                </StringText>
-                <Headline size={"lg"} disableMotion>
-                  You’re inquiring about having a{" "}
-                  <span className="underline decoration-[2px] underline-offset-4">
-                    {formatTitle(formState["event_type"]?.value) || ""}
-                  </span>{" "}
-                  in{" "}
-                  <span className="underline decoration-[2px] underline-offset-4">
-                    {formatTitle(formState["desired_space"]?.value) || ""}
-                  </span>{" "}
-                  on{" "}
-                  <span className="underline decoration-[2px] underline-offset-4">
-                    {formatDate(formState["desired_date"]?.value) || ""}
-                  </span>{" "}
-                  at{" "}
-                  <span className="underline decoration-[2px] underline-offset-4">
-                    {formatTitle(formState["desired_time"]?.value) || ""}
-                  </span>{" "}
-                  for{" "}
-                  <span className="underline decoration-[2px] underline-offset-4">
-                    {formState["head_count"]?.value || ""}
-                  </span>{" "}
-                  guests.
-                </Headline>
-              </div>
-            </div>
-          )}
+        <div className="flex flex-col gap-2 pt-4 lg:w-1/2" tabIndex={-1}>
+          {step === lastPage && <InquireLastPage formState={formState} />}
           {questions.map((item, index) => {
             return (
               <FormItem
