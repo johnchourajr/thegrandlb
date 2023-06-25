@@ -61,7 +61,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   // when navigating to /inquire set state to true
 
-  const openOverlay = (route: "/inquire" | "/map") => {
+  const openOverlay = (route: "/inquire" | "/map" | "/thanks") => {
     if (router.pathname === route) return;
     router.push(route);
     setModalOverlay(true);
