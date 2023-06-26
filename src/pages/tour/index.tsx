@@ -19,8 +19,6 @@ const Page = ({ page, cta, footer_cards }: any) => {
 
   const { icon_media, headline, body, spaces } = pageRest;
 
-  // console.log(page);
-
   return (
     <Layout page={page} hidePageUid>
       <HeroCategoryPage
