@@ -13,9 +13,18 @@ import { createClient } from "../../../prismicio";
 import { components } from "../../../slices/";
 
 const Page = ({ page, cta, footer_cards }: any) => {
+  // if (!page || !cta || !footer_cards) return null;
+
   const {
-    data: { slices, title, gallery, video_media, media, ...pageRest },
-  } = page;
+    data: {
+      slices = [],
+      title = "",
+      gallery = [],
+      video_media = "",
+      media = "",
+      ...pageRest
+    } = {},
+  } = page || {};
 
   const { icon_media, headline, body, event_pages } = pageRest;
   return (
@@ -31,14 +40,14 @@ const Page = ({ page, cta, footer_cards }: any) => {
       />
       <SliceData slice={pageRest} hidden />
       <GridBase
-        uid={page.uid}
+        uid={page?.uid}
         sectionId="event-index"
         items={event_pages}
         layoutLoader={getEventIndexLayout}
       />
-      <SliceZone slices={page.data.slices} components={components} />
+      <SliceZone slices={page?.data.slices} components={components} />
       <CtaFooter data={cta} />
-      <TileFooter uid={page.uid} footer_cards={footer_cards} />
+      <TileFooter uid={page?.uid} footer_cards={footer_cards} />
     </Layout>
   );
 };

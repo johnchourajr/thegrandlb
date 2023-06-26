@@ -93,7 +93,7 @@ const HeroDetailPage = ({
                 text={primary_action}
                 type="black"
                 size="large"
-                params={uid && `ref=${uid}`}
+                params={uid && `desired_space=${uid}`}
               />
             </m.div>
           )}

@@ -8,21 +8,10 @@ import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../../prismicio";
 import { components } from "../../../slices/";
 
-const Page = ({ navigation, settings, cta, page }: any) => {
+const Page = ({ cta, page }: any) => {
   const {
-    data: { slices, title, gallery, video_media, media, ...pageRest },
+    data: { slices, title, gallery, video_media, media },
   } = page;
-
-  console.log("page", page);
-
-  const updateUID = (uid: any) => {
-    switch (uid) {
-      case "weddings-the-grand":
-        return "weddings";
-      default:
-        return uid;
-    }
-  };
 
   return (
     <Layout page={page} hidePageUid>

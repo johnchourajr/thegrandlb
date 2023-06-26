@@ -1,8 +1,8 @@
 import Header from "@/components/Header";
-import { Atkinson_Hyperlegible, Lexend_Zetta } from "@next/font/google";
-import localFont from "@next/font/local";
 import clsx from "clsx";
 import type { AppProps } from "next/app";
+import { Atkinson_Hyperlegible, Lexend_Zetta } from "next/font/google";
+import localFont from "next/font/local";
 
 import AppWrapper from "@/components/AppWrapper";
 import Cursor from "@/components/Cursor";

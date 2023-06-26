@@ -9,8 +9,8 @@ import Layout from "@components/Layout";
 import { createClient } from "../../prismicio";
 import { components } from "../../slices";
 
-const Page = ({ cta, page, ...extra }: any) => {
-  // console.log({ extra });
+const Page = ({ cta, page }: any) => {
+  // if (!page || !cta) return null;
   const {
     data: { slices, ...pageRest },
   } = page;

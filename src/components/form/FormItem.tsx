@@ -68,7 +68,7 @@ const FormItem = ({
       )}
       data-valid={hasError}
     >
-      <label className="relative z-10 translate-x-[-.075em] px-3 py-1">
+      <label className="pointer-events-none relative z-10 translate-x-[-.075em] px-3 py-1">
         <StringText as="span" size={"small"} bold uppercase>
           {title}
         </StringText>

@@ -9,12 +9,13 @@ import { createClient } from "../../../prismicio";
 import { components } from "../../../slices";
 
 const Page = ({ page, cta, footer_cards }: any) => {
+  // if (!page || !cta || !footer_cards) return null;
   return (
     <Layout page={page}>
       <></>
-      <SliceZone slices={page.data.slices} components={components} />
+      <SliceZone slices={page?.data?.slices} components={components} />
       <CtaFooter data={cta} />
-      <TileFooter uid={page.uid} footer_cards={footer_cards} />
+      <TileFooter uid={page?.uid} footer_cards={footer_cards} />
     </Layout>
   );
 };

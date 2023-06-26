@@ -7,7 +7,6 @@ import { getTourIndexLayout } from "@/components/grid-index/utils";
 import HeroCategoryPage from "@/components/HeroCategoryPage";
 import Layout from "@/components/Layout";
 import TileFooter from "@/components/TileFooter";
-import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../../prismicio";
 import { components } from "../../../slices/";
@@ -48,20 +47,52 @@ export default Page;
 
 export async function getStaticProps({ params, previewData }: any) {
   const client = createClient({ previewData });
-  const extra = await getExtra({ previewData });
-
-  const [page, childPages] = await Promise.all([
+  const [page, childPages, navigation, settings, cta] = await Promise.all([
     client.getByUID("tour_index_page", "tour", {
       fetchLinks,
     }),
     client.getByType("tour_page"),
+    client.getByType("nav_links"),
+    client.getByType("settings"),
+    client.getByType("fragment_cta_footer", {
+      fetchLinks,
+    }),
+  ]);
+
+  const footer_cards = await Promise.all([
+    client.getByUID("fragment_card", "tour-card", {
+      fetchLinks,
+    }),
+    client.getByUID("fragment_card", "events-card", {
+      fetchLinks,
+    }),
+    client.getByUID("fragment_card", "menus-card", {
+      fetchLinks,
+    }),
   ]);
 
   return {
     props: {
       page,
-      childPages,
-      ...extra,
+      navigation,
+      settings,
+      cta,
+      footer_cards,
     },
   };
+
+  // const [page, childPages] = await Promise.all([
+  //   client.getByUID("tour_index_page", "tour", {
+  //     fetchLinks,
+  //   }),
+  //   client.getByType("tour_page"),
+  // ]);
+
+  // return {
+  //   props: {
+  //     page,
+  //     childPages,
+  //     ...extra,
+  //   },
+  // };
 }

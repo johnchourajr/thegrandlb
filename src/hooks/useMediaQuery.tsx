@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // hook for responsive breakpoints
 const useMediaQuery = (width: number) => {
@@ -19,7 +19,7 @@ const useMediaQuery = (width: number) => {
       setTargetReached(true);
     }
     return () => media.removeEventListener("change", (e) => updateTarget(e));
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return targetReached;
 };

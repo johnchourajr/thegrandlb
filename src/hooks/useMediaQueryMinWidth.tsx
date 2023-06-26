@@ -19,7 +19,7 @@ const useMediaQueryMinWidth = (width: number) => {
       setTargetReached(true);
     }
     return () => media.removeEventListener("change", (e) => updateTarget(e));
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return targetReached;
 };

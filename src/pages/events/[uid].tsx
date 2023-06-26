@@ -10,21 +10,19 @@ import { createClient } from "../../../prismicio";
 import { components } from "../../../slices";
 
 const Page = ({ page, cta, footer_cards }: any) => {
-  // console.log({ navigation, settings, cta });
-  const {
-    data: { slices, ...pageRest },
-  } = page;
+  // if (!page || !cta || !footer_cards) return null;
+  const { data: { slices = [], ...pageRest } = {} } = page || {};
 
   return (
     <Layout page={page} hidePageUid>
       <HeroDetailPage
-        uid={page.uid}
-        title={pageRest.title}
-        headline={pageRest.headline}
+        uid={page?.uid}
+        title={pageRest?.title}
+        headline={pageRest?.headline}
       />
-      <SliceZone slices={page.data.slices} components={components} />
+      <SliceZone slices={page?.data.slices} components={components} />
       <CtaFooter data={cta} />
-      <TileFooter uid={page.uid} footer_cards={footer_cards} />
+      <TileFooter uid={page?.uid} footer_cards={footer_cards} />
     </Layout>
   );
 };

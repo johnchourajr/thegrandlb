@@ -1,18 +1,16 @@
 import { useRouter } from "next/router";
 import TileGrid from "slices/TileGrid";
 
-const TileFooter = ({ footer_cards }: any) => {
+const TileFooter = ({ footer_cards = [] }: any) => {
   const { asPath } = useRouter();
 
   const pruneFooterCards = (cards: any) => {
-    return cards.filter((card: any) => {
+    return cards?.filter((card: any) => {
       return !asPath.includes(card.data.link.uid);
     });
   };
 
   const newCards = pruneFooterCards(footer_cards);
-
-  // console.log({ footer_cards, newCards });
 
   const items = newCards.map((card: any, index: number) => {
     const isSecondCard = index === 1;

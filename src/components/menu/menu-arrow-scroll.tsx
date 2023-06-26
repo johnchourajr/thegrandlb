@@ -21,7 +21,7 @@ const MenuArrowScroll: React.FC = () => {
   useEffect(() => {
     const unsubscribe = scrollY.on("change", update);
     return () => unsubscribe();
-  }, [scrollY]); //
+  }, [scrollY]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const wrapperVariants: Variants = {
     hidden: {

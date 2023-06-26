@@ -1,5 +1,5 @@
 {
-  "apiEndpoint": "https://the-grand.prismic.io/api/v2",
+  "apiEndpoint": "https://the-grand.cdn.prismic.io/api/v2",
   "repositoryName": "the-grand",
   "adapter": "@slicemachine/adapter-next",
   "libraries": ["./slices", "./slices/fragments"],
