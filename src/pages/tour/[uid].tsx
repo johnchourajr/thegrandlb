@@ -70,6 +70,6 @@ export async function getStaticPaths() {
     paths: pages.map((page) => ({
       params: { uid: page.uid?.toString() },
     })),
-    fallback: false,
+    fallback: true,
   };
 }
