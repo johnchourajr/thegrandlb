@@ -7,6 +7,7 @@ import localFont from "next/font/local";
 import AppWrapper from "@/components/AppWrapper";
 import Cursor from "@/components/Cursor";
 import FormOverlay from "@/components/form/FormOverlay";
+import TagScripts from "@/components/TagScript";
 import ToastRoot from "@/components/ToastRoot";
 import "@/styles/globals.css";
 import { PrismicPreview } from "@prismicio/next";
@@ -119,6 +120,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 modalOverlay && "overflow-hidden bg-black"
               )}
             >
+              <TagScripts />
               {/* HEADER NAV */}
               <Header
                 modalOverlay={modalOverlay}

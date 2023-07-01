@@ -35,7 +35,9 @@ const Cursor: React.FC = () => {
 
   useEffect(() => {
     const anchorLinks = document.querySelectorAll("a");
-    const buttonsElements = document.querySelectorAll("button");
+    const buttonsElements =
+      document.querySelectorAll("button") ||
+      document.querySelectorAll("[data-cursor='button']");
     const videosElements = document.querySelectorAll("[data-cursor='video']");
     const prevArrow = document.querySelectorAll("[data-cursor='arrow-left']");
     const nextArrow = document.querySelectorAll("[data-cursor='arrow-right']");
@@ -134,7 +136,7 @@ const Cursor: React.FC = () => {
       scale: 0.5,
       "--top": ".35rem",
       "--left": ".2rem",
-      "--bkg": "rgba(60,56,54,0)",
+      "--bkg-opacity": 0,
     },
     default: {
       opacity: 0,
@@ -143,35 +145,35 @@ const Cursor: React.FC = () => {
       "--height": "3rem",
       "--top": ".35rem",
       "--left": ".2rem",
-      "--bkg": "rgba(60,56,54,0)",
+      "--bkg-opacity": 0,
     },
     link: {
       "--width": "2rem",
       "--height": "2rem",
       "--top": ".35rem",
       "--left": ".2rem",
-      "--bkg": "rgba(60,56,54,1)",
+      "--bkg-opacity": 1,
     },
     video: {
       "--width": "3rem",
       "--height": "3rem",
       "--top": ".35rem",
       "--left": ".2rem",
-      "--bkg": "rgba(60,56,54,0)",
+      "--bkg-opacity": 0,
     },
     "arrow-left": {
       "--width": "6rem",
       "--height": "6rem",
       "--top": ".35rem",
       "--left": ".2rem",
-      "--bkg": "rgba(60,56,54,0)",
+      "--bkg-opacity": 0,
     },
     "arrow-right": {
       "--width": "6rem",
       "--height": "6rem",
       "--top": ".35rem",
       "--left": ".2rem",
-      "--bkg": "rgba(60,56,54,0)",
+      "--bkg-opacity": 0,
     },
   } as any;
 
@@ -209,7 +211,7 @@ const Cursor: React.FC = () => {
         className={clsx(
           "pointer-events-none h-[1px] w-[1px] items-center justify-center text-[#3C3836] ",
           " origin-center transform transition-transform duration-150 ease-out",
-          "after:--backdrop-blur-[.5rem] after:absolute after:top-[var(--top)] after:left-[var(--left)] after:h-[var(--height)] after:w-[var(--width)] after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:border-2 after:border-[#3C3836] after:bg-[var(--bkg)] after:opacity-60",
+          "after:--backdrop-blur-[.5rem] after:absolute after:top-[var(--top)] after:left-[var(--left)] after:h-[var(--height)] after:w-[var(--width)] after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:border-2 after:border-[#3C3836] after:bg-[#3c3836] after:bg-opacity-[var(--bkg-opacity)] after:opacity-60",
           isHoveringArrow && "!mix-blend-normal after:!border-white"
           // "fixed top-0 left-0 "
         )}

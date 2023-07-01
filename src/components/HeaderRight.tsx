@@ -37,7 +37,7 @@ export const HeaderRight = ({
   };
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence mode="sync">
       {!modalOverlay && (
         <AnimatedNav
           className={clsx(

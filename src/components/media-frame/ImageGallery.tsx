@@ -236,7 +236,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
       >
         <div className="relative z-10 h-full w-full ">
           <ParallaxWrapper>
-            <AnimatePresence mode={"wait"}>
+            <AnimatePresence mode={"sync"}>
               {images.map(({ media, caption }: any, i) => {
                 const isActive = i === currentImageIndex;
                 return (

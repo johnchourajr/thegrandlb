@@ -79,7 +79,7 @@ export const VideoProgressButton = ({
           />
         )}
       </m.svg>
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="sync">
         {playing ? (
           <PauseIcon
             className={clsx(
