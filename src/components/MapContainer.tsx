@@ -3,28 +3,88 @@ import { m } from "framer-motion";
 import { useEffect, useState } from "react";
 import { GridSection } from "./GridSection";
 import Headline from "./Headline";
+import Link from "./Link";
 import Text from "./Paragraph";
+import StringText from "./StringText";
 import Map from "./svg/Map";
 
-// const ItemFilter = ({ ...extra }) => {
-//   return (
-//     <div className="grid-inset w-full border-b-[1px] border-[#C8C2BC] py-4 xl:py-8">
-//       <Text size={"small"}>Filter</Text>
-//     </div>
-//   );
-// };
+const ItemSelected = ({ filteredItem, ...extra }: any) => {
+  const { key, name, attributes } = filteredItem || {};
 
-const ItemList = ({ items, hoveredItemKey, onItemHover }: any) => {
   return (
-    <ul className="grid-inset flex w-full flex-col gap-5 py-4 !pr-10 pb-10 xl:py-10">
-      <Text size={"small"}>Showing all {items.length} spaces</Text>
+    <div className="grid-inset flex w-full flex-col gap-1 border-b-[1px] border-[#C8C2BC] py-4 xl:py-8">
+      {name && (
+        <Link href={`/tour/${key}`}>
+          <Headline size={"md"} animateOnce>
+            {name}
+          </Headline>
+        </Link>
+      )}
+      {!name && (
+        <Headline size={"md"} className="opacity-50" animateOnce>
+          Choose a space
+        </Headline>
+      )}
+      <m.div className="flex flex-row gap-2">
+        {attributes ? (
+          attributes.map((attribute: any) => (
+            <Text key={attribute} size={"small"}>
+              {attribute}
+            </Text>
+          ))
+        ) : (
+          <Text size={"small"}>Select a space for more details</Text>
+        )}
+      </m.div>
+    </div>
+  );
+};
+
+const ItemList = ({
+  items,
+  hoveredItemKey,
+  onItemHover,
+  selectedItemKey,
+  onItemSelect,
+}: any) => {
+  const variants = {
+    initial: {
+      opacity: 0.3,
+      "--after-opacity": 0,
+    },
+    selected: {
+      opacity: 1,
+      "--after-opacity": 0.2,
+    },
+    hover: {
+      opacity: 1,
+      "--after-opacity": 0.05,
+    },
+  } as any;
+
+  return (
+    <ul className="grid-inset flex w-full flex-col gap-4 py-4 !pr-10 pb-10 xl:py-10">
       {items.map((item: any) => (
         <m.li
           key={item.key}
-          onMouseEnter={() => onItemHover(item.key)}
-          onTouchStart={() => onItemHover(item.key)}
-          animate={{ opacity: hoveredItemKey === item.key ? 1 : 0.3 }}
-          className={clsx("flex flex-col")}
+          variants={variants}
+          onClick={() => onItemSelect(item.key)}
+          onMouseOver={() => onItemHover(item.key)}
+          onMouseOut={() => onItemHover(null)}
+          animate={
+            selectedItemKey === item.key
+              ? "selected"
+              : hoveredItemKey === item.key
+              ? "hover"
+              : "initial"
+          }
+          className={clsx(
+            "relative z-10 flex cursor-pointer flex-col py-2",
+            "after:contents-[''] after:absolute after:-inset-x-4 after:-inset-y-1 after:z-[-1] after:rounded-md after:bg-black after:opacity-[var(--after-opacity)]"
+          )}
+          transition={{
+            duration: 0.3,
+          }}
           data-cursor="button"
         >
           <div
@@ -32,16 +92,9 @@ const ItemList = ({ items, hoveredItemKey, onItemHover }: any) => {
               "flex h-[min-content] w-full flex-row items-baseline justify-between gap-1"
             )}
           >
-            <Headline size={"md"}>{item.name}</Headline>
             <Text size={"small"}>{item.letter}</Text>
+            <StringText size={"large"}>{item.name}</StringText>
           </div>
-          <m.div className="flex flex-row gap-2">
-            {item.attributes.map((attribute: any) => (
-              <Text key={attribute} size={"small"}>
-                {attribute}
-              </Text>
-            ))}
-          </m.div>
         </m.li>
       ))}
     </ul>
@@ -103,6 +156,7 @@ type itemType = {
 
 const MapContainer = ({ ...extra }) => {
   const [hoveredItemKey, setHoveredItemKey] = useState(null);
+  const [selectedItemKey, setSelectedItemKey] = useState(null);
   const [filteredList, setFilteredList] = useState<itemType[]>([]);
 
   useEffect(() => {
@@ -112,6 +166,16 @@ const MapContainer = ({ ...extra }) => {
   const handleItemHover = (itemKey: any) => {
     setHoveredItemKey(itemKey);
     console.log({ itemKey });
+  };
+
+  const handleItemSelect = (itemKey: any) => {
+    setSelectedItemKey(itemKey);
+    console.log({ itemKey });
+  };
+
+  const getFilteredItem = () => {
+    if (!selectedItemKey) return false;
+    return items.filter((item) => item.key === selectedItemKey)[0];
   };
 
   return (
@@ -124,11 +188,13 @@ const MapContainer = ({ ...extra }) => {
       )}
     >
       <div className="relative col-span-full row-start-2 flex flex-col items-start justify-start border-t-[1px] border-[#C8C2BC] xl:col-span-4 xl:row-start-1 xl:border-t-0 xl:border-r-[1px]">
-        {/* <ItemFilter /> */}
+        <ItemSelected filteredItem={getFilteredItem()} />
         <ItemList
           items={filteredList}
           hoveredItemKey={hoveredItemKey}
           onItemHover={handleItemHover}
+          selectedItemKey={selectedItemKey}
+          onItemSelect={handleItemSelect}
         />
       </div>
       <div className="relative col-span-full row-start-1 flex h-[70vw] items-center justify-center overflow-hidden xl:col-span-8 xl:h-[calc(100vh-9rem)]">
@@ -136,6 +202,8 @@ const MapContainer = ({ ...extra }) => {
           className="relative h-full w-full"
           hoveredItemKey={hoveredItemKey}
           onMapAreaHover={handleItemHover}
+          selectedItemKey={selectedItemKey}
+          onItemSelect={handleItemSelect}
         />
       </div>
     </GridSection>

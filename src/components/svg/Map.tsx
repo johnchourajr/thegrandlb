@@ -1,10 +1,15 @@
 import { m } from "framer-motion";
 import { SVGProps } from "react";
 
-const HighlightOverlays = ({ hoverItemKey, onMapAreaHover }: any) => {
+const HighlightOverlays = ({
+  hoverItemKey,
+  onMapAreaHover,
+  selectedItemKey,
+  onItemSelect,
+}: any) => {
   const variants = {
     initial: { fillOpacity: 0, strokeWidth: 0, pathLength: 0 },
-    animate: {
+    selected: {
       fillOpacity: 1,
       strokeWidth: 2.5,
       pathLength: 1,
@@ -15,13 +20,18 @@ const HighlightOverlays = ({ hoverItemKey, onMapAreaHover }: any) => {
         },
       },
     },
+    hover: {
+      fillOpacity: 0.5,
+      cursor: "pointer",
+    },
   };
 
-  const getHoverState = (hover: any, key: any) => {
+  const getHoverState = (selectKey: any, hoverKey: any, key: any) => {
     return {
       variants,
       initial: "initial",
-      animate: hover === key ? "animate" : "initial",
+      animate:
+        selectKey === key ? "selected" : hoverKey === key ? "hover" : "initial",
       stroke: "#311514",
       fill: "rgba(49, 21, 20, 0.3)",
     };
@@ -34,60 +44,56 @@ const HighlightOverlays = ({ hoverItemKey, onMapAreaHover }: any) => {
       }}
       data-active={hoverItemKey}
     >
-      <m.path
+      <m.g
         id="monarch-room"
+        onClick={() => onItemSelect("monarch-room")}
         onMouseEnter={() => onMapAreaHover("monarch-room")}
-        onTouchStart={() => onMapAreaHover("monarch-room")}
-        {...getHoverState(hoverItemKey, "monarch-room")}
-        d="m278.081 151.499-56.503 27.84-3.746-7.213-86.36 42.324-64.595-112.791 77.598-41.241 133.606 91.081Z"
-      />
-      <m.path
-        id="monarch-room"
-        onMouseEnter={() => onMapAreaHover("monarch-room")}
-        onTouchStart={() => onMapAreaHover("monarch-room")}
-        {...getHoverState(hoverItemKey, "monarch-room")}
-        d="m295.504 301.266-18.261 9.319-79.193 40.076-67.326-129.522.748-6.689 86.36-42.324 3.746 7.213-.257.234 13.724-6.867 57.634 108.343-6.099 3.308 8.924 16.909Z"
-      />
+        {...getHoverState(selectedItemKey, hoverItemKey, "monarch-room")}
+      >
+        <m.path d="m278.081 151.499-56.503 27.84-3.746-7.213-86.36 42.324-64.595-112.791 77.598-41.241 133.606 91.081Z" />
+        <m.path d="m295.504 301.266-18.261 9.319-79.193 40.076-67.326-129.522.748-6.689 86.36-42.324 3.746 7.213-.257.234 13.724-6.867 57.634 108.343-6.099 3.308 8.924 16.909Z" />
+      </m.g>
+
       <m.path
         id="grand-ballroom"
+        onClick={() => onItemSelect("grand-ballroom")}
         onMouseEnter={() => onMapAreaHover("grand-ballroom")}
-        onTouchStart={() => onMapAreaHover("grand-ballroom")}
-        {...getHoverState(hoverItemKey, "grand-ballroom")}
+        {...getHoverState(selectedItemKey, hoverItemKey, "grand-ballroom")}
         d="m672.939 231.506 175.787.115 4.682 186.74-.349 15.032-29.758-.062V480L675.5 481l-1.85-177.518.149.006-.86-71.982Z"
       />
       <m.path
         id="palm-terrace"
+        onClick={() => onItemSelect("palm-terrace")}
         onMouseEnter={() => onMapAreaHover("palm-terrace")}
-        onTouchStart={() => onMapAreaHover("palm-terrace")}
-        {...getHoverState(hoverItemKey, "palm-terrace")}
+        {...getHoverState(selectedItemKey, hoverItemKey, "palm-terrace")}
         d="m607.34 390.114 41.677.43.719-87.453 23.915.391-.712-71.976.44-19.229-54.833-.016-.007-.004-214.475-.054-98.234-59.962-4.757 12.34 46.456 86.713 14.971-7.772 43.944 84.941 7.209-3.222 14.78 32.002-9.959 23.343 42.012 25.644 13.084-21.435 35.953.86-.186 36.579 83.43-.047.355-15.027 14.23.111-.012-17.157Z"
       />
       <m.path
         id="board-room"
+        onClick={() => onItemSelect("board-room")}
         onMouseEnter={() => onMapAreaHover("board-room")}
-        onTouchStart={() => onMapAreaHover("board-room")}
-        {...getHoverState(hoverItemKey, "board-room")}
+        {...getHoverState(selectedItemKey, hoverItemKey, "board-room")}
         d="m299.037 352.956-78.884 40.227-22.103-42.523 79.193-40.076 21.794 42.372Z"
       />
       <m.path
         id="pacific-room"
+        onClick={() => onItemSelect("pacific-room")}
         onMouseEnter={() => onMapAreaHover("pacific-room")}
-        onTouchStart={() => onMapAreaHover("pacific-room")}
-        {...getHoverState(hoverItemKey, "pacific-room")}
+        {...getHoverState(selectedItemKey, hoverItemKey, "pacific-room")}
         d="m406.444 328.463-40.399 20.12 8.899 19.447.265.581-35.593 16.241-53.036-100.495 60.949-33.063 14.971-7.773 43.944 84.942Z"
       />
       <m.path
         id="garden-room"
+        onClick={() => onItemSelect("garden-room")}
         onMouseEnter={() => onMapAreaHover("garden-room")}
-        onTouchStart={() => onMapAreaHover("garden-room")}
-        {...getHoverState(hoverItemKey, "garden-room")}
+        {...getHoverState(selectedItemKey, hoverItemKey, "garden-room")}
         d="m460.486 406.23 13.084-21.435 35.952.861-.185 36.578 83.43-.047.356-15.027 14.229.111-.012-17.157 41.677.43.476 66.287-8.364.117.065 10.043-12.764-.169-.047 15.692-187.068-2.714-68.748-41.964 37.921-62.125 49.998 30.519Z"
       />
       <m.path
         id="catalina-room"
+        onClick={() => onItemSelect("catalina-room")}
         onMouseEnter={() => onMapAreaHover("catalina-room")}
-        onTouchStart={() => onMapAreaHover("catalina-room")}
-        {...getHoverState(hoverItemKey, "catalina-room")}
+        {...getHoverState(selectedItemKey, hoverItemKey, "catalina-room")}
         d="m660.711 661.272-.056 25.061-51.848-.131.026-14.456-113.591-.29-.034 15.576-39.466-.1.223-100.599L432 571.705l22.435-36.754 72.304-.34 28.039-.245 63.551-.366-.019 99.313 5.199 4.365.601 17.754 5.147 5.324 31.454.516Z"
       />
     </g>
@@ -97,6 +103,8 @@ const HighlightOverlays = ({ hoverItemKey, onMapAreaHover }: any) => {
 const Map = ({
   hoveredItemKey,
   onMapAreaHover,
+  selectedItemKey,
+  onItemSelect,
   ...props
 }: SVGProps<SVGSVGElement> | any) => {
   const variants = {
@@ -588,6 +596,8 @@ const Map = ({
         <HighlightOverlays
           hoverItemKey={hoveredItemKey}
           onMapAreaHover={onMapAreaHover}
+          selectedItemKey={selectedItemKey}
+          onItemSelect={onItemSelect}
         />
       </g>
       <defs>
