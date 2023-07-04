@@ -12,9 +12,12 @@ const ItemSelected = ({ filteredItem, ...extra }: any) => {
   const { key, name, attributes } = filteredItem || {};
 
   return (
-    <div className="grid-inset flex w-full flex-col gap-1 border-b-[1px] border-[#C8C2BC] py-4 xl:py-8">
+    <div className="grid-inset flex w-full flex-col gap-2 border-b-[1px] border-[#C8C2BC] py-4 xl:py-8">
       {name && (
-        <Link href={`/tour/${key}`}>
+        <Link
+          href={`/tour/${key}`}
+          className="decoration-1 underline-offset-4 hover:underline"
+        >
           <Headline size={"md"} animateOnce>
             {name}
           </Headline>
@@ -27,11 +30,18 @@ const ItemSelected = ({ filteredItem, ...extra }: any) => {
       )}
       <m.div className="flex flex-row gap-2">
         {attributes ? (
-          attributes.map((attribute: any) => (
-            <Text key={attribute} size={"small"}>
-              {attribute}
-            </Text>
-          ))
+          <>
+            {attributes.map((attribute: any) => (
+              <Text key={attribute} size={"small"}>
+                {attribute} <span>/</span>{" "}
+              </Text>
+            ))}
+            {key && (
+              <Text as="span" size={"small"} className="underline">
+                <Link href={`tour/${key}`}>View space</Link>
+              </Text>
+            )}
+          </>
         ) : (
           <Text size={"small"}>Select a space for more details</Text>
         )}
@@ -51,14 +61,17 @@ const ItemList = ({
     initial: {
       opacity: 0.3,
       "--after-opacity": 0,
+      "--after-color": "#311514",
     },
     selected: {
       opacity: 1,
-      "--after-opacity": 0.2,
+      "--after-opacity": 1,
+      "--after-color": "#ffffff",
     },
     hover: {
       opacity: 1,
       "--after-opacity": 0.05,
+      "--after-color": "#311514",
     },
   } as any;
 
@@ -80,7 +93,7 @@ const ItemList = ({
           }
           className={clsx(
             "relative z-10 flex cursor-pointer flex-col py-2",
-            "after:contents-[''] after:absolute after:-inset-x-4 after:-inset-y-1 after:z-[-1] after:rounded-md after:bg-black after:opacity-[var(--after-opacity)]"
+            "after:contents-[''] after:absolute after:-inset-x-4 after:-inset-y-1 after:z-[-1] after:rounded-md after:bg-[var(--after-color)] after:opacity-[var(--after-opacity)]"
           )}
           transition={{
             duration: 0.3,
@@ -156,7 +169,7 @@ type itemType = {
 
 const MapContainer = ({ ...extra }) => {
   const [hoveredItemKey, setHoveredItemKey] = useState(null);
-  const [selectedItemKey, setSelectedItemKey] = useState(null);
+  const [selectedItemKey, setSelectedItemKey] = useState("grand-ballroom");
   const [filteredList, setFilteredList] = useState<itemType[]>([]);
 
   useEffect(() => {
