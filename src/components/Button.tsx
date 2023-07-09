@@ -1,3 +1,5 @@
+import { event as handleEvent } from "@/utils/gtm";
+import { stringToCamelCase } from "@/utils/utils";
 import { PrismicLink, PrismicLinkProps } from "@prismicio/react";
 import {
   EmptyLinkField,
@@ -8,7 +10,7 @@ import {
 import clsx from "clsx";
 import { LinkProps } from "next/link";
 import { linkResolver } from "prismicio";
-import React, { ButtonHTMLAttributes } from "react";
+import React, { ButtonHTMLAttributes, useRef } from "react";
 import Link from "./Link";
 import StringText from "./StringText";
 
@@ -37,6 +39,11 @@ interface ButtonTypes {
   children?: React.ReactNode;
   currentPage?: boolean;
   tabIndex?: number;
+  eventAction?: string;
+  eventCategory?: string;
+  eventLabel?: string;
+  eventValue?: string;
+  eventNone?: boolean;
 }
 
 /**
@@ -115,8 +122,14 @@ function Button({
   classNameInner,
   children,
   currentPage,
+  eventAction,
+  eventCategory,
+  eventLabel,
+  eventValue,
+  eventNone = false,
   ...rest
 }: ButtonTypes) {
+  const buttonRef = useRef<HTMLButtonElement>(null); // Create a ref for the button element
   const isButton = onClick && ButtonElement;
   const isNextLink = href && !isButton;
   const isPrismicLink = field && !isButton;
@@ -135,6 +148,19 @@ function Button({
 
   const buttonTypeName = getType();
 
+  const handleClick = () => {
+    if (isNextLink || eventNone) return null;
+
+    onClick && onClick();
+
+    handleEvent({
+      action: stringToCamelCase(eventAction || "click"),
+      category: stringToCamelCase(eventCategory || "button"),
+      label: stringToCamelCase(eventLabel || ""),
+      value: stringToCamelCase(text || eventValue || ""),
+    });
+  };
+
   const getLinkProps = (
     type: "button" | "next-link" | "prismic-link"
   ):
@@ -149,11 +175,9 @@ function Button({
         if (params) {
           return { href: `${linkResolver(field)}?${params}` } as any;
         }
-
         return { field, linkResolver } as PrismicLinkProps;
       default:
         return {
-          onClick,
           type: buttonType,
         } as ButtonHTMLAttributes<HTMLButtonElement>;
     }
@@ -169,12 +193,14 @@ function Button({
 
   return (
     <ButtonTag
+      ref={buttonRef}
       className={clsx(
         `group relative z-50 inline-flex h-fit flex-row items-center justify-center whitespace-nowrap text-center transition-all`,
         getButtonStyles(type).parent,
         getButtonSize(size),
         className
       )}
+      onClick={() => handleClick()}
       data-current-page={currentPage}
       role="button"
       tabIndex={0}

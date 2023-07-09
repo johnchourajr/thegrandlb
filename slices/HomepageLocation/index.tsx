@@ -15,8 +15,9 @@ import { TileItem } from "slices/TileGrid/TileItem";
 /**
  * Props for `HomepageLocation`.
  */
-export type HomepageLocationProps =
-  SliceComponentProps<Content.HomepageLocationSlice>;
+export type HomepageLocationProps = SliceComponentProps<
+  Content.HomepageLocationSlice | any
+>;
 
 const HomepageLocation = ({ slice }: HomepageLocationProps): JSX.Element => {
   const {

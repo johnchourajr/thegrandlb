@@ -17,8 +17,9 @@ import { Fragment } from "react";
 /**
  * Props for `SplitScrollSection`.
  */
-export type SplitScrollSectionProps =
-  SliceComponentProps<Content.SplitScrollSectionSlice>;
+export type SplitScrollSectionProps = SliceComponentProps<
+  Content.SplitScrollSectionSlice | any
+>;
 
 const SplitScrollSection = ({
   slice,
@@ -56,7 +57,7 @@ const SplitScrollSection = ({
         overflowHidden={false}
       >
         <MotionBox className="padding-top-lg padding-bottom-lg gap-y-lg col-span-full flex flex-col items-center justify-center xl:col-span-6 xl:col-start-auto xl:row-start-1">
-          {items.map((item, index: number) => {
+          {items.map((item: any, index: number) => {
             return (
               <Fragment key={index}>
                 <NumberItem number={item.headline} {...(item as any)} />

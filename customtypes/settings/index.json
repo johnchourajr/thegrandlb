@@ -3,6 +3,7 @@
   "label": "Settings",
   "repeatable": false,
   "status": true,
+  "format": "custom",
   "json": {
     "Main": {
       "site_title": {
@@ -25,11 +26,7 @@
       },
       "logo": {
         "type": "Image",
-        "config": {
-          "constraint": {},
-          "thumbnails": [],
-          "label": "Logo"
-        }
+        "config": { "constraint": {}, "thumbnails": [], "label": "Logo" }
       },
       "og_image": {
         "type": "Image",
@@ -39,6 +36,7 @@
           "thumbnails": []
         }
       }
-    }
+    },
+    "Footer": {}
   }
 }

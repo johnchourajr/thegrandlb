@@ -7,8 +7,8 @@ import clsx from "clsx";
 import { m } from "framer-motion";
 import { useState } from "react";
 
-export const FaqItem = ({ question, answer }: any) => {
-  const [isOpen, setIsOpen] = useState(false);
+export const FaqItem = ({ question, answer, open }: any) => {
+  const [isOpen, setIsOpen] = useState(open || false);
   const toggleOpen = () => setIsOpen(!isOpen);
 
   return (

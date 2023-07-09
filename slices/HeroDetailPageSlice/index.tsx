@@ -6,8 +6,9 @@ import { SliceComponentProps } from "@prismicio/react";
 /**
  * Props for `HeroDetailPageSlice`.
  */
-export type HeroDetailPageSliceProps =
-  SliceComponentProps<Content.HeroDetailPageSliceSlice>;
+export type HeroDetailPageSliceProps = SliceComponentProps<
+  Content.HeroDetailPageSliceSlice | any
+>;
 
 /**
  * Component for "HeroDetailPageSlice" Slices.

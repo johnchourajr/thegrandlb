@@ -2,6 +2,7 @@ import Button from "@/components/Button";
 import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
 import MediaFrame from "@/components/media-frame";
+import { stringToCamelCase } from "@/utils/utils";
 import { Content } from "@prismicio/client";
 import * as prismicH from "@prismicio/helpers";
 import { SliceComponentProps } from "@prismicio/react";
@@ -17,10 +18,11 @@ import { LayoutGroup, m } from "framer-motion";
 /**
  * Props for `PageHero`.
  */
-export type PageHeroProps = SliceComponentProps<Content.PageHeroSlice>;
+export type PageHeroProps = SliceComponentProps<Content.PageHeroSlice | any>;
 
-const PageHero = ({ slice }: PageHeroProps): JSX.Element => {
+const PageHero = ({ slice, context }: PageHeroProps): JSX.Element => {
   const headline = prismicH.asText(slice.primary.headline);
+  const { uid }: any = context;
   return (
     <LayoutGroup>
       <GridSection
@@ -71,6 +73,8 @@ const PageHero = ({ slice }: PageHeroProps): JSX.Element => {
               <Button
                 field={slice.primary.primary_action_link}
                 text={slice.primary.primary_action}
+                eventCategory={stringToCamelCase(`${uid}HeroAction`)}
+                eventLabel={stringToCamelCase(`${headline}PrimaryCTA`)}
                 type="black"
                 size="large"
               />
@@ -79,6 +83,8 @@ const PageHero = ({ slice }: PageHeroProps): JSX.Element => {
               <Button
                 field={slice.primary.secondary_action_link}
                 text={slice.primary.secondary_action}
+                eventCategory={stringToCamelCase(`${uid}HeroAction`)}
+                eventLabel={stringToCamelCase(`${headline}SecondaryCTA`)}
                 type="outline"
                 size="large"
               />
@@ -91,6 +97,8 @@ const PageHero = ({ slice }: PageHeroProps): JSX.Element => {
           <Button
             field={slice.primary.primary_action_link}
             text={slice.primary.primary_action}
+            eventCategory={stringToCamelCase(`${uid}HeroAction`)}
+            eventLabel={stringToCamelCase(`${headline}PrimaryMobileCTA`)}
             type="black"
             size="large"
           />
@@ -99,6 +107,8 @@ const PageHero = ({ slice }: PageHeroProps): JSX.Element => {
           <Button
             field={slice.primary.secondary_action_link}
             text={slice.primary.secondary_action}
+            eventCategory={stringToCamelCase(`${uid}HeroAction`)}
+            eventLabel={stringToCamelCase(`${headline}SecondaryMobileCTA`)}
             type="outline-black"
             size="large"
           />

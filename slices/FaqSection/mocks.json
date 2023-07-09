@@ -5,8 +5,8 @@
 		"primary": {
 			"section_id": {
 				"__TYPE__": "FieldContent",
-				"value": "golden",
-				"type": "Text"
+				"type": "Text",
+				"value": "section"
 			},
 			"title": {
 				"__TYPE__": "FieldContent",
@@ -33,26 +33,30 @@
 			},
 			"media": {
 				"origin": {
-					"id": "main",
-					"url": "https://images.unsplash.com/photo-1560762484-813fc97650a0",
-					"width": 3344,
-					"height": 2509
+					"id": "k0jOcbLub3o",
+					"url": "https://images.unsplash.com/photo-1533641316813-7a2883c9f7a4?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzMHx8ZXh0ZXJpb3J8ZW58MHx8fHwxNjg4NTM3MzA1fDA&ixlib=rb-4.0.3&q=85",
+					"width": 3421,
+					"height": 5124
 				},
-				"url": "https://images.unsplash.com/photo-1560762484-813fc97650a0",
-				"width": 3344,
-				"height": 2509,
+				"url": "https://images.unsplash.com/photo-1533641316813-7a2883c9f7a4?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwzMHx8ZXh0ZXJpb3J8ZW58MHx8fHwxNjg4NTM3MzA1fDA&ixlib=rb-4.0.3&q=85",
+				"width": 3421,
+				"height": 5124,
 				"edit": {
+					"background": "transparent",
 					"zoom": 1,
 					"crop": {
 						"x": 0,
 						"y": 0
-					},
-					"background": "transparent"
+					}
 				},
 				"credits": null,
 				"alt": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"asset_position": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": [
@@ -83,6 +87,43 @@
 									"content": {
 										"text": "Irure reprehenderit est et id tempor eiusmod. Sint amet minim dolor exercitation occaecat duis sint duis do veniam quis officia eiusmod. Eiusmod qui excepteur amet tempor duis ipsum esse veniam."
 									}
+								}
+							]
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"question",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Pariatur amet non ipsum.",
+										"spans": []
+									},
+									"direction": "ltr"
+								}
+							]
+						}
+					],
+					[
+						"answer",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Irure reprehenderit est et id tempor eiusmod. Sint amet minim dolor exercitation occaecat duis sint duis do veniam quis officia eiusmod. Eiusmod qui excepteur amet tempor duis ipsum esse veniam.",
+										"spans": []
+									},
+									"direction": "ltr"
 								}
 							]
 						}

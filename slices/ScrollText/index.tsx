@@ -3,6 +3,7 @@ import SliceData from "@/components/dev/SliceData";
 import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
 import Tick from "@/components/TickerContainer";
+import { stringToCamelCase } from "@/utils/utils";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import clsx from "clsx";
@@ -10,9 +11,11 @@ import clsx from "clsx";
 /**
  * Props for `ScrollText`.
  */
-export type ScrollTextProps = SliceComponentProps<Content.ScrollTextSlice>;
+export type ScrollTextProps = SliceComponentProps<
+  Content.ScrollTextSlice | any
+>;
 
-const ScrollText = ({ slice }: ScrollTextProps): JSX.Element => {
+const ScrollText = ({ slice, context }: ScrollTextProps): JSX.Element => {
   const makeAriaLabel = () => {
     let ariaLabel = "";
     if (slice.primary.top_title) {
@@ -29,6 +32,8 @@ const ScrollText = ({ slice }: ScrollTextProps): JSX.Element => {
     }
     return ariaLabel;
   };
+
+  const { uid }: any = context;
 
   return (
     <>
@@ -95,6 +100,10 @@ const ScrollText = ({ slice }: ScrollTextProps): JSX.Element => {
               <Button
                 field={slice.primary.primary_action_link}
                 text={slice.primary.primary_action}
+                eventCategory={stringToCamelCase(`${uid}scrollTextAction`)}
+                eventLabel={stringToCamelCase(
+                  `${slice.primary.section_id}PrimaryCTA`
+                )}
                 type={"outline-black"}
                 size={"default"}
               />

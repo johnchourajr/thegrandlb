@@ -50,7 +50,8 @@
             "text_section": { "type": "SharedSlice" },
             "numbers_section": { "type": "SharedSlice" },
             "faq_section": { "type": "SharedSlice" },
-            "image_section": { "type": "SharedSlice" }
+            "image_section": { "type": "SharedSlice" },
+            "longform_text_section": { "type": "SharedSlice" }
           }
         }
       }

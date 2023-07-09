@@ -4,11 +4,15 @@ import {
   FormState,
   getFormData,
 } from "@/data/form.types";
+import {
+  toastEmailRrequired,
+  toastSubmitError,
+  toastSubmitSuccess,
+} from "@/utils/events";
 import axios from "axios";
 import clsx from "clsx";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { toast } from "react-hot-toast";
 import { GridSection } from "../GridSection";
 import { InquireFormSection } from "./InquireFormSection";
 
@@ -77,7 +81,7 @@ const InquireFormContainer = ({ ...extra }) => {
   };
 
   const handleFormSubmit = async () => {
-    if (!formState?.email) return toast("Email is required");
+    if (!formState?.email) return toastEmailRrequired();
 
     try {
       const email = formState.email.value;
@@ -87,15 +91,15 @@ const InquireFormContainer = ({ ...extra }) => {
         formState,
       });
 
-      toast.success("Email sent successfully");
+      toastSubmitSuccess();
       router.push("/thanks");
     } catch (error) {
       console.error(error);
-      toast.error("Something went wrong check inputs and try again");
+      toastSubmitError();
     }
 
     /**
-     * TODO: add SMS functionality
+     * @todo: add SMS functionality
      */
     // const phone = formState.phone.value;
     // if (phone) {

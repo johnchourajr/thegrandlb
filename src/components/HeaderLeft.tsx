@@ -29,6 +29,7 @@ export const HeaderLeft = ({
         title="The Grand LB"
         aria-label="homepage"
         className="flex flex-nowrap items-center justify-center"
+        eventLabel="navLogo"
       >
         <HeaderLogo className="h-12 w-32 origin-left scale-[var(--logoScale)] xl:h-32 xl:w-64" />
         <AnimatePresence mode="sync">

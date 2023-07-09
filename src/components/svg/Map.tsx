@@ -11,7 +11,7 @@ const HighlightOverlays = ({
     initial: { fillOpacity: 0, strokeWidth: 0, pathLength: 0 },
     selected: {
       fillOpacity: 1,
-      strokeWidth: 2.5,
+      strokeWidth: 3,
       pathLength: 1,
       cursor: "pointer",
       transition: {
@@ -21,7 +21,7 @@ const HighlightOverlays = ({
       },
     },
     hover: {
-      fillOpacity: 0.5,
+      fillOpacity: 0.15,
       cursor: "pointer",
     },
   };
@@ -32,7 +32,7 @@ const HighlightOverlays = ({
       initial: "initial",
       animate:
         selectKey === key ? "selected" : hoverKey === key ? "hover" : "initial",
-      stroke: "#311514",
+      stroke: "#8A2432",
       fill: "rgba(49, 21, 20, 0.3)",
     };
   };

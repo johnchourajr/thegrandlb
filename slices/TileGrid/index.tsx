@@ -11,7 +11,7 @@ import type { TileItemProps } from "./types";
 /**
  * Props for `TileGrid`.
  */
-export type TileGridProps = SliceComponentProps<Content.TileGridSlice>;
+export type TileGridProps = SliceComponentProps<Content.TileGridSlice | any>;
 
 const TileGrid = ({ slice }: TileGridProps): JSX.Element => {
   const { items, primary } = slice as any;

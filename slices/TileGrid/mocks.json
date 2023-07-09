@@ -27,38 +27,17 @@
 				"__TYPE__": "FieldContent",
 				"value": "Small",
 				"type": "Select"
+			},
+			"theme": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "Cream"
 			}
 		},
 		"items": [
 			{
 				"__TYPE__": "GroupItemContent",
 				"value": [
-					[
-						"media",
-						{
-							"origin": {
-								"id": "main",
-								"url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88",
-								"width": 3168,
-								"height": 4752
-							},
-							"url": "https://images.unsplash.com/photo-1589321578146-4c1ba445cc88",
-							"width": 3168,
-							"height": 4752,
-							"edit": {
-								"zoom": 1,
-								"crop": {
-									"x": 0,
-									"y": 0
-								},
-								"background": "transparent"
-							},
-							"credits": null,
-							"alt": null,
-							"__TYPE__": "ImageContent",
-							"thumbnails": {}
-						}
-					],
 					[
 						"eyebrow",
 						{
@@ -89,7 +68,7 @@
 							"__TYPE__": "LinkContent",
 							"value": {
 								"__TYPE__": "ExternalLink",
-								"url": "http://google.com"
+								"url": "https://prismic.io"
 							}
 						}
 					],
@@ -97,8 +76,8 @@
 						"theme",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "2",
-							"type": "Select"
+							"type": "Select",
+							"value": "White/Black"
 						}
 					],
 					[
@@ -125,6 +104,38 @@
 								"__TYPE__": "DocumentLink",
 								"id": "mock_document_id"
 							}
+						}
+					],
+					[
+						"col_start",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Select",
+							"value": "Start 2"
+						}
+					],
+					[
+						"col_span",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Select",
+							"value": "Span 10"
+						}
+					],
+					[
+						"row_start",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Select",
+							"value": "Start 1"
+						}
+					],
+					[
+						"row_span",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Select",
+							"value": "Span 2"
 						}
 					]
 				]

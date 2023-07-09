@@ -13,7 +13,9 @@ import { FaqItem } from "./FaqItem";
 /**
  * Props for `FaqSection`.
  */
-export type FaqSectionProps = SliceComponentProps<Content.FaqSectionSlice>;
+export type FaqSectionProps = SliceComponentProps<
+  Content.FaqSectionSlice | any
+>;
 
 const FaqSection = ({ slice }: FaqSectionProps): JSX.Element => {
   const {
@@ -44,7 +46,7 @@ const FaqSection = ({ slice }: FaqSectionProps): JSX.Element => {
         "@type": "FAQPage",
         "mainEntity": [
         ${slice.items.map(
-          ({ question, answer }) =>
+          ({ question, answer }: any) =>
             `{
               "@type": "Question",
               "name": "${prismicH.asText(question)}",
@@ -59,6 +61,8 @@ const FaqSection = ({ slice }: FaqSectionProps): JSX.Element => {
     `,
     };
   }
+
+  const openByDefault = items.length <= 4 ? true : false;
 
   return (
     <>
@@ -84,12 +88,13 @@ const FaqSection = ({ slice }: FaqSectionProps): JSX.Element => {
             </StringText>
           )}
           <MotionBox className="flex w-full flex-col items-start justify-start">
-            {items.map((item, index: number) => {
+            {items.map((item: any, index: number) => {
               return (
                 <FaqItem
                   key={index}
                   question={item.question}
                   answer={item.answer}
+                  open={openByDefault}
                 />
               );
             })}

@@ -1,4 +1,5 @@
 import useTouchDevice from "@/hooks/useTouchDevice";
+import { handleEvent } from "@/utils/events";
 import { clampBuilder } from "@/utils/utils";
 import { PrismicLink } from "@prismicio/react";
 import clsx from "clsx";
@@ -84,6 +85,12 @@ export const GridIndexItem = ({
         href={`/${parentUid}/${uid}`}
         linkResolver={linkResolver}
         className="absolute inset-0 z-20"
+        onClick={() =>
+          handleEvent({
+            category: `${parentUid}Index`,
+            label: uid,
+          })
+        }
       />
       <div className="relative z-10 flex-shrink-0">
         <Headline size={"md"} className="">

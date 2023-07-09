@@ -9,7 +9,9 @@ import clsx from "clsx";
 /**
  * Props for `ImageSection`.
  */
-export type ImageSectionProps = SliceComponentProps<Content.ImageSectionSlice>;
+export type ImageSectionProps = SliceComponentProps<
+  Content.ImageSectionSlice | any
+>;
 
 /**
  * Component for "ImageSection" Slices.

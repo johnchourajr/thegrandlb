@@ -8,6 +8,7 @@ export const components = {
   homepage_location: dynamic(() => import("./HomepageLocation")),
   homepage_numbers: dynamic(() => import("./HomepageNumbers")),
   image_section: dynamic(() => import("./ImageSection")),
+  longform_text_section: dynamic(() => import("./LongformTextSection")),
   moments_scroll_section: dynamic(() => import("./MomentsScrollSection")),
   numbers_section: dynamic(() => import("./NumbersSection")),
   page_hero: dynamic(() => import("./MainHero")),

@@ -1,10 +1,35 @@
-export const convertToSlug = (text: any) => {
+export const convertToSlug = (text?: any) => {
   if (!text) return "";
   return text
     .toLowerCase()
     .replace(/ /g, "-")
     .replace(/[^\w-]+/g, "")
     .replace("--", "-");
+};
+
+export const stringToCamelCase = (str?: string | null) => {
+  if (!str || str === undefined) return "";
+  return str
+    .replace(/\s(.)/g, function ($1) {
+      return $1.toUpperCase();
+    })
+    .replace(/\s/g, "")
+    .replace(/^(.)/, function ($1) {
+      return $1.toLowerCase();
+    });
+};
+
+export const getTextFromChildren = (children?: any) => {
+  if (!children || children === undefined) return "";
+  return children
+    .map((child: any) => child.props.children)
+    .join("")
+    .trim();
+};
+
+export const childrenToCamelCase = (children?: any) => {
+  if (!children || children === undefined) return "";
+  return stringToCamelCase(getTextFromChildren(children));
 };
 
 // rewrite with typescript

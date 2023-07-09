@@ -11,8 +11,9 @@ import clsx from "clsx";
 /**
  * Props for `NumbersSection`.
  */
-export type NumbersSectionProps =
-  SliceComponentProps<Content.NumbersSectionSlice>;
+export type NumbersSectionProps = SliceComponentProps<
+  Content.NumbersSectionSlice | any
+>;
 
 const NumbersSection = ({ slice }: NumbersSectionProps): JSX.Element => {
   const {

@@ -17,6 +17,9 @@ const ItemSelected = ({ filteredItem, ...extra }: any) => {
         <Link
           href={`/tour/${key}`}
           className="decoration-1 underline-offset-4 hover:underline"
+          eventCategory={"interactiveMap"}
+          eventLabel={"mapHeadlineButton"}
+          eventValue={name}
         >
           <Headline size={"md"} animateOnce>
             {name}
@@ -28,17 +31,28 @@ const ItemSelected = ({ filteredItem, ...extra }: any) => {
           Choose a space
         </Headline>
       )}
-      <m.div className="flex flex-row gap-2">
+      <m.div className="inline flex-row gap-2 whitespace-pre-wrap">
         {attributes ? (
           <>
             {attributes.map((attribute: any) => (
-              <Text key={attribute} size={"small"}>
-                {attribute} <span>/</span>{" "}
+              <Text key={attribute} size={"small"} className="inline-flex">
+                {attribute} <span className="opacity-30"> / </span>
               </Text>
             ))}
             {key && (
-              <Text as="span" size={"small"} className="underline">
-                <Link href={`tour/${key}`}>View space</Link>
+              <Text
+                as="span"
+                size={"small"}
+                className="whitespace-nowrap underline"
+              >
+                <Link
+                  eventCategory={"interactiveMap"}
+                  eventLabel={"mapLinkTextButton"}
+                  eventValue={name}
+                  href={`tour/${key}`}
+                >
+                  View space
+                </Link>
               </Text>
             )}
           </>
@@ -76,7 +90,7 @@ const ItemList = ({
   } as any;
 
   return (
-    <ul className="grid-inset flex w-full flex-col gap-4 py-4 !pr-10 pb-10 xl:py-10">
+    <ul className="flex w-full flex-col gap-4 py-4 px-8 lg:!pr-10 lg:pb-10 xl:py-10">
       {items.map((item: any) => (
         <m.li
           key={item.key}
@@ -178,12 +192,12 @@ const MapContainer = ({ ...extra }) => {
 
   const handleItemHover = (itemKey: any) => {
     setHoveredItemKey(itemKey);
-    console.log({ itemKey });
+    // console.log({ itemKey });
   };
 
   const handleItemSelect = (itemKey: any) => {
     setSelectedItemKey(itemKey);
-    console.log({ itemKey });
+    // console.log({ itemKey });
   };
 
   const getFilteredItem = () => {

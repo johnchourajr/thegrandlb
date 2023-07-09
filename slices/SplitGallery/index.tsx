@@ -11,7 +11,9 @@ import { useRef } from "react";
 /**
  * Props for `SplitGallery`.
  */
-export type SplitGalleryProps = SliceComponentProps<Content.SplitGallerySlice>;
+export type SplitGalleryProps = SliceComponentProps<
+  Content.SplitGallerySlice | any
+>;
 
 const SplitGallery = ({ slice }: SplitGalleryProps): JSX.Element => {
   const ref = useRef(null);

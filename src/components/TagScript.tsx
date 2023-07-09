@@ -1,8 +1,9 @@
-import { getCookie } from "cookies-next";
+// import { getCookie } from "cookies-next";
 import Script from "next/script";
 
 function TagScripts() {
-  const consent = getCookie("localConsent");
+  // const consent = getCookie("localConsent");
+  const consent = true;
 
   return (
     <>

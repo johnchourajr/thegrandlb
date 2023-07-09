@@ -1,3 +1,4 @@
+import { handleEvent } from "@/utils/events";
 import { PrismicLink } from "@prismicio/react";
 import clsx from "clsx";
 import { m } from "framer-motion";
@@ -20,6 +21,12 @@ export const NavItem = ({
         linkResolver={linkResolver}
         field={field}
         className={clsx("group relative z-10", linkClassName)}
+        onClick={() =>
+          handleEvent({
+            category: `NavItem`,
+            label: text,
+          })
+        }
         {...rest}
         {...linkProps}
       >

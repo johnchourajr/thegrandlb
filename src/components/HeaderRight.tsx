@@ -91,6 +91,8 @@ export const HeaderRight = ({
               target="_self"
               className="z-10 w-full xl:w-[12rem] "
               text="Make an inquiry"
+              eventCategory="navButton"
+              eventLabel="inquire"
             />
           </m.span>
         </AnimatedNav>
@@ -108,6 +110,8 @@ export const HeaderRight = ({
             size="small"
             target="_self"
             text={button}
+            eventCategory="navButton"
+            eventLabel="modalAction"
           />
         </m.span>
       )}

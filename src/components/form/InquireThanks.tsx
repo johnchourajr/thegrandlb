@@ -44,7 +44,12 @@ const InquireThanks = ({ ...extra }) => {
           Thanks for telling us about your event, our sales team should reach
           out in the next 2-3 business days.
         </Text>
-        <Button text={"Return to site"} href={"/"} />
+        <Button
+          text={"Return to site"}
+          href={"/"}
+          eventCategory="thanksPage"
+          eventLabel="returnAction"
+        />
       </div>
     </GridSection>
   );

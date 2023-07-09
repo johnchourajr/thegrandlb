@@ -191,7 +191,7 @@ export const TileItem = ({
         transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
         tabIndex={-1}
         className={clsx(
-          "align-center absolute h-full w-full flex-col items-center justify-center gap-4 rounded-sm border-b-4 p-10 text-center transition-all duration-700 ease-out-expo hover:border-b-0 hover:border-b-[transparent] lg:rounded-md",
+          "align-center absolute h-full max-h-[70vh] w-full flex-col items-center justify-center gap-4 rounded-sm border-b-4 p-10 text-center transition-all duration-700 ease-out-expo hover:border-b-0 hover:border-b-[transparent] lg:rounded-md",
           getSize().content,
           getStyles().container,
           getDirection()

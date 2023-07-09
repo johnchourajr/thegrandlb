@@ -6,10 +6,11 @@ import localFont from "next/font/local";
 
 import AppWrapper from "@/components/AppWrapper";
 import Cursor from "@/components/Cursor";
+import Footer from "@/components/Footer";
 import FormOverlay from "@/components/form/FormOverlay";
-import TagScripts from "@/components/TagScript";
 import ToastRoot from "@/components/ToastRoot";
 import "@/styles/globals.css";
+import { GTMInitializer } from "@/utils/gtm";
 import { PrismicPreview } from "@prismicio/next";
 import { PrismicProvider } from "@prismicio/react";
 import { domAnimation, LazyMotion, MotionConfig } from "framer-motion";
@@ -83,6 +84,10 @@ export default function App({ Component, pageProps }: AppProps) {
   };
 
   useEffect(() => {
+    GTMInitializer();
+  }, []);
+
+  useEffect(() => {
     if (
       router.pathname === "/inquire" ||
       router.pathname === "/thanks" ||
@@ -120,7 +125,6 @@ export default function App({ Component, pageProps }: AppProps) {
                 modalOverlay && "overflow-hidden bg-black"
               )}
             >
-              <TagScripts />
               {/* HEADER NAV */}
               <Header
                 modalOverlay={modalOverlay}
@@ -129,12 +133,17 @@ export default function App({ Component, pageProps }: AppProps) {
               />
               {/* PAGE CONTENT */}
               <Component {...pageProps} />
+              {/* FOOTER */}
+              <Footer {...pageProps} />
+              {/* FORM OVERLAY */}
               <FormOverlay
                 className={fontStack}
                 modalOverlay={modalOverlay}
                 toggleModalOverlay={toggleModalOverlay}
               />
+              {/* CURSOR */}
               <Cursor />
+              {/* TOASTS */}
               <ToastRoot />
             </AppWrapper>
           </LazyMotion>

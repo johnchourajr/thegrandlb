@@ -1,8 +1,13 @@
 import { FormPage } from "@/data/form.types";
+import {
+  eventInquireNext,
+  eventInquirePrev,
+  eventInquireSubmit,
+  toastNextError,
+} from "@/utils/events";
 import { formatDate, formatTitle } from "@/utils/utils";
 import clsx from "clsx";
 import { m } from "framer-motion";
-import { toast } from "react-hot-toast";
 import AppearWrap from "../AppearWrap";
 import Button from "../Button";
 import Headline from "../Headline";
@@ -110,9 +115,20 @@ export const InquireFormSection = ({
   const handleNextButtonClick = () => {
     if (allPageValuesAreValid) {
       setCurrentPage(step + 1);
+      eventInquireNext(step);
     } else {
-      toast.error("Please fill in all the required fields");
+      toastNextError(step);
     }
+  };
+
+  const handleBackButtonClick = () => {
+    setCurrentPage(step - 1);
+    eventInquirePrev(step);
+  };
+
+  const handleFormSubmitClick = () => {
+    handleFormSubmit();
+    eventInquireSubmit(step);
   };
 
   return (
@@ -163,7 +179,8 @@ export const InquireFormSection = ({
                 type={"naked"}
                 target="_self"
                 buttonType="button"
-                onClick={() => setCurrentPage(step - 1)}
+                onClick={() => handleBackButtonClick()}
+                eventNone={true}
                 text={"Prev"}
                 tabIndex={1}
               />
@@ -176,6 +193,7 @@ export const InquireFormSection = ({
                 target="_self"
                 buttonType="button"
                 onClick={() => handleNextButtonClick()}
+                eventNone={true}
                 text={"Next"}
                 tabIndex={1}
               />
@@ -187,6 +205,7 @@ export const InquireFormSection = ({
                 type={"black"}
                 target="_self"
                 onClick={handleFormSubmit}
+                eventNone={true}
                 text={"Submit"}
                 tabIndex={1}
               />

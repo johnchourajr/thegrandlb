@@ -1478,7 +1478,8 @@ type PageDocumentDataSlicesSlice =
   | TextSectionSlice
   | NumbersSectionSlice
   | FaqSectionSlice
-  | ImageSectionSlice;
+  | ImageSectionSlice
+  | LongformTextSectionSlice;
 /**
  * Page document from Prismic
  *
@@ -2602,6 +2603,104 @@ type ImageSectionSliceVariation = ImageSectionSliceDefault;
 export type ImageSectionSlice = prismicT.SharedSlice<
   "image_section",
   ImageSectionSliceVariation
+>;
+/**
+ * Primary content in LongformTextSection → Primary
+ *
+ */
+interface LongformTextSectionSliceDefaultPrimary {
+  /**
+   * Section Id field in *LongformTextSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: longform_text_section.primary.section_id
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  section_id: prismicT.KeyTextField;
+  /**
+   * Text field in *LongformTextSection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: longform_text_section.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismicT.RichTextField;
+  /**
+   * Top Spacer field in *LongformTextSection → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: longform_text_section.primary.top_spacer
+   * - **Documentation**: https://prismic.io/docs/core-concepts/select
+   *
+   */
+  top_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
+  /**
+   * Top Border field in *LongformTextSection → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: longform_text_section.primary.top_border
+   * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
+   *
+   */
+  top_border: prismicT.BooleanField;
+  /**
+   * Bottom Spacer field in *LongformTextSection → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: longform_text_section.primary.bottom_spacer
+   * - **Documentation**: https://prismic.io/docs/core-concepts/select
+   *
+   */
+  bottom_spacer: prismicT.SelectField<"Small" | "Medium" | "Large" | "None">;
+  /**
+   * Bottom Border field in *LongformTextSection → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: longform_text_section.primary.bottom_border
+   * - **Documentation**: https://prismic.io/docs/core-concepts/boolean
+   *
+   */
+  bottom_border: prismicT.BooleanField;
+}
+/**
+ * Default variation for LongformTextSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type LongformTextSectionSliceDefault = prismicT.SharedSliceVariation<
+  "default",
+  Simplify<LongformTextSectionSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *LongformTextSection*
+ *
+ */
+type LongformTextSectionSliceVariation = LongformTextSectionSliceDefault;
+/**
+ * LongformTextSection Shared Slice
+ *
+ * - **API ID**: `longform_text_section`
+ * - **Description**: `LongformTextSection`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type LongformTextSectionSlice = prismicT.SharedSlice<
+  "longform_text_section",
+  LongformTextSectionSliceVariation
 >;
 /**
  * Primary content in MomentsScrollSection → Primary
@@ -4294,6 +4393,10 @@ declare module "@prismicio/client" {
       ImageSectionSliceDefault,
       ImageSectionSliceVariation,
       ImageSectionSlice,
+      LongformTextSectionSliceDefaultPrimary,
+      LongformTextSectionSliceDefault,
+      LongformTextSectionSliceVariation,
+      LongformTextSectionSlice,
       MomentsScrollSectionSliceDefaultPrimary,
       MomentsScrollSectionSliceDefault,
       MomentsScrollSectionSliceVariation,

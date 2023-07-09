@@ -16,33 +16,22 @@
 			"title": {
 				"__TYPE__": "FieldContent",
 				"type": "Text",
-				"value": "Headline"
-			},
-			"media": {
-				"__TYPE__": "ImageContent",
-				"url": "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxmcnVpdHxlbnwwfHx8fDE2ODQ3NjMwNTN8MA&ixlib=rb-4.0.3&q=85",
-				"origin": {
-					"id": "xnRg3xDcNnE",
-					"url": "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwyfHxmcnVpdHxlbnwwfHx8fDE2ODQ3NjMwNTN8MA&ixlib=rb-4.0.3&q=85",
-					"width": 7173,
-					"height": 10041
-				},
-				"width": 7173,
-				"height": 10041,
-				"edit": {
-					"background": "transparent",
-					"zoom": 1,
-					"crop": {
-						"x": 0,
-						"y": 0
-					}
-				},
-				"thumbnails": {}
+				"value": "Eyebrow"
 			},
 			"headline": {
 				"__TYPE__": "FieldContent",
 				"type": "Text",
-				"value": "Headline"
+				"value": "Risus Mattis \nSit Egestas"
+			},
+			"caption": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Some caption here"
+			},
+			"bottom_spacer": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "None"
 			}
 		},
 		"items": []

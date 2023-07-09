@@ -15,40 +15,40 @@
 			},
 			"line_one": {
 				"__TYPE__": "FieldContent",
-				"value": "again",
-				"type": "Text"
+				"type": "Text",
+				"value": "Vestibulum id ligula porta felis euismod semper. Nulla vitae elit libero, a pharetra augue."
 			},
 			"line_two": {
 				"__TYPE__": "FieldContent",
-				"value": "block",
-				"type": "Text"
+				"type": "Text",
+				"value": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet."
 			},
 			"bottom_title": {
 				"__TYPE__": "FieldContent",
-				"value": "silk",
-				"type": "Text"
+				"type": "Text",
+				"value": "silk"
 			},
 			"primary_action": {
 				"__TYPE__": "FieldContent",
 				"value": "youth",
 				"type": "Text"
 			},
+			"top_spacer": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "Large"
+			},
+			"bottom_spacer": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "Large"
+			},
 			"primary_action_link": {
 				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
-					"url": "http://google.com"
+					"url": "https://google.com"
 				}
-			},
-			"top_spacer": {
-				"__TYPE__": "FieldContent",
-				"value": "Large",
-				"type": "Select"
-			},
-			"bottom_spacer": {
-				"__TYPE__": "FieldContent",
-				"value": "None",
-				"type": "Select"
 			}
 		},
 		"items": [

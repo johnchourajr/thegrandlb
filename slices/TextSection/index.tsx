@@ -4,6 +4,7 @@ import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
 import MotionBox from "@/components/MotionBox";
 import StringText from "@/components/StringText";
+import { stringToCamelCase } from "@/utils/utils";
 import { Content } from "@prismicio/client";
 import * as prismicH from "@prismicio/helpers";
 import { SliceComponentProps } from "@prismicio/react";
@@ -12,7 +13,9 @@ import clsx from "clsx";
 /**
  * Props for `TextSection`.
  */
-export type TextSectionProps = SliceComponentProps<Content.TextSectionSlice>;
+export type TextSectionProps = SliceComponentProps<
+  Content.TextSectionSlice | any
+>;
 
 const TextSection = ({
   slice,
@@ -62,15 +65,18 @@ const TextSection = ({
             </Headline>
           )}
           <MotionBox className="gap-6 md:flex">
-            {prismicH.documentToLinkField(primary_action_link) && (
-              <Button
-                field={primary_action_link}
-                text={primary_action}
-                type="black"
-                size="large"
-                params={uid && `ref=${uid}`}
-              />
-            )}
+            {prismicH.documentToLinkField(primary_action_link) &&
+              primary_action && (
+                <Button
+                  field={primary_action_link}
+                  text={primary_action}
+                  eventCategory={stringToCamelCase(`${uid}textSectionAction`)}
+                  eventLabel={stringToCamelCase(`${section_id}PrimaryCTA`)}
+                  type="black"
+                  size="large"
+                  params={uid && `ref=${uid}`}
+                />
+              )}
             {prismicH.asLink(secondary_action_link) && (
               <Button
                 field={secondary_action_link}

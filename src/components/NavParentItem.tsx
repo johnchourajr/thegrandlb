@@ -1,4 +1,5 @@
 import useMediaQuery from "@/hooks/useMediaQuery";
+import { handleEvent } from "@/utils/events";
 import { PrismicLink } from "@prismicio/react";
 import clsx from "clsx";
 import { m, useAnimation } from "framer-motion";
@@ -69,6 +70,11 @@ export const NavParentItem = ({
       return {
         linkResolver,
         field: link_source,
+        onClick: () =>
+          handleEvent({
+            category: `NavCategoryItem`,
+            label: link_title,
+          }),
       };
     }
   };

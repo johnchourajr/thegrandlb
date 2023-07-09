@@ -1,6 +1,6 @@
+import Link from "@/components/Link";
 import { convertToSlug } from "@/utils/utils";
 import clsx from "clsx";
-import Link from "next/link";
 import React from "react";
 import StringText from "../StringText";
 import MenuArrowScroll from "./menu-arrow-scroll";
@@ -46,6 +46,9 @@ const MenuSectionNav: React.FC<MenuSectionNavProps> = ({ uid, group }) => {
               className={clsx(
                 "lg:whitespace-[unset] group z-40 inline-flex flex-nowrap whitespace-nowrap lg:flex-wrap"
               )}
+              eventCategory={"menusLink"}
+              eventLabel={"menusJumpLink"}
+              eventValue={page_title}
               href={`#${sectionLink}`}
             >
               <StringText

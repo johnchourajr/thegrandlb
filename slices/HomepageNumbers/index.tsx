@@ -11,8 +11,9 @@ import { TileItem } from "slices/TileGrid/TileItem";
 /**
  * Props for `HomepageNumbers`.
  */
-export type HomepageNumbersProps =
-  SliceComponentProps<Content.HomepageNumbersSlice>;
+export type HomepageNumbersProps = SliceComponentProps<
+  Content.HomepageNumbersSlice | any
+>;
 
 const HomepageNumbers = ({ slice }: HomepageNumbersProps): JSX.Element => {
   const {

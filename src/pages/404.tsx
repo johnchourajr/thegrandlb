@@ -5,6 +5,7 @@ import Layout from "@/components/Layout";
 import Text from "@/components/Paragraph";
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
+import { stringToCamelCase } from "@/utils/utils";
 import clsx from "clsx";
 import { useRouter } from "next/router";
 import { createClient } from "prismicio";
@@ -29,7 +30,13 @@ const Page = ({ page }: any) => {
           <Text>404 Error — Page at &quot;{asPath}&quot; not found</Text>
           <Headline size={"4xl"} text={`Better moments to come`} uppercase />
           <br />
-          <Button href={"/"}>Go back home</Button>
+          <Button
+            href={"/"}
+            eventCategory={stringToCamelCase(`${asPath}404PageAction`)}
+            eventLabel={stringToCamelCase(`PrimaryCTA`)}
+          >
+            Go back home
+          </Button>
         </div>
       </GridSection>
     </Layout>

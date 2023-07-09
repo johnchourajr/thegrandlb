@@ -5,16 +5,12 @@ import { SliceZone } from "@prismicio/react";
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../prismicio";
-import { components } from "../../slices/";
+import { components } from "../../slices";
 
-const Page = ({ navigation, settings, cta, footer_cards, page }: any) => {
-  // console.log({ navigation, settings, cta });
-
+const Page = ({ page }: any) => {
   return (
     <Layout page={page} hidePageUid>
-      <></>
       <SliceZone slices={page.data.slices} components={components} />
-      {/* <TileFooter uid={page.uid} footer_cards={footer_cards} /> */}
     </Layout>
   );
 };
@@ -26,7 +22,7 @@ export async function getStaticProps({ params, previewData }: any) {
   const extra = await getExtra({ previewData });
 
   const [page] = await Promise.all([
-    client.getByUID("page", "contact", {
+    client.getByUID("page", params.uid, {
       fetchLinks,
     }),
   ]);
@@ -36,5 +32,18 @@ export async function getStaticProps({ params, previewData }: any) {
       page,
       ...extra,
     },
+  };
+}
+
+export async function getStaticPaths() {
+  const client = createClient();
+
+  const pages = await client.getAllByTag("general_page");
+
+  return {
+    paths: pages.map((page) => ({
+      params: { uid: page.uid?.toString() },
+    })),
+    fallback: true,
   };
 }
