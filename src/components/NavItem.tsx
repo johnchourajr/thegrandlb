@@ -25,6 +25,7 @@ export const NavItem = ({
           handleEvent({
             category: `NavItem`,
             label: text,
+            value: field.uid,
           })
         }
         {...rest}

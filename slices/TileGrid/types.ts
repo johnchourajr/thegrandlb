@@ -83,6 +83,7 @@ export interface TileItemProps {
   initial?: TargetAndTransition | VariantLabels; //@deprecated
   whileInView?: TargetAndTransition | VariantLabels; //@deprecated
   viewport?: MotionProps["viewport"];
+  section_id?: string;
 }
 export type TileStyleProps = {
   container?: string;

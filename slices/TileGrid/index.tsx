@@ -71,7 +71,7 @@ const TileGrid = ({ slice }: TileGridProps): JSX.Element => {
           bottomSpacer="None"
         >
           {items.map((item: TileItemProps, index: number) => {
-            return <TileItem key={index} {...item} />;
+            return <TileItem key={index} section_id={section_id} {...item} />;
           })}
         </GridSection>
       </GridSection>

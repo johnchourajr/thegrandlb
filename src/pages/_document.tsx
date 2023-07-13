@@ -6,7 +6,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* <TagScripts /> */}
         <Script
           async
           src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`}

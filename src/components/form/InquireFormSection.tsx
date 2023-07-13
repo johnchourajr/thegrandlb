@@ -117,6 +117,8 @@ export const InquireFormSection = ({
       setCurrentPage(step + 1);
       eventInquireNext(step);
     } else {
+      console.log("toast error");
+
       toastNextError(step);
     }
   };

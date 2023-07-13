@@ -10,7 +10,7 @@ import { components } from "../../slices";
 const Page = ({ page }: any) => {
   return (
     <Layout page={page} hidePageUid>
-      <SliceZone slices={page.data.slices} components={components} />
+      <SliceZone slices={page?.data?.slices} components={components} />
     </Layout>
   );
 };

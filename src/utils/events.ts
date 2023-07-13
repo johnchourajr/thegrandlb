@@ -17,7 +17,7 @@ export const handleEvent = ({
     action: stringToCamelCase(action || "click"),
     category: stringToCamelCase(category || "button"),
     label: stringToCamelCase(label || ""),
-    value: stringToCamelCase(value || ""),
+    value: value || "",
   });
 };
 

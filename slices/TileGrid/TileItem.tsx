@@ -3,6 +3,7 @@ import Headline from "@/components/Headline";
 import ImageBox from "@/components/media-frame/ImageBox";
 import Text from "@/components/Paragraph";
 import StringText from "@/components/StringText";
+import { handleEvent } from "@/utils/events";
 import clsx from "clsx";
 import { m } from "framer-motion";
 import { linkResolver } from "prismicio";
@@ -36,6 +37,7 @@ export const TileItem = ({
   whileInView,
   motionStyles,
   viewport,
+  section_id,
   ...rest
 }: TileItemProps) => {
   const hasCardFragment = card_fragment?.data ? true : false;
@@ -151,10 +153,20 @@ export const TileItem = ({
       row_span && getNumberForRowSpan(row_span)
     );
 
+  console.log({ link });
+
   return (
     <MotionComp
       field={link}
       linkResolver={linkResolver}
+      onClick={() => {
+        handleEvent({
+          action: "Click",
+          category: `TileLink`,
+          label: `TileSection ${section_id}`,
+          value: `${headline}: /${link?.slug}`,
+        });
+      }}
       className={
         clsx(
           "relative h-full w-full",

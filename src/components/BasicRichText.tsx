@@ -1,3 +1,4 @@
+import { handleEvent } from "@/utils/events";
 import Headline from "@components/Headline";
 import Text from "@components/Paragraph";
 import { PrismicNextImage } from "@prismicio/next";
@@ -100,7 +101,21 @@ export const BasicRichText = ({ field, paragraphSize = "default" }: any) => (
         />
       ),
       hyperlink: ({ text, node: { data } }) => {
-        return <PrismicLink field={data}>{text}</PrismicLink>;
+        return (
+          <PrismicLink
+            field={data}
+            onClick={() => {
+              handleEvent({
+                action: "Click",
+                category: `RichTextLink`,
+                label: `TextUrl`,
+                value: `${text}: ${data?.url}`,
+              });
+            }}
+          >
+            {text}
+          </PrismicLink>
+        );
       },
       label: ({ node, children, key }) => (
         <span key={key} className={node.data.label}>

@@ -9,14 +9,21 @@ export const convertToSlug = (text?: any) => {
 
 export const stringToCamelCase = (str?: string | null) => {
   if (!str || str === undefined) return "";
-  return str
-    .replace(/\s(.)/g, function ($1) {
-      return $1.toUpperCase();
-    })
-    .replace(/\s/g, "")
-    .replace(/^(.)/, function ($1) {
-      return $1.toLowerCase();
-    });
+  return (
+    str
+      .replace(/\s(.)/g, function ($1) {
+        return $1.toUpperCase();
+      })
+      .replace(/\s/g, "")
+      .replace(/^(.)/, function ($1) {
+        return $1.toLowerCase();
+      })
+      .replace(/[^a-zA-Z0-9]/g, "")
+      // replace dashes and capitalizes the next letter
+      .replace(/-([a-z])/g, function (g) {
+        return g[1].toUpperCase();
+      })
+  );
 };
 
 export const getTextFromChildren = (children?: any) => {

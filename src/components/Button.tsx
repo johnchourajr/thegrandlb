@@ -149,10 +149,8 @@ function Button({
   const buttonTypeName = getType();
 
   const handleClick = () => {
-    if (isNextLink || eventNone) return null;
-
     onClick && onClick();
-
+    if (isNextLink || eventNone) return null;
     handleEvent({
       action: stringToCamelCase(eventAction || "click"),
       category: stringToCamelCase(eventCategory || "button"),
