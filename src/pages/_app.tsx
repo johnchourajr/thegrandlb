@@ -121,7 +121,7 @@ export default function App({ Component, pageProps }: AppProps) {
             <AppWrapper
               className={clsx(
                 fontStack,
-                "relative min-h-screen bg-bg transition-colors duration-1000 ease-out-expo",
+                "relative min-h-screen bg-bg transition-colors duration-500 ease-out-expo",
                 modalOverlay && "overflow-hidden bg-black"
               )}
             >
@@ -133,8 +133,6 @@ export default function App({ Component, pageProps }: AppProps) {
               />
               {/* PAGE CONTENT */}
               <Component {...pageProps} />
-              {/* FOOTER */}
-              <Footer {...pageProps} />
               {/* FORM OVERLAY */}
               <FormOverlay
                 className={fontStack}

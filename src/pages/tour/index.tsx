@@ -7,11 +7,12 @@ import { getTourIndexLayout } from "@/components/grid-index/utils";
 import HeroCategoryPage from "@/components/HeroCategoryPage";
 import Layout from "@/components/Layout";
 import TileFooter from "@/components/TileFooter";
+import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../../prismicio";
 import { components } from "../../../slices/";
 
-const Page = ({ page, cta, footer_cards }: any) => {
+const Page = ({ page, cta, settings, navigation, footer_cards }: any) => {
   const {
     data: { slices, title, gallery, video_media, media, ...pageRest },
   } = page;
@@ -19,7 +20,7 @@ const Page = ({ page, cta, footer_cards }: any) => {
   const { icon_media, headline, body, spaces } = pageRest;
 
   return (
-    <Layout page={page} hidePageUid>
+    <Layout page={page} settings={settings} navigation={navigation} hidePageUid>
       <HeroCategoryPage
         headline={title}
         gallery={gallery}
@@ -47,52 +48,20 @@ export default Page;
 
 export async function getStaticProps({ params, previewData }: any) {
   const client = createClient({ previewData });
-  const [page, childPages, navigation, settings, cta] = await Promise.all([
+  const extra = await getExtra({ previewData });
+
+  const [page, childPages] = await Promise.all([
     client.getByUID("tour_index_page", "tour", {
       fetchLinks,
     }),
     client.getByType("tour_page"),
-    client.getByType("nav_links"),
-    client.getByType("settings"),
-    client.getByType("fragment_cta_footer", {
-      fetchLinks,
-    }),
-  ]);
-
-  const footer_cards = await Promise.all([
-    client.getByUID("fragment_card", "tour-card", {
-      fetchLinks,
-    }),
-    client.getByUID("fragment_card", "events-card", {
-      fetchLinks,
-    }),
-    client.getByUID("fragment_card", "menus-card", {
-      fetchLinks,
-    }),
   ]);
 
   return {
     props: {
       page,
-      navigation,
-      settings,
-      cta,
-      footer_cards,
+      childPages,
+      ...extra,
     },
   };
-
-  // const [page, childPages] = await Promise.all([
-  //   client.getByUID("tour_index_page", "tour", {
-  //     fetchLinks,
-  //   }),
-  //   client.getByType("tour_page"),
-  // ]);
-
-  // return {
-  //   props: {
-  //     page,
-  //     childPages,
-  //     ...extra,
-  //   },
-  // };
 }

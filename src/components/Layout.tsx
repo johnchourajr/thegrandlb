@@ -2,16 +2,35 @@ import Head from "next/head";
 
 import * as prismicH from "@prismicio/helpers";
 import clsx from "clsx";
+import Footer from "./Footer";
 // import Consent from "./consent";
 
+function stringOneIsNotSimilarToTwo(str1: string, str2: string) {
+  return str1.toLowerCase().indexOf(str2.toLowerCase()) === -1;
+}
+
+function stringOneHasWordsSimilarToTwo(str1: string, str2: string) {
+  if (!str1 || !str2) return false;
+  const str1Arr = str1.toLowerCase().split(" ");
+  const str2Arr = str2.toLowerCase().split(" ");
+
+  const similarWords = str1Arr.filter((word) => str2Arr.includes(word));
+
+  return similarWords.length > 0;
+}
+
 const LayoutHead = ({ settings, page, headContent }: any) => {
-  const siteTitle = prismicH.asText(settings?.data?.site_title);
-  const pageTitle =
-    prismicH.asText(page?.data?.title) || page?.data?.meta_title;
-  const dontShowTitle = pageTitle !== siteTitle;
-  const showTitle = dontShowTitle
-    ? `${prismicH.asText(page?.data?.title)} | `
-    : ``;
+  if (!settings) return null;
+  // console.log({ settings, page, headContent });
+
+  const siteTitle = prismicH.asText(settings?.data?.site_title) || "";
+  const pageTitle = page?.data?.title || page?.data?.meta_title;
+  // const dontShowTitle = pageTitle !== siteTitle;
+  // pageTitle does not contain content from siteTitle
+  const dontShowTitle = // pagetitle does not contain content from siteTitle
+    stringOneHasWordsSimilarToTwo(pageTitle, siteTitle);
+
+  const showTitle = dontShowTitle ? `` : `${page?.data?.title} | `;
 
   const metaTitle = `${showTitle}${siteTitle}`;
 
@@ -19,9 +38,18 @@ const LayoutHead = ({ settings, page, headContent }: any) => {
   const pageDesc = page?.data?.meta_description;
   const desc = pageDesc ? pageDesc : siteDesc;
 
-  const siteImg = settings?.data?.og_image.url;
-  const pageImg = page?.data?.meta_image.url;
+  const siteImg = settings?.data?.og_image?.url;
+  const pageImg = page?.data?.meta_image?.url;
   const img = pageImg ? pageImg : siteImg;
+
+  // console.log({
+  //   dontShowTitle,
+  //   pageTitle,
+  //   siteTitle,
+  //   settings,
+  //   page,
+  //   headContent,
+  // });
 
   return (
     <Head>
@@ -47,6 +75,7 @@ const LayoutHead = ({ settings, page, headContent }: any) => {
 
 const Layout = ({
   settings,
+  navigation,
   headContent,
   children,
   page,
@@ -63,10 +92,16 @@ const Layout = ({
       )}
     >
       {page && !hidePageUid && <pre>uid: {page?.uid}</pre>}
-      {/* <LayoutHead page={page} settings={settings} headContent={headContent} /> */}
-      <main id={page?.uid} className={clsx("min-h-[150vh]", className)}>
+      <LayoutHead page={page} settings={settings} headContent={headContent} />
+      {/* PAGE CONTENT */}
+      <main
+        id={page?.uid}
+        className={clsx("--min-h-[150vh]", "min-h-[25vh]", className)}
+      >
         {children}
       </main>
+      {/* FOOTER */}
+      {navigation && <Footer settings={settings} navigation={navigation} />}
     </div>
   );
 };

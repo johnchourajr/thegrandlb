@@ -6,11 +6,10 @@ import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../prismicio";
 
 const Page = ({ navigation, settings, cta, page }: any) => {
-  // console.log({ navigation, settings, cta });
-
   return (
     <Layout
       page={page}
+      settings={settings}
       className={"!min-h-[0vh]"}
       wrapperClassName={"!min-h-[0vh]"}
       hidePageUid

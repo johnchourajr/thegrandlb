@@ -7,9 +7,9 @@ import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../prismicio";
 import { components } from "../../slices";
 
-const Page = ({ page }: any) => {
+const Page = ({ page, settings, navigation }: any) => {
   return (
-    <Layout page={page} hidePageUid>
+    <Layout page={page} settings={settings} navigation={navigation} hidePageUid>
       <SliceZone slices={page?.data?.slices} components={components} />
     </Layout>
   );

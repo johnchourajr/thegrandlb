@@ -7,7 +7,7 @@ export const getExtra = async ({ previewData }: any) => {
   const [navigation, settings, cta, tour_card, events_card, menus_card] =
     await Promise.all([
       client.getByType("nav_links"),
-      client.getByType("settings"),
+      client.getByUID("settings", "settings"),
       client.getByType("fragment_cta_footer", {
         fetchLinks,
       }),

@@ -8,13 +8,13 @@ import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../../prismicio";
 import { components } from "../../../slices/";
 
-const Page = ({ cta, page }: any) => {
+const Page = ({ cta, page, settings, navigation }: any) => {
   const {
     data: { slices, title, gallery, video_media, media },
   } = page;
 
   return (
-    <Layout page={page} hidePageUid>
+    <Layout page={page} settings={settings} navigation={navigation} hidePageUid>
       <HeroCategoryPage
         headline={title}
         gallery={gallery}

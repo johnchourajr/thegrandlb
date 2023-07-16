@@ -9,12 +9,12 @@ import Layout from "@components/Layout";
 import { createClient } from "../../../prismicio";
 import { components } from "../../../slices";
 
-const Page = ({ page, cta, footer_cards }: any) => {
+const Page = ({ page, cta, settings, footer_cards, navigation }: any) => {
   // if (!page || !cta || !footer_cards) return null;
   const { data: { slices = [], ...pageRest } = {} } = page || {};
 
   return (
-    <Layout page={page} hidePageUid>
+    <Layout page={page} settings={settings} navigation={navigation} hidePageUid>
       <HeroDetailPage
         uid={page?.uid}
         title={pageRest?.title}

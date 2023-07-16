@@ -13,7 +13,7 @@ export const HeaderRight = ({
   modalContent,
 }: any) => {
   const { data } = navigation.results[0];
-  const { title, subtitle, button, buttonAction } = modalContent();
+  const { button, buttonAction } = modalContent();
 
   const variants = {
     open: {

@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import React from "react";
 
-interface TextProps {
+export interface StringTextProps {
   as?: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "span";
-  size?: "large" | "default" | "small";
+  size?: "large" | "default" | "small" | "xsmall";
   uppercase?: boolean;
   bold?: boolean;
   className?: string;
@@ -20,7 +20,7 @@ function StringText({
   children,
   className,
   ...rest
-}: TextProps) {
+}: StringTextProps) {
   if (!text && !children) return null;
   // switch for mapping size is to output leading
   const getUppercaseStyles = () => {
@@ -40,6 +40,8 @@ function StringText({
         return "text-string-default leading-base font-lexend";
       case "small":
         return "text-string-small leading-base font-lexend";
+      case "xsmall":
+        return "text-string-extra-small leading-base font-lexend";
       default:
         return "text-string-default leading-base font-lexend";
     }

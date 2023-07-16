@@ -17,7 +17,7 @@ const InputDateSelect = ({
     const newValue = e.target.value;
     handleFormChange(name, newValue, page_key, validations);
 
-    console.log(validations);
+    // console.log(validations);
   };
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {

@@ -6,6 +6,7 @@
   "format": "custom",
   "json": {
     "Main": {
+      "uid": { "type": "UID", "config": { "label": "UID", "placeholder": "" } },
       "site_title": {
         "type": "StructuredText",
         "config": {
@@ -37,6 +38,86 @@
         }
       }
     },
-    "Footer": {}
+    "Footer": {
+      "primary_action": {
+        "type": "Text",
+        "config": { "label": "Primary Action", "placeholder": "" }
+      },
+      "primary_action_link": {
+        "type": "Link",
+        "config": {
+          "label": "Primary Action Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "facebook_link": {
+        "type": "Link",
+        "config": {
+          "label": "Facebook Link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      },
+      "instagram_link": {
+        "type": "Link",
+        "config": {
+          "label": "Instagram Link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      },
+      "address": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Address",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,hyperlink"
+        }
+      },
+      "phone_number": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Phone Number",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,hyperlink"
+        }
+      },
+      "tag_line": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Tag Line",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph"
+        }
+      },
+      "parent_company": {
+        "type": "Text",
+        "config": { "label": "Parent Company", "placeholder": "" }
+      },
+      "parent_company_link": {
+        "type": "Link",
+        "config": {
+          "label": "Parent Company Link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      },
+      "legal_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Legal Text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,hyperlink"
+        }
+      }
+    }
   }
 }

@@ -153,8 +153,6 @@ export const TileItem = ({
       row_span && getNumberForRowSpan(row_span)
     );
 
-  console.log({ link });
-
   return (
     <MotionComp
       field={link}

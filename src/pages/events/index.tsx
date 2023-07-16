@@ -12,7 +12,7 @@ import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../../prismicio";
 import { components } from "../../../slices/";
 
-const Page = ({ page, cta, footer_cards }: any) => {
+const Page = ({ page, settings, navigation, cta, footer_cards }: any) => {
   // if (!page || !cta || !footer_cards) return null;
 
   const {
@@ -28,7 +28,7 @@ const Page = ({ page, cta, footer_cards }: any) => {
 
   const { icon_media, headline, body, event_pages } = pageRest;
   return (
-    <Layout page={page} hidePageUid>
+    <Layout page={page} settings={settings} navigation={navigation} hidePageUid>
       <HeroCategoryPage
         headline={title}
         gallery={gallery}

@@ -10,11 +10,17 @@ import clsx from "clsx";
 import { useRouter } from "next/router";
 import { createClient } from "prismicio";
 
-const Page = ({ page }: any) => {
+const Page = ({ page, settings, navigation }: any) => {
   const router = useRouter();
   const { asPath } = router;
   return (
-    <Layout page={page} className="min-h-fit" hidePageUid>
+    <Layout
+      page={page}
+      settings={settings}
+      navigation={navigation}
+      className="min-h-fit"
+      hidePageUid
+    >
       <GridSection
         id="404"
         topSpacer={"None"}

@@ -14,6 +14,8 @@ const HighlightOverlays = ({
       strokeWidth: 3,
       pathLength: 1,
       cursor: "pointer",
+      strokeLinecap: "round",
+      strokeMiterlimit: 0,
       transition: {
         pathLength: {
           duration: 1,
@@ -23,8 +25,10 @@ const HighlightOverlays = ({
     hover: {
       fillOpacity: 0.15,
       cursor: "pointer",
+      strokeLinecap: "round",
+      strokeMiterlimit: 0,
     },
-  };
+  } as any;
 
   const getHoverState = (selectKey: any, hoverKey: any, key: any) => {
     return {
@@ -38,20 +42,22 @@ const HighlightOverlays = ({
   };
 
   return (
-    <g
-      style={{
-        mixBlendMode: "multiply",
-      }}
-      data-active={hoverItemKey}
-    >
-      <m.g
-        id="monarch-room"
-        onClick={() => onItemSelect("monarch-room")}
-        onMouseEnter={() => onMapAreaHover("monarch-room")}
-        {...getHoverState(selectedItemKey, hoverItemKey, "monarch-room")}
-      >
-        <m.path d="m278.081 151.499-56.503 27.84-3.746-7.213-86.36 42.324-64.595-112.791 77.598-41.241 133.606 91.081Z" />
-        <m.path d="m295.504 301.266-18.261 9.319-79.193 40.076-67.326-129.522.748-6.689 86.36-42.324 3.746 7.213-.257.234 13.724-6.867 57.634 108.343-6.099 3.308 8.924 16.909Z" />
+    <g data-active={hoverItemKey}>
+      <m.g>
+        <m.path
+          id="monarch-room"
+          onClick={() => onItemSelect("monarch-room")}
+          onMouseEnter={() => onMapAreaHover("monarch-room")}
+          {...getHoverState(selectedItemKey, hoverItemKey, "monarch-room")}
+          d="m278.081 151.499-56.503 27.84-3.746-7.213-86.36 42.324-64.595-112.791 77.598-41.241 133.606 91.081Z"
+        />
+        <m.path
+          id="monarch-room"
+          onClick={() => onItemSelect("monarch-room")}
+          onMouseEnter={() => onMapAreaHover("monarch-room")}
+          {...getHoverState(selectedItemKey, hoverItemKey, "monarch-room")}
+          d="m295.504 301.266-18.261 9.319-79.193 40.076-67.326-129.522.748-6.689 86.36-42.324 3.746 7.213-.257.234 13.724-6.867 57.634 108.343-6.099 3.308 8.924 16.909Z"
+        />
       </m.g>
 
       <m.path

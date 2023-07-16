@@ -3,16 +3,22 @@ import Layout from "@components/Layout";
 
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
+import Head from "next/head";
 import { createClient } from "../../prismicio";
 
-const Page = ({ page }: any) => {
+const Page = ({ page, settings, navigation }: any) => {
   return (
     <Layout
       page={page}
+      settings={settings}
       className={"!min-h-[0vh]"}
       wrapperClassName={"!min-h-[0vh]"}
       hidePageUid
-    />
+    >
+      <Head>
+        <meta name="robots" content="noindex" />
+      </Head>
+    </Layout>
   );
 };
 

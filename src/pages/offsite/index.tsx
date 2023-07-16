@@ -8,9 +8,16 @@ import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../../prismicio";
 import { components } from "../../../slices/";
 
-const Page = ({ page, childPages, cta, footer_cards }: any) => {
+const Page = ({
+  page,
+  childPages,
+  settings,
+  navigation,
+  cta,
+  footer_cards,
+}: any) => {
   return (
-    <Layout page={page}>
+    <Layout page={page} navigation={navigation} settings={settings} hidePageUid>
       <></>
       <SliceZone slices={page.data.slices} components={components} />
       <CtaFooter data={cta} />

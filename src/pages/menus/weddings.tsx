@@ -9,7 +9,7 @@ import fetchLinks from "@/utils/fetchLinks";
 import useSWR from "swr";
 import { createClient } from "../../../prismicio";
 
-const Page = ({ cta, page }: any) => {
+const Page = ({ cta, page, settings, navigation }: any) => {
   const { data: source, error } = useSWR(
     `menu_collection/${page.data.menu_api_uid}`,
     () =>
@@ -39,7 +39,12 @@ const Page = ({ cta, page }: any) => {
   }
 
   return (
-    <Layout page={source} hidePageUid>
+    <Layout
+      page={source}
+      settings={settings}
+      navigation={navigation}
+      hidePageUid
+    >
       <MenuPageContent page={page} source={source} />
       <CtaFooter data={cta} />
     </Layout>

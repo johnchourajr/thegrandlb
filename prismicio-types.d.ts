@@ -1537,6 +1537,116 @@ interface SettingsDocumentData {
    *
    */
   og_image: prismicT.ImageField<never>;
+  /**
+   * Primary Action field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.primary_action
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  primary_action: prismicT.KeyTextField;
+  /**
+   * Primary Action Link field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.primary_action_link
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  primary_action_link: prismicT.LinkField;
+  /**
+   * Facebook Link field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.facebook_link
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  facebook_link: prismicT.LinkField;
+  /**
+   * Instagram Link field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.instagram_link
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  instagram_link: prismicT.LinkField;
+  /**
+   * Address field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.address
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  address: prismicT.RichTextField;
+  /**
+   * Phone Number field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.phone_number
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  phone_number: prismicT.RichTextField;
+  /**
+   * Tag Line field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.tag_line
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  tag_line: prismicT.RichTextField;
+  /**
+   * Parent Company field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.parent_company
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  parent_company: prismicT.KeyTextField;
+  /**
+   * Parent Company Link field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.parent_company_link
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  parent_company_link: prismicT.LinkField;
+  /**
+   * Legal Text field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.legal_text
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  legal_text: prismicT.RichTextField;
 }
 /**
  * Settings document from Prismic
@@ -1548,7 +1658,7 @@ interface SettingsDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type SettingsDocument<Lang extends string = string> =
-  prismicT.PrismicDocumentWithoutUID<
+  prismicT.PrismicDocumentWithUID<
     Simplify<SettingsDocumentData>,
     "settings",
     Lang

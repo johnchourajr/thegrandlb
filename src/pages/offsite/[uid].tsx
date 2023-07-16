@@ -8,10 +8,10 @@ import Layout from "@components/Layout";
 import { createClient } from "../../../prismicio";
 import { components } from "../../../slices";
 
-const Page = ({ page, cta, footer_cards }: any) => {
+const Page = ({ page, cta, settings, navigation, footer_cards }: any) => {
   // if (!page || !cta || !footer_cards) return null;
   return (
-    <Layout page={page}>
+    <Layout page={page} navigation={navigation} settings={settings} hidePageUid>
       <></>
       <SliceZone slices={page?.data?.slices} components={components} />
       <CtaFooter data={cta} />

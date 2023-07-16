@@ -5,10 +5,11 @@ import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../prismicio";
 
-const Page = ({ page }: any) => {
+const Page = ({ page, settings }: any) => {
   return (
     <Layout
       page={page}
+      settings={settings}
       className={"!min-h-[0vh]"}
       wrapperClassName={"!min-h-[0vh]"}
       hidePageUid

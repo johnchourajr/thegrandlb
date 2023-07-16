@@ -6,11 +6,15 @@ import Text from "@/components/Paragraph";
 import StringText from "@/components/StringText";
 import { getExtra } from "@/services/get-extra";
 import Layout from "@components/Layout";
+import Head from "next/head";
 import { createClient } from "../../prismicio";
 
 const Page = ({ navigation, settings, cta }: any) => {
   return (
     <Layout className="">
+      <Head>
+        <meta name="robots" content="noindex" />
+      </Head>
       <GridSection
         className="py-10"
         id=""

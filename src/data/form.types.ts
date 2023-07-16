@@ -35,9 +35,9 @@ export function validateForm(formData: FormPage[]): boolean {
     for (const question of page.questions) {
       // Perform your validation logic here for each question
       // Access the properties using dot notation
-      console.log(question.title);
-      console.log(question.question_type);
-      console.log(question.required);
+      // console.log(question.title);
+      // console.log(question.question_type);
+      // console.log(question.required);
       // ...
     }
   }
