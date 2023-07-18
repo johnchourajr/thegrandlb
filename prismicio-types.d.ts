@@ -1479,7 +1479,8 @@ type PageDocumentDataSlicesSlice =
   | NumbersSectionSlice
   | FaqSectionSlice
   | ImageSectionSlice
-  | LongformTextSectionSlice;
+  | LongformTextSectionSlice
+  | TeamGallerySlice;
 /**
  * Page document from Prismic
  *
@@ -3801,6 +3802,82 @@ export type StarSectionSlice = prismicT.SharedSlice<
   StarSectionSliceVariation
 >;
 /**
+ * Item in TeamGallery → Items
+ *
+ */
+export interface TeamGallerySliceDefaultItem {
+  /**
+   * Name field in *TeamGallery → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_gallery.items[].name
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  name: prismicT.KeyTextField;
+  /**
+   * Position field in *TeamGallery → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_gallery.items[].position
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  position: prismicT.KeyTextField;
+  /**
+   * Primary Media field in *TeamGallery → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_gallery.items[].primary_media
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  primary_media: prismicT.ImageField<never>;
+  /**
+   * Secondary Media field in *TeamGallery → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_gallery.items[].secondary_media
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  secondary_media: prismicT.ImageField<never>;
+}
+/**
+ * Default variation for TeamGallery Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TeamGallerySliceDefault = prismicT.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  Simplify<TeamGallerySliceDefaultItem>
+>;
+/**
+ * Slice variation for *TeamGallery*
+ *
+ */
+type TeamGallerySliceVariation = TeamGallerySliceDefault;
+/**
+ * TeamGallery Shared Slice
+ *
+ * - **API ID**: `team_gallery`
+ * - **Description**: `TeamGallery`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TeamGallerySlice = prismicT.SharedSlice<
+  "team_gallery",
+  TeamGallerySliceVariation
+>;
+/**
  * Primary content in TextSection → Primary
  *
  */
@@ -4538,6 +4615,10 @@ declare module "@prismicio/client" {
       StarSectionSliceDefault,
       StarSectionSliceVariation,
       StarSectionSlice,
+      TeamGallerySliceDefaultItem,
+      TeamGallerySliceDefault,
+      TeamGallerySliceVariation,
+      TeamGallerySlice,
       TextSectionSliceDefaultPrimary,
       TextSectionSliceDefault,
       TextSectionSliceVariation,

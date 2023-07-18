@@ -19,6 +19,18 @@ function stringOneHasWordsSimilarToTwo(str1: string, str2: string) {
   return similarWords.length > 0;
 }
 
+function removeEscapedCharacters(str: string) {
+  if (!str === undefined) return "";
+  return str
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;/g, "'")
+    .replace(/\\n/g, " ")
+    .replace(/\\r/g, " ");
+}
+
 const LayoutHead = ({ settings, page, headContent }: any) => {
   if (!settings) return null;
   // console.log({ settings, page, headContent });
@@ -30,9 +42,13 @@ const LayoutHead = ({ settings, page, headContent }: any) => {
   const dontShowTitle = // pagetitle does not contain content from siteTitle
     stringOneHasWordsSimilarToTwo(pageTitle, siteTitle);
 
-  const showTitle = dontShowTitle ? `` : `${page?.data?.title} | `;
+  const showTitle = dontShowTitle
+    ? ``
+    : `${removeEscapedCharacters(
+        page?.data?.title || page?.data?.page_title
+      )} | `;
 
-  const metaTitle = `${showTitle}${siteTitle}`;
+  const metaTitle = `${"" || showTitle}${siteTitle}`;
 
   const siteDesc = prismicH.asText(settings?.data?.site_description);
   const pageDesc = page?.data?.meta_description;
@@ -42,14 +58,15 @@ const LayoutHead = ({ settings, page, headContent }: any) => {
   const pageImg = page?.data?.meta_image?.url;
   const img = pageImg ? pageImg : siteImg;
 
-  // console.log({
-  //   dontShowTitle,
-  //   pageTitle,
-  //   siteTitle,
-  //   settings,
-  //   page,
-  //   headContent,
-  // });
+  console.log({
+    dontShowTitle,
+    metaTitle,
+    pageTitle,
+    siteTitle,
+    settings,
+    page,
+    headContent,
+  });
 
   return (
     <Head>

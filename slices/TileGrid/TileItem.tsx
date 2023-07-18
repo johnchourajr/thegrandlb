@@ -40,6 +40,8 @@ export const TileItem = ({
   section_id,
   ...rest
 }: TileItemProps) => {
+  if (!link) return null;
+
   const hasCardFragment = card_fragment?.data ? true : false;
   if (hasCardFragment) {
     col_span = card_fragment.data.col_span;

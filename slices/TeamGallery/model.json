@@ -1,0 +1,43 @@
+{
+  "id": "team_gallery",
+  "type": "SharedSlice",
+  "name": "TeamGallery",
+  "description": "TeamGallery",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "name": {
+          "type": "Text",
+          "config": { "label": "Name", "placeholder": "" }
+        },
+        "position": {
+          "type": "Text",
+          "config": { "label": "Position", "placeholder": "" }
+        },
+        "primary_media": {
+          "type": "Image",
+          "config": {
+            "label": "Primary Media",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "secondary_media": {
+          "type": "Image",
+          "config": {
+            "label": "Secondary Media",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      }
+    }
+  ]
+}

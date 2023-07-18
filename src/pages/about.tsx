@@ -11,8 +11,6 @@ import { createClient } from "../../prismicio";
 import { components } from "../../slices/";
 
 const Page = ({ page, settings, navigation, cta, footer_cards }: any) => {
-  // console.log({ cta });
-
   return (
     <Layout page={page} settings={settings} navigation={navigation} hidePageUid>
       <></>

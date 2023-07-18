@@ -16,6 +16,7 @@ export const components = {
   split_gallery: dynamic(() => import("./SplitGallery")),
   split_scroll_section: dynamic(() => import("./SplitScrollSection")),
   star_section: dynamic(() => import("./StarSection")),
+  team_gallery: dynamic(() => import("./TeamGallery")),
   text_section: dynamic(() => import("./TextSection")),
   tile_grid: dynamic(() => import("./TileGrid")),
 };
