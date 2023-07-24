@@ -24,7 +24,11 @@ const MenuSectionNav: React.FC<MenuSectionNavProps> = ({ uid, group }) => {
       className={clsx(
         "col-span-full lg:col-span-1 lg:col-start-1 xl:col-span-5 xl:col-start-2",
         "fixed bottom-0 left-0 h-fit lg:sticky lg:left-[unset] lg:bottom-[unset] lg:top-[12rem] lg:h-[calc(100vh-16rem)]",
-        "z-50 w-full bg-bg"
+        "z-50 w-full bg-bg",
+        /**
+         * PRINT STYLES
+         */
+        "print:hidden"
       )}
       data-no-print
     >

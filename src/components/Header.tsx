@@ -110,8 +110,15 @@ export default function Header({
       className={clsx(
         "sticky top-[var(--navTop)] z-[9999] h-fit !max-w-[100vw] overflow-visible !pt-4",
         "transition-colors duration-300 ease-out-expo",
-        "flex-col items-center gap-0 lg:gap-[inherit] xl:flex-row xl:gap-[var(--navGap)]",
-        navScrolled || isNavOpen ? "border-b-2 border-red bg-bg" : "bg-bg"
+        "flex-col items-center !gap-0 lg:gap-[inherit] xl:flex-row xl:gap-[var(--navGap)]",
+        /**
+         * NAV SCROLLED STYLES
+         */
+        navScrolled || isNavOpen ? "border-b-2 border-red bg-bg" : "bg-bg",
+        /**
+         * PRINT STYLES
+         */
+        "print:relative print:min-h-[50vh] print:!border-none print:!opacity-100"
       )}
       initial={{ "--navTop": "0rem" } as any}
       animate={controls}

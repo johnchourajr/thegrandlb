@@ -34,10 +34,13 @@ interface MenuSectionProps {
 
 const MenuSection: React.FC<MenuSectionProps> = ({ uid, group }) => {
   return (
-    // <LayoutGroup id={uid}>
     <MotionBox
       className={clsx(
-        "col-span-full col-start-1 flex flex-col gap-20 lg:col-span-3 xl:col-span-5"
+        "col-span-full col-start-1 flex flex-col gap-20 lg:col-span-3 xl:col-span-5",
+        /**
+         * PRINT STYLES
+         */
+        "print:!translate-y-0 print:!opacity-100"
       )}
     >
       {group.map(({ menu_link }, groupIndex) => {
@@ -46,13 +49,23 @@ const MenuSection: React.FC<MenuSectionProps> = ({ uid, group }) => {
           <div key={groupIndex} className="relative flex flex-col gap-20">
             <div
               id={convertToSlug(section.page_title)}
-              className="absolute top-[-10rem] left-0 w-full"
+              className={clsx(
+                "absolute top-[-10rem] left-0 w-full",
+                /**
+                 * PRINT STYLES
+                 */
+                "print:relative print:top-[unset]"
+              )}
             />
             <a
               href={`#${convertToSlug(section.page_title)}`}
               className={clsx(
                 "group sticky top-[5rem] z-50 inline-flex h-fit lg:top-[10rem]",
-                "after:from-transparent after:via-20% after:pointer-events-none after:absolute after:inset-[-1rem] after:top-[-2rem] after:bottom-[-2rem] after:z-10 after:bg-gradient-to-b after:from-bg after:via-bg after:to-[transparent] after:opacity-100 after:transition-opacity after:delay-500 after:duration-500 after:ease-in-out after:content-['']"
+                "after:from-transparent after:via-20% after:pointer-events-none after:absolute after:inset-[-1rem] after:top-[-2rem] after:bottom-[-2rem] after:z-10 after:bg-gradient-to-b after:from-bg after:via-bg after:to-[transparent] after:opacity-100 after:transition-opacity after:delay-500 after:duration-500 after:ease-in-out after:content-['']",
+                /**
+                 * PRINT STYLES
+                 */
+                "print:relative print:top-[unset] print:break-before-page print:after:hidden"
               )}
             >
               <Headline
@@ -104,7 +117,16 @@ const MenuSection: React.FC<MenuSectionProps> = ({ uid, group }) => {
               const prim_desc = primary.description;
 
               return (
-                <MotionBox key={groupIndex} className="flex flex-col gap-10">
+                <MotionBox
+                  key={groupIndex}
+                  className={clsx(
+                    "flex flex-col gap-10",
+                    /**
+                     * PRINT STYLES
+                     */
+                    "print:!translate-y-0 print:!opacity-100"
+                  )}
+                >
                   <div className="relative flex flex-col gap-4">
                     {prim_title && (
                       <a
@@ -170,7 +192,6 @@ const MenuSection: React.FC<MenuSectionProps> = ({ uid, group }) => {
         );
       })}
     </MotionBox>
-    // </LayoutGroup>
   );
 };
 

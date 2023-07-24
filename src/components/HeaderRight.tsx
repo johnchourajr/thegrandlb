@@ -19,11 +19,15 @@ export const HeaderRight = ({
     open: {
       opacity: 1,
       height: "auto",
+      // display: "block",
       transition: {},
     },
     closed: {
       opacity: 0,
       height: 0,
+      transitionEnd: {
+        // display: "none",
+      },
       transition: {},
     },
   };
@@ -44,7 +48,11 @@ export const HeaderRight = ({
             "group-one grid-inset overflow-hidden xl:overflow-visible",
             "col-span-full row-start-2 flex w-full grow flex-col items-center justify-between xl:gap-4",
             "xl:col-span-9 xl:col-start-4 xl:row-start-1 xl:flex-row xl:!pl-0",
-            "h-0 opacity-0 xl:h-fit xl:opacity-100"
+            "h-0 opacity-0 xl:h-fit xl:opacity-100",
+            /**
+             * PRINT STYLES
+             */
+            "print:hidden"
           )}
           {...animationProps}
         >

@@ -1,4 +1,5 @@
 import { PrismicRichText } from "@prismicio/react";
+import clsx from "clsx";
 import MotionBox from "../MotionBox";
 import Text from "../Paragraph";
 import StringText from "../StringText";
@@ -22,7 +23,15 @@ const MenuItem: React.FC<MenuItemProps> = ({ data }) => {
   const max = data.price_max;
 
   return (
-    <MotionBox className="flex flex-row justify-between">
+    <MotionBox
+      className={clsx(
+        "flex flex-row justify-between",
+        /**
+         * PRINT STYLES
+         */
+        "print:!translate-y-0 print:!opacity-100"
+      )}
+    >
       <div className="relative flex max-w-[60%] flex-col gap-4">
         {data.title && (
           <PrismicRichText

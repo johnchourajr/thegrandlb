@@ -12,14 +12,16 @@ export const HeaderLeft = ({
   modalOverlay,
   modalContent,
 }: any) => {
-  const { title, subtitle, button, buttonAction } = modalContent();
-
-  // console.log({ modalContent: modalContent() });
+  const { subtitle } = modalContent();
 
   return (
     <m.div
       className={clsx(
-        "grid-inset relative z-10 flex w-full justify-between xl:w-auto"
+        "grid-inset relative z-10 flex w-full justify-between xl:w-auto",
+        /**
+         * PRINT STYLES
+         */
+        "print:--bg-[blue] print:h-full print:w-full print:grow print:items-end print:justify-center"
       )}
       initial={{ "--logoScale": "1", transformOrigin: "0% 70%" } as any}
       animate={controls}
@@ -28,10 +30,18 @@ export const HeaderLeft = ({
         href="/"
         title="The Grand LB"
         aria-label="homepage"
-        className="flex flex-nowrap items-center justify-center"
+        className={clsx("flex flex-nowrap items-center justify-center")}
         eventLabel="navLogo"
       >
-        <HeaderLogo className="h-12 w-32 origin-left scale-[var(--logoScale)] xl:h-32 xl:w-64" />
+        <HeaderLogo
+          className={clsx(
+            "h-12 w-32 origin-left scale-[var(--logoScale)] xl:h-32 xl:w-64",
+            /**
+             * PRINT STYLES
+             */
+            "print:h-32 print:w-64"
+          )}
+        />
         <AnimatePresence mode="sync">
           {modalOverlay && (
             <m.div
@@ -58,11 +68,57 @@ export const HeaderLeft = ({
       {isMobile && !modalOverlay && (
         <div
           className={clsx(
-            "col-span-1 col-start-4 row-start-1 mr-4 flex justify-self-end xl:mr-16"
+            "col-span-1 col-start-4 row-start-1 flex justify-self-end xl:mr-16",
+            /**
+             * PRINT STYLES
+             */
+            "print:hidden"
           )}
         >
-          <button onClick={() => setIsNavOpen(!isNavOpen)}>
-            {isNavOpen ? "Close" : "Open"}
+          <button
+            onClick={() => setIsNavOpen(!isNavOpen)}
+            className=" flex h-11 w-11 items-center justify-center bg-[yelllow]"
+          >
+            {/* {isNavOpen ? "Close" : "Open"} */}
+            {isNavOpen ? (
+              <>
+                <m.div
+                  layoutId="nav-upper-line"
+                  className={clsx("absolute h-[2px] w-6 bg-black")}
+                  animate={{
+                    rotate: "45deg",
+                    y: "0rem",
+                  }}
+                />
+                <m.div
+                  layoutId="nav-lower-line"
+                  className={clsx("absolute h-[2px] w-6 bg-black")}
+                  animate={{
+                    rotate: "-45deg",
+                    y: "0rem",
+                  }}
+                />
+              </>
+            ) : (
+              <>
+                <m.div
+                  layoutId="nav-upper-line"
+                  className={clsx("absolute h-[2px] w-6 bg-black")}
+                  animate={{
+                    rotate: "0deg",
+                    y: "-0.25rem",
+                  }}
+                />
+                <m.div
+                  layoutId="nav-lower-line"
+                  className={clsx("absolute h-[2px] w-6 bg-black")}
+                  animate={{
+                    rotate: "0deg",
+                    y: "0.25rem",
+                  }}
+                />
+              </>
+            )}
           </button>
         </div>
       )}

@@ -37,7 +37,7 @@ const NavLinkItem = ({
           value: link_source.uid,
         })
       }
-      {...extra}
+      // {...extra}
     >
       <StringText
         size={stringTextSize}
@@ -69,7 +69,11 @@ const FooterUpper = ({
         "col-span-full xl:col-span-12 2xl:col-span-10 2xl:col-start-2",
         "flex flex-col items-center justify-evenly text-center lg:flex-row lg:items-start lg:text-start",
         "gap-y-2 border-y-2 border-white",
-        "padding-top-md padding-bottom-md"
+        "padding-top-md padding-bottom-md",
+        /**
+         * PRINT STYLES
+         */
+        "print:hidden"
       )}
     >
       {footerColumns.map(({ primary, items }: any, index: number) => {
@@ -78,7 +82,7 @@ const FooterUpper = ({
             key={index}
             className={clsx(
               "flex w-full flex-col gap-2 px-6",
-              "border-l-2 border-white"
+              "border-white lg:border-l-2"
             )}
           >
             <NavLinkItem
@@ -109,7 +113,7 @@ const FooterUpper = ({
       <div
         className={clsx(
           "flex w-full flex-col gap-2 px-6",
-          "border-x-2 border-white"
+          "border-white lg:border-x-2"
         )}
       >
         {footerLinks.map(({ primary }: any, index: number) => {
@@ -168,7 +172,11 @@ const FooterMiddle = ({ tag_line }: { tag_line: any }): JSX.Element | null => {
         "col-span-full xl:col-span-12 2xl:col-span-10 2xl:col-start-2",
         "flex flex-row items-start justify-evenly text-center",
         "border-b-2 border-white",
-        "padding-top-md padding-bottom-md"
+        "padding-top-md padding-bottom-md",
+        /**
+         * PRINT STYLES
+         */
+        "print:items-end print:border-none"
       )}
     >
       <Headline size={"xl"} disableMotion uppercase>
@@ -196,7 +204,15 @@ const FooterLower = ({
           © Copyright {new Date().getFullYear()} {parent_company}
         </StringText>
       </div>
-      <div className="relative order-1 flex h-full w-full items-center justify-center text-center lg:order-[unset]">
+      <div
+        className={clsx(
+          "relative order-1 flex h-full w-full items-center justify-center text-center lg:order-[unset]",
+          /**
+           * PRINT STYLES
+           */
+          "print:h-[unset]"
+        )}
+      >
         <div className="bottom-0 flex w-full items-start justify-center overflow-hidden lg:absolute lg:h-20 ">
           <HeaderLogo className="w-44 lg:absolute lg:w-[unset] " />
         </div>
@@ -284,7 +300,13 @@ export default function Footer({ settings, navigation }: any) {
         topSpacer="Medium"
         bottomSpacer="None"
         overflowHidden={false}
-        className="gap-y-0"
+        className={clsx(
+          "gap-y-0",
+          /**
+           * PRINT STYLES
+           */
+          "print:min-h-[100vh]"
+        )}
       >
         <FooterUpper
           footerColumns={footerColumns}

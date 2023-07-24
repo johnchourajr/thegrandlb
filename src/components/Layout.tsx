@@ -58,15 +58,15 @@ const LayoutHead = ({ settings, page, headContent }: any) => {
   const pageImg = page?.data?.meta_image?.url;
   const img = pageImg ? pageImg : siteImg;
 
-  console.log({
-    dontShowTitle,
-    metaTitle,
-    pageTitle,
-    siteTitle,
-    settings,
-    page,
-    headContent,
-  });
+  // console.log({
+  //   dontShowTitle,
+  //   metaTitle,
+  //   pageTitle,
+  //   siteTitle,
+  //   settings,
+  //   page,
+  //   headContent,
+  // });
 
   return (
     <Head>

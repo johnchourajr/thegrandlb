@@ -18,6 +18,13 @@ body {
   max-width: 100vw;
 }
 
+@media print {
+  html,
+  body {
+    font-size: 11px;
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;

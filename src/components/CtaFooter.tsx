@@ -65,13 +65,20 @@ const CtaFooter = ({ data }: any) => {
         <GridSection
           id={"cta-footer"}
           gridSectionRef={ref}
-          bottomSpacer={bottom_spacer}
-          topSpacer={top_spacer}
+          bottomSpacer={"None"}
+          topSpacer={"None"}
           overflowHidden={true}
-          className={clsx("relative min-h-[65vmax] bg-[white] text-[black]")}
+          className={clsx(
+            "relative min-h-[65vmax] bg-[white] text-[black]",
+            "!pt-[50vh] md:my-8 md:!pt-[inherit]",
+            /**
+             * PRINT STYLES
+             */
+            "print:hidden"
+          )}
         >
           <TileItem
-            className="z-50 w-full md:!col-span-2 md:!col-start-3 xl:!col-span-5 xl:!col-start-7 3xl:!col-span-4 3xl:!col-start-8"
+            className="z-50 flex w-full items-center md:!col-span-2 md:!col-start-3 xl:!col-span-5 xl:!col-start-7 3xl:!col-span-4 3xl:!col-start-8"
             initial={{
               opacity: 0,
               y: 60,
@@ -83,7 +90,7 @@ const CtaFooter = ({ data }: any) => {
             {...inquire_card.data}
           />
           <div className="absolute inset-0 z-20 bg-cream mix-blend-multiply" />
-          <div className="overflow-mask absolute inset-0 flex translate-x-[-1%] flex-col justify-center">
+          <div className="overflow-mask absolute inset-0 flex translate-x-[-1%] flex-col justify-start py-8 lg:justify-center lg:py-0">
             {headlineArray.map((word: string, index: number) => {
               return (
                 <CtaFooterHeadlineItem
