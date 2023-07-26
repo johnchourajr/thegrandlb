@@ -4,7 +4,7 @@ import { PrismicLink } from "@prismicio/react";
 import clsx from "clsx";
 import { m, useAnimation } from "framer-motion";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { linkResolver } from "../../prismicio";
 import { NavItem } from "./NavItem";
 import StringText from "./StringText";
@@ -19,6 +19,7 @@ export const NavParentItem = ({
   setIsNavOpen,
   className,
 }: any) => {
+  const ref = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const controls = useAnimation();
   const [isHovering, setIsHovering] = useState(false);
@@ -86,6 +87,19 @@ export const NavParentItem = ({
   };
 
   useEffect(() => {
+    const handleClickOutside = (event: KeyboardEvent) => {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        onRouteChangeCloseMenu();
+      }
+    };
+
+    document.addEventListener("keydown", handleClickOutside);
+    return () => {
+      document.removeEventListener("keydown", handleClickOutside);
+    };
+  }, [isNavOpen, setIsNavOpen]);
+
+  useEffect(() => {
     router.events.on("routeChangeStart", onRouteChangeCloseMenu);
     return () => {
       router.events.off("routeChangeStart", onRouteChangeCloseMenu);
@@ -106,15 +120,18 @@ export const NavParentItem = ({
 
   return (
     <m.li
+      ref={ref}
       className={clsx(
         "w-full list-none transition-opacity duration-300 ease-out-expo xl:w-fit",
         hasChildren &&
           "via-100% after:xl:pointer-events-none after:xl:fixed after:xl:inset-0 after:xl:top-0 after:xl:z-[1] after:xl:h-[110vh] after:xl:bg-gradient-to-b after:xl:from-bg after:xl:to-bg after:xl:opacity-0 after:xl:transition-opacity after:xl:duration-700 after:xl:ease-out-expo after:xl:content-[''] hover:after:xl:opacity-90",
+        isHovering && "after:xl:opacity-90",
         className
       )}
       initial={!isMobile && ({ "--height": "50vh" } as any)}
       whileHover={!isMobile && ({ "--height": "100vh" } as any)}
       transition={{ duration: 0.3 }}
+      data-label={"nav-item"}
       {...desktopParentProps}
     >
       <span
@@ -154,6 +171,7 @@ export const NavParentItem = ({
               onClick={handleToggleControls}
               tabIndex={isMobile ? -1 : 1}
               data-content={isHovering ? "Close" : "Open"}
+              data-label={"aria-nav-button"}
               aria-hidden={isMobile}
               aria-label="Open or close sub-menu"
             >

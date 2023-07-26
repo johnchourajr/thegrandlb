@@ -35,6 +35,7 @@ export const SalesEmail = (props: any) => {
   } inquiry has been received!`;
 
   const formattedDate = formatDate(desired_date.value);
+  const nowFormatted = formatDate(new Date().toISOString());
 
   return (
     <Html>
@@ -42,8 +43,14 @@ export const SalesEmail = (props: any) => {
       <Preview>{previewText}</Preview>
       <Tailwind>
         <Body className="my-auto mx-auto bg-white font-sans">
-          <Container className="mx-auto mt-[24px] w-[465px] rounded bg-[#FAF2EB] px-[32px] pt-[12px] pb-[32px]">
-            <Section className="mt-[24px] mb-[16px] w-[465px]">
+          <Container className="relative mx-auto mt-[24px] max-w-[529px] overflow-hidden rounded bg-[#FAF2EB] px-[32px] pt-[24px] pb-[32px]">
+            <div className="absolute top-0 left-0 right-0 inline-block overflow-hidden bg-[#FFC42D]">
+              <span className="inline-block whitespace-nowrap py-[4px]">
+                SALES EMAIL SALES EMAIL SALES EMAIL SALES EMAIL SALES EMAIL
+                SALES EMAIL
+              </span>
+            </div>
+            <Section className="mt-[24px] mb-[16px]">
               <a href="https://thegrandlb.com" target="_blank" rel="noreferrer">
                 <Img
                   src={`https://images.prismic.io/the-grand/cb6bbe74-9712-4cf9-bec3-145cc675a490_logo.png?auto=compress,format`}
@@ -59,7 +66,8 @@ export const SalesEmail = (props: any) => {
             <p className="text-[16px]">
               {full_name.value || "Someone"} just submitted an inquiry for{" "}
               {`"${event_name?.value}"` || "an event"} on{" "}
-              {formattedDate || "a date"} via thegrandlb.com website.
+              {formattedDate || "a date"} via thegrandlb.com website on{" "}
+              {nowFormatted}.
             </p>
             <hr className="border-[1px] !border-solid border-[white] !outline-[none]" />
             <p>Details:</p>

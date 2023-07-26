@@ -208,7 +208,11 @@ function Button({
       {...rest}
     >
       <StringText
-        className="relative z-10 w-full flex-shrink-0"
+        className={clsx(
+          "relative z-10 w-full flex-shrink-0",
+          "transition-all duration-500 ease-out-expo will-change-auto",
+          type !== "naked" && "group-hover:!text-white"
+        )}
         size={"small"}
         uppercase={true}
         bold={true}
@@ -217,12 +221,28 @@ function Button({
       </StringText>
       <span
         className={clsx(
-          `absolute inset-0 z-0 transition-all duration-500 ease-out-expo will-change-auto group-hover:inset-[-2px] group-active:inset-[2px]`,
-          getButtonStyles(type).inner,
-          currentPage ? getButtonStyles(type).innerCurrentPage : "",
+          "absolute inset-0 z-0 overflow-hidden rounded-full group-hover:inset-[-2px] group-active:inset-[2px]",
+          "transition-all duration-500 ease-out-expo will-change-auto ",
           classNameInner ? classNameInner : ""
         )}
-      />
+        aria-hidden
+      >
+        <span
+          className={clsx(
+            "pointer absolute inset-0 z-10  rounded-full opacity-0 group-hover:inset-[-1rem]",
+            "transition-all duration-500 ease-out-expo will-change-auto ",
+            "origin-top-left translate-y-[-100%] group-hover:origin-top-left group-hover:translate-y-[0%] group-hover:opacity-100",
+            type !== "naked" && "bg-red "
+          )}
+        />
+        <span
+          className={clsx(
+            `absolute inset-0 z-0 transition-all duration-500 ease-out-expo will-change-auto `,
+            getButtonStyles(type).inner,
+            currentPage ? getButtonStyles(type).innerCurrentPage : ""
+          )}
+        />
+      </span>
       {field?.target === "_blank" && <span className="z-10">↗</span>}
     </ButtonTag>
   );
