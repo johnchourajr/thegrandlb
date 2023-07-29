@@ -19,7 +19,7 @@ export const NavParentItem = ({
   setIsNavOpen,
   className,
 }: any) => {
-  const ref = useRef<HTMLLIElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const controls = useAnimation();
   const [isHovering, setIsHovering] = useState(false);
@@ -119,7 +119,7 @@ export const NavParentItem = ({
   if (show === false) return null;
 
   return (
-    <m.li
+    <m.div
       ref={ref}
       className={clsx(
         "w-full list-none transition-opacity duration-300 ease-out-expo xl:w-fit",
@@ -142,7 +142,7 @@ export const NavParentItem = ({
         )}
       >
         <CategoryAction
-          tabIndex={1}
+          tabIndex={0}
           className={clsx("group relative z-10 flex-grow text-left")}
           aria-label={`Navigate to ${link_title}`}
           {...categoryActionProps()}
@@ -169,7 +169,7 @@ export const NavParentItem = ({
                 "after:absolute after:left-[105%] after:top-0 after:rounded-sm after:p-3 after:py-2 focus-visible:after:bg-black focus-visible:after:text-white focus-visible:after:content-[attr(data-content)]"
               )}
               onClick={handleToggleControls}
-              tabIndex={isMobile ? -1 : 1}
+              tabIndex={isMobile ? -1 : 0}
               data-content={isHovering ? "Close" : "Open"}
               data-label={"aria-nav-button"}
               aria-hidden={isMobile}
@@ -226,6 +226,6 @@ export const NavParentItem = ({
           )}
         </m.ul>
       )}
-    </m.li>
+    </m.div>
   );
 };
