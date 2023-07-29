@@ -19,7 +19,7 @@ export const NavParentItem = ({
   setIsNavOpen,
   className,
 }: any) => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLLIElement>(null);
   const router = useRouter();
   const controls = useAnimation();
   const [isHovering, setIsHovering] = useState(false);
