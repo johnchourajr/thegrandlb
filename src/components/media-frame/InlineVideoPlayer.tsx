@@ -2,6 +2,7 @@
 import { EmptyLinkField, FilledLinkToMediaField } from "@prismicio/types";
 import clsx from "clsx";
 import { useInView, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 import React, { useEffect, useState, VideoHTMLAttributes } from "react";
 import ParallaxWrapper from "../ParallaxWrapper";
 import { VideoProgressButton } from "./VideoProgressButton";
@@ -49,7 +50,6 @@ const InlineVideoPlayer = ({
 
   const { url: mediaUrl }: any = media || {};
   const { url: posterUrl }: any = poster || {};
-  const posterUrlWithParams = posterUrl && `${posterUrl}?q=10&fm=webp&w=800`;
 
   const videoOptions = {
     autoPlay: auto_play,
@@ -152,25 +152,41 @@ const InlineVideoPlayer = ({
         <div className={clsx("absolute inset-0")}>
           <div
             className={clsx(
-              "absolute inset-0 z-10 h-full w-full bg-black object-cover opacity-20"
+              "absolute inset-0 z-20 h-full w-full bg-black object-cover opacity-20"
             )}
           />
           <video
             ref={ref}
-            className={clsx("h-full w-full object-cover", videoClassName)}
+            className={clsx(
+              "absolute z-10 h-full w-full object-cover",
+              videoClassName
+            )}
             {...videoOptions}
             controls={false}
-            poster={posterUrlWithParams}
             playsInline
           >
             {loadInView && <source src={mediaUrl} type="video/mp4" />}
           </video>
+          {posterUrl && (
+            <div className={"absolute inset-0 z-0 h-full w-full"}>
+              <Image
+                className={clsx("h-full w-full object-cover", videoClassName)}
+                src={posterUrl}
+                width={`10`}
+                height={`10`}
+                loader={({ src }) => src}
+                quality={1}
+                priority={true}
+                alt=""
+              />
+            </div>
+          )}
         </div>
       </ParallaxWrapper>
       {controls && (
         <div
           className={clsx(
-            "absolute  z-30 h-9 w-9 ",
+            "absolute z-30 h-9 w-9",
             setPosition(controlPosition)
           )}
         >
