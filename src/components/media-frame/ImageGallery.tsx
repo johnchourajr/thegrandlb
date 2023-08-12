@@ -262,7 +262,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                       priority={i === 0 ? true : false}
                     />
                     {overlay && (
-                      <div className="absolute inset-0 z-10 bg-black bg-opacity-20" />
+                      <div className="absolute inset-0 z-10 bg-black bg-opacity-10" />
                     )}
                     <div className="noise" />
                   </m.div>

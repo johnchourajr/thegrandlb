@@ -1,7 +1,7 @@
 import { handleEvent } from "@/utils/events";
 import { stringToCamelCase } from "@/utils/utils";
 import * as prismicH from "@prismicio/helpers";
-import { PrismicLink, PrismicRichText } from "@prismicio/react";
+import { PrismicLink,PrismicRichText } from "@prismicio/react";
 import clsx from "clsx";
 import { useRouter } from "next/router";
 import { linkResolver } from "prismicio";
@@ -9,7 +9,7 @@ import Button from "./Button";
 import { GridSection } from "./GridSection";
 import Headline from "./Headline";
 import Text from "./Paragraph";
-import StringText, { StringTextProps } from "./StringText";
+import StringText,{ StringTextProps } from "./StringText";
 import HeaderLogo from "./svg/HeaderLogo";
 
 const NavLinkItem = ({
@@ -95,6 +95,7 @@ const FooterUpper = ({
                 { child_link_source, child_link_title, ...childExtra }: any,
                 index: number
               ) => {
+                if (primary.show === false) return null;
                 return (
                   <NavLinkItem
                     key={index}
@@ -117,6 +118,7 @@ const FooterUpper = ({
         )}
       >
         {footerLinks.map(({ primary }: any, index: number) => {
+          if (primary.show === false) return null;
           return (
             <div key={index} className={clsx("flex w-full flex-col gap-2")}>
               <NavLinkItem
