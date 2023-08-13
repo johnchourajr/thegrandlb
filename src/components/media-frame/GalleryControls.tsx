@@ -1,21 +1,26 @@
 import clsx from "clsx";
 import { AnimatePresence, m } from "framer-motion";
 import React from "react";
+import Text from "../Paragraph";
 import type { GalleryControlsProps } from "./types";
 import { VideoProgressButton } from "./VideoProgressButton";
 
 const GalleryDot = ({
   outerControls = true,
   className,
+  props,
 }: {
   outerControls?: boolean;
   className?: string;
+  layoutId?: string;
+  props?: any;
 }) => (
   <m.span
     initial={{ opacity: 0, width: 0 }}
     animate={{ opacity: 1, width: "auto" }}
     exit={{ opacity: 0, width: 0 }}
     className={clsx(
+      "min-h-4 min-w-4 flex",
       "bg-gray-300 relative z-10 flex h-6 w-6 items-center justify-center rounded-full px-1",
       "hover:before:scale-150 hover:after:opacity-20",
       "before:absolute before:z-10 before:h-[5px] before:w-[5px] before:transform before:rounded-full before:bg-black before:transition-all before:duration-300 before:ease-in-out before:content-['']",
@@ -25,6 +30,7 @@ const GalleryDot = ({
         : "before:bg-white after:bg-white",
       className
     )}
+    {...props}
   />
 );
 
@@ -54,6 +60,7 @@ const GalleryControls: React.FC<GalleryControlsProps> = ({
             onClick={() => handleNavigateToIndex(i)}
             aria-label={`navigate to image ${i + 1}`}
             className={"relative"}
+            data-active={isActive}
           >
             <AnimatePresence>
               {isActive ? (
@@ -87,7 +94,7 @@ const GalleryControls: React.FC<GalleryControlsProps> = ({
                   {/**
                    * @todo TEMP FIX
                    */}
-                  {/* {caption ? (
+                  {caption ? (
                     <Text
                       className={clsx(
                         "inline whitespace-nowrap",
@@ -101,17 +108,21 @@ const GalleryControls: React.FC<GalleryControlsProps> = ({
                   ) : (
                     <GalleryDot
                       outerControls={outerControls}
-                      className={"px-[6px] before:!scale-[1.5]"}
+                      className={" px-[6px] before:!scale-[1.5]"}
+                      layoutId={`dot-${i}`}
                     />
-                  )} */}
+                  )}
 
-                  <GalleryDot
+                  {/* <GalleryDot
                     outerControls={outerControls}
                     className={"px-[6px] before:!scale-[1.5]"}
-                  />
+                  /> */}
                 </m.div>
               ) : (
-                <GalleryDot outerControls={outerControls} />
+                <GalleryDot
+                  outerControls={outerControls}
+                  layoutId={`dot-${i}`}
+                />
               )}
             </AnimatePresence>
           </button>

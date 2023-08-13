@@ -25,7 +25,7 @@ export default async function handler(
         from: fromEmail,
         to: email,
         reply_to: replyEmails || "dan@grandfandb.com",
-        subject: `Inquiry confirmation: ${
+        subject: `TEST: Inquiry confirmation: ${
           formState.event_name?.value || "Grand LB Event"
         }`,
         react: ClientEmail(formState),
@@ -38,7 +38,7 @@ export default async function handler(
         from: fromEmail,
         to: salesEmail,
         reply_to: formState.email?.value,
-        subject: `New inquiry from ${
+        subject: `TEST: New inquiry from ${
           formState.full_name?.value || "Grand LB Website"
         }`,
         react: SalesEmail(formState),
