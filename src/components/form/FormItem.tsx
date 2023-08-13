@@ -63,7 +63,7 @@ const FormItem = ({
   return (
     <m.div
       className={clsx(
-        "relative flex h-16 flex-col",
+        "relative flex h-20 flex-col rounded-[.33rem] bg-white lg:h-16",
         question_type === "text_area" && "h-48"
       )}
       data-valid={hasError}
@@ -89,7 +89,7 @@ const FormItem = ({
         type={data_type}
         page_key={page_key}
         className={clsx(
-          "absolute z-0 min-h-full min-w-full rounded-[.33rem] px-3 pt-7 pb-2",
+          "!absolute !inset-0 z-0 min-h-full min-w-full rounded-[.33rem] px-3 pt-7 pb-2",
           hasError && "border border-[red]"
         )}
         {...rest}

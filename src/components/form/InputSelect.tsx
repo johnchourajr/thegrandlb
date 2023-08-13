@@ -27,7 +27,7 @@ const InputSelect = ({
       value={value}
       className={clsx(
         className,
-        `!px-2 data-[value='']:text-[rgba(0,0,0,.35)]`
+        `data-[value='']:text-[rgba(0,0,0,.35)] lg:!px-2`
       )}
       data-value={value}
       {...rest}

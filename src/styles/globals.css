@@ -281,3 +281,12 @@ body {
   }
 }
 
+input::-webkit-date-and-time-value {
+  margin-top: 0px;
+  text-align: start;
+  width: 100%;
+}
+
+select, input {
+  @apply bg-white appearance-none;
+}
