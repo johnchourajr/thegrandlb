@@ -63,8 +63,8 @@ const FormItem = ({
   return (
     <m.div
       className={clsx(
-        "relative flex h-20 flex-col rounded-[.33rem] bg-white lg:h-16",
-        question_type === "text_area" && "h-48"
+        "relative flex h-16 flex-col rounded-[.33rem] bg-white lg:h-16",
+        question_type === "text_area" && "!h-48"
       )}
       data-valid={hasError}
     >

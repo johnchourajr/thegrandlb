@@ -86,6 +86,12 @@ const InquireFormContainer = ({ ...extra }) => {
     try {
       const email = formState.email.value;
 
+      // await axios.post("", {
+      //   // id: "inquire-form",
+      //   // unique id number based on UTC time
+      //   // form_id: Date.now(),
+      //   ...formState});
+
       await axios.post("/api/send-client-email", {
         email,
         formState,
