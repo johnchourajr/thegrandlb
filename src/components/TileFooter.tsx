@@ -27,7 +27,7 @@ const TileFooter = ({ footer_cards = [] }: any) => {
           headline: "Discover more and more Grand.",
           theme: "Cream",
           body: "",
-          top_spacer: "None",
+          top_spacer: "Medium",
           bottom_spacer: "Medium",
         },
         items,

@@ -84,6 +84,9 @@ const GalleryControls: React.FC<GalleryControlsProps> = ({
                     } as any
                   }
                 >
+                  {/**
+                   * @todo TEMP FIX
+                   */}
                   {/* {caption ? (
                     <Text
                       className={clsx(
@@ -101,6 +104,7 @@ const GalleryControls: React.FC<GalleryControlsProps> = ({
                       className={"px-[6px] before:!scale-[1.5]"}
                     />
                   )} */}
+
                   <GalleryDot
                     outerControls={outerControls}
                     className={"px-[6px] before:!scale-[1.5]"}
