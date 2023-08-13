@@ -273,7 +273,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
         </div>
         <button
           className={clsx(
-            "--bg-red absolute top-0 left-0 z-[100] h-full w-1/2 cursor-none bg-opacity-30",
+            "absolute top-0 left-0 z-[100] h-full w-1/2 cursor-none bg-opacity-30",
             "after:absolute after:left-0 after:top-0 after:rounded-sm after:p-3 after:py-2 focus-visible:after:bg-black focus-visible:after:text-white focus-visible:after:content-[attr(data-content)]"
           )}
           data-cursor="arrow-left"
@@ -290,7 +290,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
         />
         <button
           className={clsx(
-            "--bg-blue absolute top-0 right-0 z-[100] h-full w-1/2 cursor-none bg-opacity-30",
+            "absolute top-0 right-0 z-[100] h-full w-1/2 cursor-none bg-opacity-30",
             "after:absolute after:right-0 after:top-0 after:rounded-sm after:p-3 after:py-2 focus-visible:after:bg-black focus-visible:after:text-white focus-visible:after:content-[attr(data-content)]"
           )}
           data-cursor="arrow-right"

@@ -21,7 +21,7 @@ export const HeaderLeft = ({
         /**
          * PRINT STYLES
          */
-        "print:--bg-[blue] print:h-full print:w-full print:grow print:items-end print:justify-center"
+        "print:h-full print:w-full print:grow print:items-end print:justify-center"
       )}
       initial={{ "--logoScale": "1", transformOrigin: "0% 70%" } as any}
       animate={controls}

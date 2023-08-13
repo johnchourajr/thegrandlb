@@ -32,6 +32,7 @@ export const TileItem = ({
   card_fragment,
   body,
   className,
+  innerClassName,
   gridOptions = true,
   initial,
   whileInView,
@@ -117,7 +118,7 @@ export const TileItem = ({
       case "Large":
         return {
           container: clsx(
-            "lg:col-span-4 lg:--min-h-fit min-h-[25rem]",
+            "lg:col-span-4 min-h-[25rem]",
             theme === "Outlined" && "min-h-[8rem]"
           ),
           headline: "uppercase max-w-[6em]",
@@ -203,10 +204,12 @@ export const TileItem = ({
         transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
         tabIndex={-1}
         className={clsx(
-          "align-center --max-h-[70vh] absolute h-full max-h-[50rem] w-full flex-col items-center justify-center gap-4 rounded-sm border-b-4 p-10 text-center transition-all duration-700 ease-out-expo hover:border-b-0 hover:border-b-[transparent] lg:rounded-md",
+          "tile-item",
+          "align-center absolute h-full w-full flex-col items-center justify-center gap-4 rounded-sm border-b-4 p-10 text-center transition-all duration-700 ease-out-expo hover:border-b-0 hover:border-b-[transparent] lg:rounded-md",
           getSize().content,
           getStyles().container,
-          getDirection()
+          getDirection(),
+          innerClassName
         )}
         style={motionStyles}
       >

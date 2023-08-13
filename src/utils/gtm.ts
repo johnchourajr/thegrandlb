@@ -24,7 +24,7 @@ export const event = ({
     label: label,
     value: value,
   });
-  console.log("event fired", { action, category, label, value });
+  // console.log("event fired", { action, category, label, value });
 };
 
 export const GTMInitializer = () => {
@@ -36,5 +36,5 @@ export const GTMInitializer = () => {
 
   (window as any).gtag("config", GTM_ID);
 
-  console.log("GTMInitializer", GTM_ID);
+  // console.log("GTMInitializer", GTM_ID);
 };

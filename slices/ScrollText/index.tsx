@@ -75,11 +75,7 @@ const ScrollText = ({ slice, context }: ScrollTextProps): JSX.Element => {
           </Tick>
         )}
         {slice.primary.line_two && (
-          <Tick
-            toLeft={true}
-            className={clsx("--mt-6 col-span-full")}
-            animateOnce
-          >
+          <Tick toLeft={true} className={clsx("col-span-full")} animateOnce>
             <Headline
               as="span"
               size={"2xl"}

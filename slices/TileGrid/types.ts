@@ -78,6 +78,7 @@ export interface TileItemProps {
   card_fragment?: any;
   body?: any;
   className?: string;
+  innerClassName?: string;
   gridOptions?: boolean;
   motionStyles?: MotionStyle;
   initial?: TargetAndTransition | VariantLabels; //@deprecated

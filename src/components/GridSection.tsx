@@ -8,7 +8,7 @@ interface GridSectionProps {
   gridSectionRef?: React.RefObject<HTMLDivElement> | null;
   children: React.ReactNode;
   gridSectionType?: "grid" | "flex";
-  as?: "section" | "div";
+  as?: "section" | "div" | "footer";
   id: string | null | undefined;
   className?: string;
   topSpacer: Spacer;

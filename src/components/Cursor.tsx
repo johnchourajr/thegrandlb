@@ -126,7 +126,7 @@ const Cursor: React.FC = () => {
         className={clsx(
           "pointer-events-none h-[1px] w-[1px] items-center justify-center text-[#3C3836] ",
           " origin-center transform transition-transform duration-150 ease-out",
-          "after:--backdrop-blur-[.5rem] after:absolute after:top-[var(--top)] after:left-[var(--left)] after:h-[var(--height)] after:w-[var(--width)] after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:border-2 after:border-[#3C3836] after:bg-[#3c3836] after:bg-opacity-[var(--bkg-opacity)] after:opacity-60",
+          "after:absolute after:top-[var(--top)] after:left-[var(--left)] after:h-[var(--height)] after:w-[var(--width)] after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:border-2 after:border-[#3C3836] after:bg-[#3c3836] after:bg-opacity-[var(--bkg-opacity)] after:opacity-60",
           "!mix-blend-normal after:!border-white"
         )}
         style={{

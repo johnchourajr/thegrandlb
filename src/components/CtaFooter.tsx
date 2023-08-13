@@ -63,7 +63,7 @@ const CtaFooter = ({ data }: any) => {
           overflowHidden={true}
           className={clsx(
             "relative min-h-[65vmax] bg-[white] text-[black]",
-            "!pt-[50vh] md:my-8 md:!pt-[inherit]",
+            "!pt-[50vh] md:mt-8 md:!pt-[inherit]",
             /**
              * PRINT STYLES
              */
@@ -72,6 +72,7 @@ const CtaFooter = ({ data }: any) => {
         >
           <TileItem
             className="z-50 flex w-full items-center md:!col-span-2 md:!col-start-3 xl:!col-span-5 xl:!col-start-7 3xl:!col-span-4 3xl:!col-start-8"
+            innerClassName="max-h-[50rem] "
             initial={{
               opacity: 0,
               y: 60,

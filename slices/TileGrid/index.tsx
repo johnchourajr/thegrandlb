@@ -41,13 +41,7 @@ const TileGrid = ({ slice }: TileGridProps): JSX.Element => {
         bottomSpacer={bottom_spacer}
       >
         {headline && (
-          <GridSection
-            id=""
-            as="div"
-            className=""
-            topSpacer="None"
-            bottomSpacer="None"
-          >
+          <GridSection id="" as="div" topSpacer="None" bottomSpacer="None">
             <div className={"col-span-full xl:col-start-2"}>
               {headline && (
                 <Headline
