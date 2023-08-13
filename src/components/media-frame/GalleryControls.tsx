@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import { AnimatePresence, m } from "framer-motion";
 import React from "react";
-import Text from "../Paragraph";
 import type { GalleryControlsProps } from "./types";
 import { VideoProgressButton } from "./VideoProgressButton";
 
@@ -85,7 +84,7 @@ const GalleryControls: React.FC<GalleryControlsProps> = ({
                     } as any
                   }
                 >
-                  {caption ? (
+                  {/* {caption ? (
                     <Text
                       className={clsx(
                         "inline whitespace-nowrap",
@@ -101,7 +100,11 @@ const GalleryControls: React.FC<GalleryControlsProps> = ({
                       outerControls={outerControls}
                       className={"px-[6px] before:!scale-[1.5]"}
                     />
-                  )}
+                  )} */}
+                  <GalleryDot
+                    outerControls={outerControls}
+                    className={"px-[6px] before:!scale-[1.5]"}
+                  />
                 </m.div>
               ) : (
                 <GalleryDot outerControls={outerControls} />
