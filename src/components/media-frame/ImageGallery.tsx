@@ -280,6 +280,13 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
           data-content="Go to previous"
           title="Go to previous"
           onClick={handleNavigateToPrevious}
+          // while hovering add a class to root element
+          onMouseEnter={() => {
+            document.documentElement.classList.add("arrow-prev");
+          }}
+          onMouseLeave={() => {
+            document.documentElement.classList.remove("arrow-prev");
+          }}
         />
         <button
           className={clsx(
@@ -290,6 +297,12 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
           data-content="Go to next"
           title="Go to next"
           onClick={handleNavigateToNext}
+          onMouseEnter={() => {
+            document.documentElement.classList.add("arrow-next");
+          }}
+          onMouseLeave={() => {
+            document.documentElement.classList.remove("arrow-next");
+          }}
         />
         {!outerControls && (
           <div className="pointer-events-none absolute inset-6 z-[150] flex flex-col-reverse">

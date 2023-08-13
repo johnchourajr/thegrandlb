@@ -6,7 +6,6 @@ import localFont from "next/font/local";
 
 import AppWrapper from "@/components/AppWrapper";
 import Cursor from "@/components/Cursor";
-import Footer from "@/components/Footer";
 import FormOverlay from "@/components/form/FormOverlay";
 import ToastRoot from "@/components/ToastRoot";
 import "@/styles/globals.css";
@@ -118,6 +117,7 @@ export default function App({ Component, pageProps }: AppProps) {
           reducedMotion="user"
         >
           <LazyMotion features={domAnimation}>
+            {/* APP WRAPPER */}
             <AppWrapper
               className={clsx(
                 fontStack,
@@ -141,6 +141,7 @@ export default function App({ Component, pageProps }: AppProps) {
               />
               {/* CURSOR */}
               <Cursor />
+              {/* <CursorNew /> */}
               {/* TOASTS */}
               <ToastRoot />
             </AppWrapper>

@@ -36,7 +36,7 @@ const CtaFooter = ({ data }: any) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end end"],
+    offset: ["start end", "-20%"],
   });
   const progress = useSpring(scrollYProgress, { damping: 100, stiffness: 300 });
 
@@ -47,14 +47,7 @@ const CtaFooter = ({ data }: any) => {
   } = data;
 
   const {
-    data: {
-      headline,
-      video_media,
-      media,
-      top_spacer,
-      bottom_spacer,
-      inquire_card,
-    },
+    data: { headline, video_media, media, inquire_card },
   } = result;
 
   const headlineArray = splitTextIntoArray(headline);

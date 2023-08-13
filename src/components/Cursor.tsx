@@ -4,28 +4,6 @@ import { m, useMotionValue } from "framer-motion";
 import { useEffect, useState } from "react";
 import ArrowRight from "./svg/ArrowRight";
 
-const addEventListenerTemplate = (
-  element: any,
-  enterFunc: () => void,
-  exitFunc: () => void
-) => {
-  element.forEach((e: any) => {
-    e.addEventListener("mouseenter", enterFunc);
-    e.addEventListener("mouseleave", exitFunc);
-  });
-};
-
-const removeEventListenerTemplate = (
-  element: any,
-  enterFunc: () => void,
-  exitFunc: () => void
-) => {
-  element.forEach((e: any) => {
-    e.removeEventListener("mouseenter", enterFunc);
-    e.removeEventListener("mouseleave", exitFunc);
-  });
-};
-
 const Cursor: React.FC = () => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -34,73 +12,11 @@ const Cursor: React.FC = () => {
   const isTouch = useTouchDevice();
 
   useEffect(() => {
-    const anchorLinks = document.querySelectorAll("a");
-    const buttonsElements =
-      document.querySelectorAll("button") ||
-      document.querySelectorAll("[data-cursor='button']");
-    const videosElements = document.querySelectorAll("[data-cursor='video']");
-    const prevArrow = document.querySelectorAll("[data-cursor='arrow-left']");
-    const nextArrow = document.querySelectorAll("[data-cursor='arrow-right']");
-
-    const handleMouseEnterLink = () => {
-      setHovering("link");
+    const setFromEvent = (e: any) => {
+      x.set(e.clientX);
+      y.set(e.clientY);
     };
 
-    const handleMouseEnterVideo = () => {
-      setHovering("video");
-    };
-
-    const handlePrevArrow = () => {
-      setHovering("arrow-left");
-    };
-
-    const handleNextArrow = () => {
-      setHovering("arrow-right");
-    };
-
-    const handleMouseLeave = () => {
-      setHovering("none");
-    };
-
-    addEventListenerTemplate(
-      anchorLinks,
-      handleMouseEnterLink,
-      handleMouseLeave
-    );
-    addEventListenerTemplate(
-      buttonsElements,
-      handleMouseEnterLink,
-      handleMouseLeave
-    );
-    addEventListenerTemplate(
-      videosElements,
-      handleMouseEnterVideo,
-      handleMouseLeave
-    );
-    addEventListenerTemplate(prevArrow, handlePrevArrow, handleMouseLeave);
-    addEventListenerTemplate(nextArrow, handleNextArrow, handleMouseLeave);
-    return () => {
-      removeEventListenerTemplate(
-        anchorLinks,
-        handleMouseEnterLink,
-        handleMouseLeave
-      );
-      removeEventListenerTemplate(
-        buttonsElements,
-        handleMouseEnterLink,
-        handleMouseLeave
-      );
-      removeEventListenerTemplate(
-        videosElements,
-        handleMouseEnterVideo,
-        handleMouseLeave
-      );
-      removeEventListenerTemplate(prevArrow, handlePrevArrow, handleMouseLeave);
-      removeEventListenerTemplate(nextArrow, handleNextArrow, handleMouseLeave);
-    };
-  }, [setHovering, hovering, pressed, setPressed]);
-
-  useEffect(() => {
     const handleMouseDown = () => {
       setPressed(true);
     };
@@ -109,26 +25,51 @@ const Cursor: React.FC = () => {
       setPressed(false);
     };
 
+    document.addEventListener("mousemove", setFromEvent);
     document.addEventListener("mousedown", handleMouseDown);
     document.addEventListener("mouseup", handleMouseUp);
 
     return () => {
+      document.removeEventListener("mousemove", setFromEvent);
       document.removeEventListener("mousedown", handleMouseDown);
       document.removeEventListener("mouseup", handleMouseUp);
     };
-  }, [setHovering, hovering, pressed, setPressed]);
+  }, [x, y, setHovering, hovering, pressed, setPressed]);
 
   useEffect(() => {
-    const setFromEvent = (e: any) => {
-      x.set(e.clientX);
-      y.set(e.clientY);
-    };
-    document.addEventListener("mousemove", setFromEvent);
+    const observer = new MutationObserver((mutationsList) => {
+      // Check if mutations involve adding/removing the desired class
+      for (const mutation of mutationsList) {
+        const targetElement = mutation.target as HTMLElement;
+
+        if (targetElement.classList.contains("arrow-prev")) {
+          setHovering("arrow-left");
+        } else if (targetElement.classList.contains("arrow-next")) {
+          setHovering("arrow-right");
+          /**
+           * If adding a new class to capture for the cursor, add it here with the following code:?
+           *
+           * @example
+           * } else if (targetElement.classList.contains("SOME-CLASS")) {
+           *   setHovering("SOME-VALUE");
+           * }
+           */
+        } else {
+          setHovering(""); // Reset the state
+        }
+      }
+    });
+
+    // Observe the document for changes to the class
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
 
     return () => {
-      document.removeEventListener("mousemove", setFromEvent);
+      observer.disconnect(); // Disconnect the observer on component unmount
     };
-  }, [x, y]);
+  }, []);
 
   const cursorVariant = {
     hidden: {
@@ -147,28 +88,7 @@ const Cursor: React.FC = () => {
       "--left": ".2rem",
       "--bkg-opacity": 0,
     },
-    link: {
-      "--width": "2rem",
-      "--height": "2rem",
-      "--top": ".35rem",
-      "--left": ".2rem",
-      "--bkg-opacity": 1,
-    },
-    video: {
-      "--width": "3rem",
-      "--height": "3rem",
-      "--top": ".35rem",
-      "--left": ".2rem",
-      "--bkg-opacity": 0,
-    },
-    "arrow-left": {
-      "--width": "6rem",
-      "--height": "6rem",
-      "--top": ".35rem",
-      "--left": ".2rem",
-      "--bkg-opacity": 0,
-    },
-    "arrow-right": {
+    arrow: {
       "--width": "6rem",
       "--height": "6rem",
       "--top": ".35rem",
@@ -180,17 +100,12 @@ const Cursor: React.FC = () => {
   const cursorAnimate = () => {
     if (hovering !== "none" && pressed) {
       return "hidden";
-    }
-    if (hovering === "none") {
-      return "default";
-    } else if (hovering === "video") {
-      return "video";
     } else if (hovering === "arrow-left") {
-      return "arrow-left";
+      return "arrow";
     } else if (hovering === "arrow-right") {
-      return "arrow-right";
+      return "arrow";
     } else {
-      return "link";
+      return "default";
     }
   };
 
@@ -204,7 +119,7 @@ const Cursor: React.FC = () => {
   return (
     <div
       className={clsx(
-        "--mix-blend-difference pointer-events-none fixed inset-0 z-[9999] overflow-hidden"
+        "pointer-events-none fixed inset-0 z-[9999] overflow-hidden"
       )}
     >
       <m.div
@@ -212,8 +127,7 @@ const Cursor: React.FC = () => {
           "pointer-events-none h-[1px] w-[1px] items-center justify-center text-[#3C3836] ",
           " origin-center transform transition-transform duration-150 ease-out",
           "after:--backdrop-blur-[.5rem] after:absolute after:top-[var(--top)] after:left-[var(--left)] after:h-[var(--height)] after:w-[var(--width)] after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:border-2 after:border-[#3C3836] after:bg-[#3c3836] after:bg-opacity-[var(--bkg-opacity)] after:opacity-60",
-          isHoveringArrow && "!mix-blend-normal after:!border-white"
-          // "fixed top-0 left-0 "
+          "!mix-blend-normal after:!border-white"
         )}
         style={{
           x,
