@@ -163,7 +163,7 @@ const InlineVideoPlayer = ({
             )}
             {...videoOptions}
             controls={false}
-            playsInline
+            playsInline={true}
           >
             {loadInView && <source src={mediaUrl} type="video/mp4" />}
           </video>
@@ -172,10 +172,9 @@ const InlineVideoPlayer = ({
               <Image
                 className={clsx("h-full w-full object-cover", videoClassName)}
                 src={posterUrl}
-                width={`10`}
-                height={`10`}
-                loader={({ src }) => src}
-                quality={1}
+                width={`960`}
+                height={`540`}
+                quality={10}
                 priority={true}
                 alt=""
               />
