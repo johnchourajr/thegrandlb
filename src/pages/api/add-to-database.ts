@@ -33,7 +33,7 @@ export default async function handler(
       .json({ message: "Record created successfully", record: createdRecord });
 
     res.status(200).json({ message: "Record created successfully" });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error:", error);
     res
       .status(500)
