@@ -1,7 +1,7 @@
 import Airtable from "airtable";
 import { NextApiRequest, NextApiResponse } from "next";
 
-const API_KEY = process.env.NEXT_PUBLIC_AIRTABLE_API_KEY;
+const API_KEY = process.env.NEXT_AIRTABLE_API_KEY;
 const BASE_ID = process.env.NEXT_PUBLIC_AIRTABLE_BASE_ID || "";
 const base = new Airtable({ apiKey: API_KEY }).base(BASE_ID);
 

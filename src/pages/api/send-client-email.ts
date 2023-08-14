@@ -3,7 +3,7 @@ import SalesEmail from "@/emails/salesEmail";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+const resend = new Resend(process.env.NEXT_RESEND_API_KEY);
 const fromEmail = `${process.env.NEXT_PUBLIC_RESEND_FROM_EMAIL}`;
 const salesEmail = `${process.env.NEXT_PUBLIC_RESEND_SALES_EMAIL}`.split(", ");
 const replyEmails = `${process.env.NEXT_PUBLIC_RESEND_REPLY_EMAILS}`.split(
