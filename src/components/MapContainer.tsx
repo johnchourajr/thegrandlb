@@ -22,13 +22,13 @@ const ItemSelected = ({ filteredItem, ...extra }: any) => {
           eventValue={name}
         >
           <Headline size={"md"} animateOnce>
-            {name}
+            {name} →
           </Headline>
         </Link>
       )}
       {!name && (
         <Headline size={"md"} className="opacity-50" animateOnce>
-          Choose a space
+          Choose a space →
         </Headline>
       )}
       <m.div className="inline flex-row gap-2 whitespace-pre-wrap">
@@ -40,16 +40,13 @@ const ItemSelected = ({ filteredItem, ...extra }: any) => {
               </Text>
             ))}
             {key && (
-              <Text
-                as="span"
-                size={"small"}
-                className="whitespace-nowrap underline"
-              >
+              <Text as="span" size={"small"} className="whitespace-nowrap">
                 <Link
                   eventCategory={"interactiveMap"}
                   eventLabel={"mapLinkTextButton"}
                   eventValue={name}
                   href={`tour/${key}`}
+                  className="whitespace-nowrap underline"
                 >
                   View space
                 </Link>

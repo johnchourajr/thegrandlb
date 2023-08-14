@@ -59,13 +59,13 @@ const GalleryControls: React.FC<GalleryControlsProps> = ({
             key={i}
             onClick={() => handleNavigateToIndex(i)}
             aria-label={`navigate to image ${i + 1}`}
-            className={"relative"}
+            className={"relative w-fit"}
             data-active={isActive}
           >
             <AnimatePresence>
               {isActive ? (
                 <m.div
-                  className="overflow-hidden"
+                  className="inline overflow-hidden"
                   initial={
                     {
                       opacity: 0,

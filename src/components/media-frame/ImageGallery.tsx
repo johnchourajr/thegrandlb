@@ -94,6 +94,13 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
     }
   };
 
+  /**
+   * Debug
+   */
+  // useEffect(() => {
+  //   setIsPlaying(false);
+  // });
+
   useEffect(() => {
     if (isInView) {
       setIsPlaying(true);
@@ -164,6 +171,9 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
 
     return () => {
       clearTimeout(timeout);
+
+      document.documentElement.classList.remove("arrow-prev");
+      document.documentElement.classList.remove("arrow-next");
     };
   }, [cycleDuration]);
 

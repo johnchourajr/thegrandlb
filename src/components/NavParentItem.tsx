@@ -166,7 +166,7 @@ export const NavParentItem = ({
             <button
               className={clsx(
                 "relative flex w-6 flex-row items-center justify-center !no-underline",
-                "after:absolute after:left-[105%] after:top-0 after:rounded-sm after:p-3 after:py-2 focus-visible:after:bg-black focus-visible:after:text-white focus-visible:after:content-[attr(data-content)]"
+                "select-none after:absolute after:left-[105%] after:top-0 after:rounded-sm after:p-3 after:py-2 focus-visible:after:bg-black focus-visible:after:text-white focus-visible:after:content-[attr(data-content)]"
               )}
               onClick={handleToggleControls}
               tabIndex={isMobile ? -1 : 0}
