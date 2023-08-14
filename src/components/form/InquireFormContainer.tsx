@@ -86,11 +86,30 @@ const InquireFormContainer = ({ ...extra }) => {
     try {
       const email = formState.email.value;
 
-      // await axios.post("", {
-      //   // id: "inquire-form",
-      //   // unique id number based on UTC time
-      //   // form_id: Date.now(),
-      //   ...formState});
+      const {
+        event_name,
+        event_type,
+        desired_date,
+        desired_time,
+        desired_space,
+        full_name,
+        phone,
+        additional_details,
+      } = formState;
+
+      const data = {
+        event_name: event_name.value,
+        event_type: event_type.value,
+        desired_date: desired_date.value,
+        desired_time: desired_time.value,
+        desired_space: desired_space.value,
+        full_name: full_name.value,
+        email: email,
+        phone: phone.value,
+        additional_details: additional_details.value,
+      };
+
+      await axios.post("/api/add-to-database", data);
 
       await axios.post("/api/send-client-email", {
         email,
