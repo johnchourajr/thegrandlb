@@ -50,7 +50,7 @@ const SplitGallery = ({ slice }: SplitGalleryProps): JSX.Element => {
           >
             <ImageGallery
               images={galleryLeftData.gallery_items}
-              cycleDuration={6000}
+              cycleDuration={9000}
               controlPosition="Bottom Left"
               outerControls={true}
               className={clsx("aspect-square", "lg:!rounded-br-none")}
@@ -69,8 +69,8 @@ const SplitGallery = ({ slice }: SplitGalleryProps): JSX.Element => {
           >
             <ImageGallery
               images={galleryRightData.gallery_items}
-              delayStart={6000 / 2}
-              cycleDuration={6000}
+              delayStart={9000 / 2}
+              cycleDuration={9000}
               autoPlay={false}
               controlPosition="Top Right"
               outerControls={true}
