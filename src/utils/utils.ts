@@ -26,6 +26,16 @@ export const stringToCamelCase = (str?: string | null) => {
   );
 };
 
+export const slugToSentenceCase = (str?: string | null) => {
+  if (!str || str === undefined) return "";
+  return str
+    .replace(/-/g, " ")
+    .replace(/_/g, " ")
+    .replace(/^(.)/, function ($1) {
+      return $1.toUpperCase();
+    });
+};
+
 export const getTextFromChildren = (children?: any) => {
   if (!children || children === undefined) return "";
   return children
