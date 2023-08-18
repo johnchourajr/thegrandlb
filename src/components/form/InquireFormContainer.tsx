@@ -27,6 +27,8 @@ export type HandleFormFunction = (
 
 //?event_name=John%27s%20Birthday&event_type=birthday_party&desired_date=2024-11-17&desired_time=9pm&head_count=100&desired_space=board-room&full_name=John%20Choura&email=hi%40john.design&phone=555-555-5555&additional_details=This%20is%20a%20test%20inquiry%20from%20the%20website
 
+//?event_name=TEST%20John%27s%20Birthday&event_type=birthday_party&desired_date=2024-11-17&desired_time=9pm&head_count=100&desired_space=board-room&full_name=TEST%20John%20Choura&email=hi%40john.design&phone=555-555-5555&additional_details=This%20is%20a%20test%20inquiry%20from%20the%20website
+
 const InquireFormContainer = ({ ...extra }) => {
   const router = useRouter();
   const data = getFormData() as FormPage[];
@@ -113,12 +115,12 @@ const InquireFormContainer = ({ ...extra }) => {
         additional_details: additional_details.value,
       };
 
-      await axios.post("/api/add-to-database", data);
-
       await axios.post("/api/send-client-email", {
         email,
         formState,
       });
+
+      await axios.post("/api/add-to-database", data);
 
       toastSubmitSuccess();
       router.push("/thanks");
