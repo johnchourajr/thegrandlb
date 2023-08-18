@@ -3,7 +3,8 @@ import { formatDate } from "@/utils/utils";
 import Airtable from "airtable";
 import { NextApiRequest, NextApiResponse } from "next";
 
-const API_KEY = process.env.NEXT_AIRTABLE_API_KEY;
+// const API_KEY = process.env.NEXT_AIRTABLE_API_KEY;
+const API_KEY = process.env.NEXT_PUBLIC_AIRTABLE_API_KEY;
 const BASE_ID = process.env.NEXT_PUBLIC_AIRTABLE_BASE_ID || "";
 const base = new Airtable({ apiKey: API_KEY }).base(BASE_ID);
 
@@ -25,7 +26,6 @@ export default async function handler(
 
       // Map form data to fields
       const fields = {
-        // format phone from 555-555-5555 to (555) 555-5555
         phone: formattedPhone,
         desired_date: formattedDate,
         ...formData,
@@ -38,8 +38,6 @@ export default async function handler(
         message: "Record created successfully",
         record: createdRecord,
       });
-
-      res.status(200).json({ message: "Record created successfully" });
     } catch (error: any) {
       console.error("Error:", error);
       res

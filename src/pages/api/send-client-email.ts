@@ -10,7 +10,7 @@ const replyEmails = `${process.env.NEXT_PUBLIC_RESEND_REPLY_EMAILS}`.split(
   ", "
 );
 const isNotProduction = process.env.NODE_ENV !== "production";
-const testText = isNotProduction && `TEST: `;
+const testText = isNotProduction ? `TEST: ` : "";
 
 export default async function handler(
   req: NextApiRequest,
