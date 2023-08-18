@@ -88,6 +88,8 @@ const InquireFormContainer = ({ ...extra }) => {
     try {
       const email = formState.email.value;
 
+      // trigger build
+
       const {
         event_name,
         event_type,
