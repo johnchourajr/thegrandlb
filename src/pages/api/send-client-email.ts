@@ -9,6 +9,8 @@ const salesEmail = `${process.env.NEXT_PUBLIC_RESEND_SALES_EMAIL}`.split(", ");
 const replyEmails = `${process.env.NEXT_PUBLIC_RESEND_REPLY_EMAILS}`.split(
   ", "
 );
+const isNotProduction = process.env.NODE_ENV !== "production";
+const testText = isNotProduction && `TEST: `;
 
 export default async function handler(
   req: NextApiRequest,
@@ -25,7 +27,7 @@ export default async function handler(
         from: fromEmail,
         to: email,
         reply_to: replyEmails || "dan@grandfandb.com",
-        subject: `TEST: Inquiry confirmation: ${
+        subject: `${testText}Inquiry confirmation: ${
           formState.event_name?.value || "Grand LB Event"
         }`,
         react: ClientEmail(formState),
@@ -38,7 +40,7 @@ export default async function handler(
         from: fromEmail,
         to: salesEmail,
         reply_to: formState.email?.value,
-        subject: `TEST: New inquiry from ${
+        subject: `${testText}New inquiry from ${
           formState.full_name?.value || "Grand LB Website"
         }`,
         react: SalesEmail(formState),
