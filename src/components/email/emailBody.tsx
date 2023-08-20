@@ -37,41 +37,41 @@ const EmailBody = ({
 }: EmailBodyProps) => (
   <div className="rounded bg-[white] px-[16px] py-[1px]">
     <p>
-      <span className="opacity-[0.5]">event_name:</span>{" "}
+      <span className="opacity-[0.5]">Event Name:</span>{" "}
       {event_name.value || "N/A"}
     </p>
     <p>
-      <span className="opacity-[0.5]">event_type:</span>{" "}
+      <span className="opacity-[0.5]">Event Type:</span>{" "}
       {event_type.value || "N/A"}
     </p>
     <p>
-      <span className="opacity-[0.5]">desired_date:</span>{" "}
+      <span className="opacity-[0.5]">Desired Date:</span>{" "}
       {formatDate(desired_date.value) || "N/A"}
     </p>
     <p>
-      <span className="opacity-[0.5]">desired_time:</span>{" "}
+      <span className="opacity-[0.5]">Desired Time:</span>{" "}
       {desired_time.value || "N/A"}
     </p>
     <p>
-      <span className="opacity-[0.5]">head_count:</span>{" "}
+      <span className="opacity-[0.5]">Guest Count:</span>{" "}
       {head_count.value || "N/A"}
     </p>
     <p>
-      <span className="opacity-[0.5]">desired_space:</span>{" "}
+      <span className="opacity-[0.5]">Desired Space:</span>{" "}
       {desired_space.value || "N/A"}
     </p>
     <p>
-      <span className="opacity-[0.5]">full_name:</span>{" "}
+      <span className="opacity-[0.5]">Full Name:</span>{" "}
       {full_name.value || "N/A"}
     </p>
     <p>
-      <span className="opacity-[0.5]">email:</span> {email.value || "N/A"}
+      <span className="opacity-[0.5]">Email:</span> {email.value || "N/A"}
     </p>
     <p>
-      <span className="opacity-[0.5]">phone:</span> {phone.value || "N/A"}
+      <span className="opacity-[0.5]">Phone:</span> {phone.value || "N/A"}
     </p>
     <p>
-      <span className="opacity-[0.5]">additional_details:</span>{" "}
+      <span className="opacity-[0.5]">Additional Details:</span>{" "}
       {additional_details.value || "N/A"}
     </p>
   </div>
