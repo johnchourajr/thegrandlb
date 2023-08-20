@@ -177,7 +177,7 @@ export const InquireFormSection = ({
           </div>
           <div
             className={clsx(
-              "--bottom-0 fixed left-0 z-50 flex w-full items-center justify-center gap-6 p-2",
+              "fixed bottom-0 left-0 z-50 flex w-full items-center justify-center gap-6 p-2",
               "lg:--relative lg:--bottom-[unset] lg:sticky  lg:bottom-4 lg:left-[unset] lg:items-start lg:justify-start lg:p-0",
               "via-50% bg-gradient-to-b from-[transparent] to-bg"
             )}
