@@ -2,7 +2,6 @@ import { FormPage } from "@/data/form.types";
 import {
   eventInquireNext,
   eventInquirePrev,
-  eventInquireSubmit,
   toastNextError,
 } from "@/utils/events";
 import { formatDate, formatTitle } from "@/utils/utils";
@@ -92,6 +91,7 @@ export interface InquireFormSectionProps extends FormPage {
   handleFormChange: HandleFormFunction; // Update the type
   handleFormBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   handleFormSubmit: any;
+  submitLoading: boolean;
 }
 
 export const InquireFormSection = ({
@@ -107,6 +107,7 @@ export const InquireFormSection = ({
   handleFormChange,
   handleFormBlur,
   handleFormSubmit,
+  submitLoading,
 }: InquireFormSectionProps) => {
   const pageInputKeys = questions.map((question: any) => question.question_key);
   const pageInputValues = getPageInputValues(formState, pageInputKeys);
@@ -128,11 +129,6 @@ export const InquireFormSection = ({
     eventInquirePrev(step);
   };
 
-  const handleFormSubmitClick = () => {
-    handleFormSubmit();
-    eventInquireSubmit(step);
-  };
-
   return (
     <m.div
       className={clsx(
@@ -140,7 +136,13 @@ export const InquireFormSection = ({
         "after:content[''] after:absolute after:bottom-0 after:h-[3px] after:w-full after:bg-white"
       )}
     >
-      <div className="w-full">
+      <div
+        className={clsx(
+          "w-full",
+          "transition-opacity duration-300 ease-out-expo",
+          submitLoading && "pointer-events-none opacity-50"
+        )}
+      >
         <StringText size={"default"}>
           <StringText as="span" size={"small"} bold>
             {step + 1}
@@ -161,7 +163,13 @@ export const InquireFormSection = ({
         step={step}
       >
         <div className="flex grow flex-col justify-between gap-8 pt-4 lg:w-1/4">
-          <div className="flex flex-col gap-2">
+          <div
+            className={clsx(
+              "flex flex-col gap-2",
+              "transition-opacity duration-300 ease-out-expo",
+              submitLoading && "pointer-events-none opacity-50"
+            )}
+          >
             <Headline size={"sm"} disableMotion>
               {title}
             </Headline>
@@ -177,7 +185,10 @@ export const InquireFormSection = ({
             {step !== 0 && (
               <Button
                 as="button"
-                className="self-start"
+                className={clsx(
+                  "self-start",
+                  submitLoading && "pointer-events-none opacity-50"
+                )}
                 type={"naked"}
                 target="_self"
                 buttonType="button"
@@ -190,7 +201,11 @@ export const InquireFormSection = ({
             {step !== lastPage && (
               <Button
                 as="button"
-                className="self-start"
+                className={clsx(
+                  "self-start",
+                  "transition-opacity duration-300 ease-out-expo",
+                  submitLoading && "pointer-events-none opacity-50"
+                )}
                 type={"black"}
                 target="_self"
                 buttonType="button"
@@ -210,11 +225,19 @@ export const InquireFormSection = ({
                 eventNone={true}
                 text={"Submit"}
                 tabIndex={1}
+                loading={submitLoading}
               />
             )}
           </div>
         </div>
-        <div className="flex flex-col gap-2 pt-4 lg:w-1/2" tabIndex={-1}>
+        <div
+          className={clsx(
+            "flex flex-col gap-2 pt-4 lg:w-1/2",
+            "transition-opacity duration-300 ease-out-expo",
+            submitLoading && "pointer-events-none opacity-20"
+          )}
+          tabIndex={-1}
+        >
           {step === lastPage && <InquireLastPage formState={formState} />}
           {questions.map((item, index) => {
             return (

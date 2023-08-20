@@ -8,6 +8,7 @@ import {
   FilledLinkToWebField,
 } from "@prismicio/types";
 import clsx from "clsx";
+import { AnimatePresence, m } from "framer-motion";
 import { LinkProps } from "next/link";
 import { linkResolver } from "prismicio";
 import React, { ButtonHTMLAttributes, useRef } from "react";
@@ -44,6 +45,7 @@ interface ButtonTypes {
   eventLabel?: string;
   eventValue?: string;
   eventNone?: boolean;
+  loading?: boolean;
 }
 
 /**
@@ -127,6 +129,7 @@ function Button({
   eventLabel,
   eventValue,
   eventNone = false,
+  loading = false,
   ...rest
 }: ButtonTypes) {
   const buttonRef = useRef<HTMLButtonElement>(null); // Create a ref for the button element
@@ -194,11 +197,12 @@ function Button({
       ref={buttonRef}
       className={clsx(
         `group relative z-50 inline-flex h-fit flex-row items-center justify-center whitespace-nowrap text-center transition-all`,
+        loading && "cursor-wait",
         getButtonStyles(type).parent,
         getButtonSize(size),
         className
       )}
-      onClick={() => handleClick()}
+      onClick={() => !loading && handleClick()}
       data-current-page={currentPage}
       role="button"
       tabIndex={0}
@@ -207,18 +211,47 @@ function Button({
       {...getLinkProps(buttonTypeName)}
       {...rest}
     >
-      <StringText
-        className={clsx(
-          "relative z-10 w-full flex-shrink-0",
-          "transition-all duration-500 ease-out-expo will-change-auto",
-          type !== "naked" && "group-hover:!text-white"
+      {/* <m.span layout> */}
+      <AnimatePresence>
+        {loading && (
+          <m.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <StringText
+              className={clsx(
+                "relative z-10 w-full flex-shrink-0",
+                "transition-all duration-500 ease-out-expo will-change-auto",
+                type !== "naked" && "group-hover:!text-white"
+              )}
+              size={"small"}
+              uppercase={true}
+              bold={true}
+            >
+              <span className="mr-1 inline-block animate-pulse">•</span>
+              <span className="mr-1 inline-block animate-pulse">•</span>
+              <span className="inline-block animate-pulse">•</span>
+            </StringText>
+          </m.span>
         )}
-        size={"small"}
-        uppercase={true}
-        bold={true}
-      >
-        {text || children}
-      </StringText>
+      </AnimatePresence>
+      {!loading && (
+        <StringText
+          className={clsx(
+            "relative z-10 w-full flex-shrink-0",
+            "transition-all duration-500 ease-out-expo will-change-auto",
+            type !== "naked" && "group-hover:!text-white"
+          )}
+          size={"small"}
+          uppercase={true}
+          bold={true}
+        >
+          {text || children}
+        </StringText>
+      )}
+      {/* </m.span> */}
+
       <span
         className={clsx(
           "absolute inset-0 z-0 overflow-hidden rounded-full group-hover:inset-[-2px] group-active:inset-[2px]",

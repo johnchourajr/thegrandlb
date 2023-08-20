@@ -6,6 +6,7 @@ import {
 } from "@/data/form.types";
 import {
   toastEmailRrequired,
+  toastSubmit,
   toastSubmitError,
   toastSubmitSuccess,
 } from "@/utils/events";
@@ -32,6 +33,7 @@ export type HandleFormFunction = (
 const InquireFormContainer = ({ ...extra }) => {
   const router = useRouter();
   const data = getFormData() as FormPage[];
+  const [submitLoading, setSubmitLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
   const [formState, setFormState] = useState<FormState>({});
 
@@ -87,10 +89,12 @@ const InquireFormContainer = ({ ...extra }) => {
   const handleFormSubmit = async () => {
     if (!formState?.email) return toastEmailRrequired();
 
-    try {
-      const email = formState.email.value;
+    setSubmitLoading(true);
 
-      // trigger build
+    try {
+      toastSubmit();
+
+      const email = formState.email.value;
 
       const {
         event_name,
@@ -126,6 +130,7 @@ const InquireFormContainer = ({ ...extra }) => {
       router.push("/thanks");
     } catch (error) {
       console.error(error);
+      setSubmitLoading(false);
       toastSubmitError();
     }
 
@@ -179,6 +184,7 @@ const InquireFormContainer = ({ ...extra }) => {
             handleFormChange={handleFormChange}
             handleFormBlur={handleFormBlur}
             handleFormSubmit={handleFormSubmit}
+            submitLoading={submitLoading}
             {...item}
           />
         );

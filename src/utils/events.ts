@@ -68,8 +68,20 @@ export const toastEmailRrequired = (value?: string | number) => {
   });
 };
 
+export const toastSubmit = (value?: string | number) => {
+  toast.success("Submitting...");
+  event({
+    action: "inquiryMessage",
+    category: "button",
+    label: `toastSubmitLoading`,
+    value: value,
+  });
+};
+
 export const toastSubmitSuccess = (value?: string | number) => {
-  toast.success("Email sent successfully");
+  toast.success("Success! Confirmation email sent to you and our sales team", {
+    duration: 10000,
+  });
   event({
     action: "inquiryMessage",
     category: "success",

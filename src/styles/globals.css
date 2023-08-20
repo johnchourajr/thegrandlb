@@ -290,3 +290,36 @@ input::-webkit-date-and-time-value {
 select, input {
   @apply bg-white appearance-none;
 }
+
+@keyframes tailAnimation {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-0.5rem);
+  }
+}
+
+.animate-tail {
+  animation: tailAnimation 1.5s infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-pulse:nth-child(1) {
+  animation-delay: 0.25s;
+}
+
+.animate-pulse:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.animate-pulse:nth-child(3) {
+  animation-delay: 0.75s;
+}

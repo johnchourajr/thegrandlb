@@ -6,6 +6,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 // const API_KEY = process.env.NEXT_AIRTABLE_API_KEY;
 const API_KEY = process.env.NEXT_PUBLIC_AIRTABLE_API_KEY;
 const BASE_ID = process.env.NEXT_PUBLIC_AIRTABLE_BASE_ID || "";
+const TABLE = process.env.NEXT_PUBLIC_AIRTABLE_TABLE || "submissions";
 const base = new Airtable({ apiKey: API_KEY }).base(BASE_ID);
 
 export default async function handler(
@@ -22,8 +23,6 @@ export default async function handler(
     const formattedDate = formatDate(desired_date);
 
     try {
-      const table = "submissions";
-
       // Map form data to fields
       const fields = {
         phone: formattedPhone,
@@ -32,7 +31,7 @@ export default async function handler(
       };
 
       // Create a new record in Airtable
-      const createdRecord = await base(table).create([{ fields }]);
+      const createdRecord = await base(TABLE).create([{ fields }]);
 
       res.status(200).json({
         message: "Record created successfully",
