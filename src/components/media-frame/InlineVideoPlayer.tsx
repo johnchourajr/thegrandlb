@@ -24,6 +24,7 @@ export interface InlineVideoPlayerProps {
   loop?: boolean;
   controls?: boolean;
   controlPosition?: "Top Right" | "Bottom Left" | "Bottom Right";
+  priority?: boolean;
 }
 
 const InlineVideoPlayer = ({
@@ -37,6 +38,7 @@ const InlineVideoPlayer = ({
   controls,
   loop,
   controlPosition = "Bottom Right",
+  priority,
 }: InlineVideoPlayerProps) => {
   const ref = React.useRef<HTMLVideoElement>(null);
   const isInView = useInView(ref);
@@ -175,7 +177,7 @@ const InlineVideoPlayer = ({
                 width={`960`}
                 height={`540`}
                 quality={10}
-                priority={true}
+                priority={priority || false}
                 alt=""
               />
             </div>

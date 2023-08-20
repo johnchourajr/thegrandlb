@@ -42,6 +42,7 @@ const MediaFrame = ({
           media={video_media}
           className="absolute inset-0 z-20 h-full w-full object-cover"
           poster={media}
+          priority={priority}
           {...video_options}
         />
       );
