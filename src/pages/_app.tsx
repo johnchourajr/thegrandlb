@@ -9,7 +9,7 @@ import Cursor from "@/components/Cursor";
 import FormOverlay from "@/components/form/FormOverlay";
 import ToastRoot from "@/components/ToastRoot";
 import "@/styles/globals.css";
-import { GTMInitializer } from "@/utils/gtm";
+import { GTM_ID } from "@/utils/gtm";
 import { PrismicPreview } from "@prismicio/next";
 import { PrismicProvider } from "@prismicio/react";
 import { domAnimation, LazyMotion, MotionConfig } from "framer-motion";
@@ -17,6 +17,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { repositoryName } from "prismicio";
 import { useEffect, useState } from "react";
+import TagManager from "react-gtm-module";
 
 const lexend = Lexend_Zetta({
   subsets: ["latin"],
@@ -83,7 +84,18 @@ export default function App({ Component, pageProps }: AppProps) {
   };
 
   useEffect(() => {
-    GTMInitializer();
+    // GTMInitializer();
+    TagManager.initialize({ gtmId: GTM_ID });
+
+    // Listen for route changes and track pageviews
+    const handleRouteChange = (url: string) => {
+      TagManager.dataLayer({ dataLayer: { page: url } });
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
   }, []);
 
   useEffect(() => {
