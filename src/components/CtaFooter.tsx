@@ -78,7 +78,7 @@ const CtaFooter = ({ data }: any) => {
               y: 60,
             }}
             viewport={{
-              threshold: 1,
+              threshold: 0.25,
               margin: "0% 0% -40% 0%",
             }}
             {...inquire_card.data}
