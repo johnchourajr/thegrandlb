@@ -32,7 +32,7 @@ const NavLinkItem = ({
       className={clsx("group relative z-10", className)}
       onClick={() =>
         handleEvent({
-          category: `FooterItem`,
+          category: `footer_item`,
           label: link_title,
           value: link_source.uid,
         })

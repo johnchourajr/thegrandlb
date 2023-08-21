@@ -73,7 +73,7 @@ export const NavParentItem = ({
         field: link_source,
         onClick: () =>
           handleEvent({
-            category: `NavCategoryItem`,
+            category: `nav_category_item`,
             label: link_title,
           }),
       };

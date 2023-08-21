@@ -87,8 +87,8 @@ export const GridIndexItem = ({
         className="absolute inset-0 z-20"
         onClick={() =>
           handleEvent({
-            category: `TileLink`,
-            label: `TileSection ${parentUid}Index`,
+            category: `tile_link`,
+            label: `tile_section_${parentUid}_index`,
             value: `${title}: /${parentUid}/${uid}`,
           })
         }

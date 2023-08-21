@@ -1,5 +1,5 @@
 import { event as handleEvent } from "@/utils/gtm";
-import { stringToCamelCase } from "@/utils/utils";
+import { stringToUnderscore } from "@/utils/utils";
 import NextLink from "next/link";
 
 export default function Link({
@@ -14,9 +14,9 @@ export default function Link({
   const handleClick = () => {
     handleEvent({
       action: "click",
-      category: stringToCamelCase(eventCategory || "button"),
-      label: stringToCamelCase(eventLabel || ""),
-      value: stringToCamelCase(eventValue || ""),
+      category: stringToUnderscore(eventCategory || "button"),
+      label: stringToUnderscore(eventLabel || ""),
+      value: stringToUnderscore(eventValue || ""),
     });
   };
   return (

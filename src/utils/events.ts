@@ -1,6 +1,6 @@
 import { toast } from "react-hot-toast";
 import { event } from "./gtm";
-import { stringToCamelCase } from "./utils";
+import { stringToUnderscore } from "./utils";
 
 export const handleEvent = ({
   action,
@@ -14,18 +14,18 @@ export const handleEvent = ({
   value?: string;
 }) => {
   event({
-    action: stringToCamelCase(action || "click"),
-    category: stringToCamelCase(category || "button"),
-    label: stringToCamelCase(label || ""),
+    action: stringToUnderscore(action || "click"),
+    category: stringToUnderscore(category || "button"),
+    label: stringToUnderscore(label || ""),
     value: value || "",
   });
 };
 
 export const eventInquireNext = (currentPage: number) => {
   event({
-    action: "inquiryForm",
-    category: "button",
-    label: `nextButton`,
+    action: "click",
+    category: "inquire_form",
+    label: `next_button`,
     value: `Forward to Step ${currentPage + 2}`,
   });
 };
@@ -33,27 +33,27 @@ export const eventInquireNext = (currentPage: number) => {
 export const toastNextError = (currentPage: number) => {
   toast.error("Please fill in all the required fields");
   event({
-    action: "inquiryForm",
-    category: "error",
-    label: `nextButton`,
+    action: "click",
+    category: "inquire_form_error",
+    label: `next_button`,
     value: `Required fields invalid at step ${currentPage + 1}`,
   });
 };
 
 export const eventInquirePrev = (currentPage: number) => {
   event({
-    action: "inquiryForm",
-    category: "button",
-    label: `prevButton`,
+    action: "click",
+    category: "inquire_form",
+    label: `prev_button`,
     value: `Back to Step ${currentPage}`,
   });
 };
 
 export const eventInquireSubmit = (currentPage: number) => {
   event({
-    action: "inquiryForm",
-    category: "button",
-    label: `submitButton`,
+    action: "click",
+    category: "inquire_form",
+    label: `submit_button`,
     value: `Submit at Step ${currentPage + 1}`,
   });
 };
@@ -61,9 +61,9 @@ export const eventInquireSubmit = (currentPage: number) => {
 export const toastEmailRrequired = (value?: string | number) => {
   toast("Email is required");
   event({
-    action: "inquiryMessage",
-    category: "error",
-    label: `toastEmailRrequired`,
+    action: "click",
+    category: "inquire_form_error",
+    label: `toast_email_required`,
     value: value,
   });
 };
@@ -71,9 +71,9 @@ export const toastEmailRrequired = (value?: string | number) => {
 export const toastSubmit = (value?: string | number) => {
   toast.success("Submitting...");
   event({
-    action: "inquiryMessage",
-    category: "button",
-    label: `toastSubmitLoading`,
+    action: "click",
+    category: "inquire_form",
+    label: `toast_submit_loading`,
     value: value,
   });
 };
@@ -83,9 +83,9 @@ export const toastSubmitSuccess = (value?: string | number) => {
     duration: 10000,
   });
   event({
-    action: "inquiryMessage",
-    category: "success",
-    label: `toastSubmitSuccess`,
+    action: "click",
+    category: "inquire_form",
+    label: `toast_submit_success`,
     value: value,
   });
 };
@@ -93,9 +93,9 @@ export const toastSubmitSuccess = (value?: string | number) => {
 export const toastSubmitError = (value?: string | number) => {
   toast.error("Something went wrong check inputs and try again");
   event({
-    action: "inquiryMessage",
-    category: "error",
-    label: `toastSubmitError`,
+    action: "click",
+    category: "inquire_form_error",
+    label: `toast_submit_error`,
     value: value,
   });
 };

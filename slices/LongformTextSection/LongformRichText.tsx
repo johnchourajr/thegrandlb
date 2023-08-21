@@ -117,9 +117,9 @@ export const LongformRichText = ({ field, paragraphSize = "large" }: any) => (
             field={data}
             onClick={() => {
               handleEvent({
-                action: "Click",
-                category: `RichTextLink`,
-                label: `TextUrl`,
+                action: "click",
+                category: `rich_text_link`,
+                label: `text_url`,
                 value: `${text}: ${data?.url}`,
               });
             }}

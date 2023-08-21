@@ -31,7 +31,7 @@ export const HeaderLeft = ({
         title="The Grand LB"
         aria-label="homepage"
         className={clsx("flex flex-nowrap items-center justify-center")}
-        eventLabel="navLogo"
+        eventLabel="nav_logo"
       >
         <HeaderLogo
           className={clsx(

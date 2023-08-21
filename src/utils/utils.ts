@@ -7,6 +7,16 @@ export const convertToSlug = (text?: any) => {
     .replace("--", "-");
 };
 
+export const stringToUnderscore = (str?: string | null) => {
+  if (!str || str === undefined) return "";
+  return str
+    .replace(/\s/g, "_")
+    .replace(/^(.)/, function ($1) {
+      return $1.toLowerCase();
+    })
+    .toLowerCase();
+};
+
 export const stringToCamelCase = (str?: string | null) => {
   if (!str || str === undefined) return "";
   return (

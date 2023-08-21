@@ -47,8 +47,8 @@ const InquireThanks = ({ ...extra }) => {
         <Button
           text={"Return to site"}
           href={"/"}
-          eventCategory="thanksPage"
-          eventLabel="returnAction"
+          eventCategory="thanks_page"
+          eventLabel="return_action"
         />
       </div>
     </GridSection>

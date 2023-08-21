@@ -23,7 +23,7 @@ export const NavItem = ({
         className={clsx("group relative z-10", linkClassName)}
         onClick={() =>
           handleEvent({
-            category: `NavItem`,
+            category: `nav_item`,
             label: text,
             value: field.uid,
           })

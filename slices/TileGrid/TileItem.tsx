@@ -3,6 +3,7 @@ import Headline from "@/components/Headline";
 import ImageBox from "@/components/media-frame/ImageBox";
 import Text from "@/components/Paragraph";
 import StringText from "@/components/StringText";
+import ArrowRight from "@/components/svg/ArrowRight";
 import { handleEvent } from "@/utils/events";
 import clsx from "clsx";
 import { m } from "framer-motion";
@@ -162,9 +163,9 @@ export const TileItem = ({
       linkResolver={linkResolver}
       onClick={() => {
         handleEvent({
-          action: "Click",
-          category: `TileLink`,
-          label: `TileSection ${section_id}`,
+          action: "click",
+          category: `tile_link`,
+          label: `tile_section_${section_id}`,
           value: `${headline}: /${link?.slug}`,
         });
       }}
@@ -213,6 +214,11 @@ export const TileItem = ({
         )}
         style={motionStyles}
       >
+        {theme !== "Outlined" && (
+          <ArrowRight
+            className={clsx("absolute top-[3vw] right-[3vw] -rotate-45")}
+          />
+        )}
         {media && (
           <>
             <ImageBox

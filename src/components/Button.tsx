@@ -1,5 +1,5 @@
 import { event as handleEvent } from "@/utils/gtm";
-import { stringToCamelCase } from "@/utils/utils";
+import { stringToUnderscore } from "@/utils/utils";
 import { PrismicLink, PrismicLinkProps } from "@prismicio/react";
 import {
   EmptyLinkField,
@@ -155,10 +155,10 @@ function Button({
     onClick && onClick();
     if (isNextLink || eventNone) return null;
     handleEvent({
-      action: stringToCamelCase(eventAction || "click"),
-      category: stringToCamelCase(eventCategory || "button"),
-      label: stringToCamelCase(eventLabel || ""),
-      value: stringToCamelCase(text || eventValue || ""),
+      action: stringToUnderscore(eventAction || "click"),
+      category: stringToUnderscore(eventCategory || "button"),
+      label: stringToUnderscore(eventLabel || ""),
+      value: stringToUnderscore(text || eventValue || ""),
     });
   };
 
@@ -204,6 +204,7 @@ function Button({
       )}
       onClick={() => !loading && handleClick()}
       data-current-page={currentPage}
+      data-slug={stringToUnderscore(text)}
       role="button"
       tabIndex={0}
       aria-label={text}
