@@ -73,7 +73,7 @@ const PageHero = ({ slice, context }: PageHeroProps): JSX.Element => {
               <Button
                 field={slice.primary.primary_action_link}
                 text={slice.primary.primary_action}
-                eventCategory={stringToUnderscore(`${uid} Hero Action`)}
+                eventCategory={stringToUnderscore(`Hero Action`)}
                 eventLabel={stringToUnderscore(`${headline} Primary CTA`)}
                 type="black"
                 size="large"
@@ -83,7 +83,7 @@ const PageHero = ({ slice, context }: PageHeroProps): JSX.Element => {
               <Button
                 field={slice.primary.secondary_action_link}
                 text={slice.primary.secondary_action}
-                eventCategory={stringToUnderscore(`${uid} Hero Action`)}
+                eventCategory={stringToUnderscore(`Hero Action`)}
                 eventLabel={stringToUnderscore(`${headline} Secondary CTA`)}
                 type="outline"
                 size="large"
@@ -97,7 +97,7 @@ const PageHero = ({ slice, context }: PageHeroProps): JSX.Element => {
           <Button
             field={slice.primary.primary_action_link}
             text={slice.primary.primary_action}
-            eventCategory={stringToUnderscore(`${uid} Hero Action`)}
+            eventCategory={stringToUnderscore(`Hero Action`)}
             eventLabel={stringToUnderscore(`${headline} Primary Mobile CTA`)}
             type="black"
             size="large"
@@ -107,7 +107,7 @@ const PageHero = ({ slice, context }: PageHeroProps): JSX.Element => {
           <Button
             field={slice.primary.secondary_action_link}
             text={slice.primary.secondary_action}
-            eventCategory={stringToUnderscore(`${uid} Hero Action`)}
+            eventCategory={stringToUnderscore(`Hero Action`)}
             eventLabel={stringToUnderscore(`${headline} Secondary Mobile CTA`)}
             type="outline-black"
             size="large"
