@@ -24,8 +24,8 @@ export const event = ({
   TagManager.dataLayer({
     dataLayer: {
       event: action,
-      category: category,
-      label: label,
+      eventCategory: category,
+      eventLabel: label,
       value: value,
     },
   });
