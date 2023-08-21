@@ -1,4 +1,4 @@
-import { isEmptyObject, stringToCamelCase } from "@/utils/utils";
+import { isEmptyObject, stringToUnderscore } from "@/utils/utils";
 import clsx from "clsx";
 import { LayoutGroup, m } from "framer-motion";
 import Button from "./Button";
@@ -94,8 +94,10 @@ const HeroDetailPage = ({
                 type="black"
                 size="large"
                 params={uid && `desired_space=${uid}`}
-                eventCategory={stringToCamelCase(`${uid}HeroDetailPageAction`)}
-                eventLabel={stringToCamelCase(`${headline}PrimaryCTA`)}
+                eventCategory={stringToUnderscore(
+                  `${uid} Hero Detail Page Action`
+                )}
+                eventLabel={stringToUnderscore(`${headline} Primary CTA`)}
               />
             </m.div>
           )}

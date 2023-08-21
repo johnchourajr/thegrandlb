@@ -5,7 +5,7 @@ import Layout from "@/components/Layout";
 import Text from "@/components/Paragraph";
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
-import { stringToCamelCase } from "@/utils/utils";
+import { stringToUnderscore } from "@/utils/utils";
 import clsx from "clsx";
 import { useRouter } from "next/router";
 import { createClient } from "prismicio";
@@ -38,8 +38,8 @@ const Page = ({ page, settings, navigation }: any) => {
           <br />
           <Button
             href={"/"}
-            eventCategory={stringToCamelCase(`${asPath}404PageAction`)}
-            eventLabel={stringToCamelCase(`PrimaryCTA`)}
+            eventCategory={stringToUnderscore(`${asPath} 404 Page Action`)}
+            eventLabel={stringToUnderscore(`Primary CTA`)}
           >
             Go back home
           </Button>

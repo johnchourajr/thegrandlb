@@ -2,7 +2,7 @@ import Button from "@/components/Button";
 import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
 import MediaFrame from "@/components/media-frame";
-import { stringToCamelCase } from "@/utils/utils";
+import { stringToUnderscore } from "@/utils/utils";
 import { Content } from "@prismicio/client";
 import * as prismicH from "@prismicio/helpers";
 import { SliceComponentProps } from "@prismicio/react";
@@ -73,8 +73,8 @@ const PageHero = ({ slice, context }: PageHeroProps): JSX.Element => {
               <Button
                 field={slice.primary.primary_action_link}
                 text={slice.primary.primary_action}
-                eventCategory={stringToCamelCase(`${uid}HeroAction`)}
-                eventLabel={stringToCamelCase(`${headline}PrimaryCTA`)}
+                eventCategory={stringToUnderscore(`${uid} Hero Action`)}
+                eventLabel={stringToUnderscore(`${headline} Primary CTA`)}
                 type="black"
                 size="large"
               />
@@ -83,8 +83,8 @@ const PageHero = ({ slice, context }: PageHeroProps): JSX.Element => {
               <Button
                 field={slice.primary.secondary_action_link}
                 text={slice.primary.secondary_action}
-                eventCategory={stringToCamelCase(`${uid}HeroAction`)}
-                eventLabel={stringToCamelCase(`${headline}SecondaryCTA`)}
+                eventCategory={stringToUnderscore(`${uid} Hero Action`)}
+                eventLabel={stringToUnderscore(`${headline} Secondary CTA`)}
                 type="outline"
                 size="large"
               />
@@ -97,8 +97,8 @@ const PageHero = ({ slice, context }: PageHeroProps): JSX.Element => {
           <Button
             field={slice.primary.primary_action_link}
             text={slice.primary.primary_action}
-            eventCategory={stringToCamelCase(`${uid}HeroAction`)}
-            eventLabel={stringToCamelCase(`${headline}PrimaryMobileCTA`)}
+            eventCategory={stringToUnderscore(`${uid} Hero Action`)}
+            eventLabel={stringToUnderscore(`${headline} Primary Mobile CTA`)}
             type="black"
             size="large"
           />
@@ -107,8 +107,8 @@ const PageHero = ({ slice, context }: PageHeroProps): JSX.Element => {
           <Button
             field={slice.primary.secondary_action_link}
             text={slice.primary.secondary_action}
-            eventCategory={stringToCamelCase(`${uid}HeroAction`)}
-            eventLabel={stringToCamelCase(`${headline}SecondaryMobileCTA`)}
+            eventCategory={stringToUnderscore(`${uid} Hero Action`)}
+            eventLabel={stringToUnderscore(`${headline} Secondary Mobile CTA`)}
             type="outline-black"
             size="large"
           />

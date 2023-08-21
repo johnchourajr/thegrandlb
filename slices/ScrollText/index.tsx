@@ -3,7 +3,7 @@ import SliceData from "@/components/dev/SliceData";
 import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
 import Tick from "@/components/TickerContainer";
-import { stringToCamelCase } from "@/utils/utils";
+import { stringToUnderscore } from "@/utils/utils";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import clsx from "clsx";
@@ -96,9 +96,9 @@ const ScrollText = ({ slice, context }: ScrollTextProps): JSX.Element => {
               <Button
                 field={slice.primary.primary_action_link}
                 text={slice.primary.primary_action}
-                eventCategory={stringToCamelCase(`${uid}scrollTextAction`)}
-                eventLabel={stringToCamelCase(
-                  `${slice.primary.section_id}PrimaryCTA`
+                eventCategory={stringToUnderscore(`${uid} Scroll Text Action`)}
+                eventLabel={stringToUnderscore(
+                  `${slice.primary.section_id} Primary CTA`
                 )}
                 type={"outline-black"}
                 size={"default"}

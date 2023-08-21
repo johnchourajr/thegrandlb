@@ -4,7 +4,7 @@ import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
 import MotionBox from "@/components/MotionBox";
 import StringText from "@/components/StringText";
-import { stringToCamelCase } from "@/utils/utils";
+import { stringToUnderscore } from "@/utils/utils";
 import { Content } from "@prismicio/client";
 import * as prismicH from "@prismicio/helpers";
 import { SliceComponentProps } from "@prismicio/react";
@@ -70,8 +70,10 @@ const TextSection = ({
                 <Button
                   field={primary_action_link}
                   text={primary_action}
-                  eventCategory={stringToCamelCase(`${uid}textSectionAction`)}
-                  eventLabel={stringToCamelCase(`${section_id}PrimaryCTA`)}
+                  eventCategory={stringToUnderscore(
+                    `${uid} text Section Action`
+                  )}
+                  eventLabel={stringToUnderscore(`${section_id} Primary CTA`)}
                   type="black"
                   size="large"
                   params={uid && `ref=${uid}`}

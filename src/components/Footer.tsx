@@ -1,5 +1,5 @@
 import { handleEvent } from "@/utils/events";
-import { stringToCamelCase } from "@/utils/utils";
+import { stringToUnderscore } from "@/utils/utils";
 import * as prismicH from "@prismicio/helpers";
 import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import clsx from "clsx";
@@ -137,8 +137,8 @@ const FooterUpper = ({
             text={primary_action}
             type="white"
             size="default"
-            eventCategory={stringToCamelCase(`footerPriamryCTA`)}
-            eventLabel={stringToCamelCase(`PrimaryCTA`)}
+            eventCategory={stringToUnderscore(`footer Priamry CTA`)}
+            eventLabel={stringToUnderscore(`Primary CTA`)}
             className="my-2 w-fit self-center lg:self-start"
           />
         )}
