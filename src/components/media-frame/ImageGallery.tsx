@@ -1,3 +1,4 @@
+import { handleEvent } from "@/utils/events";
 import type { PrismicNextImageProps } from "@prismicio/next";
 import clsx from "clsx";
 import { AnimatePresence, m, useInView } from "framer-motion";
@@ -191,6 +192,11 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
     setNextImageIndex(
       nextImageIndex === images.length - 1 ? 0 : nextImageIndex + 1
     );
+    handleEvent({
+      action: "click",
+      category: "Image Gallery",
+      label: "Next Image",
+    });
     setTimeout(() => {
       setIsPlaying(true);
       // console.log("playing again");
@@ -200,6 +206,11 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
   const handleNavigateToPrevious = () => {
     setIsPlaying(false);
     setCurrentImageIndex(nextImageIndex);
+    handleEvent({
+      action: "click",
+      category: "Image Gallery",
+      label: "Previous Image",
+    });
     setNextImageIndex(
       nextImageIndex === 0 ? images?.length - 1 : nextImageIndex - 1
     );
@@ -212,6 +223,11 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
   const handleNavigateToIndex = (index: number) => {
     setIsPlaying(false);
     setCurrentImageIndex(index);
+    handleEvent({
+      action: "click",
+      category: "Image Gallery",
+      label: "Navigate to Index",
+    });
     setNextImageIndex(index === images?.length - 1 ? 0 : index + 1);
   };
 
