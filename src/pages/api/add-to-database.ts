@@ -1,20 +1,16 @@
 import { formatPhoneForDatabase } from "@/components/form/InputPhone";
 import { formatDate } from "@/utils/utils";
-import Airtable from "airtable";
 import { NextApiRequest, NextApiResponse } from "next";
+import db from "../../services/db"; // Update the path accordingly
 
-// const API_KEY = process.env.NEXT_AIRTABLE_API_KEY;
-const API_KEY = process.env.NEXT_PUBLIC_AIRTABLE_API_KEY;
-const BASE_ID = process.env.NEXT_PUBLIC_AIRTABLE_BASE_ID || "";
-const TABLE = process.env.NEXT_PUBLIC_AIRTABLE_TABLE || "submissions";
-const base = new Airtable({ apiKey: API_KEY }).base(BASE_ID);
+const TABLE = process.env.NEXT_PUBLIC_DATABASE_TABLE || "glb_submissions";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   if (req.method !== "POST") {
-    res.status(405).end(); // Method Not Allowed
+    res.status(405).json({ message: "Method not allowed" });
     return;
   } else {
     // Your form data from the request body
@@ -27,21 +23,29 @@ export default async function handler(
       const fields = {
         phone: formattedPhone,
         desired_date: formattedDate,
+        created_date: new Date().toISOString(),
         ...formData,
       };
 
-      // Create a new record in Airtable
-      const createdRecord = await base(TABLE).create([{ fields }]);
+      const sqlCommand = `INSERT INTO ${TABLE} (full_name, email, phone, event_name, event_type, desired_date, desired_time, desired_space, additional_details, created_date) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`;
 
-      res.status(200).json({
-        message: "Record created successfully",
-        record: createdRecord,
-      });
+      await db.query(sqlCommand, [
+        fields.full_name,
+        fields.email,
+        fields.phone,
+        fields.event_name,
+        fields.event_type,
+        fields.desired_date,
+        fields.desired_time,
+        fields.desired_space,
+        fields.additional_details,
+        fields.created_date,
+      ]);
+
+      res.status(200).json({ message: "Data inserted successfully" });
     } catch (error: any) {
-      console.error("Error:", error);
-      res
-        .status(500)
-        .json({ message: "An error occurred", error: error.message });
+      console.error("Error inserting data:", error);
+      res.status(500).json({ message: "Internal server error" });
     }
   }
 }
