@@ -52,8 +52,8 @@ const FaqSection = ({ slice }: FaqSectionProps): JSX.Element => {
               "name": "${prismicH.asText(question)}",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "${prismicH.asHTML(answer)}",
-              },
+                "text": "${prismicH.asHTML(answer)}"
+              }
             }`
         )}
         ]
