@@ -27,7 +27,7 @@ const HomepageNumbers = ({ slice }: HomepageNumbersProps): JSX.Element => {
         bottomSpacer={slice.primary.bottom_spacer || null}
         topSpacer={slice.primary.top_spacer || null}
         className={
-          "!lg:gap-y-28 !lg:pt-[inherit] !gap-y-10 !pt-20 xl:!gap-y-32"
+          "!lg:gap-y-28 !lg:pt-[inherit] !gap-y-24 !pt-20 xl:!gap-y-32"
         }
       >
         {slice.primary.title && (
@@ -72,7 +72,7 @@ const HomepageNumbers = ({ slice }: HomepageNumbersProps): JSX.Element => {
           </MotionBox>
         )}
         {bullet_list && (
-          <MotionBox className="col-span-full flex flex-col items-center justify-evenly gap-10 xl:col-span-8 xl:col-start-3 xl:flex-row xl:gap-6">
+          <MotionBox className="col-span-full flex flex-col items-center justify-evenly gap-10 md:flex-row xl:col-span-8 xl:col-start-3 xl:gap-6">
             {bullet_list.map(
               (
                 { media, number, eyebrow, body, action_text, action_link }: any,

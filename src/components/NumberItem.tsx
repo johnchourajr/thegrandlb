@@ -2,10 +2,11 @@ import Headline from "@/components/Headline";
 import MotionBox from "@/components/MotionBox";
 import Text from "@/components/Paragraph";
 import StringText from "@/components/StringText";
+import { handleEvent } from "@/utils/events";
 import { isEmptyObject } from "@/utils/utils";
 import * as prismicH from "@prismicio/helpers";
 import { PrismicNextImage } from "@prismicio/next";
-import { PrismicRichText } from "@prismicio/react";
+import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import clsx from "clsx";
 import { m } from "framer-motion";
 
@@ -106,7 +107,7 @@ export const NumberItem: React.FC<NumberItemProps> = ({
       )}
       {eyebrow && (
         <m.div variants={item}>
-          <StringText uppercase bold>
+          <StringText className="whitespace-pre-line" uppercase bold>
             {eyebrow}
           </StringText>
         </m.div>
@@ -127,6 +128,24 @@ export const NumberItem: React.FC<NumberItemProps> = ({
                   {children}
                 </Text>
               ),
+              hyperlink: ({ text, node: { data } }) => {
+                return (
+                  <PrismicLink
+                    field={data}
+                    onClick={() => {
+                      handleEvent({
+                        action: "click",
+                        category: `rich_text_link`,
+                        label: `text_url`,
+                        value: `${text}: ${data?.url}`,
+                      });
+                    }}
+                    className="hover:underline"
+                  >
+                    {text}
+                  </PrismicLink>
+                );
+              },
             }}
           />
         </m.div>

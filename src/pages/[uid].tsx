@@ -21,18 +21,41 @@ export async function getStaticProps({ params, previewData }: any) {
   const client = createClient({ previewData });
   const extra = await getExtra({ previewData });
 
-  const [page] = await Promise.all([
-    client.getByUID("page", params.uid, {
-      fetchLinks,
-    }),
-  ]);
+  // wrap in a try catch
+  try {
+    const [page] = await Promise.all([
+      client.getByUID("page", params.uid, {
+        fetchLinks,
+      }),
+    ]);
 
-  return {
-    props: {
-      page,
-      ...extra,
-    },
-  };
+    return {
+      props: {
+        page,
+        ...extra,
+      },
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      props: {
+        page: null,
+        ...extra,
+      },
+    };
+  }
+  // const [page] = await Promise.all([
+  //   client.getByUID("page", params.uid, {
+  //     fetchLinks,
+  //   }),
+  // ]);
+
+  // return {
+  //   props: {
+  //     page,
+  //     ...extra,
+  //   },
+  // };
 }
 
 export async function getStaticPaths() {

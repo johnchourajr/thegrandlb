@@ -33,7 +33,7 @@ const MenuSectionNav: React.FC<MenuSectionNavProps> = ({ uid, group }) => {
       data-no-print
     >
       {/* {group.length > 1 && ( */}
-      <div className="flex-rows inline-flex w-full items-center gap-8 overflow-y-clip overflow-x-scroll p-6 lg:m-0 lg:flex lg:flex-col lg:items-start lg:gap-6 lg:p-0">
+      <div className="flex-rows inline-flex w-full items-center gap-8 overflow-y-clip overflow-x-scroll p-6 lg:m-0 lg:flex lg:flex-col lg:items-start lg:gap-6 lg:overflow-hidden lg:p-0">
         <StringText
           size={"small"}
           uppercase

@@ -20,7 +20,7 @@ function stringOneHasWordsSimilarToTwo(str1: string, str2: string) {
 }
 
 function removeEscapedCharacters(str: string) {
-  if (!str === undefined) return "";
+  if (!str === undefined || !str) return "";
   return str
     .replace(/&amp;/g, "&")
     .replace(/&lt;/g, "<")
