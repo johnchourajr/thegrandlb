@@ -54,7 +54,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ uid, group }) => {
                 /**
                  * PRINT STYLES
                  */
-                "print:relative print:top-[unset]"
+                "print:relative print:top-[unset] print:hidden"
               )}
             />
             <a

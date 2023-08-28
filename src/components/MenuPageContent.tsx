@@ -3,6 +3,7 @@ import Headline from "@/components/Headline";
 import { MenuSection } from "@/components/menu";
 import MenuSectionNav from "@/components/menu/menu-section-nav";
 import clsx from "clsx";
+import Button from "./Button";
 import MotionBox from "./MotionBox";
 import Text from "./Paragraph";
 
@@ -25,7 +26,7 @@ export const MenuPageContent = ({ page, source }: any) => {
           /**
            * PRINT STYLES
            */
-          "print:break-after-page print:!opacity-100"
+          "print:!opacity-100"
         )}
       >
         {title && (
@@ -44,6 +45,9 @@ export const MenuPageContent = ({ page, source }: any) => {
           </Headline>
         )}
         {page_disclaimer && <Text size={"small"}>{page_disclaimer}</Text>}
+        <Button onClick={() => window.print()} size="small">
+          Print Menu
+        </Button>
       </MotionBox>
       <div
         className={clsx(
