@@ -29,5 +29,5 @@ export const event = ({
       value: value,
     },
   });
-  console.log("event fired", { action, category, label, value });
+  // console.log("event fired", { action, category, label, value });
 };

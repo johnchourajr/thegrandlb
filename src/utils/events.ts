@@ -2,6 +2,12 @@ import { toast } from "react-hot-toast";
 import { event } from "./gtm";
 import { stringToUnderscore } from "./utils";
 
+export const sendHotjarEvent = (eventCategory: string, eventName: string) => {
+  if (window.hj) {
+    window.hj("trigger", eventCategory, eventName);
+  }
+};
+
 export const handleEvent = ({
   action,
   category,
@@ -19,6 +25,7 @@ export const handleEvent = ({
     label: stringToUnderscore(label || ""),
     value: value || "",
   });
+  sendHotjarEvent(category || "button", label || "");
 };
 
 export const eventInquireNext = (currentPage: number) => {
@@ -28,6 +35,7 @@ export const eventInquireNext = (currentPage: number) => {
     label: `next_button`,
     value: `Forward to Step ${currentPage + 2}`,
   });
+  sendHotjarEvent("inquire_form", `next_button`);
 };
 
 export const toastNextError = (currentPage: number) => {
@@ -38,6 +46,7 @@ export const toastNextError = (currentPage: number) => {
     label: `next_button`,
     value: `Required fields invalid at step ${currentPage + 1}`,
   });
+  sendHotjarEvent("inquire_form_error", `next_button`);
 };
 
 export const eventInquirePrev = (currentPage: number) => {
@@ -47,6 +56,7 @@ export const eventInquirePrev = (currentPage: number) => {
     label: `prev_button`,
     value: `Back to Step ${currentPage}`,
   });
+  sendHotjarEvent("inquire_form", `prev_button`);
 };
 
 export const eventInquireSubmit = (currentPage: number) => {
@@ -56,6 +66,7 @@ export const eventInquireSubmit = (currentPage: number) => {
     label: `submit_button`,
     value: `Submit at Step ${currentPage + 1}`,
   });
+  sendHotjarEvent("inquire_form", `submit_button`);
 };
 
 export const toastEmailRrequired = (value?: string | number) => {
@@ -66,6 +77,7 @@ export const toastEmailRrequired = (value?: string | number) => {
     label: `toast_email_required`,
     value: value,
   });
+  sendHotjarEvent("inquire_form_error", `toast_email_required`);
 };
 
 export const toastSubmit = (value?: string | number) => {
@@ -76,6 +88,7 @@ export const toastSubmit = (value?: string | number) => {
     label: `toast_submit_loading`,
     value: value,
   });
+  sendHotjarEvent("inquire_form", `toast_submit_loading`);
 };
 
 export const toastSubmitSuccess = (value?: string | number) => {
@@ -88,6 +101,7 @@ export const toastSubmitSuccess = (value?: string | number) => {
     label: `toast_submit_success`,
     value: value,
   });
+  sendHotjarEvent("inquire_form", `toast_submit_success`);
 };
 
 export const toastSubmitError = (value?: string | number) => {
@@ -98,4 +112,5 @@ export const toastSubmitError = (value?: string | number) => {
     label: `toast_submit_error`,
     value: value,
   });
+  sendHotjarEvent("inquire_form_error", `toast_submit_error`);
 };
