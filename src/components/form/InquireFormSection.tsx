@@ -19,7 +19,7 @@ const getPageInputValues = (formState: any, pageInputKeys: string[]) => {
   const pageInputValues: any = {};
 
   pageInputKeys.forEach((key) => {
-    pageInputValues[key] = formState[key]?.isValid;
+    pageInputValues[key] = { isValid: formState[key]?.isValid || false };
   });
 
   return pageInputValues;
@@ -28,7 +28,7 @@ const checkIfAllPageValuesAreValid = (pageInputValues: any) => {
   const pageInputValuesArray = Object.values(pageInputValues);
 
   const allPageValuesAreValid = pageInputValuesArray.every(
-    (value) => value === true
+    ({ isValid }: any) => isValid === true
   );
 
   return allPageValuesAreValid;
@@ -88,6 +88,7 @@ export interface InquireFormSectionProps extends FormPage {
   setCurrentPage: (page: number) => void;
   lastPage: number;
   formState: any;
+  setFormState: any;
   handleFormChange: HandleFormFunction; // Update the type
   handleFormBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   handleFormSubmit: any;
@@ -104,6 +105,7 @@ export const InquireFormSection = ({
   setCurrentPage,
   lastPage,
   formState,
+  setFormState,
   handleFormChange,
   handleFormBlur,
   handleFormSubmit,
@@ -113,13 +115,33 @@ export const InquireFormSection = ({
   const pageInputValues = getPageInputValues(formState, pageInputKeys);
   const allPageValuesAreValid = checkIfAllPageValuesAreValid(pageInputValues);
 
+  const updateValidityForKeys = (keysToUpdate: any) => {
+    const keysToUpdateArray = Object.keys(keysToUpdate);
+
+    keysToUpdateArray.forEach((key: any) => {
+      const formKeyState = formState[key];
+      const matchingQuestion = questions.find(
+        (question: any) => question.question_key === key
+      );
+      const required = matchingQuestion?.required;
+      const validState = required ? keysToUpdate[key].isValid : true;
+      keysToUpdate[key] = {
+        ...formKeyState,
+        isValid: validState,
+        show_error: matchingQuestion?.validations?.error_message || true,
+      };
+    });
+    // console.log({ keysToUpdate });
+
+    setFormState({ ...formState, ...keysToUpdate });
+  };
+
   const handleNextButtonClick = () => {
+    updateValidityForKeys(pageInputValues);
     if (allPageValuesAreValid) {
       setCurrentPage(step + 1);
       eventInquireNext(step);
     } else {
-      console.log("toast error");
-
       toastNextError(step);
     }
   };
@@ -127,6 +149,11 @@ export const InquireFormSection = ({
   const handleBackButtonClick = () => {
     setCurrentPage(step - 1);
     eventInquirePrev(step);
+  };
+
+  const handleFormSubmitClick = () => {
+    updateValidityForKeys(pageInputValues);
+    handleFormSubmit();
   };
 
   return (
@@ -143,19 +170,21 @@ export const InquireFormSection = ({
           submitLoading && "pointer-events-none opacity-50"
         )}
       >
-        <StringText size={"default"}>
-          <StringText as="span" size={"small"} bold>
-            {step + 1}
-          </StringText>{" "}
-          <AppearWrap
-            as="span"
-            currentPage={currentPage}
-            step={step}
-            reverseCondition
-          >
-            {title}
-          </AppearWrap>
-        </StringText>
+        <button onClick={() => setCurrentPage(step)} role={"button"}>
+          <StringText size={"default"}>
+            <StringText as="span" size={"small"} bold>
+              {step + 1}
+            </StringText>{" "}
+            <AppearWrap
+              as="span"
+              currentPage={currentPage}
+              step={step}
+              reverseCondition
+            >
+              {title}
+            </AppearWrap>
+          </StringText>
+        </button>
       </div>
       <AppearWrap
         className="gap-space relative flex w-full flex-col lg:flex-row"
@@ -221,7 +250,7 @@ export const InquireFormSection = ({
                 className="self-start"
                 type={"black"}
                 target="_self"
-                onClick={handleFormSubmit}
+                onClick={() => handleFormSubmitClick()}
                 eventNone={true}
                 text={"Submit"}
                 tabIndex={1}

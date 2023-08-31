@@ -44,18 +44,6 @@ export async function getStaticProps({ params, previewData }: any) {
       },
     };
   }
-  // const [page] = await Promise.all([
-  //   client.getByUID("page", params.uid, {
-  //     fetchLinks,
-  //   }),
-  // ]);
-
-  // return {
-  //   props: {
-  //     page,
-  //     ...extra,
-  //   },
-  // };
 }
 
 export async function getStaticPaths() {

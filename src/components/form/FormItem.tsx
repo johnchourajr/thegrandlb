@@ -1,7 +1,7 @@
 import { Question } from "@/data/form.types";
 import clsx from "clsx";
-import { m } from "framer-motion";
-import { useState } from "react";
+import { AnimatePresence, m } from "framer-motion";
+import { useEffect, useState } from "react";
 import Text from "../Paragraph";
 import StringText from "../StringText";
 import InputBasic from "./InputBasic";
@@ -40,7 +40,9 @@ const FormItem = ({
   page_key,
   ...rest
 }: FormItemProps) => {
-  const [hasBlurred, setHasBlurred] = useState<boolean>(false);
+  const [hasBlurred, setHasBlurred] = useState<boolean>(true);
+
+  useEffect(() => {}, []);
 
   const componentMap = {
     dropdown: InputSelect,
@@ -73,13 +75,31 @@ const FormItem = ({
           {title}
         </StringText>
       </label>
-      <div className="absolute right-0 top-0 z-10 flex w-1/2 flex-row justify-end gap-1 px-3 py-1">
+      <AnimatePresence>
         {hasError && (
-          <Text size="small" className={"text-[red]"}>
-            {showError}
-          </Text>
+          <m.div
+            className="absolute right-0 top-0 z-10 flex w-1/2 flex-row justify-end gap-1 px-3 py-1"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            <Text size="small" className={"text-[red]"}>
+              {showError}
+            </Text>
+          </m.div>
         )}
-      </div>
+        {isValid && (
+          <m.div
+            className="absolute right-0 top-0 z-10 flex w-1/2 flex-row justify-end gap-1 px-3 py-1"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            <Text size="small" className={"text-black"}>
+              ✓
+            </Text>
+          </m.div>
+        )}
+      </AnimatePresence>
+
       <Input
         name={question_key}
         placeholder={placeholder}
@@ -89,7 +109,7 @@ const FormItem = ({
         type={data_type}
         page_key={page_key}
         className={clsx(
-          "!absolute !inset-0 z-0 min-h-full min-w-full rounded-[.33rem] px-3 pt-7 pb-2",
+          "!absolute !inset-0 z-0 box-border min-h-full min-w-full rounded-[.33rem] px-3 pt-7 pb-2",
           hasError && "border border-[red]"
         )}
         {...rest}

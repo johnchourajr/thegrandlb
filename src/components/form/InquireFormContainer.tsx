@@ -30,12 +30,16 @@ export type HandleFormFunction = (
 
 //?event_name=TEST%20John%27s%20Birthday&event_type=birthday_party&desired_date=2024-11-17&desired_time=9pm&head_count=100&desired_space=board-room&full_name=TEST%20John%20Choura&email=hi%40john.design&phone=555-555-5555&additional_details=This%20is%20a%20test%20inquiry%20from%20the%20website
 
+//?event_name=TEST%20John%27s%20Birthday&event_type=birthday_party&desired_date=2024-11-17&desired_time=9pm&head_count=100&desired_space=board-room&full_name=TEST%20John%20Choura&email=hi%40john.design&phone=555-555-5555
+
 const InquireFormContainer = ({ ...extra }) => {
   const router = useRouter();
   const data = getFormData() as FormPage[];
   const [submitLoading, setSubmitLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
   const [formState, setFormState] = useState<FormState>({});
+
+  // console.log({ formState, data });
 
   const handleFormChange = (
     fieldName: FieldTypeValues,
@@ -68,12 +72,14 @@ const InquireFormContainer = ({ ...extra }) => {
 
     const isValid = validateValue(value, validations);
 
+    // console.log("isValid", isValid);
+
     const error = !isValid ? validations.error_message : "";
 
     setFormState((prevState) => ({
       ...prevState,
       [fieldName]: {
-        value: value,
+        value: value || "",
         show_error: error,
         isValid,
         page_key,
@@ -116,7 +122,7 @@ const InquireFormContainer = ({ ...extra }) => {
         full_name: full_name.value,
         email: email,
         phone: formatPhoneForDatabase(phone.value),
-        additional_details: additional_details.value,
+        additional_details: additional_details.value || "",
       };
 
       await axios.post("/api/send-client-email", {
@@ -133,23 +139,6 @@ const InquireFormContainer = ({ ...extra }) => {
       setSubmitLoading(false);
       toastSubmitError();
     }
-
-    /**
-     * @todo: add SMS functionality
-     */
-    // const phone = formState.phone.value;
-    // if (phone) {
-    //   try {
-    //     await axios.post("/api/send-sms", {
-    //       phone: phone.replace(/\D/g, ""),
-    //       formState,
-    //     });
-    //     toast.success("SMS sent successfully");
-    //   } catch (error) {
-    //     console.error(error);
-    //     toast.success("SMS Failed");
-    //   }
-    // }
   };
 
   useEffect(() => {
@@ -181,6 +170,7 @@ const InquireFormContainer = ({ ...extra }) => {
             setCurrentPage={setCurrentPage}
             lastPage={data.length - 1}
             formState={formState}
+            setFormState={setFormState}
             handleFormChange={handleFormChange}
             handleFormBlur={handleFormBlur}
             handleFormSubmit={handleFormSubmit}
