@@ -100,35 +100,38 @@ const InquireFormContainer = ({ ...extra }) => {
     try {
       toastSubmit();
 
-      const email = formState.email.value;
-
       const {
+        additional_details,
+        desired_date,
+        desired_space,
+        desired_time,
+        email,
         event_name,
         event_type,
-        desired_date,
-        desired_time,
-        desired_space,
         full_name,
+        head_count,
         phone,
-        additional_details,
       } = formState;
 
       const data = {
+        additional_details: additional_details.value || "",
+        desired_date: formatDate(desired_date.value),
+        desired_space: formatTitle(desired_space.value),
+        desired_time: desired_time.value,
+        email: email.value,
         event_name: event_name.value,
         event_type: formatTitle(event_type.value),
-        desired_date: formatDate(desired_date.value),
-        desired_time: desired_time.value,
-        desired_space: formatTitle(desired_space.value),
         full_name: full_name.value,
-        email: email,
+        head_count: parseInt(head_count.value),
         phone: formatPhoneForDatabase(phone.value),
-        additional_details: additional_details.value || "",
       };
 
-      await axios.post("/api/send-client-email", {
-        email,
-        formState,
-      });
+      console.log({ formState, data });
+
+      // await axios.post("/api/send-client-email", {
+      //   email: email.value,
+      //   formState,
+      // });
 
       await axios.post("/api/add-to-database", data);
 

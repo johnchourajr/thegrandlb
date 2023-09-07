@@ -156,6 +156,17 @@ export const InquireFormSection = ({
     handleFormSubmit();
   };
 
+  // const handleSectionClick = () => {
+  //   updateValidityForKeys(pageInputValues);
+  //   if (allPageValuesAreValid) {
+  //     setCurrentPage(step + 2);
+  //     eventInquireNext(step);
+  //   } else {
+  //     setCurrentPage(step + 2);
+  //     toastNextError(step);
+  //   }
+  // };
+
   return (
     <m.div
       className={clsx(
@@ -170,21 +181,21 @@ export const InquireFormSection = ({
           submitLoading && "pointer-events-none opacity-50"
         )}
       >
-        <button onClick={() => setCurrentPage(step)} role={"button"}>
-          <StringText size={"default"}>
-            <StringText as="span" size={"small"} bold>
-              {step + 1}
-            </StringText>{" "}
-            <AppearWrap
-              as="span"
-              currentPage={currentPage}
-              step={step}
-              reverseCondition
-            >
-              {title}
-            </AppearWrap>
-          </StringText>
-        </button>
+        {/* <button onClick={() => handleSectionClick()} role={"button"}> */}
+        <StringText size={"default"}>
+          <StringText as="span" size={"small"} bold>
+            {step + 1}
+          </StringText>{" "}
+          <AppearWrap
+            as="span"
+            currentPage={currentPage}
+            step={step}
+            reverseCondition
+          >
+            {title}
+          </AppearWrap>
+        </StringText>
+        {/* </button> */}
       </div>
       <AppearWrap
         className="gap-space relative flex w-full flex-col lg:flex-row"
