@@ -27,7 +27,7 @@ export default async function handler(
         ...formData,
       };
 
-      const sqlCommand = `INSERT INTO ${TABLE} (full_name, email, phone, event_name, event_type, desired_date, desired_time, desired_space, additional_details, created_date) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`;
+      const sqlCommand = `INSERT INTO ${TABLE} (full_name, email, phone, event_name, event_type, head_count, desired_date, desired_time, desired_space, additional_details, created_date) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`;
 
       await db.query(sqlCommand, [
         fields.full_name,
@@ -35,6 +35,7 @@ export default async function handler(
         fields.phone,
         fields.event_name,
         fields.event_type,
+        fields.head_count,
         fields.desired_date,
         fields.desired_time,
         fields.desired_space,
