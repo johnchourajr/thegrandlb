@@ -39,7 +39,7 @@
     "react-gtm-module": "^2.0.11",
     "react-hot-toast": "^2.4.1",
     "resend": "^0.15.3",
-    "swr": "^2.1.5",
+    "swr": "^2.2.2",
     "tailwindcss-scoped-groups": "^2.0.0",
     "twilio": "^4.9.0"
   },
