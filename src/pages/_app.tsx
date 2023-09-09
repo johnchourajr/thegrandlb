@@ -5,14 +5,12 @@ import { Atkinson_Hyperlegible, Lexend_Zetta } from "next/font/google";
 import localFont from "next/font/local";
 
 import AppWrapper from "@/components/AppWrapper";
-import Cursor from "@/components/Cursor";
-import FormOverlay from "@/components/form/FormOverlay";
-import ToastRoot from "@/components/ToastRoot";
 import "@/styles/globals.css";
 import { GTM_ID } from "@/utils/gtm";
 import { PrismicPreview } from "@prismicio/next";
 import { PrismicProvider } from "@prismicio/react";
 import { domAnimation, LazyMotion, MotionConfig } from "framer-motion";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { repositoryName } from "prismicio";
@@ -58,6 +56,21 @@ const domaine = localFont({
   preload: true,
 });
 
+const DynamicFormOverlay = dynamic(
+  () => import("@/components/form/FormOverlay"),
+  {
+    loading: () => <></>,
+  }
+);
+
+const DynamicCursor = dynamic(() => import("@/components/Cursor"), {
+  loading: () => <></>,
+});
+
+const DynamicToastRoot = dynamic(() => import("@/components/ToastRoot"), {
+  loading: () => <></>,
+});
+
 export default function App({ Component, pageProps }: AppProps) {
   const [modalOverlay, setModalOverlay] = useState(false);
   const router = useRouter();
@@ -84,7 +97,6 @@ export default function App({ Component, pageProps }: AppProps) {
   };
 
   useEffect(() => {
-    // GTMInitializer();
     TagManager.initialize({ gtmId: GTM_ID });
 
     // Listen for route changes and track pageviews
@@ -146,16 +158,16 @@ export default function App({ Component, pageProps }: AppProps) {
               {/* PAGE CONTENT */}
               <Component {...pageProps} />
               {/* FORM OVERLAY */}
-              <FormOverlay
+              <DynamicFormOverlay
                 className={fontStack}
                 modalOverlay={modalOverlay}
                 toggleModalOverlay={toggleModalOverlay}
               />
               {/* CURSOR */}
-              <Cursor />
+              <DynamicCursor />
               {/* <CursorNew /> */}
               {/* TOASTS */}
-              <ToastRoot />
+              <DynamicToastRoot />
             </AppWrapper>
           </LazyMotion>
         </MotionConfig>

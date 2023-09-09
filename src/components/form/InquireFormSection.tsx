@@ -181,7 +181,7 @@ export const InquireFormSection = ({
           submitLoading && "pointer-events-none opacity-50"
         )}
       >
-        {/* <button onClick={() => handleSectionClick()} role={"button"}> */}
+        {/* <button onClick={() => setCurrentPage(step)} role={"button"}> */}
         <StringText size={"default"}>
           <StringText as="span" size={"small"} bold>
             {step + 1}

@@ -1,5 +1,4 @@
 // import SendSMS from "@/components/SendSMS";
-import { SliceZone } from "@prismicio/react";
 
 import CtaFooter from "@/components/CtaFooter";
 import SliceData from "@/components/dev/SliceData";
@@ -8,6 +7,12 @@ import fetchLinks from "@/utils/fetchLinks";
 import Layout from "@components/Layout";
 import { createClient } from "../../prismicio";
 import { components } from "../../slices";
+
+import dynamic from "next/dynamic";
+
+const DynamicSliceZone = dynamic(() =>
+  import("@prismicio/react").then((mod) => mod.SliceZone)
+);
 
 const Page = ({ cta, page, settings, navigation }: any) => {
   // if (!page || !cta) return null;
@@ -18,7 +23,7 @@ const Page = ({ cta, page, settings, navigation }: any) => {
   return (
     <Layout page={page} settings={settings} navigation={navigation} hidePageUid>
       <SliceData slice={pageRest} hidden />
-      <SliceZone slices={slices} components={components} />
+      <DynamicSliceZone slices={slices} components={components} />
       <CtaFooter data={cta} />
     </Layout>
   );

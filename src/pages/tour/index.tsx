@@ -1,5 +1,3 @@
-import { SliceZone } from "@prismicio/react";
-
 import CtaFooter from "@/components/CtaFooter";
 import SliceData from "@/components/dev/SliceData";
 import GridBase from "@/components/grid-index/GridBase";
@@ -11,6 +9,12 @@ import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../../prismicio";
 import { components } from "../../../slices/";
+
+import dynamic from "next/dynamic";
+
+const DynamicSliceZone = dynamic(() =>
+  import("@prismicio/react").then((mod) => mod.SliceZone)
+);
 
 const Page = ({ page, cta, settings, navigation, footer_cards }: any) => {
   const {
@@ -37,7 +41,7 @@ const Page = ({ page, cta, settings, navigation, footer_cards }: any) => {
         items={spaces}
         layoutLoader={getTourIndexLayout}
       />
-      <SliceZone slices={slices} components={components} />
+      <DynamicSliceZone slices={slices} components={components} />
       <CtaFooter data={cta} />
       <TileFooter uid={page.uid} footer_cards={footer_cards} />
     </Layout>

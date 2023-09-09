@@ -4,7 +4,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import MapContainer from "../MapContainer";
-import InquireFormContainer from "./InquireFormContainer";
+import InquireFormContainer from "./InquireFormDynamicConatiner";
 import InquireThanks from "./InquireThanks";
 
 const FormOverlay = ({
