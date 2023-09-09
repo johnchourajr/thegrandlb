@@ -1,16 +1,21 @@
 // import SendSMS from "@/components/SendSMS";
 import Layout from "@components/Layout";
-import { SliceZone } from "@prismicio/react";
 
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../prismicio";
 import { components } from "../../slices";
 
+import dynamic from "next/dynamic";
+
+const DynamicSliceZone = dynamic(() =>
+  import("@prismicio/react").then((mod) => mod.SliceZone)
+);
+
 const Page = ({ page, settings, navigation }: any) => {
   return (
     <Layout page={page} settings={settings} navigation={navigation} hidePageUid>
-      <SliceZone slices={page?.data?.slices} components={components} />
+      <DynamicSliceZone slices={page?.data?.slices} components={components} />
     </Layout>
   );
 };

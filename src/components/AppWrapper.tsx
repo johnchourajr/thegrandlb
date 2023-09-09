@@ -1,6 +1,6 @@
 import { m } from "framer-motion";
 
-const AppWrapper = ({ children, inquire, className }: any) => {
+const AppWrapper = ({ children, className }: any) => {
   return (
     <m.div id="top" className={className}>
       {children}
