@@ -170,21 +170,21 @@ export const InquireFormSection = ({
           submitLoading && "pointer-events-none opacity-50"
         )}
       >
-        <button onClick={() => setCurrentPage(step)} role={"button"}>
-          <StringText size={"default"}>
-            <StringText as="span" size={"small"} bold>
-              {step + 1}
-            </StringText>{" "}
-            <AppearWrap
-              as="span"
-              currentPage={currentPage}
-              step={step}
-              reverseCondition
-            >
-              {title}
-            </AppearWrap>
-          </StringText>
-        </button>
+        {/* <button onClick={() => setCurrentPage(step)} role={"button"}> */}
+        <StringText size={"default"}>
+          <StringText as="span" size={"small"} bold>
+            {step + 1}
+          </StringText>{" "}
+          <AppearWrap
+            as="span"
+            currentPage={currentPage}
+            step={step}
+            reverseCondition
+          >
+            {title}
+          </AppearWrap>
+        </StringText>
+        {/* </button> */}
       </div>
       <AppearWrap
         className="gap-space relative flex w-full flex-col lg:flex-row"
