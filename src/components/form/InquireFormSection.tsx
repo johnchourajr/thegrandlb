@@ -156,6 +156,17 @@ export const InquireFormSection = ({
     handleFormSubmit();
   };
 
+  // const handleSectionClick = () => {
+  //   updateValidityForKeys(pageInputValues);
+  //   if (allPageValuesAreValid) {
+  //     setCurrentPage(step + 2);
+  //     eventInquireNext(step);
+  //   } else {
+  //     setCurrentPage(step + 2);
+  //     toastNextError(step);
+  //   }
+  // };
+
   return (
     <m.div
       className={clsx(

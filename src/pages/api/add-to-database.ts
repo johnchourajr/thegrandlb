@@ -18,16 +18,17 @@ export default async function handler(
     const formattedPhone = formatPhoneForDatabase(phone);
     const formattedDate = formatDate(desired_date);
 
+    const fields = {
+      phone: formattedPhone,
+      desired_date: formattedDate,
+      created_date: new Date().toISOString(),
+      ...formData,
+    };
+
     try {
       // Map form data to fields
-      const fields = {
-        phone: formattedPhone,
-        desired_date: formattedDate,
-        created_date: new Date().toISOString(),
-        ...formData,
-      };
 
-      const sqlCommand = `INSERT INTO ${TABLE} (full_name, email, phone, event_name, event_type, head_count, desired_date, desired_time, desired_space, additional_details, created_date) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`;
+      const sqlCommand = `INSERT INTO ${TABLE} (full_name, email, phone, event_name, event_type, head_count, desired_date, desired_time, desired_space, additional_details, created_date) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)`;
 
       await db.query(sqlCommand, [
         fields.full_name,
@@ -46,7 +47,7 @@ export default async function handler(
       res.status(200).json({ message: "Data inserted successfully" });
     } catch (error: any) {
       console.error("Error inserting data:", error);
-      res.status(500).json({ message: "Internal server error" });
+      res.status(500).json({ error, fields, message: "Internal server error" });
     }
   }
 }
