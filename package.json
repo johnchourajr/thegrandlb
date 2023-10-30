@@ -25,7 +25,7 @@
     "@react-email/render": "0.0.7",
     "@react-email/tailwind": "^0.0.8",
     "@sendgrid/mail": "^7.7.0",
-    "axios": "^1.4.0",
+    "axios": "^1.6.0",
     "body-parser": "^1.20.2",
     "clsx": "^1.2.1",
     "cookies-next": "^2.1.2",
