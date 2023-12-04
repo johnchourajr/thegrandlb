@@ -128,12 +128,12 @@ const InquireFormContainer = ({ ...extra }) => {
 
       console.log({ formState, data });
 
+      await axios.post("/api/add-to-database", data);
+
       await axios.post("/api/send-client-email", {
         email: email.value,
         formState,
       });
-
-      await axios.post("/api/add-to-database", data);
 
       toastSubmitSuccess();
       router.push("/thanks");
