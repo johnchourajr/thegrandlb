@@ -114,7 +114,7 @@ const InquireFormContainer = ({ ...extra }) => {
       } = formState;
 
       const data = {
-        additional_details: additional_details.value || "",
+        additional_details: additional_details?.value || "",
         desired_date: formatDate(desired_date.value),
         desired_space: formatTitle(desired_space.value),
         desired_time: desired_time.value,
