@@ -83,8 +83,8 @@ export const BasicRichText = ({ field, paragraphSize = "default" }: any) => (
         return (
           <div className={"relative w-full"}>
             <PrismicNextImage
-              field={node}
-              layout={"intrinsic"}
+              field={node as any}
+              fill
               className="relative w-full"
               key={key}
             />
