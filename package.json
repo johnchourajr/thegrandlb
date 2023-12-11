@@ -35,7 +35,7 @@
     "pg": "^8.11.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-email": "1.9.4",
+    "react-email": "1.10.0",
     "react-gtm-module": "^2.0.11",
     "react-hot-toast": "^2.4.1",
     "resend": "^0.15.3",
