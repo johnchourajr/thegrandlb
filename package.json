@@ -20,7 +20,7 @@
     "@prismicio/react": "^2.7.1",
     "@prismicio/slice-simulator-react": "^0.2.3",
     "@react-email/button": "0.0.9",
-    "@react-email/components": "^0.0.7",
+    "@react-email/components": "^0.0.12",
     "@react-email/html": "0.0.4",
     "@react-email/render": "0.0.7",
     "@react-email/tailwind": "^0.0.8",
