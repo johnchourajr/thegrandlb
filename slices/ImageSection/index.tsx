@@ -26,7 +26,7 @@ const ImageSection = ({ slice }: ImageSectionProps): JSX.Element => {
       >
         <MotionBox
           className={clsx(
-            "relative col-span-full col-start-1 flex aspect-square w-full flex-col items-center justify-center gap-10 overflow-hidden rounded-sm bg-black px-4 text-center text-white lg:aspect-[16/7] lg:rounded-md"
+            "relative col-span-full col-start-1 flex aspect-square w-full flex-col items-center justify-center gap-10 overflow-hidden rounded-sm bg-black px-4 text-center text-white md:aspect-[16/7] md:rounded-md"
           )}
         >
           <MediaFrame

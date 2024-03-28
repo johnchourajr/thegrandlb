@@ -36,7 +36,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ uid, group }) => {
   return (
     <MotionBox
       className={clsx(
-        "col-span-full col-start-1 flex flex-col gap-20 lg:col-span-3 xl:col-span-5",
+        "col-span-full col-start-1 flex flex-col gap-20 md:col-span-3 lg:col-span-5",
         /**
          * PRINT STYLES
          */
@@ -60,7 +60,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ uid, group }) => {
             <a
               href={`#${convertToSlug(section.page_title)}`}
               className={clsx(
-                "group sticky top-[5rem] z-50 inline-flex h-fit lg:top-[10rem]",
+                "group sticky top-[5rem] z-50 inline-flex h-fit md:top-[10rem]",
                 "after:from-transparent after:via-20% after:pointer-events-none after:absolute after:inset-[-1rem] after:top-[-2rem] after:bottom-[-2rem] after:z-10 after:bg-gradient-to-b after:from-bg after:via-bg after:to-[transparent] after:opacity-100 after:transition-opacity after:delay-500 after:duration-500 after:ease-in-out after:content-['']",
                 /**
                  * PRINT STYLES

@@ -71,7 +71,7 @@ const CtaFooter = ({ data }: any) => {
           )}
         >
           <TileItem
-            className="z-50 flex w-full items-center md:!col-span-2 md:!col-start-3 xl:!col-span-5 xl:!col-start-7 3xl:!col-span-4 3xl:!col-start-8"
+            className="3lg:!col-span-4 3lg:!col-start-8 z-50 flex w-full items-center md:!col-span-2 md:!col-start-3 lg:!col-span-5 lg:!col-start-7"
             innerClassName="max-h-[50rem] "
             initial={{
               opacity: 0,
@@ -84,7 +84,7 @@ const CtaFooter = ({ data }: any) => {
             {...inquire_card.data}
           />
           <div className="absolute inset-0 z-20 bg-cream mix-blend-multiply" />
-          <div className="overflow-mask absolute inset-0 flex translate-x-[-1%] flex-col justify-start py-8 lg:justify-center lg:py-0">
+          <div className="overflow-mask absolute inset-0 flex translate-x-[-1%] flex-col justify-start py-8 md:justify-center md:py-0">
             {headlineArray.map((word: string, index: number) => {
               return (
                 <CtaFooterHeadlineItem

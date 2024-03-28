@@ -27,7 +27,7 @@ const HomepageNumbers = ({ slice }: HomepageNumbersProps): JSX.Element => {
         bottomSpacer={slice.primary.bottom_spacer || null}
         topSpacer={slice.primary.top_spacer || null}
         className={
-          "!lg:gap-y-28 !lg:pt-[inherit] !gap-y-24 !pt-20 xl:!gap-y-32"
+          "!md:gap-y-28 !md:pt-[inherit] !gap-y-24 !pt-20 lg:!gap-y-32"
         }
       >
         {slice.primary.title && (
@@ -41,7 +41,7 @@ const HomepageNumbers = ({ slice }: HomepageNumbersProps): JSX.Element => {
           </Headline>
         )}
         {numberlist && (
-          <MotionBox className="col-span-full flex flex-col items-center justify-evenly gap-10 xl:col-span-10 xl:col-start-2 xl:flex-row xl:gap-20">
+          <MotionBox className="col-span-full flex flex-col items-center justify-evenly gap-10 lg:col-span-10 lg:col-start-2 lg:flex-row lg:gap-20">
             {numberlist.map(
               (
                 { number, eyebrow, body, action_text, action_link }: any,
@@ -61,7 +61,7 @@ const HomepageNumbers = ({ slice }: HomepageNumbersProps): JSX.Element => {
                       <div
                         key={i + 10}
                         className={
-                          "h-20 w-[3px] flex-grow rounded-md bg-white xl:h-[3px] xl:w-full"
+                          "h-20 w-[3px] flex-grow rounded-md bg-white lg:h-[3px] lg:w-full"
                         }
                       />
                     )}
@@ -72,7 +72,7 @@ const HomepageNumbers = ({ slice }: HomepageNumbersProps): JSX.Element => {
           </MotionBox>
         )}
         {bullet_list && (
-          <MotionBox className="col-span-full flex flex-col items-center justify-evenly gap-10 md:flex-row xl:col-span-8 xl:col-start-3 xl:gap-6">
+          <MotionBox className="col-span-full flex flex-col items-center justify-evenly gap-10 sm:flex-row lg:col-span-8 lg:col-start-3 lg:gap-6">
             {bullet_list.map(
               (
                 { media, number, eyebrow, body, action_text, action_link }: any,
@@ -99,7 +99,7 @@ const HomepageNumbers = ({ slice }: HomepageNumbersProps): JSX.Element => {
             headline={primary_action}
             theme={"Outlined"}
             className={
-              "col-span-full !h-[12vw] xl:col-span-10 xl:col-start-2 3xl:!h-56 "
+              "3lg:!h-56 col-span-full !h-[12vw] lg:col-span-10 lg:col-start-2 "
             }
           />
         )}

@@ -71,7 +71,7 @@ export function GridSection({
       className={clsx(
         "mx-auto w-full max-w-[2500px] gap-4 lg:gap-6",
         gridSectionType === "grid" &&
-          "grid grid-cols-4 px-4 lg:px-6 xl:grid-cols-12",
+          "grid grid-cols-4 px-4 lg:grid-cols-12 lg:px-6",
         gridSectionType === "flex" && "flex",
         topSpacer && getSpacerTopStyles(topSpacer),
         bottomSpacer && getSpacerBottomStyles(bottomSpacer),

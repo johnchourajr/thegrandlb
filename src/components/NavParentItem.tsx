@@ -4,7 +4,7 @@ import { PrismicLink } from "@prismicio/react";
 import clsx from "clsx";
 import { m, useAnimation } from "framer-motion";
 import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { linkResolver } from "../../prismicio";
 import { NavItem } from "./NavItem";
 import StringText from "./StringText";
@@ -23,7 +23,7 @@ export const NavParentItem = ({
   const router = useRouter();
   const controls = useAnimation();
   const [isHovering, setIsHovering] = useState(false);
-  const isMobile = useMediaQuery(1280);
+  const isMobile = useMediaQuery(1024);
 
   const link = href ? href : linkResolver(link_source);
   const activeLink = router.pathname.includes(link);
@@ -80,11 +80,11 @@ export const NavParentItem = ({
     }
   };
 
-  const onRouteChangeCloseMenu = () => {
+  const onRouteChangeCloseMenu = useCallback(() => {
     controls.start(dropdownVariants.closed);
     setIsHovering(false);
     setIsNavOpen(false);
-  };
+  }, [controls, dropdownVariants.closed, setIsNavOpen]);
 
   useEffect(() => {
     const handleClickOutside = (event: KeyboardEvent) => {
@@ -97,14 +97,14 @@ export const NavParentItem = ({
     return () => {
       document.removeEventListener("keydown", handleClickOutside);
     };
-  }, [isNavOpen, setIsNavOpen]);
+  }, [isNavOpen, setIsNavOpen, onRouteChangeCloseMenu]);
 
   useEffect(() => {
     router.events.on("routeChangeStart", onRouteChangeCloseMenu);
     return () => {
       router.events.off("routeChangeStart", onRouteChangeCloseMenu);
     };
-  }, [router.events]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [router.events, onRouteChangeCloseMenu]);
 
   const handleToggleControls = () => {
     if (isHovering) {
@@ -122,10 +122,10 @@ export const NavParentItem = ({
     <m.div
       ref={ref}
       className={clsx(
-        "w-full list-none transition-opacity duration-300 ease-out-expo xl:w-fit",
+        "w-full list-none transition-opacity duration-300 ease-out-expo lg:w-fit",
         hasChildren &&
-          "via-100% after:xl:pointer-events-none after:xl:fixed after:xl:inset-0 after:xl:top-0 after:xl:z-[1] after:xl:h-[110vh] after:xl:bg-gradient-to-b after:xl:from-bg after:xl:to-bg after:xl:opacity-0 after:xl:transition-opacity after:xl:duration-700 after:xl:ease-out-expo after:xl:content-[''] hover:after:xl:opacity-90",
-        isHovering && "after:xl:opacity-90",
+          "via-100% after:lg:pointer-events-none after:lg:fixed after:lg:inset-0 after:lg:top-0 after:lg:z-[1] after:lg:h-[110vh] after:lg:bg-gradient-to-b after:lg:from-bg after:lg:to-bg after:lg:opacity-0 after:lg:transition-opacity after:lg:duration-700 after:lg:ease-out-expo after:lg:content-[''] hover:after:lg:opacity-90",
+        isHovering && "after:lg:opacity-90",
         className
       )}
       initial={!isMobile && ({ "--height": "50vh" } as any)}
@@ -136,9 +136,9 @@ export const NavParentItem = ({
     >
       <span
         className={clsx(
-          "relative flex justify-between xl:justify-start",
+          "relative flex justify-between lg:justify-start",
           "--bg-yellow-100 border-b-[1.5px] border-black py-3",
-          "xl:border-none xl:py-0"
+          "lg:border-none lg:py-0"
         )}
       >
         <CategoryAction
@@ -154,7 +154,7 @@ export const NavParentItem = ({
             as="span"
             className={clsx(
               activeLink && "after:scale-x-100",
-              "after:absolute after:bottom-0 after:left-0 after:z-10 after:h-[1.5px] after:w-[100%] after:origin-top-right after:scale-x-0 after:bg-black after:opacity-0 after:transition-transform after:duration-300 after:ease-out-expo after:content-[''] after:xl:opacity-100",
+              "after:absolute after:bottom-0 after:left-0 after:z-10 after:h-[1.5px] after:w-[100%] after:origin-top-right after:scale-x-0 after:bg-black after:opacity-0 after:transition-transform after:duration-300 after:ease-out-expo after:content-[''] after:lg:opacity-100",
               "group-hover:opacity-100 group-hover:after:origin-top-left group-hover:after:scale-x-100"
             )}
           >
@@ -184,9 +184,9 @@ export const NavParentItem = ({
       {hasChildren && (
         <m.ul
           className={clsx(
-            "bg-green-400 flex flex-col overflow-hidden xl:absolute xl:overflow-visible xl:pt-2 xl:pb-4",
+            "bg-green-400 flex flex-col overflow-hidden lg:absolute lg:overflow-visible lg:pt-2 lg:pb-4",
             "z-10 border-b-[1.5px] border-black",
-            "xl:border-none",
+            "lg:border-none",
             !isHovering && "pointer-events-none"
           )}
           initial={"closed"}
@@ -218,7 +218,7 @@ export const NavParentItem = ({
                     tabIndex: isHovering ? 1 : -1,
                   }}
                   linkClassName={"group relative"}
-                  className={"last-of-type:pb-2 last-of-type:xl:pb-0 "}
+                  className={"last-of-type:pb-2 last-of-type:lg:pb-0 "}
                   aria-label={`Navigate to ${child_link_title}`}
                 />
               );

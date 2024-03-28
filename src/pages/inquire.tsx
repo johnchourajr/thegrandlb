@@ -1,11 +1,16 @@
-// import SendSMS from "@/components/SendSMS";
+/**
+ * Component(s)
+ */
 import Layout from "@components/Layout";
 
+/**
+ * Services
+ */
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../prismicio";
 
-const Page = ({ page, settings }: any) => {
+const InquirePage = ({ page, settings }: any) => {
   return (
     <Layout
       page={page}
@@ -17,9 +22,9 @@ const Page = ({ page, settings }: any) => {
   );
 };
 
-export default Page;
+export default InquirePage;
 
-export async function getStaticProps({ params, previewData }: any) {
+export async function getStaticProps({ previewData }: any) {
   const client = createClient({ previewData });
   const extra = await getExtra({ previewData });
 

@@ -35,16 +35,14 @@ const SplitScrollSection = ({
   } = slice.primary;
   const { items } = slice;
 
-  // true is right
-
   const getAssetPosition = (asset_position: boolean) => {
     switch (asset_position) {
       case true:
-        return "xl:col-start-7";
+        return "lg:col-start-7";
       case false:
-        return "xl:col-start-1";
+        return "lg:col-start-1";
       default:
-        return "xl:col-start-7";
+        return "lg:col-start-7";
     }
   };
 
@@ -56,7 +54,7 @@ const SplitScrollSection = ({
         topSpacer={top_spacer || "Medium"}
         overflowHidden={false}
       >
-        <MotionBox className="padding-top-lg padding-bottom-lg gap-y-lg col-span-full flex flex-col items-center justify-center xl:col-span-6 xl:col-start-auto xl:row-start-1">
+        <MotionBox className="padding-top-lg padding-bottom-lg gap-y-lg col-span-full flex flex-col items-center justify-center lg:col-span-6 lg:col-start-auto lg:row-start-1">
           {items.map((item: any, index: number) => {
             return (
               <Fragment key={index}>
@@ -75,7 +73,7 @@ const SplitScrollSection = ({
         </MotionBox>
         <MotionBox
           className={clsx(
-            "relative col-span-full row-start-1 aspect-square overflow-hidden rounded-sm bg-black lg:aspect-[4/3] lg:rounded-md xl:sticky xl:top-[9.5rem] xl:col-span-6 xl:aspect-auto xl:h-[100vh] xl:max-h-[calc(100vh-9rem-2rem)]",
+            "relative col-span-full row-start-1 aspect-square overflow-hidden rounded-sm bg-black md:aspect-[4/3] md:rounded-md lg:sticky lg:top-[9.5rem] lg:col-span-6 lg:aspect-auto lg:h-[100vh] lg:max-h-[calc(100vh-9rem-2rem)] ",
             getAssetPosition(asset_position)
           )}
         >

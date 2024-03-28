@@ -1,16 +1,27 @@
+import clsx from "clsx";
+import { useRouter } from "next/router";
+import { createClient } from "prismicio";
+
+/**
+ * Components
+ */
 import Button from "@/components/Button";
 import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
 import Layout from "@/components/Layout";
 import Text from "@/components/Paragraph";
+
+/**
+ * Services
+ */
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import { stringToUnderscore } from "@/utils/utils";
-import clsx from "clsx";
-import { useRouter } from "next/router";
-import { createClient } from "prismicio";
 
-const Page = ({ page, settings, navigation }: any) => {
+/**
+ * @name FourOhFourPage
+ */
+const FourOhFourPage = ({ page, settings, navigation }: any) => {
   const router = useRouter();
   const { asPath } = router;
   return (
@@ -19,7 +30,6 @@ const Page = ({ page, settings, navigation }: any) => {
       settings={settings}
       navigation={navigation}
       className="min-h-fit"
-      hidePageUid
     >
       <GridSection
         id="404"
@@ -49,9 +59,9 @@ const Page = ({ page, settings, navigation }: any) => {
   );
 };
 
-export default Page;
+export default FourOhFourPage;
 
-export async function getStaticProps({ params, previewData }: any) {
+export async function getStaticProps({ previewData }: any) {
   const client = createClient({ previewData });
   const extra = await getExtra({ previewData });
 

@@ -37,7 +37,7 @@ const HeroDetailPage = ({
           className={clsx(
             "padding-top-md padding-bottom-md relative col-span-full col-start-1 flex w-full flex-col items-center justify-center gap-4 overflow-hidden px-4 text-center",
             !noMedia &&
-              "aspect-square max-h-[calc(100vh-8.8125rem)] gap-10 rounded-sm bg-black text-white lg:aspect-[4/3] lg:max-h-[calc(100vh-9rem-3rem)] lg:rounded-md"
+              "aspect-square max-h-[calc(100vh-8.8125rem)] gap-10 rounded-sm bg-black text-white md:aspect-[4/3] md:max-h-[calc(100vh-9rem-3rem)] md:rounded-md"
           )}
         >
           {title && (
@@ -73,7 +73,7 @@ const HeroDetailPage = ({
           />
           {primary_action && (
             <m.div
-              className="gap-6 pt-6 md:flex"
+              className="gap-6 pt-6 sm:flex"
               initial={{
                 opacity: 0,
                 y: "2rem",
@@ -109,13 +109,13 @@ const HeroDetailPage = ({
           bottomSpacer={"Medium"}
           topSpacer={"Medium"}
         >
-          <MotionBox className="col-span-full pt-10 pb-0 xl:col-span-6 xl:col-start-2 xl:pt-12 xl:pb-20">
+          <MotionBox className="col-span-full pt-10 pb-0 lg:col-span-6 lg:col-start-2 lg:pt-12 lg:pb-20">
             <Headline size={"xl"} className={"max-w-[9em]"} animateOnce>
               {subhead}
             </Headline>
           </MotionBox>
           <MotionBox
-            className="col-span-full pb-12 xl:col-span-4 xl:col-start-auto xl:pt-12"
+            className="col-span-full pb-12 lg:col-span-4 lg:col-start-auto lg:pt-12"
             transition={{ delay: 1 }}
           >
             <Text paragraph size="large" className="max-w-[30em]">

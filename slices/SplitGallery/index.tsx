@@ -44,7 +44,7 @@ const SplitGallery = ({ slice }: SplitGalleryProps): JSX.Element => {
         {gallery_left && (
           <MotionBox
             className={clsx(
-              "col-span-full mb-2 md:col-span-2 lg:mb-0 xl:col-span-6"
+              "col-span-full mb-2 md:col-span-2 md:mb-0 lg:col-span-6"
             )}
             style={{ y: yLeft }}
           >
@@ -53,7 +53,7 @@ const SplitGallery = ({ slice }: SplitGalleryProps): JSX.Element => {
               cycleDuration={9000}
               controlPosition="Bottom Left"
               outerControls={true}
-              className={clsx("aspect-square", "lg:!rounded-br-none")}
+              className={clsx("aspect-square", "md:!rounded-br-none")}
               imgixParams={{
                 w: 640,
               }}
@@ -63,7 +63,7 @@ const SplitGallery = ({ slice }: SplitGalleryProps): JSX.Element => {
         {gallery_right && (
           <MotionBox
             className={clsx(
-              "col-span-full md:col-span-2 md:pt-20 lg:pt-24 xl:col-span-6 xl:pt-28"
+              "col-span-full sm:pt-20 md:col-span-2 md:pt-24 lg:col-span-6 lg:pt-28"
             )}
             style={{ y: yRight }}
           >
@@ -74,7 +74,7 @@ const SplitGallery = ({ slice }: SplitGalleryProps): JSX.Element => {
               autoPlay={false}
               controlPosition="Top Right"
               outerControls={true}
-              className={clsx("aspect-square", "lg:!rounded-tl-none")}
+              className={clsx("aspect-square", "md:!rounded-tl-none")}
               imgixParams={{
                 w: 1280,
               }}

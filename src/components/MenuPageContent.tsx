@@ -22,7 +22,7 @@ export const MenuPageContent = ({ page, source }: any) => {
     >
       <MotionBox
         className={clsx(
-          "col-span-full col-start-1 flex flex-col items-center justify-between gap-6 text-center xl:col-span-10 xl:col-start-2",
+          "col-span-full col-start-1 flex flex-col items-center justify-between gap-6 text-center lg:col-span-10 lg:col-start-2",
           /**
            * PRINT STYLES
            */
@@ -51,7 +51,7 @@ export const MenuPageContent = ({ page, source }: any) => {
       </MotionBox>
       <div
         className={clsx(
-          "margin-top-md padding-bottom-md col-span-full col-start-1 border-t-2 border-white xl:col-span-10 xl:col-start-2",
+          "margin-top-md padding-bottom-md col-span-full col-start-1 border-t-2 border-white lg:col-span-10 lg:col-start-2",
           /**
            * PRINT STYLES
            */

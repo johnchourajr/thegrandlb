@@ -32,20 +32,20 @@ const LongformTextSection = ({
         id={section_id || slice.id}
         bottomSpacer={bottom_spacer || null}
         topSpacer={top_spacer || null}
-        className={clsx("!gap-y-10 xl:!gap-y-24")}
+        className={clsx("!gap-y-10 lg:!gap-y-24")}
       >
         <div
           className={clsx(
-            "col-span-full border-t-2 border-[transparent] xl:col-span-6 xl:col-start-4",
+            "col-span-full border-t-2 border-[transparent] lg:col-span-6 lg:col-start-4",
             top_border && "!border-white"
           )}
         />
-        <div className={clsx("col-span-full xl:col-span-6 xl:col-start-4")}>
+        <div className={clsx("col-span-full lg:col-span-6 lg:col-start-4")}>
           <LongformRichText field={text} />
         </div>
         <div
           className={clsx(
-            "col-span-full border-b-2 border-[transparent] xl:col-span-6 xl:col-start-4",
+            "col-span-full border-b-2 border-[transparent] lg:col-span-6 lg:col-start-4",
             bottom_border && "!border-white"
           )}
         />

@@ -23,7 +23,7 @@ const TeamGallery = ({ slice }: TeamGalleryProps): JSX.Element => {
     <>
       <GridSection
         id={section_id}
-        className={clsx("max-w-[2000px] flex-col gap-8 lg:gap-12")}
+        className={clsx("max-w-[2000px] flex-col gap-8 md:gap-12")}
         topSpacer={top_spacer}
         bottomSpacer={bottom_spacer}
       >
@@ -37,7 +37,7 @@ const TeamGallery = ({ slice }: TeamGalleryProps): JSX.Element => {
                 <div
                   key={index}
                   className={clsx(
-                    "group relative col-span-full flex flex-col items-center gap-6 p-4 text-center sm:col-span-2 lg:p-4 xl:col-span-4 3xl:col-span-3",
+                    "3lg:col-span-3 group relative col-span-full flex flex-col items-center gap-6 p-4 text-center sm:col-span-2 md:p-4 lg:col-span-4",
                     "after:absolute after:inset-0 after:z-0 after:rounded-xl after:bg-white after:transition-all after:duration-500 after:ease-out-expo after:content-['']",
                     "hover:after:inset-[-2px]"
                   )}

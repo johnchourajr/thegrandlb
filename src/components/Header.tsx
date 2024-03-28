@@ -16,7 +16,7 @@ export default function Header({
 }: any) {
   const [navScrolled, setNavScrolled] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const isMobile = useMediaQuery(1280);
+  const isMobile = useMediaQuery(1024);
   const { scrollY } = useScroll();
   const router = useRouter();
 
@@ -110,7 +110,7 @@ export default function Header({
       className={clsx(
         "sticky top-[var(--navTop)] z-[9999] h-fit !max-w-[100vw] overflow-visible !pt-4",
         "transition-colors duration-300 ease-out-expo",
-        "flex-col items-center !gap-0 lg:gap-[inherit] xl:flex-row xl:gap-[var(--navGap)]",
+        "flex-col items-center !gap-0 md:gap-[inherit] lg:flex-row lg:gap-[var(--navGap)]",
         /**
          * NAV SCROLLED STYLES
          */

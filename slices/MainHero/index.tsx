@@ -29,11 +29,11 @@ const PageHero = ({ slice, context }: PageHeroProps): JSX.Element => {
         id={slice.primary.section_id}
         bottomSpacer={slice.primary.bottom_spacer}
         topSpacer={"Small"}
-        className="!pt-0 lg:!pt-4"
+        className="!pt-0 md:!pt-4"
       >
         <div
           className={clsx(
-            "relative col-span-full col-start-1 flex aspect-square max-h-[calc(100vh-8.8125rem)] w-full flex-col items-center justify-center gap-10 overflow-hidden rounded-sm bg-black px-4 text-center text-white lg:aspect-[4/3] lg:max-h-[calc(100vh-9rem-2.5rem)] lg:rounded-md"
+            "relative col-span-full col-start-1 flex aspect-square max-h-[calc(100vh-8.8125rem)] w-full flex-col items-center justify-center gap-10 overflow-hidden rounded-sm bg-black px-4 text-center text-white md:aspect-[4/3] md:max-h-[calc(100vh-9rem-2.5rem)] md:rounded-md"
           )}
         >
           {headline && (
@@ -54,7 +54,7 @@ const PageHero = ({ slice, context }: PageHeroProps): JSX.Element => {
             priority={true}
           />
           <m.div
-            className="!hidden gap-6 md:!flex"
+            className="!hidden gap-6 sm:!flex"
             initial={{
               opacity: 0,
               y: "3rem",
@@ -92,7 +92,7 @@ const PageHero = ({ slice, context }: PageHeroProps): JSX.Element => {
           </m.div>
         </div>
       </GridSection>
-      <div className="flex w-full flex-col justify-between gap-2 px-4 py-2 md:hidden">
+      <div className="flex w-full flex-col justify-between gap-2 px-4 py-2 sm:hidden">
         {slice.primary.primary_action && (
           <Button
             field={slice.primary.primary_action_link}

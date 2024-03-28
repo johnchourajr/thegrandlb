@@ -1,15 +1,23 @@
-// import SendSMS from "@/components/SendSMS";
+import clsx from "clsx";
+import Head from "next/head";
 
+/**
+ * Components
+ */
 import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
 import Tick from "@/components/TickerContainer";
-import { getExtra } from "@/services/get-extra";
 import Layout from "@components/Layout";
-import clsx from "clsx";
-import Head from "next/head";
-import { createClient } from "../../prismicio";
 
-const Page = ({ navigation, settings, cta }: any) => {
+/**
+ * Services
+ */
+import { getExtra } from "@/services/get-extra";
+
+/**
+ * @name TickerPage
+ */
+const TickerPage = () => {
   return (
     <Layout className="">
       <Head>
@@ -35,22 +43,22 @@ const Page = ({ navigation, settings, cta }: any) => {
         </Tick>
 
         <Tick toLeft={false} className={clsx("col-span-full")} animateOnce>
-          <div
+          <span
             className={clsx(
               `inline-flex h-32 w-60 items-center justify-center rounded-full bg-[red]`
             )}
           />
-          <div
+          <span
             className={clsx(
               `inline-flex h-32 w-60 items-center justify-center rounded-full bg-[#e5e5e5]`
             )}
           />
-          <div
+          <span
             className={clsx(
               `inline-flex h-32 w-60 items-center justify-center rounded-full bg-[#e5e5e5]`
             )}
           />
-          <div
+          <span
             className={clsx(
               `inline-flex h-32 w-60 items-center justify-center rounded-full bg-[#e5e5e5]`
             )}
@@ -61,10 +69,9 @@ const Page = ({ navigation, settings, cta }: any) => {
   );
 };
 
-export default Page;
+export default TickerPage;
 
-export async function getStaticProps({ params, previewData }: any) {
-  const client = createClient({ previewData });
+export async function getStaticProps({ previewData }: any) {
   const extra = await getExtra({ previewData });
 
   return {

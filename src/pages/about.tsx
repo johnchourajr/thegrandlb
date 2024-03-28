@@ -1,23 +1,34 @@
-// import SendSMS from "@/components/SendSMS";
-import Layout from "@components/Layout";
+import dynamic from "next/dynamic";
 
+/**
+ * Components
+ */
 import CtaFooter from "@/components/CtaFooter";
 import SliceData from "@/components/dev/SliceData";
 import TileFooter from "@/components/TileFooter";
+import Layout from "@components/Layout";
+
+/**
+ * Services
+ */
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../prismicio";
+
+/**
+ * Slices
+ */
 import { components } from "../../slices/";
-
-import dynamic from "next/dynamic";
-
 const DynamicSliceZone = dynamic(() =>
   import("@prismicio/react").then((mod) => mod.SliceZone)
 );
 
-const Page = ({ page, settings, navigation, cta, footer_cards }: any) => {
+/**
+ * @name AboutPage
+ */
+const AboutPage = ({ page, settings, navigation, cta, footer_cards }: any) => {
   return (
-    <Layout page={page} settings={settings} navigation={navigation} hidePageUid>
+    <Layout page={page} settings={settings} navigation={navigation}>
       <></>
       <DynamicSliceZone slices={page.data.slices} components={components} />
       <SliceData slice={page} hidden />
@@ -27,9 +38,9 @@ const Page = ({ page, settings, navigation, cta, footer_cards }: any) => {
   );
 };
 
-export default Page;
+export default AboutPage;
 
-export async function getStaticProps({ params, previewData }: any) {
+export async function getStaticProps({ previewData }: any) {
   const client = createClient({ previewData });
   const extra = await getExtra({ previewData });
 
