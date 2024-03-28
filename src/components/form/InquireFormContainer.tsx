@@ -89,7 +89,7 @@ const InquireFormContainer = ({ ...extra }) => {
   };
 
   const handleFormBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    console.log("handleFormBlur", e);
+    // console.log("handleFormBlur", e);
   };
 
   const handleFormSubmit = async () => {

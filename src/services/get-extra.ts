@@ -26,7 +26,7 @@ export const getExtra = async ({ previewData }: any) => {
   const debuggIfKeysInObjectAreUndefined = (obj: any) => {
     Object.keys(obj).forEach((key) => {
       if (obj[key] === undefined) {
-        console.log(key);
+        // console.log(key);
       }
     });
   };

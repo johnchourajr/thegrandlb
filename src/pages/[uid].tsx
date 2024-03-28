@@ -52,7 +52,7 @@ export async function getStaticProps({ params, previewData }: any) {
       },
     };
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return {
       props: {
         page: null,

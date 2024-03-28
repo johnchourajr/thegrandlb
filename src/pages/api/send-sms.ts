@@ -20,7 +20,7 @@ export default async function handler(
 
     res.status(200).json({ message: "SMS message sent", data: null });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res
       .status(500)
       .json({ message: "Failed to send SMS message", data: error });
