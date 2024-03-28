@@ -46,7 +46,7 @@ const ScrollText = ({ slice, context }: ScrollTextProps): JSX.Element => {
       >
         {slice.primary.top_title && (
           <div
-            className={`col-span-full text-center lg:col-span-10 lg:col-start-2 lg:text-left`}
+            className={`col-span-full text-center md:col-span-10 md:col-start-2 md:text-left`}
           >
             <Headline
               as="span"
@@ -65,7 +65,7 @@ const ScrollText = ({ slice, context }: ScrollTextProps): JSX.Element => {
             <Headline
               as="span"
               size={"2xl"}
-              className={`inline-flex !whitespace-pre py-3 lg:py-6`}
+              className={`inline-flex !whitespace-pre py-3 md:py-6`}
               disableMotion
               emphasis
               aria-hidden={true}
@@ -79,7 +79,7 @@ const ScrollText = ({ slice, context }: ScrollTextProps): JSX.Element => {
             <Headline
               as="span"
               size={"2xl"}
-              className={`inline-flex !whitespace-pre pb-3 lg:pb-6`}
+              className={`inline-flex !whitespace-pre pb-3 md:pb-6`}
               disableMotion
               emphasis
               aria-hidden={true}
@@ -90,7 +90,7 @@ const ScrollText = ({ slice, context }: ScrollTextProps): JSX.Element => {
         )}
         {slice.primary.bottom_title && (
           <div
-            className={`col-span-full flex flex-col-reverse gap-3 text-center lg:col-span-10 lg:col-start-2 lg:flex-row lg:items-center lg:justify-between lg:gap-0 lg:text-end`}
+            className={`col-span-full flex flex-col-reverse gap-3 text-center md:col-span-10 md:col-start-2 md:flex-row md:items-center md:justify-between md:gap-0 md:text-end`}
           >
             {slice.primary.primary_action_link && (
               <Button

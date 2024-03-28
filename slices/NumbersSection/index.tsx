@@ -33,11 +33,11 @@ const NumbersSection = ({ slice }: NumbersSectionProps): JSX.Element => {
   const getInset = () => {
     switch (inset) {
       case true:
-        return "col-span-full xl:col-span-8 xl:col-start-3";
+        return "col-span-full lg:col-span-8 lg:col-start-3";
       case false:
-        return "col-span-full xl:col-span-10 xl:col-start-2";
+        return "col-span-full lg:col-span-10 lg:col-start-2";
       default:
-        return "col-span-full xl:col-span-10 xl:col-start-2";
+        return "col-span-full lg:col-span-10 lg:col-start-2";
     }
   };
 
@@ -46,27 +46,27 @@ const NumbersSection = ({ slice }: NumbersSectionProps): JSX.Element => {
       case "3 Column":
         return {
           container: "",
-          item: "!w-full sm:!w-1/2 md:w-1/3 xl:!w-1/3",
+          item: "!w-full !w-1/2 sm:w-1/3 lg:!w-1/3",
         };
       case "4 Column":
         return {
           container: "",
-          item: "!w-1/2 sm:!w-1/3 md:w-1/3 xl:!w-1/4",
+          item: "!w-1/2 !w-1/3 sm:w-1/3 lg:!w-1/4",
         };
       case "6 Column":
         return {
           container: "",
-          item: "!w-1/2 sm:!w-1/3 md:w-1/3 xl:!w-1/6",
+          item: "!w-1/2 !w-1/3 sm:w-1/3 lg:!w-1/6",
         };
       case "Inline":
         return {
-          container: "gap-y-2 lg:gap-y-12 gap-x-4 xl:gap-x-15",
+          container: "gap-y-2 md:gap-y-12 gap-x-4 lg:gap-x-15",
           item: "!w-auto !py-0 !px-8",
         };
       default:
         return {
           container: "",
-          item: "!w-1/2 sm:!w-1/3 md:w-1/3 xl:!w-1/4",
+          item: "!w-1/2 !w-1/3 sm:w-1/3 lg:!w-1/4",
         };
     }
   };
@@ -77,11 +77,11 @@ const NumbersSection = ({ slice }: NumbersSectionProps): JSX.Element => {
         id={section_id || slice.id}
         bottomSpacer={bottom_spacer || null}
         topSpacer={top_spacer || null}
-        className={clsx("!gap-y-10 xl:!gap-y-24")}
+        className={clsx("!gap-y-10 lg:!gap-y-24")}
       >
         <div
           className={clsx(
-            "col-span-full border-t-2 border-[transparent] xl:col-span-10 xl:col-start-2",
+            "col-span-full border-t-2 border-[transparent] lg:col-span-10 lg:col-start-2",
             top_border && "!border-white"
           )}
         />
@@ -118,7 +118,7 @@ const NumbersSection = ({ slice }: NumbersSectionProps): JSX.Element => {
                     body={body}
                     action_text={action_text}
                     action_link={action_link}
-                    className={clsx("p-4 md:p-10", getColumns().item)}
+                    className={clsx("p-4 sm:p-10", getColumns().item)}
                   />
                 );
               }
@@ -127,7 +127,7 @@ const NumbersSection = ({ slice }: NumbersSectionProps): JSX.Element => {
         )}
         <div
           className={clsx(
-            "col-span-full border-b-2 border-[transparent] xl:col-span-10 xl:col-start-2",
+            "col-span-full border-b-2 border-[transparent] lg:col-span-10 lg:col-start-2",
             bottom_border && "!border-white"
           )}
         />

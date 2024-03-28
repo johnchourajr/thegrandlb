@@ -12,7 +12,7 @@ const ItemSelected = ({ filteredItem, ...extra }: any) => {
   const { key, name, attributes } = filteredItem || {};
 
   return (
-    <div className="grid-inset flex w-full flex-col gap-2 border-b-[1px] border-[#C8C2BC] py-4 xl:py-8">
+    <div className="grid-inset flex w-full flex-col gap-2 border-b-[1px] border-[#C8C2BC] py-4 lg:py-8">
       {name && (
         <Link
           href={`/tour/${key}`}
@@ -87,7 +87,7 @@ const ItemList = ({
   } as any;
 
   return (
-    <ul className="flex w-full flex-col gap-4 py-4 px-8 lg:!pr-10 lg:pb-10 xl:py-10">
+    <ul className="flex w-full flex-col gap-4 py-4 px-8 md:!pr-10 md:pb-10 lg:py-10">
       {items.map((item: any) => (
         <m.li
           key={item.key}
@@ -211,7 +211,7 @@ const MapContainer = ({ ...extra }) => {
         "relative h-[100%] min-h-[100%] auto-rows-[min-content] !gap-0 overflow-y-scroll rounded-tl-md rounded-tr-md bg-bg !px-0"
       )}
     >
-      <div className="relative col-span-full row-start-2 flex flex-col items-start justify-start border-t-[1px] border-[#C8C2BC] xl:col-span-4 xl:row-start-1 xl:border-t-0 xl:border-r-[1px]">
+      <div className="relative col-span-full row-start-2 flex flex-col items-start justify-start border-t-[1px] border-[#C8C2BC] lg:col-span-4 lg:row-start-1 lg:border-t-0 lg:border-r-[1px]">
         <ItemSelected filteredItem={getFilteredItem()} />
         <ItemList
           items={filteredList}
@@ -221,7 +221,7 @@ const MapContainer = ({ ...extra }) => {
           onItemSelect={handleItemSelect}
         />
       </div>
-      <div className="relative col-span-full row-start-1 flex h-[70vw] items-center justify-center overflow-hidden xl:col-span-8 xl:h-[calc(100vh-9rem)]">
+      <div className="relative col-span-full row-start-1 flex h-[70vw] items-center justify-center overflow-hidden lg:col-span-8 lg:h-[calc(100vh-9rem)]">
         <Map
           className="relative h-full w-full"
           hoveredItemKey={hoveredItemKey}

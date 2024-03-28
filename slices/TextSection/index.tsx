@@ -45,15 +45,15 @@ const TextSection = ({
         id={section_id || slice.id}
         bottomSpacer={bottom_spacer || null}
         topSpacer={top_spacer || null}
-        className={clsx("!gap-y-10 xl:!gap-y-24")}
+        className={clsx("!gap-y-10 lg:!gap-y-24")}
       >
         <div
           className={clsx(
-            "col-span-full border-t-2 border-[transparent] xl:col-span-10 xl:col-start-2",
+            "col-span-full border-t-2 border-[transparent] lg:col-span-10 lg:col-start-2",
             top_border && "!border-white"
           )}
         />
-        <MotionBox className="col-span-full flex flex-col items-center justify-center gap-10 text-center xl:col-span-10 xl:col-start-2">
+        <MotionBox className="col-span-full flex flex-col items-center justify-center gap-10 text-center lg:col-span-10 lg:col-start-2">
           {eyebrow && (
             <StringText size="large" uppercase bold>
               {eyebrow}
@@ -64,7 +64,7 @@ const TextSection = ({
               {prismicH.asText(body)}
             </Headline>
           )}
-          <MotionBox className="gap-6 md:flex">
+          <MotionBox className="gap-6 sm:flex">
             {prismicH.documentToLinkField(primary_action_link) &&
               primary_action && (
                 <Button
@@ -91,7 +91,7 @@ const TextSection = ({
         </MotionBox>
         <div
           className={clsx(
-            "col-span-full border-b-2 border-[transparent] xl:col-span-10 xl:col-start-2",
+            "col-span-full border-b-2 border-[transparent] lg:col-span-10 lg:col-start-2",
             bottom_border && "!border-white"
           )}
         />

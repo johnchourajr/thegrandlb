@@ -46,17 +46,17 @@ const HomepageLocation = ({ slice }: HomepageLocationProps): JSX.Element => {
       <GridSection id={section_id} topSpacer={top_spacer} bottomSpacer={"None"}>
         <MotionBox
           className={clsx(
-            "relative col-span-full col-start-1 flex aspect-square w-full flex-col items-center justify-center gap-10 overflow-hidden rounded-sm bg-black px-4 text-center text-white lg:aspect-[16/7] lg:rounded-md"
+            "relative col-span-full col-start-1 flex aspect-square w-full flex-col items-center justify-center gap-10 overflow-hidden rounded-sm bg-black px-4 text-center text-white md:aspect-[16/7] md:rounded-md"
           )}
         >
           <MediaFrame video_media={video_media} media={media} />
         </MotionBox>
-        <MotionBox className="col-span-full pt-10 pb-0 xl:col-span-5 xl:col-start-2 xl:pb-20">
+        <MotionBox className="col-span-full pt-10 pb-0 lg:col-span-5 lg:col-start-2 lg:pb-20">
           <Headline size={"xl"} className={"max-w-[7em]"} animateOnce>
             {prismicH.asText(title)}
           </Headline>
         </MotionBox>
-        <MotionBox className="col-span-full pb-12 xl:col-span-5 xl:col-start-auto xl:mt-4 xl:pt-16">
+        <MotionBox className="col-span-full pb-12 lg:col-span-5 lg:col-start-auto lg:mt-4 lg:pt-16">
           <Text paragraph className="max-w-[35em]">
             {prismicH.asText(description)}
           </Text>
@@ -66,10 +66,10 @@ const HomepageLocation = ({ slice }: HomepageLocationProps): JSX.Element => {
         id={`${section_id}-2`}
         topSpacer={"None"}
         bottomSpacer={"None"}
-        className={clsx("border-t-2 border-b-2 border-white !py-12 xl:!py-0")}
+        className={clsx("border-t-2 border-b-2 border-white !py-12 lg:!py-0")}
         overflowHidden={false}
       >
-        <MotionBox className="col-span-full self-center xl:col-span-3 xl:col-start-2">
+        <MotionBox className="col-span-full self-center lg:col-span-3 lg:col-start-2">
           {address_label && (
             <StringText
               size={"small"}
@@ -103,7 +103,7 @@ const HomepageLocation = ({ slice }: HomepageLocationProps): JSX.Element => {
             headline={action_text}
             theme={"Outlined"}
             className={
-              "relative z-10 col-span-full mt-[-2px] mb-[-2px] !h-[12vw] !border-red xl:col-span-7 xl:col-start-auto 3xl:!h-56 "
+              "3lg:!h-56 relative z-10 col-span-full mt-[-2px] mb-[-2px] !h-[12vw] !border-red lg:col-span-7 lg:col-start-auto "
             }
           />
         )}
@@ -112,10 +112,10 @@ const HomepageLocation = ({ slice }: HomepageLocationProps): JSX.Element => {
         id={`${section_id}-3`}
         topSpacer={"Small"}
         bottomSpacer={bottom_spacer}
-        className={"pt-10 xl:pt-20"}
+        className={"pt-10 lg:pt-20"}
       >
         {bullet_list_data && (
-          <MotionBox className="col-span-full flex flex-col items-center justify-evenly gap-10 xl:col-span-8 xl:col-start-3 xl:flex-row xl:gap-6">
+          <MotionBox className="col-span-full flex flex-col items-center justify-evenly gap-10 lg:col-span-8 lg:col-start-3 lg:flex-row lg:gap-6">
             {bullet_list_data.map(
               (
                 { media, number, eyebrow, body, action_text, action_link }: any,

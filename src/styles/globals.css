@@ -35,11 +35,11 @@ a {
 }
 
 .grid-inset-left {
-  @apply pl-4 md:pl-8 xl:pl-16 !pr-0 md:!pr-0 xl:!pr-0;
+  @apply pl-4 !pr-0 md:pl-8 md:!pr-0 xl:pl-16 xl:!pr-0;
 }
 
 .grid-inset-right {
-  @apply pr-4 md:pr-8 xl:pr-16 !pl-0 md:!pl-0 xl:!pl-0;
+  @apply pr-4 !pl-0 md:pr-8 md:!pl-0 xl:pr-16 xl:!pl-0;
 }
 
 .ticker {
@@ -67,22 +67,26 @@ a {
 
 .ticker-mask {
   --maskSpacing: 10%;
-  mask-image: linear-gradient(90deg,
-      transparent,
-      #000 var(--maskSpacing),
-      #000 calc(100% - var(--maskSpacing)),
-      transparent);
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 var(--maskSpacing),
+    #000 calc(100% - var(--maskSpacing)),
+    transparent
+  );
 }
 
 @media (min-width: 2500px) {
   .overflow-mask {
-      --maskSpacing: 5%;
-      mask-image: linear-gradient(90deg,
-          transparent,
-          #000 var(--maskSpacing),
-          #000 calc(100% - var(--maskSpacing)),
-          transparent);
-    }
+    --maskSpacing: 5%;
+    mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 var(--maskSpacing),
+      #000 calc(100% - var(--maskSpacing)),
+      transparent
+    );
+  }
 }
 
 @keyframes ticker {
@@ -119,7 +123,8 @@ body {
   /*
   Ensure background is added first
   */
-  background: linear-gradient(to bottom, #eee, rgba(222, 112, 6, 0.2), #de7006), var(--clip-image, "");
+  background: linear-gradient(to bottom, #eee, rgba(222, 112, 6, 0.2), #de7006),
+    var(--clip-image, "");
 
   background-attachment: fixed;
   -webkit-text-fill-color: transparent;
@@ -237,15 +242,15 @@ body {
   --header-height: 4.75rem;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1024px) {
   .header-height {
     --header-height: 9rem;
   }
 }
 
 .noise {
-  @apply absolute opacity-[0.05] inset-0 w-full h-full;
-  background: url('https://images.prismic.io/the-grand/356af45d-3339-4213-a793-db40e61dfa99_noise.png?auto=compress,format');
+  @apply absolute inset-0 h-full w-full opacity-[0.05];
+  background: url("https://images.prismic.io/the-grand/356af45d-3339-4213-a793-db40e61dfa99_noise.png?auto=compress,format");
   opacity: 0.1;
   animation: noise 2s steps(3) infinite both;
   pointer-events: none;
@@ -256,28 +261,50 @@ body {
 }
 
 @keyframes noise {
-  0% { background-position: 1% 1%; }
-  10% { background-position: -5% -2%; }
-  20% { background-position: 10% 5%; }
-  30% { background-position: 5% -11%; }
-  40% { background-position: -12% -5%; }
-  50% { background-position: 10% 9%; }
-  60% { background-position: 15% 0%; }
-  70% { background-position: -10% 8%; }
-  80% { background-position: 10% 2%; }
-  90% { background-position: 1% 5%; }
-  100% { background-position: 0% 8%;}
+  0% {
+    background-position: 1% 1%;
+  }
+  10% {
+    background-position: -5% -2%;
+  }
+  20% {
+    background-position: 10% 5%;
+  }
+  30% {
+    background-position: 5% -11%;
+  }
+  40% {
+    background-position: -12% -5%;
+  }
+  50% {
+    background-position: 10% 9%;
+  }
+  60% {
+    background-position: 15% 0%;
+  }
+  70% {
+    background-position: -10% 8%;
+  }
+  80% {
+    background-position: 10% 2%;
+  }
+  90% {
+    background-position: 1% 5%;
+  }
+  100% {
+    background-position: 0% 8%;
+  }
 }
 
 @media (hover: hover) {
   .hover-black-text {
-    @apply hover:text-black
+    @apply hover:text-black;
   }
 }
 
 @media (hover: none) {
   .hover-black-text {
-    @apply text-black
+    @apply text-black;
   }
 }
 
@@ -287,8 +314,9 @@ input::-webkit-date-and-time-value {
   width: 100%;
 }
 
-select, input {
-  @apply bg-white appearance-none;
+select,
+input {
+  @apply appearance-none bg-white;
 }
 
 @keyframes tailAnimation {

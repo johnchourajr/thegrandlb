@@ -130,21 +130,21 @@ const HeroCategoryPage = ({
           topSpacer={"Medium"}
         >
           {icon_media && (
-            <MotionBox className="col-span-full flex pt-10 pb-0 md:col-span-2 md:row-span-2 md:items-center md:justify-center xl:col-span-3 xl:col-start-1 xl:row-span-1 xl:pt-3 xl:pb-3">
+            <MotionBox className="col-span-full flex pt-10 pb-0 sm:col-span-2 sm:row-span-2 sm:items-center sm:justify-center lg:col-span-3 lg:col-start-1 lg:row-span-1 lg:pt-3 lg:pb-3">
               <ImageBox
                 media={icon_media}
                 className={clsx(
-                  "h-48 max-h-[18rem] w-48 max-w-[18rem] lg:h-[14vw] lg:w-[14vw]"
+                  "h-48 max-h-[18rem] w-48 max-w-[18rem] md:h-[14vw] md:w-[14vw]"
                 )}
               />
             </MotionBox>
           )}
           <MotionBox
             className={clsx(
-              "col-span-full pt-10 pb-0  xl:pt-12 xl:pb-20",
+              "col-span-full pt-10 pb-0 lg:pt-12 lg:pb-20",
               icon_media
-                ? "md:col-start-3 xl:col-span-5 xl:col-start-auto"
-                : "xl:col-span-5 xl:col-start-2"
+                ? "sm:col-start-3 lg:col-span-5 lg:col-start-auto"
+                : "lg:col-span-5 lg:col-start-2"
             )}
           >
             <Headline size={"xl"} className={"max-w-[10em] pr-12"} animateOnce>
@@ -153,10 +153,10 @@ const HeroCategoryPage = ({
           </MotionBox>
           <MotionBox
             className={clsx(
-              "col-span-full pb-12 xl:pt-16",
+              "col-span-full pb-12 lg:pt-16",
               icon_media
-                ? "md:col-start-3 xl:col-span-3 xl:col-start-9"
-                : "xl:col-span-4 xl:col-start-7"
+                ? "sm:col-start-3 lg:col-span-3 lg:col-start-9"
+                : "lg:col-span-4 lg:col-start-7"
             )}
           >
             <Text paragraph size="large" className="max-w-[30em]">

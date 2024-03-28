@@ -17,7 +17,7 @@ export const HeaderLeft = ({
   return (
     <m.div
       className={clsx(
-        "grid-inset relative z-10 flex w-full justify-between xl:w-auto",
+        "grid-inset relative z-10 flex w-full justify-between lg:w-auto",
         /**
          * PRINT STYLES
          */
@@ -35,7 +35,7 @@ export const HeaderLeft = ({
       >
         <HeaderLogo
           className={clsx(
-            "h-12 w-32 origin-left scale-[var(--logoScale)] xl:h-32 xl:w-64",
+            "h-12 w-32 origin-left scale-[var(--logoScale)] lg:h-32 lg:w-64",
             /**
              * PRINT STYLES
              */
@@ -49,12 +49,12 @@ export const HeaderLeft = ({
               animate={{ opacity: 1, y: "-12%", x: 0 }}
               transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
               exit={{ opacity: 0, y: -30, x: "0" }}
-              className={clsx(" xl:absolute xl:right-[10%] xl:w-[0]")}
+              className={clsx(" lg:absolute lg:right-[10%] lg:w-[0]")}
             >
               {subtitle && (
                 <Headline
                   size={"sm"}
-                  className="hidden !whitespace-pre lg:flex"
+                  className="hidden !whitespace-pre md:flex"
                   animationType={"word"}
                   uppercase
                 >
@@ -68,7 +68,7 @@ export const HeaderLeft = ({
       {isMobile && !modalOverlay && (
         <div
           className={clsx(
-            "col-span-1 col-start-4 row-start-1 flex justify-self-end xl:mr-16",
+            "col-span-1 col-start-4 row-start-1 flex justify-self-end lg:mr-16",
             /**
              * PRINT STYLES
              */

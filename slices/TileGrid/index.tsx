@@ -36,13 +36,13 @@ const TileGrid = ({ slice }: TileGridProps): JSX.Element => {
       <GridSection
         id={section_id}
         gridSectionType="flex"
-        className={clsx("max-w-[2000px] flex-col gap-8 lg:gap-12", getTheme())}
+        className={clsx("max-w-[2000px] flex-col gap-8 md:gap-12", getTheme())}
         topSpacer={top_spacer}
         bottomSpacer={bottom_spacer}
       >
         {headline && (
           <GridSection id="" as="div" topSpacer="None" bottomSpacer="None">
-            <div className={"col-span-full xl:col-start-2"}>
+            <div className={"col-span-full lg:col-start-2"}>
               {headline && (
                 <Headline
                   as="h2"
@@ -60,7 +60,7 @@ const TileGrid = ({ slice }: TileGridProps): JSX.Element => {
         <GridSection
           id=""
           as="div"
-          className=" auto-rows-min xl:auto-rows-[16vw] 2xl:auto-rows-[15vw] 3xl:auto-rows-[14vw]"
+          className=" 2lg:auto-rows-[15vw] 3lg:auto-rows-[14vw] auto-rows-min lg:auto-rows-[16vw]"
           topSpacer="Small"
           bottomSpacer="None"
         >
