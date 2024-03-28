@@ -1,22 +1,53 @@
-import Header from "@/components/Header";
-import clsx from "clsx";
-import type { AppProps } from "next/app";
-import { Atkinson_Hyperlegible, Lexend_Zetta } from "next/font/google";
-import localFont from "next/font/local";
+import { useEffect, useState } from "react";
 
-import AppWrapper from "@/components/AppWrapper";
-import "@/styles/globals.css";
-import { GTM_ID } from "@/utils/gtm";
-import { PrismicPreview } from "@prismicio/next";
-import { PrismicProvider } from "@prismicio/react";
-import { domAnimation, LazyMotion, MotionConfig } from "framer-motion";
+/**
+ * Vendor
+ */
+import clsx from "clsx";
+import {
+  domAnimation,
+  LazyMotion,
+  MotionConfig,
+  type MotionConfigProps,
+} from "framer-motion";
+import TagManager from "react-gtm-module";
+
+/**
+ * Next
+ */
+import type { AppProps } from "next/app";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { repositoryName } from "prismicio";
-import { useEffect, useState } from "react";
-import TagManager from "react-gtm-module";
 
+/**
+ * Prismic
+ */
+import { PrismicPreview } from "@prismicio/next";
+import { PrismicProvider } from "@prismicio/react";
+import { repositoryName } from "prismicio";
+
+/**
+ * Fonts
+ */
+import { Atkinson_Hyperlegible, Lexend_Zetta } from "next/font/google";
+import localFont from "next/font/local";
+
+/**
+ * Components
+ */
+import AppWrapper from "@/components/AppWrapper";
+import Header from "@/components/Header";
+import { GTM_ID } from "@/utils/gtm";
+
+/**
+ * Styles
+ */
+import "@/styles/globals.css";
+
+/**
+ * Fonts
+ */
 const lexend = Lexend_Zetta({
   subsets: ["latin"],
   weight: "400",
@@ -56,6 +87,17 @@ const domaine = localFont({
   preload: true,
 });
 
+const fontStack = clsx(
+  lexend.variable,
+  atkinson.variable,
+  domaine.variable,
+  lexendBold.variable,
+  "font-sans"
+);
+
+/**
+ * Dynamic Components
+ */
 const DynamicFormOverlay = dynamic(
   () => import("@/components/form/FormOverlay"),
   {
@@ -71,11 +113,23 @@ const DynamicToastRoot = dynamic(() => import("@/components/ToastRoot"), {
   loading: () => <></>,
 });
 
+/**
+ * @name App
+ */
 export default function App({ Component, pageProps }: AppProps) {
+  /**
+   * State
+   */
   const [modalOverlay, setModalOverlay] = useState(false);
-  const router = useRouter();
-  // when navigating to /inquire set state to true
 
+  /**
+   * Router
+   */
+  const router = useRouter();
+
+  /**
+   * Functions
+   */
   const openOverlay = (route: "/inquire" | "/map" | "/thanks") => {
     if (router.pathname === route) return;
     router.push(route);
@@ -83,7 +137,6 @@ export default function App({ Component, pageProps }: AppProps) {
   };
 
   const closeOverlay = () => {
-    // navigate to previous page
     router.back();
     setModalOverlay(false);
   };
@@ -96,10 +149,12 @@ export default function App({ Component, pageProps }: AppProps) {
     }
   };
 
+  /**
+   * Effects
+   */
   useEffect(() => {
     TagManager.initialize({ gtmId: GTM_ID });
 
-    // Listen for route changes and track pageviews
     const handleRouteChange = (url: string) => {
       TagManager.dataLayer({ dataLayer: { page: url } });
     };
@@ -122,26 +177,19 @@ export default function App({ Component, pageProps }: AppProps) {
     }
   }, [router.pathname]);
 
-  const fontStack = clsx(
-    lexend.variable,
-    atkinson.variable,
-    domaine.variable,
-    lexendBold.variable,
-    "font-sans"
-  );
+  const motionConfig = {
+    transition: {
+      ease: [0.19, 1, 0.22, 1],
+      duration: 0.3,
+    },
+    reducedMotion: "user",
+  } as MotionConfigProps;
 
   return (
     <PrismicProvider internalLinkComponent={(props) => <Link {...props} />}>
       <PrismicPreview repositoryName={repositoryName}>
-        <MotionConfig
-          transition={{
-            ease: [0.19, 1, 0.22, 1],
-            duration: 0.3,
-          }}
-          reducedMotion="user"
-        >
+        <MotionConfig {...motionConfig}>
           <LazyMotion features={domAnimation}>
-            {/* APP WRAPPER */}
             <AppWrapper
               className={clsx(
                 fontStack,
@@ -149,24 +197,18 @@ export default function App({ Component, pageProps }: AppProps) {
                 modalOverlay && "overflow-hidden bg-black"
               )}
             >
-              {/* HEADER NAV */}
               <Header
                 modalOverlay={modalOverlay}
                 toggleModalOverlay={toggleModalOverlay}
                 {...pageProps}
               />
-              {/* PAGE CONTENT */}
               <Component {...pageProps} />
-              {/* FORM OVERLAY */}
               <DynamicFormOverlay
                 className={fontStack}
                 modalOverlay={modalOverlay}
                 toggleModalOverlay={toggleModalOverlay}
               />
-              {/* CURSOR */}
               <DynamicCursor />
-              {/* <CursorNew /> */}
-              {/* TOASTS */}
               <DynamicToastRoot />
             </AppWrapper>
           </LazyMotion>

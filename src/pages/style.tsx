@@ -1,15 +1,23 @@
-// import SendSMS from "@/components/SendSMS";
+import Head from "next/head";
 
+/**
+ * Components
+ */
 import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
 import Text from "@/components/Paragraph";
 import StringText from "@/components/StringText";
-import { getExtra } from "@/services/get-extra";
 import Layout from "@components/Layout";
-import Head from "next/head";
-import { createClient } from "../../prismicio";
 
-const Page = ({ navigation, settings, cta }: any) => {
+/**
+ * Services
+ */
+import { getExtra } from "@/services/get-extra";
+
+/**
+ * @name StylePage
+ */
+const StylePage = () => {
   return (
     <Layout className="">
       <Head>
@@ -87,10 +95,9 @@ const Page = ({ navigation, settings, cta }: any) => {
   );
 };
 
-export default Page;
+export default StylePage;
 
-export async function getStaticProps({ params, previewData }: any) {
-  const client = createClient({ previewData });
+export async function getStaticProps({ previewData }: any) {
   const extra = await getExtra({ previewData });
 
   return {

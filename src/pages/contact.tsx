@@ -1,28 +1,39 @@
-// import SendSMS from "@/components/SendSMS";
+import dynamic from "next/dynamic";
+
+/**
+ * Components
+ */
 import Layout from "@components/Layout";
 
+/**
+ * Services
+ */
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../prismicio";
+
+/**
+ * Slices
+ */
 import { components } from "../../slices/";
-
-import dynamic from "next/dynamic";
-
 const DynamicSliceZone = dynamic(() =>
   import("@prismicio/react").then((mod) => mod.SliceZone)
 );
 
-const Page = ({ navigation, settings, page }: any) => {
+/**
+ * @name ContactPage
+ */
+const ContactPage = ({ navigation, settings, page }: any) => {
   return (
-    <Layout page={page} navigation={navigation} settings={settings} hidePageUid>
+    <Layout page={page} navigation={navigation} settings={settings}>
       <DynamicSliceZone slices={page.data.slices} components={components} />
     </Layout>
   );
 };
 
-export default Page;
+export default ContactPage;
 
-export async function getStaticProps({ params, previewData }: any) {
+export async function getStaticProps({ previewData }: any) {
   const client = createClient({ previewData });
   const extra = await getExtra({ previewData });
 

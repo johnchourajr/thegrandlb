@@ -1,11 +1,16 @@
-// import SendSMS from "@/components/SendSMS";
+/**
+ * Component(s)
+ */
 import Layout from "@components/Layout";
 
+/**
+ * Services
+ */
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../prismicio";
 
-const Page = ({ navigation, settings, cta, page }: any) => {
+const MapPage = ({ settings, page }: any) => {
   return (
     <Layout
       page={page}
@@ -13,15 +18,13 @@ const Page = ({ navigation, settings, cta, page }: any) => {
       className={"!min-h-[0vh]"}
       wrapperClassName={"!min-h-[0vh]"}
       hidePageUid
-    >
-      <></>
-    </Layout>
+    />
   );
 };
 
-export default Page;
+export default MapPage;
 
-export async function getStaticProps({ params, previewData }: any) {
+export async function getStaticProps({ previewData }: any) {
   const client = createClient({ previewData });
   const extra = await getExtra({ previewData });
 

@@ -8,16 +8,27 @@ const DynamicFooter = dynamic(() => import("./Footer"), {
   loading: () => <></>,
 });
 
+type LayoutProps = {
+  settings?: any;
+  navigation?: any;
+  headContent?: any;
+  children?: any;
+  page?: any;
+  className?: string;
+  wrapperClassName?: string;
+  /** @deprecated no longer used */
+  hidePageUid?: boolean;
+};
+
 const Layout = ({
   settings,
   navigation,
   headContent,
   children,
   page,
-  hidePageUid = false,
   className,
   wrapperClassName,
-}: any) => {
+}: LayoutProps) => {
   return (
     <div
       id="page"
@@ -26,7 +37,6 @@ const Layout = ({
         wrapperClassName
       )}
     >
-      {page && !hidePageUid && <pre>uid: {page?.uid}</pre>}
       {settings && (
         <DynamicHead
           page={page}
