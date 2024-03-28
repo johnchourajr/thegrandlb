@@ -74,8 +74,8 @@ export default function Header({
       controls.start({
         "--navTop": "-1rem",
         "--logoScale": 0.8,
-        backgroundColor: null,
-        color: null,
+        backgroundColor: "unset",
+        color: "unset",
         y: 0,
         transition: { duration: 1, ease: [0.19, 1, 0.22, 1] },
       } as any);
@@ -91,8 +91,8 @@ export default function Header({
       controls.start({
         "--navTop": "0",
         "--logoScale": 1,
-        backgroundColor: null,
-        color: null,
+        backgroundColor: "unset",
+        color: "unset",
         y: 0,
         transition: { duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0 },
       } as any);
@@ -111,6 +111,7 @@ export default function Header({
         "sticky top-[var(--navTop)] z-[9999] h-fit !max-w-[100vw] overflow-visible !pt-4",
         "transition-colors duration-300 ease-out-expo",
         "flex-col items-center !gap-0 md:gap-[inherit] lg:flex-row lg:gap-[var(--navGap)]",
+        "text-black",
         /**
          * NAV SCROLLED STYLES
          */
