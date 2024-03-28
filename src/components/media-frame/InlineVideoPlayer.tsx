@@ -31,7 +31,6 @@ const InlineVideoPlayer = ({
   id,
   className,
   videoClassName,
-  uid,
   media,
   poster,
   auto_play,
