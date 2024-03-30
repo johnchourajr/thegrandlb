@@ -1,4 +1,3 @@
-import SliceData from "@/components/dev/SliceData";
 import { GridSection } from "@/components/GridSection";
 import ImageGallery from "@/components/media-frame/ImageGallery";
 import MotionBox from "@/components/MotionBox";
@@ -82,7 +81,6 @@ const SplitGallery = ({ slice }: SplitGalleryProps): JSX.Element => {
           </MotionBox>
         )}
       </GridSection>
-      <SliceData slice={slice} hidden />
     </>
   );
 };

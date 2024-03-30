@@ -1,4 +1,3 @@
-import SliceData from "@/components/dev/SliceData";
 import HeroDetailPage from "@/components/HeroDetailPage";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
@@ -21,7 +20,6 @@ const HeroDetailPageSlice = ({
   return (
     <>
       <HeroDetailPage {...slice.primary} />
-      <SliceData slice={slice} hidden />
     </>
   );
 };

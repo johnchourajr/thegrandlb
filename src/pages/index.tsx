@@ -4,7 +4,6 @@ import dynamic from "next/dynamic";
  * Components
  */
 import CtaFooter from "@/components/CtaFooter";
-import SliceData from "@/components/dev/SliceData";
 import Layout from "@components/Layout";
 
 /**
@@ -27,12 +26,11 @@ const DynamicSliceZone = dynamic(() =>
  */
 const Homepage = ({ cta, page, settings, navigation }: any) => {
   const {
-    data: { slices, ...pageRest },
+    data: { slices },
   } = page;
 
   return (
     <Layout page={page} settings={settings} navigation={navigation}>
-      <SliceData slice={pageRest} hidden />
       <DynamicSliceZone slices={slices} components={components} />
       <CtaFooter data={cta} />
     </Layout>

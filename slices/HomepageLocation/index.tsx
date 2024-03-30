@@ -1,4 +1,3 @@
-import SliceData from "@/components/dev/SliceData";
 import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
 import MediaFrame from "@/components/media-frame";
@@ -137,7 +136,6 @@ const HomepageLocation = ({ slice }: HomepageLocationProps): JSX.Element => {
           </MotionBox>
         )}
       </GridSection>
-      <SliceData slice={slice} hidden />
     </>
   );
 };

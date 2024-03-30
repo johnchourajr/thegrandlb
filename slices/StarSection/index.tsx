@@ -1,4 +1,3 @@
-import SliceData from "@/components/dev/SliceData";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 
@@ -12,10 +11,6 @@ export type StarSectionProps = SliceComponentProps<
 /**
  * @todo Implement `StarSection` component.
  */
-const StarSection = ({ slice }: StarSectionProps): JSX.Element => (
-  <>
-    <SliceData slice={slice} hidden />
-  </>
-);
+const StarSection = ({ slice }: StarSectionProps): JSX.Element => <></>;
 
 export default StarSection;

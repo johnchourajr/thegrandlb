@@ -1,4 +1,3 @@
-import SliceData from "@/components/dev/SliceData";
 import { GridSection } from "@/components/GridSection";
 import MediaFrame from "@/components/media-frame";
 import MotionBox from "@/components/MotionBox";
@@ -85,7 +84,6 @@ const SplitScrollSection = ({
           />
         </MotionBox>
       </GridSection>
-      <SliceData slice={slice} hidden />
     </>
   );
 };

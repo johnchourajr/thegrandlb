@@ -1,4 +1,3 @@
-import SliceData from "@/components/dev/SliceData";
 import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
 import MotionBox from "@/components/MotionBox";
@@ -132,8 +131,6 @@ const NumbersSection = ({ slice }: NumbersSectionProps): JSX.Element => {
           )}
         />
       </GridSection>
-
-      <SliceData slice={slice} hidden />
     </>
   );
 };

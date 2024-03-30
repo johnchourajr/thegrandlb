@@ -1,5 +1,4 @@
 import Button from "@/components/Button";
-import SliceData from "@/components/dev/SliceData";
 import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
 import Tick from "@/components/TickerContainer";
@@ -117,7 +116,6 @@ const ScrollText = ({ slice, context }: ScrollTextProps): JSX.Element => {
           </div>
         )}
       </GridSection>
-      <SliceData slice={slice} hidden />
     </>
   );
 };
