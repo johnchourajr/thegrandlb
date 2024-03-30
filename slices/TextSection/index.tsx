@@ -1,5 +1,4 @@
 import Button from "@/components/Button";
-import SliceData from "@/components/dev/SliceData";
 import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
 import MotionBox from "@/components/MotionBox";
@@ -96,7 +95,6 @@ const TextSection = ({
           )}
         />
       </GridSection>
-      <SliceData slice={slice} hidden />
     </>
   );
 };

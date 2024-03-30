@@ -1,4 +1,3 @@
-import SliceData from "@/components/dev/SliceData";
 import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
 import Text from "@/components/Paragraph";
@@ -69,7 +68,6 @@ const TileGrid = ({ slice }: TileGridProps): JSX.Element => {
           })}
         </GridSection>
       </GridSection>
-      <SliceData slice={slice} hidden />
     </>
   );
 };

@@ -2,7 +2,7 @@ import { PrismicNextImage, PrismicNextImageProps } from "@prismicio/next";
 import clsx from "clsx";
 import { MediaFrameProps } from "./types";
 
-interface ImageBoxProps {
+type ImageBoxProps = {
   id?: string;
   media: MediaFrameProps["media"];
   priority?: PrismicNextImageProps["priority"];
@@ -10,7 +10,7 @@ interface ImageBoxProps {
   className?: string;
   customAlt?: string;
   decorative?: boolean;
-}
+} & Omit<PrismicNextImageProps, "field">;
 
 const ImageBox = ({
   id,
@@ -34,7 +34,6 @@ const ImageBox = ({
       sizes="(min-width: 60em) 24vw, (min-width: 28em) 45vw, 100vw"
       imgixParams={{
         q: 50,
-        dpr: 2,
         fm: "webp",
         ...imgixParams,
       }}

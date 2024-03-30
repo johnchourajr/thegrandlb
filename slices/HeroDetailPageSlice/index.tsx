@@ -1,4 +1,3 @@
-import SliceData from "@/components/dev/SliceData";
 import HeroDetailPage from "@/components/HeroDetailPage";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
@@ -16,14 +15,7 @@ export type HeroDetailPageSliceProps = SliceComponentProps<
 const HeroDetailPageSlice = ({
   slice,
 }: HeroDetailPageSliceProps): JSX.Element => {
-  // console.log({ slice });
-
-  return (
-    <>
-      <HeroDetailPage {...slice.primary} />
-      <SliceData slice={slice} hidden />
-    </>
-  );
+  return <HeroDetailPage {...slice.primary} />;
 };
 
 export default HeroDetailPageSlice;

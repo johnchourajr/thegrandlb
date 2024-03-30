@@ -78,8 +78,9 @@ export const HeaderLeft = ({
           <button
             onClick={() => setIsNavOpen(!isNavOpen)}
             className=" flex h-11 w-11 items-center justify-center bg-[yelllow]"
+            aria-label="open navigation"
+            title="open navigation"
           >
-            {/* {isNavOpen ? "Close" : "Open"} */}
             {isNavOpen ? (
               <>
                 <m.div

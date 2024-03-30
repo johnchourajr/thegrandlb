@@ -4,7 +4,7 @@ import { PrismicLink } from "@prismicio/react";
 import clsx from "clsx";
 import { m, useAnimation } from "framer-motion";
 import { useRouter } from "next/router";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { linkResolver } from "../../prismicio";
 import { NavItem } from "./NavItem";
 import StringText from "./StringText";
@@ -80,11 +80,11 @@ export const NavParentItem = ({
     }
   };
 
-  const onRouteChangeCloseMenu = () => {
+  const onRouteChangeCloseMenu = useCallback(() => {
     controls.start(dropdownVariants.closed);
     setIsHovering(false);
     setIsNavOpen(false);
-  };
+  }, [controls, dropdownVariants.closed, setIsNavOpen]);
 
   useEffect(() => {
     const handleClickOutside = (event: KeyboardEvent) => {
@@ -97,7 +97,7 @@ export const NavParentItem = ({
     return () => {
       document.removeEventListener("keydown", handleClickOutside);
     };
-  }, [isNavOpen, setIsNavOpen]);
+  }, [isNavOpen, setIsNavOpen, onRouteChangeCloseMenu]);
 
   useEffect(() => {
     router.events.on("routeChangeStart", onRouteChangeCloseMenu);

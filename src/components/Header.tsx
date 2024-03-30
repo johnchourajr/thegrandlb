@@ -1,13 +1,28 @@
 import { useEffect, useState } from "react";
 
-import useMediaQuery from "@/hooks/useMediaQuery";
-import { clampBuilder } from "@/utils/utils";
 import clsx from "clsx";
 import { useAnimation, useScroll } from "framer-motion";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import { GridSection } from "./GridSection";
-import HeaderLeft from "./HeaderLeft";
-import HeaderRight from "./HeaderRight";
+
+/**
+ * Hooks & Utils
+ */
+import useMediaQuery from "@/hooks/useMediaQuery";
+import { clampBuilder } from "@/utils/utils";
+
+/**
+ * Dynamic Components
+ */
+const DynamicGridSection = dynamic(() => import("./GridSection"), {
+  ssr: false,
+});
+const DynamicHeaderLeft = dynamic(() => import("./HeaderLeft"), {
+  ssr: false,
+});
+const DynamicHeaderRight = dynamic(() => import("./HeaderRight"), {
+  ssr: false,
+});
 
 export default function Header({
   navigation,
@@ -74,8 +89,8 @@ export default function Header({
       controls.start({
         "--navTop": "-1rem",
         "--logoScale": 0.8,
-        backgroundColor: null,
-        color: null,
+        backgroundColor: "inherit",
+        color: "unset",
         y: 0,
         transition: { duration: 1, ease: [0.19, 1, 0.22, 1] },
       } as any);
@@ -91,8 +106,8 @@ export default function Header({
       controls.start({
         "--navTop": "0",
         "--logoScale": 1,
-        backgroundColor: null,
-        color: null,
+        backgroundColor: "inherit",
+        color: "unset",
         y: 0,
         transition: { duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0 },
       } as any);
@@ -104,13 +119,14 @@ export default function Header({
   const gap = clampBuilder(1280, 1920, 0, 14);
 
   return (
-    <GridSection
+    <DynamicGridSection
       id={"header"}
       gridSectionType="flex"
       className={clsx(
         "sticky top-[var(--navTop)] z-[9999] h-fit !max-w-[100vw] overflow-visible !pt-4",
         "transition-colors duration-300 ease-out-expo",
         "flex-col items-center !gap-0 md:gap-[inherit] lg:flex-row lg:gap-[var(--navGap)]",
+        "text-black",
         /**
          * NAV SCROLLED STYLES
          */
@@ -132,7 +148,7 @@ export default function Header({
         } as any
       }
     >
-      <HeaderLeft
+      <DynamicHeaderLeft
         isMobile={isMobile}
         isNavOpen={isNavOpen}
         setIsNavOpen={setIsNavOpen}
@@ -140,7 +156,7 @@ export default function Header({
         modalOverlay={modalOverlay}
         modalContent={getModalHeaderContent}
       />
-      <HeaderRight
+      <DynamicHeaderRight
         isMobile={isMobile}
         isNavOpen={isNavOpen}
         navigation={navigation}
@@ -148,6 +164,6 @@ export default function Header({
         modalOverlay={modalOverlay}
         modalContent={getModalHeaderContent}
       />
-    </GridSection>
+    </DynamicGridSection>
   );
 }

@@ -1,4 +1,3 @@
-import SliceData from "@/components/dev/SliceData";
 import { GridSection } from "@/components/GridSection";
 import MediaFrame from "@/components/media-frame";
 import MotionBox from "@/components/MotionBox";
@@ -114,7 +113,6 @@ const FaqSection = ({ slice }: FaqSectionProps): JSX.Element => {
           />
         </MotionBox>
       </GridSection>
-      <SliceData slice={slice} hidden />
     </>
   );
 };
