@@ -43,14 +43,14 @@ const lexend = Lexend_Zetta({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-lexend",
-  display: "block",
+  display: "swap",
 });
 
 const lexendBold = Lexend_Zetta({
   subsets: ["latin"],
   weight: "700",
   variable: "--font-lexend-bold",
-  display: "block",
+  display: "swap",
 });
 
 const atkinson = Atkinson_Hyperlegible({
@@ -74,7 +74,7 @@ const domaine = localFont({
     },
   ],
   variable: "--font-domaine",
-  display: "block",
+  display: "swap",
   preload: true,
 });
 
