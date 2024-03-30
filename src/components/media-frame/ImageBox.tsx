@@ -33,9 +33,8 @@ const ImageBox = ({
       loading={priority ? "eager" : "lazy"}
       sizes="(min-width: 60em) 24vw, (min-width: 28em) 45vw, 100vw"
       imgixParams={{
-        q: 35,
-        dpr: 2,
-        // fm: "webp",
+        q: 50,
+        fm: "webp",
         ...imgixParams,
       }}
       alt={decorative ? "" : undefined}

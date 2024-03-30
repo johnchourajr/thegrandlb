@@ -70,6 +70,10 @@ const HeroDetailPage = ({
             video_media={video_media}
             className="absolute inset-0 z-0 h-full w-full"
             priority={true}
+            imgixParams={{
+              q: 20,
+              fm: "webp",
+            }}
           />
           {primary_action && (
             <m.div

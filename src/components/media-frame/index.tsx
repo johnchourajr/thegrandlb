@@ -18,6 +18,7 @@ const MediaFrame = ({
   },
   gallery,
   priority = false,
+  imgixParams,
 }: MediaFrameProps) => {
   const { url: videoUrl }: any = video_media || {};
   const { url: mediaUrl }: any = media || {};
@@ -54,6 +55,7 @@ const MediaFrame = ({
             media={media}
             priority={priority}
             className="absolute inset-0 z-20 h-full w-full object-cover"
+            imgixParams={imgixParams}
           />
         </ParallaxWrapper>
       );

@@ -175,7 +175,7 @@ const InlineVideoPlayer = ({
                 src={posterUrl}
                 width={`960`}
                 height={`540`}
-                quality={30}
+                quality={10}
                 priority={priority || false}
                 alt=""
               />

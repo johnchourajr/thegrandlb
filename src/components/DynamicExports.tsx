@@ -6,16 +6,16 @@ import dynamic from "next/dynamic";
 const DynamicSuperProvider = dynamic(
   () => import("@/components/SuperProvider"),
   {
-    ssr: false,
+    loading: () => <></>,
   }
 );
 
 const DynamicAppWrapper = dynamic(() => import("@/components/AppWrapper"), {
-  ssr: false,
+  loading: () => <></>,
 });
 
 const DynamicHeader = dynamic(() => import("@/components/Header"), {
-  ssr: false,
+  loading: () => <></>,
 });
 
 const DynamicFormOverlay = dynamic(

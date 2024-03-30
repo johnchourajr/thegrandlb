@@ -27,4 +27,5 @@ export interface MediaFrameProps {
   gallery?: any;
   priority?: boolean;
   overlay?: boolean;
+  imgixParams?: Record<string, string | number>;
 }

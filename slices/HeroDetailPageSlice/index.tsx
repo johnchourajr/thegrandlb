@@ -15,13 +15,7 @@ export type HeroDetailPageSliceProps = SliceComponentProps<
 const HeroDetailPageSlice = ({
   slice,
 }: HeroDetailPageSliceProps): JSX.Element => {
-  // console.log({ slice });
-
-  return (
-    <>
-      <HeroDetailPage {...slice.primary} />
-    </>
-  );
+  return <HeroDetailPage {...slice.primary} />;
 };
 
 export default HeroDetailPageSlice;
