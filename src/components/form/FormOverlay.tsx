@@ -1,11 +1,15 @@
 import clsx from "clsx";
 import { m } from "framer-motion";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import MapContainer from "../MapContainer";
-import InquireFormContainer from "./InquireFormDynamicConatiner";
-import InquireThanks from "./InquireThanks";
+
+const DynamicInquireFormContainer = dynamic(
+  () => import("./InquireFormDynamicConatiner")
+);
+const DynamicInquireThanks = dynamic(() => import("./InquireThanks"));
+const DynamicMapContainer = dynamic(() => import("../MapContainer"));
 
 const FormOverlay = ({
   className,
@@ -38,11 +42,11 @@ const FormOverlay = ({
   const getContent = () => {
     switch (pathname) {
       case "/inquire":
-        return <InquireFormContainer {...extra} />;
+        return <DynamicInquireFormContainer {...extra} />;
       case "/thanks":
-        return <InquireThanks {...extra} />;
+        return <DynamicInquireThanks {...extra} />;
       case "/map":
-        return <MapContainer {...extra} />;
+        return <DynamicMapContainer {...extra} />;
       default:
         return "";
     }

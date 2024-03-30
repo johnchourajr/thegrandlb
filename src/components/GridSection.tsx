@@ -16,9 +16,6 @@ interface GridSectionProps {
   overflowHidden?: boolean;
 }
 
-// have GridSectionProps extend framer motion props to allow for motion
-// variants and other motion props
-
 type GridSectionPropsWithMotion = GridSectionProps & MotionProps;
 
 export function GridSection({
@@ -84,3 +81,5 @@ export function GridSection({
     </MotionComp>
   );
 }
+
+export default GridSection;

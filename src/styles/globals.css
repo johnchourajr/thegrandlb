@@ -250,7 +250,7 @@ body {
 
 .noise {
   @apply absolute inset-0 h-full w-full opacity-[0.05];
-  background: url("https://images.prismic.io/the-grand/356af45d-3339-4213-a793-db40e61dfa99_noise.png?auto=compress,format");
+  background: url("https://images.prismic.io/the-grand/356af45d-3339-4213-a793-db40e61dfa99_noise.png?auto=compress,format&q=10");
   opacity: 0.1;
   animation: noise 2s steps(3) infinite both;
   pointer-events: none;
