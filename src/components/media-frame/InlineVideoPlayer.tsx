@@ -173,8 +173,8 @@ const InlineVideoPlayer = ({
               <Image
                 className={clsx("h-full w-full object-cover", videoClassName)}
                 src={posterUrl}
-                width={`960`}
-                height={`540`}
+                width={`480`}
+                height={`270`}
                 quality={10}
                 priority={priority || false}
                 alt=""
