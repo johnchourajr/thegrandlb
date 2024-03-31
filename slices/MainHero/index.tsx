@@ -51,7 +51,7 @@ const PageHero = ({ slice, context }: PageHeroProps): JSX.Element => {
             media={slice.primary.media}
             video_media={slice.primary.video_media}
             className="absolute inset-0 z-0 h-full w-full"
-            priority={true}
+            priority={false}
           />
           <m.div
             className="!hidden gap-6 sm:!flex"

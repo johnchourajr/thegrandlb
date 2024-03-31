@@ -65,7 +65,7 @@ const MediaFrame = ({
   if (!media?.kind && !videoUrl && !gallery) return null;
   return (
     <m.div id={id} layoutId={id} className={clsx("media-frame", className)}>
-      {renderMedia()}
+      {/* {renderMedia()} */}
       <div className="noise" />
     </m.div>
   );

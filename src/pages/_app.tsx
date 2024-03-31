@@ -22,7 +22,10 @@ import {
   DynamicCursor,
   DynamicFormOverlay,
   DynamicHeader,
-  DynamicSuperProvider,
+  DynamicLazyMotion,
+  DynamicMotionConfig,
+  DynamicPrismicPreview,
+  DynamicPrismicProvider,
   DynamicToastRoot,
 } from "@/components/DynamicExports";
 
@@ -34,7 +37,10 @@ import { GTM_ID } from "@/utils/gtm";
 /**
  * Styles
  */
+import Link from "@/components/Link";
 import "@/styles/globals.css";
+import { domAnimation, MotionConfigProps } from "framer-motion";
+import { repositoryName } from "prismicio";
 
 /**
  * Fonts
@@ -85,6 +91,14 @@ const fontStack = clsx(
   lexendBold.variable,
   "font-sans"
 );
+
+const motionConfig = {
+  transition: {
+    ease: [0.19, 1, 0.22, 1],
+    duration: 0.3,
+  },
+  reducedMotion: "user",
+} as MotionConfigProps;
 
 /**
  * @name App
@@ -157,28 +171,36 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [router.pathname]);
 
   return (
-    <DynamicSuperProvider>
-      <DynamicAppWrapper
-        className={clsx(
-          fontStack,
-          "relative min-h-screen bg-bg transition-colors duration-500 ease-out-expo",
-          modalOverlay && "overflow-hidden bg-black"
-        )}
-      >
-        <DynamicHeader
-          modalOverlay={modalOverlay}
-          toggleModalOverlay={toggleModalOverlay}
-          {...pageProps}
-        />
-        <Component {...pageProps} />
-        <DynamicFormOverlay
-          className={fontStack}
-          modalOverlay={modalOverlay}
-          toggleModalOverlay={toggleModalOverlay}
-        />
-        <DynamicCursor />
-        <DynamicToastRoot />
-      </DynamicAppWrapper>
-    </DynamicSuperProvider>
+    <DynamicPrismicProvider
+      internalLinkComponent={(props) => <Link {...props} />}
+    >
+      <DynamicPrismicPreview repositoryName={repositoryName}>
+        <DynamicMotionConfig {...motionConfig}>
+          <DynamicLazyMotion features={domAnimation}>
+            <DynamicAppWrapper
+              className={clsx(
+                fontStack,
+                "relative min-h-screen bg-bg transition-colors duration-500 ease-out-expo",
+                modalOverlay && "overflow-hidden bg-black"
+              )}
+            >
+              <DynamicHeader
+                modalOverlay={modalOverlay}
+                toggleModalOverlay={toggleModalOverlay}
+                {...pageProps}
+              />
+              <Component {...pageProps} />
+              <DynamicFormOverlay
+                className={fontStack}
+                modalOverlay={modalOverlay}
+                toggleModalOverlay={toggleModalOverlay}
+              />
+              <DynamicCursor />
+              <DynamicToastRoot />
+            </DynamicAppWrapper>
+          </DynamicLazyMotion>
+        </DynamicMotionConfig>
+      </DynamicPrismicPreview>
+    </DynamicPrismicProvider>
   );
 }

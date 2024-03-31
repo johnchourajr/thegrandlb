@@ -10,6 +10,34 @@ const DynamicSuperProvider = dynamic(
   }
 );
 
+const DynamicPrismicProvider = dynamic(
+  () => import("@prismicio/react").then((mod) => mod.PrismicProvider),
+  {
+    ssr: false,
+  }
+);
+
+const DynamicPrismicPreview = dynamic(
+  () => import("@prismicio/next").then((mod) => mod.PrismicPreview),
+  {
+    ssr: false,
+  }
+);
+
+const DynamicMotionConfig = dynamic(
+  () => import("framer-motion").then((mod) => mod.MotionConfig),
+  {
+    ssr: false,
+  }
+);
+
+const DynamicLazyMotion = dynamic(
+  () => import("framer-motion").then((mod) => mod.LazyMotion),
+  {
+    ssr: false,
+  }
+);
+
 const DynamicAppWrapper = dynamic(() => import("@/components/AppWrapper"), {
   loading: () => <></>,
 });
@@ -35,6 +63,10 @@ const DynamicToastRoot = dynamic(() => import("@/components/ToastRoot"), {
 
 export {
   DynamicSuperProvider,
+  DynamicPrismicProvider,
+  DynamicPrismicPreview,
+  DynamicMotionConfig,
+  DynamicLazyMotion,
   DynamicAppWrapper,
   DynamicHeader,
   DynamicFormOverlay,
