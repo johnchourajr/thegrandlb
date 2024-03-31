@@ -1,9 +1,6 @@
-import dynamic from "next/dynamic";
-
 /**
  * Components
  */
-import CtaFooter from "@/components/CtaFooter";
 import Layout from "@components/Layout";
 
 /**
@@ -16,10 +13,11 @@ import { createClient } from "../../prismicio";
 /**
  * Slices
  */
+import {
+  DynamicCtaFooter,
+  DynamicSliceZone,
+} from "@/components/DynamicExports";
 import { components } from "../../slices";
-const DynamicSliceZone = dynamic(() =>
-  import("@prismicio/react").then((mod) => mod.SliceZone)
-);
 
 /**
  * @name Homepage
@@ -32,7 +30,7 @@ const Homepage = ({ cta, page, settings, navigation }: any) => {
   return (
     <Layout page={page} settings={settings} navigation={navigation}>
       <DynamicSliceZone slices={slices} components={components} />
-      <CtaFooter data={cta} />
+      <DynamicCtaFooter data={cta} />
     </Layout>
   );
 };

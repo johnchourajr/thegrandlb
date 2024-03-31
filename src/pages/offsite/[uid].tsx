@@ -1,7 +1,8 @@
-import { SliceZone } from "@prismicio/react";
-
-import CtaFooter from "@/components/CtaFooter";
-import TileFooter from "@/components/TileFooter";
+import {
+  DynamicCtaFooter,
+  DynamicSliceZone,
+  DynamicTileFooter,
+} from "@/components/DynamicExports";
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import Layout from "@components/Layout";
@@ -9,13 +10,11 @@ import { createClient } from "../../../prismicio";
 import { components } from "../../../slices";
 
 const Page = ({ page, cta, settings, navigation, footer_cards }: any) => {
-  // if (!page || !cta || !footer_cards) return null;
   return (
-    <Layout page={page} navigation={navigation} settings={settings} hidePageUid>
-      <></>
-      <SliceZone slices={page?.data?.slices} components={components} />
-      <CtaFooter data={cta} />
-      <TileFooter uid={page?.uid} footer_cards={footer_cards} />
+    <Layout page={page} navigation={navigation} settings={settings}>
+      <DynamicSliceZone slices={page?.data?.slices} components={components} />
+      <DynamicCtaFooter data={cta} />
+      <DynamicTileFooter uid={page?.uid} footer_cards={footer_cards} />
     </Layout>
   );
 };

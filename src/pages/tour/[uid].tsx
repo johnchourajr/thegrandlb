@@ -1,13 +1,14 @@
-import CtaFooter from "@/components/CtaFooter";
-import SliceData from "@/components/dev/SliceData";
-import HeroDetailPage from "@/components/HeroDetailPage";
-import TileFooter from "@/components/TileFooter";
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import Layout from "@components/Layout";
 import { createClient } from "../../../prismicio";
 import { components } from "../../../slices";
 
+import {
+  DynamicCtaFooter,
+  DynamicHeroDetailPage,
+  DynamicTileFooter,
+} from "@/components/DynamicExports";
 import dynamic from "next/dynamic";
 
 const DynamicSliceZone = dynamic(() =>
@@ -21,7 +22,7 @@ const Page = ({ page, cta, settings, navigation, footer_cards }: any) => {
 
   return (
     <Layout page={page} settings={settings} navigation={navigation} hidePageUid>
-      <HeroDetailPage
+      <DynamicHeroDetailPage
         uid={page?.uid}
         headline={pageRest.headline}
         media={pageRest.media}
@@ -38,14 +39,13 @@ const Page = ({ page, cta, settings, navigation, footer_cards }: any) => {
           link_type: "Document",
         }}
       />
-      <SliceData slice={pageRest} hidden />
       <DynamicSliceZone
         context={page}
         slices={slices}
         components={components}
       />
-      <CtaFooter data={cta} />
-      <TileFooter uid={page?.uid} footer_cards={footer_cards} />
+      <DynamicCtaFooter data={cta} />
+      <DynamicTileFooter uid={page?.uid} footer_cards={footer_cards} />
     </Layout>
   );
 };

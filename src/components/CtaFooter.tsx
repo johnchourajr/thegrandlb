@@ -5,7 +5,6 @@ import clsx from "clsx";
 import { useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { TileItem } from "slices/TileGrid/TileItem";
-import SliceData from "./dev/SliceData";
 import { GridSection } from "./GridSection";
 import Headline from "./Headline";
 import MediaFrame from "./media-frame";
@@ -106,7 +105,6 @@ const CtaFooter = ({ data }: any) => {
           />
         </GridSection>
       )}
-      <SliceData slice={result} hidden />
     </>
   );
 };

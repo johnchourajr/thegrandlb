@@ -17,7 +17,6 @@ const MapPage = ({ settings, page }: any) => {
       settings={settings}
       className={"!min-h-[0vh]"}
       wrapperClassName={"!min-h-[0vh]"}
-      hidePageUid
     />
   );
 };

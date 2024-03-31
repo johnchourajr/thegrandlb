@@ -5,7 +5,7 @@ type PrismicLinkProps = React.ComponentProps<typeof PrismicLink>;
 
 const ForwardedPrismicLink = React.memo(
   React.forwardRef<HTMLAnchorElement, PrismicLinkProps>((props, ref: any) => {
-    return <PrismicLink {...props} ref={ref} />;
+    return <PrismicLink ref={ref} {...props} />;
   })
 );
 

@@ -17,7 +17,6 @@ const InquirePage = ({ page, settings }: any) => {
       settings={settings}
       className={"!min-h-[0vh]"}
       wrapperClassName={"!min-h-[0vh]"}
-      hidePageUid
     />
   );
 };

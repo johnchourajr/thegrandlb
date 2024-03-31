@@ -5,6 +5,7 @@ import { useInView, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import React, { useEffect, useState, VideoHTMLAttributes } from "react";
 import ParallaxWrapper from "../ParallaxWrapper";
+import LazyVideo from "./LazyVideo";
 import { VideoProgressButton } from "./VideoProgressButton";
 
 export interface InlineVideoPlayerProps {
@@ -41,10 +42,7 @@ const InlineVideoPlayer = ({
 }: InlineVideoPlayerProps) => {
   const ref = React.useRef<HTMLVideoElement>(null);
   const isInView = useInView(ref);
-  const loadInView = useInView(ref, {
-    once: true,
-    margin: "50% 0px",
-  });
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [videoProgress, setVideoProgress] = useState(0);
   const reducedMotion = useReducedMotion();
@@ -124,7 +122,6 @@ const InlineVideoPlayer = ({
   React.useEffect(() => {
     if (auto_play) {
       handleChange();
-      // ref?.current?.play();
       setIsPlaying(true);
     }
   }, [auto_play]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -132,7 +129,6 @@ const InlineVideoPlayer = ({
   React.useEffect(() => {
     if (reducedMotion) {
       handleChange(false);
-      // ref?.current?.pause();
       setIsPlaying(false);
     }
   }, [reducedMotion]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -156,25 +152,24 @@ const InlineVideoPlayer = ({
               "absolute inset-0 z-20 h-full w-full bg-black object-cover opacity-20"
             )}
           />
-          <video
+          <LazyVideo
             ref={ref}
+            src={mediaUrl}
             className={clsx(
-              "absolute z-10 h-full w-full object-cover",
+              "absolute inset-0 z-10 h-full w-full object-cover",
               videoClassName
             )}
             {...videoOptions}
             controls={false}
             playsInline={true}
-          >
-            {loadInView && <source src={mediaUrl} type="video/mp4" />}
-          </video>
+          />
           {posterUrl && (
             <div className={"absolute inset-0 z-0 h-full w-full"}>
               <Image
                 className={clsx("h-full w-full object-cover", videoClassName)}
                 src={posterUrl}
-                width={`960`}
-                height={`540`}
+                width={`480`}
+                height={`270`}
                 quality={10}
                 priority={priority || false}
                 alt=""

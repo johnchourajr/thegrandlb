@@ -1,4 +1,3 @@
-import CtaFooter from "@/components/CtaFooter";
 import HeroCategoryPage from "@/components/HeroCategoryPage";
 import Layout from "@/components/Layout";
 import { getExtra } from "@/services/get-extra";
@@ -6,6 +5,7 @@ import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../../prismicio";
 import { components } from "../../../slices/";
 
+import { DynamicCtaFooter } from "@/components/DynamicExports";
 import dynamic from "next/dynamic";
 
 const DynamicSliceZone = dynamic(() =>
@@ -26,7 +26,7 @@ const Page = ({ cta, page, settings, navigation }: any) => {
         media={media}
       />
       <DynamicSliceZone slices={page.data.slices} components={components} />
-      <CtaFooter data={cta} />
+      <DynamicCtaFooter data={cta} />
     </Layout>
   );
 };

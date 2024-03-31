@@ -1,15 +1,16 @@
-import CtaFooter from "@/components/CtaFooter";
-import SliceData from "@/components/dev/SliceData";
 import GridBase from "@/components/grid-index/GridBase";
 import { getTourIndexLayout } from "@/components/grid-index/utils";
 import HeroCategoryPage from "@/components/HeroCategoryPage";
 import Layout from "@/components/Layout";
-import TileFooter from "@/components/TileFooter";
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../../prismicio";
 import { components } from "../../../slices/";
 
+import {
+  DynamicCtaFooter,
+  DynamicTileFooter,
+} from "@/components/DynamicExports";
 import dynamic from "next/dynamic";
 
 const DynamicSliceZone = dynamic(() =>
@@ -34,7 +35,6 @@ const Page = ({ page, cta, settings, navigation, footer_cards }: any) => {
         subhead={headline}
         body={body}
       />
-      <SliceData slice={pageRest} hidden />
       <GridBase
         sectionId="tour-index"
         uid={page.uid}
@@ -42,8 +42,8 @@ const Page = ({ page, cta, settings, navigation, footer_cards }: any) => {
         layoutLoader={getTourIndexLayout}
       />
       <DynamicSliceZone slices={slices} components={components} />
-      <CtaFooter data={cta} />
-      <TileFooter uid={page.uid} footer_cards={footer_cards} />
+      <DynamicCtaFooter data={cta} />
+      <DynamicTileFooter uid={page.uid} footer_cards={footer_cards} />
     </Layout>
   );
 };

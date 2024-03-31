@@ -1,5 +1,3 @@
-import dynamic from "next/dynamic";
-
 /**
  * Components
  */
@@ -15,10 +13,8 @@ import { createClient } from "../../prismicio";
 /**
  * Slices
  */
+import { DynamicSliceZone } from "@/components/DynamicExports";
 import { components } from "../../slices/";
-const DynamicSliceZone = dynamic(() =>
-  import("@prismicio/react").then((mod) => mod.SliceZone)
-);
 
 /**
  * @name ContactPage
