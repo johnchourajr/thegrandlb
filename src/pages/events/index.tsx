@@ -1,5 +1,4 @@
 import CtaFooter from "@/components/CtaFooter";
-import SliceData from "@/components/dev/SliceData";
 import GridBase from "@/components/grid-index/GridBase";
 import { getEventIndexLayout } from "@/components/grid-index/utils";
 import HeroCategoryPage from "@/components/HeroCategoryPage";
@@ -10,11 +9,7 @@ import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../../prismicio";
 import { components } from "../../../slices/";
 
-import dynamic from "next/dynamic";
-
-const DynamicSliceZone = dynamic(() =>
-  import("@prismicio/react").then((mod) => mod.SliceZone)
-);
+import { DynamicSliceZone } from "@/components/DynamicExports";
 
 const Page = ({ page, settings, navigation, cta, footer_cards }: any) => {
   // if (!page || !cta || !footer_cards) return null;
@@ -32,7 +27,7 @@ const Page = ({ page, settings, navigation, cta, footer_cards }: any) => {
 
   const { icon_media, headline, body, event_pages } = pageRest;
   return (
-    <Layout page={page} settings={settings} navigation={navigation} hidePageUid>
+    <Layout page={page} settings={settings} navigation={navigation}>
       <HeroCategoryPage
         headline={title}
         gallery={gallery}
@@ -42,7 +37,6 @@ const Page = ({ page, settings, navigation, cta, footer_cards }: any) => {
         subhead={headline}
         body={body}
       />
-      <SliceData slice={pageRest} hidden />
       <GridBase
         uid={page?.uid}
         sectionId="event-index"

@@ -1,8 +1,10 @@
 // import { SliceZone } from "@prismicio/react";
 
-import CtaFooter from "@/components/CtaFooter";
+import {
+  DynamicCtaFooter,
+  DynamicMenuPageContent,
+} from "@/components/DynamicExports";
 import Layout from "@/components/Layout";
-import { MenuPageContent } from "@/components/MenuPageContent";
 import { getPrismicMenus } from "@/pages/api/get-prismic-menus";
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
@@ -39,14 +41,9 @@ const Page = ({ cta, settings, navigation, page }: any) => {
   }
 
   return (
-    <Layout
-      page={source}
-      settings={settings}
-      navigation={navigation}
-      hidePageUid
-    >
-      <MenuPageContent page={page} source={source} />
-      <CtaFooter data={cta} />
+    <Layout page={source} settings={settings} navigation={navigation}>
+      <DynamicMenuPageContent page={page} source={source} />
+      <DynamicCtaFooter data={cta} />
     </Layout>
   );
 };

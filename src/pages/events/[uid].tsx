@@ -1,32 +1,30 @@
-import CtaFooter from "@/components/CtaFooter";
-import HeroDetailPage from "@/components/HeroDetailPage";
-import TileFooter from "@/components/TileFooter";
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import Layout from "@components/Layout";
 import { createClient } from "../../../prismicio";
 import { components } from "../../../slices";
 
-import dynamic from "next/dynamic";
-
-const DynamicSliceZone = dynamic(() =>
-  import("@prismicio/react").then((mod) => mod.SliceZone)
-);
+import {
+  DynamicCtaFooter,
+  DynamicHeroDetailPage,
+  DynamicSliceZone,
+  DynamicTileFooter,
+} from "@/components/DynamicExports";
 
 const Page = ({ page, cta, settings, footer_cards, navigation }: any) => {
   // if (!page || !cta || !footer_cards) return null;
   const { data: { slices = [], ...pageRest } = {} } = page || {};
 
   return (
-    <Layout page={page} settings={settings} navigation={navigation} hidePageUid>
-      <HeroDetailPage
+    <Layout page={page} settings={settings} navigation={navigation}>
+      <DynamicHeroDetailPage
         uid={page?.uid}
         title={pageRest?.title}
         headline={pageRest?.headline}
       />
       <DynamicSliceZone slices={page?.data.slices} components={components} />
-      <CtaFooter data={cta} />
-      <TileFooter uid={page?.uid} footer_cards={footer_cards} />
+      <DynamicCtaFooter data={cta} />
+      <DynamicTileFooter uid={page?.uid} footer_cards={footer_cards} />
     </Layout>
   );
 };

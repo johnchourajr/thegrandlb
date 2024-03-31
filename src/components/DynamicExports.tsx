@@ -61,6 +61,35 @@ const DynamicToastRoot = dynamic(() => import("@/components/ToastRoot"), {
   ssr: false,
 });
 
+// import HeroDetailPage from "@/components/HeroDetailPage";
+const DynamicHeroDetailPage = dynamic(
+  () => import("@/components/HeroDetailPage"),
+  {
+    ssr: false,
+  }
+);
+
+const DynamicCtaFooter = dynamic(() => import("@/components/CtaFooter"), {
+  ssr: false,
+});
+
+const DynamicTileFooter = dynamic(() => import("@/components/TileFooter"), {
+  ssr: false,
+});
+
+// import { MenuPageContent } from "@/components/MenuPageContent";
+const DynamicMenuPageContent = dynamic(
+  () =>
+    import("@/components/MenuPageContent").then((mod) => mod.MenuPageContent),
+  {
+    ssr: false,
+  }
+);
+
+const DynamicSliceZone = dynamic(() =>
+  import("@prismicio/react").then((mod) => mod.SliceZone)
+);
+
 export {
   DynamicSuperProvider,
   DynamicPrismicProvider,
@@ -72,4 +101,9 @@ export {
   DynamicFormOverlay,
   DynamicCursor,
   DynamicToastRoot,
+  DynamicHeroDetailPage,
+  DynamicCtaFooter,
+  DynamicTileFooter,
+  DynamicMenuPageContent,
+  DynamicSliceZone,
 };

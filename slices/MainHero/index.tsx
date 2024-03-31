@@ -114,7 +114,6 @@ const PageHero = ({ slice, context }: PageHeroProps): JSX.Element => {
           />
         )}
       </div>
-      {/* <SliceData slice={slice} /> */}
     </LayoutGroup>
   );
 };

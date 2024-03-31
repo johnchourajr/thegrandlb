@@ -3,9 +3,8 @@
 import { splitTextIntoArray } from "@/utils/utils";
 import clsx from "clsx";
 import { useScroll, useSpring, useTransform } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { TileItem } from "slices/TileGrid/TileItem";
-import SliceData from "./dev/SliceData";
 import { GridSection } from "./GridSection";
 import Headline from "./Headline";
 import MediaFrame from "./media-frame";
@@ -34,19 +33,11 @@ const CtaFooterHeadlineItem = ({ word, index, scrollYProgress }: any) => {
 
 const CtaFooter = ({ data }: any) => {
   const ref = useRef(null);
-  const [mounted, setMounted] = useState(false);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "-20%"],
   });
   const progress = useSpring(scrollYProgress, { damping: 100, stiffness: 300 });
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setMounted(true);
-    }, 5000);
-    return () => clearTimeout(timer);
-  }, []);
 
   if (!data) return null;
 
@@ -106,17 +97,14 @@ const CtaFooter = ({ data }: any) => {
               );
             })}
           </div>
-          {mounted && (
-            <MediaFrame
-              media={media}
-              video_media={mounted && video_media}
-              video_options={{ controls: false, auto_play: true, loop: true }}
-              className="absolute inset-0 z-10 col-span-6 h-full w-full mix-blend-screen"
-            />
-          )}
+          <MediaFrame
+            media={media}
+            video_media={video_media}
+            video_options={{ controls: false, auto_play: true, loop: true }}
+            className="absolute inset-0 z-10 col-span-6 h-full w-full mix-blend-screen"
+          />
         </GridSection>
       )}
-      <SliceData slice={result} hidden />
     </>
   );
 };
