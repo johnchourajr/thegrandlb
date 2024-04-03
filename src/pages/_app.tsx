@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
  */
 import clsx from "clsx";
 import type { AppProps } from "next/app";
-import { useRouter } from "next/router";
+import { NextRouter, useRouter } from "next/router";
 import TagManager from "react-gtm-module";
 
 /**
@@ -22,10 +22,6 @@ import {
   DynamicCursor,
   DynamicFormOverlay,
   DynamicHeader,
-  DynamicLazyMotion,
-  DynamicMotionConfig,
-  DynamicPrismicPreview,
-  DynamicPrismicProvider,
   DynamicToastRoot,
 } from "@/components/DynamicExports";
 
@@ -37,10 +33,10 @@ import { GTM_ID } from "@/utils/gtm";
 /**
  * Styles
  */
-import Link from "@/components/Link";
+import Preloader from "@/components/Preloader";
+import SuperProvider from "@/components/SuperProvider";
 import "@/styles/globals.css";
-import { domAnimation, MotionConfigProps } from "framer-motion";
-import { repositoryName } from "prismicio";
+import { MotionConfigProps } from "framer-motion";
 
 /**
  * Fonts
@@ -141,7 +137,12 @@ export default function App({ Component, pageProps }: AppProps) {
    * Effects
    */
   useEffect(() => {
-    setDidMount(true);
+    if (router.pathname !== "/") return setDidMount(true);
+    const timeout = setTimeout(() => setDidMount(true), 3000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
   }, []);
 
   useEffect(() => {
@@ -158,7 +159,7 @@ export default function App({ Component, pageProps }: AppProps) {
     };
   }, [router.events, didMount]);
 
-  useEffect(() => {
+  const handleModalOverlay = (router: NextRouter) => {
     if (
       router.pathname === "/inquire" ||
       router.pathname === "/thanks" ||
@@ -168,39 +169,39 @@ export default function App({ Component, pageProps }: AppProps) {
     } else {
       setModalOverlay(false);
     }
-  }, [router.pathname]);
+  };
+
+  useEffect(() => {
+    handleModalOverlay(router);
+  }, [router]);
 
   return (
-    <DynamicPrismicProvider
-      internalLinkComponent={(props) => <Link {...props} />}
-    >
-      <DynamicPrismicPreview repositoryName={repositoryName}>
-        <DynamicMotionConfig {...motionConfig}>
-          <DynamicLazyMotion features={domAnimation}>
-            <DynamicAppWrapper
-              className={clsx(
-                fontStack,
-                "relative min-h-screen bg-bg transition-colors duration-500 ease-out-expo",
-                modalOverlay && "overflow-hidden bg-black"
-              )}
-            >
-              <DynamicHeader
-                modalOverlay={modalOverlay}
-                toggleModalOverlay={toggleModalOverlay}
-                {...pageProps}
-              />
-              <Component {...pageProps} />
-              <DynamicFormOverlay
-                className={fontStack}
-                modalOverlay={modalOverlay}
-                toggleModalOverlay={toggleModalOverlay}
-              />
-              <DynamicCursor />
-              <DynamicToastRoot />
-            </DynamicAppWrapper>
-          </DynamicLazyMotion>
-        </DynamicMotionConfig>
-      </DynamicPrismicPreview>
-    </DynamicPrismicProvider>
+    <SuperProvider>
+      {!didMount ? (
+        <Preloader />
+      ) : (
+        <DynamicAppWrapper
+          className={clsx(
+            fontStack,
+            "relative min-h-screen bg-bg transition-colors duration-500 ease-out-expo",
+            modalOverlay && "overflow-hidden bg-black"
+          )}
+        >
+          <DynamicHeader
+            modalOverlay={modalOverlay}
+            toggleModalOverlay={toggleModalOverlay}
+            {...pageProps}
+          />
+          <Component {...pageProps} />
+          <DynamicFormOverlay
+            className={fontStack}
+            modalOverlay={modalOverlay}
+            toggleModalOverlay={toggleModalOverlay}
+          />
+          <DynamicCursor />
+          <DynamicToastRoot />
+        </DynamicAppWrapper>
+      )}
+    </SuperProvider>
   );
 }
