@@ -7,7 +7,7 @@ import { Content } from "@prismicio/client";
 import * as prismicH from "@prismicio/helpers";
 import { SliceComponentProps } from "@prismicio/react";
 import clsx from "clsx";
-import { LayoutGroup, m } from "framer-motion";
+import { m } from "framer-motion";
 
 /**
  * @typedef {import("@prismicio/client").Content.PageHeroSlice} PageHeroSlice
@@ -20,11 +20,11 @@ import { LayoutGroup, m } from "framer-motion";
  */
 export type PageHeroProps = SliceComponentProps<Content.PageHeroSlice | any>;
 
-const PageHero = ({ slice, context }: PageHeroProps): JSX.Element => {
+const PageHero = ({ slice }: PageHeroProps): JSX.Element => {
   const headline = prismicH.asText(slice.primary.headline);
-  const { uid }: any = context;
+
   return (
-    <LayoutGroup>
+    <>
       <GridSection
         id={slice.primary.section_id}
         bottomSpacer={slice.primary.bottom_spacer}
@@ -114,7 +114,7 @@ const PageHero = ({ slice, context }: PageHeroProps): JSX.Element => {
           />
         )}
       </div>
-    </LayoutGroup>
+    </>
   );
 };
 

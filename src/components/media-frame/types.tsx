@@ -1,4 +1,8 @@
-import type { EmptyLinkField, FilledLinkToMediaField } from "@prismicio/types";
+import type {
+  EmptyLinkField,
+  FilledLinkToMediaField,
+  ImageFieldImage,
+} from "@prismicio/types";
 import type { ImageItem } from "./ImageGallery";
 
 export interface GalleryControlsProps {
@@ -17,7 +21,7 @@ export interface GalleryControlsProps {
 export interface MediaFrameProps {
   id?: string;
   className?: string;
-  media: any;
+  media: ImageFieldImage | EmptyLinkField<"Media">;
   video_media?: FilledLinkToMediaField | EmptyLinkField<"Media">;
   video_options?: {
     auto_play?: boolean;

@@ -33,7 +33,6 @@ import { GTM_ID } from "@/utils/gtm";
 /**
  * Styles
  */
-import Preloader from "@/components/Preloader";
 import SuperProvider from "@/components/SuperProvider";
 import "@/styles/globals.css";
 import { MotionConfigProps } from "framer-motion";
@@ -177,31 +176,31 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <SuperProvider>
-      {!didMount ? (
-        <Preloader />
-      ) : (
-        <DynamicAppWrapper
-          className={clsx(
-            fontStack,
-            "relative min-h-screen bg-bg transition-colors duration-500 ease-out-expo",
-            modalOverlay && "overflow-hidden bg-black"
-          )}
-        >
-          <DynamicHeader
-            modalOverlay={modalOverlay}
-            toggleModalOverlay={toggleModalOverlay}
-            {...pageProps}
-          />
-          <Component {...pageProps} />
-          <DynamicFormOverlay
-            className={fontStack}
-            modalOverlay={modalOverlay}
-            toggleModalOverlay={toggleModalOverlay}
-          />
-          <DynamicCursor />
-          <DynamicToastRoot />
-        </DynamicAppWrapper>
-      )}
+      {/* {!didMount ? (
+        <Preloader component={Component} />
+      ) : ( */}
+      <DynamicAppWrapper
+        className={clsx(
+          fontStack,
+          "relative min-h-screen bg-bg transition-colors duration-500 ease-out-expo",
+          modalOverlay && "overflow-hidden bg-black"
+        )}
+      >
+        <DynamicHeader
+          modalOverlay={modalOverlay}
+          toggleModalOverlay={toggleModalOverlay}
+          {...pageProps}
+        />
+        <Component {...pageProps} />
+        <DynamicFormOverlay
+          className={fontStack}
+          modalOverlay={modalOverlay}
+          toggleModalOverlay={toggleModalOverlay}
+        />
+        <DynamicCursor />
+        <DynamicToastRoot />
+      </DynamicAppWrapper>
+      {/* )} */}
     </SuperProvider>
   );
 }

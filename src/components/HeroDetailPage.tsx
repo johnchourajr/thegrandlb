@@ -2,12 +2,29 @@ import { isEmptyObject, stringToUnderscore } from "@/utils/utils";
 import clsx from "clsx";
 import { LayoutGroup, m } from "framer-motion";
 import Button from "./Button";
-import { GridSection } from "./GridSection";
+import { GridSection, Spacer } from "./GridSection";
 import Headline from "./Headline";
 import MediaFrame from "./media-frame";
+import { MediaFrameProps } from "./media-frame/types";
 import MotionBox from "./MotionBox";
 import Text from "./Paragraph";
 import StringText from "./StringText";
+
+type HeroDetailPageProps = {
+  uid: string;
+  title?: string;
+  headline?: string;
+  caption?: string;
+  media?: MediaFrameProps["media"];
+  video_media?: MediaFrameProps["video_media"];
+  subhead?: string;
+  body?: string;
+  primary_action?: string;
+  primary_action_link?: any;
+  bottomSpacer?: Spacer;
+  className?: string;
+  innerClassName?: string;
+};
 
 const HeroDetailPage = ({
   uid,
@@ -21,7 +38,9 @@ const HeroDetailPage = ({
   primary_action,
   primary_action_link,
   bottomSpacer = "Small",
-}: any) => {
+  className,
+  innerClassName,
+}: HeroDetailPageProps) => {
   const hasSubheadandBody = subhead && body;
   const noMedia = isEmptyObject(media) && isEmptyObject(video_media?.src);
 
@@ -32,12 +51,16 @@ const HeroDetailPage = ({
         layoutId={`hero-${uid}`}
         bottomSpacer={bottomSpacer}
         topSpacer={"Small"}
+        className={clsx(className)}
+        data-layoutId={`hero-${uid}`}
       >
         <div
           className={clsx(
+            "hero-inner",
             "padding-top-md padding-bottom-md relative col-span-full col-start-1 flex w-full flex-col items-center justify-center gap-4 overflow-hidden px-4 text-center",
             !noMedia &&
-              "aspect-square max-h-[calc(100vh-8.8125rem)] gap-10 rounded-sm bg-black text-white md:aspect-[4/3] md:max-h-[calc(100vh-9rem-3rem)] md:rounded-md"
+              "aspect-square max-h-[calc(100vh-8.8125rem)] gap-10 rounded-sm bg-black text-white md:aspect-[4/3] md:max-h-[calc(100vh-9rem-3rem)] md:rounded-md",
+            innerClassName
           )}
         >
           {title && (
@@ -113,7 +136,7 @@ const HeroDetailPage = ({
           bottomSpacer={"Medium"}
           topSpacer={"Medium"}
         >
-          <MotionBox className="col-span-full pt-10 pb-0 lg:col-span-6 lg:col-start-2 lg:pt-12 lg:pb-20">
+          <MotionBox className="col-span-full pb-0 pt-10 lg:col-span-6 lg:col-start-2 lg:pb-20 lg:pt-12">
             <Headline size={"xl"} className={"max-w-[9em]"} animateOnce>
               {subhead}
             </Headline>
