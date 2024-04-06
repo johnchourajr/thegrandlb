@@ -1,11 +1,11 @@
 // inline video player component
-import { EmptyLinkField, FilledLinkToMediaField } from "@prismicio/types";
 import clsx from "clsx";
 import { useInView, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import React, { useEffect, useState, VideoHTMLAttributes } from "react";
 import ParallaxWrapper from "../ParallaxWrapper";
 import LazyVideo from "./LazyVideo";
+import { MediaFrameProps } from "./types";
 import { VideoProgressButton } from "./VideoProgressButton";
 
 export interface InlineVideoPlayerProps {
@@ -13,14 +13,8 @@ export interface InlineVideoPlayerProps {
   className?: string;
   videoClassName?: string;
   uid?: string;
-  media?: FilledLinkToMediaField | EmptyLinkField<"Media">;
-  poster?: {
-    link_type: string;
-    name: string;
-    kind: string;
-    url: string;
-    size: number;
-  };
+  media?: MediaFrameProps["video_media"];
+  poster?: MediaFrameProps["media"];
   auto_play?: boolean;
   loop?: boolean;
   controls?: boolean;

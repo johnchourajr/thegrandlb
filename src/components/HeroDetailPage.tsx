@@ -15,8 +15,8 @@ type HeroDetailPageProps = {
   title?: string;
   headline?: string;
   caption?: string;
-  media?: MediaFrameProps["media"];
-  video_media?: MediaFrameProps["video_media"];
+  media: MediaFrameProps["media"];
+  video_media: MediaFrameProps["video_media"];
   subhead?: string;
   body?: string;
   primary_action?: string;
@@ -26,23 +26,27 @@ type HeroDetailPageProps = {
   innerClassName?: string;
 };
 
-const HeroDetailPage = ({
-  uid,
-  title,
-  headline,
-  caption,
-  media,
-  video_media,
-  subhead,
-  body,
-  primary_action,
-  primary_action_link,
-  bottomSpacer = "Small",
-  className,
-  innerClassName,
-}: HeroDetailPageProps) => {
+const HeroDetailPage = (props: HeroDetailPageProps) => {
+  const {
+    uid,
+    title,
+    headline,
+    caption,
+    media,
+    video_media,
+    subhead,
+    body,
+    primary_action,
+    primary_action_link,
+    bottomSpacer = "Small",
+    className,
+    innerClassName,
+  } = props;
+
   const hasSubheadandBody = subhead && body;
-  const noMedia = isEmptyObject(media) && isEmptyObject(video_media?.src);
+  const noMedia = isEmptyObject(media) && isEmptyObject(video_media);
+
+  console.log({ props });
 
   return (
     <LayoutGroup>
