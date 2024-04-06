@@ -17,8 +17,8 @@ export interface GalleryControlsProps {
 export interface MediaFrameProps {
   id?: string;
   className?: string;
-  media: ImageField<never>;
-  video_media: LinkToMediaField;
+  media?: ImageField<never>;
+  video_media?: LinkToMediaField;
   video_options?: {
     auto_play?: boolean;
     loop?: boolean;

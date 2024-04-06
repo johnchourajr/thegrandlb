@@ -15,8 +15,8 @@ type HeroDetailPageProps = {
   title?: string;
   headline?: string;
   caption?: string;
-  media: MediaFrameProps["media"];
-  video_media: MediaFrameProps["video_media"];
+  media?: MediaFrameProps["media"];
+  video_media?: MediaFrameProps["video_media"];
   subhead?: string;
   body?: string;
   primary_action?: string;
