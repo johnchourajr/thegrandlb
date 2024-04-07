@@ -12,7 +12,6 @@ import {
 } from "@/components/DynamicExports";
 
 const Page = ({ page, cta, settings, footer_cards, navigation }: any) => {
-  // if (!page || !cta || !footer_cards) return null;
   const { data: { slices = [], ...pageRest } = {} } = page || {};
 
   return (

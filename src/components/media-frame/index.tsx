@@ -62,7 +62,7 @@ const MediaFrame = ({
     } else return null;
   };
 
-  if (!media?.kind && !videoUrl && !gallery) return null;
+  if (!media && !videoUrl && !gallery) return null;
   return (
     <m.div id={id} layoutId={id} className={clsx("media-frame", className)}>
       {renderMedia()}

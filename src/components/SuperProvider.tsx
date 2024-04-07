@@ -1,18 +1,15 @@
 import { ReactNode } from "react";
 
-import {
-  domAnimation,
-  LazyMotion,
-  MotionConfig,
-  MotionConfigProps,
-} from "framer-motion";
+import { domAnimation, MotionConfigProps } from "framer-motion";
 import Link from "next/link";
-/**
- * Prismic
- */
-import { PrismicPreview } from "@prismicio/next";
-import { PrismicProvider } from "@prismicio/react";
+
 import { repositoryName } from "prismicio";
+import {
+  DynamicLazyMotion,
+  DynamicMotionConfig,
+  DynamicPrismicPreview,
+  DynamicPrismicProvider,
+} from "./DynamicExports";
 
 export type SuperProviderProps = {
   children: ReactNode;
@@ -27,13 +24,17 @@ export const SuperProvider = ({ children }: SuperProviderProps) => {
     reducedMotion: "user",
   } as MotionConfigProps;
   return (
-    <PrismicProvider internalLinkComponent={(props) => <Link {...props} />}>
-      <PrismicPreview repositoryName={repositoryName}>
-        <MotionConfig {...motionConfig}>
-          <LazyMotion features={domAnimation}>{children}</LazyMotion>
-        </MotionConfig>
-      </PrismicPreview>
-    </PrismicProvider>
+    <DynamicPrismicProvider
+      internalLinkComponent={(props) => <Link {...props} />}
+    >
+      <DynamicPrismicPreview repositoryName={repositoryName}>
+        <DynamicMotionConfig {...motionConfig}>
+          <DynamicLazyMotion features={domAnimation}>
+            {children}
+          </DynamicLazyMotion>
+        </DynamicMotionConfig>
+      </DynamicPrismicPreview>
+    </DynamicPrismicProvider>
   );
 };
 

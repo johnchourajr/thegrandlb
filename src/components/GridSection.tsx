@@ -2,7 +2,7 @@ import clsx from "clsx";
 import type { MotionProps } from "framer-motion";
 import { m } from "framer-motion";
 
-type Spacer = "None" | "Small" | "Medium" | "Large" | null;
+export type Spacer = "None" | "Small" | "Medium" | "Large" | null;
 
 interface GridSectionProps {
   gridSectionRef?: React.RefObject<HTMLDivElement> | null;
