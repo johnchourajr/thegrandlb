@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /wp/
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /xmlrpc.php
+Disallow: /admin/
+Disallow: /tmp/
+Disallow: /private/
+Crawl-Delay: 10

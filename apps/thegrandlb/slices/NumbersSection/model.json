@@ -1,0 +1,129 @@
+{
+  "id": "numbers_section",
+  "type": "SharedSlice",
+  "name": "NumbersSection",
+  "description": "NumbersSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "NumbersSection",
+      "primary": {
+        "section_id": {
+          "type": "Text",
+          "config": {
+            "label": "Section ID",
+            "placeholder": "Optional ID to add to section"
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": "Optional headline for section"
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": "Optional description for section"
+          }
+        },
+        "columns": {
+          "type": "Select",
+          "config": {
+            "label": "Columns",
+            "placeholder": "",
+            "options": ["3 Column", "4 Column", "6 Column", "Inline"]
+          }
+        },
+        "inset": {
+          "type": "Boolean",
+          "config": {
+            "label": "Inset Columns",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        },
+        "top_spacer": {
+          "type": "Select",
+          "config": {
+            "label": "Top Spacer",
+            "placeholder": "",
+            "options": ["Small", "Medium", "Large", "None"]
+          }
+        },
+        "top_border": {
+          "type": "Boolean",
+          "config": {
+            "label": "Top Border",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "bottom_spacer": {
+          "type": "Select",
+          "config": {
+            "label": "Bottom Spacer",
+            "placeholder": "",
+            "options": ["Small", "Medium", "Large", "None"]
+          }
+        },
+        "bottom_border": {
+          "type": "Boolean",
+          "config": {
+            "label": "Bottom Border",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        }
+      },
+      "items": {
+        "media": {
+          "type": "Image",
+          "config": { "label": "Media", "constraint": {}, "thumbnails": [] }
+        },
+        "number": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Number",
+            "placeholder": "",
+            "multi": "heading1,heading2,heading3"
+          }
+        },
+        "eyebrow": {
+          "type": "Text",
+          "config": { "label": "Eyebrow", "placeholder": "" }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "action_text": {
+          "type": "Text",
+          "config": { "label": "Action Text", "placeholder": "" }
+        },
+        "action_link": {
+          "type": "Link",
+          "config": {
+            "label": "Action Link",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "imageUrl": "https://images.prismic.io/the-grand/shared-slices/numbers_section/default/40a5cc0fdaed091257e813c4b05132031b11fbea.png?auto=compress%2Cformat"
+    }
+  ]
+}

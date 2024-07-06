@@ -1,0 +1,34 @@
+{
+  "id": "fragment_media",
+  "label": "Fragment / Media",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "video_media": {
+        "type": "Link",
+        "config": {
+          "label": "Video Media (Overrides Image Media)",
+          "placeholder": "",
+          "select": "media"
+        }
+      },
+      "media": {
+        "type": "Image",
+        "config": {
+          "label": "Media",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "caption": {
+        "type": "Text",
+        "config": {
+          "label": "Caption",
+          "placeholder": "",
+          "constraint": {}
+        }
+      }
+    }
+  }
+}

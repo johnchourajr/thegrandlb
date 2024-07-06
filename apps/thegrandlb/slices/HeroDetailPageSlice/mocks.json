@@ -1,0 +1,39 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"section_id": {
+				"__TYPE__": "FieldContent",
+				"value": "independent",
+				"type": "Text"
+			},
+			"subhead": {
+				"__TYPE__": "FieldContent",
+				"value": "have",
+				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Eyebrow"
+			},
+			"headline": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Risus Mattis \nSit Egestas"
+			},
+			"caption": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Some caption here"
+			},
+			"bottom_spacer": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "None"
+			}
+		},
+		"items": []
+	}
+]

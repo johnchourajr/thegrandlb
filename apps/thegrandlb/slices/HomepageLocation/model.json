@@ -1,0 +1,113 @@
+{
+  "id": "homepage_location",
+  "type": "SharedSlice",
+  "name": "HomepageLocation",
+  "description": "HomepageLocation",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "HomepageLocation",
+      "primary": {
+        "section_id": {
+          "type": "Text",
+          "config": { "label": "Section Id", "placeholder": "" }
+        },
+        "gallery": {
+          "type": "Link",
+          "config": {
+            "label": "Gallery (Overrides all media)",
+            "select": "document",
+            "customtypes": ["fragment_gallery"]
+          }
+        },
+        "video_media": {
+          "type": "Link",
+          "config": {
+            "label": "Video Media (Overrides Image Media)",
+            "placeholder": "",
+            "select": "media"
+          }
+        },
+        "media": {
+          "type": "Image",
+          "config": { "label": "Media", "constraint": {}, "thumbnails": [] }
+        },
+        "caption": {
+          "type": "Text",
+          "config": { "label": "Media Caption", "placeholder": "" }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading1",
+            "label": "Title",
+            "placeholder": "This is where it all begins..."
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "single": "paragraph",
+            "label": "Description",
+            "placeholder": "A nice description of your feature"
+          }
+        },
+        "top_spacer": {
+          "type": "Select",
+          "config": {
+            "label": "Top Spacer",
+            "placeholder": "",
+            "options": ["Small", "Medium", "Large", "None"]
+          }
+        },
+        "bottom_spacer": {
+          "type": "Select",
+          "config": {
+            "label": "Bottom Spacer",
+            "placeholder": "",
+            "options": ["Small", "Medium", "Large", "None"]
+          }
+        },
+        "address_label": {
+          "type": "Text",
+          "config": { "label": "Address Label", "placeholder": "" }
+        },
+        "address": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Address",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "action_text": {
+          "type": "Text",
+          "config": { "label": "Action Text", "placeholder": "" }
+        },
+        "action_link": {
+          "type": "Link",
+          "config": {
+            "label": "Action Link",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null
+          }
+        },
+        "bullet_list": {
+          "type": "Link",
+          "config": {
+            "label": "Bullet List",
+            "select": "document",
+            "customtypes": ["fragment_number_list"]
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": "https://images.prismic.io/the-grand/shared-slices/homepage_location/default/cf984a270282d8997c0a57d84ff7d439c0500bf0.png?auto=compress%2Cformat"
+    }
+  ]
+}

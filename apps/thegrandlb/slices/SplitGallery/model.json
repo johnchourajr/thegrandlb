@@ -1,0 +1,64 @@
+{
+  "id": "split_gallery",
+  "type": "SharedSlice",
+  "name": "SplitGallery",
+  "description": "SplitGallery",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "SplitGallery",
+      "primary": {
+        "section_id": {
+          "type": "Text",
+          "config": { "label": "Section Id", "placeholder": "" }
+        },
+        "gallery_left": {
+          "type": "Link",
+          "config": {
+            "label": "Gallery Left",
+            "select": "document",
+            "customtypes": ["fragment_gallery"]
+          }
+        },
+        "gallery_right": {
+          "type": "Link",
+          "config": {
+            "label": "Gallery Right",
+            "select": "document",
+            "customtypes": ["fragment_gallery"]
+          }
+        },
+        "offset_reverse": {
+          "type": "Boolean",
+          "config": {
+            "label": "Offset Reverse",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": true
+          }
+        },
+        "top_spacer": {
+          "type": "Select",
+          "config": {
+            "label": "Top Spacer",
+            "placeholder": "",
+            "options": ["Small", "Medium", "Large", "None"]
+          }
+        },
+        "bottom_spacer": {
+          "type": "Select",
+          "config": {
+            "label": "Bottom Spacer",
+            "placeholder": "",
+            "options": ["Small", "Medium", "Large", "None"]
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": "https://images.prismic.io/the-grand/shared-slices/split_gallery/default/1a8c2438fc2b927f5076e07003a4eeac0ea0a4c5.png?auto=compress%2Cformat"
+    }
+  ]
+}

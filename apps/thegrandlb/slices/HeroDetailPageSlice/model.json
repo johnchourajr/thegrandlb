@@ -1,0 +1,67 @@
+{
+  "id": "hero_detail_page_slice",
+  "type": "SharedSlice",
+  "name": "HeroDetailPageSlice",
+  "description": "HeroDetailPageSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "section_id": {
+          "type": "Text",
+          "config": { "label": "Section Id", "placeholder": "" }
+        },
+        "title": {
+          "type": "Text",
+          "config": { "label": "Title", "placeholder": "" }
+        },
+        "headline": {
+          "type": "Text",
+          "config": { "label": "Headline", "placeholder": "" }
+        },
+        "caption": {
+          "type": "Text",
+          "config": { "label": "Caption", "placeholder": "" }
+        },
+        "video_media": {
+          "type": "Link",
+          "config": {
+            "label": "Video Media (Overrides Image Media)",
+            "placeholder": "",
+            "select": "media"
+          }
+        },
+        "media": {
+          "type": "Image",
+          "config": { "label": "Media", "constraint": {}, "thumbnails": [] }
+        },
+        "primary_action": {
+          "type": "Text",
+          "config": { "label": "Primary Action", "placeholder": "" }
+        },
+        "primary_action_link": {
+          "type": "Link",
+          "config": {
+            "label": "Primary Action Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "bottom_spacer": {
+          "type": "Select",
+          "config": {
+            "label": "Bottom Spacer",
+            "placeholder": "",
+            "options": ["None", "Small", "Large"]
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

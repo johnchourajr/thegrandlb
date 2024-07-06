@@ -1,0 +1,51 @@
+[
+  {
+    "uid": {
+      "__TYPE__": "UIDContent",
+      "value": "upper"
+    },
+    "headline": {
+      "__TYPE__": "FieldContent",
+      "value": "minerals",
+      "type": "Text"
+    },
+    "media": {
+      "__TYPE__": "ImageContent",
+      "origin": {
+        "id": "main",
+        "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68",
+        "width": 8640,
+        "height": 8640
+      },
+      "url": "https://images.unsplash.com/photo-1593642532973-d31b6557fa68",
+      "width": 8640,
+      "height": 8640,
+      "edit": {
+        "zoom": 1,
+        "crop": {
+          "x": 0,
+          "y": 0
+        },
+        "background": "transparent"
+      },
+      "thumbnails": {}
+    },
+    "inquire_card": {
+      "__TYPE__": "LinkContent",
+      "value": {
+        "__TYPE__": "DocumentLink",
+        "id": "mock_document_id"
+      }
+    },
+    "top_spacer": {
+      "__TYPE__": "FieldContent",
+      "value": "None",
+      "type": "Select"
+    },
+    "bottom_spacer": {
+      "__TYPE__": "FieldContent",
+      "value": "None",
+      "type": "Select"
+    }
+  }
+]

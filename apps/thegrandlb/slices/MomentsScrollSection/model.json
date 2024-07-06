@@ -1,0 +1,51 @@
+{
+  "id": "moments_scroll_section",
+  "type": "SharedSlice",
+  "name": "MomentsScrollSection",
+  "description": "MomentsScrollSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "MomentsScrollSection",
+      "primary": {
+        "section_id": {
+          "type": "Text",
+          "config": { "label": "Section Id", "placeholder": "" }
+        },
+        "headline": {
+          "type": "Text",
+          "config": { "label": "Headline", "placeholder": "" }
+        },
+        "media": {
+          "type": "Image",
+          "config": { "label": "Media", "constraint": {}, "thumbnails": [] }
+        },
+        "inquire_card": {
+          "type": "Link",
+          "config": { "label": "Inquire Card", "select": "document" }
+        },
+        "top_spacer": {
+          "type": "Select",
+          "config": {
+            "label": "Top Spacer",
+            "placeholder": "",
+            "options": ["Small", "Medium", "Large", "None"]
+          }
+        },
+        "bottom_spacer": {
+          "type": "Select",
+          "config": {
+            "label": "Bottom Spacer",
+            "placeholder": "",
+            "options": ["Small", "Medium", "Large", "None"]
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": "https://images.prismic.io/the-grand/shared-slices/moments_scroll_section/default/bfc1b8f10553812d44eb688561731085aa836e2c.png?auto=compress%2Cformat"
+    }
+  ]
+}

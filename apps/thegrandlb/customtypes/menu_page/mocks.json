@@ -1,0 +1,49 @@
+[
+  {
+    "uid": {
+      "__TYPE__": "UIDContent",
+      "value": "three"
+    },
+    "title": {
+      "__TYPE__": "FieldContent",
+      "value": "quite",
+      "type": "Text"
+    },
+    "menu_api_uid": {
+      "__TYPE__": "FieldContent",
+      "value": "depth",
+      "type": "Text"
+    },
+    "meta_title": {
+      "__TYPE__": "FieldContent",
+      "value": "natural",
+      "type": "Text"
+    },
+    "meta_description": {
+      "__TYPE__": "FieldContent",
+      "value": "peace",
+      "type": "Text"
+    },
+    "meta_image": {
+      "__TYPE__": "ImageContent",
+      "origin": {
+        "id": "main",
+        "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2",
+        "width": 3648,
+        "height": 4560
+      },
+      "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2",
+      "width": 3648,
+      "height": 4560,
+      "edit": {
+        "zoom": 1,
+        "crop": {
+          "x": 0,
+          "y": 0
+        },
+        "background": "transparent"
+      },
+      "thumbnails": {}
+    }
+  }
+]

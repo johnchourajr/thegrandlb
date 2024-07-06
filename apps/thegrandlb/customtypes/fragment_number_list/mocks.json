@@ -1,0 +1,158 @@
+[
+  {
+    "uid": {
+      "__TYPE__": "UIDContent",
+      "value": "behavior"
+    },
+    "numberlist": {
+      "__TYPE__": "GroupContentType",
+      "value": [
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": [
+            [
+              "number",
+              {
+                "__TYPE__": "StructuredTextContent",
+                "value": [
+                  {
+                    "type": "heading1",
+                    "content": {
+                      "text": "Energy"
+                    }
+                  }
+                ]
+              }
+            ],
+            [
+              "eyebrow",
+              {
+                "__TYPE__": "FieldContent",
+                "value": "finger",
+                "type": "Text"
+              }
+            ],
+            [
+              "body",
+              {
+                "__TYPE__": "StructuredTextContent",
+                "value": [
+                  {
+                    "type": "paragraph",
+                    "content": {
+                      "text": "Aute enim excepteur et non anim. Ut in ipsum id enim est labore sint minim. Laboris incididunt proident cillum commodo sunt sunt excepteur aliqua magna esse est."
+                    }
+                  }
+                ]
+              }
+            ],
+            [
+              "action_text",
+              {
+                "__TYPE__": "FieldContent",
+                "value": "nose",
+                "type": "Text"
+              }
+            ],
+            [
+              "action_link",
+              {
+                "__TYPE__": "LinkContent",
+                "value": {
+                  "__TYPE__": "ExternalLink",
+                  "url": "https://slicemachine.dev"
+                }
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    "bullet_list": {
+      "__TYPE__": "GroupContentType",
+      "value": [
+        {
+          "__TYPE__": "GroupItemContent",
+          "value": [
+            [
+              "media",
+              {
+                "__TYPE__": "ImageContent",
+                "origin": {
+                  "id": "main",
+                  "url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
+                  "width": 4024,
+                  "height": 4024
+                },
+                "url": "https://images.unsplash.com/photo-1607582278043-57198ac8da43",
+                "width": 4024,
+                "height": 4024,
+                "edit": {
+                  "zoom": 1,
+                  "crop": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "background": "transparent"
+                },
+                "thumbnails": {}
+              }
+            ],
+            [
+              "eyebrow",
+              {
+                "__TYPE__": "FieldContent",
+                "value": "youth",
+                "type": "Text"
+              }
+            ],
+            [
+              "body",
+              {
+                "__TYPE__": "StructuredTextContent",
+                "value": [
+                  {
+                    "type": "paragraph",
+                    "content": {
+                      "text": "Ea aliqua ex laboris. Enim reprehenderit sunt mollit ea laborum sint occaecat quis nostrud nostrud nostrud enim id velit labore."
+                    }
+                  }
+                ]
+              }
+            ],
+            [
+              "action_text",
+              {
+                "__TYPE__": "FieldContent",
+                "value": "construction",
+                "type": "Text"
+              }
+            ],
+            [
+              "action_link",
+              {
+                "__TYPE__": "LinkContent",
+                "value": {
+                  "__TYPE__": "ExternalLink",
+                  "url": "http://twitter.com"
+                }
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    "primary_action": {
+      "__TYPE__": "FieldContent",
+      "value": "across",
+      "type": "Text"
+    },
+    "primary_action_link": {
+      "__TYPE__": "LinkContent",
+      "value": {
+        "__TYPE__": "ExternalLink",
+        "url": "http://google.com"
+      }
+    }
+  }
+]
