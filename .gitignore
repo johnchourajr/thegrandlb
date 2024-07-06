@@ -38,3 +38,6 @@ next-env.d.ts
 # email
 /.react-email
 .react-email/*
+
+/.next
+/.react-email
