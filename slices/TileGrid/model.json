@@ -1,0 +1,192 @@
+{
+  "id": "tile_grid",
+  "type": "SharedSlice",
+  "name": "TileGrid",
+  "description": "TileGrid",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "TileGrid",
+      "primary": {
+        "section_id": {
+          "type": "Text",
+          "config": { "label": "Section Id", "placeholder": "" }
+        },
+        "headline": {
+          "type": "Text",
+          "config": { "label": "Headline", "placeholder": "" }
+        },
+        "body": {
+          "type": "Text",
+          "config": { "label": "Body", "placeholder": "" }
+        },
+        "theme": {
+          "type": "Select",
+          "config": {
+            "label": "Theme",
+            "placeholder": "",
+            "options": ["Cream", "White", "Black"]
+          }
+        },
+        "top_spacer": {
+          "type": "Select",
+          "config": {
+            "label": "Top Spacer",
+            "placeholder": "",
+            "options": ["Small", "Medium", "Large", "None"]
+          }
+        },
+        "bottom_spacer": {
+          "type": "Select",
+          "config": {
+            "label": "Bottom Spacer",
+            "placeholder": "",
+            "options": ["Small", "Medium", "Large", "None"]
+          }
+        }
+      },
+      "items": {
+        "card_fragment": {
+          "type": "Link",
+          "config": {
+            "label": "Card Fragment (Overrides content)",
+            "select": "document",
+            "customtypes": ["fragment_card"]
+          }
+        },
+        "media": {
+          "type": "Image",
+          "config": { "label": "Media", "constraint": {}, "thumbnails": [] }
+        },
+        "eyebrow": {
+          "type": "Text",
+          "config": { "label": "Eyebrow", "placeholder": "" }
+        },
+        "headline": {
+          "type": "Text",
+          "config": { "label": "Headline", "placeholder": "" }
+        },
+        "body": {
+          "type": "Text",
+          "config": { "label": "Body", "placeholder": "" }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null
+          }
+        },
+        "theme": {
+          "type": "Select",
+          "config": {
+            "label": "Theme",
+            "placeholder": "",
+            "options": [
+              "Black/White",
+              "White/Black",
+              "Creme/Black",
+              "Blue/Black",
+              "Gold/Black",
+              "Outlined"
+            ]
+          }
+        },
+        "size": {
+          "type": "Select",
+          "config": {
+            "label": "Size",
+            "placeholder": "",
+            "options": ["Default", "Large"]
+          }
+        },
+        "direction": {
+          "type": "Select",
+          "config": {
+            "label": "Direction",
+            "placeholder": "",
+            "options": ["Col", "Col Reverse"]
+          }
+        },
+        "col_start": {
+          "type": "Select",
+          "config": {
+            "label": "Col Start",
+            "placeholder": "",
+            "options": [
+              "Start 1",
+              "Start 2",
+              "Start 3",
+              "Start 4",
+              "Start 5",
+              "Start 6",
+              "Start 7",
+              "Start 8",
+              "Start 9",
+              "Start 10",
+              "Start 11",
+              "Start 12"
+            ]
+          }
+        },
+        "col_span": {
+          "type": "Select",
+          "config": {
+            "label": "Col Span",
+            "placeholder": "",
+            "options": [
+              "Span 1",
+              "Span 2",
+              "Span 3",
+              "Span 4",
+              "Span 5",
+              "Span 6",
+              "Span 7",
+              "Span 8",
+              "Span 9",
+              "Span 10",
+              "Span 11",
+              "Span 12"
+            ]
+          }
+        },
+        "row_start": {
+          "type": "Select",
+          "config": {
+            "label": "Row Start",
+            "placeholder": "",
+            "options": [
+              "Start 1",
+              "Start 2",
+              "Start 3",
+              "Start 4",
+              "Start 5",
+              "Start 6"
+            ]
+          }
+        },
+        "row_span": {
+          "type": "Select",
+          "config": {
+            "label": "Row Span",
+            "placeholder": "",
+            "options": [
+              "Span 1",
+              "Span 2",
+              "Span 3",
+              "Span 4",
+              "Span 5",
+              "Span 6"
+            ]
+          }
+        }
+      },
+      "imageUrl": "https://images.prismic.io/the-grand/shared-slices/tile_grid/default/2fead3d6f602f3b488cae974525486a77516f148.png?auto=compress%2Cformat"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "inquire_page",
+  "label": "Inquire Page",
+  "repeatable": false,
+  "status": true,
+  "format": "page",
+  "json": {
+    "Main": {
+      "uid": { "type": "UID", "config": { "label": "UID", "placeholder": "" } },
+      "title": {
+        "type": "Text",
+        "config": { "label": "Title", "placeholder": "" }
+      }
+    },
+    "Meta": {
+      "meta_title": {
+        "type": "Text",
+        "config": { "label": "Meta Title", "placeholder": "" }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": { "label": "Meta Description", "placeholder": "" }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": { "label": "Meta Image", "constraint": {}, "thumbnails": [] }
+      }
+    }
+  }
+}

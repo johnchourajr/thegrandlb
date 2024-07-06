@@ -1,0 +1,94 @@
+{
+  "id": "text_section",
+  "type": "SharedSlice",
+  "name": "TextSection",
+  "description": "TextSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "TextSection",
+      "primary": {
+        "section_id": {
+          "type": "Text",
+          "config": { "label": "Section Id", "placeholder": "" }
+        },
+        "eyebrow": {
+          "type": "Text",
+          "config": { "label": "Eyebrow", "placeholder": "" }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "primary_action": {
+          "type": "Text",
+          "config": { "label": "Primary Action", "placeholder": "" }
+        },
+        "primary_action_link": {
+          "type": "Link",
+          "config": {
+            "label": "Primary Action Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "secondary_action": {
+          "type": "Text",
+          "config": { "label": "Secondary Action", "placeholder": "" }
+        },
+        "secondary_action_link": {
+          "type": "Link",
+          "config": {
+            "label": "Secondary Action Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "top_spacer": {
+          "type": "Select",
+          "config": {
+            "label": "Top Spacer",
+            "placeholder": "",
+            "options": ["Small", "Medium", "Large", "None"]
+          }
+        },
+        "top_border": {
+          "type": "Boolean",
+          "config": {
+            "label": "Top Border",
+            "default_value": false,
+            "placeholder_true": "true",
+            "placeholder_false": "false"
+          }
+        },
+        "bottom_spacer": {
+          "type": "Select",
+          "config": {
+            "label": "Bottom Spacer",
+            "placeholder": "",
+            "options": ["Small", "Medium", "Large", "None"]
+          }
+        },
+        "bottom_border": {
+          "type": "Boolean",
+          "config": {
+            "label": "Bottom Border",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": "https://images.prismic.io/the-grand/shared-slices/text_section/default/97bc92c877a8df10d25ef4b5d76a325f6c5203ba.png?auto=compress%2Cformat"
+    }
+  ]
+}

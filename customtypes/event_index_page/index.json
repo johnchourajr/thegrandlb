@@ -1,0 +1,98 @@
+{
+  "id": "event_index_page",
+  "label": "Event Index Page",
+  "repeatable": false,
+  "status": true,
+  "format": "page",
+  "json": {
+    "Main": {
+      "uid": { "type": "UID", "config": { "label": "UID", "placeholder": "" } },
+      "title": {
+        "type": "Text",
+        "config": { "label": "Title", "placeholder": "" }
+      },
+      "gallery": {
+        "type": "Link",
+        "config": {
+          "label": "Gallery (Overrides all media)",
+          "select": "document",
+          "customtypes": ["fragment_gallery"]
+        }
+      },
+      "video_media": {
+        "type": "Link",
+        "config": {
+          "label": "Video Media (Overrides Image Media)",
+          "placeholder": "",
+          "select": "media"
+        }
+      },
+      "media": {
+        "type": "Image",
+        "config": { "label": "Media", "constraint": {}, "thumbnails": [] }
+      },
+      "headline": {
+        "type": "Text",
+        "config": { "label": "Headline", "placeholder": "" }
+      },
+      "body": {
+        "type": "Text",
+        "config": { "label": "Body", "placeholder": "" }
+      },
+      "event_pages": {
+        "type": "Group",
+        "config": {
+          "label": "Event Pages",
+          "fields": {
+            "page_media": {
+              "type": "Image",
+              "config": {
+                "label": "Page Media",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "page": {
+              "type": "Link",
+              "config": { "label": "Page", "select": "document" }
+            }
+          }
+        }
+      }
+    },
+    "Sections": {
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "page_hero": { "type": "SharedSlice" },
+            "split_gallery": { "type": "SharedSlice" },
+            "star_section": { "type": "SharedSlice" },
+            "split_scroll_section": { "type": "SharedSlice" },
+            "tile_grid": { "type": "SharedSlice" },
+            "scroll_text": { "type": "SharedSlice" },
+            "text_section": { "type": "SharedSlice" },
+            "numbers_section": { "type": "SharedSlice" },
+            "faq_section": { "type": "SharedSlice" },
+            "image_section": { "type": "SharedSlice" }
+          }
+        }
+      }
+    },
+    "Meta": {
+      "meta_title": {
+        "type": "Text",
+        "config": { "label": "Meta Title", "placeholder": "" }
+      },
+      "meta_description": {
+        "type": "Text",
+        "config": { "label": "Meta Description", "placeholder": "" }
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": { "label": "Meta Image", "constraint": {}, "thumbnails": [] }
+      }
+    }
+  }
+}

@@ -1,0 +1,145 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"section_id": {
+				"__TYPE__": "FieldContent",
+				"value": "herself",
+				"type": "Text"
+			},
+			"headline": {
+				"__TYPE__": "FieldContent",
+				"value": "writing",
+				"type": "Text"
+			},
+			"body": {
+				"__TYPE__": "FieldContent",
+				"value": "enemy",
+				"type": "Text"
+			},
+			"top_spacer": {
+				"__TYPE__": "FieldContent",
+				"value": "Large",
+				"type": "Select"
+			},
+			"bottom_spacer": {
+				"__TYPE__": "FieldContent",
+				"value": "Small",
+				"type": "Select"
+			},
+			"theme": {
+				"__TYPE__": "FieldContent",
+				"type": "Select",
+				"value": "Cream"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"eyebrow",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "fought",
+							"type": "Text"
+						}
+					],
+					[
+						"headline",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "firm",
+							"type": "Text"
+						}
+					],
+					[
+						"body",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "waste",
+							"type": "Text"
+						}
+					],
+					[
+						"link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "https://prismic.io"
+							}
+						}
+					],
+					[
+						"theme",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Select",
+							"value": "White/Black"
+						}
+					],
+					[
+						"col_start_span",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Start 2, Span 3",
+							"type": "Select"
+						}
+					],
+					[
+						"row_start_span",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "Start 2, Span 1",
+							"type": "Select"
+						}
+					],
+					[
+						"card_fragment",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "DocumentLink",
+								"id": "mock_document_id"
+							}
+						}
+					],
+					[
+						"col_start",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Select",
+							"value": "Start 2"
+						}
+					],
+					[
+						"col_span",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Select",
+							"value": "Span 10"
+						}
+					],
+					[
+						"row_start",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Select",
+							"value": "Start 1"
+						}
+					],
+					[
+						"row_span",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Select",
+							"value": "Span 2"
+						}
+					]
+				]
+			}
+		]
+	}
+]

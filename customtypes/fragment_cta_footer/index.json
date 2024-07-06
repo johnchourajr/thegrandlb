@@ -1,0 +1,64 @@
+{
+  "id": "fragment_cta_footer",
+  "label": "Fragment / CTA Footer",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "UID",
+          "placeholder": ""
+        }
+      },
+      "headline": {
+        "type": "Text",
+        "config": {
+          "label": "Headline",
+          "placeholder": ""
+        }
+      },
+      "video_media": {
+        "type": "Link",
+        "config": {
+          "label": "Video Media",
+          "placeholder": "",
+          "select": "media"
+        }
+      },
+      "media": {
+        "type": "Image",
+        "config": {
+          "label": "Media",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "inquire_card": {
+        "type": "Link",
+        "config": {
+          "label": "Inquire Card",
+          "select": "document",
+          "customtypes": ["fragment_card"]
+        }
+      },
+      "top_spacer": {
+        "type": "Select",
+        "config": {
+          "label": "Top Spacer",
+          "placeholder": "",
+          "options": ["Small", "Medium", "Large", "None"]
+        }
+      },
+      "bottom_spacer": {
+        "type": "Select",
+        "config": {
+          "label": "Bottom Spacer",
+          "placeholder": "",
+          "options": ["Small", "Medium", "Large", "None"]
+        }
+      }
+    }
+  }
+}

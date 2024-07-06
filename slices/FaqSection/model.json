@@ -1,0 +1,69 @@
+{
+  "id": "faq_section",
+  "type": "SharedSlice",
+  "name": "FaqSection",
+  "description": "FaqSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "FaqSection",
+      "primary": {
+        "section_id": { "type": "Text", "config": { "label": "Section Id" } },
+        "title": { "type": "Text", "config": { "label": "Title" } },
+        "gallery": {
+          "type": "Link",
+          "config": {
+            "label": "Gallery (Overrides all media)",
+            "select": "document",
+            "customtypes": ["fragment_gallery"]
+          }
+        },
+        "video_media": {
+          "type": "Link",
+          "config": {
+            "label": "Video Media (Overrides Image Media)",
+            "placeholder": "",
+            "select": "media"
+          }
+        },
+        "media": {
+          "type": "Image",
+          "config": { "label": "Media", "constraint": {}, "thumbnails": [] }
+        },
+        "asset_position": {
+          "type": "Boolean",
+          "config": {
+            "label": "Asset Position",
+            "placeholder_false": "Left",
+            "placeholder_true": "Right",
+            "default_value": true
+          }
+        }
+      },
+      "items": {
+        "question": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Question",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,hyperlink,em"
+          }
+        },
+        "answer": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Answer",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        }
+      },
+      "imageUrl": "https://images.prismic.io/the-grand/shared-slices/faq_section/default/4ad179cbbb479380b048b9796833013d1418bdaf.png?auto=compress%2Cformat"
+    }
+  ]
+}
