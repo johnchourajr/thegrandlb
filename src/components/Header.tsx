@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import clsx from "clsx";
-import { useAnimation, useScroll } from "framer-motion";
+import { useAnimation, useMotionValueEvent, useScroll } from "framer-motion";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 
@@ -42,7 +42,7 @@ export default function Header({
       case "/inquire":
         return {
           title: "Inquire",
-          subtitle: "Let’s Talk",
+          subtitle: "Let's Talk",
           showInquire: false,
           button: "Close",
           buttonAction: toggleModalOverlay,
@@ -74,58 +74,70 @@ export default function Header({
     }
   };
 
-  useEffect(() => {
-    const onChange = scrollY.on("change", async (currentScrollY) => {
-      setNavScrolled(currentScrollY > 10);
-    });
+  useMotionValueEvent(scrollY, "change", (currentScrollY) => {
+    setNavScrolled(currentScrollY > 10);
+  });
 
-    return () => {
-      onChange();
-    };
-  }, [scrollY]);
+  const variants = {
+    initial: {
+      "--navTop": "0",
+      "--logoScale": 1,
+      "--logoHeight": "3rem",
+      "--logoHeight-lg": "6rem",
+      "--logoY": ".125rem",
+      "--logoY-lg": ".25rem",
+      backgroundColor: "inherit",
+      color: "unset",
+      y: 0,
+      transition: { duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0 },
+    },
+    scrolled: {
+      "--navTop": "-1rem",
+      "--logoScale": 0.75,
+      "--logoHeight": "3rem",
+      "--logoHeight-lg": "5rem",
+      "--logoY": ".125rem",
+      "--logoY-lg": ".25rem",
+      backgroundColor: "inherit",
+      color: "unset",
+      y: 0,
+      transition: { duration: 1, ease: [0.19, 1, 0.22, 1] },
+    },
+    modal: {
+      "--navTop": "-2rem",
+      "--logoScale": 0.75,
+      "--logoHeight": "3rem",
+      "--logoHeight-lg": "5rem",
+      "--logoY": ".125rem",
+      "--logoY-lg": ".25rem",
+      backgroundColor: "transparent",
+      color: "white",
+      y: 0,
+    },
+  };
 
   useEffect(() => {
     if (navScrolled) {
-      controls.start({
-        "--navTop": "-1rem",
-        "--logoScale": 0.8,
-        backgroundColor: "inherit",
-        color: "unset",
-        y: 0,
-        transition: { duration: 1, ease: [0.19, 1, 0.22, 1] },
-      } as any);
+      controls.start("scrolled");
     } else if (modalOverlay) {
-      controls.start({
-        "--navTop": "-2rem",
-        "--logoScale": 0.8,
-        backgroundColor: "transparent",
-        color: "white",
-        y: 0,
-      } as any);
+      controls.start("modal");
     } else {
-      controls.start({
-        "--navTop": "0",
-        "--logoScale": 1,
-        backgroundColor: "inherit",
-        color: "unset",
-        y: 0,
-        transition: { duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0 },
-      } as any);
+      controls.start("initial");
     }
   }, [navScrolled, modalOverlay, controls]);
 
   if (!navigation) return null;
 
-  const gap = clampBuilder(1280, 1920, 0, 14);
+  const gap = clampBuilder(1280, 1920, 0, 8);
 
   return (
     <DynamicGridSection
       id={"header"}
       gridSectionType="flex"
       className={clsx(
-        "sticky top-[var(--navTop)] z-[9999] h-fit !max-w-[100vw] overflow-visible !pt-4",
+        "sticky top-[--navTop] z-[9999] h-fit !max-w-[100vw] overflow-visible !pt-4",
         "transition-colors duration-300 ease-out-expo",
-        "flex-col items-center !gap-0 md:gap-[inherit] lg:flex-row lg:gap-[var(--navGap)]",
+        "flex-col items-center md:gap-[inherit] lg:flex-row lg:gap-[--navGap]",
         "text-black",
         /**
          * NAV SCROLLED STYLES
@@ -136,7 +148,8 @@ export default function Header({
          */
         "print:relative print:min-h-[50vh] print:!border-none print:!opacity-100"
       )}
-      initial={{ "--navTop": "0rem" } as any}
+      variants={variants}
+      initial="initial"
       animate={controls}
       transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
       topSpacer="None"

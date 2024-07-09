@@ -184,7 +184,7 @@ export const NavParentItem = ({
       {hasChildren && (
         <m.ul
           className={clsx(
-            "bg-green-400 flex flex-col overflow-hidden lg:absolute lg:overflow-visible lg:pt-2 lg:pb-4",
+            "bg-green-400 flex flex-col overflow-hidden lg:absolute lg:overflow-visible lg:pb-4 lg:pt-2",
             "z-10 border-b-[1.5px] border-black",
             "lg:border-none",
             !isHovering && "pointer-events-none"
@@ -196,11 +196,9 @@ export const NavParentItem = ({
           <NavItem
             field={link_source}
             text={`${link_title} Overview`}
-            linkProps={{
-              tabIndex: isHovering ? 1 : -1,
-            }}
             linkClassName={"group relative"}
             className={"pt-2"}
+            tabIndex={isHovering ? 0 : -1}
           />
           {items.map(
             (
@@ -214,9 +212,7 @@ export const NavParentItem = ({
                   field={child_link_source}
                   text={child_link_title}
                   show={show}
-                  linkProps={{
-                    tabIndex: isHovering ? 1 : -1,
-                  }}
+                  tabIndex={isHovering ? 0 : -1}
                   linkClassName={"group relative"}
                   className={"last-of-type:pb-2 last-of-type:lg:pb-0 "}
                   aria-label={`Navigate to ${child_link_title}`}

@@ -17,13 +17,13 @@ export const HeaderLeft = ({
   return (
     <m.div
       className={clsx(
-        "grid-inset relative z-10 flex w-full justify-between lg:w-auto",
+        "relative z-10 flex w-full justify-between px-4 md:px-8 md:pr-10 lg:w-auto",
         /**
          * PRINT STYLES
          */
         "print:h-full print:w-full print:grow print:items-end print:justify-center"
       )}
-      initial={{ "--logoScale": "1", transformOrigin: "0% 70%" } as any}
+      initial={{ transformOrigin: "0% 70%" } as any}
       animate={controls}
     >
       <Link
@@ -35,7 +35,11 @@ export const HeaderLeft = ({
       >
         <HeaderLogo
           className={clsx(
-            "h-12 w-32 origin-left scale-[var(--logoScale)] lg:h-32 lg:w-64",
+            // "h-12 lg:h-32",
+            "h-[--logoHeight] lg:h-[--logoHeight-lg]",
+            "aspect-[250/93]",
+            "translate-y-[--logoY] lg:translate-y-[--logoY-lg]",
+            "origin-left scale-[var(--logoScale)]",
             /**
              * PRINT STYLES
              */

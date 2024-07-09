@@ -5,6 +5,16 @@ import { m } from "framer-motion";
 import { linkResolver } from "../../prismicio";
 import StringText from "./StringText";
 
+type NavItemProps = {
+  field: any;
+  text: string;
+  linkProps?: any;
+  linkClassName?: string;
+  show?: boolean;
+  className?: string;
+  tabIndex?: number;
+};
+
 export const NavItem = ({
   field,
   text,
@@ -12,8 +22,9 @@ export const NavItem = ({
   linkClassName,
   show = true,
   className,
+  tabIndex,
   ...rest
-}: any) => {
+}: NavItemProps) => {
   if (show === false) return null;
   return (
     <m.li className={clsx(className)}>
@@ -28,6 +39,7 @@ export const NavItem = ({
             value: field.uid,
           })
         }
+        tabIndex={tabIndex}
         {...rest}
         {...linkProps}
       >
