@@ -1,8 +1,6 @@
 import { SVGProps } from "react";
 const HeaderLogo = (props: SVGProps<SVGSVGElement>) => (
   <svg
-    // width={250}
-    // height={93}
     viewBox="0 0 250 93"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

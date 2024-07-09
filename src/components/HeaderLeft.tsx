@@ -17,7 +17,7 @@ export const HeaderLeft = ({
   return (
     <m.div
       className={clsx(
-        "relative z-10 flex w-full justify-between px-4 md:px-8 md:pr-10 lg:w-auto",
+        "grid-inset relative z-10 flex w-full justify-between lg:w-auto",
         /**
          * PRINT STYLES
          */
