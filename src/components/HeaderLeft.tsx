@@ -40,6 +40,7 @@ export const HeaderLeft = ({
             "aspect-[250/93]",
             "translate-y-[--logoY] lg:translate-y-[--logoY-lg]",
             "origin-left scale-[var(--logoScale)]",
+            modalOverlay && "text-white",
             /**
              * PRINT STYLES
              */
@@ -53,7 +54,10 @@ export const HeaderLeft = ({
               animate={{ opacity: 1, y: "-12%", x: 0 }}
               transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
               exit={{ opacity: 0, y: -30, x: "0" }}
-              className={clsx(" lg:absolute lg:right-[10%] lg:w-[0]")}
+              className={clsx(
+                " lg:absolute lg:right-[10%] lg:w-[0]",
+                modalOverlay && "text-white"
+              )}
             >
               {subtitle && (
                 <Headline

@@ -35,11 +35,11 @@ a {
 }
 
 .grid-inset-left {
-  @apply pl-4 !pr-0 md:pl-8 md:!pr-0 xl:pl-16 xl:!pr-0;
+  @apply !pr-0 pl-4 md:!pr-0 md:pl-8 xl:!pr-0 xl:pl-16;
 }
 
 .grid-inset-right {
-  @apply pr-4 !pl-0 md:pr-8 md:!pl-0 xl:pr-16 xl:!pl-0;
+  @apply !pl-0 pr-4 md:!pl-0 md:pr-8 xl:!pl-0 xl:pr-16;
 }
 
 .ticker {
@@ -244,7 +244,7 @@ body {
 
 @media (min-width: 1024px) {
   .header-height {
-    --header-height: 9rem;
+    --header-height: 7rem;
   }
 }
 
