@@ -11,7 +11,7 @@ import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import clsx from "clsx";
 import { TileItem } from "slices/TileGrid/TileItem";
 
-import communityVideo from "videos/Community Section 30s--final.mp4";
+import communityVideo from "videos/Community Section 30s--final.mp4.json";
 
 /**
  * Props for `HomepageLocation`.

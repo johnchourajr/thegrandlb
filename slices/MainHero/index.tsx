@@ -9,7 +9,7 @@ import { SliceComponentProps } from "@prismicio/react";
 import clsx from "clsx";
 import { LayoutGroup, m } from "framer-motion";
 
-import heroVideo from "videos/Homepage 60s--final.mp4";
+import heroVideo from "videos/Homepage 60s--final.mp4.json";
 
 /**
  * @typedef {import("@prismicio/client").Content.PageHeroSlice} PageHeroSlice

@@ -9,7 +9,7 @@ import { GridSection } from "./GridSection";
 import Headline from "./Headline";
 import { MuxVideoPlayer } from "./media-frame/MuxVideoPlayer";
 
-import CtaFooterVideo from "videos/Footer Peak 15s (1)--final.mp4";
+import CtaFooterVideo from "videos/Footer Peak 15s (1)--final.mp4.json";
 
 const CtaFooterHeadlineItem = ({ word, index, scrollYProgress }: any) => {
   const keyframes = [0, 1];
