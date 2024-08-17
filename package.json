@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"npm:next:dev\" \"npm:email:dev\" \"npm:slicemachine\" --names \"next,slicemachine\" --prefix-colors blue,magenta",
+    "dev": "concurrently \\\"npm:next:dev\\\" \\\"npm:email:dev\\\" \\\"npm:slicemachine\\\" --names \\\"next,slicemachine\\\" --prefix-colors blue,magenta & npx next-video sync -w",
     "email:dev": "email dev --port 3010 --dir './src/emails'",
     "next:dev": "next -p 3000",
     "build": "next build",
@@ -24,6 +24,7 @@
     "clsx": "^1.2.1",
     "framer-motion": "^10.11.2",
     "next": "^13.4.7",
+    "next-video": "^1.1.4",
     "pg": "^8.11.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

@@ -7,7 +7,9 @@ import { useRef } from "react";
 import { TileItem } from "slices/TileGrid/TileItem";
 import { GridSection } from "./GridSection";
 import Headline from "./Headline";
-import MediaFrame from "./media-frame";
+import { MuxVideoPlayer } from "./media-frame/MuxVideoPlayer";
+
+import CtaFooterVideo from "videos/Footer Peak 15s (1)--final.mp4";
 
 const CtaFooterHeadlineItem = ({ word, index, scrollYProgress }: any) => {
   const keyframes = [0, 1];
@@ -97,10 +99,8 @@ const CtaFooter = ({ data }: any) => {
               );
             })}
           </div>
-          <MediaFrame
-            media={media}
-            video_media={video_media}
-            video_options={{ controls: false, auto_play: true, loop: true }}
+          <MuxVideoPlayer
+            video={CtaFooterVideo}
             className="absolute inset-0 z-10 col-span-6 h-full w-full mix-blend-screen"
           />
         </GridSection>

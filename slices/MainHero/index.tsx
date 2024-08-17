@@ -1,13 +1,15 @@
 import Button from "@/components/Button";
 import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
-import MediaFrame from "@/components/media-frame";
+import { MuxVideoPlayer } from "@/components/media-frame/MuxVideoPlayer";
 import { stringToUnderscore } from "@/utils/utils";
 import { Content } from "@prismicio/client";
 import * as prismicH from "@prismicio/helpers";
 import { SliceComponentProps } from "@prismicio/react";
 import clsx from "clsx";
 import { LayoutGroup, m } from "framer-motion";
+
+import heroVideo from "videos/Homepage 60s--final.mp4";
 
 /**
  * @typedef {import("@prismicio/client").Content.PageHeroSlice} PageHeroSlice
@@ -47,12 +49,11 @@ const PageHero = ({ slice, context }: PageHeroProps): JSX.Element => {
               {headline}
             </Headline>
           )}
-          <MediaFrame
-            media={slice.primary.media}
-            video_media={slice.primary.video_media}
+          <MuxVideoPlayer
+            video={heroVideo}
             className="absolute inset-0 z-0 h-full w-full"
-            priority={false}
           />
+
           <m.div
             className="!hidden gap-6 sm:!flex"
             initial={{

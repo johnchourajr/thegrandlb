@@ -1,6 +1,6 @@
 import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
-import MediaFrame from "@/components/media-frame";
+import { MuxVideoPlayer } from "@/components/media-frame/MuxVideoPlayer";
 import MotionBox from "@/components/MotionBox";
 import { NumberItem } from "@/components/NumberItem";
 import Text from "@/components/Paragraph";
@@ -10,6 +10,8 @@ import * as prismicH from "@prismicio/helpers";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import clsx from "clsx";
 import { TileItem } from "slices/TileGrid/TileItem";
+
+import communityVideo from "videos/Community Section 30s--final.mp4";
 
 /**
  * Props for `HomepageLocation`.
@@ -48,9 +50,13 @@ const HomepageLocation = ({ slice }: HomepageLocationProps): JSX.Element => {
             "relative col-span-full col-start-1 flex aspect-square w-full flex-col items-center justify-center gap-10 overflow-hidden rounded-sm bg-black px-4 text-center text-white md:aspect-[16/7] md:rounded-md"
           )}
         >
-          <MediaFrame video_media={video_media} media={media} />
+          {/* <MediaFrame video_media={video_media} media={media} /> */}
+          <MuxVideoPlayer
+            video={communityVideo}
+            className="absolute inset-0 z-0 h-full w-full"
+          />
         </MotionBox>
-        <MotionBox className="col-span-full pt-10 pb-0 lg:col-span-5 lg:col-start-2 lg:pb-20">
+        <MotionBox className="col-span-full pb-0 pt-10 lg:col-span-5 lg:col-start-2 lg:pb-20">
           <Headline size={"xl"} className={"max-w-[7em]"} animateOnce>
             {prismicH.asText(title)}
           </Headline>
@@ -65,7 +71,7 @@ const HomepageLocation = ({ slice }: HomepageLocationProps): JSX.Element => {
         id={`${section_id}-2`}
         topSpacer={"None"}
         bottomSpacer={"None"}
-        className={clsx("border-t-2 border-b-2 border-white !py-12 lg:!py-0")}
+        className={clsx("border-b-2 border-t-2 border-white !py-12 lg:!py-0")}
         overflowHidden={false}
       >
         <MotionBox className="col-span-full self-center lg:col-span-3 lg:col-start-2">
@@ -102,7 +108,7 @@ const HomepageLocation = ({ slice }: HomepageLocationProps): JSX.Element => {
             headline={action_text}
             theme={"Outlined"}
             className={
-              "3lg:!h-56 relative z-10 col-span-full mt-[-2px] mb-[-2px] !h-[12vw] !border-red lg:col-span-7 lg:col-start-auto "
+              "3lg:!h-56 relative z-10 col-span-full mb-[-2px] mt-[-2px] !h-[12vw] !border-red lg:col-span-7 lg:col-start-auto "
             }
           />
         )}
