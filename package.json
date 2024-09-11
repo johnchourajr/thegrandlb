@@ -20,7 +20,7 @@
     "@prismicio/react": "^2.8.0",
     "@prismicio/slice-simulator-react": "^0.2.3",
     "axios": "^1.6.2",
-    "body-parser": "^1.20.2",
+    "body-parser": "^1.20.3",
     "clsx": "^1.2.1",
     "framer-motion": "^10.11.2",
     "next": "^13.4.7",
