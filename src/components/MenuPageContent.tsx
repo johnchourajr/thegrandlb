@@ -44,7 +44,11 @@ export const MenuPageContent = ({ page, source }: any) => {
             {page_description}
           </Headline>
         )}
-        {page_disclaimer && <Text size={"small"}>{page_disclaimer}</Text>}
+        {page_disclaimer && (
+          <Text size={"small"} className="max-w-[35em]">
+            {page_disclaimer}
+          </Text>
+        )}
         <Button onClick={() => window.print()} size="small">
           Print Menu
         </Button>

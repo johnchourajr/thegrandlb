@@ -1,5 +1,3 @@
-// import { SliceZone } from "@prismicio/react";
-
 import {
   DynamicCtaFooter,
   DynamicMenuPageContent,
@@ -30,13 +28,8 @@ const Page = ({ cta, settings, navigation, page }: any) => {
       )
   );
 
-  if (error) {
+  if (error || !source) {
     // Handle error state
-    return <></>;
-  }
-
-  if (!source) {
-    // Handle loading state
     return <></>;
   }
 

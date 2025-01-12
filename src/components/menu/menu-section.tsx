@@ -50,7 +50,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ uid, group }) => {
             <div
               id={convertToSlug(section.page_title)}
               className={clsx(
-                "absolute top-[-10rem] left-0 w-full",
+                "absolute left-0 top-[-10rem] w-full",
                 /**
                  * PRINT STYLES
                  */
@@ -60,8 +60,8 @@ const MenuSection: React.FC<MenuSectionProps> = ({ uid, group }) => {
             <a
               href={`#${convertToSlug(section.page_title)}`}
               className={clsx(
-                "group sticky top-[5rem] z-50 inline-flex h-fit md:top-[10rem]",
-                "after:from-transparent after:via-20% after:pointer-events-none after:absolute after:inset-[-1rem] after:top-[-2rem] after:bottom-[-2rem] after:z-10 after:bg-gradient-to-b after:from-bg after:via-bg after:to-[transparent] after:opacity-100 after:transition-opacity after:delay-500 after:duration-500 after:ease-in-out after:content-['']",
+                "group sticky top-[5rem] z-50 inline-flex h-fit md:top-[6rem]",
+                "after:from-transparent after:pointer-events-none after:absolute after:inset-[-1rem] after:bottom-[-2rem] after:top-[-2rem] after:z-10 after:bg-gradient-to-b after:from-bg after:via-bg after:via-20% after:to-[transparent] after:opacity-100 after:transition-opacity after:delay-500 after:duration-500 after:ease-in-out after:content-['']",
                 /**
                  * PRINT STYLES
                  */
@@ -135,7 +135,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ uid, group }) => {
                       >
                         <div
                           id={convertToSlug(prim_title)}
-                          className="absolute top-[-18rem] left-0 w-full"
+                          className="absolute left-0 top-[-18rem] w-full"
                         />
                         <Headline
                           size={"sm"}
