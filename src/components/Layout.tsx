@@ -7,6 +7,9 @@ const DynamicHead = dynamic(() => import("./LayoutHead"), {
 const DynamicFooter = dynamic(() => import("./Footer"), {
   loading: () => <></>,
 });
+const DynamicBandwidthMonitor = dynamic(() => import("./BandwidthMonitor"), {
+  loading: () => <></>,
+});
 
 type LayoutProps = {
   settings?: any;
@@ -55,6 +58,8 @@ const Layout = ({
       {navigation && (
         <DynamicFooter settings={settings} navigation={navigation} />
       )}
+      {/* BANDWIDTH MONITOR */}
+      <DynamicBandwidthMonitor />
     </div>
   );
 };

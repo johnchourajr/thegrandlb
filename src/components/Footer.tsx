@@ -37,7 +37,6 @@ const NavLinkItem = ({
           value: link_source.uid,
         })
       }
-      // {...extra}
     >
       <StringText
         size={stringTextSize}
@@ -210,15 +209,15 @@ const FooterLower = ({
       </div>
       <div
         className={clsx(
-          "relative order-1 flex h-full w-full items-center justify-center text-center lg:order-[unset]",
+          "relative order-1 mb-4 flex h-full w-full items-center justify-center text-center lg:order-[unset] lg:mb-0",
           /**
            * PRINT STYLES
            */
           "print:h-[unset]"
         )}
       >
-        <div className="bottom-0 flex w-full items-start justify-center overflow-hidden lg:absolute lg:h-20 ">
-          <HeaderLogo className="w-44 lg:absolute lg:w-[unset] " />
+        <div className="bottom-0 flex w-full items-start justify-center overflow-clip lg:absolute lg:aspect-[250/93]">
+          <HeaderLogo className="-bottom-[3vw] aspect-[250/93] h-20 lg:absolute lg:h-[10vw]" />
         </div>
       </div>
       <div className="order-2 mb-4 w-full lg:order-[unset] lg:text-end">

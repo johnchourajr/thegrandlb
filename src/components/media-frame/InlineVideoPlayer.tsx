@@ -54,7 +54,7 @@ const InlineVideoPlayer = ({
     autoPlay: auto_play,
     loop: loop,
     playsInline: true,
-    preload: "auto",
+    preload: "metadata", // Changed from "auto" to "metadata" to reduce initial bandwidth
     muted: true,
     controls,
   } as VideoHTMLAttributes<HTMLVideoElement>;
@@ -79,7 +79,12 @@ const InlineVideoPlayer = ({
   };
 
   useEffect(() => {
-    if (isInView) {
+    // Check if user has slow connection
+    const isSlowConnection = document.documentElement.hasAttribute(
+      "data-slow-connection"
+    );
+
+    if (isInView && !isSlowConnection) {
       setIsPlaying(true);
     } else {
       setIsPlaying(false);
@@ -170,9 +175,11 @@ const InlineVideoPlayer = ({
                 src={posterUrl}
                 width={`480`}
                 height={`270`}
-                quality={10}
+                quality={50}
                 priority={priority || false}
                 alt=""
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
               />
             </div>
           )}
