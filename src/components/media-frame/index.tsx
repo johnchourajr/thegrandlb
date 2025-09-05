@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import ParallaxWrapper from "../ParallaxWrapper";
 import ImageBox from "./ImageBox";
 import ImageGallery from "./ImageGallery";
@@ -64,10 +64,14 @@ const MediaFrame = ({
 
   if (!media?.kind && !videoUrl && !gallery) return null;
   return (
-    <m.div id={id} layoutId={id} className={clsx("media-frame", className)}>
+    <motion.div
+      id={id}
+      layoutId={id}
+      className={clsx("media-frame", className)}
+    >
       {renderMedia()}
       <div className="noise" />
-    </m.div>
+    </motion.div>
   );
 };
 

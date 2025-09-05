@@ -8,7 +8,7 @@ import * as prismicH from "@prismicio/helpers";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import clsx from "clsx";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface NumberItemProps {
   media?: any;
@@ -81,16 +81,16 @@ export const NumberItem: React.FC<NumberItemProps> = ({
       {...rest}
     >
       {hasMedia && (
-        <m.div variants={item}>
+        <motion.div variants={item}>
           <PrismicNextImage
             field={media}
             className=" h-[4.375rem] w-[4.375rem]"
             fallbackAlt={""}
           />
-        </m.div>
+        </motion.div>
       )}
       {numberAsString && (
-        <m.div variants={item}>
+        <motion.div variants={item}>
           <Headline
             as="h3"
             size={headline_size}
@@ -103,17 +103,17 @@ export const NumberItem: React.FC<NumberItemProps> = ({
           >
             {numberAsString}
           </Headline>
-        </m.div>
+        </motion.div>
       )}
       {eyebrow && (
-        <m.div variants={item}>
+        <motion.div variants={item}>
           <StringText className="whitespace-pre-line" uppercase bold>
             {eyebrow}
           </StringText>
-        </m.div>
+        </motion.div>
       )}
       {bodyAsString && (
-        <m.div
+        <motion.div
           variants={item}
           className={clsx(bodyLong ? "max-w-[24em]" : "max-w-[18em]")}
         >
@@ -131,7 +131,7 @@ export const NumberItem: React.FC<NumberItemProps> = ({
               hyperlink: ({ text, node: { data } }) => {
                 return (
                   <PrismicLink
-                    field={data}
+                    field={data as any}
                     onClick={() => {
                       handleEvent({
                         action: "click",
@@ -148,7 +148,7 @@ export const NumberItem: React.FC<NumberItemProps> = ({
               },
             }}
           />
-        </m.div>
+        </motion.div>
       )}
     </MotionBox>
   );

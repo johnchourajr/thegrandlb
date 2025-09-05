@@ -13,7 +13,7 @@ import {
 import { formatDate, formatTitle } from "@/utils/utils";
 import axios from "axios";
 import clsx from "clsx";
-import { useRouter } from "next/router";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { GridSection } from "../GridSection";
 import { formatPhoneForDatabase } from "./InputPhone";
@@ -34,6 +34,7 @@ export type HandleFormFunction = (
 
 const InquireFormContainer = ({ ...extra }) => {
   const router = useRouter();
+  const params = useSearchParams();
   const data = getFormData() as FormPage[];
   const [submitLoading, setSubmitLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
@@ -145,15 +146,13 @@ const InquireFormContainer = ({ ...extra }) => {
   };
 
   useEffect(() => {
-    const urlParams = router.query;
-
     // update formState with url params
-    Object.entries(urlParams).forEach(([key, value]) => {
+    Object.entries(params).forEach(([key, value]) => {
       if (value) {
         handleFormChange(key as FieldTypeValues, value, 0, null);
       }
     });
-  }, [router]);
+  }, [params]);
 
   return (
     <GridSection

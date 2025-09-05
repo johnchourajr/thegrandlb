@@ -1,7 +1,9 @@
+"use client";
+
 import clsx from "clsx";
 import React from "react";
 
-import { m, Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 export type TextSize =
   | "5xl"
@@ -44,7 +46,7 @@ const wrapEachLetterInSpan = (word: string, index: number) => {
   };
   const letters = word.toString().split("");
   const wrappedLetters = letters.map((letter, idx) => (
-    <m.span
+    <motion.span
       key={idx}
       variants={item}
       data-letter={letter}
@@ -52,7 +54,7 @@ const wrapEachLetterInSpan = (word: string, index: number) => {
       className={clsx("relative inline-block")}
     >
       {letter}
-    </m.span>
+    </motion.span>
   ));
   return <>{wrappedLetters}</>;
 };
@@ -68,7 +70,7 @@ const wrapEachWordInSpan = (word: string, index: number) => {
   };
 
   return (
-    <m.span
+    <motion.span
       key={index}
       variants={item}
       data-word={word}
@@ -76,7 +78,7 @@ const wrapEachWordInSpan = (word: string, index: number) => {
       className={clsx("relative")}
     >
       {word}{" "}
-    </m.span>
+    </motion.span>
   );
 };
 
@@ -253,7 +255,7 @@ function Headline({
     },
   };
 
-  const MotionComp = m[Comp];
+  const MotionComp = motion[Comp];
 
   return (
     <MotionComp

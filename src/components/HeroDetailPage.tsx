@@ -1,6 +1,6 @@
 import { isEmptyObject, stringToUnderscore } from "@/utils/utils";
 import clsx from "clsx";
-import { LayoutGroup, m } from "framer-motion";
+import { LayoutGroup, motion } from "framer-motion";
 import Button from "./Button";
 import { GridSection } from "./GridSection";
 import Headline from "./Headline";
@@ -76,7 +76,7 @@ const HeroDetailPage = ({
             }}
           />
           {primary_action && (
-            <m.div
+            <motion.div
               className="gap-6 pt-6 sm:flex"
               initial={{
                 opacity: 0,
@@ -103,7 +103,7 @@ const HeroDetailPage = ({
                 )}
                 eventLabel={stringToUnderscore(`${headline} Primary CTA`)}
               />
-            </m.div>
+            </motion.div>
           )}
         </div>
       </GridSection>
@@ -113,7 +113,7 @@ const HeroDetailPage = ({
           bottomSpacer={"Medium"}
           topSpacer={"Medium"}
         >
-          <MotionBox className="col-span-full pt-10 pb-0 lg:col-span-6 lg:col-start-2 lg:pt-12 lg:pb-20">
+          <MotionBox className="col-span-full pb-0 pt-10 lg:col-span-6 lg:col-start-2 lg:pb-20 lg:pt-12">
             <Headline size={"xl"} className={"max-w-[9em]"} animateOnce>
               {subhead}
             </Headline>

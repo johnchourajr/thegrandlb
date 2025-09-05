@@ -1,5 +1,6 @@
+import { useModalHeaderContent } from "@/hooks/useModalHeaderContent";
 import clsx from "clsx";
-import { AnimatePresence, m } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Headline from "./Headline";
 import Link from "./Link";
 import HeaderLogo from "./svg/HeaderLogo";
@@ -9,13 +10,12 @@ export const HeaderLeft = ({
   isNavOpen,
   setIsNavOpen,
   controls,
-  modalOverlay,
-  modalContent,
 }: any) => {
-  const { subtitle } = modalContent();
+  const { modalOverlay, getModalHeaderContent } = useModalHeaderContent();
+  const { subtitle } = getModalHeaderContent();
 
   return (
-    <m.div
+    <motion.div
       className={clsx(
         "grid-inset relative z-10 flex w-full justify-between lg:w-auto",
         /**
@@ -49,7 +49,7 @@ export const HeaderLeft = ({
         />
         <AnimatePresence mode="sync">
           {modalOverlay && (
-            <m.div
+            <motion.div
               initial={{ opacity: 0, y: -30, x: "0" }}
               animate={{ opacity: 1, y: "-12%", x: 0 }}
               transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
@@ -69,7 +69,7 @@ export const HeaderLeft = ({
                   {subtitle}
                 </Headline>
               )}
-            </m.div>
+            </motion.div>
           )}
         </AnimatePresence>
       </Link>
@@ -91,7 +91,7 @@ export const HeaderLeft = ({
           >
             {isNavOpen ? (
               <>
-                <m.div
+                <motion.div
                   layoutId="nav-upper-line"
                   className={clsx("absolute h-[2px] w-6 bg-black")}
                   animate={{
@@ -99,7 +99,7 @@ export const HeaderLeft = ({
                     y: "0rem",
                   }}
                 />
-                <m.div
+                <motion.div
                   layoutId="nav-lower-line"
                   className={clsx("absolute h-[2px] w-6 bg-black")}
                   animate={{
@@ -110,7 +110,7 @@ export const HeaderLeft = ({
               </>
             ) : (
               <>
-                <m.div
+                <motion.div
                   layoutId="nav-upper-line"
                   className={clsx("absolute h-[2px] w-6 bg-black")}
                   animate={{
@@ -118,7 +118,7 @@ export const HeaderLeft = ({
                     y: "-0.25rem",
                   }}
                 />
-                <m.div
+                <motion.div
                   layoutId="nav-lower-line"
                   className={clsx("absolute h-[2px] w-6 bg-black")}
                   animate={{
@@ -131,7 +131,7 @@ export const HeaderLeft = ({
           </button>
         </div>
       )}
-    </m.div>
+    </motion.div>
   );
 };
 

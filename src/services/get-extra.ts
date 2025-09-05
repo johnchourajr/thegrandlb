@@ -1,7 +1,12 @@
 import { createClient } from "prismicio";
+import type { PreviewData } from "../types/page-props";
 import fetchLinks from "../utils/fetchLinks";
 
-export const getExtra = async ({ previewData }: any) => {
+export const getExtra = async ({
+  previewData,
+}: {
+  previewData?: PreviewData;
+}) => {
   const client = createClient({ previewData });
 
   const [navigation, settings, cta, tour_card, events_card, menus_card] =
@@ -23,7 +28,7 @@ export const getExtra = async ({ previewData }: any) => {
     ]);
 
   // write a function to pass array into a console.log to see if the data is undefined
-  const debuggIfKeysInObjectAreUndefined = (obj: any) => {
+  const debuggIfKeysInObjectAreUndefined = (obj: Record<string, unknown>) => {
     Object.keys(obj).forEach((key) => {
       if (obj[key] === undefined) {
         // console.log(key);

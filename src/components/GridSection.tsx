@@ -1,6 +1,8 @@
+"use client";
+
 import clsx from "clsx";
 import type { MotionProps } from "framer-motion";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 
 type Spacer = "None" | "Small" | "Medium" | "Large" | null;
 
@@ -30,8 +32,7 @@ export function GridSection({
   overflowHidden = true,
   ...rest
 }: GridSectionPropsWithMotion) {
-  // create motion component based on the as prop
-  const MotionComp = m[Comp];
+  const MotionComp = motion[Comp];
 
   const getSpacerTopStyles = (space?: Spacer) => {
     if (!space) return "!pt-0";

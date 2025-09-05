@@ -1,10 +1,10 @@
-import { m, SVGMotionProps } from "framer-motion";
+import { motion, SVGMotionProps } from "framer-motion";
 import { Ref, SVGProps } from "react";
 const Star = (
   props: SVGProps<SVGSVGElement> &
     SVGMotionProps<SVGSVGElement> & { ref?: Ref<SVGSVGElement> }
 ) => (
-  <m.svg
+  <motion.svg
     xmlns="http://www.w3.org/2000/svg"
     width={18}
     height={17}
@@ -16,6 +16,6 @@ const Star = (
       fill="currentColor"
       d="M8.643 0c2.024 5.396 3.103 6.504 8.5 8.5-5.397 1.996-6.544 3.104-8.5 8.5-2.024-5.396-3.103-6.504-8.5-8.5C5.54 6.504 6.619 5.396 8.643 0Z"
     />
-  </m.svg>
+  </motion.svg>
 );
 export default Star;

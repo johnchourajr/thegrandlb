@@ -1,4 +1,4 @@
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import { ComponentType } from "react";
 
 type MotionBoxElementType = "div" | "section" | "article" | "header" | "footer";
@@ -61,9 +61,9 @@ const MotionBox: React.FC<MotionBoxType> = ({
   };
 
   return (
-    <m.div ref={ref} {...motionProps} {...rest}>
+    <motion.div ref={ref} {...motionProps} {...rest}>
       {children}
-    </m.div>
+    </motion.div>
   );
 };
 

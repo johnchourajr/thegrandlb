@@ -15,7 +15,7 @@ const container = {
   },
 };
 
-const GridBase = ({ uid: parentUid, sectionId, items, layoutLoader }: any) => {
+const GridBase = ({ uid: parentUid, sectionId, items }: any) => {
   return (
     <GridSection
       id={sectionId}
@@ -91,7 +91,7 @@ const GridBase = ({ uid: parentUid, sectionId, items, layoutLoader }: any) => {
             id={id}
             uid={uid}
             page_media={page_media}
-            layoutLoader={layoutLoader}
+            layout={space.layout}
             parentUid={parentUid}
             {...data}
           />

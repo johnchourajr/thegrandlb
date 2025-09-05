@@ -1,7 +1,9 @@
+"use client";
+
 import clsx from "clsx";
 import {
   LayoutGroup,
-  m,
+  motion,
   useScroll,
   useSpring,
   useTransform,
@@ -34,7 +36,7 @@ const HeadlineItem = ({ headline, scrollYProgress }: any) => {
         animateOnce={true}
       >
         {splitFirstTwoWords}
-        <m.span
+        <motion.span
           initial={{
             opacity: 0,
             y: "0.1em",
@@ -46,7 +48,7 @@ const HeadlineItem = ({ headline, scrollYProgress }: any) => {
           }}
         >
           <Star style={{ height: ".9em", width: ".7em" }} />
-        </m.span>
+        </motion.span>
         {splitWordsPastTwo}
       </Headline>
       <Headline
@@ -59,7 +61,7 @@ const HeadlineItem = ({ headline, scrollYProgress }: any) => {
         animateOnce={true}
       >
         {splitFirstTwoWords}
-        <m.span
+        <motion.span
           initial={{
             opacity: 0,
             y: "0.1em",
@@ -71,7 +73,7 @@ const HeadlineItem = ({ headline, scrollYProgress }: any) => {
           }}
         >
           <Star style={{ height: ".9em", width: ".7em" }} />
-        </m.span>
+        </motion.span>
         {splitWordsPastTwo}
       </Headline>
     </>
@@ -130,7 +132,7 @@ const HeroCategoryPage = ({
           topSpacer={"Medium"}
         >
           {icon_media && (
-            <MotionBox className="col-span-full flex pt-10 pb-0 sm:col-span-2 sm:row-span-2 sm:items-center sm:justify-center lg:col-span-3 lg:col-start-1 lg:row-span-1 lg:pt-3 lg:pb-3">
+            <MotionBox className="col-span-full flex pb-0 pt-10 sm:col-span-2 sm:row-span-2 sm:items-center sm:justify-center lg:col-span-3 lg:col-start-1 lg:row-span-1 lg:pb-3 lg:pt-3">
               <ImageBox
                 media={icon_media}
                 className={clsx(
@@ -141,7 +143,7 @@ const HeroCategoryPage = ({
           )}
           <MotionBox
             className={clsx(
-              "col-span-full pt-10 pb-0 lg:pt-12 lg:pb-20",
+              "col-span-full pb-0 pt-10 lg:pb-20 lg:pt-12",
               icon_media
                 ? "sm:col-start-3 lg:col-span-5 lg:col-start-auto"
                 : "lg:col-span-5 lg:col-start-2"

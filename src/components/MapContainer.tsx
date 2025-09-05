@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { GridSection } from "./GridSection";
 import Headline from "./Headline";
@@ -31,7 +31,7 @@ const ItemSelected = ({ filteredItem, ...extra }: any) => {
           Choose a space →
         </Headline>
       )}
-      <m.div className="inline flex-row gap-2 whitespace-pre-wrap">
+      <motion.div className="inline flex-row gap-2 whitespace-pre-wrap">
         {attributes ? (
           <>
             {attributes.map((attribute: any) => (
@@ -56,7 +56,7 @@ const ItemSelected = ({ filteredItem, ...extra }: any) => {
         ) : (
           <Text size={"small"}>Select a space for more details</Text>
         )}
-      </m.div>
+      </motion.div>
     </div>
   );
 };
@@ -87,18 +87,18 @@ const ItemList = ({
   } as any;
 
   return (
-    <ul className="flex w-full flex-col gap-4 py-4 px-8 md:!pr-10 md:pb-10 lg:py-10">
+    <ul className="flex w-full flex-col gap-4 px-8 py-4 md:!pr-10 md:pb-10 lg:py-10">
       {items.map((item: any) => (
-        <m.li
-          key={item.key}
+        <motion.li
+          key={itemotion.key}
           variants={variants}
-          onClick={() => onItemSelect(item.key)}
-          onMouseOver={() => onItemHover(item.key)}
+          onClick={() => onItemSelect(itemotion.key)}
+          onMouseOver={() => onItemHover(itemotion.key)}
           onMouseOut={() => onItemHover(null)}
           animate={
-            selectedItemKey === item.key
+            selectedItemKey === itemotion.key
               ? "selected"
-              : hoveredItemKey === item.key
+              : hoveredItemKey === itemotion.key
               ? "hover"
               : "initial"
           }
@@ -116,10 +116,10 @@ const ItemList = ({
               "flex h-[min-content] w-full flex-row items-baseline justify-between gap-1"
             )}
           >
-            <Text size={"small"}>{item.letter}</Text>
-            <StringText size={"large"}>{item.name}</StringText>
+            <Text size={"small"}>{itemotion.letter}</Text>
+            <StringText size={"large"}>{itemotion.name}</StringText>
           </div>
-        </m.li>
+        </motion.li>
       ))}
     </ul>
   );
@@ -199,7 +199,7 @@ const MapContainer = ({ ...extra }) => {
 
   const getFilteredItem = () => {
     if (!selectedItemKey) return false;
-    return items.filter((item) => item.key === selectedItemKey)[0];
+    return items.filter((item) => itemotion.key === selectedItemKey)[0];
   };
 
   return (
@@ -211,7 +211,7 @@ const MapContainer = ({ ...extra }) => {
         "relative h-[100%] min-h-[100%] auto-rows-[min-content] !gap-0 overflow-y-scroll rounded-tl-md rounded-tr-md bg-bg !px-0"
       )}
     >
-      <div className="relative col-span-full row-start-2 flex flex-col items-start justify-start border-t-[1px] border-[#C8C2BC] lg:col-span-4 lg:row-start-1 lg:border-t-0 lg:border-r-[1px]">
+      <div className="relative col-span-full row-start-2 flex flex-col items-start justify-start border-t-[1px] border-[#C8C2BC] lg:col-span-4 lg:row-start-1 lg:border-r-[1px] lg:border-t-0">
         <ItemSelected filteredItem={getFilteredItem()} />
         <ItemList
           items={filteredList}

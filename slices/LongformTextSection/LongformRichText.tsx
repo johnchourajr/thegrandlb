@@ -114,7 +114,7 @@ export const LongformRichText = ({ field, paragraphSize = "large" }: any) => (
       hyperlink: ({ text, node: { data } }) => {
         return (
           <PrismicLink
-            field={data}
+            field={data as any}
             onClick={() => {
               handleEvent({
                 action: "click",

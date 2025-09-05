@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 
 type BandwidthData = {
@@ -14,40 +16,58 @@ const BandwidthMonitor = () => {
   const [isSlowConnection, setIsSlowConnection] = useState(false);
 
   useEffect(() => {
-    // Check if connection API is available
-    if ("connection" in navigator) {
-      const connection = (navigator as any).connection;
+    // Only run on client side
+    if (typeof window === "undefined") return;
 
-      const updateConnectionInfo = () => {
-        const data: BandwidthData = {
-          connectionType: connection.type || "unknown",
-          effectiveType: connection.effectiveType || "unknown",
-          downlink: connection.downlink || 0,
-          rtt: connection.rtt || 0,
+    try {
+      // Check if connection API is available
+      if ("connection" in navigator) {
+        const connection = (navigator as any).connection;
+
+        const updateConnectionInfo = () => {
+          try {
+            const data: BandwidthData = {
+              connectionType: connection.type || "unknown",
+              effectiveType: connection.effectiveType || "unknown",
+              downlink: connection.downlink || 0,
+              rtt: connection.rtt || 0,
+            };
+
+            setBandwidthData(data);
+
+            // Consider connection slow if downlink is less than 1 Mbps or effective type is 2g/3g
+            const isSlow =
+              data.downlink < 1 || ["2g", "3g"].includes(data.effectiveType);
+            setIsSlowConnection(isSlow);
+          } catch (error) {
+            console.warn("Error updating connection info:", error);
+          }
         };
 
-        setBandwidthData(data);
+        // Initial check
+        updateConnectionInfo();
 
-        // Consider connection slow if downlink is less than 1 Mbps or effective type is 2g/3g
-        const isSlow =
-          data.downlink < 1 || ["2g", "3g"].includes(data.effectiveType);
-        setIsSlowConnection(isSlow);
-      };
+        // Listen for connection changes
+        connection.addEventListener("change", updateConnectionInfo);
 
-      // Initial check
-      updateConnectionInfo();
-
-      // Listen for connection changes
-      connection.addEventListener("change", updateConnectionInfo);
-
-      return () => {
-        connection.removeEventListener("change", updateConnectionInfo);
-      };
+        return () => {
+          try {
+            connection.removeEventListener("change", updateConnectionInfo);
+          } catch (error) {
+            console.warn("Error removing connection listener:", error);
+          }
+        };
+      }
+    } catch (error) {
+      console.warn("Error initializing bandwidth monitor:", error);
     }
   }, []);
 
   // Apply optimizations based on connection speed
   useEffect(() => {
+    // Only run on client side
+    if (typeof window === "undefined") return;
+
     if (isSlowConnection) {
       // Disable autoplay videos for slow connections
       document.documentElement.setAttribute("data-slow-connection", "true");

@@ -1,6 +1,8 @@
+"use client";
+
 import ArrowRight from "@/components/svg/ArrowRight";
 import clsx from "clsx";
-import { m, useScroll, Variants } from "framer-motion";
+import { motion, useScroll, Variants } from "framer-motion";
 import React, { useEffect, useState } from "react";
 
 const MenuArrowScroll: React.FC = () => {
@@ -35,7 +37,7 @@ const MenuArrowScroll: React.FC = () => {
   };
 
   return (
-    <m.a
+    <motion.a
       href="#top"
       initial="hidden"
       variants={wrapperVariants}
@@ -49,7 +51,7 @@ const MenuArrowScroll: React.FC = () => {
       )}
     >
       <ArrowRight className={clsx("h-6 w-6 -rotate-90 text-black")} />
-    </m.a>
+    </motion.a>
   );
 };
 

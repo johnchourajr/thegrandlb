@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { AnimatePresence, m } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import Text from "../Paragraph";
 import type { GalleryControlsProps } from "./types";
@@ -15,12 +15,12 @@ const GalleryDot = ({
   layoutId?: string;
   props?: any;
 }) => (
-  <m.span
+  <motion.span
     initial={{ opacity: 0, width: 0 }}
     animate={{ opacity: 1, width: "auto" }}
     exit={{ opacity: 0, width: 0 }}
     className={clsx(
-      "min-h-4 min-w-4 flex",
+      "flex min-h-4 min-w-4",
       "bg-gray-300 relative z-10 flex h-6 w-6 items-center justify-center rounded-full px-1",
       "hover:before:scale-150 hover:after:opacity-20",
       "before:absolute before:z-10 before:h-[5px] before:w-[5px] before:transform before:rounded-full before:bg-black before:transition-all before:duration-300 before:ease-in-out before:content-['']",
@@ -64,7 +64,7 @@ const GalleryControls: React.FC<GalleryControlsProps> = ({
           >
             <AnimatePresence>
               {isActive ? (
-                <m.div
+                <motion.div
                   className="inline overflow-hidden"
                   initial={
                     {
@@ -117,7 +117,7 @@ const GalleryControls: React.FC<GalleryControlsProps> = ({
                     outerControls={outerControls}
                     className={"px-[6px] before:!scale-[1.5]"}
                   /> */}
-                </m.div>
+                </motion.div>
               ) : (
                 <GalleryDot
                   outerControls={outerControls}

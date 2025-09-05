@@ -1,10 +1,12 @@
+"use client";
+
 import { BasicRichText } from "@/components/BasicRichText";
 import Headline from "@/components/Headline";
 import MotionBox from "@/components/MotionBox";
 import * as prismicH from "@prismicio/helpers";
 import { PrismicRichText } from "@prismicio/react";
 import clsx from "clsx";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 export const FaqItem = ({ question, answer, open }: any) => {
@@ -14,7 +16,7 @@ export const FaqItem = ({ question, answer, open }: any) => {
   return (
     <MotionBox
       className={clsx(
-        "relative flex w-full flex-col border-t-2 border-white pt-8 pb-8 text-left",
+        "relative flex w-full flex-col border-t-2 border-white pb-8 pt-8 text-left",
         "last-of-type:border-b-2"
       )}
     >
@@ -43,7 +45,7 @@ export const FaqItem = ({ question, answer, open }: any) => {
             }}
           />
         )}
-        <m.span
+        <motion.span
           variants={{
             open: { rotate: 180 },
             closed: { rotate: 0 },
@@ -52,16 +54,16 @@ export const FaqItem = ({ question, answer, open }: any) => {
           transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
           className="absolute right-0 flex h-8 w-8 items-center justify-center rounded-full "
         >
-          <m.span className="absolute h-[2px] w-6 bg-black" />
-          <m.span
+          <motion.span className="absolute h-[2px] w-6 bg-black" />
+          <motion.span
             variants={{ closed: { rotate: -90 }, open: { rotate: 0 } }}
             animate={isOpen ? "open" : "closed"}
             transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
             className="absolute h-[2px] w-6 rotate-90 bg-black"
           />
-        </m.span>
+        </motion.span>
       </button>
-      <m.div
+      <motion.div
         variants={{
           open: {
             height: "auto",
@@ -84,7 +86,7 @@ export const FaqItem = ({ question, answer, open }: any) => {
             <BasicRichText field={answer} paragraphSize="large" />
           </div>
         )}
-      </m.div>
+      </motion.div>
     </MotionBox>
   );
 };

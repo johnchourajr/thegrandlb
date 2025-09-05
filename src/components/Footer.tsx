@@ -1,9 +1,11 @@
+"use client";
+
 import { handleEvent } from "@/utils/events";
 import { stringToUnderscore } from "@/utils/utils";
 import * as prismicH from "@prismicio/helpers";
 import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import clsx from "clsx";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import { linkResolver } from "prismicio";
 import Button from "./Button";
 import { GridSection } from "./GridSection";
@@ -217,7 +219,7 @@ const FooterLower = ({
         )}
       >
         <div className="bottom-0 flex w-full items-start justify-center overflow-clip lg:absolute lg:aspect-[250/93]">
-          <HeaderLogo className="-bottom-[3vw] aspect-[250/93] h-20 lg:absolute lg:h-[10vw]" />
+          <HeaderLogo className="-bottom-[2vw] aspect-[250/93] h-20 lg:absolute lg:h-[10vw]" />
         </div>
       </div>
       <div className="order-2 mb-4 w-full lg:order-[unset] lg:text-end">
@@ -229,7 +231,7 @@ const FooterLower = ({
               hyperlink: ({ text, node: { data } }) => (
                 <PrismicLink
                   linkResolver={linkResolver}
-                  field={data}
+                  field={data as any}
                   className="underline"
                 >
                   {text}
@@ -249,7 +251,7 @@ const FooterLower = ({
 };
 
 export default function Footer({ settings, navigation }: any) {
-  const router = useRouter();
+  const pathname = usePathname();
 
   if (!navigation && !settings) return null;
 
@@ -275,15 +277,15 @@ export default function Footer({ settings, navigation }: any) {
   const footerLinks = getItemsWithKey("default");
 
   const getFooterState = () => {
-    if (router.pathname === "/inquire") {
+    if (pathname === "/inquire") {
       return {
         show: false,
       };
-    } else if (router.pathname === "/thanks") {
+    } else if (pathname === "/thanks") {
       return {
         show: false,
       };
-    } else if (router.pathname === "/map") {
+    } else if (pathname === "/map") {
       return {
         show: false,
       };

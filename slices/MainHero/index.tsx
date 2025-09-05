@@ -7,7 +7,7 @@ import { Content } from "@prismicio/client";
 import * as prismicH from "@prismicio/helpers";
 import { SliceComponentProps } from "@prismicio/react";
 import clsx from "clsx";
-import { LayoutGroup, m } from "framer-motion";
+import { LayoutGroup, motion } from "framer-motion";
 
 /**
  * @typedef {import("@prismicio/client").Content.PageHeroSlice} PageHeroSlice
@@ -53,7 +53,7 @@ const PageHero = ({ slice, context }: PageHeroProps): JSX.Element => {
             className="absolute inset-0 z-0 h-full w-full"
             priority={false}
           />
-          <m.div
+          <motion.div
             className="!hidden gap-6 sm:!flex"
             initial={{
               opacity: 0,
@@ -89,7 +89,7 @@ const PageHero = ({ slice, context }: PageHeroProps): JSX.Element => {
                 size="large"
               />
             )}
-          </m.div>
+          </motion.div>
         </div>
       </GridSection>
       <div className="flex w-full flex-col justify-between gap-2 px-4 py-2 sm:hidden">

@@ -1,3 +1,5 @@
+"use client";
+
 // inline video player component
 import { EmptyLinkField, FilledLinkToMediaField } from "@prismicio/types";
 import clsx from "clsx";

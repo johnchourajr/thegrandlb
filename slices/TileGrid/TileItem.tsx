@@ -1,3 +1,5 @@
+"use client";
+
 import ForwardedPrismicLink from "@/components/ForwardPrismicLink";
 import Headline from "@/components/Headline";
 import ImageBox from "@/components/media-frame/ImageBox";
@@ -6,7 +8,7 @@ import StringText from "@/components/StringText";
 import ArrowRight from "@/components/svg/ArrowRight";
 import { handleEvent } from "@/utils/events";
 import clsx from "clsx";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import { linkResolver } from "prismicio";
 import type { TileItemProps, TileStyleProps } from "./types";
 import {
@@ -16,7 +18,9 @@ import {
   getNumberForRowStart,
 } from "./utils";
 
-const MotionComp = m(ForwardedPrismicLink, { forwardMotionProps: true }) as any;
+const MotionComp = motion(ForwardedPrismicLink, {
+  forwardMotionProps: true,
+}) as any;
 
 export const TileItem = ({
   col_span,
@@ -179,7 +183,7 @@ export const TileItem = ({
       }
       {...rest}
     >
-      <m.div
+      <motion.div
         initial={
           initial ||
           ({
@@ -216,7 +220,7 @@ export const TileItem = ({
       >
         {theme !== "Outlined" && (
           <ArrowRight
-            className={clsx("absolute top-[3vw] right-[3vw] -rotate-45")}
+            className={clsx("absolute right-[3vw] top-[3vw] -rotate-45")}
           />
         )}
         {media && (
@@ -250,7 +254,7 @@ export const TileItem = ({
             {eyebrow}
           </StringText>
         )}
-      </m.div>
+      </motion.div>
     </MotionComp>
   );
 };

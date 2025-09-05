@@ -1,7 +1,9 @@
-import { m, MotionProps } from "framer-motion";
+"use client";
+
+import { motion, MotionProps } from "framer-motion";
 import { SVGProps } from "react";
 const ArrowRight = (props: SVGProps<SVGSVGElement> | MotionProps) => {
-  const Svg = m.svg as any;
+  const Svg = motion.svg as any;
   return (
     <Svg
       xmlns="http://www.w3.org/2000/svg"

@@ -1,3 +1,5 @@
+"use client";
+
 // setup react component
 
 import { splitTextIntoArray } from "@/utils/utils";

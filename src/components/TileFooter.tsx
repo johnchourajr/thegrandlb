@@ -1,12 +1,14 @@
-import { useRouter } from "next/router";
+"use client";
+
+import { usePathname } from "next/navigation";
 import TileGrid from "slices/TileGrid";
 
 const TileFooter = ({ footer_cards = [] }: any) => {
-  const { asPath } = useRouter();
+  const pathname = usePathname();
 
   const pruneFooterCards = (cards: any) => {
     return cards?.filter((card: any) => {
-      return !asPath.includes(card.data.link.uid);
+      return !pathname.includes(card.data.link.uid);
     });
   };
 

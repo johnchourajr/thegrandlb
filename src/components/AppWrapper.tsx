@@ -1,10 +1,10 @@
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 
 const AppWrapper = ({ children, className }: any) => {
   return (
-    <m.div id="top" className={className}>
+    <motion.div id="top" className={className}>
       {children}
-    </m.div>
+    </motion.div>
   );
 };
 

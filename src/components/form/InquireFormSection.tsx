@@ -6,7 +6,7 @@ import {
 } from "@/utils/events";
 import { formatDate, formatTitle } from "@/utils/utils";
 import clsx from "clsx";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import AppearWrap from "../AppearWrap";
 import Button from "../Button";
 import Headline from "../Headline";
@@ -168,7 +168,7 @@ export const InquireFormSection = ({
   // };
 
   return (
-    <m.div
+    <motion.div
       className={clsx(
         "relative col-span-full mx-5 flex h-fit flex-col items-start justify-center py-5 md:mx-9 md:py-9 xl:mx-12 xl:py-12",
         "after:content[''] after:absolute after:bottom-0 after:h-[3px] after:w-full after:bg-white"
@@ -219,7 +219,7 @@ export const InquireFormSection = ({
             className={clsx(
               "fixed bottom-0 left-0 z-50 flex w-full items-center justify-center gap-6 p-2",
               "lg:--relative lg:--bottom-[unset] lg:sticky  lg:bottom-4 lg:left-[unset] lg:items-start lg:justify-start lg:p-0",
-              "via-50% bg-gradient-to-b from-[transparent] to-bg"
+              "bg-gradient-to-b from-[transparent] via-50% to-bg"
             )}
           >
             {step !== 0 && (
@@ -296,6 +296,6 @@ export const InquireFormSection = ({
         </div>
         <div className="2xl:w-1/4 " aria-hidden></div>
       </AppearWrap>
-    </m.div>
+    </motion.div>
   );
 };

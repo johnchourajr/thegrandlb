@@ -1,5 +1,8 @@
+"use client";
+
+import { useModalHeaderContent } from "@/hooks/useModalHeaderContent";
 import clsx from "clsx";
-import { AnimatePresence, m } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Button from "./Button";
 import { NavParentItem } from "./NavParentItem";
 import Star from "./svg/Star";
@@ -8,12 +11,11 @@ export const HeaderRight = ({
   navigation,
   isNavOpen,
   setIsNavOpen,
-  modalOverlay,
   isMobile,
-  modalContent,
 }: any) => {
+  const { modalOverlay, getModalHeaderContent } = useModalHeaderContent();
   const { data } = navigation.results[0];
-  const { button, buttonAction } = modalContent();
+  const { button, buttonAction } = getModalHeaderContent();
 
   const variants = {
     open: {
@@ -28,7 +30,7 @@ export const HeaderRight = ({
     },
   };
 
-  const AnimatedNav = isMobile ? m.nav : "nav";
+  const AnimatedNav = isMobile ? motion.nav : "nav";
 
   const animationProps = isMobile && {
     initial: isMobile ? "closed" : "open",
@@ -76,12 +78,12 @@ export const HeaderRight = ({
             transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0.3 }}
             exit={{ opacity: 0, y: 20 }}
           />
-          <m.span
+          <motion.span
             className="z-10 mb-4 w-full lg:mb-0 lg:w-fit"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0.2 }}
             exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0.2 }}
           >
             <Button
               field={{
@@ -98,11 +100,11 @@ export const HeaderRight = ({
               eventCategory="nav_button"
               eventLabel="inquire"
             />
-          </m.span>
+          </motion.span>
         </AnimatedNav>
       )}
       {modalOverlay && (
-        <m.span
+        <motion.span
           className="grid-inset absolute top-5 z-10 flex w-full justify-end lg:relative lg:top-[unset]"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -117,7 +119,7 @@ export const HeaderRight = ({
             eventCategory="nav_button"
             eventLabel="modal_action"
           />
-        </m.span>
+        </motion.span>
       )}
     </AnimatePresence>
   );
