@@ -3,6 +3,7 @@
 import { useModalHeaderContent } from "@/hooks/useModalHeaderContent";
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
+import type { HeaderRightProps } from "../types/header";
 import Button from "./Button";
 import { NavParentItem } from "./NavParentItem";
 import Star from "./svg/Star";
@@ -12,9 +13,15 @@ export const HeaderRight = ({
   isNavOpen,
   setIsNavOpen,
   isMobile,
-}: any) => {
+}: HeaderRightProps) => {
   const { modalOverlay, getModalHeaderContent } = useModalHeaderContent();
-  const { data } = navigation.results[0];
+
+  // Safe navigation data access with fallback
+  const navigationData = navigation?.data;
+  if (!navigationData) {
+    return null; // Early return if no navigation data
+  }
+
   const { button, buttonAction } = getModalHeaderContent();
 
   const variants = {
@@ -54,7 +61,7 @@ export const HeaderRight = ({
           )}
           {...animationProps}
         >
-          {data.slices.map(
+          {navigationData.slices.map(
             ({ variation, primary, ...rest }: any, index: number) => {
               if (primary.show === false) return null;
               return (

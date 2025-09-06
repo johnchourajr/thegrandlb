@@ -1,4 +1,5 @@
 import type { TextSize } from "@/components/Headline";
+import type { Content } from "@prismicio/client";
 import {
   MotionProps,
   MotionStyle,
@@ -71,12 +72,16 @@ export interface TileItemProps {
   theme?: TileTheme;
   size?: "Default" | "Large" | undefined;
   direction?: "Col" | "Col Reverse" | undefined;
-  media?: any;
-  link?: any;
-  headline?: any;
-  eyebrow?: any;
-  card_fragment?: any;
-  body?: any;
+  media?:
+    | Content.FragmentCardDocument["data"]["media"]
+    | Content.TourPageDocument["data"]["media"];
+  link?:
+    | Content.FragmentCardDocument["data"]["link"]
+    | Content.TourPageDocument["data"];
+  headline?: string;
+  eyebrow?: string;
+  card_fragment?: Content.FragmentCardDocument;
+  body?: string;
   className?: string;
   innerClassName?: string;
   gridOptions?: boolean;

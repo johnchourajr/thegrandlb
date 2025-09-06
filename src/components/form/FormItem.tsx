@@ -1,4 +1,4 @@
-import { Question } from "@/data/formotion.types";
+import { Question } from "@/data/form.types";
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -14,7 +14,7 @@ import { HandleFormFunction } from "./InquireFormContainer";
 interface FormItemProps extends Question {
   page_key?: string;
   component?: any;
-  value: any;
+  value: string | number;
   isValid?: boolean;
   showError?: string | boolean;
   onBlur?: () => void;

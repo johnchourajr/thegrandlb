@@ -5,12 +5,14 @@ import Headline from "./Headline";
 import Link from "./Link";
 import HeaderLogo from "./svg/HeaderLogo";
 
+import type { HeaderLeftProps } from "../types/header";
+
 export const HeaderLeft = ({
   isMobile,
   isNavOpen,
   setIsNavOpen,
   controls,
-}: any) => {
+}: HeaderLeftProps & { controls: any }) => {
   const { modalOverlay, getModalHeaderContent } = useModalHeaderContent();
   const { subtitle } = getModalHeaderContent();
 

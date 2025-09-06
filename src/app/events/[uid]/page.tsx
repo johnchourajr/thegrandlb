@@ -1,6 +1,7 @@
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import Layout from "@components/Layout";
+import type { Content } from "@prismicio/client";
 import { createClient } from "../../../../prismicio";
 
 import {
@@ -9,10 +10,6 @@ import {
   DynamicSliceZone,
   DynamicTileFooter,
 } from "@/components/DynamicExports";
-
-/**
- * Types
- */
 
 export default async function Page({ params }: { params: { uid: string } }) {
   const client = createClient();
@@ -27,12 +24,18 @@ export default async function Page({ params }: { params: { uid: string } }) {
   const { settings, navigation, cta, footer_cards } = extra;
   const { data: { slices = [], ...pageRest } = {} } = page || {};
 
+  // Type assertion for event page data
+  const eventPageData = pageRest as Content.EventPageDocument["data"];
+
   return (
     <Layout page={page} settings={settings} navigation={navigation}>
       <DynamicHeroDetailPage
         uid={page?.uid}
-        title={pageRest?.title}
-        headline={pageRest?.headline}
+        title={eventPageData?.title}
+        headline={eventPageData?.headline}
+        caption={eventPageData?.caption}
+        media={eventPageData?.media}
+        video_media={eventPageData?.video_media}
       />
       <DynamicSliceZone slices={page?.data.slices} />
       <DynamicCtaFooter data={cta} />

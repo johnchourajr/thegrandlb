@@ -7,6 +7,12 @@ import Text from "@/components/Paragraph";
 import StringText from "@/components/StringText";
 import ArrowRight from "@/components/svg/ArrowRight";
 import { handleEvent } from "@/utils/events";
+import {
+  getImageField,
+  getKeyText,
+  getLinkField,
+  getSelectValue,
+} from "@/utils/prismic-helpers";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import { linkResolver } from "prismicio";
@@ -49,19 +55,19 @@ export const TileItem = ({
   if (!link) return null;
 
   const hasCardFragment = card_fragment?.data ? true : false;
-  if (hasCardFragment) {
-    col_span = card_fragment.data.col_span;
-    col_start = card_fragment.data.col_start;
-    row_span = card_fragment.data.row_span;
-    row_start = card_fragment.data.row_start;
-    theme = card_fragment.data.theme;
-    size = card_fragment.data.size;
-    direction = card_fragment.data.direction;
-    media = card_fragment.data.media;
-    link = card_fragment.data.link;
-    headline = card_fragment.data.headline;
-    eyebrow = card_fragment.data.eyebrow;
-    body = card_fragment.data.body;
+  if (hasCardFragment && card_fragment) {
+    col_span = getSelectValue(card_fragment.data.col_span) || col_span;
+    col_start = getSelectValue(card_fragment.data.col_start) || col_start;
+    row_span = getSelectValue(card_fragment.data.row_span) || row_span;
+    row_start = getSelectValue(card_fragment.data.row_start) || row_start;
+    theme = getSelectValue(card_fragment.data.theme) || theme;
+    size = getSelectValue(card_fragment.data.size) || size;
+    direction = getSelectValue(card_fragment.data.direction) || direction;
+    media = getImageField(card_fragment.data.media) || media;
+    link = getLinkField(card_fragment.data.link) || link;
+    headline = getKeyText(card_fragment.data.headline) || headline;
+    eyebrow = getKeyText(card_fragment.data.eyebrow) || eyebrow;
+    body = getKeyText(card_fragment.data.body) || body;
   }
 
   const getStyles = (): TileStyleProps => {
@@ -170,7 +176,9 @@ export const TileItem = ({
           action: "click",
           category: `tile_link`,
           label: `tile_section_${section_id}`,
-          value: `${headline}: /${link?.slug}`,
+          value: `${headline}: /${
+            (link as any)?.slug || (link as any)?.uid || "unknown"
+          }`,
         });
       }}
       className={

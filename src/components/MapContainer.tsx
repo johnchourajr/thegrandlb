@@ -1,6 +1,18 @@
 import clsx from "clsx";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useEffect, useState } from "react";
+import type {
+  ItemListProps,
+  ItemSelectedProps,
+  MapContainerProps,
+  MapItem,
+  MapItemKey,
+} from "../types/map";
+import {
+  convertPrismicToMapItem,
+  generateMapLetter,
+} from "../utils/map-helpers";
+import { ensureArray, safeMap } from "../utils/safe-array";
 import { GridSection } from "./GridSection";
 import Headline from "./Headline";
 import Link from "./Link";
@@ -8,55 +20,67 @@ import Text from "./Paragraph";
 import StringText from "./StringText";
 import Map from "./svg/Map";
 
-const ItemSelected = ({ filteredItem, ...extra }: any) => {
-  const { key, name, attributes } = filteredItem || {};
+/**
+ * MapContainer Component - Interactive venue map with space selection
+ *
+ * This component is fully typed using Prismic content types and provides a
+ * type-safe interface for displaying interactive venue spaces. It supports
+ * both hardcoded fallback data and dynamic Prismic tour space data.
+ *
+ * Usage with Prismic data:
+ * <MapContainer tourSpaces={tourIndexPage.data.spaces} />
+ *
+ * Usage with fallback data:
+ * <MapContainer />
+ */
 
-  return (
-    <div className="grid-inset flex w-full flex-col gap-2 border-b-[1px] border-[#C8C2BC] py-4 lg:py-8">
-      {name && (
-        <Link
-          href={`/tour/${key}`}
-          className="decoration-1 underline-offset-4 hover:underline"
-          eventCategory={"interactiveMap"}
-          eventLabel={"mapHeadlineButton"}
-          eventValue={name}
-        >
-          <Headline size={"md"} animateOnce>
-            {name} →
-          </Headline>
-        </Link>
-      )}
-      {!name && (
+const ItemSelected = ({ filteredItem }: ItemSelectedProps) => {
+  if (!filteredItem) {
+    return (
+      <div className="grid-inset flex w-full flex-col gap-2 border-b-[1px] border-[#C8C2BC] py-4 lg:py-8">
         <Headline size={"md"} className="opacity-50" animateOnce>
           Choose a space →
         </Headline>
-      )}
-      <motion.div className="inline flex-row gap-2 whitespace-pre-wrap">
-        {attributes ? (
-          <>
-            {attributes.map((attribute: any) => (
-              <Text key={attribute} size={"small"} className="inline-flex">
-                {attribute} <span className="opacity-30"> / </span>
-              </Text>
-            ))}
-            {key && (
-              <Text as="span" size={"small"} className="whitespace-nowrap">
-                <Link
-                  eventCategory={"interactiveMap"}
-                  eventLabel={"mapLinkTextButton"}
-                  eventValue={name}
-                  href={`tour/${key}`}
-                  className="whitespace-nowrap underline"
-                >
-                  View space
-                </Link>
-              </Text>
-            )}
-          </>
-        ) : (
+        <m.div className="inline flex-row gap-2 whitespace-pre-wrap">
           <Text size={"small"}>Select a space for more details</Text>
-        )}
-      </motion.div>
+        </m.div>
+      </div>
+    );
+  }
+
+  const { key, name, attributes } = filteredItem;
+
+  return (
+    <div className="grid-inset flex w-full flex-col gap-2 border-b-[1px] border-[#C8C2BC] py-4 lg:py-8">
+      <Link
+        href={`/tour/${key}`}
+        className="decoration-1 underline-offset-4 hover:underline"
+        eventCategory={"interactiveMap"}
+        eventLabel={"mapHeadlineButton"}
+        eventValue={name}
+      >
+        <Headline size={"md"} animateOnce>
+          {name} →
+        </Headline>
+      </Link>
+      <m.div className="inline flex-row gap-2 whitespace-pre-wrap">
+        {attributes.map((attribute) => (
+          <Text key={attribute} size={"small"} className="inline-flex">
+            {attribute} <span className="opacity-30"> / </span>
+          </Text>
+        ))}
+        <Text as="span" size={"small"} className="whitespace-nowrap">
+          <Link
+            eventCategory={"interactiveMap"}
+            eventLabel={"mapLinkTextButton"}
+            eventValue={name}
+            href={`tour/${key}`}
+            className="whitespace-nowrap underline"
+          >
+            View space
+          </Link>
+        </Text>
+      </m.div>
     </div>
   );
 };
@@ -67,7 +91,7 @@ const ItemList = ({
   onItemHover,
   selectedItemKey,
   onItemSelect,
-}: any) => {
+}: ItemListProps) => {
   const variants = {
     initial: {
       opacity: 0.3,
@@ -84,21 +108,21 @@ const ItemList = ({
       "--after-opacity": 0.05,
       "--after-color": "#311514",
     },
-  } as any;
+  };
 
   return (
     <ul className="flex w-full flex-col gap-4 px-8 py-4 md:!pr-10 md:pb-10 lg:py-10">
-      {items.map((item: any) => (
-        <motion.li
-          key={itemotion.key}
+      {items.map((item) => (
+        <m.li
+          key={item.key}
           variants={variants}
-          onClick={() => onItemSelect(itemotion.key)}
-          onMouseOver={() => onItemHover(itemotion.key)}
+          onClick={() => onItemSelect(item.key)}
+          onMouseOver={() => onItemHover(item.key)}
           onMouseOut={() => onItemHover(null)}
           animate={
-            selectedItemKey === itemotion.key
+            selectedItemKey === item.key
               ? "selected"
-              : hoveredItemKey === itemotion.key
+              : hoveredItemKey === item.key
               ? "hover"
               : "initial"
           }
@@ -116,16 +140,17 @@ const ItemList = ({
               "flex h-[min-content] w-full flex-row items-baseline justify-between gap-1"
             )}
           >
-            <Text size={"small"}>{itemotion.letter}</Text>
-            <StringText size={"large"}>{itemotion.name}</StringText>
+            <Text size={"small"}>{item.letter}</Text>
+            <StringText size={"large"}>{item.name}</StringText>
           </div>
-        </motion.li>
+        </m.li>
       ))}
     </ul>
   );
 };
 
-const items: itemType[] = [
+// Hardcoded fallback data for map items
+const items: MapItem[] = [
   {
     key: "grand-ballroom",
     letter: "A",
@@ -170,36 +195,44 @@ const items: itemType[] = [
   },
 ];
 
-// { key: string; letter: string; name: string; attributes: string[]; }[]
-type itemType = {
-  key?: string;
-  letter?: string;
-  name?: string;
-  attributes?: string[];
-};
-
-const MapContainer = ({ ...extra }) => {
-  const [hoveredItemKey, setHoveredItemKey] = useState(null);
-  const [selectedItemKey, setSelectedItemKey] = useState("grand-ballroom");
-  const [filteredList, setFilteredList] = useState<itemType[]>([]);
+const MapContainer = ({ tourSpaces, ...extra }: MapContainerProps) => {
+  const [hoveredItemKey, setHoveredItemKey] = useState<MapItemKey>(null);
+  const [selectedItemKey, setSelectedItemKey] =
+    useState<MapItemKey>("grand-ballroom");
+  const [filteredList, setFilteredList] = useState<MapItem[]>([]);
 
   useEffect(() => {
-    setFilteredList(items);
-  }, []);
+    // Ensure we always have a valid array
+    const safeTourSpaces = ensureArray(tourSpaces);
 
-  const handleItemHover = (itemKey: any) => {
+    // If Prismic tour spaces are provided, convert them to MapItems
+    if (safeTourSpaces.length > 0) {
+      const prismicItems = safeMap(safeTourSpaces, (space, index) =>
+        convertPrismicToMapItem(space, generateMapLetter(index))
+      ).filter((item): item is MapItem => item !== null);
+
+      if (prismicItems.length > 0) {
+        setFilteredList(prismicItems);
+        return;
+      }
+    }
+
+    // Fallback to hardcoded items (always safe)
+    setFilteredList(ensureArray(items));
+  }, [tourSpaces]);
+
+  const handleItemHover = (itemKey: MapItemKey) => {
     setHoveredItemKey(itemKey);
-    // console.log({ itemKey });
   };
 
-  const handleItemSelect = (itemKey: any) => {
+  const handleItemSelect = (itemKey: string) => {
     setSelectedItemKey(itemKey);
-    // console.log({ itemKey });
   };
 
-  const getFilteredItem = () => {
+  const getFilteredItem = (): MapItem | false => {
     if (!selectedItemKey) return false;
-    return items.filter((item) => itemotion.key === selectedItemKey)[0];
+    const foundItem = filteredList.find((item) => item.key === selectedItemKey);
+    return foundItem || false;
   };
 
   return (

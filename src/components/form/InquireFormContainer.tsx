@@ -116,15 +116,15 @@ const InquireFormContainer = ({ ...extra }) => {
 
       const data = {
         additional_details: additional_details?.value || "",
-        desired_date: formatDate(desired_date.value),
-        desired_space: formatTitle(desired_space.value),
+        desired_date: formatDate(String(desired_date.value)),
+        desired_space: formatTitle(String(desired_space.value)),
         desired_time: desired_time.value,
         email: email.value,
         event_name: event_name.value,
-        event_type: formatTitle(event_type.value),
+        event_type: formatTitle(String(event_type.value)),
         full_name: full_name.value,
-        head_count: parseInt(head_count.value),
-        phone: formatPhoneForDatabase(phone.value),
+        head_count: parseInt(String(head_count.value)),
+        phone: formatPhoneForDatabase(String(phone.value)),
       };
 
       console.log({ formState, data });

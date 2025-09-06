@@ -7,6 +7,8 @@ import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import { linkResolver } from "prismicio";
+import type { FooterProps } from "../types/footer";
+import { ensureArray, safeMap } from "../utils/safe-array";
 import Button from "./Button";
 import { GridSection } from "./GridSection";
 import Headline from "./Headline";
@@ -77,50 +79,47 @@ const FooterUpper = ({
         "print:hidden"
       )}
     >
-      {footerColumns.map(({ primary, items }: any, index: number) => {
-        return (
-          <div
-            key={index}
-            className={clsx(
-              "flex w-full flex-col gap-2 px-6",
-              "border-white lg:border-l-2"
-            )}
-          >
-            <NavLinkItem
-              link_source={primary.link_source}
-              link_title={primary.link_title}
-              {...primary}
-            />
-            {items.map(
-              (
-                { child_link_source, child_link_title, ...childExtra }: any,
-                index: number
-              ) => {
-                if (primary.show === false || !child_link_source.id)
-                  return null;
+      {safeMap(footerColumns, ({ primary, items }: any, index: number) => (
+        <div
+          key={index}
+          className={clsx(
+            "flex w-full flex-col gap-2 px-6",
+            "border-white lg:border-l-2"
+          )}
+        >
+          <NavLinkItem
+            link_source={primary.link_source}
+            link_title={primary.link_title}
+            {...primary}
+          />
+          {items.map(
+            (
+              { child_link_source, child_link_title, ...childExtra }: any,
+              index: number
+            ) => {
+              if (primary.show === false || !child_link_source.id) return null;
 
-                return (
-                  <NavLinkItem
-                    key={index}
-                    link_source={child_link_source}
-                    link_title={child_link_title}
-                    stringTextSize="small"
-                    className="hidden lg:block"
-                    {...childExtra}
-                  />
-                );
-              }
-            )}
-          </div>
-        );
-      })}
+              return (
+                <NavLinkItem
+                  key={index}
+                  link_source={child_link_source}
+                  link_title={child_link_title}
+                  stringTextSize="small"
+                  className="hidden lg:block"
+                  {...childExtra}
+                />
+              );
+            }
+          )}
+        </div>
+      ))}
       <div
         className={clsx(
           "flex w-full flex-col gap-2 px-6",
           "border-white lg:border-x-2"
         )}
       >
-        {footerLinks.map(({ primary }: any, index: number) => {
+        {safeMap(footerLinks, ({ primary }: any, index: number) => {
           if (primary.show === false) return null;
           return (
             <div key={index} className={clsx("flex w-full flex-col gap-2")}>
@@ -250,12 +249,13 @@ const FooterLower = ({
   );
 };
 
-export default function Footer({ settings, navigation }: any) {
+export default function Footer({ settings, navigation }: FooterProps) {
   const pathname = usePathname();
 
   if (!navigation && !settings) return null;
+  if (!navigation?.data) return null;
 
-  const { slices } = navigation.results[0].data;
+  const { slices } = navigation.data;
   const {
     primary_action,
     primary_action_link,
@@ -267,10 +267,10 @@ export default function Footer({ settings, navigation }: any) {
     parent_company,
     parent_company_link,
     legal_text,
-  } = settings?.data;
+  } = settings?.data || {};
 
   const getItemsWithKey = (key: string) => {
-    return slices.filter((slice: any) => slice.variation === key);
+    return ensureArray(slices).filter((slice: any) => slice.variation === key);
   };
 
   const footerColumns = getItemsWithKey("withChildren");

@@ -11,9 +11,10 @@ import { createClient } from "../../../prismicio";
 /**
  * Types
  */
-import type { GetStaticPropsParams, PageProps } from "@/types/page-props";
 
-const Page = ({ page, settings, navigation, cta, footer_cards }: PageProps) => {
+export default async function Page() {
+  const { page, settings, navigation, cta, footer_cards } = await getPageData();
+
   return (
     <Layout page={page} navigation={navigation} settings={settings}>
       <DynamicSliceZone slices={page.data.slices} />
@@ -21,9 +22,7 @@ const Page = ({ page, settings, navigation, cta, footer_cards }: PageProps) => {
       <DynamicTileFooter uid={page.uid} footer_cards={footer_cards} />
     </Layout>
   );
-};
-
-export default Page;
+}
 
 export async function generateMetadata() {
   return {
@@ -32,9 +31,9 @@ export async function generateMetadata() {
   };
 }
 
-export async function getStaticProps({ previewData }: GetStaticPropsParams) {
-  const client = createClient({ previewData });
-  const extra = await getExtra({ previewData });
+async function getPageData() {
+  const client = createClient();
+  const extra = await getExtra({});
 
   const [page, childPages] = await Promise.all([
     client.getByUID("offsite_index_page", "offsite", {
@@ -44,10 +43,8 @@ export async function getStaticProps({ previewData }: GetStaticPropsParams) {
   ]);
 
   return {
-    props: {
-      page,
-      childPages,
-      ...extra,
-    },
+    page,
+    childPages,
+    ...extra,
   };
 }

@@ -17,7 +17,9 @@ import MotionBox from "./MotionBox";
 import Text from "./Paragraph";
 import Star from "./svg/Star";
 
-const HeadlineItem = ({ headline, scrollYProgress }: any) => {
+import type { HeadlineItemProps } from "../types/hero";
+
+const HeadlineItem = ({ headline, scrollYProgress }: HeadlineItemProps) => {
   const keyframes = [0, 1];
 
   const xTop = useTransform(scrollYProgress, keyframes, [`0%`, `-20%`]);

@@ -3,7 +3,9 @@ import { getTourIndexLayout } from "@/components/grid-index/utils";
 import HeroCategoryPage from "@/components/HeroCategoryPage";
 import Layout from "@/components/Layout";
 import { getExtra } from "@/services/get-extra";
+import type { TourSpaceWithLayout } from "@/types/grid";
 import fetchLinks from "@/utils/fetchLinks";
+import type { Content } from "@prismicio/client";
 import { createClient } from "../../../prismicio";
 
 import {
@@ -23,17 +25,27 @@ export default async function Page() {
     client.getByType("tour_page"),
   ]);
 
+  // Type assertion for resolved page after fetchLinks
+  const typedPage = page as Content.TourIndexPageDocument & {
+    data: {
+      spaces: Array<{
+        page: Content.TourPageDocument;
+        page_media: Content.TourIndexPageDocumentDataSpacesItem["page_media"];
+      }>;
+    } & Content.TourIndexPageDocument["data"];
+  };
+
   const { settings, navigation, cta, footer_cards } = extra;
 
   const {
     data: { slices, title, gallery, video_media, media, ...pageRest },
-  } = page;
+  } = typedPage;
 
   const { icon_media, headline, body, spaces } = pageRest;
 
   // Pre-compute layout data for each space
-  const spacesWithLayout =
-    spaces?.map((item: any) => ({
+  const spacesWithLayout: TourSpaceWithLayout[] =
+    spaces?.map((item) => ({
       ...item,
       layout: getTourIndexLayout(item.page.uid),
     })) || [];

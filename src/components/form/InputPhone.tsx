@@ -49,7 +49,7 @@ const InputPhone = ({
   const nameString = name.toString();
 
   const [formattedValue, setFormattedValue] = useState(
-    formatPhoneNumber(value)
+    formatPhoneNumber(String(value))
   );
 
   const formatPhoneNumberOnChange = (

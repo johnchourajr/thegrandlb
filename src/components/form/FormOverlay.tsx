@@ -5,11 +5,16 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
+import type { FormOverlayProps } from "../../types/modal";
 import MapContainer from "../MapContainer";
 import InquireFormContainer from "./InquireFormContainer";
 import InquireThanks from "./InquireThanks";
 
-const FormOverlay = ({ className, toggleModalOverlay, ...extra }: any) => {
+const FormOverlay = ({
+  className,
+  toggleModalOverlay,
+  ...extra
+}: FormOverlayProps) => {
   const [formInProgress, setFormInProgress] = useState(false);
   const { modalOverlay } = useModalContext();
   const pathname = usePathname();

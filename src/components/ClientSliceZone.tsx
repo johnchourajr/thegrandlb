@@ -2,12 +2,17 @@
 
 import { SliceZone } from "@prismicio/react";
 import { components } from "../../slices";
+import type { ClientSliceZoneProps } from "../types/slices";
 
-type ClientSliceZoneProps = {
-  slices: any[];
-  context?: any;
-};
-
-export default function ClientSliceZone({ slices, context }: ClientSliceZoneProps) {
-  return <SliceZone slices={slices} components={components} context={context} />;
+export default function ClientSliceZone({
+  slices,
+  context,
+}: ClientSliceZoneProps) {
+  return (
+    <SliceZone
+      slices={slices as any}
+      components={components}
+      context={context}
+    />
+  );
 }

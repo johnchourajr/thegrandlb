@@ -20,7 +20,9 @@ import { clampBuilder } from "@/utils/utils";
 import HeaderLeft from "./HeaderLeft";
 import HeaderRight from "./HeaderRight";
 
-export default function Header({ navigation }: { navigation?: any }) {
+import type { HeaderProps } from "../types/layout";
+
+export default function Header({ navigation }: HeaderProps) {
   const [navScrolled, setNavScrolled] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const isMobile = useMediaQuery(1024);

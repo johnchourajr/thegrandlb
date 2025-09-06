@@ -3,9 +3,9 @@ export type Option = {
   value: string;
 };
 
-export type ValidationRule = {
+export type FormValidationRule = {
   rule: string;
-  value: any;
+  value: string | number | boolean;
   error_message: string;
 };
 
@@ -16,7 +16,7 @@ export type Question = {
   question_key: string;
   required: boolean;
   options: Option[];
-  validations: ValidationRule;
+  validations: FormValidationRule;
   error_message: string;
   data_type: string;
 };
@@ -84,7 +84,7 @@ export interface FormStateType {
 }
 
 export interface FieldValue {
-  value: any;
+  value: string | number;
   isValid?: boolean;
   page_key?: string;
 }
@@ -100,12 +100,12 @@ export interface InputProps {
   placeholder: string;
   handleFormChange: (
     fieldName: FieldTypes,
-    value: any,
+    value: string | number,
     pageKey: string,
-    validations?: any
+    validations?: FormValidationRule
   ) => void;
-  validations: any;
-  value: any;
-  options: string[]; // Update with the appropriate type for options
+  validations: FormValidationRule;
+  value: string | number;
+  options: string[];
   className?: string;
 }

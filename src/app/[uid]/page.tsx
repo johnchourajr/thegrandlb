@@ -1,5 +1,3 @@
-import dynamic from "next/dynamic";
-
 /**
  * Components
  */
@@ -38,9 +36,7 @@ export default async function Page({ params }: { params: { uid: string } }) {
 
   return (
     <Layout page={page} settings={settings} navigation={navigation}>
-      <DynamicSliceZone
-        slices={page?.data?.slices as unknown as any}
-      />
+      <DynamicSliceZone slices={page?.data?.slices} />
     </Layout>
   );
 }

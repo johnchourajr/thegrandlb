@@ -10,16 +10,16 @@ import type {
 export type PageProps = {
   page: PageDocument;
   settings: SettingsDocument;
-  navigation: NavLinksDocument[];
-  cta: FragmentCtaFooterDocument[];
+  navigation: NavLinksDocument | null;
+  cta: FragmentCtaFooterDocument | null;
   footer_cards: FragmentCardDocument[];
 };
 
 export type InquirePageProps = {
   page: InquirePageDocument;
   settings: SettingsDocument;
-  navigation: NavLinksDocument[];
-  cta: FragmentCtaFooterDocument[];
+  navigation: NavLinksDocument | null;
+  cta: FragmentCtaFooterDocument | null;
   footer_cards: FragmentCardDocument[];
 };
 

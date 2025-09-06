@@ -5,14 +5,12 @@ import HeroCategoryPage from "@/components/HeroCategoryPage";
 import Layout from "@/components/Layout";
 import TileFooter from "@/components/TileFooter";
 import { getExtra } from "@/services/get-extra";
+import type { EventPageWithLayout } from "@/types/grid";
 import fetchLinks from "@/utils/fetchLinks";
+import type { Content } from "@prismicio/client";
 import { createClient } from "../../../prismicio";
 
 import { DynamicSliceZone } from "@/components/DynamicExports";
-
-/**
- * Types
- */
 
 export default async function Page() {
   const client = createClient();
@@ -38,14 +36,19 @@ export default async function Page() {
     } = {},
   } = page || {};
 
-  const { icon_media, headline, body, event_pages } = pageRest;
+  // Type assertion for event index page data
+  const eventIndexData = pageRest as Content.EventIndexPageDocument["data"];
+  const { headline, body, event_pages } = eventIndexData || {};
+  // Note: icon_media doesn't exist on EventIndexPage, only on TourIndexPage
 
   // Pre-compute layout data for each event page
-  const itemsWithLayout =
-    event_pages?.map((item: any) => ({
-      ...item,
-      layout: getEventIndexLayout(item.page.uid),
-    })) || [];
+  const itemsWithLayout: EventPageWithLayout[] =
+    event_pages?.map(
+      (item: Content.EventIndexPageDocumentDataEventPagesItem) => ({
+        ...item,
+        layout: getEventIndexLayout((item.page as any).uid), // Need to cast for now due to relation field
+      })
+    ) || [];
 
   return (
     <Layout page={page} settings={settings} navigation={navigation}>
@@ -54,7 +57,7 @@ export default async function Page() {
         gallery={gallery}
         video_media={video_media}
         media={media}
-        icon_media={icon_media}
+        icon_media={undefined}
         subhead={headline}
         body={body}
       />

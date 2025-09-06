@@ -1,10 +1,6 @@
 import clsx from "clsx";
 import { useState } from "react";
-
-interface SliceDataProps {
-  slice?: any;
-  hidden?: boolean;
-}
+import type { SliceDataProps } from "../../types/slices";
 
 const SliceData = ({ slice, hidden }: SliceDataProps) => {
   const [open, setOpen] = useState(false);

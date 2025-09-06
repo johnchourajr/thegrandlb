@@ -1,12 +1,10 @@
 import { createClient } from "prismicio";
-import type { PreviewData } from "../types/page-props";
+import type { ExtraData, GetExtraParams } from "../types/services";
 import fetchLinks from "../utils/fetchLinks";
 
 export const getExtra = async ({
   previewData,
-}: {
-  previewData?: PreviewData;
-}) => {
+}: GetExtraParams): Promise<ExtraData> => {
   const client = createClient({ previewData });
 
   const [navigation, settings, cta, tour_card, events_card, menus_card] =
@@ -36,12 +34,14 @@ export const getExtra = async ({
     });
   };
 
-  debuggIfKeysInObjectAreUndefined(navigation);
+  debuggIfKeysInObjectAreUndefined(
+    navigation as unknown as Record<string, unknown>
+  );
 
   return {
-    navigation,
+    navigation: navigation.results[0] || null, // getByType returns Query, we need the first result
     settings,
-    cta,
+    cta: cta.results[0] || null, // getByType returns Query, we need the first result - handle empty results
     footer_cards: [tour_card, events_card, menus_card],
   };
 };
