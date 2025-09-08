@@ -82,17 +82,6 @@ export default function Header({ navigation }: HeaderProps) {
     }
   }, [navScrolled, modalOverlay, controls]);
 
-  if (!navigation) {
-    return (
-      <div className="sticky top-0 z-[9999] h-16 border-b-2 border-red bg-bg">
-        <div className="flex h-full items-center justify-between px-4">
-          <div className="bg-gray-200 h-8 w-32 animate-pulse rounded"></div>
-          <div className="bg-gray-200 h-8 w-64 animate-pulse rounded"></div>
-        </div>
-      </div>
-    );
-  }
-
   const gap = clampBuilder(1280, 1920, 0, 8);
 
   return (
