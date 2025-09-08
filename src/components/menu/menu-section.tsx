@@ -1,38 +1,21 @@
+"use client";
+
+import type { MenuSectionProps } from "@/types/menu";
+import { ensureArray, safeMap } from "@/utils/safe-array";
 import { convertToSlug } from "@/utils/utils";
 import * as prismicH from "@prismicio/helpers";
 import { PrismicRichText } from "@prismicio/react";
 import clsx from "clsx";
-import React from "react";
 import Headline from "../Headline";
 import MotionBox from "../MotionBox";
 import Text from "../Paragraph";
 import Star from "../svg/Star";
 import MenuItem from "./menu-item";
 
-interface MenuSectionProps {
-  uid?: string;
-  group: {
-    menu_link: {
-      data: {
-        page_title?: string;
-        page_description: any;
-        page_disclaimer: any;
-        body: {
-          items?: any[];
-          primary: {
-            title: {
-              text: string;
-            };
-            description: any;
-            caption: any;
-          };
-        }[];
-      };
-    };
-  }[];
-}
+export function MenuSection({ uid, group }: MenuSectionProps) {
+  // Ensure group is always an array to prevent map errors
+  const safeGroup = ensureArray(group);
 
-const MenuSection: React.FC<MenuSectionProps> = ({ uid, group }) => {
   return (
     <MotionBox
       className={clsx(
@@ -43,8 +26,8 @@ const MenuSection: React.FC<MenuSectionProps> = ({ uid, group }) => {
         "print:!translate-y-0 print:!opacity-100"
       )}
     >
-      {group.map(({ menu_link }, groupIndex) => {
-        const section = menu_link.data as any;
+      {safeMap(safeGroup, ({ menu_link }, groupIndex) => {
+        const section = menu_link.data;
         return (
           <div key={groupIndex} className="relative flex flex-col gap-20">
             <div
@@ -112,7 +95,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ uid, group }) => {
                 />
               )}
             </div>
-            {section.body.map(({ items, primary }: any, groupIndex: number) => {
+            {safeMap(section.body, ({ items, primary }, groupIndex: number) => {
               const prim_title = prismicH.asText(primary.title);
               const prim_desc = primary.description;
 
@@ -170,7 +153,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ uid, group }) => {
                   </div>
                   <div className="flex flex-col gap-8">
                     {items &&
-                      items.map((item: any, itemIndex: number) => (
+                      safeMap(items, (item, itemIndex: number) => (
                         <MenuItem key={itemIndex} data={item} />
                       ))}
                     {prismicH.asText(primary.caption) && (
@@ -185,7 +168,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ uid, group }) => {
             <Star
               className={clsx(
                 "h-16 w-16 text-white",
-                groupIndex === group.length - 1 && "!opacity-0"
+                groupIndex === (group?.length ?? 0) - 1 && "!opacity-0"
               )}
             />
           </div>
@@ -193,6 +176,6 @@ const MenuSection: React.FC<MenuSectionProps> = ({ uid, group }) => {
       })}
     </MotionBox>
   );
-};
+}
 
 export default MenuSection;

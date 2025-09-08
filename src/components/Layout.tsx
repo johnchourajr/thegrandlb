@@ -1,27 +1,10 @@
+"use client";
+
 import clsx from "clsx";
-import dynamic from "next/dynamic";
-
-const DynamicHead = dynamic(() => import("./LayoutHead"), {
-  loading: () => <></>,
-});
-const DynamicFooter = dynamic(() => import("./Footer"), {
-  loading: () => <></>,
-});
-const DynamicBandwidthMonitor = dynamic(() => import("./BandwidthMonitor"), {
-  loading: () => <></>,
-});
-
-type LayoutProps = {
-  settings?: any;
-  navigation?: any;
-  headContent?: any;
-  children?: any;
-  page?: any;
-  className?: string;
-  wrapperClassName?: string;
-  /** @deprecated no longer used */
-  hidePageUid?: boolean;
-};
+import type { LayoutProps } from "../types/layout";
+import BandwidthMonitor from "./BandwidthMonitor";
+import Footer from "./Footer";
+import LayoutHead from "./LayoutHead";
 
 const Layout = ({
   settings,
@@ -41,25 +24,19 @@ const Layout = ({
       )}
     >
       {settings && (
-        <DynamicHead
-          page={page}
-          settings={settings}
-          headContent={headContent}
-        />
+        <LayoutHead page={page} settings={settings} headContent={headContent} />
       )}
       {/* PAGE CONTENT */}
       <main
-        id={page?.uid}
+        id={page?.uid || undefined}
         className={clsx("--min-h-[150vh]", "min-h-[25vh]", className)}
       >
         {children}
       </main>
       {/* FOOTER */}
-      {navigation && (
-        <DynamicFooter settings={settings} navigation={navigation} />
-      )}
+      {navigation && <Footer settings={settings} navigation={navigation} />}
       {/* BANDWIDTH MONITOR */}
-      <DynamicBandwidthMonitor />
+      <BandwidthMonitor />
     </div>
   );
 };

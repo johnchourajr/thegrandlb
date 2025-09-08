@@ -1,7 +1,7 @@
 import { handleEvent } from "@/utils/events";
 import { PrismicLink } from "@prismicio/react";
 import clsx from "clsx";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import { linkResolver } from "../../prismicio";
 import StringText from "./StringText";
 
@@ -27,7 +27,7 @@ export const NavItem = ({
 }: NavItemProps) => {
   if (show === false) return null;
   return (
-    <m.li className={clsx(className)}>
+    <motion.li className={clsx(className)}>
       <PrismicLink
         linkResolver={linkResolver}
         field={field}
@@ -54,6 +54,6 @@ export const NavItem = ({
           {text}
         </StringText>
       </PrismicLink>
-    </m.li>
+    </motion.li>
   );
 };

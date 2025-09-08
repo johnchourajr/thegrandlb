@@ -1,3 +1,5 @@
+"use client";
+
 import { InputProps } from "@/data/form.types";
 import clsx from "clsx";
 

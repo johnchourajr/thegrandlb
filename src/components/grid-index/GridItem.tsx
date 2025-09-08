@@ -1,9 +1,11 @@
+"use client";
+
 import useTouchDevice from "@/hooks/useTouchDevice";
 import { handleEvent } from "@/utils/events";
 import { clampBuilder } from "@/utils/utils";
 import { PrismicLink } from "@prismicio/react";
 import clsx from "clsx";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import { linkResolver } from "prismicio";
 import { useEffect, useState } from "react";
 import {
@@ -16,7 +18,6 @@ import Headline from "../Headline";
 import ImageBox from "../media-frame/ImageBox";
 import Text from "../Paragraph";
 import ParallaxWrapper from "../ParallaxWrapper";
-import { getTourIndexLayout } from "./utils";
 
 export const GridIndexItem = ({
   id,
@@ -28,7 +29,7 @@ export const GridIndexItem = ({
   features,
   caption,
   page_media,
-  layoutLoader = getTourIndexLayout,
+  layout,
 }: any) => {
   const [isHovered, setIsHovered] = useState(false);
   const touchDevice = useTouchDevice();
@@ -67,16 +68,16 @@ export const GridIndexItem = ({
   };
 
   return (
-    <m.div
+    <motion.div
       key={id}
       layoutId={`${parentUid}-index-${uid}`}
       className={clsx(
         "tour-index-tile hover-black-text relative flex min-h-[25rem] gap-4 overflow-hidden rounded-sm bg-white p-6 text-white transition-colors duration-700 ease-out-expo lg:rounded-md xl:min-h-[20rem] xl:p-8",
-        getNumberForColStart(layoutLoader(uid).col_start),
-        getNumberForColSpan(layoutLoader(uid).col_span),
-        getNumberForRowStart(layoutLoader(uid).row_start),
-        getNumberForRowSpan(layoutLoader(uid).row_span),
-        layoutLoader(uid).container
+        getNumberForColStart(layout?.col_start),
+        getNumberForColSpan(layout?.col_span),
+        getNumberForRowStart(layout?.row_start),
+        getNumberForRowSpan(layout?.row_span),
+        layout?.container
       )}
       variants={item}
       {...hoverProps()}
@@ -97,7 +98,7 @@ export const GridIndexItem = ({
         <Headline size={"md"} className="">
           {title}
         </Headline>
-        <m.div
+        <motion.div
           layoutId={`text-index-${uid}`}
           className="flex gap-2"
           initial={{ height: 0, opacity: 0 }}
@@ -130,9 +131,9 @@ export const GridIndexItem = ({
               <Text>{truncate(caption, 50)}</Text>{" "}
             </>
           )}
-        </m.div>
+        </motion.div>
       </div>
-      <m.div
+      <motion.div
         layoutId={`media-index-${uid}`}
         className="absolute inset-0 z-0 overflow-hidden rounded-sm bg-black"
         initial={{ margin: 0 }}
@@ -153,7 +154,7 @@ export const GridIndexItem = ({
           />
         </ParallaxWrapper>
         <div className="noise" />
-      </m.div>
-    </m.div>
+      </motion.div>
+    </motion.div>
   );
 };

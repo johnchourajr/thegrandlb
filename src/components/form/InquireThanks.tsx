@@ -15,7 +15,7 @@ export type HandleFormFunction = (
 
 //?event_name=John%27s%20Birthday&event_type=birthday_party&desired_date=2024-11-17&desired_time=9pm&head_count=100&desired_space=board-room&full_name=John%20Choura&email=hi%40john.design&phone=555-555-5555&additional_details=This%20is%20a%20test%20inquiry%20from%20the%20website
 
-const InquireThanks = ({ ...extra }) => {
+export default function InquireThanks() {
   return (
     <GridSection
       id="inquire-form"
@@ -53,6 +53,4 @@ const InquireThanks = ({ ...extra }) => {
       </div>
     </GridSection>
   );
-};
-
-export default InquireThanks;
+}

@@ -1,15 +1,43 @@
+"use client";
+
 import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
-import { MenuSection } from "@/components/menu";
-import MenuSectionNav from "@/components/menu/menu-section-nav";
+import { MenuSection, MenuSectionNav } from "@/components/menu";
+import type { MenuPageContentProps } from "@/types/menu";
+import { isMenuCollectionDocument } from "@/types/menu";
 import clsx from "clsx";
 import Button from "./Button";
 import MotionBox from "./MotionBox";
 import Text from "./Paragraph";
 
-export const MenuPageContent = ({ page, source }: any) => {
-  const { title } = page.data;
-  const { path, page_title, page_description, page_disclaimer } = source.data;
+export const MenuPageContent = ({ page }: MenuPageContentProps) => {
+  if (!page) return null;
+
+  // Use type guard to determine data structure
+  const isExternalData = isMenuCollectionDocument(page);
+
+  // Handle different data structures from internal vs external Prismic repos
+  let pageTitle: string;
+  let pageDescription: string | undefined;
+  let pageDisclaimer: string | undefined;
+
+  if (isExternalData) {
+    // External data has string fields
+    pageTitle = page.data.page_title;
+    pageDescription = page.data.page_description;
+    pageDisclaimer = page.data.page_disclaimer;
+  } else {
+    // Internal data might have RichTextField or string fields
+    pageTitle = page.data.title || page.data.page_title || "";
+    pageDescription =
+      typeof page.data.page_description === "string"
+        ? page.data.page_description
+        : undefined;
+    pageDisclaimer =
+      typeof page.data.page_disclaimer === "string"
+        ? page.data.page_disclaimer
+        : undefined;
+  }
 
   return (
     <GridSection
@@ -29,27 +57,31 @@ export const MenuPageContent = ({ page, source }: any) => {
           "print:!opacity-100"
         )}
       >
-        {title && (
+        {pageTitle && (
           <Headline
             size={"3xl"}
             className={"!whitespace-nowrap"}
             uppercase
             animateOnce
           >
-            {title}
+            {pageTitle}
           </Headline>
         )}
-        {page_description && (
+        {pageDescription && (
           <Headline size={"sm"} className={"max-w-[20em]"} emphasis animateOnce>
-            {page_description}
+            {pageDescription}
           </Headline>
         )}
-        {page_disclaimer && (
+        {pageDisclaimer && (
           <Text size={"small"} className="max-w-[35em]">
-            {page_disclaimer}
+            {pageDisclaimer}
           </Text>
         )}
-        <Button onClick={() => window.print()} size="small">
+        <Button
+          onClick={() => window.print()}
+          size="small"
+          className="print:hidden"
+        >
           Print Menu
         </Button>
       </MotionBox>
@@ -62,8 +94,8 @@ export const MenuPageContent = ({ page, source }: any) => {
           "print:hidden"
         )}
       />
-      <MenuSectionNav uid={page.uid} group={source.data.group} />
-      <MenuSection uid={page.uid} group={source.data.group} />
+      <MenuSectionNav uid={page.uid} group={page.data.group} />
+      <MenuSection uid={page.uid} group={page.data.group} />
     </GridSection>
   );
 };

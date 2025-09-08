@@ -1,7 +1,7 @@
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import { SVGProps } from "react";
 const PlayIcon = (props: SVGProps<SVGSVGElement>) => {
-  const Svg = m.svg as any;
+  const Svg = motion.svg as any;
   return (
     <Svg
       xmlns="http://www.w3.org/2000/svg"

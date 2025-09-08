@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { AnimatePresence, m } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { VideoHTMLAttributes } from "react";
 import PauseIcon from "../svg/PauseIcon";
 import PlayIcon from "../svg/PlayIcon";
@@ -34,7 +34,7 @@ export const VideoProgressButton = ({
   };
 
   return (
-    <m.button
+    <motion.button
       className={clsx(
         "relative z-10 inline-flex items-center justify-center",
         "after:absolute after:right-0 after:top-0 after:translate-y-[-105%] after:rounded-sm after:p-3 after:py-2 focus-visible:after:bg-black focus-visible:after:text-white focus-visible:after:content-[attr(data-content)]",
@@ -46,12 +46,12 @@ export const VideoProgressButton = ({
       data-content={playing ? "Pause" : "Play"}
       title={playing ? "Pause" : "Play"}
     >
-      <m.svg
+      <motion.svg
         className="absolute inset-0 z-0 h-full w-full origin-center rotate-[-90deg]"
         viewBox="0 0 100 100"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <m.circle
+        <motion.circle
           className={clsx(
             "text-gray-300  opacity-30",
             colorStyles().stroke,
@@ -65,7 +65,7 @@ export const VideoProgressButton = ({
           fill="none"
         />
         {progress && (
-          <m.circle
+          <motion.circle
             className={clsx(colorStyles().stroke, !playing && "opacity-30")}
             cx="50"
             cy="50"
@@ -78,7 +78,7 @@ export const VideoProgressButton = ({
             }}
           />
         )}
-      </m.svg>
+      </motion.svg>
       <AnimatePresence mode="sync">
         {playing ? (
           <PauseIcon
@@ -96,6 +96,6 @@ export const VideoProgressButton = ({
           />
         )}
       </AnimatePresence>
-    </m.button>
+    </motion.button>
   );
 };

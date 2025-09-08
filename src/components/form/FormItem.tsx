@@ -1,6 +1,8 @@
+"use client";
+
 import { Question } from "@/data/form.types";
 import clsx from "clsx";
-import { AnimatePresence, m } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Text from "../Paragraph";
 import StringText from "../StringText";
@@ -14,7 +16,7 @@ import { HandleFormFunction } from "./InquireFormContainer";
 interface FormItemProps extends Question {
   page_key?: string;
   component?: any;
-  value: any;
+  value: string | number;
   isValid?: boolean;
   showError?: string | boolean;
   onBlur?: () => void;
@@ -63,7 +65,7 @@ const FormItem = ({
   const hasError = !isValid && hasBlurred && showError;
 
   return (
-    <m.div
+    <motion.div
       className={clsx(
         "relative flex h-16 flex-col rounded-[.33rem] bg-white lg:h-16",
         question_type === "text_area" && "!h-48"
@@ -77,7 +79,7 @@ const FormItem = ({
       </label>
       <AnimatePresence>
         {hasError && (
-          <m.div
+          <motion.div
             className="absolute right-0 top-0 z-10 flex w-1/2 flex-row justify-end gap-1 px-3 py-1"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -85,10 +87,10 @@ const FormItem = ({
             <Text size="small" className={"text-[red]"}>
               {showError}
             </Text>
-          </m.div>
+          </motion.div>
         )}
         {isValid && (
-          <m.div
+          <motion.div
             className="absolute right-0 top-0 z-10 flex w-1/2 flex-row justify-end gap-1 px-3 py-1"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -96,7 +98,7 @@ const FormItem = ({
             <Text size="small" className={"text-black"}>
               ✓
             </Text>
-          </m.div>
+          </motion.div>
         )}
       </AnimatePresence>
 
@@ -109,12 +111,12 @@ const FormItem = ({
         type={data_type}
         page_key={page_key}
         className={clsx(
-          "!absolute !inset-0 z-0 box-border min-h-full min-w-full rounded-[.33rem] px-3 pt-7 pb-2",
+          "!absolute !inset-0 z-0 box-border min-h-full min-w-full rounded-[.33rem] px-3 pb-2 pt-7",
           hasError && "border border-[red]"
         )}
         {...rest}
       />
-    </m.div>
+    </motion.div>
   );
 };
 

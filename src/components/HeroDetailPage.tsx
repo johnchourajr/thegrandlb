@@ -1,6 +1,9 @@
+"use client";
+
 import { isEmptyObject, stringToUnderscore } from "@/utils/utils";
 import clsx from "clsx";
-import { LayoutGroup, m } from "framer-motion";
+import { LayoutGroup, motion } from "framer-motion";
+import type { HeroDetailPageProps } from "../types/hero";
 import Button from "./Button";
 import { GridSection } from "./GridSection";
 import Headline from "./Headline";
@@ -21,12 +24,13 @@ const HeroDetailPage = ({
   primary_action,
   primary_action_link,
   bottomSpacer = "Small",
-}: any) => {
+}: HeroDetailPageProps) => {
   const hasSubheadandBody = subhead && body;
-  const noMedia = isEmptyObject(media) && isEmptyObject(video_media?.src);
+  const noMedia =
+    isEmptyObject(media) && isEmptyObject((video_media as any)?.src);
 
   return (
-    <LayoutGroup>
+    <LayoutGroup key={uid}>
       <GridSection
         id={`hero-${uid}`}
         layoutId={`hero-${uid}`}
@@ -76,7 +80,7 @@ const HeroDetailPage = ({
             }}
           />
           {primary_action && (
-            <m.div
+            <motion.div
               className="gap-6 pt-6 sm:flex"
               initial={{
                 opacity: 0,
@@ -97,13 +101,15 @@ const HeroDetailPage = ({
                 text={primary_action}
                 type="black"
                 size="large"
-                params={uid && `desired_space=${uid}`}
+                params={uid ? `desired_space=${uid}` : undefined}
                 eventCategory={stringToUnderscore(
-                  `${uid} Hero Detail Page Action`
+                  `${uid || "unknown"} Hero Detail Page Action`
                 )}
-                eventLabel={stringToUnderscore(`${headline} Primary CTA`)}
+                eventLabel={stringToUnderscore(
+                  `${headline || "unknown"} Primary CTA`
+                )}
               />
-            </m.div>
+            </motion.div>
           )}
         </div>
       </GridSection>
@@ -113,7 +119,7 @@ const HeroDetailPage = ({
           bottomSpacer={"Medium"}
           topSpacer={"Medium"}
         >
-          <MotionBox className="col-span-full pt-10 pb-0 lg:col-span-6 lg:col-start-2 lg:pt-12 lg:pb-20">
+          <MotionBox className="col-span-full pb-0 pt-10 lg:col-span-6 lg:col-start-2 lg:pb-20 lg:pt-12">
             <Headline size={"xl"} className={"max-w-[9em]"} animateOnce>
               {subhead}
             </Headline>

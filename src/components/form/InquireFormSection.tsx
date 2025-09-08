@@ -6,7 +6,7 @@ import {
 } from "@/utils/events";
 import { formatDate, formatTitle } from "@/utils/utils";
 import clsx from "clsx";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 import AppearWrap from "../AppearWrap";
 import Button from "../Button";
 import Headline from "../Headline";
@@ -56,23 +56,23 @@ const InquireLastPage = ({ formState }: any) => {
         </StringText>
         <Headline size={"lg"} disableMotion>
           You’re inquiring about having a{" "}
-          <span className="underline decoration-[2px] underline-offset-4">
+          <span className="underline decoration-[1px] underline-offset-4">
             {formatTitle(formState["event_type"]?.value) || ""}
           </span>{" "}
           in{" "}
-          <span className="underline decoration-[2px] underline-offset-4">
+          <span className="underline decoration-[1px] underline-offset-4">
             {formatTitle(formState["desired_space"]?.value) || ""}
           </span>{" "}
           on{" "}
-          <span className="underline decoration-[2px] underline-offset-4">
+          <span className="underline decoration-[1px] underline-offset-4">
             {formatDate(formState["desired_date"]?.value) || ""}
           </span>{" "}
           at{" "}
-          <span className="underline decoration-[2px] underline-offset-4">
+          <span className="underline decoration-[1px] underline-offset-4">
             {formatTitle(formState["desired_time"]?.value) || ""}
           </span>{" "}
           for{" "}
-          <span className="underline decoration-[2px] underline-offset-4">
+          <span className="underline decoration-[1px] underline-offset-4">
             {formState["head_count"]?.value || ""}
           </span>{" "}
           guests.
@@ -156,19 +156,8 @@ export const InquireFormSection = ({
     handleFormSubmit();
   };
 
-  // const handleSectionClick = () => {
-  //   updateValidityForKeys(pageInputValues);
-  //   if (allPageValuesAreValid) {
-  //     setCurrentPage(step + 2);
-  //     eventInquireNext(step);
-  //   } else {
-  //     setCurrentPage(step + 2);
-  //     toastNextError(step);
-  //   }
-  // };
-
   return (
-    <m.div
+    <motion.div
       className={clsx(
         "relative col-span-full mx-5 flex h-fit flex-col items-start justify-center py-5 md:mx-9 md:py-9 xl:mx-12 xl:py-12",
         "after:content[''] after:absolute after:bottom-0 after:h-[3px] after:w-full after:bg-white"
@@ -181,7 +170,6 @@ export const InquireFormSection = ({
           submitLoading && "pointer-events-none opacity-50"
         )}
       >
-        {/* <button onClick={() => setCurrentPage(step)} role={"button"}> */}
         <StringText size={"default"}>
           <StringText as="span" size={"small"} bold>
             {step + 1}
@@ -195,7 +183,6 @@ export const InquireFormSection = ({
             {title}
           </AppearWrap>
         </StringText>
-        {/* </button> */}
       </div>
       <AppearWrap
         className="gap-space relative flex w-full flex-col lg:flex-row"
@@ -219,7 +206,7 @@ export const InquireFormSection = ({
             className={clsx(
               "fixed bottom-0 left-0 z-50 flex w-full items-center justify-center gap-6 p-2",
               "lg:--relative lg:--bottom-[unset] lg:sticky  lg:bottom-4 lg:left-[unset] lg:items-start lg:justify-start lg:p-0",
-              "via-50% bg-gradient-to-b from-[transparent] to-bg"
+              "bg-gradient-to-b from-[transparent] via-50% to-bg"
             )}
           >
             {step !== 0 && (
@@ -296,6 +283,6 @@ export const InquireFormSection = ({
         </div>
         <div className="2xl:w-1/4 " aria-hidden></div>
       </AppearWrap>
-    </m.div>
+    </motion.div>
   );
 };

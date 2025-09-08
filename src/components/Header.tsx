@@ -1,81 +1,37 @@
+"use client";
+
 import { useEffect, useState } from "react";
 
 import clsx from "clsx";
-import { useAnimation, useMotionValueEvent, useScroll } from "framer-motion";
-import dynamic from "next/dynamic";
-import { useRouter } from "next/router";
+import {
+  motion,
+  useAnimation,
+  useMotionValueEvent,
+  useScroll,
+} from "framer-motion";
+
+import { useModalContext } from "@/contexts/ModalContext";
 
 /**
  * Hooks & Utils
  */
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { clampBuilder } from "@/utils/utils";
+import HeaderLeft from "./HeaderLeft";
+import HeaderRight from "./HeaderRight";
 
-/**
- * Dynamic Components
- */
-const DynamicGridSection = dynamic(() => import("./GridSection"), {
-  ssr: false,
-});
-const DynamicHeaderLeft = dynamic(() => import("./HeaderLeft"), {
-  ssr: false,
-});
-const DynamicHeaderRight = dynamic(() => import("./HeaderRight"), {
-  ssr: false,
-});
+import type { HeaderProps } from "../types/layout";
 
-export default function Header({
-  navigation,
-  toggleModalOverlay,
-  modalOverlay,
-}: any) {
+export default function Header({ navigation }: HeaderProps) {
   const [navScrolled, setNavScrolled] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const isMobile = useMediaQuery(1024);
   const { scrollY } = useScroll();
-  const router = useRouter();
-
+  const { modalOverlay } = useModalContext();
   const controls = useAnimation();
 
-  const getModalHeaderContent = () => {
-    switch (router.pathname) {
-      case "/inquire":
-        return {
-          title: "Inquire",
-          subtitle: "Let's Talk",
-          showInquire: false,
-          button: "Close",
-          buttonAction: toggleModalOverlay,
-        };
-      case "/thanks":
-        return {
-          title: "Inquire",
-          subtitle: "",
-          showInquire: false,
-          button: "Close",
-          buttonAction: toggleModalOverlay,
-        };
-      case "/map":
-        return {
-          title: "Map",
-          subtitle: "Interactive Map",
-          showInquire: true,
-          button: "Close",
-          buttonAction: toggleModalOverlay,
-        };
-      default:
-        return {
-          title: "",
-          subtitle: "",
-          showInquire: true,
-          button: "",
-          buttonAction: () => {},
-        };
-    }
-  };
-
   useMotionValueEvent(scrollY, "change", (currentScrollY) => {
-    setNavScrolled(currentScrollY > 10);
+    setNavScrolled(currentScrollY > 0);
   });
 
   const variants = {
@@ -126,18 +82,16 @@ export default function Header({
     }
   }, [navScrolled, modalOverlay, controls]);
 
-  if (!navigation) return null;
-
   const gap = clampBuilder(1280, 1920, 0, 8);
 
   return (
-    <DynamicGridSection
+    <motion.header
       id={"header"}
-      gridSectionType="flex"
       className={clsx(
+        "mx-auto w-full max-w-[2500px] gap-4 lg:gap-6",
         "sticky top-[--navTop] z-[9999] h-fit !max-w-[100vw] overflow-visible !pt-4",
         "transition-colors duration-300 ease-out-expo",
-        "flex-col items-center md:gap-[inherit] lg:flex-row lg:gap-[--navGap]",
+        "flex flex-col items-center md:gap-[inherit] lg:flex-row lg:gap-[--navGap]",
         "text-black",
         /**
          * NAV SCROLLED STYLES
@@ -152,31 +106,24 @@ export default function Header({
       initial="initial"
       animate={controls}
       transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
-      topSpacer="None"
-      bottomSpacer="None"
-      overflowHidden={false}
       style={
         {
           "--navGap": gap,
         } as any
       }
     >
-      <DynamicHeaderLeft
+      <HeaderLeft
         isMobile={isMobile}
         isNavOpen={isNavOpen}
         setIsNavOpen={setIsNavOpen}
         controls={controls}
-        modalOverlay={modalOverlay}
-        modalContent={getModalHeaderContent}
       />
-      <DynamicHeaderRight
+      <HeaderRight
         isMobile={isMobile}
         isNavOpen={isNavOpen}
         navigation={navigation}
         setIsNavOpen={setIsNavOpen}
-        modalOverlay={modalOverlay}
-        modalContent={getModalHeaderContent}
       />
-    </DynamicGridSection>
+    </motion.header>
   );
 }

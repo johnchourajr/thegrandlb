@@ -103,7 +103,7 @@ export const BasicRichText = ({ field, paragraphSize = "default" }: any) => (
       hyperlink: ({ text, node: { data } }) => {
         return (
           <PrismicLink
-            field={data}
+            field={data as any}
             onClick={() => {
               handleEvent({
                 action: "click",

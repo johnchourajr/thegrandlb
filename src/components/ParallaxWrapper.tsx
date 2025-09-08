@@ -1,4 +1,6 @@
-import { m, useScroll, useSpring, useTransform } from "framer-motion";
+"use client";
+
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 interface ParallaxWrapperProps {
@@ -23,8 +25,8 @@ const ParallaxWrapper = ({ children, amount = 0.2 }: ParallaxWrapperProps) => {
   const height = 100 + amount * 100;
 
   return (
-    <m.div className="absolute h-full w-full overflow-hidden" ref={ref}>
-      <m.div
+    <motion.div className="absolute h-full w-full overflow-hidden" ref={ref}>
+      <motion.div
         className="absloute z-[-1] w-full"
         style={{
           y,
@@ -32,8 +34,8 @@ const ParallaxWrapper = ({ children, amount = 0.2 }: ParallaxWrapperProps) => {
         }}
       >
         {children}
-      </m.div>
-    </m.div>
+      </motion.div>
+    </motion.div>
   );
 };
 

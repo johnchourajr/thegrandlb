@@ -2,8 +2,8 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import { handleEvent } from "@/utils/events";
 import { PrismicLink } from "@prismicio/react";
 import clsx from "clsx";
-import { m, useAnimation } from "framer-motion";
-import { useRouter } from "next/router";
+import { motion, useAnimation } from "framer-motion";
+import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { linkResolver } from "../../prismicio";
 import { NavItem } from "./NavItem";
@@ -20,13 +20,14 @@ export const NavParentItem = ({
   className,
 }: any) => {
   const ref = useRef<HTMLDivElement>(null);
-  const router = useRouter();
+  const pathname = usePathname();
   const controls = useAnimation();
+  const heightControls = useAnimation();
   const [isHovering, setIsHovering] = useState(false);
   const isMobile = useMediaQuery(1024);
 
   const link = href ? href : linkResolver(link_source);
-  const activeLink = router.pathname.includes(link);
+  const activeLink = pathname.includes(link);
   const hasChildren = items.length > 1;
 
   const dropdownVariants = {
@@ -47,12 +48,12 @@ export const NavParentItem = ({
 
   const handleHoverStart = () => {
     setIsHovering(true);
-    controls.start(dropdownVariants?.open);
+    controls.start("open");
   };
 
   const handleHoverEnd = () => {
     setIsHovering(false);
-    controls.start(dropdownVariants?.closed);
+    controls.start("closed");
   };
 
   const desktopParentProps = !isMobile && {
@@ -81,10 +82,10 @@ export const NavParentItem = ({
   };
 
   const onRouteChangeCloseMenu = useCallback(() => {
-    controls.start(dropdownVariants.closed);
+    controls.start("closed");
     setIsHovering(false);
     setIsNavOpen(false);
-  }, [controls, dropdownVariants.closed, setIsNavOpen]);
+  }, [controls, setIsNavOpen]);
 
   useEffect(() => {
     const handleClickOutside = (event: KeyboardEvent) => {
@@ -99,19 +100,17 @@ export const NavParentItem = ({
     };
   }, [isNavOpen, setIsNavOpen, onRouteChangeCloseMenu]);
 
+  // Listen for route changes using pathname
   useEffect(() => {
-    router.events.on("routeChangeStart", onRouteChangeCloseMenu);
-    return () => {
-      router.events.off("routeChangeStart", onRouteChangeCloseMenu);
-    };
-  }, [router.events]); // eslint-disable-line react-hooks/exhaustive-deps
+    onRouteChangeCloseMenu();
+  }, [pathname, onRouteChangeCloseMenu]);
 
   const handleToggleControls = () => {
     if (isHovering) {
-      controls.start(dropdownVariants.closed);
+      controls.start("closed");
       setIsHovering(false);
     } else {
-      controls.start(dropdownVariants.open);
+      controls.start("open");
       setIsHovering(true);
     }
   };
@@ -119,7 +118,7 @@ export const NavParentItem = ({
   if (show === false) return null;
 
   return (
-    <m.div
+    <motion.div
       ref={ref}
       className={clsx(
         "w-full list-none transition-opacity duration-300 ease-out-expo lg:w-fit",
@@ -129,7 +128,7 @@ export const NavParentItem = ({
         className
       )}
       initial={!isMobile && ({ "--height": "50vh" } as any)}
-      whileHover={!isMobile && ({ "--height": "100vh" } as any)}
+      animate={!isMobile ? heightControls : undefined}
       transition={{ duration: 0.3 }}
       data-label={"nav-item"}
       {...desktopParentProps}
@@ -182,7 +181,7 @@ export const NavParentItem = ({
       </span>
 
       {hasChildren && (
-        <m.ul
+        <motion.ul
           className={clsx(
             "bg-green-400 flex flex-col overflow-hidden lg:absolute lg:overflow-visible lg:pb-4 lg:pt-2",
             "z-10 border-b-[1.5px] border-black",
@@ -220,8 +219,8 @@ export const NavParentItem = ({
               );
             }
           )}
-        </m.ul>
+        </motion.ul>
       )}
-    </m.div>
+    </motion.div>
   );
 };

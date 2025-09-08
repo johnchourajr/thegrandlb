@@ -1,7 +1,10 @@
 import { createClient } from "prismicio";
+import type { ExtraData, GetExtraParams } from "../types/services";
 import fetchLinks from "../utils/fetchLinks";
 
-export const getExtra = async ({ previewData }: any) => {
+export const getExtra = async ({
+  previewData,
+}: GetExtraParams): Promise<ExtraData> => {
   const client = createClient({ previewData });
 
   const [navigation, settings, cta, tour_card, events_card, menus_card] =
@@ -23,20 +26,22 @@ export const getExtra = async ({ previewData }: any) => {
     ]);
 
   // write a function to pass array into a console.log to see if the data is undefined
-  const debuggIfKeysInObjectAreUndefined = (obj: any) => {
+  const debuggIfKeysInObjectAreUndefined = (obj: Record<string, unknown>) => {
     Object.keys(obj).forEach((key) => {
       if (obj[key] === undefined) {
-        // console.log(key);
+        console.log(key);
       }
     });
   };
 
-  debuggIfKeysInObjectAreUndefined(navigation);
+  debuggIfKeysInObjectAreUndefined(
+    navigation as unknown as Record<string, unknown>
+  );
 
   return {
-    navigation,
+    navigation: navigation.results[0] || null, // getByType returns Query, we need the first result
     settings,
-    cta,
+    cta: cta.results[0] || null, // getByType returns Query, we need the first result - handle empty results
     footer_cards: [tour_card, events_card, menus_card],
   };
 };

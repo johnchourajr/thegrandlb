@@ -1,3 +1,5 @@
+"use client";
+
 import { GridSection } from "@/components/GridSection";
 import ImageGallery from "@/components/media-frame/ImageGallery";
 import MotionBox from "@/components/MotionBox";

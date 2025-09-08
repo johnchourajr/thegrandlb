@@ -10,100 +10,66 @@ const DynamicSuperProvider = dynamic(
   }
 );
 
-const DynamicPrismicProvider = dynamic(
-  () => import("@prismicio/react").then((mod) => mod.PrismicProvider),
-  {
-    ssr: false,
-  }
+const DynamicPrismicProvider = dynamic(() =>
+  import("@prismicio/react").then((mod) => mod.PrismicProvider)
 );
 
 const DynamicPrismicPreview = dynamic(
-  () => import("@prismicio/next").then((mod) => mod.PrismicPreview),
-  {
-    ssr: false,
-  }
+  () => import("@prismicio/next").then((mod) => mod.PrismicPreview) as any
 );
 
-const DynamicMotionConfig = dynamic(
-  () => import("framer-motion").then((mod) => mod.MotionConfig),
-  {
-    ssr: false,
-  }
+const DynamicMotionConfig = dynamic(() =>
+  import("framer-motion").then((mod) => mod.MotionConfig)
 );
 
-const DynamicLazyMotion = dynamic(
-  () => import("framer-motion").then((mod) => mod.LazyMotion),
-  {
-    ssr: false,
-  }
+const DynamicLazyMotion = dynamic(() =>
+  import("framer-motion").then((mod) => mod.LazyMotion)
 );
 
 const DynamicAppWrapper = dynamic(() => import("@/components/AppWrapper"), {
   loading: () => <></>,
 });
 
-const DynamicHeader = dynamic(() => import("@/components/Header"), {
-  loading: () => <></>,
-});
+const DynamicHeader = dynamic(() => import("@/components/Header"));
 
 const DynamicFormOverlay = dynamic(
-  () => import("@/components/form/FormOverlay"),
-  {
-    ssr: false,
-  }
+  () => import("@/components/form/FormOverlay")
 );
 
-const DynamicCursor = dynamic(() => import("@/components/Cursor"), {
-  ssr: false,
-});
+const DynamicCursor = dynamic(() => import("@/components/Cursor"));
 
-const DynamicToastRoot = dynamic(() => import("@/components/ToastRoot"), {
-  ssr: false,
-});
+const DynamicToastRoot = dynamic(() => import("@/components/ToastRoot"));
 
 // import HeroDetailPage from "@/components/HeroDetailPage";
 const DynamicHeroDetailPage = dynamic(
-  () => import("@/components/HeroDetailPage"),
-  {
-    ssr: false,
-  }
+  () => import("@/components/HeroDetailPage")
 );
 
-const DynamicCtaFooter = dynamic(() => import("@/components/CtaFooter"), {
-  ssr: false,
-});
+const DynamicCtaFooter = dynamic(() => import("@/components/CtaFooter"), {});
 
-const DynamicTileFooter = dynamic(() => import("@/components/TileFooter"), {
-  ssr: false,
-});
+const DynamicTileFooter = dynamic(() => import("@/components/TileFooter"), {});
 
 // import { MenuPageContent } from "@/components/MenuPageContent";
-const DynamicMenuPageContent = dynamic(
-  () =>
-    import("@/components/MenuPageContent").then((mod) => mod.MenuPageContent),
-  {
-    ssr: false,
-  }
+const DynamicMenuPageContent = dynamic(() =>
+  import("@/components/MenuPageContent").then((mod) => mod.MenuPageContent)
 );
 
-const DynamicSliceZone = dynamic(() =>
-  import("@prismicio/react").then((mod) => mod.SliceZone)
-);
+const DynamicSliceZone = dynamic(() => import("@/components/ClientSliceZone"));
 
 export {
-  DynamicSuperProvider,
-  DynamicPrismicProvider,
-  DynamicPrismicPreview,
-  DynamicMotionConfig,
-  DynamicLazyMotion,
   DynamicAppWrapper,
-  DynamicHeader,
-  DynamicFormOverlay,
-  DynamicCursor,
-  DynamicToastRoot,
-  DynamicHeroDetailPage,
   DynamicCtaFooter,
-  DynamicTileFooter,
+  DynamicCursor,
+  DynamicFormOverlay,
+  DynamicHeader,
+  DynamicHeroDetailPage,
+  DynamicLazyMotion,
   DynamicMenuPageContent,
+  DynamicMotionConfig,
+  DynamicPrismicPreview,
+  DynamicPrismicProvider,
   DynamicSliceZone,
+  DynamicSuperProvider,
+  DynamicTileFooter,
+  DynamicToastRoot,
 };

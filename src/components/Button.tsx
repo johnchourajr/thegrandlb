@@ -1,3 +1,5 @@
+"use client";
+
 import { event as handleEvent } from "@/utils/gtm";
 import { stringToUnderscore } from "@/utils/utils";
 import { PrismicLink, PrismicLinkProps } from "@prismicio/react";
@@ -8,7 +10,7 @@ import {
   FilledLinkToWebField,
 } from "@prismicio/types";
 import clsx from "clsx";
-import { AnimatePresence, m } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { LinkProps } from "next/link";
 import { linkResolver } from "prismicio";
 import React, { ButtonHTMLAttributes, useRef } from "react";
@@ -194,7 +196,7 @@ function Button({
 
   return (
     <ButtonTag
-      ref={buttonRef}
+      {...(isButton ? { ref: buttonRef } : {})}
       className={clsx(
         `group relative z-50 inline-flex h-fit flex-row items-center justify-center whitespace-nowrap text-center transition-all`,
         loading && "cursor-wait",
@@ -212,10 +214,10 @@ function Button({
       {...getLinkProps(buttonTypeName)}
       {...rest}
     >
-      {/* <m.span layout> */}
+      {/* <motion.span layout> */}
       <AnimatePresence>
         {loading && (
-          <m.span
+          <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -234,7 +236,7 @@ function Button({
               <span className="mr-1 inline-block animate-pulse">•</span>
               <span className="inline-block animate-pulse">•</span>
             </StringText>
-          </m.span>
+          </motion.span>
         )}
       </AnimatePresence>
       {!loading && (
@@ -251,7 +253,7 @@ function Button({
           {text || children}
         </StringText>
       )}
-      {/* </m.span> */}
+      {/* </motion.span> */}
 
       <span
         className={clsx(

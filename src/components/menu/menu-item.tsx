@@ -1,22 +1,11 @@
+import type { MenuItemProps } from "@/types/menu";
 import { PrismicRichText } from "@prismicio/react";
 import clsx from "clsx";
 import MotionBox from "../MotionBox";
 import Text from "../Paragraph";
 import StringText from "../StringText";
 
-interface MenuItemProps {
-  data: {
-    title: any;
-    description: any;
-    price_per: string;
-    price_min: number;
-    price_max: number;
-  };
-}
-
-const MenuItem: React.FC<MenuItemProps> = ({ data }) => {
-  // console.log({ data });
-
+export function MenuItem({ data }: MenuItemProps) {
   if (!data.price_min && !data.price_per) return null;
 
   const min = data.price_min;
@@ -118,6 +107,6 @@ const MenuItem: React.FC<MenuItemProps> = ({ data }) => {
       )}
     </MotionBox>
   );
-};
+}
 
 export default MenuItem;

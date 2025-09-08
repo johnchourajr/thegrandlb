@@ -1,6 +1,8 @@
+"use client";
+
 import useTouchDevice from "@/hooks/useTouchDevice";
 import clsx from "clsx";
-import { m, useMotionValue } from "framer-motion";
+import { motion, useMotionValue } from "framer-motion";
 import { useEffect, useState } from "react";
 import ArrowRight from "./svg/ArrowRight";
 
@@ -122,11 +124,11 @@ const Cursor: React.FC = () => {
         "pointer-events-none fixed inset-0 z-[9999] overflow-hidden"
       )}
     >
-      <m.div
+      <motion.div
         className={clsx(
           "pointer-events-none h-[1px] w-[1px] items-center justify-center text-[#3C3836] ",
           " origin-center transform transition-transform duration-150 ease-out",
-          "after:absolute after:top-[var(--top)] after:left-[var(--left)] after:h-[var(--height)] after:w-[var(--width)] after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:border-2 after:border-[#3C3836] after:bg-[#3c3836] after:bg-opacity-[var(--bkg-opacity)] after:opacity-60",
+          "after:absolute after:left-[var(--left)] after:top-[var(--top)] after:h-[var(--height)] after:w-[var(--width)] after:-translate-x-1/2 after:-translate-y-1/2 after:rounded-full after:border-2 after:border-[#3C3836] after:bg-[#3c3836] after:bg-opacity-[var(--bkg-opacity)] after:opacity-60",
           "!mix-blend-normal after:!border-white"
         )}
         style={{
@@ -138,13 +140,13 @@ const Cursor: React.FC = () => {
       >
         {isHoveringArrow && (
           <ArrowRight
-            className="absolute top-[-.38rem] left-[-.48rem] z-40 h-6 w-6 transform text-white"
+            className="absolute left-[-.48rem] top-[-.38rem] z-40 h-6 w-6 transform text-white"
             animate={{
               rotate: hovering === "arrow-right" ? 0 : 180,
             }}
           />
         )}
-      </m.div>
+      </motion.div>
     </div>
   );
 };

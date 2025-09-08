@@ -1,5 +1,7 @@
 import clsx from "clsx";
 import { TileItem } from "slices/TileGrid/TileItem";
+import type { GridBaseProps, GridItemData } from "../../types/grid";
+import { ensureArray } from "../../utils/safe-array";
 import { GridSection } from "../GridSection";
 import { GridIndexItem } from "./GridItem";
 
@@ -15,7 +17,10 @@ const container = {
   },
 };
 
-const GridBase = ({ uid: parentUid, sectionId, items, layoutLoader }: any) => {
+const GridBase = ({ uid: parentUid, sectionId, items }: GridBaseProps) => {
+  // Ensure items is always an array to prevent map errors
+  const safeItems = ensureArray(items);
+
   return (
     <GridSection
       id={sectionId}
@@ -31,11 +36,11 @@ const GridBase = ({ uid: parentUid, sectionId, items, layoutLoader }: any) => {
         once: true,
       }}
     >
-      {items.map((space: any) => {
+      {safeItems.map((space: GridItemData) => {
         const {
           page: { id, uid, data },
           page_media,
-        } = space;
+        } = space as any; // Type assertion needed for relation field access
         // console.log({ space });
 
         if (uid === "map") {
@@ -91,7 +96,7 @@ const GridBase = ({ uid: parentUid, sectionId, items, layoutLoader }: any) => {
             id={id}
             uid={uid}
             page_media={page_media}
-            layoutLoader={layoutLoader}
+            layout={space.layout}
             parentUid={parentUid}
             {...data}
           />

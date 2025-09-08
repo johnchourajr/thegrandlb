@@ -1,10 +1,14 @@
+"use client";
+
 import { handleEvent } from "@/utils/events";
 import { stringToUnderscore } from "@/utils/utils";
 import * as prismicH from "@prismicio/helpers";
 import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import clsx from "clsx";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import { linkResolver } from "prismicio";
+import type { FooterProps } from "../types/footer";
+import { ensureArray, safeMap } from "../utils/safe-array";
 import Button from "./Button";
 import { GridSection } from "./GridSection";
 import Headline from "./Headline";
@@ -75,50 +79,47 @@ const FooterUpper = ({
         "print:hidden"
       )}
     >
-      {footerColumns.map(({ primary, items }: any, index: number) => {
-        return (
-          <div
-            key={index}
-            className={clsx(
-              "flex w-full flex-col gap-2 px-6",
-              "border-white lg:border-l-2"
-            )}
-          >
-            <NavLinkItem
-              link_source={primary.link_source}
-              link_title={primary.link_title}
-              {...primary}
-            />
-            {items.map(
-              (
-                { child_link_source, child_link_title, ...childExtra }: any,
-                index: number
-              ) => {
-                if (primary.show === false || !child_link_source.id)
-                  return null;
+      {safeMap(footerColumns, ({ primary, items }: any, index: number) => (
+        <div
+          key={index}
+          className={clsx(
+            "flex w-full flex-col gap-2 px-6",
+            "border-white lg:border-l-2"
+          )}
+        >
+          <NavLinkItem
+            link_source={primary.link_source}
+            link_title={primary.link_title}
+            {...primary}
+          />
+          {items.map(
+            (
+              { child_link_source, child_link_title, ...childExtra }: any,
+              index: number
+            ) => {
+              if (primary.show === false || !child_link_source.id) return null;
 
-                return (
-                  <NavLinkItem
-                    key={index}
-                    link_source={child_link_source}
-                    link_title={child_link_title}
-                    stringTextSize="small"
-                    className="hidden lg:block"
-                    {...childExtra}
-                  />
-                );
-              }
-            )}
-          </div>
-        );
-      })}
+              return (
+                <NavLinkItem
+                  key={index}
+                  link_source={child_link_source}
+                  link_title={child_link_title}
+                  stringTextSize="small"
+                  className="hidden lg:block"
+                  {...childExtra}
+                />
+              );
+            }
+          )}
+        </div>
+      ))}
       <div
         className={clsx(
           "flex w-full flex-col gap-2 px-6",
           "border-white lg:border-x-2"
         )}
       >
-        {footerLinks.map(({ primary }: any, index: number) => {
+        {safeMap(footerLinks, ({ primary }: any, index: number) => {
           if (primary.show === false) return null;
           return (
             <div key={index} className={clsx("flex w-full flex-col gap-2")}>
@@ -217,7 +218,7 @@ const FooterLower = ({
         )}
       >
         <div className="bottom-0 flex w-full items-start justify-center overflow-clip lg:absolute lg:aspect-[250/93]">
-          <HeaderLogo className="-bottom-[3vw] aspect-[250/93] h-20 lg:absolute lg:h-[10vw]" />
+          <HeaderLogo className="-bottom-[2vw] aspect-[250/93] h-20 lg:absolute lg:h-[10vw]" />
         </div>
       </div>
       <div className="order-2 mb-4 w-full lg:order-[unset] lg:text-end">
@@ -229,7 +230,7 @@ const FooterLower = ({
               hyperlink: ({ text, node: { data } }) => (
                 <PrismicLink
                   linkResolver={linkResolver}
-                  field={data}
+                  field={data as any}
                   className="underline"
                 >
                   {text}
@@ -248,12 +249,13 @@ const FooterLower = ({
   );
 };
 
-export default function Footer({ settings, navigation }: any) {
-  const router = useRouter();
+export default function Footer({ settings, navigation }: FooterProps) {
+  const pathname = usePathname();
 
   if (!navigation && !settings) return null;
+  if (!navigation?.data) return null;
 
-  const { slices } = navigation.results[0].data;
+  const { slices } = navigation.data;
   const {
     primary_action,
     primary_action_link,
@@ -265,25 +267,25 @@ export default function Footer({ settings, navigation }: any) {
     parent_company,
     parent_company_link,
     legal_text,
-  } = settings?.data;
+  } = settings?.data || {};
 
   const getItemsWithKey = (key: string) => {
-    return slices.filter((slice: any) => slice.variation === key);
+    return ensureArray(slices).filter((slice: any) => slice.variation === key);
   };
 
   const footerColumns = getItemsWithKey("withChildren");
   const footerLinks = getItemsWithKey("default");
 
   const getFooterState = () => {
-    if (router.pathname === "/inquire") {
+    if (pathname === "/inquire") {
       return {
         show: false,
       };
-    } else if (router.pathname === "/thanks") {
+    } else if (pathname === "/thanks") {
       return {
         show: false,
       };
-    } else if (router.pathname === "/map") {
+    } else if (pathname === "/map") {
       return {
         show: false,
       };

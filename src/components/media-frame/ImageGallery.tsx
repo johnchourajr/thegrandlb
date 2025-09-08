@@ -1,7 +1,9 @@
+"use client";
+
 import { handleEvent } from "@/utils/events";
 import type { PrismicNextImageProps } from "@prismicio/next";
 import clsx from "clsx";
-import { AnimatePresence, m, useInView } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import ParallaxWrapper from "../ParallaxWrapper";
 import GalleryControls from "./GalleryControls";
@@ -266,9 +268,9 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
               {images.map(({ media, caption }: any, i) => {
                 const isActive = i === currentImageIndex;
                 return (
-                  <m.div
+                  <motion.div
                     key={i}
-                    className="absolute top-0 left-0 h-full w-full object-cover"
+                    className="absolute left-0 top-0 h-full w-full object-cover"
                     variants={boxVariants}
                     transition={{
                       ease: [0.1, 0.25, 0.3, 1],
@@ -281,7 +283,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                     aria-hidden={isActive ? "false" : "true"}
                   >
                     <ImageBox
-                      className="absolute top-0 left-0 h-full w-full object-cover"
+                      className="absolute left-0 top-0 h-full w-full object-cover"
                       media={media}
                       customAlt={caption}
                       imgixParams={imgixParams}
@@ -291,7 +293,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                       <div className="absolute inset-0 z-10 bg-black bg-opacity-10" />
                     )}
                     <div className="noise" />
-                  </m.div>
+                  </motion.div>
                 );
               })}
             </AnimatePresence>
@@ -299,7 +301,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
         </div>
         <button
           className={clsx(
-            "absolute top-0 left-0 z-[100] h-full w-1/2 cursor-none bg-opacity-30",
+            "absolute left-0 top-0 z-[100] h-full w-1/2 cursor-none bg-opacity-30",
             "after:absolute after:left-0 after:top-0 after:rounded-sm after:p-3 after:py-2 focus-visible:after:bg-black focus-visible:after:text-white focus-visible:after:content-[attr(data-content)]"
           )}
           data-cursor="arrow-left"
@@ -316,7 +318,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
         />
         <button
           className={clsx(
-            "absolute top-0 right-0 z-[100] h-full w-1/2 cursor-none bg-opacity-30",
+            "absolute right-0 top-0 z-[100] h-full w-1/2 cursor-none bg-opacity-30",
             "after:absolute after:right-0 after:top-0 after:rounded-sm after:p-3 after:py-2 focus-visible:after:bg-black focus-visible:after:text-white focus-visible:after:content-[attr(data-content)]"
           )}
           data-cursor="arrow-right"

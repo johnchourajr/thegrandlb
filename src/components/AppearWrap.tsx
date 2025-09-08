@@ -1,4 +1,4 @@
-import { AnimatePresence, m } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface AppearWrapProps {
   as?: "div" | "span";
@@ -32,7 +32,7 @@ const AppearWrap = ({
       height: 0,
     },
   };
-  const MotionComp = m[Comp];
+  const MotionComp = motion[Comp];
   const condition = currentPage === step;
   const cond = reverseCondition ? !condition : condition;
   return (
