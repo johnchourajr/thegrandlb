@@ -33,10 +33,14 @@ export async function POST(request: NextRequest) {
     // Check database connection
     if (!isConnected) {
       console.error("Database is not connected");
-      return new Response(
-        JSON.stringify({ error: "Database connection unavailable" }),
-        { status: 503, headers: { "Content-Type": "application/json" } }
+      // Temporary: Try to proceed anyway to see if it's just our connection check being too strict
+      console.warn(
+        "Proceeding despite connection check failure - this is temporary for debugging"
       );
+      // return new Response(
+      //   JSON.stringify({ error: "Database connection unavailable" }),
+      //   { status: 503, headers: { "Content-Type": "application/json" } }
+      // );
     }
 
     const body: FormData = await request.json();
