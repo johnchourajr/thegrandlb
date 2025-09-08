@@ -1,3 +1,5 @@
+"use client";
+
 import {
   FieldTypeValues,
   FormPage,
@@ -10,13 +12,13 @@ import {
   toastSubmitError,
   toastSubmitSuccess,
 } from "@/utils/events";
+import { formatPhoneForDatabase } from "@/utils/phone-formatter";
 import { formatDate, formatTitle } from "@/utils/utils";
 import axios from "axios";
 import clsx from "clsx";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { GridSection } from "../GridSection";
-import { formatPhoneForDatabase } from "./InputPhone";
 import { InquireFormSection } from "./InquireFormSection";
 
 export type HandleFormFunction = (
@@ -32,7 +34,7 @@ export type HandleFormFunction = (
 
 //?event_name=TEST%20John%27s%20Birthday&event_type=birthday_party&desired_date=2024-11-17&desired_time=9pm&head_count=100&desired_space=board-room&full_name=TEST%20John%20Choura&email=hi%40john.design&phone=555-555-5555
 
-const InquireFormContainer = ({ ...extra }) => {
+export function InquireFormContainer() {
   const router = useRouter();
   const params = useSearchParams();
   const data = getFormData() as FormPage[];
@@ -127,7 +129,7 @@ const InquireFormContainer = ({ ...extra }) => {
         phone: formatPhoneForDatabase(String(phone.value)),
       };
 
-      console.log({ formState, data });
+      // console.log({ formState, data });
 
       await axios.post("/api/add-to-database", data);
 
@@ -147,7 +149,7 @@ const InquireFormContainer = ({ ...extra }) => {
 
   useEffect(() => {
     // update formState with url params
-    Object.entries(params).forEach(([key, value]) => {
+    params.forEach((value, key) => {
       if (value) {
         handleFormChange(key as FieldTypeValues, value, 0, null);
       }
@@ -183,6 +185,4 @@ const InquireFormContainer = ({ ...extra }) => {
       })}
     </GridSection>
   );
-};
-
-export default InquireFormContainer;
+}

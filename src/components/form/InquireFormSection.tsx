@@ -56,23 +56,23 @@ const InquireLastPage = ({ formState }: any) => {
         </StringText>
         <Headline size={"lg"} disableMotion>
           You’re inquiring about having a{" "}
-          <span className="underline decoration-[2px] underline-offset-4">
+          <span className="underline decoration-[1px] underline-offset-4">
             {formatTitle(formState["event_type"]?.value) || ""}
           </span>{" "}
           in{" "}
-          <span className="underline decoration-[2px] underline-offset-4">
+          <span className="underline decoration-[1px] underline-offset-4">
             {formatTitle(formState["desired_space"]?.value) || ""}
           </span>{" "}
           on{" "}
-          <span className="underline decoration-[2px] underline-offset-4">
+          <span className="underline decoration-[1px] underline-offset-4">
             {formatDate(formState["desired_date"]?.value) || ""}
           </span>{" "}
           at{" "}
-          <span className="underline decoration-[2px] underline-offset-4">
+          <span className="underline decoration-[1px] underline-offset-4">
             {formatTitle(formState["desired_time"]?.value) || ""}
           </span>{" "}
           for{" "}
-          <span className="underline decoration-[2px] underline-offset-4">
+          <span className="underline decoration-[1px] underline-offset-4">
             {formState["head_count"]?.value || ""}
           </span>{" "}
           guests.
@@ -156,17 +156,6 @@ export const InquireFormSection = ({
     handleFormSubmit();
   };
 
-  // const handleSectionClick = () => {
-  //   updateValidityForKeys(pageInputValues);
-  //   if (allPageValuesAreValid) {
-  //     setCurrentPage(step + 2);
-  //     eventInquireNext(step);
-  //   } else {
-  //     setCurrentPage(step + 2);
-  //     toastNextError(step);
-  //   }
-  // };
-
   return (
     <motion.div
       className={clsx(
@@ -181,7 +170,6 @@ export const InquireFormSection = ({
           submitLoading && "pointer-events-none opacity-50"
         )}
       >
-        {/* <button onClick={() => setCurrentPage(step)} role={"button"}> */}
         <StringText size={"default"}>
           <StringText as="span" size={"small"} bold>
             {step + 1}
@@ -195,7 +183,6 @@ export const InquireFormSection = ({
             {title}
           </AppearWrap>
         </StringText>
-        {/* </button> */}
       </div>
       <AppearWrap
         className="gap-space relative flex w-full flex-col lg:flex-row"

@@ -54,9 +54,18 @@ export async function POST(request: NextRequest) {
       react: SalesEmail(formState),
     });
 
-    return Response.json({ message: "Email sent successfully" });
+    return new Response(
+      JSON.stringify({ message: "Email sent successfully" }),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   } catch (error) {
     console.error(error);
-    return Response.json({ message: "Failed to send email" }, { status: 500 });
+    return new Response(JSON.stringify({ message: "Failed to send email" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 }

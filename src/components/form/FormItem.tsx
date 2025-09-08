@@ -1,3 +1,5 @@
+"use client";
+
 import { Question } from "@/data/form.types";
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";

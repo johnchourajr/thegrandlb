@@ -17,6 +17,8 @@ export interface CtaFooterHeadlineItemProps {
   word: string;
   index: number;
   scrollProgress: MotionValue<number>;
+  array?: string[];
+  media?: any;
 }
 
 // Navigation link item props

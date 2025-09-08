@@ -1,4 +1,4 @@
-import { formatPhoneForDatabase } from "@/components/form/InputPhone";
+import { formatPhoneForDatabase } from "@/utils/phone-formatter";
 import { formatDate } from "@/utils/utils";
 import type { NextRequest } from "next/server";
 import db from "../../../services/db";
@@ -11,30 +11,55 @@ type FormData = {
   phone: string;
   event_name: string;
   event_type: string;
-  head_count: string;
+  head_count: string | number;
   desired_date: string;
   desired_time: string;
   desired_space: string;
   additional_details: string;
-  [key: string]: string;
+  [key: string]: string | number;
 };
 
 export async function POST(request: NextRequest) {
+  console.log("=== API Route Hit: /api/add-to-database ===");
+  console.log("Environment check:");
+  console.log("- TABLE:", TABLE);
+  console.log("- DATABASE_URL exists:", !!process.env.NEXT_DATABASE_URL);
+
   try {
     const body: FormData = await request.json();
-    const { phone, desired_date, ...formData } = body;
+    console.log("Received form data:", body);
+
+    const { phone, desired_date, head_count, ...formData } = body;
     const formattedPhone = formatPhoneForDatabase(phone);
     const formattedDate = formatDate(desired_date);
 
     const fields = {
       phone: formattedPhone,
       desired_date: formattedDate,
+      head_count: String(head_count), // Ensure head_count is a string
       created_date: new Date().toISOString(),
       ...formData,
     };
 
+    console.log("Processed fields:", fields);
+
     // Map form data to fields
     const sqlCommand = `INSERT INTO ${TABLE} (full_name, email, phone, event_name, event_type, head_count, desired_date, desired_time, desired_space, additional_details, created_date) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)`;
+
+    console.log("Executing SQL:", sqlCommand);
+    console.log("With values:", [
+      fields.full_name,
+      fields.email,
+      fields.phone,
+      fields.event_name,
+      fields.event_type,
+      fields.head_count,
+      fields.desired_date,
+      fields.desired_time,
+      fields.desired_space,
+      fields.additional_details,
+      fields.created_date,
+    ]);
 
     await db.query(sqlCommand, [
       fields.full_name,
@@ -50,12 +75,30 @@ export async function POST(request: NextRequest) {
       fields.created_date,
     ]);
 
-    return Response.json({ message: "Data inserted successfully" });
+    console.log("Database insertion successful");
+    return new Response(
+      JSON.stringify({ message: "Data inserted successfully" }),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   } catch (error) {
     console.error("Error inserting data:", error);
-    return Response.json(
-      { error, message: "Internal server error" },
-      { status: 500 }
+    console.error("Error details:", {
+      message: error instanceof Error ? error.message : "Unknown error",
+      stack: error instanceof Error ? error.stack : "No stack trace",
+    });
+
+    return new Response(
+      JSON.stringify({
+        error: error instanceof Error ? error.message : "Unknown error",
+        message: "Internal server error",
+      }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      }
     );
   }
 }

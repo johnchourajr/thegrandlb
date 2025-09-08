@@ -1,13 +1,12 @@
+import {
+  DynamicCtaFooter,
+  DynamicSliceZone,
+} from "@/components/DynamicExports";
 import HeroCategoryPage from "@/components/HeroCategoryPage";
 import Layout from "@/components/Layout";
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "../../../prismicio";
-import { DynamicCtaFooter, DynamicSliceZone } from "@/components/DynamicExports";
-
-/**
- * Types
- */
 
 export default async function Page() {
   const client = createClient();

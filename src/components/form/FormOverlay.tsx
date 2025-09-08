@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import type { FormOverlayProps } from "../../types/modal";
 import MapContainer from "../MapContainer";
-import InquireFormContainer from "./InquireFormContainer";
+import { InquireFormContainer } from "./InquireFormContainer";
 import InquireThanks from "./InquireThanks";
 
 const FormOverlay = ({

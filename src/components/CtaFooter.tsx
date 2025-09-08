@@ -47,7 +47,10 @@ const CtaFooterHeadlineItem = ({
 };
 
 const CtaFooter = ({ data }: CtaFooterProps) => {
-  // Hooks MUST be called before any early returns
+  // Early return BEFORE hooks if no data
+  if (!data?.data) return null;
+
+  // Hooks can be called safely now
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -57,8 +60,6 @@ const CtaFooter = ({ data }: CtaFooterProps) => {
     damping: 100,
     stiffness: 300,
   });
-
-  if (!data || !data.data) return null;
 
   // Safe destructuring with fallbacks
   const headline = data.data.headline || "";
@@ -74,63 +75,61 @@ const CtaFooter = ({ data }: CtaFooterProps) => {
   const headlineArray = splitTextIntoArray(headline);
 
   return (
-    <>
-      <GridSection
-        id={"cta-footer"}
-        gridSectionRef={ref}
-        bottomSpacer={"None"}
-        topSpacer={"None"}
-        overflowHidden={true}
-        className={clsx(
-          "relative min-h-[65vmax] bg-[white] text-[black]",
-          "!pt-[50vh] md:mt-8 md:!pt-[inherit]",
-          /**
-           * PRINT STYLES
-           */
-          "print:hidden"
-        )}
-      >
-        <TileItem
-          className="3lg:!col-span-4 3lg:!col-start-8 z-50 flex w-full items-center md:!col-span-2 md:!col-start-3 lg:!col-span-5 lg:!col-start-7"
-          innerClassName="max-h-[50rem] "
-          initial={{
-            opacity: 0,
-            y: 60,
-          }}
-          viewport={{
-            amount: 0.25,
-            margin: "0% 0% -40% 0%",
-          }}
-          media={getImageField(cardData?.media)}
-          eyebrow={getKeyText(cardData?.eyebrow)}
-          headline={getKeyText(cardData?.headline)}
-          body={getKeyText(cardData?.body)}
-          link={getLinkField(cardData?.link)}
-          theme={getSelectValue(cardData?.theme)}
-          size={getSelectValue(cardData?.size)}
-          direction={getSelectValue(cardData?.direction)}
-        />
-        <div className="absolute inset-0 z-20 bg-cream mix-blend-multiply" />
-        <div className="overflow-mask absolute inset-0 flex translate-x-[-1%] flex-col justify-start py-8 md:justify-center md:py-0">
-          {headlineArray.map((word: string, index: number) => {
-            return (
-              <CtaFooterHeadlineItem
-                key={index}
-                word={word}
-                index={index}
-                scrollProgress={scrollProgress}
-              />
-            );
-          })}
-        </div>
-        <MediaFrame
-          media={media}
-          video_media={video_media}
-          video_options={{ controls: false, auto_play: true, loop: true }}
-          className="absolute inset-0 z-10 col-span-6 h-full w-full mix-blend-screen"
-        />
-      </GridSection>
-    </>
+    <GridSection
+      id={"cta-footer"}
+      gridSectionRef={ref}
+      bottomSpacer={"None"}
+      topSpacer={"None"}
+      overflowHidden={true}
+      className={clsx(
+        "relative min-h-[65vmax] bg-[white] text-[black]",
+        "!pt-[50vh] md:mt-8 md:!pt-[inherit]",
+        /**
+         * PRINT STYLES
+         */
+        "print:hidden"
+      )}
+    >
+      <TileItem
+        className="3lg:!col-span-4 3lg:!col-start-8 z-50 flex w-full items-center md:!col-span-2 md:!col-start-3 lg:!col-span-5 lg:!col-start-7"
+        innerClassName="max-h-[50rem] "
+        initial={{
+          opacity: 0,
+          y: 60,
+        }}
+        viewport={{
+          amount: 0.25,
+          margin: "0% 0% -40% 0%",
+        }}
+        media={getImageField(cardData?.media)}
+        eyebrow={getKeyText(cardData?.eyebrow)}
+        headline={getKeyText(cardData?.headline)}
+        body={getKeyText(cardData?.body)}
+        link={getLinkField(cardData?.link)}
+        theme={getSelectValue(cardData?.theme)}
+        size={getSelectValue(cardData?.size)}
+        direction={getSelectValue(cardData?.direction)}
+      />
+      <div className="absolute inset-0 z-20 bg-cream mix-blend-multiply" />
+      <div className="overflow-mask absolute inset-0 flex translate-x-[-1%] flex-col justify-start py-8 md:justify-center md:py-0">
+        {headlineArray.map((word: string, index: number) => {
+          return (
+            <CtaFooterHeadlineItem
+              key={index}
+              word={word}
+              index={index}
+              scrollProgress={scrollProgress}
+            />
+          );
+        })}
+      </div>
+      <MediaFrame
+        media={media}
+        video_media={video_media}
+        video_options={{ controls: false, auto_play: true, loop: true }}
+        className="absolute inset-0 z-10 col-span-6 h-full w-full mix-blend-screen"
+      />
+    </GridSection>
   );
 };
 

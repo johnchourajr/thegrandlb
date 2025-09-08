@@ -1,3 +1,5 @@
+"use client";
+
 import { motion, SVGMotionProps } from "framer-motion";
 import { Ref, SVGProps } from "react";
 const Star = (

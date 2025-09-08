@@ -11,14 +11,6 @@ import { createClient } from "../../../prismicio";
 import Layout from "@components/Layout";
 
 /**
- * Types
- */
-import type {
-  GetStaticPropsParams,
-  InquirePageProps,
-} from "@/types/page-props";
-
-/**
  * @name ThanksPage
  */
 export default async function ThanksPage() {
@@ -39,12 +31,7 @@ export default async function ThanksPage() {
       settings={settings}
       className={"!min-h-[0vh]"}
       wrapperClassName={"!min-h-[0vh]"}
-      hidePageUid
-    >
-      <head>
-        <meta name="robots" content="noindex" />
-      </head>
-    </Layout>
+    />
   );
 }
 
@@ -55,4 +42,3 @@ export async function generateMetadata() {
     robots: "noindex",
   };
 }
-
