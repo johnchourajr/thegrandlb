@@ -1,7 +1,7 @@
 import { formatPhoneForDatabase } from "@/utils/phone-formatter";
 import { formatDate } from "@/utils/utils";
 import type { NextRequest } from "next/server";
-import db from "../../../services/db";
+import db, { isConnected } from "../../../services/db";
 
 const TABLE = process.env.NEXT_PUBLIC_DATABASE_TABLE || "glb_submissions";
 
@@ -21,6 +21,24 @@ type FormData = {
 
 export async function POST(request: NextRequest) {
   try {
+    // Check required environment variables
+    if (!process.env.NEXT_DATABASE_URL) {
+      console.error("NEXT_DATABASE_URL environment variable is not set");
+      return new Response(
+        JSON.stringify({ error: "Database configuration missing" }),
+        { status: 500, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    // Check database connection
+    if (!isConnected) {
+      console.error("Database is not connected");
+      return new Response(
+        JSON.stringify({ error: "Database connection unavailable" }),
+        { status: 503, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
     const body: FormData = await request.json();
 
     const { phone, desired_date, head_count, ...formData } = body;

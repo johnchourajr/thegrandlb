@@ -25,6 +25,25 @@ type RequestBody = {
 
 export async function POST(request: NextRequest) {
   try {
+    // Check required environment variables
+    const requiredEnvVars = [
+      "NEXT_RESEND_API_KEY",
+      "NEXT_PUBLIC_RESEND_FROM_EMAIL",
+      "NEXT_PUBLIC_RESEND_SALES_EMAIL",
+    ];
+
+    const missingVars = requiredEnvVars.filter(
+      (varName) => !process.env[varName]
+    );
+
+    if (missingVars.length > 0) {
+      console.error(`Missing environment variables: ${missingVars.join(", ")}`);
+      return new Response(
+        JSON.stringify({ error: "Email configuration missing" }),
+        { status: 500, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
     const body: RequestBody = await request.json();
     const { email = "", formState = {} } = body;
 
