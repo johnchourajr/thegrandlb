@@ -34,7 +34,6 @@ export default async function WeddingsMenuPage() {
     if (page.data.menu_api_uid) {
       try {
         menuSource = await fetchMenuCollection(page.data.menu_api_uid);
-        console.log("Fetched weddings menu data:", { menuSource });
       } catch (menuError) {
         console.error("Error fetching weddings menu data:", menuError);
         // Fallback to page data if external fetch fails

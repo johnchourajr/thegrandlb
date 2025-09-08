@@ -29,7 +29,7 @@ export const getExtra = async ({
   const debuggIfKeysInObjectAreUndefined = (obj: Record<string, unknown>) => {
     Object.keys(obj).forEach((key) => {
       if (obj[key] === undefined) {
-        // console.log(key);
+        console.log(key);
       }
     });
   };

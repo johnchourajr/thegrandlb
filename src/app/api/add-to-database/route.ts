@@ -20,14 +20,8 @@ type FormData = {
 };
 
 export async function POST(request: NextRequest) {
-  console.log("=== API Route Hit: /api/add-to-database ===");
-  console.log("Environment check:");
-  console.log("- TABLE:", TABLE);
-  console.log("- DATABASE_URL exists:", !!process.env.NEXT_DATABASE_URL);
-
   try {
     const body: FormData = await request.json();
-    console.log("Received form data:", body);
 
     const { phone, desired_date, head_count, ...formData } = body;
     const formattedPhone = formatPhoneForDatabase(phone);
@@ -41,25 +35,8 @@ export async function POST(request: NextRequest) {
       ...formData,
     };
 
-    console.log("Processed fields:", fields);
-
     // Map form data to fields
     const sqlCommand = `INSERT INTO ${TABLE} (full_name, email, phone, event_name, event_type, head_count, desired_date, desired_time, desired_space, additional_details, created_date) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)`;
-
-    console.log("Executing SQL:", sqlCommand);
-    console.log("With values:", [
-      fields.full_name,
-      fields.email,
-      fields.phone,
-      fields.event_name,
-      fields.event_type,
-      fields.head_count,
-      fields.desired_date,
-      fields.desired_time,
-      fields.desired_space,
-      fields.additional_details,
-      fields.created_date,
-    ]);
 
     await db.query(sqlCommand, [
       fields.full_name,
@@ -75,7 +52,6 @@ export async function POST(request: NextRequest) {
       fields.created_date,
     ]);
 
-    console.log("Database insertion successful");
     return new Response(
       JSON.stringify({ message: "Data inserted successfully" }),
       {

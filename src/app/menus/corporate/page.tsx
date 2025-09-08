@@ -34,7 +34,6 @@ export default async function CorporateMenuPage() {
     if (page.data.menu_api_uid) {
       try {
         menuSource = await fetchMenuCollection(page.data.menu_api_uid);
-        console.log("Fetched corporate menu data:", { menuSource });
       } catch (menuError) {
         console.error("Error fetching corporate menu data:", menuError);
         // Fallback to page data if external fetch fails
