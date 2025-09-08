@@ -54,8 +54,4 @@
   [headers.values]
     Cache-Control = "public, max-age=2592000"
 
-# Enable compression
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Content-Encoding = "gzip"
+# Netlify handles compression automatically - no manual Content-Encoding needed

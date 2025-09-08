@@ -17,11 +17,11 @@ const nextConfig = {
     dangerouslyAllowSVG: false,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  // Add caching headers for static assets
+  // Add caching headers for static assets only
   async headers() {
     return [
       {
-        source: "/:path*",
+        source: "/_next/static/:path*",
         headers: [
           {
             key: "Cache-Control",
