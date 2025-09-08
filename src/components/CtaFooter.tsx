@@ -47,10 +47,7 @@ const CtaFooterHeadlineItem = ({
 };
 
 const CtaFooter = ({ data }: CtaFooterProps) => {
-  // Early return BEFORE hooks if no data
-  if (!data?.data) return null;
-
-  // Hooks can be called safely now
+  // Always call hooks first
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -60,6 +57,9 @@ const CtaFooter = ({ data }: CtaFooterProps) => {
     damping: 100,
     stiffness: 300,
   });
+
+  // Early return AFTER hooks if no data
+  if (!data?.data) return null;
 
   // Safe destructuring with fallbacks
   const headline = data.data.headline || "";
