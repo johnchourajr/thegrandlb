@@ -1,5 +1,6 @@
 import ClientEmail from "@/emails/clientEmail";
 import SalesEmail from "@/emails/salesEmail";
+import errorNotificationService from "@/services/error-notifications";
 import type { NextRequest } from "next/server";
 import { Resend } from "resend";
 
@@ -24,6 +25,8 @@ type RequestBody = {
 };
 
 export async function POST(request: NextRequest) {
+  let body: RequestBody | undefined;
+
   try {
     // Check required environment variables
     const requiredEnvVars = [
@@ -38,14 +41,23 @@ export async function POST(request: NextRequest) {
 
     if (missingVars.length > 0) {
       console.error(`Missing environment variables: ${missingVars.join(", ")}`);
+
+      // Send error notification
+      await errorNotificationService.notifyApiError(
+        "email",
+        "/api/send-client-email",
+        new Error(`Missing environment variables: ${missingVars.join(", ")}`),
+        { missingVars, endpoint: "send-client-email" }
+      );
+
       return new Response(
         JSON.stringify({ error: "Email configuration missing" }),
         { status: 500, headers: { "Content-Type": "application/json" } }
       );
     }
 
-    const body: RequestBody = await request.json();
-    const { email = "", formState = {} } = body;
+    body = await request.json();
+    const { email = "", formState = {} } = body || {};
 
     /**
      * Send email to the client using the ReSend client
@@ -82,6 +94,19 @@ export async function POST(request: NextRequest) {
     );
   } catch (error) {
     console.error(error);
+
+    // Send error notification
+    await errorNotificationService.notifyApiError(
+      "email",
+      "/api/send-client-email",
+      error,
+      {
+        endpoint: "send-client-email",
+        hasFormState: !!body?.formState,
+        hasEmail: !!body?.email,
+      }
+    );
+
     return new Response(JSON.stringify({ message: "Failed to send email" }), {
       status: 500,
       headers: { "Content-Type": "application/json" },

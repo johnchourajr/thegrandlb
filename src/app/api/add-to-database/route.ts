@@ -1,3 +1,4 @@
+import errorNotificationService from "@/services/error-notifications";
 import { formatPhoneForDatabase } from "@/utils/phone-formatter";
 import { formatDate } from "@/utils/utils";
 import type { NextRequest } from "next/server";
@@ -20,10 +21,21 @@ type FormData = {
 };
 
 export async function POST(request: NextRequest) {
+  let body: FormData | undefined;
+
   try {
     // Check required environment variables
     if (!process.env.NEXT_DATABASE_URL) {
       console.error("NEXT_DATABASE_URL environment variable is not set");
+
+      // Send error notification
+      await errorNotificationService.notifyApiError(
+        "database",
+        "/api/add-to-database",
+        new Error("NEXT_DATABASE_URL environment variable is not set"),
+        { endpoint: "add-to-database", configIssue: "missing_database_url" }
+      );
+
       return new Response(
         JSON.stringify({ error: "Database configuration missing" }),
         { status: 500, headers: { "Content-Type": "application/json" } }
@@ -43,7 +55,11 @@ export async function POST(request: NextRequest) {
       // );
     }
 
-    const body: FormData = await request.json();
+    body = await request.json();
+
+    if (!body) {
+      throw new Error("Request body is missing");
+    }
 
     const { phone, desired_date, head_count, ...formData } = body;
     const formattedPhone = formatPhoneForDatabase(phone);
@@ -87,6 +103,19 @@ export async function POST(request: NextRequest) {
       message: error instanceof Error ? error.message : "Unknown error",
       stack: error instanceof Error ? error.stack : "No stack trace",
     });
+
+    // Send error notification
+    await errorNotificationService.notifyApiError(
+      "database",
+      "/api/add-to-database",
+      error,
+      {
+        endpoint: "add-to-database",
+        table: TABLE,
+        hasFormData: !!body,
+        connectionStatus: isConnected,
+      }
+    );
 
     return new Response(
       JSON.stringify({
