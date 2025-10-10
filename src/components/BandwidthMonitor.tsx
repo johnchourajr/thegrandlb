@@ -1,83 +1,105 @@
 "use client";
 
-import { useEffect, useState } from "react";
+/**
+ * Bandwidth Monitor Component
+ *
+ * Tracks and reports bandwidth usage for optimization purposes
+ */
 
-type BandwidthData = {
-  connectionType: string;
-  effectiveType: string;
-  downlink: number;
-  rtt: number;
-};
+import { useEffect } from "react";
+
+interface BandwidthEntry {
+  url: string;
+  size: number;
+  type: "image" | "video" | "api" | "other";
+  timestamp: number;
+}
 
 const BandwidthMonitor = () => {
-  const [bandwidthData, setBandwidthData] = useState<BandwidthData | null>(
-    null
-  );
-  const [isSlowConnection, setIsSlowConnection] = useState(false);
-
   useEffect(() => {
-    // Only run on client side
-    if (typeof window === "undefined") return;
+    if (process.env.NODE_ENV !== "development") return;
 
-    try {
-      // Check if connection API is available
-      if ("connection" in navigator) {
-        const connection = (navigator as any).connection;
+    let totalBandwidth = 0;
+    const entries: BandwidthEntry[] = [];
 
-        const updateConnectionInfo = () => {
-          try {
-            const data: BandwidthData = {
-              connectionType: connection.type || "unknown",
-              effectiveType: connection.effectiveType || "unknown",
-              downlink: connection.downlink || 0,
-              rtt: connection.rtt || 0,
-            };
+    // Monitor fetch requests
+    const originalFetch = window.fetch;
+    window.fetch = async (...args) => {
+      const response = await originalFetch(...args);
 
-            setBandwidthData(data);
+      try {
+        const url = args[0] as string;
+        const contentLength = response.headers.get("content-length");
 
-            // Consider connection slow if downlink is less than 1 Mbps or effective type is 2g/3g
-            const isSlow =
-              data.downlink < 1 || ["2g", "3g"].includes(data.effectiveType);
-            setIsSlowConnection(isSlow);
-          } catch (error) {
-            console.warn("Error updating connection info:", error);
+        if (contentLength) {
+          const size = parseInt(contentLength, 10);
+          totalBandwidth += size;
+
+          let type: BandwidthEntry["type"] = "other";
+          if (url.includes("prismic.io") && url.includes("/api/")) {
+            type = "api";
+          } else if (url.match(/\.(jpg|jpeg|png|webp|avif)$/i)) {
+            type = "image";
+          } else if (url.match(/\.(mp4|webm|mov)$/i)) {
+            type = "video";
           }
-        };
 
-        // Initial check
-        updateConnectionInfo();
+          entries.push({
+            url,
+            size,
+            type,
+            timestamp: Date.now(),
+          });
 
-        // Listen for connection changes
-        connection.addEventListener("change", updateConnectionInfo);
-
-        return () => {
-          try {
-            connection.removeEventListener("change", updateConnectionInfo);
-          } catch (error) {
-            console.warn("Error removing connection listener:", error);
+          // Log significant bandwidth usage
+          if (size > 1024 * 1024) {
+            // > 1MB
+            console.log(
+              `[Bandwidth Alert] Large ${type}: ${(size / 1024 / 1024).toFixed(
+                2
+              )}MB - ${url}`
+            );
           }
-        };
+        }
+      } catch (error) {
+        // Silently continue if monitoring fails
       }
-    } catch (error) {
-      console.warn("Error initializing bandwidth monitor:", error);
-    }
+
+      return response;
+    };
+
+    // Report bandwidth usage every 30 seconds in development
+    const interval = setInterval(() => {
+      if (entries.length > 0) {
+        const summary = entries.reduce((acc, entry) => {
+          acc[entry.type] = (acc[entry.type] || 0) + entry.size;
+          return acc;
+        }, {} as Record<string, number>);
+
+        console.group(
+          `[Bandwidth Summary] Total: ${(totalBandwidth / 1024 / 1024).toFixed(
+            2
+          )}MB`
+        );
+        Object.entries(summary).forEach(([type, size]) => {
+          console.log(`${type}: ${(size / 1024 / 1024).toFixed(2)}MB`);
+        });
+        console.groupEnd();
+
+        // Reset for next period
+        entries.length = 0;
+        totalBandwidth = 0;
+      }
+    }, 30000);
+
+    return () => {
+      clearInterval(interval);
+      // Restore original fetch
+      window.fetch = originalFetch;
+    };
   }, []);
 
-  // Apply optimizations based on connection speed
-  useEffect(() => {
-    // Only run on client side
-    if (typeof window === "undefined") return;
-
-    if (isSlowConnection) {
-      // Disable autoplay videos for slow connections
-      document.documentElement.setAttribute("data-slow-connection", "true");
-    } else {
-      document.documentElement.removeAttribute("data-slow-connection");
-    }
-  }, [isSlowConnection]);
-
-  // This component doesn't render anything, it just monitors and applies optimizations
-  return null;
+  return null; // This component doesn't render anything
 };
 
 export default BandwidthMonitor;

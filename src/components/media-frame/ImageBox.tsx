@@ -31,11 +31,12 @@ const ImageBox = ({
       className={clsx(className)}
       priority={priority}
       loading={priority ? "eager" : "lazy"}
-      sizes="(min-width: 60em) 24vw, (min-width: 28em) 45vw, 100vw"
+      sizes="(min-width: 1440px) 1440px, (min-width: 1080px) 1080px, (min-width: 640px) 640px, 100vw"
       imgixParams={{
-        q: 60,
+        q: 75, // Reduced quality for bandwidth savings
         fm: "webp",
         auto: ["compress", "format"],
+        fit: "max",
         ...imgixParams,
       }}
       alt={decorative ? "" : undefined}

@@ -28,6 +28,11 @@ export interface InlineVideoPlayerProps {
   controls?: boolean;
   controlPosition?: "Top Right" | "Bottom Left" | "Bottom Right";
   priority?: boolean;
+  // New optimization props
+  lazy?: boolean;
+  preload?: "none" | "metadata" | "auto";
+  quality?: "low" | "medium" | "high";
+  enableBandwidthOptimization?: boolean;
 }
 
 const InlineVideoPlayer = ({
@@ -81,12 +86,12 @@ const InlineVideoPlayer = ({
   };
 
   useEffect(() => {
-    // Check if user has slow connection
-    const isSlowConnection = document.documentElement.hasAttribute(
-      "data-slow-connection"
-    );
+    // Temporarily disabled slow connection check for debugging autoplay
+    // const isSlowConnection = document.documentElement.hasAttribute(
+    //   "data-slow-connection"
+    // );
 
-    if (isInView && !isSlowConnection) {
+    if (isInView) {
       setIsPlaying(true);
     } else {
       setIsPlaying(false);
@@ -128,7 +133,13 @@ const InlineVideoPlayer = ({
 
   React.useEffect(() => {
     if (auto_play) {
-      handleChange();
+      // Force play regardless of slow connection for debugging
+      const video = ref?.current;
+      if (video) {
+        video.play().catch((error) => {
+          console.log("Autoplay failed:", error);
+        });
+      }
       setIsPlaying(true);
     }
   }, [auto_play]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -177,7 +188,6 @@ const InlineVideoPlayer = ({
                 src={posterUrl}
                 width={`480`}
                 height={`270`}
-                quality={50}
                 priority={priority || false}
                 alt=""
                 placeholder="blur"

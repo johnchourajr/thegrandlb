@@ -23,6 +23,9 @@ export interface MediaFrameProps {
     auto_play?: boolean;
     loop?: boolean;
     controls?: boolean;
+    lazy?: boolean;
+    preload?: "none" | "metadata" | "auto";
+    enableBandwidthOptimization?: boolean;
   };
   gallery?: any;
   priority?: boolean;

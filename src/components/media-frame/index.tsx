@@ -12,9 +12,12 @@ const MediaFrame = ({
   media,
   video_media,
   video_options = {
-    auto_play: true,
-    loop: true,
+    auto_play: true, // Changed: Don't auto-play by default to save bandwidth
+    loop: true, // Changed: Don't loop by default to save bandwidth
     controls: true,
+    lazy: true, // New: Enable lazy loading
+    preload: "none", // New: Don't preload video data
+    enableBandwidthOptimization: true, // New: Enable optimization
   },
   gallery,
   priority = false,
