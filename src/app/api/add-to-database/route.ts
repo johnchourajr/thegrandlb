@@ -92,7 +92,14 @@ export async function POST(request: NextRequest) {
       stack: error instanceof Error ? error.stack : "No stack trace",
     });
 
-    // Send error notification
+    // Get pool stats for debugging
+    console.error("Pool stats at error time:", {
+      totalCount: pool.totalCount,
+      idleCount: pool.idleCount,
+      waitingCount: pool.waitingCount,
+    });
+
+    // Send error notification with pool context
     await errorNotificationService.notifyApiError(
       "database",
       "/api/add-to-database",
@@ -101,6 +108,14 @@ export async function POST(request: NextRequest) {
         endpoint: "add-to-database",
         table: TABLE,
         hasFormData: !!body,
+        poolStats: {
+          totalCount: pool.totalCount,
+          idleCount: pool.idleCount,
+          waitingCount: pool.waitingCount,
+          utilization: `${Math.round(
+            ((pool.totalCount - pool.idleCount) / 10) * 100
+          )}%`,
+        },
       }
     );
 
