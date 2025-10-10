@@ -1,4 +1,4 @@
-import { Client } from "pg";
+import { Pool } from "pg";
 
 const connectionString = process.env.NEXT_DATABASE_URL;
 
@@ -6,40 +6,46 @@ if (!connectionString) {
   console.error("NEXT_DATABASE_URL environment variable is not set");
 }
 
-const db = new Client({ connectionString });
+/**
+ * PostgreSQL connection pool for serverless environments
+ *
+ * Using Pool instead of Client provides:
+ * - Automatic connection management
+ * - Connection reuse across requests
+ * - Automatic reconnection on connection loss
+ * - Better performance in serverless/edge functions
+ */
+const pool = new Pool({
+  connectionString,
+  // Serverless-optimized configuration
+  max: 10, // Maximum number of clients in the pool
+  idleTimeoutMillis: 30000, // Close idle clients after 30 seconds
+  connectionTimeoutMillis: 10000, // Timeout if connection takes longer than 10 seconds
+  // Allow the pool to gracefully handle connection errors
+  allowExitOnIdle: true, // Important for serverless - allows process to exit when idle
+});
 
-// Add connection timeout and error handling
-let isConnected = false;
+// Handle pool errors to prevent crashes
+pool.on("error", (err) => {
+  console.error("Unexpected database pool error:", err);
+});
 
-const connectWithTimeout = async () => {
+// Helper to check pool health
+export async function checkConnection(): Promise<boolean> {
   try {
-    console.log("Attempting database connection...");
-    console.log("Connection string exists:", !!connectionString);
-    console.log(
-      "Connection string preview:",
-      connectionString ? `${connectionString.substring(0, 20)}...` : "MISSING"
-    );
-
-    await Promise.race([
-      db.connect(),
-      new Promise((_, reject) =>
-        setTimeout(() => reject(new Error("Connection timeout")), 10000)
-      ),
-    ]);
-    isConnected = true;
-    console.log("Database connected successfully");
+    const client = await pool.connect();
+    await client.query("SELECT 1");
+    client.release();
+    return true;
   } catch (error) {
-    console.error("Error connecting to the database", error);
-    console.error("Error details:", {
-      message: error instanceof Error ? error.message : "Unknown error",
-      stack: error instanceof Error ? error.stack : "No stack trace",
-    });
-    isConnected = false;
+    console.error("Database connection check failed:", error);
+    return false;
   }
-};
+}
 
-connectWithTimeout();
+// Graceful shutdown helper (useful for local development)
+export async function closePool(): Promise<void> {
+  await pool.end();
+}
 
-// Export both the client and connection status
-export default db;
-export { isConnected };
+export default pool;

@@ -2,7 +2,7 @@ import errorNotificationService from "@/services/error-notifications";
 import { formatPhoneForDatabase } from "@/utils/phone-formatter";
 import { formatDate } from "@/utils/utils";
 import type { NextRequest } from "next/server";
-import db, { isConnected } from "../../../services/db";
+import pool from "../../../services/db";
 
 const TABLE = process.env.NEXT_PUBLIC_DATABASE_TABLE || "glb_submissions";
 
@@ -42,19 +42,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Check database connection
-    if (!isConnected) {
-      console.error("Database is not connected");
-      // Temporary: Try to proceed anyway to see if it's just our connection check being too strict
-      console.warn(
-        "Proceeding despite connection check failure - this is temporary for debugging"
-      );
-      // return new Response(
-      //   JSON.stringify({ error: "Database connection unavailable" }),
-      //   { status: 503, headers: { "Content-Type": "application/json" } }
-      // );
-    }
-
     body = await request.json();
 
     if (!body) {
@@ -73,10 +60,11 @@ export async function POST(request: NextRequest) {
       ...formData,
     };
 
-    // Map form data to fields
+    // Insert data using connection pool
     const sqlCommand = `INSERT INTO ${TABLE} (full_name, email, phone, event_name, event_type, head_count, desired_date, desired_time, desired_space, additional_details, created_date) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)`;
 
-    await db.query(sqlCommand, [
+    // Pool automatically manages connections - no need to connect/disconnect
+    await pool.query(sqlCommand, [
       fields.full_name,
       fields.email,
       fields.phone,
@@ -113,7 +101,6 @@ export async function POST(request: NextRequest) {
         endpoint: "add-to-database",
         table: TABLE,
         hasFormData: !!body,
-        connectionStatus: isConnected,
       }
     );
 

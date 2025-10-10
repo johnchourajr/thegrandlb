@@ -1,17 +1,19 @@
 import type { NextRequest } from "next/server";
-import db, { isConnected } from "../../../../services/db";
+import { checkConnection } from "../../../../services/db";
 
 export async function GET(request: NextRequest) {
   const startTime = Date.now();
 
   try {
-    // Check if database connection is available
-    if (!isConnected) {
+    // Check database pool health
+    const isHealthy = await checkConnection();
+
+    if (!isHealthy) {
       return new Response(
         JSON.stringify({
           status: "unhealthy",
           service: "database",
-          error: "Database not connected",
+          error: "Database connection failed",
           timestamp: new Date().toISOString(),
           responseTime: Date.now() - startTime,
         }),
@@ -21,9 +23,6 @@ export async function GET(request: NextRequest) {
         }
       );
     }
-
-    // Try a simple query to verify the database is actually working
-    await db.query("SELECT 1");
 
     return new Response(
       JSON.stringify({
