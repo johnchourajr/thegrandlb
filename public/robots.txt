@@ -1,4 +1,19 @@
+# Robots.txt for The Grand LB
+# https://thegrandlb.com
+
+# Allow all search engines
 User-agent: *
+
+# Disallow API routes (internal use only)
+Disallow: /api/
+
+# Disallow preview routes
+Disallow: /preview/
+
+# Disallow thank you page (form submission)
+Disallow: /thanks
+
+# Defensive: Block common attack paths even though we don't use them
 Disallow: /wp/
 Disallow: /wp-admin/
 Disallow: /wp-login.php
@@ -6,4 +21,10 @@ Disallow: /xmlrpc.php
 Disallow: /admin/
 Disallow: /tmp/
 Disallow: /private/
-Crawl-Delay: 10
+Disallow: /*.php$
+
+# Sitemap location
+Sitemap: https://thegrandlb.com/sitemap.xml
+
+# Crawl delay to prevent server overload
+Crawl-Delay: 5

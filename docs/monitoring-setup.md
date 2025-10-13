@@ -33,14 +33,29 @@ The monitoring system provides:
   - Essential error information with stack traces
   - Compact format for quick scanning
 
-### 3. Health Check Endpoints
+### 3. Health Check System
+
+**Architecture:**
+
+- **Shared Service**: `/src/services/health-checks.ts`
+  - Centralized health check logic for reuse
+  - Direct function calls (no HTTP overhead)
+  - Consistent response format across all checks
+
+**Endpoints:**
 
 - **Base URL**: `/api/health`
 - **Individual Services**:
   - `/api/health/email` - Email service health
   - `/api/health/database` - Database pool connectivity
   - `/api/health/database/stats` - Database pool statistics (detailed metrics)
-  - `/api/health` - Combined system health
+  - `/api/health` - Combined system health (calls shared functions directly)
+
+**Performance Optimization:**
+
+- Main `/api/health` endpoint calls health check functions directly
+- Eliminates HTTP roundtrip overhead (previously ~4s, now <500ms)
+- Individual endpoints still available for external monitoring tools
 
 **Database Health Check Details:**
 

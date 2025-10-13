@@ -1,52 +1,18 @@
+import {
+  checkDatabaseHealth,
+  checkEmailHealth,
+} from "@/services/health-checks";
 import type { NextRequest } from "next/server";
-
-type HealthCheckResult = {
-  status: "healthy" | "unhealthy";
-  service: string;
-  error?: string;
-  timestamp: string;
-  responseTime: number;
-  note?: string;
-};
 
 export async function GET(request: NextRequest) {
   const startTime = Date.now();
-  const baseUrl = request.nextUrl.origin;
 
   try {
-    // Check both email and database health
-    const [emailResponse, databaseResponse] = await Promise.allSettled([
-      fetch(`${baseUrl}/api/health/email`),
-      fetch(`${baseUrl}/api/health/database`),
+    // Check both email and database health directly (no HTTP overhead)
+    const [emailHealth, databaseHealth] = await Promise.all([
+      checkEmailHealth(),
+      checkDatabaseHealth(),
     ]);
-
-    const emailHealth: HealthCheckResult =
-      emailResponse.status === "fulfilled" && emailResponse.value.ok
-        ? await emailResponse.value.json()
-        : {
-            status: "unhealthy",
-            service: "email",
-            error:
-              emailResponse.status === "rejected"
-                ? emailResponse.reason?.message
-                : "HTTP error",
-            timestamp: new Date().toISOString(),
-            responseTime: 0,
-          };
-
-    const databaseHealth: HealthCheckResult =
-      databaseResponse.status === "fulfilled" && databaseResponse.value.ok
-        ? await databaseResponse.value.json()
-        : {
-            status: "unhealthy",
-            service: "database",
-            error:
-              databaseResponse.status === "rejected"
-                ? databaseResponse.reason?.message
-                : "HTTP error",
-            timestamp: new Date().toISOString(),
-            responseTime: 0,
-          };
 
     const overallStatus =
       emailHealth.status === "healthy" && databaseHealth.status === "healthy"
