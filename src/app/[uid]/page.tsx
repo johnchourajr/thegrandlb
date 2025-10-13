@@ -2,6 +2,7 @@
  * Components
  */
 import Layout from "@components/Layout";
+import { notFound } from "next/navigation";
 
 /**
  * Services
@@ -26,19 +27,23 @@ export default async function Page({ params }: { params: { uid: string } }) {
   const client = createClient();
   const extra = await getExtra({});
 
-  const [page] = await Promise.all([
-    client.getByUID("page", params.uid, {
-      fetchLinks,
-    }),
-  ]);
+  try {
+    const [page] = await Promise.all([
+      client.getByUID("page", params.uid, {
+        fetchLinks,
+      }),
+    ]);
 
-  const { settings, navigation } = extra;
+    const { settings, navigation } = extra;
 
-  return (
-    <Layout page={page} settings={settings} navigation={navigation}>
-      <DynamicSliceZone slices={page?.data?.slices} />
-    </Layout>
-  );
+    return (
+      <Layout page={page} settings={settings} navigation={navigation}>
+        <DynamicSliceZone slices={page?.data?.slices} />
+      </Layout>
+    );
+  } catch (error) {
+    notFound();
+  }
 }
 
 export async function generateMetadata({
