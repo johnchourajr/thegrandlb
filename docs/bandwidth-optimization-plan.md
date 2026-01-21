@@ -1,6 +1,25 @@
 # Bandwidth Optimization Plan
 
-## Current Bandwidth Issues
+## Latest Findings (Jan 2026)
+
+Based on the latest Prismic bandwidth report (January 2026):
+
+- Videos: 95.8% of total bandwidth (153.27 GB of 160.02 GB)
+- Images: 6.75 GB (4.2% of total bandwidth)
+- API calls: negligible compared to media delivery
+
+Top bandwidth consumers:
+
+- Homepage 60s video (Homepage 60s--final.mp4): 62.18 GB (8,368 requests, thegrandlb.com)
+- Footer Peak 15s video: 16.55 GB
+- Community Section 30s video: 9.19 GB
+- Tour Index 15s video: 7.88 GB
+- Homepage 60s video (grandfandb.com referrer): 7.44 GB
+
+Conclusion: video delivery is the primary bandwidth driver. Optimizing video will
+have the largest impact.
+
+## Historical Findings (Oct 2025)
 
 Based on Prismic bandwidth logs analysis (October 2025), the main consumers are:
 
@@ -25,6 +44,19 @@ Based on Prismic bandwidth logs analysis (October 2025), the main consumers are:
 
 ## Optimization Strategy
 
+The plan below focuses on the highest bandwidth drivers first.
+
+### Execution Plan (Draft)
+
+1. Confirm top video assets in Prismic analytics and list exact pages using them.
+2. Quick win: compress and replace the top 3 videos in Prismic; verify visual quality.
+3. Implement lazy loading and poster-first playback for non-hero videos.
+4. Select a video CDN and migrate the top 3 videos; update Prismic entries to external URLs.
+5. Migrate remaining large videos, then re-audit bandwidth after 1-2 weeks.
+
+Decision checkpoint:
+- Stop after step 2 for minimal change, or continue to step 4 for long-term savings.
+
 ### Phase 1: Video Optimization (Priority 1 - Immediate Impact)
 
 #### 1.1 Video Compression & Format Optimization
@@ -43,7 +75,7 @@ Based on Prismic bandwidth logs analysis (October 2025), the main consumers are:
 
 #### 1.3 Self-Hosting Videos
 
-- [ ] Move large videos to self-hosted solution (Vercel, Cloudflare, AWS S3)
+- [ ] Move large videos to a video CDN or object storage (Cloudflare Stream, Mux, Vimeo, S3)
 - [ ] Keep only small preview clips in Prismic
 - [ ] Use Prismic for metadata, external hosting for files
 
