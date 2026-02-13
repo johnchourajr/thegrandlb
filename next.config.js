@@ -7,6 +7,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "images.prismic.io",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.thegrandlb.com",
+      },
     ],
     deviceSizes: [
       375,

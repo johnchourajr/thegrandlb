@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { useInView, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import React, { useEffect, useState, VideoHTMLAttributes } from "react";
+import { videoUrlFromCdn } from "@/lib/cdn";
 import ParallaxWrapper from "../ParallaxWrapper";
 import LazyVideo from "./LazyVideo";
 import { VideoProgressButton } from "./VideoProgressButton";
@@ -54,7 +55,11 @@ const InlineVideoPlayer = ({
   const [videoProgress, setVideoProgress] = useState(0);
   const reducedMotion = useReducedMotion();
 
-  const { url: mediaUrl }: any = media || {};
+  const { url: rawMediaUrl }: any = media || {};
+  const mediaUrl =
+    rawMediaUrl != null
+      ? (videoUrlFromCdn(rawMediaUrl) || rawMediaUrl)
+      : "";
   const { url: posterUrl }: any = poster || {};
 
   const videoOptions = {
