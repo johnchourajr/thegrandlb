@@ -19,9 +19,9 @@ export default async function Page() {
   ]);
 
   const { settings, navigation, cta } = extra;
-  const {
-    data: { slices, title, gallery, video_media, media },
-  } = page;
+  const { data } = page;
+  const { slices, title, gallery, video_media, media } = data;
+  const video_url = (data as { video_url?: string }).video_url;
 
   return (
     <Layout page={page} settings={settings} navigation={navigation} hidePageUid>
@@ -29,6 +29,7 @@ export default async function Page() {
         headline={title}
         gallery={gallery}
         video_media={video_media}
+        video_url={video_url}
         media={media}
       />
       <DynamicSliceZone slices={page.data.slices} />

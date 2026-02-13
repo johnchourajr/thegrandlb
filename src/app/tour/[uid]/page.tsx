@@ -81,6 +81,7 @@ export default async function Page({
           headline={tourPageData?.headline}
           media={tourPageData?.media}
           video_media={tourPageData?.video_media}
+          video_url={(tourPageData as { video_url?: string }).video_url}
           subhead={tourPageData?.subhead}
           body={tourPageData?.body}
           primary_action={"Book this space"}

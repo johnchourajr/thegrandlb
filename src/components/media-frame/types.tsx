@@ -18,7 +18,10 @@ export interface MediaFrameProps {
   id?: string;
   className?: string;
   media: any;
+  /** @deprecated Use video_url instead */
   video_media?: FilledLinkToMediaField | EmptyLinkField<"Media">;
+  /** When set (CDN URL from CMS), used instead of video_media URL. */
+  video_url?: string | null;
   video_options?: {
     auto_play?: boolean;
     loop?: boolean;

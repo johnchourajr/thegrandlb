@@ -36,6 +36,7 @@ export default async function Page({ params }: { params: { uid: string } }) {
         caption={eventPageData?.caption}
         media={eventPageData?.media}
         video_media={eventPageData?.video_media}
+        video_url={(eventPageData as { video_url?: string }).video_url}
       />
       <DynamicSliceZone slices={page?.data.slices} />
       <DynamicCtaFooter data={cta} />

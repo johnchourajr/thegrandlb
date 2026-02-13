@@ -79,6 +79,7 @@ const SplitScrollSection = ({
           <MediaFrame
             gallery={gallery}
             video_media={video_media}
+            video_url={(slice.primary as { video_url?: string }).video_url}
             media={media}
             className="absolute inset-0 h-full w-full overflow-hidden"
           />

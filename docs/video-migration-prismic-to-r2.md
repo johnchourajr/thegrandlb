@@ -60,6 +60,17 @@ Videos are uploaded with `Content-Type: video/mp4` and `Cache-Control: public, m
 
 No Prismic content needs to be edited; URLs are rewritten when rendering.
 
+**Optional: Video URL field in CMS**  
+A first-party **Video URL (CDN)** text field has been added next to the deprecated **Video Media** link field on all relevant custom types and slices. You can paste R2 URLs (e.g. `https://cdn.thegrandlb.com/filename.mp4`) into this field in the Prismic dashboard; the app prefers this over the old media link when both exist.
+
+- **Push custom types/slices (schema):** Use Slice Machine: run `pnpm run slicemachine`, open the UI, and use **Push to Prismic** so the new field and deprecated labels appear. Do this before updating content via the script below.
+- **Update document content (video_url) via API:** After the schema includes `video_url` and videos are on R2, you can set `video_url` on every document that has a video using the [Prismic Migration API](https://prismic.io/docs/migration-api-technical-reference). From the project root, set `PRISMIC_ACCESS_TOKEN` (Write API token from Settings > API & Security) and run:
+  ```bash
+  node scripts/update-prismic-video-urls.mjs        # updates documents (creates drafts)
+  node scripts/update-prismic-video-urls.mjs --dry-run   # preview only
+  ```
+  The script reads `videos/video-manifest.json`, maps each video to its document (and slice index when applicable), and PUTs each document with `video_url` set to `https://cdn.thegrandlb.com/<targetFilename>`. Rate limit is 1 request/second; updates appear as drafts in **Migration Releases** and must be published in Prismic. Before each PUT, the current document is appended to a backup file `videos/prismic-backup-<timestamp>.json` (id, type, uid, lang, data) so you can restore via Migration API if needed.
+
 ## R2 key mapping
 
 Prismic CDN URLs are converted to R2 object keys by taking the URL path’s last segment, slugifying it, and using `.mp4`. This matches the `targetFilename` in the audit script (e.g. `Homepage 60s final.mp4` -> `homepage-60s-final.mp4`). If your upload filenames differ from this, use `setPrismicToR2KeyMapper()` in `src/lib/cdn.ts` to provide a custom mapping.
@@ -73,6 +84,7 @@ Videos that appear only inside Prismic content fields (e.g. rich text or link fi
 - `scripts/audit-prismic-videos.mjs` – audit and download
 - `scripts/optimize-videos.mjs` – ffmpeg optimization
 - `scripts/upload-to-r2.sh` – R2 upload
+- `scripts/update-prismic-video-urls.mjs` – set `video_url` on Prismic documents via Migration API
 - `src/lib/cdn.ts` – CDN base and URL rewrite
 - `src/components/media-frame/InlineVideoPlayer.tsx` – uses `videoUrlFromCdn()`
 - `next.config.js` – `cdn.thegrandlb.com` in `images.remotePatterns`

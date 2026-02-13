@@ -11,6 +11,7 @@ const MediaFrame = ({
   className,
   media,
   video_media,
+  video_url,
   video_options = {
     auto_play: true, // Changed: Don't auto-play by default to save bandwidth
     loop: true, // Changed: Don't loop by default to save bandwidth
@@ -25,6 +26,7 @@ const MediaFrame = ({
 }: MediaFrameProps) => {
   const { url: videoUrl }: any = video_media || {};
   const { url: mediaUrl }: any = media || {};
+  const hasVideo = video_url?.trim() || videoUrl;
 
   const renderMedia = () => {
     if (gallery?.data) {
@@ -39,11 +41,12 @@ const MediaFrame = ({
           overlay={true}
         />
       );
-    } else if (videoUrl) {
+    } else if (hasVideo) {
       return (
         <InlineVideoPlayer
           id={id}
           media={video_media}
+          videoUrl={video_url?.trim() || undefined}
           className="absolute inset-0 z-20 h-full w-full object-cover"
           poster={media}
           priority={priority}
@@ -65,7 +68,7 @@ const MediaFrame = ({
     } else return null;
   };
 
-  if (!media?.kind && !videoUrl && !gallery) return null;
+  if (!media?.kind && !hasVideo && !gallery) return null;
   return (
     <motion.div
       id={id}

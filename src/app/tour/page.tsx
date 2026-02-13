@@ -37,9 +37,9 @@ export default async function Page() {
 
   const { settings, navigation, cta, footer_cards } = extra;
 
-  const {
-    data: { slices, title, gallery, video_media, media, ...pageRest },
-  } = typedPage;
+  const { data: pageData } = typedPage;
+  const { slices, title, gallery, video_media, media, ...pageRest } = pageData;
+  const video_url = (pageData as { video_url?: string }).video_url;
 
   const { icon_media, headline, body, spaces } = pageRest;
 
@@ -56,6 +56,7 @@ export default async function Page() {
         headline={title}
         gallery={gallery}
         video_media={video_media}
+        video_url={video_url}
         media={media}
         icon_media={icon_media}
         subhead={headline}

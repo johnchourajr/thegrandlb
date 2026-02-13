@@ -50,6 +50,7 @@ const PageHero = ({ slice, context }: PageHeroProps): JSX.Element => {
           <MediaFrame
             media={slice.primary.media}
             video_media={slice.primary.video_media}
+            video_url={(slice.primary as { video_url?: string }).video_url}
             className="absolute inset-0 z-0 h-full w-full"
             priority={false}
           />

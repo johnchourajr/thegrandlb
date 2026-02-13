@@ -17,6 +17,8 @@ export interface InlineVideoPlayerProps {
   videoClassName?: string;
   uid?: string;
   media?: FilledLinkToMediaField | EmptyLinkField<"Media">;
+  /** When set (e.g. from CMS video_url field), used as video src instead of media URL. */
+  videoUrl?: string;
   poster?: {
     link_type: string;
     name: string;
@@ -41,6 +43,7 @@ const InlineVideoPlayer = ({
   className,
   videoClassName,
   media,
+  videoUrl: videoUrlOverride,
   poster,
   auto_play,
   controls,
@@ -57,9 +60,8 @@ const InlineVideoPlayer = ({
 
   const { url: rawMediaUrl }: any = media || {};
   const mediaUrl =
-    rawMediaUrl != null
-      ? (videoUrlFromCdn(rawMediaUrl) || rawMediaUrl)
-      : "";
+    videoUrlOverride?.trim() ||
+    (rawMediaUrl != null ? (videoUrlFromCdn(rawMediaUrl) || rawMediaUrl) : "");
   const { url: posterUrl }: any = poster || {};
 
   const videoOptions = {

@@ -8,9 +8,16 @@
       "video_media": {
         "type": "Link",
         "config": {
-          "label": "Video Media (Overrides Image Media)",
+          "label": "Video Media (Deprecated – use Video URL below)",
           "placeholder": "",
           "select": "media"
+        }
+      },
+      "video_url": {
+        "type": "Text",
+        "config": {
+          "label": "Video URL (CDN)",
+          "placeholder": "https://cdn.thegrandlb.com/..."
         }
       },
       "media": {

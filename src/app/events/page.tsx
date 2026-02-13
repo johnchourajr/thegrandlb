@@ -35,6 +35,7 @@ export default async function Page() {
       ...pageRest
     } = {},
   } = page || {};
+  const video_url = (page?.data as { video_url?: string } | undefined)?.video_url;
 
   // Type assertion for event index page data
   const eventIndexData = pageRest as Content.EventIndexPageDocument["data"];
@@ -56,6 +57,7 @@ export default async function Page() {
         headline={title}
         gallery={gallery}
         video_media={video_media}
+        video_url={video_url}
         media={media}
         icon_media={undefined}
         subhead={headline}

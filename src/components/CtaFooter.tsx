@@ -64,6 +64,7 @@ const CtaFooter = ({ data }: CtaFooterProps) => {
   // Safe destructuring with fallbacks
   const headline = data.data.headline || "";
   const video_media = data.data.video_media || null;
+  const video_url = (data.data as { video_url?: string }).video_url ?? null;
   const media = data.data.media || null;
   const inquire_card = data.data.inquire_card || null;
 
@@ -126,6 +127,7 @@ const CtaFooter = ({ data }: CtaFooterProps) => {
       <MediaFrame
         media={media}
         video_media={video_media}
+        video_url={video_url}
         video_options={{ controls: false, auto_play: true, loop: true }}
         className="absolute inset-0 z-10 col-span-6 h-full w-full mix-blend-screen"
       />
