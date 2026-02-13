@@ -87,7 +87,6 @@ const HeroCategoryPage = ({
   headline,
   gallery,
   media,
-  video_media,
   video_url,
   subhead,
   body,
@@ -123,7 +122,6 @@ const HeroCategoryPage = ({
         </div>
         <MediaFrame
           media={media}
-          video_media={video_media}
           video_url={video_url}
           video_options={{ controls: false, auto_play: true, loop: true }}
           className="absolute inset-0 z-10 col-span-6 h-full w-full mix-blend-screen"

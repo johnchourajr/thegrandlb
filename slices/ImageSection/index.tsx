@@ -30,7 +30,6 @@ const ImageSection = ({ slice }: ImageSectionProps): JSX.Element => {
         >
           <MediaFrame
             media={slice.primary.media}
-            video_media={slice.primary.video_media}
             video_url={(slice.primary as { video_url?: string }).video_url}
             gallery={slice.primary.gallery}
             className="absolute inset-0 h-full w-full"

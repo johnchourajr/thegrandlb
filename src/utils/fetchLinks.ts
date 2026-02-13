@@ -4,7 +4,6 @@ const fetchLinks = [
   "fragment_number_list.primary_action",
   "fragment_number_list.primary_action_link",
   "fragment_gallery.gallery_items",
-  "fragment_media.video_media",
   "fragment_media.media",
   "fragment_media.caption",
   "fragment_textblock.media",

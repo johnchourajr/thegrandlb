@@ -1,12 +1,10 @@
 "use client";
 
 // inline video player component
-import { EmptyLinkField, FilledLinkToMediaField } from "@prismicio/types";
 import clsx from "clsx";
 import { useInView, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import React, { useEffect, useState, VideoHTMLAttributes } from "react";
-import { videoUrlFromCdn } from "@/lib/cdn";
 import ParallaxWrapper from "../ParallaxWrapper";
 import LazyVideo from "./LazyVideo";
 import { VideoProgressButton } from "./VideoProgressButton";
@@ -16,8 +14,6 @@ export interface InlineVideoPlayerProps {
   className?: string;
   videoClassName?: string;
   uid?: string;
-  media?: FilledLinkToMediaField | EmptyLinkField<"Media">;
-  /** When set (e.g. from CMS video_url field), used as video src instead of media URL. */
   videoUrl?: string;
   poster?: {
     link_type: string;
@@ -42,8 +38,7 @@ const InlineVideoPlayer = ({
   id,
   className,
   videoClassName,
-  media,
-  videoUrl: videoUrlOverride,
+  videoUrl,
   poster,
   auto_play,
   controls,
@@ -58,10 +53,7 @@ const InlineVideoPlayer = ({
   const [videoProgress, setVideoProgress] = useState(0);
   const reducedMotion = useReducedMotion();
 
-  const { url: rawMediaUrl }: any = media || {};
-  const mediaUrl =
-    videoUrlOverride?.trim() ||
-    (rawMediaUrl != null ? (videoUrlFromCdn(rawMediaUrl) || rawMediaUrl) : "");
+  const mediaUrl = videoUrl?.trim() ?? "";
   const { url: posterUrl }: any = poster || {};
 
   const videoOptions = {

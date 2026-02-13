@@ -18,7 +18,6 @@ const HeroDetailPage = ({
   headline,
   caption,
   media,
-  video_media,
   video_url,
   subhead,
   body,
@@ -27,10 +26,7 @@ const HeroDetailPage = ({
   bottomSpacer = "Small",
 }: HeroDetailPageProps) => {
   const hasSubheadandBody = subhead && body;
-  const noMedia =
-    isEmptyObject(media) &&
-    isEmptyObject((video_media as any)?.src) &&
-    !video_url?.trim();
+  const noMedia = isEmptyObject(media) && !video_url?.trim();
 
   return (
     <LayoutGroup key={uid}>
@@ -74,7 +70,6 @@ const HeroDetailPage = ({
             key={`hero-${uid}-media`}
             id={`hero-${uid}-media`}
             media={media}
-            video_media={video_media}
             video_url={video_url}
             className="absolute inset-0 z-0 h-full w-full"
             priority={true}

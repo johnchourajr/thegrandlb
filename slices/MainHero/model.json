@@ -24,14 +24,6 @@
             "multi": "heading1"
           }
         },
-        "video_media": {
-          "type": "Link",
-          "config": {
-            "label": "Video Media (Deprecated – use Video URL below)",
-            "placeholder": "",
-            "select": "media"
-          }
-        },
         "video_url": {
           "type": "Text",
           "config": {

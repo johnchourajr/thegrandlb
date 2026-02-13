@@ -10,7 +10,6 @@ const MediaFrame = ({
   id,
   className,
   media,
-  video_media,
   video_url,
   video_options = {
     auto_play: true, // Changed: Don't auto-play by default to save bandwidth
@@ -24,9 +23,8 @@ const MediaFrame = ({
   priority = false,
   imgixParams,
 }: MediaFrameProps) => {
-  const { url: videoUrl }: any = video_media || {};
   const { url: mediaUrl }: any = media || {};
-  const hasVideo = video_url?.trim() || videoUrl;
+  const hasVideo = Boolean(video_url?.trim());
 
   const renderMedia = () => {
     if (gallery?.data) {
@@ -45,7 +43,6 @@ const MediaFrame = ({
       return (
         <InlineVideoPlayer
           id={id}
-          media={video_media}
           videoUrl={video_url?.trim() || undefined}
           className="absolute inset-0 z-20 h-full w-full object-cover"
           poster={media}

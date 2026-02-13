@@ -14,9 +14,7 @@ export type ImageItem = {
   link: {
     link_type: string;
   };
-  video_media: {
-    link_type: string;
-  };
+  video_url?: string | null;
   media: {
     dimensions: {
       width: number;

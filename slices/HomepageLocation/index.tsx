@@ -22,7 +22,6 @@ const HomepageLocation = ({ slice }: HomepageLocationProps): JSX.Element => {
   const {
     section_id,
     gallery,
-    video_media,
     video_url,
     media,
     caption,
@@ -49,7 +48,7 @@ const HomepageLocation = ({ slice }: HomepageLocationProps): JSX.Element => {
             "relative col-span-full col-start-1 flex aspect-square w-full flex-col items-center justify-center gap-10 overflow-hidden rounded-sm bg-black px-4 text-center text-white md:aspect-[16/7] md:rounded-md"
           )}
         >
-          <MediaFrame video_media={video_media} video_url={video_url} media={media} />
+          <MediaFrame video_url={video_url} media={media} />
         </MotionBox>
         <MotionBox className="col-span-full pt-10 pb-0 lg:col-span-5 lg:col-start-2 lg:pb-20">
           <Headline size={"xl"} className={"max-w-[7em]"} animateOnce>

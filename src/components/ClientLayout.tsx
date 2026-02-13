@@ -19,9 +19,14 @@ import Header from "./Header";
 export type ClientLayoutProps = {
   children: React.ReactNode;
   fontStack: string;
+  hideHeader?: boolean;
 };
 
-function ClientLayoutContent({ children, fontStack }: ClientLayoutProps) {
+function ClientLayoutContent({
+  children,
+  fontStack,
+  hideHeader = false,
+}: ClientLayoutProps) {
   const { modalOverlay } = useModalContext();
   const [navigation, setNavigation] = useState<any>(null);
 
@@ -50,14 +55,14 @@ function ClientLayoutContent({ children, fontStack }: ClientLayoutProps) {
     <DynamicPrismicProvider
       internalLinkComponent={(props) => <Link {...props} />}
     >
-      <DynamicAppWrapper
+        <DynamicAppWrapper
         className={clsx(
           fontStack,
           "relative min-h-screen bg-bg transition-colors duration-500 ease-out-expo",
           modalOverlay && "overflow-hidden bg-black"
         )}
       >
-        <Header navigation={navigation} />
+        {!hideHeader && <Header navigation={navigation} />}
         <Suspense>
           <MotionConfig {...motionConfig}>
             <DynamicLazyMotion features={domAnimation}>

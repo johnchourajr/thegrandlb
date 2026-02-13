@@ -10,8 +10,6 @@ import type { Content } from "@prismicio/client";
 export interface HeroCategoryPageProps {
   headline?: string;
   gallery?: Content.PageDocument["data"]["gallery"];
-  /** @deprecated Use video_url instead */
-  video_media?: Content.PageDocument["data"]["video_media"];
   video_url?: string | null;
   media?: Content.PageDocument["data"]["media"];
   icon_media?: Content.TourIndexPageDocument["data"]["icon_media"];
@@ -26,8 +24,6 @@ export interface HeroDetailPageProps {
   headline?: string | null;
   caption?: string | null;
   media?: Content.TourPageDocument["data"]["media"];
-  /** @deprecated Use video_url instead */
-  video_media?: Content.TourPageDocument["data"]["video_media"];
   video_url?: string | null;
   subhead?: string | null;
   body?: string | null;
