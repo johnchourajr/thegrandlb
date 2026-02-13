@@ -167,7 +167,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["var(--font-atkinson)", ...defaultTheme.fontFamily.sans],
+      sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
       serif: ["var(--font-domaine)", ...defaultTheme.fontFamily.serif],
       lexend: ["var(--font-lexend)", ...defaultTheme.fontFamily.sans],
       "lexend-bold": [

@@ -1,6 +1,6 @@
 import ClientLayout from "@/components/ClientLayout";
 import "@/styles/globals.css";
-import { Atkinson_Hyperlegible, Lexend_Zetta } from "next/font/google";
+import { Inter, Lexend_Zetta } from "next/font/google";
 import localFont from "next/font/local";
 import Head from "next/head";
 
@@ -18,10 +18,10 @@ const lexendBold = Lexend_Zetta({
   display: "swap",
 });
 
-const atkinson = Atkinson_Hyperlegible({
+const inter = Inter({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-atkinson",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -46,7 +46,7 @@ const fontStack = [
   domaine.variable,
   lexend.variable,
   lexendBold.variable,
-  atkinson.variable,
+  inter.variable,
 ].join(" ");
 
 type RootLayoutShellProps = {
