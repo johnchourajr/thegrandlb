@@ -49,7 +49,7 @@ export default function SliceSimulatorPage() {
 
   return (
     <SliceSimulatorErrorBoundary>
-      <div className="min-h-[500px]">
+      <div className="min-h-[500px] bg-bg">
         <SliceSimulator
           sliceZone={({ slices }) => (
             <SliceZone slices={slices} components={wrappedComponents} />
