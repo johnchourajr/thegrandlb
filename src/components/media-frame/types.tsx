@@ -26,6 +26,7 @@ export interface MediaFrameProps {
     preload?: "none" | "metadata" | "auto";
     enableBandwidthOptimization?: boolean;
   };
+  parallaxAmount?: number;
   gallery?: any;
   priority?: boolean;
   overlay?: boolean;

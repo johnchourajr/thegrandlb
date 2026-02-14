@@ -51,7 +51,8 @@ const PageHero = ({ slice, context }: PageHeroProps): JSX.Element => {
             media={slice.primary.media}
             video_url={(slice.primary as { video_url?: string }).video_url}
             className="absolute inset-0 z-0 h-full w-full"
-            priority={false}
+            priority={true}
+            parallaxAmount={0}
           />
           <motion.div
             className="!hidden gap-6 sm:!flex"

@@ -19,6 +19,7 @@ const MediaFrame = ({
     preload: "none", // New: Don't preload video data
     enableBandwidthOptimization: true, // New: Enable optimization
   },
+  parallaxAmount = 0.2,
   gallery,
   priority = false,
   imgixParams,
@@ -47,6 +48,7 @@ const MediaFrame = ({
           className="absolute inset-0 z-20 h-full w-full object-cover"
           poster={media}
           priority={priority}
+          parallaxAmount={parallaxAmount}
           {...video_options}
         />
       );

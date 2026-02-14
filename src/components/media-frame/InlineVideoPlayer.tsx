@@ -33,6 +33,7 @@ export interface InlineVideoPlayerProps {
   preload?: "none" | "metadata" | "auto";
   quality?: "low" | "medium" | "high";
   enableBandwidthOptimization?: boolean;
+  parallaxAmount?: number;
 }
 
 const InlineVideoPlayer = ({
@@ -46,13 +47,15 @@ const InlineVideoPlayer = ({
   loop,
   controlPosition = "Bottom Right",
   priority,
+  parallaxAmount = 0.2,
 }: InlineVideoPlayerProps) => {
   const ref = React.useRef<HTMLVideoElement>(null);
   const isInView = useInView(ref);
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [videoProgress, setVideoProgress] = useState(0);
-  const [connectionAllowsAutoplay, setConnectionAllowsAutoplay] = useState(false);
+  const [connectionAllowsAutoplay, setConnectionAllowsAutoplay] =
+    useState(false);
   const reducedMotion = useReducedMotion();
 
   useEffect(() => {
@@ -163,7 +166,7 @@ const InlineVideoPlayer = ({
 
   return (
     <div id={id} className={clsx(className)}>
-      <ParallaxWrapper>
+      <ParallaxWrapper amount={parallaxAmount}>
         <div className={clsx("absolute inset-0")}>
           <div
             className={clsx(
@@ -189,9 +192,8 @@ const InlineVideoPlayer = ({
                 width={`480`}
                 height={`270`}
                 priority={priority || false}
+                quality={50}
                 alt=""
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
               />
             </div>
           )}
