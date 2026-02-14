@@ -1,10 +1,10 @@
 "use client";
 
-import { SliceSimulator } from "@slicemachine/adapter-next/simulator";
 import { SliceZone } from "@prismicio/react";
+import { SliceSimulator } from "@slicemachine/adapter-next/simulator";
+import { useEffect, useMemo, useState } from "react";
 import { components } from "../../../../slices";
 import { SliceSimulatorErrorBoundary } from "./SliceSimulatorErrorBoundary";
-import { useEffect, useState, useMemo } from "react";
 
 type SliceLike = { slice_type?: string; type?: string; id?: string };
 
@@ -19,8 +19,7 @@ function wrapSliceComponents(
       slices?: unknown[];
       context?: unknown;
     }) {
-      const sliceType =
-        props.slice?.slice_type ?? props.slice?.type ?? type;
+      const sliceType = props.slice?.slice_type ?? props.slice?.type ?? type;
       const sliceId = props.slice?.id;
       return (
         <SliceSimulatorErrorBoundary sliceType={sliceType} sliceId={sliceId}>
@@ -42,16 +41,7 @@ export default function SliceSimulatorPage() {
 
   if (!mounted) {
     return (
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          minHeight: "50vh",
-          color: "#666",
-          fontFamily: "system-ui, sans-serif",
-        }}
-      >
+      <div className="text-gray-600 flex min-h-[50vh] items-center justify-center font-sans">
         Loading slice simulator…
       </div>
     );
@@ -59,11 +49,13 @@ export default function SliceSimulatorPage() {
 
   return (
     <SliceSimulatorErrorBoundary>
-      <SliceSimulator
-        sliceZone={({ slices }) => (
-          <SliceZone slices={slices} components={wrappedComponents} />
-        )}
-      />
+      <div className="min-h-[500px]">
+        <SliceSimulator
+          sliceZone={({ slices }) => (
+            <SliceZone slices={slices} components={wrappedComponents} />
+          )}
+        />
+      </div>
     </SliceSimulatorErrorBoundary>
   );
 }
