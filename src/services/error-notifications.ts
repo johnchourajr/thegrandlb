@@ -167,4 +167,5 @@ class ErrorNotificationService {
   }
 }
 
-export default new ErrorNotificationService();
+const errorNotificationService = new ErrorNotificationService();
+export default errorNotificationService;

@@ -1,7 +1,9 @@
 "use client";
 
 import { GridSection } from "@/components/GridSection";
-import ImageGallery from "@/components/media-frame/ImageGallery";
+import ImageGallery, {
+  type ImageItem,
+} from "@/components/media-frame/ImageGallery";
 import MotionBox from "@/components/MotionBox";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
@@ -23,10 +25,10 @@ const SplitGallery = ({ slice }: SplitGalleryProps): JSX.Element => {
     offset: ["start end", "end start"],
   });
   const { gallery_left, gallery_right } = slice.primary ?? {};
-  const galleryLeftData = (gallery_left as { data?: { gallery_items?: unknown[] } } | null)?.data;
-  const galleryRightData = (gallery_right as { data?: { gallery_items?: unknown[] } } | null)?.data;
-  const leftItems = galleryLeftData?.gallery_items ?? [];
-  const rightItems = galleryRightData?.gallery_items ?? [];
+  const galleryLeftData = (gallery_left as { data?: { gallery_items?: ImageItem[] } } | null)?.data;
+  const galleryRightData = (gallery_right as { data?: { gallery_items?: ImageItem[] } } | null)?.data;
+  const leftItems: ImageItem[] = galleryLeftData?.gallery_items ?? [];
+  const rightItems: ImageItem[] = galleryRightData?.gallery_items ?? [];
 
   const progress = useSpring(scrollYProgress, { damping: 100, stiffness: 300 });
 
