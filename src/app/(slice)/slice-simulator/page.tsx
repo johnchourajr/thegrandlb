@@ -3,13 +3,67 @@
 import { SliceSimulator } from "@slicemachine/adapter-next/simulator";
 import { SliceZone } from "@prismicio/react";
 import { components } from "../../../../slices";
+import { SliceSimulatorErrorBoundary } from "./SliceSimulatorErrorBoundary";
+import { useEffect, useState, useMemo } from "react";
+
+type SliceLike = { slice_type?: string; type?: string; id?: string };
+
+function wrapSliceComponents(
+  comps: Record<string, React.ComponentType<any>>
+): Record<string, React.ComponentType<any>> {
+  const wrapped: Record<string, React.ComponentType<any>> = {};
+  for (const [type, Comp] of Object.entries(comps)) {
+    wrapped[type] = function WrappedSlice(props: {
+      slice: SliceLike;
+      index?: number;
+      slices?: unknown[];
+      context?: unknown;
+    }) {
+      const sliceType =
+        props.slice?.slice_type ?? props.slice?.type ?? type;
+      const sliceId = props.slice?.id;
+      return (
+        <SliceSimulatorErrorBoundary sliceType={sliceType} sliceId={sliceId}>
+          <Comp {...props} />
+        </SliceSimulatorErrorBoundary>
+      );
+    };
+  }
+  return wrapped;
+}
 
 export default function SliceSimulatorPage() {
+  const [mounted, setMounted] = useState(false);
+  const wrappedComponents = useMemo(() => wrapSliceComponents(components), []);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          minHeight: "50vh",
+          color: "#666",
+          fontFamily: "system-ui, sans-serif",
+        }}
+      >
+        Loading slice simulator…
+      </div>
+    );
+  }
+
   return (
-    <SliceSimulator
-      sliceZone={({ slices }) => (
-        <SliceZone slices={slices} components={components} />
-      )}
-    />
+    <SliceSimulatorErrorBoundary>
+      <SliceSimulator
+        sliceZone={({ slices }) => (
+          <SliceZone slices={slices} components={wrappedComponents} />
+        )}
+      />
+    </SliceSimulatorErrorBoundary>
   );
 }

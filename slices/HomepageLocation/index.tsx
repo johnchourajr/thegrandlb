@@ -36,9 +36,7 @@ const HomepageLocation = ({ slice }: HomepageLocationProps): JSX.Element => {
     bullet_list,
   } = slice.primary;
 
-  const {
-    data: { bullet_list: bullet_list_data },
-  } = bullet_list as any;
+  const bullet_list_data = (bullet_list as any)?.data?.bullet_list;
 
   return (
     <>

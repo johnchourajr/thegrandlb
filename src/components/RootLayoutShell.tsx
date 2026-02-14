@@ -1,6 +1,14 @@
 import ClientLayout from "@/components/ClientLayout";
+import { repositoryName } from "@/prismicio";
 import "@/styles/globals.css";
+import { PrismicPreview } from "@prismicio/next";
+import type { FC } from "react";
 import { Inter, Lexend_Zetta } from "next/font/google";
+
+/** Typed alias: PrismicPreview can return Promise<Element> in App Router; TS expects Element. */
+const Preview: FC<{ repositoryName: string }> = PrismicPreview as FC<{
+  repositoryName: string;
+}>;
 import localFont from "next/font/local";
 import Head from "next/head";
 
@@ -88,6 +96,7 @@ export default function RootLayoutShell({
         <ClientLayout fontStack={fontStack} hideHeader={hideHeader}>
           {children}
         </ClientLayout>
+        <Preview repositoryName={repositoryName} />
       </body>
     </html>
   );

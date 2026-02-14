@@ -24,7 +24,7 @@ const FaqSection = ({ slice }: FaqSectionProps): JSX.Element => {
     media,
     asset_position = true,
   } = slice.primary;
-  const { items } = slice;
+  const items = slice.items ?? [];
 
   const getAssetPosition = (asset_position: boolean) => {
     switch (asset_position) {
@@ -43,7 +43,7 @@ const FaqSection = ({ slice }: FaqSectionProps): JSX.Element => {
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
-        ${slice.items.map(
+        ${items.map(
           ({ question, answer }: any) =>
             `{
               "@type": "Question",

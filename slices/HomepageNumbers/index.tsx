@@ -15,9 +15,13 @@ export type HomepageNumbersProps = SliceComponentProps<
 >;
 
 const HomepageNumbers = ({ slice }: HomepageNumbersProps): JSX.Element => {
+  const numberListData = (slice.primary.number_list as any)?.data ?? {};
   const {
-    data: { bullet_list, numberlist, primary_action_link, primary_action },
-  } = slice.primary.number_list as any;
+    bullet_list,
+    numberlist,
+    primary_action_link,
+    primary_action,
+  } = numberListData;
 
   return (
     <>

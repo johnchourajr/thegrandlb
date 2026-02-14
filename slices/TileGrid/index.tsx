@@ -13,9 +13,9 @@ import type { TileItemProps } from "./types";
 export type TileGridProps = SliceComponentProps<Content.TileGridSlice | any>;
 
 const TileGrid = ({ slice }: TileGridProps): JSX.Element => {
-  const { items, primary } = slice as any;
+  const { items = [], primary } = slice as any;
   const { section_id, headline, theme, body, top_spacer, bottom_spacer } =
-    primary as any;
+    primary ?? {};
 
   const getTheme = () => {
     switch (theme) {

@@ -9,32 +9,38 @@ export const repositoryName =
   process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT || config.repositoryName;
 
 /**
- * A list of Route Resolver objects that define how a document's `url` field is resolved.
+ * Route resolvers: define how a document's `url` field is resolved.
+ * Must match your Next.js file-system routes.
  *
- * {@link https://prismic.io/docs/route-resolver#route-resolver}
+ * {@link https://prismic.io/docs/route-resolver}
  */
-// TODO: Update the routes array to match your project's route structure.
 const routes: prismic.ClientConfig["routes"] = [
-  // Examples:
-  // {
-  // 	type: "homepage",
-  // 	path: "/",
-  // },
-  // {
-  // 	type: "page",
-  // 	path: "/:uid",
-  // },
+  { type: "page", path: "/:uid" },
+  { type: "event_index_page", path: "/events" },
+  { type: "event_page", path: "/events/:uid" },
+  { type: "tour_index_page", path: "/tour" },
+  { type: "tour_page", path: "/tour/:uid" },
+  { type: "offsite_index_page", path: "/offsite" },
+  { type: "offsite_page", path: "/offsite/:uid" },
+  { type: "inquire_page", path: "/inquire" },
+  { type: "inquire_page", path: "/thanks" },
+  { type: "menu_page", path: "/menus/:uid" },
 ];
 
 /**
  * Creates a Prismic client for the project's repository. The client is used to
  * query content from the Prismic API.
+ * Uses Next.js Data Cache: all fetches tagged with "prismic" until revalidated.
  *
  * @param config - Configuration for the Prismic client.
  */
 export const createClient = (config: prismicNext.CreateClientConfig = {}) => {
   const client = prismic.createClient(repositoryName, {
     routes,
+    fetchOptions: {
+      next: { tags: ["prismic"] },
+      cache: "force-cache",
+    },
     ...config,
   });
 
