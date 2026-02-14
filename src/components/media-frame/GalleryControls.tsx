@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 import Text from "../Paragraph";
 import type { GalleryControlsProps } from "./types";
+import type { ImageItem } from "./ImageGallery";
 import { VideoProgressButton } from "./VideoProgressButton";
 
 const GalleryDot = ({
@@ -13,7 +14,7 @@ const GalleryDot = ({
   outerControls?: boolean;
   className?: string;
   layoutId?: string;
-  props?: any;
+  props?: Record<string, unknown>;
 }) => (
   <motion.span
     initial={{ opacity: 0, width: 0 }}
@@ -52,7 +53,7 @@ const GalleryControls: React.FC<GalleryControlsProps> = ({
     )}
   >
     <div className="flex items-center justify-center space-x-2">
-      {images.map(({ caption }: any, i: number) => {
+      {images.map(({ caption }: ImageItem, i: number) => {
         const isActive = i === currentImageIndex;
         return (
           <button

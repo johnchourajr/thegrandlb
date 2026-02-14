@@ -22,12 +22,15 @@ const ImageBox = ({
   decorative,
   ...rest
 }: ImageBoxProps) => {
-  const hasCustomAlt = customAlt && { alt: customAlt };
+  const hasCustomAlt = customAlt ? { alt: customAlt } : undefined;
+  const field = media
+    ? ({ ...media, hasCustomAlt } as PrismicNextImageProps["field"])
+    : undefined;
 
   return (
     <PrismicNextImage
       id={id}
-      field={{ ...media, hasCustomAlt }}
+      field={field}
       className={clsx(className)}
       priority={priority}
       loading={priority ? "eager" : "lazy"}

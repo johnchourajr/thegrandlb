@@ -16,13 +16,8 @@ export interface InlineVideoPlayerProps {
   videoClassName?: string;
   uid?: string;
   videoUrl?: string;
-  poster?: {
-    link_type: string;
-    name: string;
-    kind: string;
-    url: string;
-    size: number;
-  };
+  /** Poster image; only `url` is required for display. */
+  poster?: { url?: string | null; [key: string]: unknown };
   auto_play?: boolean;
   loop?: boolean;
   controls?: boolean;
@@ -63,7 +58,7 @@ const InlineVideoPlayer = ({
   }, []);
 
   const mediaUrl = videoUrl?.trim() ?? "";
-  const { url: posterUrl }: any = poster || {};
+  const posterUrl = poster?.url;
 
   const effectiveAutoplay = Boolean(auto_play && connectionAllowsAutoplay);
 
@@ -76,7 +71,7 @@ const InlineVideoPlayer = ({
     controls,
   } as VideoHTMLAttributes<HTMLVideoElement>;
 
-  const handleChange = (play = true): any => {
+  const handleChange = (play = true): void => {
     if (play && !isPlaying) {
       let playPromise = ref?.current?.play();
 
@@ -106,7 +101,11 @@ const InlineVideoPlayer = ({
     };
   }, [isInView, effectiveAutoplay]);
 
-  const getVideoProgress = (): any => {
+  const getVideoProgress = (): {
+    progress: number;
+    currentTime: number;
+    duration: number;
+  } | 0 => {
     const video = ref?.current;
     if (video) {
       const { currentTime, duration } = video;
@@ -158,8 +157,8 @@ const InlineVideoPlayer = ({
     const video = ref?.current;
     if (video) {
       video.addEventListener("timeupdate", () => {
-        const { progress } = getVideoProgress();
-        setVideoProgress(progress);
+        const result = getVideoProgress();
+        if (result !== 0) setVideoProgress(result.progress);
       });
     }
   }, []);

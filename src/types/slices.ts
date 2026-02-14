@@ -29,13 +29,13 @@ export interface ClientSliceZoneProps {
 }
 
 // Individual slice component base props
-export interface SliceComponentProps<T = any> {
+export type SliceComponentProps<T = unknown> = {
   slice: T;
   context?: Content.AllDocumentTypes;
-}
+};
 
 // Development slice data component
 export interface SliceDataProps {
-  slice?: any; // Individual slice can be any of the slice types
+  slice?: { slice_type?: string; [key: string]: unknown };
   hidden?: boolean;
 }

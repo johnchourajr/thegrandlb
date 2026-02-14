@@ -24,14 +24,12 @@ const MediaFrame = ({
   priority = false,
   imgixParams,
 }: MediaFrameProps) => {
-  const { url: mediaUrl }: any = media || {};
+  const mediaUrl = media && "url" in media ? media.url : undefined;
   const hasVideo = Boolean(video_url?.trim());
 
   const renderMedia = () => {
     if (gallery?.data) {
-      const {
-        data: { gallery_items },
-      } = gallery as any;
+      const gallery_items = gallery.data.gallery_items;
       return (
         <ImageGallery
           id={id}
@@ -46,7 +44,7 @@ const MediaFrame = ({
           id={id}
           videoUrl={video_url?.trim() || undefined}
           className="absolute inset-0 z-20 h-full w-full object-cover"
-          poster={media}
+          poster={media && "url" in media ? media : undefined}
           priority={priority}
           parallaxAmount={parallaxAmount}
           {...video_options}

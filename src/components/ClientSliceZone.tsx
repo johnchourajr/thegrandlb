@@ -1,5 +1,6 @@
 "use client";
 
+import type { SliceZoneLike } from "@prismicio/react";
 import { SliceZone } from "@prismicio/react";
 import { components } from "../../slices";
 import type { ClientSliceZoneProps } from "../types/slices";
@@ -10,7 +11,7 @@ export default function ClientSliceZone({
 }: ClientSliceZoneProps) {
   return (
     <SliceZone
-      slices={slices as any}
+      slices={slices as SliceZoneLike}
       components={components}
       context={context}
     />

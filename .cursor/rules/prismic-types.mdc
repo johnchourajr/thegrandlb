@@ -1,0 +1,43 @@
+---
+description: Prefer Prismic generated types over hand-rolled types or any
+globs: "**/*.ts,**/*.tsx,prismicio-types.d.ts"
+alwaysApply: false
+---
+
+# Use Prismic Generated Types
+
+When typing Prismic content (documents, slices, fields), use the generated types from this project instead of `any` or ad-hoc types.
+
+## Where types live
+
+- **Project-generated:** `prismicio-types.d.ts` at repo root (Slice Machine / `prismicio typegen`). Contains document data, slice data, and slice zone types (e.g. `PageDocument`, `FragmentMediaDocumentData`, `Content.PageHeroSlice`).
+- **Library:** `@prismicio/client` and `@prismicio/types` (e.g. `prismic.ImageField`, `Content.NavLinksDocument`).
+
+## Prefer
+
+- Import from `../../prismicio-types` or `@/.../prismicio-types` when using document/slice data shapes.
+- Use `Content.*` from `@prismicio/client` for document types (e.g. `Content.PageDocument`, `Content.SettingsDocument`).
+- Use `prismicT.ImageField`, `prismicT.GroupField`, etc. from `@prismicio/types` for field types when they match the schema.
+- Type slice props as `SliceComponentProps<Content.SliceNameSlice>` (or the generated slice type from prismicio-types) instead of `any` or generic `unknown`.
+
+## Avoid
+
+- Using `any` for Prismic documents, slices, or fields when a generated type exists.
+- Defining duplicate interfaces for document/slice data that already exist in prismicio-types.d.ts.
+- Casting to `any` to satisfy SliceZone or component props; use `SliceZoneLike` or the correct slice union from Prismic types instead.
+
+## Example
+
+```typescript
+// Prefer: use generated slice type
+import type { Content } from "@prismicio/client";
+import type { SliceComponentProps } from "@/types/slices";
+
+type PageHeroProps = SliceComponentProps<Content.PageHeroSlice>;
+
+// Prefer: use generated document/data types for fields
+import type { FragmentMediaDocumentData } from "../../prismicio-types";
+// media: FragmentMediaDocumentData["media"] or prismicT.ImageField<never>
+```
+
+After changing the Prismic schema or slices, regenerate types (e.g. Slice Machine or `pnpm exec prismic typegen`) so prismicio-types.d.ts stays in sync.

@@ -4,6 +4,8 @@
  * Creates lightweight noise effects without requiring large image files
  */
 
+import { getConnection } from "@/utils/bandwidth-optimization";
+
 /**
  * Generates a small noise pattern as a data URL
  * This replaces the large 156MB noise.png with a tiny procedural texture
@@ -74,8 +76,7 @@ export function getOptimizedNoiseClass(): string {
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
-    const saveData =
-      "connection" in navigator && (navigator as any).connection?.saveData;
+    const saveData = getConnection()?.saveData ?? false;
 
     if (prefersReducedMotion || saveData) {
       return "noise-static";

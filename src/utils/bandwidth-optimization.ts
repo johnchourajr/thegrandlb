@@ -5,6 +5,22 @@
  * and reduce bandwidth usage across the application.
  */
 
+/** Network Information API (not in all TS libs). See https://developer.mozilla.org/en-US/docs/Web/API/Network_Information_API */
+type NetworkInformation = {
+  effectiveType?: "slow-2g" | "2g" | "3g" | "4g";
+  saveData?: boolean;
+};
+
+type NavigatorWithConnection = Navigator & {
+  connection?: NetworkInformation;
+};
+
+export function getConnection(): NetworkInformation | undefined {
+  if (typeof navigator === "undefined" || !("connection" in navigator))
+    return undefined;
+  return (navigator as NavigatorWithConnection).connection;
+}
+
 export type VideoQuality = "low" | "medium" | "high";
 export type VideoFormat = "mp4" | "webm" | "av1";
 
@@ -126,20 +142,10 @@ export function shouldAutoPlayVideo(): boolean {
     return false;
   }
 
-  // Check for save-data preference
-  if ("connection" in navigator && (navigator as any).connection?.saveData) {
+  const connection = getConnection();
+  if (connection?.saveData) return false;
+  if (connection?.effectiveType && ["slow-2g", "2g", "3g"].includes(connection.effectiveType)) {
     return false;
-  }
-
-  // Check for slow connection
-  if ("connection" in navigator) {
-    const connection = (navigator as any).connection;
-    if (connection && connection.effectiveType) {
-      // Don't auto-play on 2G or slow 3G
-      if (["slow-2g", "2g", "3g"].includes(connection.effectiveType)) {
-        return false;
-      }
-    }
   }
 
   return true;
@@ -196,20 +202,10 @@ export function createLazyLoadObserver(
 export function isDataSaverMode(): boolean {
   if (typeof window === "undefined") return false;
 
-  // Check save-data header
-  if ("connection" in navigator && (navigator as any).connection?.saveData) {
+  const connection = getConnection();
+  if (connection?.saveData) return true;
+  if (connection?.effectiveType === "slow-2g" || connection?.effectiveType === "2g") {
     return true;
-  }
-
-  // Check for slow connection
-  if ("connection" in navigator) {
-    const connection = (navigator as any).connection;
-    if (
-      connection?.effectiveType === "slow-2g" ||
-      connection?.effectiveType === "2g"
-    ) {
-      return true;
-    }
   }
 
   return false;

@@ -16,7 +16,7 @@ interface CacheConfig {
 }
 
 class APICache {
-  private cache = new Map<string, CacheEntry<any>>();
+  private cache = new Map<string, CacheEntry<unknown>>();
   private config: CacheConfig;
 
   constructor(config: Partial<CacheConfig> = {}) {
@@ -27,14 +27,14 @@ class APICache {
     };
   }
 
-  private generateKey(endpoint: string, params?: Record<string, any>): string {
+  private generateKey(endpoint: string, params?: Record<string, unknown>): string {
     const paramStr = params
       ? JSON.stringify(params, Object.keys(params).sort())
       : "";
     return `${endpoint}:${paramStr}`;
   }
 
-  private isExpired(entry: CacheEntry<any>): boolean {
+  private isExpired(entry: CacheEntry<unknown>): boolean {
     return Date.now() - entry.timestamp > entry.ttl;
   }
 
@@ -57,14 +57,14 @@ class APICache {
     }
   }
 
-  get<T>(endpoint: string, params?: Record<string, any>): T | null {
+  get<T>(endpoint: string, params?: Record<string, unknown>): T | null {
     this.evictExpired();
 
     const key = this.generateKey(endpoint, params);
     const entry = this.cache.get(key);
 
     if (entry && !this.isExpired(entry)) {
-      return entry.data;
+      return entry.data as T;
     }
 
     return null;
@@ -73,7 +73,7 @@ class APICache {
   set<T>(
     endpoint: string,
     data: T,
-    params?: Record<string, any>,
+    params?: Record<string, unknown>,
     customTTL?: number
   ): void {
     this.evictOldest();
@@ -162,7 +162,7 @@ export function warmCache() {
 /**
  * Utility to batch multiple Prismic calls
  */
-export async function batchPrismicCalls<T extends Record<string, any>>(
+export async function batchPrismicCalls<T extends Record<string, unknown>>(
   calls: Record<
     keyof T,
     { key: string; call: () => Promise<T[keyof T]>; ttl?: number }
