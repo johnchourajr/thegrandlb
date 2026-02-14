@@ -1,6 +1,7 @@
 "use client";
 
 // inline video player component
+import { shouldAutoPlayVideo } from "@/utils/bandwidth-optimization";
 import clsx from "clsx";
 import { useInView, useReducedMotion } from "framer-motion";
 import Image from "next/image";
@@ -51,13 +52,20 @@ const InlineVideoPlayer = ({
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [videoProgress, setVideoProgress] = useState(0);
+  const [connectionAllowsAutoplay, setConnectionAllowsAutoplay] = useState(false);
   const reducedMotion = useReducedMotion();
+
+  useEffect(() => {
+    setConnectionAllowsAutoplay(shouldAutoPlayVideo());
+  }, []);
 
   const mediaUrl = videoUrl?.trim() ?? "";
   const { url: posterUrl }: any = poster || {};
 
+  const effectiveAutoplay = Boolean(auto_play && connectionAllowsAutoplay);
+
   const videoOptions = {
-    autoPlay: auto_play,
+    autoPlay: effectiveAutoplay,
     loop: loop,
     playsInline: true,
     preload: "metadata", // Changed from "auto" to "metadata" to reduce initial bandwidth
@@ -85,21 +93,15 @@ const InlineVideoPlayer = ({
   };
 
   useEffect(() => {
-    // Temporarily disabled slow connection check for debugging autoplay
-    // const isSlowConnection = document.documentElement.hasAttribute(
-    //   "data-slow-connection"
-    // );
-
-    if (isInView) {
+    if (isInView && effectiveAutoplay) {
       setIsPlaying(true);
-    } else {
+    } else if (!isInView) {
       setIsPlaying(false);
     }
-
     return () => {
       setIsPlaying(false);
     };
-  }, [isInView]);
+  }, [isInView, effectiveAutoplay]);
 
   const getVideoProgress = (): any => {
     const video = ref?.current;
@@ -131,17 +133,16 @@ const InlineVideoPlayer = ({
   };
 
   React.useEffect(() => {
-    if (auto_play) {
-      // Force play regardless of slow connection for debugging
+    if (effectiveAutoplay) {
       const video = ref?.current;
       if (video) {
-        video.play().catch((error) => {
-          console.log("Autoplay failed:", error);
+        video.play().catch(() => {
+          setIsPlaying(false);
         });
       }
       setIsPlaying(true);
     }
-  }, [auto_play]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [effectiveAutoplay]); // eslint-disable-line react-hooks/exhaustive-deps
 
   React.useEffect(() => {
     if (reducedMotion) {
