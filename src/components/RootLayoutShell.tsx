@@ -1,5 +1,6 @@
 import ClientLayout from "@/components/ClientLayout";
 import { repositoryName } from "@/prismicio";
+import type { ExtraData } from "@/types/services";
 import "@/styles/globals.css";
 import { PrismicPreview } from "@prismicio/next";
 import type { FC } from "react";
@@ -10,7 +11,6 @@ const Preview: FC<{ repositoryName: string }> = PrismicPreview as FC<{
   repositoryName: string;
 }>;
 import localFont from "next/font/local";
-import Head from "next/head";
 
 const lexend = Lexend_Zetta({
   subsets: ["latin"],
@@ -60,40 +60,22 @@ const fontStack = [
 type RootLayoutShellProps = {
   children: React.ReactNode;
   hideHeader?: boolean;
+  initialExtra?: ExtraData;
 };
 
 export default function RootLayoutShell({
   children,
   hideHeader = false,
+  initialExtra,
 }: RootLayoutShellProps) {
   return (
     <html lang="en" className={fontStack}>
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/logo.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="description" content="The Grand Long Beach" />
-        <meta name="keywords" content="venue, events, weddings, corporate" />
-        <meta name="author" content="The Grand Long Beach" />
-        <meta property="og:title" content="The Grand Long Beach" />
-        <meta
-          property="og:description"
-          content="Premier event venue in Long Beach"
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://thegrandlb.com" />
-        <meta property="og:image" content="/logo.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="The Grand Long Beach" />
-        <meta
-          name="twitter:description"
-          content="Premier event venue in Long Beach"
-        />
-        <meta name="twitter:image" content="/logo.png" />
-      </Head>
       <body>
-        <ClientLayout fontStack={fontStack} hideHeader={hideHeader}>
+        <ClientLayout
+          fontStack={fontStack}
+          hideHeader={hideHeader}
+          initialNavigation={initialExtra?.navigation ?? undefined}
+        >
           {children}
         </ClientLayout>
         <Preview repositoryName={repositoryName} />

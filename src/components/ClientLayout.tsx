@@ -11,6 +11,7 @@ import {
 import Link from "@/components/Link";
 import { ModalProvider, useModalContext } from "@/contexts/ModalContext";
 import { getExtra } from "@/services/get-extra";
+import type { Content } from "@prismicio/client";
 import clsx from "clsx";
 import { domAnimation, MotionConfig, MotionConfigProps } from "framer-motion";
 import { Suspense, useEffect, useState } from "react";
@@ -20,17 +21,34 @@ export type ClientLayoutProps = {
   children: React.ReactNode;
   fontStack: string;
   hideHeader?: boolean;
+  /** When provided (from layout server fetch), Header shows nav on first paint and client getExtra is skipped. */
+  initialNavigation?: Content.NavLinksDocument | null;
 };
 
 function ClientLayoutContent({
   children,
   fontStack,
   hideHeader = false,
+  initialNavigation,
 }: ClientLayoutProps) {
   const { modalOverlay } = useModalContext();
-  const [navigation, setNavigation] = useState<any>(null);
+  const [navigation, setNavigation] = useState<Content.NavLinksDocument | null>(
+    initialNavigation ?? null
+  );
 
   useEffect(() => {
+    const preconnect = document.createElement("link");
+    preconnect.rel = "preconnect";
+    preconnect.href = "https://the-grand.cdn.prismic.io";
+    document.head.appendChild(preconnect);
+    const dnsPrefetch = document.createElement("link");
+    dnsPrefetch.rel = "dns-prefetch";
+    dnsPrefetch.href = "https://the-grand.cdn.prismic.io";
+    document.head.appendChild(dnsPrefetch);
+  }, []);
+
+  useEffect(() => {
+    if (initialNavigation !== undefined) return;
     const fetchNavigation = async () => {
       try {
         const extra = await getExtra({});
@@ -41,7 +59,7 @@ function ClientLayoutContent({
     };
 
     fetchNavigation();
-  }, []);
+  }, [initialNavigation]);
 
   const motionConfig = {
     transition: {
