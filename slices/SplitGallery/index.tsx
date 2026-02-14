@@ -22,9 +22,11 @@ const SplitGallery = ({ slice }: SplitGalleryProps): JSX.Element => {
     target: ref,
     offset: ["start end", "end start"],
   });
-  const { gallery_left, gallery_right } = slice.primary;
-  const { data: galleryLeftData } = gallery_left as any;
-  const { data: galleryRightData } = gallery_right as any;
+  const { gallery_left, gallery_right } = slice.primary ?? {};
+  const galleryLeftData = (gallery_left as { data?: { gallery_items?: unknown[] } } | null)?.data;
+  const galleryRightData = (gallery_right as { data?: { gallery_items?: unknown[] } } | null)?.data;
+  const leftItems = galleryLeftData?.gallery_items ?? [];
+  const rightItems = galleryRightData?.gallery_items ?? [];
 
   const progress = useSpring(scrollYProgress, { damping: 100, stiffness: 300 });
 
@@ -50,7 +52,7 @@ const SplitGallery = ({ slice }: SplitGalleryProps): JSX.Element => {
             style={{ y: yLeft }}
           >
             <ImageGallery
-              images={galleryLeftData.gallery_items}
+              images={leftItems}
               cycleDuration={9000}
               controlPosition="Bottom Left"
               outerControls={true}
@@ -69,7 +71,7 @@ const SplitGallery = ({ slice }: SplitGalleryProps): JSX.Element => {
             style={{ y: yRight }}
           >
             <ImageGallery
-              images={galleryRightData.gallery_items}
+              images={rightItems}
               delayStart={9000 / 2}
               cycleDuration={9000}
               autoPlay={false}
