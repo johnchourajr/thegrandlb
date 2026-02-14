@@ -4,6 +4,11 @@ import errorNotificationService from "@/services/error-notifications";
 import type { NextRequest } from "next/server";
 import { Resend } from "resend";
 
+// Force production API (installed resend pkg can default to localhost:3001)
+if (typeof process !== "undefined" && process.env) {
+  process.env.RESEND_BASE_URL =
+    process.env.RESEND_BASE_URL || "https://api.resend.com";
+}
 const resend = new Resend(process.env.NEXT_RESEND_API_KEY);
 const fromEmail = `${process.env.NEXT_PUBLIC_RESEND_FROM_EMAIL}`;
 const salesEmail = `${process.env.NEXT_PUBLIC_RESEND_SALES_EMAIL}`.split(", ");

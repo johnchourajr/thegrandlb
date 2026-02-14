@@ -1,6 +1,11 @@
 import ErrorNotificationEmail from "@/emails/errorNotificationEmail";
 import { Resend } from "resend";
 
+// Force production API (installed resend pkg can default to localhost:3001)
+if (typeof process !== "undefined" && process.env) {
+  process.env.RESEND_BASE_URL =
+    process.env.RESEND_BASE_URL || "https://api.resend.com";
+}
 const resend = new Resend(process.env.NEXT_RESEND_API_KEY);
 const fromEmail = "hello+critical@thegrandlb.com";
 const alertEmail = "hi+critical@john.design";
