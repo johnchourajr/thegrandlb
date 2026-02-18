@@ -10,11 +10,16 @@ if (typeof process !== "undefined" && process.env) {
     process.env.RESEND_BASE_URL || "https://api.resend.com";
 }
 const resend = new Resend(process.env.NEXT_RESEND_API_KEY);
-const fromEmail = `${process.env.NEXT_PUBLIC_RESEND_FROM_EMAIL}`;
-const salesEmail = `${process.env.NEXT_PUBLIC_RESEND_SALES_EMAIL}`.split(", ");
-const replyEmails = `${process.env.NEXT_PUBLIC_RESEND_REPLY_EMAILS}`.split(
-  ", "
-);
+const fromEmail = process.env.NEXT_PUBLIC_RESEND_FROM_EMAIL ?? "";
+const salesEmail = (process.env.NEXT_PUBLIC_RESEND_SALES_EMAIL ?? "")
+  .split(",")
+  .map((s) => s.trim())
+  .filter(Boolean);
+const replyEmailsRaw = (process.env.NEXT_PUBLIC_RESEND_REPLY_EMAILS ?? "")
+  .split(",")
+  .map((s) => s.trim())
+  .filter(Boolean);
+const defaultReplyTo = replyEmailsRaw[0] ?? "dan@grandfandb.com";
 const isNotProduction = process.env.NODE_ENV !== "production";
 const testText = isNotProduction ? `TEST: ` : "";
 
@@ -45,18 +50,43 @@ export async function POST(request: NextRequest) {
     );
 
     if (missingVars.length > 0) {
-      console.error(`Missing environment variables: ${missingVars.join(", ")}`);
-
-      // Send error notification
+      const msg = `Missing environment variables: ${missingVars.join(", ")}`;
+      console.error(msg);
       await errorNotificationService.notifyApiError(
         "email",
         "/api/send-client-email",
-        new Error(`Missing environment variables: ${missingVars.join(", ")}`),
+        new Error(msg),
         { missingVars, endpoint: "send-client-email" }
       );
-
       return new Response(
-        JSON.stringify({ error: "Email configuration missing" }),
+        JSON.stringify({
+          error: "Email configuration missing",
+          ...(isNotProduction && { detail: msg }),
+        }),
+        { status: 500, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    if (!fromEmail) {
+      const msg = "NEXT_PUBLIC_RESEND_FROM_EMAIL is empty";
+      console.error(msg);
+      return new Response(
+        JSON.stringify({
+          error: msg,
+          ...(isNotProduction && { detail: msg }),
+        }),
+        { status: 500, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    if (salesEmail.length === 0) {
+      const msg = "NEXT_PUBLIC_RESEND_SALES_EMAIL has no valid addresses";
+      console.error(msg);
+      return new Response(
+        JSON.stringify({
+          error: msg,
+          ...(isNotProduction && { detail: msg }),
+        }),
         { status: 500, headers: { "Content-Type": "application/json" } }
       );
     }
@@ -70,7 +100,7 @@ export async function POST(request: NextRequest) {
     await resend.emails.send({
       from: fromEmail,
       to: email,
-      reply_to: replyEmails || "dan@grandfandb.com",
+      reply_to: defaultReplyTo,
       subject: `${testText}Inquiry confirmation: ${
         formState.event_name?.value || "Grand LB Event"
       }`,
@@ -80,15 +110,19 @@ export async function POST(request: NextRequest) {
     /**
      * Send email to the sales team using the ReSend client
      */
-    await resend.emails.send({
+    const salesPayload: Parameters<typeof resend.emails.send>[0] = {
       from: fromEmail,
       to: salesEmail,
-      reply_to: formState.email?.value,
       subject: `${testText}New inquiry from ${
         formState.full_name?.value || "Grand LB Website"
       }`,
       react: SalesEmail(formState),
-    });
+    };
+    const inquirerEmail = formState.email?.value;
+    if (inquirerEmail && typeof inquirerEmail === "string") {
+      salesPayload.reply_to = inquirerEmail;
+    }
+    await resend.emails.send(salesPayload);
 
     return new Response(
       JSON.stringify({ message: "Email sent successfully" }),
@@ -99,8 +133,12 @@ export async function POST(request: NextRequest) {
     );
   } catch (error) {
     console.error(error);
+    const errorMessage =
+      error instanceof Error ? error.message : String(error);
+    const errorDetail = isNotProduction
+      ? (error instanceof Error ? error.stack : errorMessage)
+      : undefined;
 
-    // Send error notification
     await errorNotificationService.notifyApiError(
       "email",
       "/api/send-client-email",
@@ -112,9 +150,15 @@ export async function POST(request: NextRequest) {
       }
     );
 
-    return new Response(JSON.stringify({ message: "Failed to send email" }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({
+        error: "Failed to send email",
+        ...(isNotProduction && { detail: errorMessage, debug: errorDetail }),
+      }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   }
 }
