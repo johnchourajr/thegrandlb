@@ -150,10 +150,12 @@ export async function POST(request: NextRequest) {
       }
     );
 
+    // Include detail in production temporarily so you can see the real error in Network tab. Remove after fixing.
     return new Response(
       JSON.stringify({
         error: "Failed to send email",
-        ...(isNotProduction && { detail: errorMessage, debug: errorDetail }),
+        detail: errorMessage,
+        ...(isNotProduction && { debug: errorDetail }),
       }),
       {
         status: 500,
