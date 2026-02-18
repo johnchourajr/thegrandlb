@@ -16,17 +16,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "npm"
+          cache: "pnpm"
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Build Next.js app
-        run: npm run build
+        run: pnpm run build
         env:
           NEXT_PUBLIC_RESEND_FROM_EMAIL: ${{ secrets.NEXT_PUBLIC_RESEND_FROM_EMAIL || 'test@thegrandlb.com' }}
           NEXT_PUBLIC_RESEND_SALES_EMAIL: ${{ secrets.NEXT_PUBLIC_RESEND_SALES_EMAIL || 'test@thegrandlb.com' }}
@@ -38,7 +43,7 @@ jobs:
 
       - name: Start Next.js server
         run: |
-          npm start &
+          pnpm start &
           echo $! > server.pid
         env:
           PORT: 3000
@@ -64,7 +69,7 @@ jobs:
           exit 1
 
       - name: Run inquiry form test
-        run: npm run test:inquiry-form
+        run: pnpm run test:inquiry-form
         env:
           TEST_BASE_URL: "http://localhost:3000"
           TEST_MODE: "true"
