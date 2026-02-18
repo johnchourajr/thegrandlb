@@ -17,7 +17,7 @@ import { formatDate, formatTitle } from "@/utils/utils";
 import axios from "axios";
 import clsx from "clsx";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GridSection } from "../GridSection";
 import { InquireFormSection } from "./InquireFormSection";
 
@@ -39,6 +39,7 @@ export function InquireFormContainer() {
   const params = useSearchParams();
   const data = getFormData() as FormPage[];
   const [submitLoading, setSubmitLoading] = useState(false);
+  const isSubmittingRef = useRef(false);
   const [currentPage, setCurrentPage] = useState(0);
   const [formState, setFormState] = useState<FormState>({});
 
@@ -97,7 +98,8 @@ export function InquireFormContainer() {
 
   const handleFormSubmit = async () => {
     if (!formState?.email) return toastEmailRrequired();
-
+    if (isSubmittingRef.current) return;
+    isSubmittingRef.current = true;
     setSubmitLoading(true);
 
     try {
@@ -142,6 +144,7 @@ export function InquireFormContainer() {
       router.push("/thanks");
     } catch (error) {
       console.error(error);
+      isSubmittingRef.current = false;
       setSubmitLoading(false);
       toastSubmitError();
     }

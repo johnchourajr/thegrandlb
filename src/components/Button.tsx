@@ -48,6 +48,7 @@ interface ButtonTypes {
   eventValue?: string;
   eventNone?: boolean;
   loading?: boolean;
+  disabled?: boolean;
 }
 
 /**

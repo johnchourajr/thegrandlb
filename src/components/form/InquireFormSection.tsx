@@ -253,6 +253,7 @@ export const InquireFormSection = ({
                 text={"Submit"}
                 tabIndex={1}
                 loading={submitLoading}
+                disabled={submitLoading}
               />
             )}
           </div>
