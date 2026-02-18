@@ -4,12 +4,12 @@ import errorNotificationService from "@/services/error-notifications";
 import type { NextRequest } from "next/server";
 import { Resend } from "resend";
 
-// Force production API (installed resend pkg can default to localhost:3001)
-if (typeof process !== "undefined" && process.env) {
-  process.env.RESEND_BASE_URL =
-    process.env.RESEND_BASE_URL || "https://api.resend.com";
-}
+const RESEND_API_BASE = "https://api.resend.com";
 const resend = new Resend(process.env.NEXT_RESEND_API_KEY);
+// Resend SDK bug: it uses 'http://localhost:3001' || process.env.RESEND_BASE_URL, so the string wins and env is never used. Patch the client.
+const resendAny = resend as unknown as { baseUrl: string; request: { defaults: { baseURL: string } } };
+resendAny.baseUrl = RESEND_API_BASE;
+resendAny.request.defaults.baseURL = RESEND_API_BASE;
 const fromEmail = process.env.NEXT_PUBLIC_RESEND_FROM_EMAIL ?? "";
 const salesEmail = (process.env.NEXT_PUBLIC_RESEND_SALES_EMAIL ?? "")
   .split(",")
@@ -133,10 +133,11 @@ export async function POST(request: NextRequest) {
     );
   } catch (error) {
     console.error(error);
-    const errorMessage =
-      error instanceof Error ? error.message : String(error);
+    const errorMessage = error instanceof Error ? error.message : String(error);
     const errorDetail = isNotProduction
-      ? (error instanceof Error ? error.stack : errorMessage)
+      ? error instanceof Error
+        ? error.stack
+        : errorMessage
       : undefined;
 
     await errorNotificationService.notifyApiError(
@@ -150,12 +151,10 @@ export async function POST(request: NextRequest) {
       }
     );
 
-    // Include detail in production temporarily so you can see the real error in Network tab. Remove after fixing.
     return new Response(
       JSON.stringify({
         error: "Failed to send email",
-        detail: errorMessage,
-        ...(isNotProduction && { debug: errorDetail }),
+        ...(isNotProduction && { detail: errorMessage, debug: errorDetail }),
       }),
       {
         status: 500,
