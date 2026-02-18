@@ -76,9 +76,11 @@ class ErrorNotificationService {
     const errorStack =
       context.error instanceof Error ? context.error.stack : undefined;
 
-    const subject = `${testPrefix}🚨 ${context.service.toUpperCase()} Error - ${
-      context.endpoint
-    }`;
+    const inquiryFormFailed =
+      context.metadata && (context.metadata as Record<string, unknown>).inquiryFormEmails === true;
+    const subject = inquiryFormFailed
+      ? `${testPrefix}Inquiry form emails failed - ${context.endpoint}`
+      : `${testPrefix}🚨 ${context.service.toUpperCase()} Error - ${context.endpoint}`;
 
     const errorKey = this.createErrorKey(context);
     const throttleData = alertThrottle.get(errorKey);

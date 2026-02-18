@@ -1,0 +1,84 @@
+name: Test Inquiry Form
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+jobs:
+  test-inquiry-form:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Next.js app
+        run: npm run build
+        env:
+          NEXT_PUBLIC_RESEND_FROM_EMAIL: ${{ secrets.NEXT_PUBLIC_RESEND_FROM_EMAIL || 'test@thegrandlb.com' }}
+          NEXT_PUBLIC_RESEND_SALES_EMAIL: ${{ secrets.NEXT_PUBLIC_RESEND_SALES_EMAIL || 'test@thegrandlb.com' }}
+          NEXT_PUBLIC_RESEND_REPLY_EMAILS: ${{ secrets.NEXT_PUBLIC_RESEND_REPLY_EMAILS || 'test@thegrandlb.com' }}
+          NEXT_RESEND_API_KEY: ${{ secrets.NEXT_RESEND_API_KEY || 're_test_key' }}
+          NEXT_DATABASE_URL: ${{ secrets.NEXT_DATABASE_URL || 'postgresql://test:test@localhost:5432/test' }}
+          NEXT_PUBLIC_DATABASE_TABLE: ${{ secrets.NEXT_PUBLIC_DATABASE_TABLE || 'glb_submissions' }}
+          TEST_MODE: "true"
+
+      - name: Start Next.js server
+        run: |
+          npm start &
+          echo $! > server.pid
+        env:
+          PORT: 3000
+          NEXT_PUBLIC_RESEND_FROM_EMAIL: ${{ secrets.NEXT_PUBLIC_RESEND_FROM_EMAIL || 'test@thegrandlb.com' }}
+          NEXT_PUBLIC_RESEND_SALES_EMAIL: ${{ secrets.NEXT_PUBLIC_RESEND_SALES_EMAIL || 'test@thegrandlb.com' }}
+          NEXT_PUBLIC_RESEND_REPLY_EMAILS: ${{ secrets.NEXT_PUBLIC_RESEND_REPLY_EMAILS || 'test@thegrandlb.com' }}
+          NEXT_RESEND_API_KEY: ${{ secrets.NEXT_RESEND_API_KEY || 're_test_key' }}
+          NEXT_DATABASE_URL: ${{ secrets.NEXT_DATABASE_URL || 'postgresql://test:test@localhost:5432/test' }}
+          NEXT_PUBLIC_DATABASE_TABLE: ${{ secrets.NEXT_PUBLIC_DATABASE_TABLE || 'glb_submissions' }}
+          TEST_MODE: "true"
+
+      - name: Wait for server to be ready
+        run: |
+          for i in {1..30}; do
+            if curl -f http://localhost:3000 > /dev/null 2>&1; then
+              echo "Server is ready"
+              exit 0
+            fi
+            echo "Waiting for server... ($i/30)"
+            sleep 2
+          done
+          echo "Server did not become ready"
+          exit 1
+
+      - name: Run inquiry form test
+        run: npm run test:inquiry-form
+        env:
+          TEST_BASE_URL: "http://localhost:3000"
+          TEST_MODE: "true"
+          NEXT_RESEND_API_KEY: ${{ secrets.NEXT_RESEND_API_KEY }}
+          NEXT_PUBLIC_RESEND_FROM_EMAIL: ${{ secrets.NEXT_PUBLIC_RESEND_FROM_EMAIL || 'test@thegrandlb.com' }}
+          CI_ERROR_NOTIFICATION_EMAIL: ${{ secrets.CI_ERROR_NOTIFICATION_EMAIL }}
+          GITHUB_SHA: ${{ github.sha }}
+          GITHUB_WORKFLOW: ${{ github.workflow }}
+
+      - name: Stop Next.js server
+        if: always()
+        run: |
+          if [ -f server.pid ]; then
+            kill $(cat server.pid) || true
+            rm server.pid
+          fi
+          pkill -f "next start" || true

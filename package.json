@@ -11,14 +11,15 @@
     "lint": "next lint",
     "slicemachine": "start-slicemachine",
     "format": "prettier --write .",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "test:inquiry-form": "tsx scripts/test-inquiry-form.ts"
   },
   "dependencies": {
+    "@next/third-parties": "^16.1.6",
     "@prismicio/client": "^7.6.0",
     "@prismicio/helpers": "^2.3.9",
     "@prismicio/next": "^1.7.2",
     "@prismicio/react": "^2.9.2",
-    "@prismicio/slice-simulator-react": "^0.2.3",
     "axios": "^1.6.2",
     "body-parser": "^1.20.2",
     "clsx": "^2.1.1",
@@ -28,7 +29,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-email": "^4.2.9",
-    "react-gtm-module": "^2.0.11",
     "react-hot-toast": "^2.4.1",
     "resend": "^0.15.3",
     "swr": "^2.2.2",
@@ -48,7 +48,6 @@
     "@types/pg": "^8.10.2",
     "@types/react": "18.2.39",
     "@types/react-dom": "18.2.17",
-    "@types/react-gtm-module": "^2.0.1",
     "autoprefixer": "^10.4.16",
     "concurrently": "^9.2.1",
     "eslint": "8.55.0",
@@ -59,6 +58,7 @@
     "prettier-plugin-tailwindcss": "^0.2.2",
     "slice-machine-ui": "^2.2.1",
     "tailwindcss": "^3.2.6",
+    "tsx": "^4.7.0",
     "typescript": "^4.8.3"
   }
 }

@@ -2,9 +2,7 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import TagManager from "react-gtm-module";
-
-const GTM_ID = "GTM-5K7K8QZ";
+import { pageview } from "@/utils/gtm";
 
 export type ModalRoute = "/inquire" | "/map" | "/thanks";
 
@@ -52,14 +50,7 @@ export const useModalOverlay = () => {
 
   useEffect(() => {
     if (!didMount) return;
-    TagManager.initialize({ gtmId: GTM_ID });
-
-    const handleRouteChange = (url: string) => {
-      TagManager.dataLayer({ dataLayer: { page: url } });
-    };
-
-    // In app directory, we handle route changes via pathname changes
-    handleRouteChange(pathname);
+    pageview(pathname);
   }, [didMount, pathname]);
 
   useEffect(() => {

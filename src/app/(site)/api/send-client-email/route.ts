@@ -94,6 +94,30 @@ export async function POST(request: NextRequest) {
     body = await request.json();
     const { email = "", formState = {} } = body || {};
 
+    // TEST_MODE: Skip actual email send but validate email structure
+    const isTestMode = process.env.TEST_MODE === "true";
+    if (isTestMode) {
+      console.log("[TEST_MODE] Skipping email send, validating email structure");
+      // Validate email templates can be rendered
+      try {
+        ClientEmail(formState);
+        SalesEmail(formState);
+      } catch (templateError) {
+        throw new Error(`Email template validation failed: ${templateError}`);
+      }
+      return new Response(
+        JSON.stringify({
+          message: "Email sent successfully",
+          testMode: true,
+          validatedTemplates: ["ClientEmail", "SalesEmail"],
+        }),
+        {
+          status: 200,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+    }
+
     /**
      * Send email to the client using the ReSend client
      */
@@ -132,7 +156,7 @@ export async function POST(request: NextRequest) {
       }
     );
   } catch (error) {
-    console.error(error);
+    console.error("[send-client-email] Inquiry form emails failed:", error);
     const errorMessage = error instanceof Error ? error.message : String(error);
     const errorDetail = isNotProduction
       ? error instanceof Error
@@ -140,16 +164,25 @@ export async function POST(request: NextRequest) {
         : errorMessage
       : undefined;
 
-    await errorNotificationService.notifyApiError(
-      "email",
-      "/api/send-client-email",
-      error,
-      {
-        endpoint: "send-client-email",
-        hasFormState: !!body?.formState,
-        hasEmail: !!body?.email,
-      }
-    );
+    // Fail notification: always attempt to alert so inquiry email failures are never silent.
+    try {
+      await errorNotificationService.notifyApiError(
+        "email",
+        "/api/send-client-email",
+        error,
+        {
+          endpoint: "send-client-email",
+          hasFormState: !!body?.formState,
+          hasEmail: !!body?.email,
+          inquiryFormEmails: true,
+        }
+      );
+    } catch (notificationError) {
+      console.error(
+        "[send-client-email] Fail notification could not be sent:",
+        notificationError
+      );
+    }
 
     return new Response(
       JSON.stringify({

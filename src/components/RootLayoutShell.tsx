@@ -1,6 +1,8 @@
 import ClientLayout from "@/components/ClientLayout";
+import { GTM_ID } from "@/utils/gtm";
 import { repositoryName } from "@/prismicio";
 import type { ExtraData } from "@/types/services";
+import { GoogleTagManager } from "@next/third-parties/google";
 import "@/styles/globals.css";
 import { PrismicPreview } from "@prismicio/next";
 import type { FC } from "react";
@@ -70,6 +72,7 @@ export default function RootLayoutShell({
 }: RootLayoutShellProps) {
   return (
     <html lang="en" className={fontStack}>
+      <GoogleTagManager gtmId={GTM_ID} />
       <body>
         <ClientLayout
           fontStack={fontStack}

@@ -1,12 +1,14 @@
-import TagManager from "react-gtm-module";
+"use client";
+
+import { sendGTMEvent } from "@next/third-parties/google";
+
 export const GTM_ID = "GTM-PRP9HDK";
 
 export const pageview = (url: string) => {
-  TagManager.dataLayer({
-    dataLayer: {
-      event: "pageview",
-      page: url,
-    },
+  sendGTMEvent({
+    event: "page_view",
+    page_path: url,
+    page: url,
   });
 };
 
@@ -21,12 +23,10 @@ export const event = ({
   label?: string;
   value?: number | string;
 }) => {
-  TagManager.dataLayer({
-    dataLayer: {
-      event: action,
-      eventCategory: category,
-      eventLabel: label,
-      value: value,
-    },
+  sendGTMEvent({
+    event: action,
+    eventCategory: category,
+    eventLabel: label,
+    value: value,
   });
 };
