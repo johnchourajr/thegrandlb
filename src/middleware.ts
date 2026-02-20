@@ -1,35 +1,47 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-// Patterns that are commonly used by malicious bots
-const BLOCKED_PATTERNS = [
-  /\.php$/i, // PHP files (you're using Next.js, not PHP)
-  /\.env/i, // Environment files
-  /\.git/i, // Git files
-  /wp-admin/i, // WordPress admin
-  /wp-content/i, // WordPress content
-  /xmlrpc\.xml/i, // XML-RPC
-  /\.sql/i, // SQL files
-  /\.bak$/i, // Backup files
-  /\.config$/i, // Config files
-  /phpmyadmin/i, // phpMyAdmin
-  /\.aspx?$/i, // ASP/ASPX files
-  /\.cgi$/i, // CGI scripts
+// User-Agent patterns for known malicious bots (scanners, exploit tools, aggressive scrapers)
+const BLOCKED_USER_AGENTS = [
+  /sqlmap|nikto|nmap|masscan|zgrab|nuclei/i,
+  /semrushbot|ahrefsbot|mj12bot|dotbot|petalbot|bytespider/i,
+  /dataforseo|megaindex|serpstatbot|screaming frog/i,
+  /bot[_-]?crawler|malicious|evilbot|python-requests.*bot/i,
 ];
 
-// Legitimate files you might want to handle properly
-// Note: robots.txt already exists in /public
-const SPECIAL_FILES = ["/ads.txt", "/sitemap.xml"];
+// Path patterns commonly probed by malicious bots
+const BLOCKED_PATH_PATTERNS = [
+  /\.php$/i,
+  /\.env/i,
+  /\.git/i,
+  /wp-admin/i,
+  /wp-content/i,
+  /xmlrpc\.xml/i,
+  /\.sql/i,
+  /\.bak$/i,
+  /\.config$/i,
+  /phpmyadmin/i,
+  /\.aspx?$/i,
+  /\.cgi$/i,
+];
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const userAgent = request.headers.get("user-agent") ?? "";
 
-  // Block suspicious patterns
-  for (const pattern of BLOCKED_PATTERNS) {
+  // Block known malicious bot User-Agents (404 so we don't reveal we're blocking)
+  for (const pattern of BLOCKED_USER_AGENTS) {
+    if (pattern.test(userAgent)) {
+      console.warn("[bot-block] User-Agent", { pathname, userAgent: userAgent || "(empty)" });
+      return new NextResponse(null, { status: 404 });
+    }
+  }
+
+  // Block suspicious path patterns (404 so we don't reveal we're blocking)
+  for (const pattern of BLOCKED_PATH_PATTERNS) {
     if (pattern.test(pathname)) {
-      console.warn(`🚫 Blocked suspicious request: ${pathname}`);
-      // Return 403 Forbidden or 404 to not reveal information
-      return new NextResponse(null, { status: 403 });
+      console.warn("[bot-block] path", { pathname, userAgent: userAgent || "(empty)" });
+      return new NextResponse(null, { status: 404 });
     }
   }
 
