@@ -7,7 +7,7 @@ import type { MenuPageDocumentWithGroup } from "@/types/menu";
 import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "@/prismicio";
 
-export const revalidate = false;
+export const revalidate = 3600;
 
 export default async function ClassicMenuPage() {
   try {

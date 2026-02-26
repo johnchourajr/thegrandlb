@@ -11,7 +11,7 @@ import { createClient } from "@/prismicio";
  * Types
  */
 
-export const revalidate = false;
+export const revalidate = 3600;
 
 export default async function CorporateMenuPage() {
   try {
