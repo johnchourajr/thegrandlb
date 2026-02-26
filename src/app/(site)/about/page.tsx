@@ -23,6 +23,8 @@ import {
  * Types
  */
 
+export const revalidate = false;
+
 /**
  * @name AboutPage
  */

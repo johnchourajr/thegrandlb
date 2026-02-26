@@ -12,6 +12,8 @@ import { createClient } from "@/prismicio";
  * Types
  */
 
+export const revalidate = false;
+
 export default async function Page() {
   const { page, settings, navigation, cta, footer_cards } = await getPageData();
 

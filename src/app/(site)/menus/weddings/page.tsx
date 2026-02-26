@@ -11,6 +11,8 @@ import { createClient } from "@/prismicio";
  * Types
  */
 
+export const revalidate = false;
+
 export default async function WeddingsMenuPage() {
   try {
     const client = createClient();

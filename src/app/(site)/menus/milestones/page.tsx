@@ -11,6 +11,8 @@ import { createClient } from "@/prismicio";
  * Types
  */
 
+export const revalidate = false;
+
 export default async function MilestonesMenuPage() {
   try {
     const client = createClient();

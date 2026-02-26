@@ -22,6 +22,8 @@ import {
  * Types
  */
 
+export const revalidate = false;
+
 /**
  * @name Homepage
  */

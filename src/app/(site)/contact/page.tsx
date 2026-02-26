@@ -19,6 +19,8 @@ import { DynamicSliceZone } from "@/components/DynamicExports";
  * Types
  */
 
+export const revalidate = false;
+
 /**
  * @name ContactPage
  */

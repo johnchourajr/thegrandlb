@@ -14,6 +14,8 @@ import {
   DynamicTileFooter,
 } from "@/components/DynamicExports";
 
+export const revalidate = false;
+
 export default async function Page() {
   const client = createClient();
   const extra = await getExtra({});

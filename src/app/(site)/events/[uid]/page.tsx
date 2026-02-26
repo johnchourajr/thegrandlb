@@ -11,6 +11,8 @@ import {
   DynamicTileFooter,
 } from "@/components/DynamicExports";
 
+export const revalidate = false;
+
 export default async function Page({ params }: { params: { uid: string } }) {
   const client = createClient();
   const extra = await getExtra({});

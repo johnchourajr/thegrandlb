@@ -8,6 +8,8 @@ import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import { createClient } from "@/prismicio";
 
+export const revalidate = false;
+
 export default async function Page() {
   const client = createClient();
   const extra = await getExtra({});

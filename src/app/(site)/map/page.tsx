@@ -15,6 +15,8 @@ import { createClient } from "@/prismicio";
  */
 import type { GetStaticPropsParams, PageProps } from "@/types/page-props";
 
+export const revalidate = false;
+
 export default async function MapPage() {
   const client = createClient();
   const extra = await getExtra({});

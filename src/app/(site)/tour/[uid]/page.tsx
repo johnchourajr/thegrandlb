@@ -8,6 +8,8 @@ import Layout from "@components/Layout";
 import type { Content } from "@prismicio/client";
 import { createClient } from "@/prismicio";
 
+export const revalidate = false;
+
 export async function generateMetadata({
   params,
 }: {

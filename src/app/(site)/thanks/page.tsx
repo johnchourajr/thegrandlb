@@ -10,6 +10,8 @@ import { createClient } from "@/prismicio";
  */
 import Layout from "@components/Layout";
 
+export const revalidate = false;
+
 /**
  * @name ThanksPage
  */
