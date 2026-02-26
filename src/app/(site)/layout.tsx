@@ -1,6 +1,7 @@
 import RootLayoutShell from "@/components/RootLayoutShell";
 import JsonLdLocalBusiness from "@/components/JsonLdLocalBusiness";
 import { getExtra } from "@/services/get-extra";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 
 export const viewport: Viewport = {
@@ -56,6 +57,7 @@ export default async function SiteLayout({
     <RootLayoutShell initialExtra={initialExtra}>
       <JsonLdLocalBusiness />
       {children}
+      <Analytics />
     </RootLayoutShell>
   );
 }
