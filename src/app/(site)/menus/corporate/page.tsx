@@ -57,7 +57,8 @@ export default async function CorporateMenuPage() {
 
 export async function generateMetadata() {
   return {
-    title: "Corporate Menu - The Grand LB",
-    description: "Our corporate menu offerings at The Grand LB",
+    title: "Corporate Menu",
+    description:
+      "Corporate event catering and lunch or dinner menus for meetings and galas at The Grand LB.",
   };
 }

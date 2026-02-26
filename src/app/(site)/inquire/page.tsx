@@ -38,7 +38,8 @@ export default async function InquirePage() {
 
 export async function generateMetadata() {
   return {
-    title: "Inquire - The Grand LB",
-    description: "Inquire about hosting your event at The Grand LB",
+    title: "Inquire",
+    description:
+      "Request a proposal or schedule a tour. Inquire about weddings, corporate events and private celebrations.",
   };
 }

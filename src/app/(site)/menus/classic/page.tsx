@@ -53,7 +53,8 @@ export default async function ClassicMenuPage() {
 
 export async function generateMetadata() {
   return {
-    title: "Classic Menu - The Grand LB",
-    description: "Our classic menu offerings at The Grand LB",
+    title: "Classic Menu",
+    description:
+      "Classic catering and banquet menu options for events at The Grand LB.",
   };
 }

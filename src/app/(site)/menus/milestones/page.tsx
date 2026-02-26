@@ -57,7 +57,8 @@ export default async function MilestonesMenuPage() {
 
 export async function generateMetadata() {
   return {
-    title: "Milestones Menu - The Grand LB",
-    description: "Our milestones menu offerings at The Grand LB",
+    title: "Milestones Menu",
+    description:
+      "Catering for milestone celebrations: quinceaneras, bar mitzvahs and anniversaries at The Grand LB.",
   };
 }

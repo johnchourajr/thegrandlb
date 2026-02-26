@@ -76,7 +76,8 @@ export default async function Page() {
 
 export async function generateMetadata() {
   return {
-    title: "Events - The Grand LB",
-    description: "Host your special events at The Grand LB",
+    title: "Events",
+    description:
+      "A premier 40,000 sq ft event venue for weddings, corporate events and private celebrations in Long Beach.",
   };
 }

@@ -39,7 +39,8 @@ export default async function Page() {
 
 export async function generateMetadata() {
   return {
-    title: "Menus - The Grand LB",
-    description: "Explore our exquisite menu offerings at The Grand LB",
+    title: "Menus",
+    description:
+      "Catering and banquet menus for weddings, corporate events and private celebrations at The Grand LB.",
   };
 }

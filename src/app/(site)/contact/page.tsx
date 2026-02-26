@@ -43,7 +43,8 @@ export default async function ContactPage() {
 
 export async function generateMetadata() {
   return {
-    title: "Contact - The Grand LB",
-    description: "Contact The Grand LB - Luxury Event Venue",
+    title: "Contact",
+    description:
+      "Get in touch with The Grand LB. Phone, address and contact form for venue inquiries and bookings.",
   };
 }

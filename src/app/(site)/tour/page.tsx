@@ -75,7 +75,8 @@ export default async function Page() {
 
 export async function generateMetadata() {
   return {
-    title: "Tour - The Grand LB",
-    description: "Take a virtual tour of The Grand LB",
+    title: "Tour",
+    description:
+      "Explore our ballrooms, dining rooms and 40,000 sq ft event spaces. Virtual tour of The Grand LB in Long Beach.",
   };
 }

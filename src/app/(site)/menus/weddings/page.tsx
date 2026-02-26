@@ -57,7 +57,8 @@ export default async function WeddingsMenuPage() {
 
 export async function generateMetadata() {
   return {
-    title: "Weddings Menu - The Grand LB",
-    description: "Our wedding menu offerings at The Grand LB",
+    title: "Weddings Menu",
+    description:
+      "Wedding catering and banquet options. Plated, buffet and stations for your reception at The Grand LB.",
   };
 }

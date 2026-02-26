@@ -50,7 +50,8 @@ export default async function AboutPage() {
 
 export async function generateMetadata() {
   return {
-    title: "About - The Grand LB",
-    description: "Learn more about The Grand LB - Luxury Event Venue",
+    title: "About",
+    description:
+      "SoCal's premier event center in the heart of Long Beach. Our story, spaces and what makes The Grand different.",
   };
 }
