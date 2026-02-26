@@ -4,7 +4,13 @@ import * as prismic from "@prismicio/client";
 const endpoint = prismic.getRepositoryEndpoint("grandmenus");
 const accessToken = process.env.NEXT_PRISMIC_MENUS_TOKEN;
 
-export const menuClient = prismic.createClient(endpoint, { accessToken });
+export const menuClient = prismic.createClient(endpoint, {
+  accessToken,
+  fetchOptions: {
+    next: { tags: ["prismic"] },
+    cache: "force-cache",
+  },
+});
 
 export async function fetchMenuCollection(
   menuApiUid: string
