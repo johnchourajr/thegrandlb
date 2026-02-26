@@ -3,7 +3,7 @@
  */
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
-import { createClient } from "../../../../prismicio";
+import { createClient } from "@/prismicio";
 
 /**
  * Component(s)

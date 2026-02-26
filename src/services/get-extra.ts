@@ -1,4 +1,4 @@
-import { createClient } from "prismicio";
+import { createClient } from "@/prismicio";
 import type { ExtraData, GetExtraParams } from "../types/services";
 import { cachedPrismicCall, CACHE_CONFIGS } from "../utils/api-cache";
 import fetchLinks from "../utils/fetchLinks";

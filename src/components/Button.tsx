@@ -12,7 +12,7 @@ import {
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { LinkProps } from "next/link";
-import { linkResolver } from "prismicio";
+import { linkResolver } from "@/prismicio";
 import React, { ButtonHTMLAttributes, useRef } from "react";
 import Link from "./Link";
 import StringText from "./StringText";

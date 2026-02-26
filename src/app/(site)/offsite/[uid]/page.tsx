@@ -6,7 +6,7 @@ import {
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import Layout from "@components/Layout";
-import { createClient } from "../../../../../prismicio";
+import { createClient } from "@/prismicio";
 
 /**
  * Types

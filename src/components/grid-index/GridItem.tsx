@@ -6,7 +6,7 @@ import { clampBuilder } from "@/utils/utils";
 import { PrismicLink } from "@prismicio/react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import { linkResolver } from "prismicio";
+import { linkResolver } from "@/prismicio";
 import { useEffect, useState } from "react";
 import {
   getNumberForColSpan,

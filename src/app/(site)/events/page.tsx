@@ -8,7 +8,7 @@ import { getExtra } from "@/services/get-extra";
 import type { EventPageWithLayout } from "@/types/grid";
 import fetchLinks from "@/utils/fetchLinks";
 import type { Content } from "@prismicio/client";
-import { createClient } from "../../../../prismicio";
+import { createClient } from "@/prismicio";
 
 import { DynamicSliceZone } from "@/components/DynamicExports";
 
