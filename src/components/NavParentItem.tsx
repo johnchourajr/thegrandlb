@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { motion, useAnimation } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { linkResolver } from "../../prismicio";
+import { linkResolver } from "@/prismicio";
 import { NavItem } from "./NavItem";
 import StringText from "./StringText";
 

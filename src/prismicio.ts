@@ -1,4 +1,5 @@
 import * as prismic from "@prismicio/client";
+import * as prismicH from "@prismicio/helpers";
 import * as prismicNext from "@prismicio/next";
 import config from "../slicemachine.config.json";
 
@@ -26,6 +27,33 @@ const routes: prismic.ClientConfig["routes"] = [
   { type: "inquire_page", path: "/thanks" },
   { type: "menu_page", path: "/menus/:uid" },
 ];
+
+/**
+ * Link Resolver: determines the URL for a given Prismic document.
+ */
+export const linkResolver: prismicH.LinkResolverFunction = (doc) => {
+  if (doc.uid === "home") {
+    return "/";
+  }
+
+  if (doc.type === "tour_page") {
+    return `/tour/${doc.uid}`;
+  }
+
+  if (doc.type === "event_page") {
+    return `/events/${doc.uid}`;
+  }
+
+  if (doc.type === "menu_page") {
+    return `/menus/${doc.uid}`;
+  }
+
+  if (doc.type === "offsite_page") {
+    return `/offsite/${doc.uid}`;
+  }
+
+  return `/${doc.uid}`;
+};
 
 /**
  * Creates a Prismic client for the project's repository. The client is used to

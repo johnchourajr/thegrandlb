@@ -2,7 +2,7 @@ import { handleEvent } from "@/utils/events";
 import { PrismicLink } from "@prismicio/react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import { linkResolver } from "../../prismicio";
+import { linkResolver } from "@/prismicio";
 import StringText from "./StringText";
 
 type NavItemProps = {

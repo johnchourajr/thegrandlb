@@ -8,7 +8,7 @@ import Layout from "@components/Layout";
  */
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
-import { createClient } from "../../../../prismicio";
+import { createClient } from "@/prismicio";
 
 /**
  * Slices
@@ -18,6 +18,8 @@ import { DynamicSliceZone } from "@/components/DynamicExports";
 /**
  * Types
  */
+
+export const revalidate = false;
 
 /**
  * @name ContactPage

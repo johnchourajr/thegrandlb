@@ -8,12 +8,14 @@ import Layout from "@components/Layout";
  */
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
-import { createClient } from "../../../../prismicio";
+import { createClient } from "@/prismicio";
 
 /**
  * Types
  */
 import type { GetStaticPropsParams, PageProps } from "@/types/page-props";
+
+export const revalidate = false;
 
 export default async function MapPage() {
   const client = createClient();

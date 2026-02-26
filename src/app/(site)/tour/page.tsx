@@ -6,13 +6,15 @@ import { getExtra } from "@/services/get-extra";
 import type { TourSpaceWithLayout } from "@/types/grid";
 import fetchLinks from "@/utils/fetchLinks";
 import type { Content } from "@prismicio/client";
-import { createClient } from "../../../../prismicio";
+import { createClient } from "@/prismicio";
 
 import {
   DynamicCtaFooter,
   DynamicSliceZone,
   DynamicTileFooter,
 } from "@/components/DynamicExports";
+
+export const revalidate = false;
 
 export default async function Page() {
   const client = createClient();

@@ -6,7 +6,7 @@ import * as prismicH from "@prismicio/helpers";
 import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
-import { linkResolver } from "prismicio";
+import { linkResolver } from "@/prismicio";
 import type { FooterProps } from "../types/footer";
 import { ensureArray, safeMap } from "../utils/safe-array";
 import Button from "./Button";

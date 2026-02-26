@@ -15,7 +15,7 @@ import {
 } from "@/utils/prismic-helpers";
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import { linkResolver } from "prismicio";
+import { linkResolver } from "@/prismicio";
 import type { TileItemProps, TileStyleProps } from "./types";
 import {
   getNumberForColSpan,

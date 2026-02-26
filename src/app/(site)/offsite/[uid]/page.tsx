@@ -6,12 +6,14 @@ import {
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import Layout from "@components/Layout";
-import { createClient } from "../../../../../prismicio";
+import { createClient } from "@/prismicio";
 
 /**
  * Types
  */
 import type { PageProps } from "@/types/page-props";
+
+export const revalidate = false;
 
 export default async function OffsitePage({
   params,

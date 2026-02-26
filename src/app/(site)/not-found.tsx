@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { createClient } from "prismicio";
+import { createClient } from "@/prismicio";
 
 /**
  * Components

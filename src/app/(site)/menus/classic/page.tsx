@@ -5,7 +5,9 @@ import { getExtra } from "@/services/get-extra";
 import { fetchMenuCollection } from "@/services/menu-data";
 import type { MenuPageDocumentWithGroup } from "@/types/menu";
 import fetchLinks from "@/utils/fetchLinks";
-import { createClient } from "../../../../../prismicio";
+import { createClient } from "@/prismicio";
+
+export const revalidate = 3600;
 
 export default async function ClassicMenuPage() {
   try {

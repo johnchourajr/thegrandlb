@@ -6,7 +6,9 @@ import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import Layout from "@components/Layout";
 import type { Content } from "@prismicio/client";
-import { createClient } from "../../../../../prismicio";
+import { createClient } from "@/prismicio";
+
+export const revalidate = false;
 
 export async function generateMetadata({
   params,

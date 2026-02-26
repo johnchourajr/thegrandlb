@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { createClient } from "../../prismicio";
+import { createClient } from "@/prismicio";
 
 const BASE_URL = "https://thegrandlb.com"; // Update to your actual domain
 

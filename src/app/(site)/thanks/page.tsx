@@ -3,12 +3,14 @@
  */
 import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
-import { createClient } from "../../../../prismicio";
+import { createClient } from "@/prismicio";
 
 /**
  * Component(s)
  */
 import Layout from "@components/Layout";
+
+export const revalidate = false;
 
 /**
  * @name ThanksPage
