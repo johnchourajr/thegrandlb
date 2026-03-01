@@ -4,12 +4,7 @@ import errorNotificationService from "@/services/error-notifications";
 import type { NextRequest } from "next/server";
 import { Resend } from "resend";
 
-const RESEND_API_BASE = "https://api.resend.com";
 const resend = new Resend(process.env.NEXT_RESEND_API_KEY);
-// Resend SDK bug: it uses 'http://localhost:3001' || process.env.RESEND_BASE_URL, so the string wins and env is never used. Patch the client.
-const resendAny = resend as unknown as { baseUrl: string; request: { defaults: { baseURL: string } } };
-resendAny.baseUrl = RESEND_API_BASE;
-resendAny.request.defaults.baseURL = RESEND_API_BASE;
 const fromEmail = process.env.NEXT_PUBLIC_RESEND_FROM_EMAIL ?? "";
 const salesEmail = (process.env.NEXT_PUBLIC_RESEND_SALES_EMAIL ?? "")
   .split(",")
@@ -124,7 +119,7 @@ export async function POST(request: NextRequest) {
     await resend.emails.send({
       from: fromEmail,
       to: email,
-      reply_to: defaultReplyTo,
+      replyTo: defaultReplyTo,
       subject: `${testText}Inquiry confirmation: ${
         formState.event_name?.value || "Grand LB Event"
       }`,
@@ -144,7 +139,7 @@ export async function POST(request: NextRequest) {
     };
     const inquirerEmail = formState.email?.value;
     if (inquirerEmail && typeof inquirerEmail === "string") {
-      salesPayload.reply_to = inquirerEmail;
+      salesPayload.replyTo = inquirerEmail;
     }
     await resend.emails.send(salesPayload);
 

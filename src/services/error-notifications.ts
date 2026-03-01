@@ -1,12 +1,7 @@
 import ErrorNotificationEmail from "@/emails/errorNotificationEmail";
 import { Resend } from "resend";
 
-const RESEND_API_BASE = "https://api.resend.com";
 const resend = new Resend(process.env.NEXT_RESEND_API_KEY);
-// Resend SDK bug: it uses 'http://localhost:3001' || process.env.RESEND_BASE_URL, so the string wins and env is never used. Patch the client.
-const resendAny = resend as unknown as { baseUrl: string; request: { defaults: { baseURL: string } } };
-resendAny.baseUrl = RESEND_API_BASE;
-resendAny.request.defaults.baseURL = RESEND_API_BASE;
 const fromEmail = "hello+critical@thegrandlb.com";
 const alertEmail = "hi+critical@john.design";
 const isNotProduction = process.env.NODE_ENV !== "production";
