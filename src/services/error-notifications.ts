@@ -1,16 +1,12 @@
-import ErrorNotificationEmail from "@/emails/errorNotificationEmail";
-import { Resend } from "resend";
-
-const resend = new Resend(process.env.NEXT_RESEND_API_KEY);
-const fromEmail = "hello+critical@thegrandlb.com";
-const alertEmail = "hi+critical@john.design";
+const workflowUrl = process.env.RETOOL_NOBUENO_WORKFLOW_URL ?? "";
+const workflowApiKey = process.env.RETOOL_NOBUENO_WORKFLOW_API_KEY ?? "";
 const isNotProduction = process.env.NODE_ENV !== "production";
 
 type ErrorContext = {
   service: "email" | "database" | "general";
   endpoint: string;
   error: Error | unknown;
-  metadata?: Record<string, any>;
+  metadata?: Record<string, unknown>;
   timestamp?: Date;
 };
 
@@ -19,10 +15,7 @@ type AlertThrottleEntry = {
   count: number;
 };
 
-// Simple in-memory throttling (resets on server restart)
 const alertThrottle = new Map<string, AlertThrottleEntry>();
-
-// Throttle alerts: max 1 per hour for same error type
 const THROTTLE_MINUTES = 60;
 
 class ErrorNotificationService {
@@ -43,7 +36,6 @@ class ErrorNotificationService {
       return true;
     }
 
-    // Update count but don't send
     existing.count += 1;
     return false;
   }
@@ -59,87 +51,75 @@ class ErrorNotificationService {
     )}`;
   }
 
-  private formatErrorForEmail(context: ErrorContext): {
-    subject: string;
-    react: JSX.Element;
-  } {
-    const testPrefix = isNotProduction ? "[TEST] " : "[PROD] ";
-    const errorMessage =
-      context.error instanceof Error
-        ? context.error.message
-        : String(context.error);
-    const errorStack =
-      context.error instanceof Error ? context.error.stack : undefined;
-
-    const inquiryFormFailed =
-      context.metadata && (context.metadata as Record<string, unknown>).inquiryFormEmails === true;
-    const subject = inquiryFormFailed
-      ? `${testPrefix}Inquiry form emails failed - ${context.endpoint}`
-      : `${testPrefix}🚨 ${context.service.toUpperCase()} Error - ${context.endpoint}`;
-
-    const errorKey = this.createErrorKey(context);
-    const throttleData = alertThrottle.get(errorKey);
-
-    const react = ErrorNotificationEmail({
-      service: context.service,
-      endpoint: context.endpoint,
-      errorMessage,
-      errorStack,
-      timestamp: (context.timestamp || new Date()).toISOString(),
-      environment: isNotProduction ? "development" : "production",
-      metadata: context.metadata,
-      throttleInfo: throttleData
-        ? {
-            count: throttleData.count,
-            isThrottled: false, // We only call this if we're sending
-          }
-        : undefined,
-    });
-
-    return { subject, react };
-  }
-
   async sendErrorAlert(context: ErrorContext): Promise<void> {
     try {
-      // Check if required env vars exist
-      if (!process.env.NEXT_RESEND_API_KEY || !fromEmail) {
+      if (!workflowUrl || !workflowApiKey) {
         console.warn(
-          "Error notification service not configured - missing Resend API key or from email"
+          "Error notification not configured - missing RETOOL_NOBUENO_WORKFLOW_URL or RETOOL_NOBUENO_WORKFLOW_API_KEY"
         );
         return;
       }
 
       const errorKey = this.createErrorKey(context);
-
       if (!this.shouldSendAlert(errorKey)) {
         console.log(`Error alert throttled for: ${errorKey}`);
         return;
       }
 
-      const emailContent = this.formatErrorForEmail(context);
+      const errorMessage =
+        context.error instanceof Error
+          ? context.error.message
+          : String(context.error);
+      const stack =
+        context.error instanceof Error ? context.error.stack : undefined;
 
-      await resend.emails.send({
-        from: fromEmail,
-        to: [alertEmail],
-        subject: emailContent.subject,
-        react: emailContent.react,
+      const isCritical =
+        context.metadata &&
+        (context.metadata as Record<string, unknown>).inquiryFormEmails === true;
+      const level = isCritical ? "critical" : "error";
+
+      const payload = {
+        service: context.service,
+        endpoint: context.endpoint,
+        level,
+        message: errorMessage,
+        stack: stack ?? null,
+        environment: isNotProduction ? "development" : "production",
+        metadata: context.metadata ?? {},
+        occurred_at: (context.timestamp ?? new Date()).toISOString(),
+      };
+
+      const res = await fetch(workflowUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Workflow-Api-Key": workflowApiKey,
+        },
+        body: JSON.stringify(payload),
       });
 
+      if (!res.ok) {
+        const text = await res.text();
+        console.error(
+          `Retool workflow error (${res.status}):`,
+          text.slice(0, 500)
+        );
+        return;
+      }
+
       console.log(
-        `Error alert sent for: ${context.service} - ${context.endpoint}`
+        `Error alert sent to Retool for: ${context.service} - ${context.endpoint}`
       );
-    } catch (notificationError) {
-      // Don't let notification errors break the main flow
-      console.error("Failed to send error notification:", notificationError);
+    } catch (err) {
+      console.error("Failed to send error notification:", err);
     }
   }
 
-  // Utility method for common error scenarios
   async notifyApiError(
     service: "email" | "database" | "general",
     endpoint: string,
     error: Error | unknown,
-    metadata?: Record<string, any>
+    metadata?: Record<string, unknown>
   ): Promise<void> {
     await this.sendErrorAlert({
       service,
@@ -150,7 +130,6 @@ class ErrorNotificationService {
     });
   }
 
-  // Get throttle stats (for debugging)
   getThrottleStats(): Array<{
     errorKey: string;
     lastSent: Date;

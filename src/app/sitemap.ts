@@ -1,3 +1,4 @@
+import errorNotificationService from "@/services/error-notifications";
 import type { MetadataRoute } from "next";
 import { createClient } from "@/prismicio";
 
@@ -128,7 +129,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return [...staticRoutes, ...dynamicRoutes];
   } catch (error) {
     console.error("Error generating sitemap:", error);
-    // Fallback to static routes only if Prismic fails
+    await errorNotificationService.notifyApiError(
+      "general",
+      "sitemap",
+      error,
+      { endpoint: "sitemap", fallback: "static" }
+    );
     return staticRoutes;
   }
 }

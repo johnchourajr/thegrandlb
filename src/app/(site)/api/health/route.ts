@@ -1,3 +1,4 @@
+import errorNotificationService from "@/services/error-notifications";
 import {
   checkDatabaseHealth,
   checkEmailHealth,
@@ -18,6 +19,25 @@ export async function GET(request: NextRequest) {
       emailHealth.status === "healthy" && databaseHealth.status === "healthy"
         ? "healthy"
         : "unhealthy";
+
+    if (overallStatus === "unhealthy") {
+      if (emailHealth.status !== "healthy") {
+        await errorNotificationService.notifyApiError(
+          "email",
+          "/api/health",
+          new Error(emailHealth.error ?? "Email unhealthy"),
+          { endpoint: "health", serviceResult: emailHealth }
+        );
+      }
+      if (databaseHealth.status !== "healthy") {
+        await errorNotificationService.notifyApiError(
+          "database",
+          "/api/health",
+          new Error(databaseHealth.error ?? "Database unhealthy"),
+          { endpoint: "health", serviceResult: databaseHealth }
+        );
+      }
+    }
 
     const responseTime = Date.now() - startTime;
     const httpStatus = overallStatus === "healthy" ? 200 : 503;
@@ -44,6 +64,12 @@ export async function GET(request: NextRequest) {
       }
     );
   } catch (error) {
+    await errorNotificationService.notifyApiError(
+      "general",
+      "/api/health",
+      error,
+      { endpoint: "health", message: "Health check threw" }
+    );
     return new Response(
       JSON.stringify({
         status: "unhealthy",

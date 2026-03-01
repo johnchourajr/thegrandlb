@@ -109,7 +109,7 @@ export async function GET(request: NextRequest) {
         examples: {
           basic: "POST {} (empty body for default test)",
           email:
-            'POST { "service": "email", "errorType": "smtp", "message": "SMTP connection failed" }',
+            'POST { "service": "email", "errorType": "smtp", "message": "SMTP connection failed" } (sends to Retool workflow)',
           database:
             'POST { "service": "database", "errorType": "connection", "message": "Connection timeout" }',
         },
