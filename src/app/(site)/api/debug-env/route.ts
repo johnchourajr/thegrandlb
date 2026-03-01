@@ -12,16 +12,22 @@ export async function GET(request: NextRequest) {
     });
   }
 
+  const publicEnv = Object.fromEntries(
+    Object.entries(process.env)
+      .filter(
+        ([key, value]) => key.startsWith("NEXT_PUBLIC_") && value !== undefined,
+      )
+      .sort(([keyA], [keyB]) => keyA.localeCompare(keyB)),
+  );
+
   const envStatus = {
     NODE_ENV: process.env.NODE_ENV,
     DATABASE_URL_EXISTS: !!process.env.NEXT_DATABASE_URL,
     DATABASE_URL_PREFIX:
       process.env.NEXT_DATABASE_URL?.substring(0, 20) || "MISSING",
     RESEND_API_KEY_EXISTS: !!process.env.NEXT_RESEND_API_KEY,
-    FROM_EMAIL_EXISTS: !!process.env.NEXT_PUBLIC_RESEND_FROM_EMAIL,
-    SALES_EMAIL_EXISTS: !!process.env.NEXT_PUBLIC_RESEND_SALES_EMAIL,
-    REPLY_EMAIL_EXISTS: !!process.env.NEXT_PUBLIC_RESEND_REPLY_EMAILS,
-    DATABASE_TABLE: process.env.NEXT_PUBLIC_DATABASE_TABLE || "glb_submissions",
+    PUBLIC_ENV_KEYS: Object.keys(publicEnv),
+    PUBLIC_ENV: publicEnv,
   };
 
   return new Response(JSON.stringify(envStatus, null, 2), {
