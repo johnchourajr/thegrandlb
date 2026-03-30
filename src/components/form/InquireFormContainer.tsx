@@ -12,6 +12,10 @@ import {
   toastSubmitError,
   toastSubmitSuccess,
 } from "@/utils/events";
+import {
+  isValidEmail,
+  validateValueWithRule,
+} from "@/utils/inquire-validation";
 import { formatPhoneForDatabase } from "@/utils/phone-formatter";
 import { formatDate, formatTitle } from "@/utils/utils";
 import axios from "axios";
@@ -51,30 +55,7 @@ export function InquireFormContainer() {
     page_key: any,
     validations: any
   ): void => {
-    const validateValueWithRegex = (value: string, regex: string) => {
-      const regexPattern = new RegExp(regex);
-
-      return regexPattern.test(value);
-    };
-
-    const validateValue = (value: string, validations: any) => {
-      if (!validations) return true;
-
-      const { rule, value: validation_value } = validations;
-
-      switch (rule) {
-        case "regex":
-          return validateValueWithRegex(value, validation_value);
-        case "min_value":
-          return value >= validation_value;
-        case "max_length":
-          return value.length <= validation_value;
-        default:
-          return true;
-      }
-    };
-
-    const isValid = validateValue(value, validations);
+    const isValid = validateValueWithRule(value, validations);
 
     // console.log("isValid", isValid);
 
@@ -97,7 +78,9 @@ export function InquireFormContainer() {
   };
 
   const handleFormSubmit = async () => {
-    if (!formState?.email) return toastEmailRrequired();
+    const emailValue = String(formState?.email?.value || "").trim();
+    if (!emailValue) return toastEmailRrequired();
+    if (!isValidEmail(emailValue)) return toastSubmitError();
     if (isSubmittingRef.current) return;
     isSubmittingRef.current = true;
     setSubmitLoading(true);

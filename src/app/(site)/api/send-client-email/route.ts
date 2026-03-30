@@ -1,6 +1,7 @@
 import ClientEmail from "@/emails/clientEmail";
 import SalesEmail from "@/emails/salesEmail";
 import errorNotificationService from "@/services/error-notifications";
+import { isValidEmail } from "@/utils/inquire-validation";
 import type { NextRequest } from "next/server";
 import { Resend } from "resend";
 
@@ -88,6 +89,16 @@ export async function POST(request: NextRequest) {
 
     body = await request.json();
     const { email = "", formState = {} } = body || {};
+    const sanitizedEmail = typeof email === "string" ? email.trim() : "";
+    if (!isValidEmail(sanitizedEmail)) {
+      return new Response(
+        JSON.stringify({ error: "Invalid email address" }),
+        {
+          status: 400,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+    }
 
     // TEST_MODE: Skip actual email send but validate email structure
     const isTestMode = process.env.TEST_MODE === "true";
@@ -118,7 +129,7 @@ export async function POST(request: NextRequest) {
      */
     await resend.emails.send({
       from: fromEmail,
-      to: email,
+      to: sanitizedEmail,
       replyTo: defaultReplyTo,
       subject: `${testText}Inquiry confirmation: ${
         formState.event_name?.value || "Grand LB Event"
