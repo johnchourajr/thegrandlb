@@ -40,6 +40,25 @@ test("validateValueWithRule handles regex validation", () => {
   assert.equal(validateValueWithRule("camposgris@icloud,com", regexRule), false);
 });
 
+test("validateValueWithRule rejects unknown regex patterns", () => {
+  const unsupportedRegexRule = {
+    rule: "regex",
+    value: "^(a+)+$",
+  };
+
+  assert.equal(validateValueWithRule("aaaaaa", unsupportedRegexRule), false);
+});
+
+test("validateValueWithRule handles long input for allowlisted regex", () => {
+  const minLengthRule = {
+    rule: "regex",
+    value: "^[\\s\\S]{3,}$",
+  };
+  const longInput = "A".repeat(10000);
+
+  assert.equal(validateValueWithRule(longInput, minLengthRule), true);
+});
+
 test("validateValueWithRule handles min_value validation", () => {
   const minValueRule = { rule: "min_value", value: 2 };
 
@@ -94,6 +113,38 @@ test("form schema validation rules stay within supported set", () => {
       assert.ok(
         supportedRules.has(rule),
         `Unsupported rule "${rule}" on question "${question.question_key}"`
+      );
+    });
+  });
+});
+
+test("form schema regex patterns stay within supported allowlist", () => {
+  const supportedRegexValues = new Set([
+    "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$",
+    "^\\d{3}-\\d{3}-\\d{4}$",
+    "^.{1,}$",
+    "^.{2,}$",
+    "^[\\s\\S]{3,}$",
+    "^.{0,500}$",
+  ]);
+
+  const formPages = getFormData();
+
+  formPages.forEach((page) => {
+    page.questions.forEach((question) => {
+      const validations = question.validations;
+      if (validations?.rule !== "regex") {
+        return;
+      }
+
+      assert.equal(
+        typeof validations.value,
+        "string",
+        `Regex validation should be a string on question "${question.question_key}"`
+      );
+      assert.ok(
+        supportedRegexValues.has(String(validations.value)),
+        `Unsupported regex value "${validations.value}" on question "${question.question_key}"`
       );
     });
   });
