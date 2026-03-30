@@ -288,7 +288,7 @@
       },
       {
         "title": "Email",
-        "placeholder": "elle@website.com",
+        "placeholder": "name@example.com",
         "question_type": "email",
         "question_key": "email",
         "required": true,

@@ -5,7 +5,7 @@ import { isValidEmail, validateValueWithRule } from "./inquire-validation";
 
 test("isValidEmail accepts valid email formats", () => {
   const validEmails = [
-    "camposgris@icloud.com",
+    "alex@example.com",
     "user.name+tag@example.co",
     "person@sub.domain.org",
     "  trimmed@example.com  ",
@@ -19,9 +19,9 @@ test("isValidEmail accepts valid email formats", () => {
 test("isValidEmail rejects invalid email formats", () => {
   const invalidEmails = [
     "",
-    "camposgris@icloud,com",
-    "camposgris@icloud",
-    "campos gris@icloud.com",
+    "alex@example,com",
+    "alex@example",
+    "alex sample@example.com",
     "missing-at-sign.example.com",
   ];
 
@@ -36,8 +36,8 @@ test("validateValueWithRule handles regex validation", () => {
     value: "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$",
   };
 
-  assert.equal(validateValueWithRule("camposgris@icloud.com", regexRule), true);
-  assert.equal(validateValueWithRule("camposgris@icloud,com", regexRule), false);
+  assert.equal(validateValueWithRule("alex@example.com", regexRule), true);
+  assert.equal(validateValueWithRule("alex@example,com", regexRule), false);
 });
 
 test("validateValueWithRule rejects unknown regex patterns", () => {
@@ -94,11 +94,11 @@ test("form.json email validation rejects comma domains", () => {
   assert.ok(emailQuestion.validations, "Email question should have validations");
 
   assert.equal(
-    validateValueWithRule("camposgris@icloud,com", emailQuestion.validations),
+    validateValueWithRule("alex@example,com", emailQuestion.validations),
     false
   );
   assert.equal(
-    validateValueWithRule("camposgris@icloud.com", emailQuestion.validations),
+    validateValueWithRule("alex@example.com", emailQuestion.validations),
     true
   );
 });

@@ -6,18 +6,18 @@
  */
 
 const BASE_URL = process.env.TEST_BASE_URL || "http://localhost:3000";
-const TEST_EMAIL = "ci-test@thegrandlb.com";
+const TEST_EMAIL = "ci-test@example.com";
 
 const testFormData = {
-  full_name: "CI Test User",
+  full_name: "Sample Test User",
   email: TEST_EMAIL,
   phone: "555-555-5555",
-  event_name: "CI Test Event",
-  event_type: "Birthday Party",
+  event_name: "Sample Event",
+  event_type: "Private Event",
   head_count: 50,
   desired_date: "2025-12-31",
   desired_time: "6pm",
-  desired_space: "Grand Ballroom",
+  desired_space: "Sample Venue",
   additional_details: "This is an automated CI test submission",
 };
 
@@ -159,7 +159,7 @@ async function testInquiryForm() {
         resendAny.request.defaults.baseURL = "https://api.resend.com";
 
         await resend.emails.send({
-          from: process.env.NEXT_PUBLIC_RESEND_FROM_EMAIL || "hello@thegrandlb.com",
+          from: process.env.NEXT_PUBLIC_RESEND_FROM_EMAIL || "noreply@example.com",
           to: process.env.CI_ERROR_NOTIFICATION_EMAIL,
           subject: "[CI] Inquiry form test failed",
           html: `

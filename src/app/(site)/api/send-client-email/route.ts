@@ -15,7 +15,7 @@ const replyEmailsRaw = (process.env.NEXT_PUBLIC_RESEND_REPLY_EMAILS ?? "")
   .split(",")
   .map((s) => s.trim())
   .filter(Boolean);
-const defaultReplyTo = replyEmailsRaw[0] ?? "dan@grandfandb.com";
+const defaultReplyTo = replyEmailsRaw[0] ?? "reply@example.com";
 const isNotProduction = process.env.NODE_ENV !== "production";
 const testText = isNotProduction ? `TEST: ` : "";
 
