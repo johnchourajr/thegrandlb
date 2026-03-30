@@ -26,6 +26,20 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 Project notes and decisions live in [`/docs`](docs/), including [video migration](docs/video-migration.md).
 
+## Testing
+
+Run validation unit tests:
+
+```bash
+pnpm run test:unit
+```
+
+Run the end-to-end inquiry form API flow test:
+
+```bash
+pnpm run test:inquiry-form
+```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

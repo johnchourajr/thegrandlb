@@ -12,6 +12,7 @@
     "slicemachine": "start-slicemachine",
     "format": "prettier --write .",
     "type-check": "tsc --noEmit",
+    "test:unit": "tsx --test src/utils/inquire-validation.test.ts",
     "test:inquiry-form": "tsx scripts/test-inquiry-form.ts"
   },
   "dependencies": {

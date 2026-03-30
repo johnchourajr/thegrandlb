@@ -1,4 +1,5 @@
 import errorNotificationService from "@/services/error-notifications";
+import { isValidEmail } from "@/utils/inquire-validation";
 import { formatPhoneForDatabase } from "@/utils/phone-formatter";
 import { formatDate } from "@/utils/utils";
 import type { NextRequest } from "next/server";
@@ -46,6 +47,19 @@ export async function POST(request: NextRequest) {
 
     if (!body) {
       throw new Error("Request body is missing");
+    }
+
+    if (!isValidEmail(String(body.email || ""))) {
+      return new Response(
+        JSON.stringify({
+          error: "Invalid email address",
+          message: "Bad request",
+        }),
+        {
+          status: 400,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
     }
 
     const { phone, desired_date, head_count, ...formData } = body;
