@@ -1,7 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "WebSearch",
+      "WebFetch(domain:developers.cloudflare.com)",
+      "Bash(npx tsx:*)",
+      "Bash(node -e \"const data = require\\('./src/app/\\(site\\)/[uid]/content.ts'\\); console.log\\(Object.keys\\(data.generalPages\\)\\)\")",
+      "Bash(xxd)",
+      "Bash(npx next:*)",
+      "Bash(find /Users/johnchoura/Dropbox/Sites/thegrandlb/slices -name \"model.json\" -delete)"
     ]
   }
 }

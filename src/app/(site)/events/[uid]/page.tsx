@@ -1,9 +1,7 @@
 import { getExtra } from "@/services/get-extra";
-import fetchLinks from "@/utils/fetchLinks";
 import Layout from "@components/Layout";
 import type { Content } from "@prismicio/client";
-import { createClient } from "@/prismicio";
-import { redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 import {
   DynamicCtaFooter,
@@ -11,6 +9,7 @@ import {
   DynamicSliceZone,
   DynamicTileFooter,
 } from "@/components/DynamicExports";
+import { eventPages, eventPageUids } from "./content";
 
 export const revalidate = false;
 
@@ -19,32 +18,12 @@ export default async function Page({
 }: {
   params: Promise<{ uid: string }>;
 }) {
-  const client = createClient();
-  const extra = await getExtra({});
-
   const { uid } = await params;
+  const page = eventPages[uid];
+  if (!page) notFound();
 
-  let page;
-  try {
-    [page] = await Promise.all([
-      client.getByUID("event_page", uid, {
-        fetchLinks,
-      }),
-    ]);
-  } catch (error) {
-    console.warn(`[404] /events/${uid} — event page not found`);
-    redirect("/events");
-  }
-
-  if (!page) {
-    console.warn(`[404] /events/${uid} — event page not found`);
-    redirect("/events");
-  }
-
-  const { settings, navigation, cta, footer_cards } = extra;
+  const { settings, navigation, cta, footer_cards } = await getExtra({});
   const { data: { slices, ...pageRest } } = page;
-
-  // Type assertion for event page data
   const eventPageData = pageRest as Content.EventPageDocument["data"];
 
   return (
@@ -69,33 +48,17 @@ export async function generateMetadata({
 }: {
   params: Promise<{ uid: string }>;
 }) {
-  const client = createClient();
   const { uid } = await params;
-
-  try {
-    const page = await client.getByUID("event_page", uid, {
-      fetchLinks,
-    });
-
-    return {
-      title: page.data.meta_title || `The Grand LB - ${page.data.title}`,
-      description:
-        page.data.meta_description || "The Grand LB - Luxury Event Venue",
-    };
-  } catch (error) {
-    return {
-      title: "Event - The Grand LB",
-      description: "The Grand LB - Luxury Event Venue",
-    };
+  const page = eventPages[uid];
+  if (!page) {
+    return { title: "Event - The Grand LB", description: "The Grand LB - Luxury Event Venue" };
   }
+  return {
+    title: page.data.meta_title || `The Grand LB - ${page.data.title}`,
+    description: page.data.meta_description || "The Grand LB - Luxury Event Venue",
+  };
 }
 
 export async function generateStaticParams() {
-  const client = createClient();
-
-  const pages = await client.getAllByType("event_page");
-
-  return pages.map((page) => ({
-    uid: page.uid?.toString(),
-  }));
+  return eventPageUids.map((uid) => ({ uid }));
 }

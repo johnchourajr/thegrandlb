@@ -1,51 +1,18 @@
-/**
- * Components
- */
 import Layout from "@components/Layout";
-
-/**
- * Services
- */
 import { getExtra } from "@/services/get-extra";
-import fetchLinks from "@/utils/fetchLinks";
-import { createClient } from "@/prismicio";
-
-/**
- * Slices
- */
-import {
-  DynamicCtaFooter,
-  DynamicSliceZone,
-  DynamicTileFooter,
-} from "@/components/DynamicExports";
-
-/**
- * Types
- */
+import { DynamicCtaFooter, DynamicSliceZone, DynamicTileFooter } from "@/components/DynamicExports";
+import { aboutPage } from "./content";
 
 export const revalidate = false;
 
-/**
- * @name AboutPage
- */
 export default async function AboutPage() {
-  const client = createClient();
-  const extra = await getExtra({});
-
-  const [page] = await Promise.all([
-    client.getByUID("page", "about", {
-      fetchLinks,
-    }),
-  ]);
-
-  const { settings, navigation, cta, footer_cards } = extra;
+  const { settings, navigation, cta, footer_cards } = await getExtra({});
 
   return (
-    <Layout page={page} settings={settings} navigation={navigation}>
-      <></>
-      <DynamicSliceZone slices={page.data.slices} />
+    <Layout page={aboutPage} settings={settings} navigation={navigation}>
+      <DynamicSliceZone slices={aboutPage.data.slices} />
       <DynamicCtaFooter data={cta} />
-      <DynamicTileFooter uid={page.uid} footer_cards={footer_cards} />
+      <DynamicTileFooter uid={aboutPage.uid} footer_cards={footer_cards} />
     </Layout>
   );
 }

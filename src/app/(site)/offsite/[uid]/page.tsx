@@ -3,11 +3,10 @@ import {
   DynamicSliceZone,
   DynamicTileFooter,
 } from "@/components/DynamicExports";
-import { getExtra } from "@/services/get-extra";
-import fetchLinks from "@/utils/fetchLinks";
 import Layout from "@components/Layout";
-import { createClient } from "@/prismicio";
-import { redirect } from "next/navigation";
+import { getExtra } from "@/services/get-extra";
+import { notFound } from "next/navigation";
+import { offsitePages, offsitePageUids } from "./content";
 
 export const revalidate = false;
 
@@ -16,29 +15,11 @@ export default async function OffsitePage({
 }: {
   params: Promise<{ uid: string }>;
 }) {
-  const client = createClient();
-  const extra = await getExtra({});
-
   const { uid } = await params;
+  const page = offsitePages[uid];
+  if (!page) notFound();
 
-  let page;
-  try {
-    [page] = await Promise.all([
-      client.getByUID("offsite_page", uid, {
-        fetchLinks,
-      }),
-    ]);
-  } catch (error) {
-    console.warn(`[404] /offsite/${uid} — offsite page not found`);
-    redirect("/offsite");
-  }
-
-  if (!page) {
-    console.warn(`[404] /offsite/${uid} — offsite page not found`);
-    redirect("/offsite");
-  }
-
-  const { cta, settings, navigation, footer_cards } = extra;
+  const { cta, settings, navigation, footer_cards } = await getExtra({});
 
   return (
     <Layout page={page} navigation={navigation} settings={settings}>
@@ -54,33 +35,17 @@ export async function generateMetadata({
 }: {
   params: Promise<{ uid: string }>;
 }) {
-  const client = createClient();
   const { uid } = await params;
-
-  try {
-    const page = await client.getByUID("offsite_page", uid, {
-      fetchLinks,
-    });
-
-    return {
-      title: page.data.meta_title || `The Grand LB - ${page.data.title}`,
-      description:
-        page.data.meta_description || "The Grand LB - Luxury Event Venue",
-    };
-  } catch (error) {
-    return {
-      title: "Offsite - The Grand LB",
-      description: "The Grand LB - Luxury Event Venue",
-    };
+  const page = offsitePages[uid];
+  if (!page) {
+    return { title: "Offsite - The Grand LB", description: "The Grand LB - Luxury Event Venue" };
   }
+  return {
+    title: page.data.meta_title || `The Grand LB - ${page.data.title}`,
+    description: page.data.meta_description || "The Grand LB - Luxury Event Venue",
+  };
 }
 
 export async function generateStaticParams() {
-  const client = createClient();
-
-  const pages = await client.getAllByType("offsite_page");
-
-  return pages.map((page) => ({
-    uid: page.uid?.toString(),
-  }));
+  return offsitePageUids.map((uid) => ({ uid }));
 }

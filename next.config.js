@@ -11,24 +11,38 @@ const nextConfig = {
         protocol: "https",
         hostname: "cdn.thegrandlb.com",
       },
+      {
+        protocol: "https",
+        hostname: "imagedelivery.net",
+      },
     ],
-    deviceSizes: [
-      375,
-      640,
-      1080,
-      1440,
-      1920, // Reduced sizes to minimize bandwidth usage
-    ],
-    formats: ["image/webp", "image/avif"],
-    minimumCacheTTL: 31536000, // 1 year
+    // Fewer breakpoints = fewer unique transformed images cached on CF edge.
+    // 375 removed (too close to 640; phones get 640px images, which is fine).
+    deviceSizes: [640, 1080, 1440, 1920],
+    // Single format keeps the /_next/image cache simple during Prismic migration.
+    // CF Images loader uses fixed webp independently of this setting.
+    formats: ["image/webp"],
+    qualities: [50, 75],
+    // 1 year TTL for images going through /_next/image (Prismic during migration).
+    minimumCacheTTL: 31536000,
     dangerouslyAllowSVG: false,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  // Add caching headers for static assets only
   async headers() {
     return [
       {
         source: "/_next/static/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      // Prismic images going through Next.js image optimizer during migration.
+      // CF Images bypasses this entirely — its caching is controlled at CF edge.
+      {
+        source: "/_next/image",
         headers: [
           {
             key: "Cache-Control",

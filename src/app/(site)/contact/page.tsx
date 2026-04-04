@@ -1,44 +1,16 @@
-/**
- * Components
- */
 import Layout from "@components/Layout";
-
-/**
- * Services
- */
 import { getExtra } from "@/services/get-extra";
-import fetchLinks from "@/utils/fetchLinks";
-import { createClient } from "@/prismicio";
-
-/**
- * Slices
- */
 import { DynamicSliceZone } from "@/components/DynamicExports";
-
-/**
- * Types
- */
+import { contactPage } from "./content";
 
 export const revalidate = false;
 
-/**
- * @name ContactPage
- */
 export default async function ContactPage() {
-  const client = createClient();
-  const extra = await getExtra({});
-
-  const [page] = await Promise.all([
-    client.getByUID("page", "contact", {
-      fetchLinks,
-    }),
-  ]);
-
-  const { settings, navigation } = extra;
+  const { settings, navigation } = await getExtra({});
 
   return (
-    <Layout page={page} navigation={navigation} settings={settings}>
-      <DynamicSliceZone slices={page.data.slices} />
+    <Layout page={contactPage} navigation={navigation} settings={settings}>
+      <DynamicSliceZone slices={contactPage.data.slices} />
     </Layout>
   );
 }
