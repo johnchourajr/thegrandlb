@@ -1,12 +1,5 @@
-import type { Content } from "@prismicio/client";
+import type { PrismicImageLike } from "content/types";
 
-/**
- * Grid Component Types
- *
- * Type definitions for grid-based layouts that display Prismic content items.
- */
-
-// Base layout configuration for grid items
 export type GridItemLayout = {
   col_span?: string;
   col_start?: string;
@@ -17,23 +10,43 @@ export type GridItemLayout = {
   direction?: string;
 };
 
-// Tour index specific types - properly resolved from Prismic relations
+/** A resolved tour space from the tour index page's spaces[] relation field */
+export type TourSpaceRef = {
+  uid: string;
+  data: {
+    title?: string | null;
+    headline?: string | null;
+    max_capacity?: number | null;
+    square_feet?: number | null;
+    features?: unknown;
+    caption?: string | null;
+  };
+};
+
 export type TourSpaceWithLayout = {
-  page: Content.TourPageDocument;
-  page_media: Content.TourIndexPageDocumentDataSpacesItem["page_media"];
+  page: TourSpaceRef;
+  page_media: PrismicImageLike;
   layout: GridItemLayout;
 };
 
-// Event index specific types - properly resolved from Prismic relations
-export type EventPageWithLayout =
-  Content.EventIndexPageDocumentDataEventPagesItem & {
-    layout: GridItemLayout;
+/** A resolved event page entry from the event index page's event_pages[] relation field */
+export type EventPageRef = {
+  uid: string;
+  data: {
+    title?: string | null;
+    headline?: string | null;
+    caption?: string | null;
   };
+};
 
-// Generic grid item that can handle different Prismic content types
+export type EventPageWithLayout = {
+  page: EventPageRef;
+  page_media?: PrismicImageLike;
+  layout: GridItemLayout;
+};
+
 export type GridItemData = TourSpaceWithLayout | EventPageWithLayout;
 
-// Grid component props
 export type GridBaseProps = {
   uid?: string;
   sectionId: string;

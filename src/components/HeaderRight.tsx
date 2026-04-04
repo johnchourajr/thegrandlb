@@ -61,7 +61,7 @@ export const HeaderRight = ({
           )}
           {...animationProps}
         >
-          {navigationData.slices.map(
+          {(navigationData?.slices ?? []).map(
             ({ variation, primary, ...rest }: any, index: number) => {
               if (primary.show === false) return null;
               return (

@@ -1,26 +1,13 @@
-import { createClient } from "@/prismicio";
+import { cache } from "react";
+import { settings, navigation, ctaFooter, footerCards } from "content/shared.constants";
 import type { ExtraData, GetExtraParams } from "../types/services";
-import fetchLinks from "../utils/fetchLinks";
 
-export const getExtra = async ({
-  previewData,
-}: GetExtraParams): Promise<ExtraData> => {
-  const client = createClient({ previewData });
-
-  const [navigation, settings, cta, tour_card, events_card, menus_card] =
-    await Promise.all([
-      client.getByType("nav_links"),
-      client.getByUID("settings", "settings"),
-      client.getByType("fragment_cta_footer", { fetchLinks }),
-      client.getByUID("fragment_card", "tour-card", { fetchLinks }),
-      client.getByUID("fragment_card", "events-card", { fetchLinks }),
-      client.getByUID("fragment_card", "menus-card", { fetchLinks }),
-    ]);
-
+// Wrapped with cache() so layout and page components share one reference per request.
+export const getExtra = cache(async (_params: GetExtraParams): Promise<ExtraData> => {
   return {
-    navigation: navigation.results[0] || null,
+    navigation,
     settings,
-    cta: cta.results[0] || null,
-    footer_cards: [tour_card, events_card, menus_card],
+    cta: ctaFooter,
+    footer_cards: footerCards,
   };
-};
+});

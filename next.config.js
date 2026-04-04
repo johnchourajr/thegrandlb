@@ -5,30 +5,35 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "images.prismic.io",
+        hostname: "imagedelivery.net",
       },
       {
         protocol: "https",
         hostname: "cdn.thegrandlb.com",
       },
     ],
-    deviceSizes: [
-      375,
-      640,
-      1080,
-      1440,
-      1920, // Reduced sizes to minimize bandwidth usage
-    ],
-    formats: ["image/webp", "image/avif"],
-    minimumCacheTTL: 31536000, // 1 year
+    // Fewer breakpoints = fewer unique transformed images cached on CF edge.
+    deviceSizes: [640, 1080, 1440, 1920],
+    formats: ["image/webp"],
+    qualities: [75],
+    // 1 year TTL for images served through /_next/image.
+    minimumCacheTTL: 31536000,
     dangerouslyAllowSVG: false,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  // Add caching headers for static assets only
   async headers() {
     return [
       {
         source: "/_next/static/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/_next/image",
         headers: [
           {
             key: "Cache-Control",
@@ -47,7 +52,6 @@ const nextConfig = {
       },
     ];
   },
-  // Enable compression
   compress: true,
 };
 

@@ -6,55 +6,29 @@ import Layout from "@/components/Layout";
 import TileFooter from "@/components/TileFooter";
 import { getExtra } from "@/services/get-extra";
 import type { EventPageWithLayout } from "@/types/grid";
-import fetchLinks from "@/utils/fetchLinks";
-import type { Content } from "@prismicio/client";
-import { createClient } from "@/prismicio";
-
 import { DynamicSliceZone } from "@/components/DynamicExports";
+import { eventIndexPage } from "./content";
+import type { PrismicImageLike } from "content/types";
 
 export const revalidate = false;
 
 export default async function Page() {
-  const client = createClient();
-  const extra = await getExtra({});
+  const { settings, navigation, cta, footer_cards } = await getExtra({});
 
-  const [page, childPages] = await Promise.all([
-    client.getByUID("event_index_page", "events", {
-      fetchLinks,
-    }),
-    client.getByType("event_page"),
-  ]);
+  const { slices, title, gallery, media, video_url, headline, body } = eventIndexPage.data;
+  const eventPages = eventIndexPage.data.event_pages as Array<{
+    page: { uid: string; data: { title?: string | null; headline?: string | null; caption?: string | null } };
+    page_media?: PrismicImageLike;
+  }> | undefined;
 
-  const { settings, navigation, cta, footer_cards } = extra;
-
-  const {
-    data: {
-      slices = [],
-      title = "",
-      gallery = [],
-      media = "",
-      ...pageRest
-    } = {},
-  } = page || {};
-  const video_url = (page?.data as { video_url?: string } | undefined)
-    ?.video_url;
-
-  // Type assertion for event index page data
-  const eventIndexData = pageRest as Content.EventIndexPageDocument["data"];
-  const { headline, body, event_pages } = eventIndexData || {};
-  // Note: icon_media doesn't exist on EventIndexPage, only on TourIndexPage
-
-  // Pre-compute layout data for each event page
   const itemsWithLayout: EventPageWithLayout[] =
-    event_pages?.map(
-      (item: Content.EventIndexPageDocumentDataEventPagesItem) => ({
-        ...item,
-        layout: getEventIndexLayout((item.page as any).uid), // Need to cast for now due to relation field
-      })
-    ) || [];
+    (eventPages ?? []).map((item) => ({
+      ...item,
+      layout: getEventIndexLayout(item.page?.uid),
+    }));
 
   return (
-    <Layout page={page} settings={settings} navigation={navigation}>
+    <Layout page={eventIndexPage} settings={settings} navigation={navigation}>
       <HeroCategoryPage
         headline={title}
         gallery={gallery}
@@ -65,13 +39,13 @@ export default async function Page() {
         body={body}
       />
       <GridBase
-        uid={page?.uid}
+        uid={eventIndexPage.uid}
         sectionId="event-index"
         items={itemsWithLayout}
       />
-      <DynamicSliceZone slices={page?.data.slices} />
+      <DynamicSliceZone slices={slices} />
       <CtaFooter data={cta} />
-      <TileFooter uid={page?.uid} footer_cards={footer_cards} />
+      <TileFooter uid={eventIndexPage.uid} footer_cards={footer_cards} />
     </Layout>
   );
 }

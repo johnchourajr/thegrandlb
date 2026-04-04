@@ -1,37 +1,16 @@
-/**
- * Component(s)
- */
 import Layout from "@components/Layout";
-
-/**
- * Services
- */
 import { getExtra } from "@/services/get-extra";
-import fetchLinks from "@/utils/fetchLinks";
-import { createClient } from "@/prismicio";
-
-/**
- * Types
- */
 
 export const revalidate = false;
 
 export default async function InquirePage() {
-  const client = createClient();
-  const extra = await getExtra({});
-
-  const [page] = await Promise.all([
-    client.getByUID("inquire_page", "inquire", {
-      fetchLinks,
-    }),
-  ]);
-
-  const { settings } = extra;
+  const { settings, navigation } = await getExtra({});
 
   return (
     <Layout
-      page={page}
+      page={{ uid: "inquire", data: {} } as any}
       settings={settings}
+      navigation={navigation}
       className={"!min-h-[0vh]"}
       wrapperClassName={"!min-h-[0vh]"}
     />

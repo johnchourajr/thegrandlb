@@ -1,13 +1,3 @@
 {
-  "apiEndpoint": "https://the-grand.cdn.prismic.io/api/v2",
-  "repositoryName": "the-grand",
-  "adapter": {
-    "resolve": "@slicemachine/adapter-next",
-    "options": {
-      "lazyLoadSlices": true,
-      "typescript": true
-    }
-  },
-  "libraries": ["./slices", "./slices/fragments"],
-  "localSliceSimulatorURL": "http://localhost:3000/slice-simulator"
+  "repositoryName": "the-grand"
 }
