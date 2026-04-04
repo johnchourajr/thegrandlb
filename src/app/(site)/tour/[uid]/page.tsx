@@ -7,6 +7,7 @@ import fetchLinks from "@/utils/fetchLinks";
 import Layout from "@components/Layout";
 import type { Content } from "@prismicio/client";
 import { createClient } from "@/prismicio";
+import { redirect } from "next/navigation";
 
 export const revalidate = false;
 
@@ -101,12 +102,7 @@ export default async function Page({
       </Layout>
     );
   } catch (error) {
-    console.error("Error loading tour page:", error);
-    return (
-      <div>
-        <h1>Page Error</h1>
-        <p>Could not load tour page: {uid}</p>
-      </div>
-    );
+    console.warn(`[404] /tour/${uid} — tour page not found`);
+    redirect("/tour");
   }
 }

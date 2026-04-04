@@ -7,35 +7,44 @@ import { getExtra } from "@/services/get-extra";
 import fetchLinks from "@/utils/fetchLinks";
 import Layout from "@components/Layout";
 import { createClient } from "@/prismicio";
-
-/**
- * Types
- */
-import type { PageProps } from "@/types/page-props";
+import { redirect } from "next/navigation";
 
 export const revalidate = false;
 
 export default async function OffsitePage({
   params,
 }: {
-  params: { uid: string };
+  params: Promise<{ uid: string }>;
 }) {
   const client = createClient();
   const extra = await getExtra({});
 
-  const [page] = await Promise.all([
-    client.getByUID("offsite_page", params.uid, {
-      fetchLinks,
-    }),
-  ]);
+  const { uid } = await params;
+
+  let page;
+  try {
+    [page] = await Promise.all([
+      client.getByUID("offsite_page", uid, {
+        fetchLinks,
+      }),
+    ]);
+  } catch (error) {
+    console.warn(`[404] /offsite/${uid} — offsite page not found`);
+    redirect("/offsite");
+  }
+
+  if (!page) {
+    console.warn(`[404] /offsite/${uid} — offsite page not found`);
+    redirect("/offsite");
+  }
 
   const { cta, settings, navigation, footer_cards } = extra;
 
   return (
     <Layout page={page} navigation={navigation} settings={settings}>
-      <DynamicSliceZone slices={page?.data?.slices} />
+      <DynamicSliceZone slices={page.data?.slices} />
       <DynamicCtaFooter data={cta} />
-      <DynamicTileFooter uid={page?.uid} footer_cards={footer_cards} />
+      <DynamicTileFooter uid={page.uid} footer_cards={footer_cards} />
     </Layout>
   );
 }
@@ -43,12 +52,13 @@ export default async function OffsitePage({
 export async function generateMetadata({
   params,
 }: {
-  params: { uid: string };
+  params: Promise<{ uid: string }>;
 }) {
   const client = createClient();
+  const { uid } = await params;
 
   try {
-    const page = await client.getByUID("offsite_page", params.uid, {
+    const page = await client.getByUID("offsite_page", uid, {
       fetchLinks,
     });
 

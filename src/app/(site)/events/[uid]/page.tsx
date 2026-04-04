@@ -3,6 +3,7 @@ import fetchLinks from "@/utils/fetchLinks";
 import Layout from "@components/Layout";
 import type { Content } from "@prismicio/client";
 import { createClient } from "@/prismicio";
+import { redirect } from "next/navigation";
 
 import {
   DynamicCtaFooter,
@@ -13,18 +14,35 @@ import {
 
 export const revalidate = false;
 
-export default async function Page({ params }: { params: { uid: string } }) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ uid: string }>;
+}) {
   const client = createClient();
   const extra = await getExtra({});
 
-  const [page] = await Promise.all([
-    client.getByUID("event_page", params.uid, {
-      fetchLinks,
-    }),
-  ]);
+  const { uid } = await params;
+
+  let page;
+  try {
+    [page] = await Promise.all([
+      client.getByUID("event_page", uid, {
+        fetchLinks,
+      }),
+    ]);
+  } catch (error) {
+    console.warn(`[404] /events/${uid} — event page not found`);
+    redirect("/events");
+  }
+
+  if (!page) {
+    console.warn(`[404] /events/${uid} — event page not found`);
+    redirect("/events");
+  }
 
   const { settings, navigation, cta, footer_cards } = extra;
-  const { data: { slices = [], ...pageRest } = {} } = page || {};
+  const { data: { slices, ...pageRest } } = page;
 
   // Type assertion for event page data
   const eventPageData = pageRest as Content.EventPageDocument["data"];
@@ -32,16 +50,16 @@ export default async function Page({ params }: { params: { uid: string } }) {
   return (
     <Layout page={page} settings={settings} navigation={navigation}>
       <DynamicHeroDetailPage
-        uid={page?.uid}
+        uid={page.uid}
         title={eventPageData?.title}
         headline={eventPageData?.headline}
         caption={eventPageData?.caption}
         media={eventPageData?.media}
         video_url={(eventPageData as { video_url?: string }).video_url}
       />
-      <DynamicSliceZone slices={page?.data.slices} />
+      <DynamicSliceZone slices={slices} />
       <DynamicCtaFooter data={cta} />
-      <DynamicTileFooter uid={page?.uid} footer_cards={footer_cards} />
+      <DynamicTileFooter uid={page.uid} footer_cards={footer_cards} />
     </Layout>
   );
 }
@@ -49,12 +67,13 @@ export default async function Page({ params }: { params: { uid: string } }) {
 export async function generateMetadata({
   params,
 }: {
-  params: { uid: string };
+  params: Promise<{ uid: string }>;
 }) {
   const client = createClient();
+  const { uid } = await params;
 
   try {
-    const page = await client.getByUID("event_page", params.uid, {
+    const page = await client.getByUID("event_page", uid, {
       fetchLinks,
     });
 
