@@ -2,24 +2,11 @@
 // To regenerate: npx tsx scripts/migrate-from-prismic.ts
 // Global data shared across all routes (replaces getExtra)
 
-import type { Content } from "@prismicio/client";
+import type { SharedDoc } from "content/types";
 
 /** Global site settings (favicon, SEO defaults, etc.) */
-export const settings = {
-  "id": "ZD914BAAACAAn41f",
+export const settings: SharedDoc = {
   "uid": "settings",
-  "url": null,
-  "type": "settings",
-  "href": "https://the-grand.cdn.prismic.io/api/v2/documents/search?ref=aY7e8hEAACQAAXJd&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZD914BAAACAAn41f%22%29+%5D%5D",
-  "tags": [],
-  "first_publication_date": "2023-04-19T05:02:29+0000",
-  "last_publication_date": "2023-08-15T05:58:58+0000",
-  "slugs": [
-    "settings"
-  ],
-  "linked_documents": [],
-  "lang": "en-us",
-  "alternate_languages": [],
   "data": {
     "site_title": [
       {
@@ -148,29 +135,33 @@ export const settings = {
       }
     ]
   }
-} as unknown as Content.SettingsDocument;
+};
 
 /** Primary navigation links */
-export const navigation = {
-  "id": "ZC5blxAAACMA0y7X",
+export const navigation: SharedDoc | null = {
   "uid": "navigation",
-  "url": null,
-  "type": "nav_links",
-  "href": "https://the-grand.cdn.prismic.io/api/v2/documents/search?ref=aY7e8hEAACQAAXJd&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZC5blxAAACMA0y7X%22%29+%5D%5D",
-  "tags": [],
-  "first_publication_date": "2023-04-06T05:55:45+0000",
-  "last_publication_date": "2023-07-29T01:55:33+0000",
-  "slugs": [
-    "nav-links"
-  ],
-  "linked_documents": [],
-  "lang": "en-us",
-  "alternate_languages": [],
   "data": {
     "slices": [
       {
-        "variation": "withChildren",
-        "version": "sktwi1xtmkfgx8626",
+        "id": "nav_link_tree$9d1d7d2e-bcfe-49d2-bacf-d1b69cf1279d",
+        "slice_type": "nav_link_tree",
+        "primary": {
+          "link_title": "Tour",
+          "link_source": {
+            "id": "ZC5XThAAAB8A0yhs",
+            "type": "tour_index_page",
+            "tags": [],
+            "lang": "en-us",
+            "slug": "tour-index-page",
+            "first_publication_date": "2023-04-06T05:28:38+0000",
+            "last_publication_date": "2026-02-13T08:15:11+0000",
+            "uid": "tour",
+            "link_type": "Document",
+            "key": "4d599f11-8c06-428f-954e-9fae3531d779",
+            "isBroken": false
+          },
+          "show": null
+        },
         "items": [
           {
             "child_link_title": "Interactive Map",
@@ -308,31 +299,28 @@ export const navigation = {
             },
             "show": null
           }
-        ],
+        ]
+      },
+      {
+        "id": "nav_link_tree$169bd4b9-becb-4836-ac6d-b31cabfa264d",
+        "slice_type": "nav_link_tree",
         "primary": {
-          "link_title": "Tour",
+          "link_title": "Events",
           "link_source": {
-            "id": "ZC5XThAAAB8A0yhs",
-            "type": "tour_index_page",
+            "id": "ZC5XgxAAACEA0yi9",
+            "type": "event_index_page",
             "tags": [],
             "lang": "en-us",
-            "slug": "tour-index-page",
+            "slug": "event-index-page",
             "first_publication_date": "2023-04-06T05:28:38+0000",
-            "last_publication_date": "2026-02-13T08:15:11+0000",
-            "uid": "tour",
+            "last_publication_date": "2026-02-13T08:21:06+0000",
+            "uid": "events",
             "link_type": "Document",
-            "key": "4d599f11-8c06-428f-954e-9fae3531d779",
+            "key": "778d9f1a-071b-4abb-8415-edf65155fac2",
             "isBroken": false
           },
           "show": null
         },
-        "id": "nav_link_tree$9d1d7d2e-bcfe-49d2-bacf-d1b69cf1279d",
-        "slice_type": "nav_link_tree",
-        "slice_label": null
-      },
-      {
-        "variation": "withChildren",
-        "version": "sktwi1xtmkfgx8626",
         "items": [
           {
             "child_link_title": "For Weddings",
@@ -399,31 +387,28 @@ export const navigation = {
             },
             "show": false
           }
-        ],
+        ]
+      },
+      {
+        "id": "nav_link_tree$a51d21fb-59f7-466b-b951-c04fadf392b6",
+        "slice_type": "nav_link_tree",
         "primary": {
-          "link_title": "Events",
+          "link_title": "Menus",
           "link_source": {
-            "id": "ZC5XgxAAACEA0yi9",
-            "type": "event_index_page",
+            "id": "ZC5eyBAAAB8A0zOo",
+            "type": "page",
             "tags": [],
             "lang": "en-us",
-            "slug": "event-index-page",
-            "first_publication_date": "2023-04-06T05:28:38+0000",
-            "last_publication_date": "2026-02-13T08:21:06+0000",
-            "uid": "events",
+            "slug": "menus-at-the-grand",
+            "first_publication_date": "2023-04-06T05:55:45+0000",
+            "last_publication_date": "2026-02-13T08:13:17+0000",
+            "uid": "menus",
             "link_type": "Document",
-            "key": "778d9f1a-071b-4abb-8415-edf65155fac2",
+            "key": "08ad9382-e3f6-4abb-a92e-3325c8581572",
             "isBroken": false
           },
           "show": null
         },
-        "id": "nav_link_tree$169bd4b9-becb-4836-ac6d-b31cabfa264d",
-        "slice_type": "nav_link_tree",
-        "slice_label": null
-      },
-      {
-        "variation": "withChildren",
-        "version": "sktwi1xtmkfgx8626",
         "items": [
           {
             "child_link_title": "Classic Menu",
@@ -493,34 +478,11 @@ export const navigation = {
             },
             "show": null
           }
-        ],
-        "primary": {
-          "link_title": "Menus",
-          "link_source": {
-            "id": "ZC5eyBAAAB8A0zOo",
-            "type": "page",
-            "tags": [],
-            "lang": "en-us",
-            "slug": "menus-at-the-grand",
-            "first_publication_date": "2023-04-06T05:55:45+0000",
-            "last_publication_date": "2026-02-13T08:13:17+0000",
-            "uid": "menus",
-            "link_type": "Document",
-            "key": "08ad9382-e3f6-4abb-a92e-3325c8581572",
-            "isBroken": false
-          },
-          "show": null
-        },
-        "id": "nav_link_tree$a51d21fb-59f7-466b-b951-c04fadf392b6",
-        "slice_type": "nav_link_tree",
-        "slice_label": null
+        ]
       },
       {
-        "variation": "default",
-        "version": "sktwi1xtmkfgx8626",
-        "items": [
-          {}
-        ],
+        "id": "nav_link_tree$1bb9880e-5ad9-4c14-9a55-bdb8755406dc",
+        "slice_type": "nav_link_tree",
         "primary": {
           "link_title": "Offsite",
           "link_source": {
@@ -538,16 +500,13 @@ export const navigation = {
           },
           "show": false
         },
-        "id": "nav_link_tree$1bb9880e-5ad9-4c14-9a55-bdb8755406dc",
-        "slice_type": "nav_link_tree",
-        "slice_label": null
-      },
-      {
-        "variation": "default",
-        "version": "sktwi1xtmkfgx8626",
         "items": [
           {}
-        ],
+        ]
+      },
+      {
+        "id": "nav_link_tree$23659e1a-b22d-4b44-bda7-587ca527fbae",
+        "slice_type": "nav_link_tree",
         "primary": {
           "link_title": "About",
           "link_source": {
@@ -565,16 +524,13 @@ export const navigation = {
           },
           "show": null
         },
-        "id": "nav_link_tree$23659e1a-b22d-4b44-bda7-587ca527fbae",
-        "slice_type": "nav_link_tree",
-        "slice_label": null
-      },
-      {
-        "variation": "default",
-        "version": "sktwi1xtmkfgx8626",
         "items": [
           {}
-        ],
+        ]
+      },
+      {
+        "id": "nav_link_tree$60afa665-330a-486f-9be6-5f5448500439",
+        "slice_type": "nav_link_tree",
         "primary": {
           "link_title": "Contact",
           "link_source": {
@@ -592,35 +548,20 @@ export const navigation = {
           },
           "show": null
         },
-        "id": "nav_link_tree$60afa665-330a-486f-9be6-5f5448500439",
-        "slice_type": "nav_link_tree",
-        "slice_label": null
+        "items": [
+          {}
+        ]
       }
     ]
   }
-} as unknown as Content.NavLinksDocument | null;
+};
 
 /** CTA footer fragment (bottom-of-page call-to-action) */
-export const ctaFooter = {
-  "id": "ZD-G5hAAACIAn9rj",
+export const ctaFooter: SharedDoc | null = {
   "uid": "cta-footer",
-  "url": null,
-  "type": "fragment_cta_footer",
-  "href": "https://the-grand.cdn.prismic.io/api/v2/documents/search?ref=aY7e8hEAACQAAXJd&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZD-G5hAAACIAn9rj%22%29+%5D%5D",
-  "tags": [],
-  "first_publication_date": "2023-04-19T06:21:08+0000",
-  "last_publication_date": "2026-02-13T08:09:34+0000",
-  "slugs": [
-    "fragment--cta-footer"
-  ],
-  "linked_documents": [],
-  "lang": "en-us",
-  "alternate_languages": [],
   "data": {
     "headline": "Moments \nStart \nHere",
-    "video_media": {
-      "link_type": "Media"
-    },
+    "video_media": null,
     "video_url": "https://cdn.thegrandlb.com/cd461232-bc21-4a37-99f3-1fe75274d9f5-footer-peak-15s-281-29-final.mp4",
     "media": {
       "dimensions": {
@@ -694,26 +635,12 @@ export const ctaFooter = {
     "top_spacer": "Medium",
     "bottom_spacer": "Medium"
   }
-} as unknown as Content.FragmentCtaFooterDocument | null;
+};
 
 /** Footer tile cards — tour, events, menus */
-export const footerCards = [
+export const footerCards: SharedDoc[] = [
   {
-    "id": "ZGxUxRAAACMAgo4n",
     "uid": "tour-card",
-    "url": null,
-    "type": "fragment_card",
-    "href": "https://the-grand.cdn.prismic.io/api/v2/documents/search?ref=aY7e8hEAACQAAXJd&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZGxUxRAAACMAgo4n%22%29+%5D%5D",
-    "tags": [],
-    "first_publication_date": "2023-05-23T05:54:07+0000",
-    "last_publication_date": "2023-05-23T05:54:07+0000",
-    "slugs": [
-      "see-our-spaces",
-      "see-our-services"
-    ],
-    "linked_documents": [],
-    "lang": "en-us",
-    "alternate_languages": [],
     "data": {
       "media": {},
       "eyebrow": "See our spaces",
@@ -742,21 +669,7 @@ export const footerCards = [
     }
   },
   {
-    "id": "ZGxUPhAAACIAgo1T",
     "uid": "events-card",
-    "url": null,
-    "type": "fragment_card",
-    "href": "https://the-grand.cdn.prismic.io/api/v2/documents/search?ref=aY7e8hEAACQAAXJd&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZGxUPhAAACIAgo1T%22%29+%5D%5D",
-    "tags": [],
-    "first_publication_date": "2023-05-23T05:53:05+0000",
-    "last_publication_date": "2023-05-23T05:53:05+0000",
-    "slugs": [
-      "see-our-services",
-      "see-our-menus"
-    ],
-    "linked_documents": [],
-    "lang": "en-us",
-    "alternate_languages": [],
     "data": {
       "media": {},
       "eyebrow": "See our services",
@@ -785,21 +698,7 @@ export const footerCards = [
     }
   },
   {
-    "id": "ZGxE8xAAACIAgnbZ",
     "uid": "menus-card",
-    "url": null,
-    "type": "fragment_card",
-    "href": "https://the-grand.cdn.prismic.io/api/v2/documents/search?ref=aY7e8hEAACQAAXJd&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZGxE8xAAACIAgnbZ%22%29+%5D%5D",
-    "tags": [],
-    "first_publication_date": "2023-05-23T04:46:50+0000",
-    "last_publication_date": "2023-05-23T04:46:50+0000",
-    "slugs": [
-      "see-our-menus",
-      "bring-grand-anywhere"
-    ],
-    "linked_documents": [],
-    "lang": "en-us",
-    "alternate_languages": [],
     "data": {
       "media": {},
       "eyebrow": "See our menus",
@@ -830,4 +729,4 @@ export const footerCards = [
       "row_span": "Span 3"
     }
   }
-] as unknown as Content.FragmentCardDocument[];
+];

@@ -19,7 +19,7 @@ export default async function Page({
 
   return (
     <Layout page={page} settings={settings} navigation={navigation}>
-      <DynamicSliceZone slices={page.data?.slices} />
+      <DynamicSliceZone slices={page.data.slices} />
     </Layout>
   );
 }

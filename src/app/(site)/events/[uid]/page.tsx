@@ -1,6 +1,5 @@
 import { getExtra } from "@/services/get-extra";
 import Layout from "@components/Layout";
-import type { Content } from "@prismicio/client";
 import { notFound } from "next/navigation";
 
 import {
@@ -23,18 +22,17 @@ export default async function Page({
   if (!page) notFound();
 
   const { settings, navigation, cta, footer_cards } = await getExtra({});
-  const { data: { slices, ...pageRest } } = page;
-  const eventPageData = pageRest as Content.EventPageDocument["data"];
+  const { slices, title, headline, caption, media, video_url } = page.data;
 
   return (
     <Layout page={page} settings={settings} navigation={navigation}>
       <DynamicHeroDetailPage
         uid={page.uid}
-        title={eventPageData?.title}
-        headline={eventPageData?.headline}
-        caption={eventPageData?.caption}
-        media={eventPageData?.media}
-        video_url={(eventPageData as { video_url?: string }).video_url}
+        title={title}
+        headline={headline}
+        caption={caption}
+        media={media}
+        video_url={video_url}
       />
       <DynamicSliceZone slices={slices} />
       <DynamicCtaFooter data={cta} />

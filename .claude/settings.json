@@ -8,7 +8,16 @@
       "Bash(node -e \"const data = require\\('./src/app/\\(site\\)/[uid]/content.ts'\\); console.log\\(Object.keys\\(data.generalPages\\)\\)\")",
       "Bash(xxd)",
       "Bash(npx next:*)",
-      "Bash(find /Users/johnchoura/Dropbox/Sites/thegrandlb/slices -name \"model.json\" -delete)"
+      "Bash(find /Users/johnchoura/Dropbox/Sites/thegrandlb/slices -name \"model.json\" -delete)",
+      "Bash(node -e ':*)",
+      "Bash(sed -i '' 's|from \"../../content/types\"|from \"content/types\"|g' /Users/johnchoura/Dropbox/Sites/thegrandlb/src/types/layout.ts /Users/johnchoura/Dropbox/Sites/thegrandlb/src/types/services.ts /Users/johnchoura/Dropbox/Sites/thegrandlb/src/types/hero.ts /Users/johnchoura/Dropbox/Sites/thegrandlb/src/types/footer.ts /Users/johnchoura/Dropbox/Sites/thegrandlb/src/types/grid.ts)",
+      "Bash(sed -i '' 's|from \"../../content/shared.constants\"|from \"content/shared.constants\"|g' /Users/johnchoura/Dropbox/Sites/thegrandlb/src/services/get-extra.ts)",
+      "Bash(sed -n '120,130p' /Users/johnchoura/Dropbox/Sites/thegrandlb/src/components/Header.tsx)",
+      "Bash(sed -n '75,85p' /Users/johnchoura/Dropbox/Sites/thegrandlb/src/components/RootLayoutShell.tsx)",
+      "Bash(sed -n '60,80p' /Users/johnchoura/Dropbox/Sites/thegrandlb/src/components/CtaFooter.tsx)",
+      "Bash(sed -n '120,135p' /Users/johnchoura/Dropbox/Sites/thegrandlb/src/components/CtaFooter.tsx)",
+      "Bash(sed -n '62,66p' /Users/johnchoura/Dropbox/Sites/thegrandlb/src/app/\\\\\\(site\\\\\\)/tour/\\\\[uid\\\\]/page.tsx)",
+      "Bash(sed -n '60,68p' /Users/johnchoura/Dropbox/Sites/thegrandlb/src/components/HeaderRight.tsx)"
     ]
   }
 }

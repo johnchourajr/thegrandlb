@@ -255,7 +255,7 @@ export default function Footer({ settings, navigation }: FooterProps) {
   if (!navigation && !settings) return null;
   if (!navigation?.data) return null;
 
-  const { slices } = navigation.data;
+  const { slices } = navigation.data as Record<string, any>;
   const {
     primary_action,
     primary_action_link,

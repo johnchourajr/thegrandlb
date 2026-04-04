@@ -1,5 +1,5 @@
 import { cache } from "react";
-import { settings, navigation, ctaFooter, footerCards } from "../../content/shared.constants";
+import { settings, navigation, ctaFooter, footerCards } from "content/shared.constants";
 import type { ExtraData, GetExtraParams } from "../types/services";
 
 // Wrapped with cache() so layout and page components share one reference per request.

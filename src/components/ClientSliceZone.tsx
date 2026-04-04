@@ -11,7 +11,7 @@ export default function ClientSliceZone({
 }: ClientSliceZoneProps) {
   return (
     <SliceZone
-      slices={slices as SliceZoneLike}
+      slices={slices as unknown as SliceZoneLike}
       components={components}
       context={context}
     />

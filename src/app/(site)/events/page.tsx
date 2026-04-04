@@ -6,27 +6,26 @@ import Layout from "@/components/Layout";
 import TileFooter from "@/components/TileFooter";
 import { getExtra } from "@/services/get-extra";
 import type { EventPageWithLayout } from "@/types/grid";
-import type { Content } from "@prismicio/client";
 import { DynamicSliceZone } from "@/components/DynamicExports";
 import { eventIndexPage } from "./content";
+import type { PrismicImageLike } from "content/types";
 
 export const revalidate = false;
 
 export default async function Page() {
   const { settings, navigation, cta, footer_cards } = await getExtra({});
 
-  const { slices = [], title = "", gallery = [], media } = eventIndexPage.data;
-  const video_url = (eventIndexPage.data as { video_url?: string }).video_url;
-  const eventIndexData = eventIndexPage.data as Content.EventIndexPageDocument["data"];
-  const { headline, body, event_pages } = eventIndexData || {};
+  const { slices, title, gallery, media, video_url, headline, body } = eventIndexPage.data;
+  const eventPages = eventIndexPage.data.event_pages as Array<{
+    page: { uid: string; data: { title?: string | null; headline?: string | null; caption?: string | null } };
+    page_media?: PrismicImageLike;
+  }> | undefined;
 
   const itemsWithLayout: EventPageWithLayout[] =
-    event_pages?.map(
-      (item: Content.EventIndexPageDocumentDataEventPagesItem) => ({
-        ...item,
-        layout: getEventIndexLayout((item.page as any).uid),
-      })
-    ) || [];
+    (eventPages ?? []).map((item) => ({
+      ...item,
+      layout: getEventIndexLayout(item.page?.uid),
+    }));
 
   return (
     <Layout page={eventIndexPage} settings={settings} navigation={navigation}>
@@ -44,7 +43,7 @@ export default async function Page() {
         sectionId="event-index"
         items={itemsWithLayout}
       />
-      <DynamicSliceZone slices={eventIndexPage.data.slices} />
+      <DynamicSliceZone slices={slices} />
       <CtaFooter data={cta} />
       <TileFooter uid={eventIndexPage.uid} footer_cards={footer_cards} />
     </Layout>

@@ -23,7 +23,7 @@ export default async function OffsitePage({
 
   return (
     <Layout page={page} navigation={navigation} settings={settings}>
-      <DynamicSliceZone slices={page.data?.slices} />
+      <DynamicSliceZone slices={page.data.slices} />
       <DynamicCtaFooter data={cta} />
       <DynamicTileFooter uid={page.uid} footer_cards={footer_cards} />
     </Layout>

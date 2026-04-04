@@ -65,7 +65,116 @@ const ROOT = path.resolve(process.cwd());
 const SRC_SITE = path.join(ROOT, "src/app/(site)");
 const CONTENT_DIR = path.join(ROOT, "content");
 
-// ─── Helpers ───────────────────────────────────────────────────────────────
+// ─── Stripping helpers ─────────────────────────────────────────────────────
+//
+// These remove the Prismic CMS envelope (id, type, lang, href, tags, dates…)
+// and slice authoring metadata (variation, version, id, slice_label) so the
+// content files only carry data the app actually uses.
+
+type Stripped = { uid: string; data: Record<string, unknown> };
+type SharedStripped = { uid?: string; data: Record<string, unknown> };
+
+/**
+ * Strip a full Prismic page/index document down to { uid, data }.
+ * Slices in data are also stripped; nested resolved documents in
+ * relation fields (e.g. spaces[].page, event_pages[].page) are stripped too.
+ */
+function stripDoc(doc: any): Stripped {
+  return {
+    uid: doc.uid as string,
+    data: stripData(doc.data),
+  };
+}
+
+/**
+ * Strip a Prismic fragment/singleton document (settings, nav, cta, card).
+ * uid is optional since singletons sometimes lack it at the API level.
+ */
+function stripSharedDoc(doc: any): SharedStripped {
+  return {
+    uid: doc.uid ?? undefined,
+    data: stripData(doc.data),
+  };
+}
+
+/** Single image fields — normalize empty link stubs to null. */
+const SINGLE_IMAGE_FIELDS = new Set(["media", "icon_media", "page_media", "meta_image", "video_media", "og_image", "site_image"]);
+/** Array gallery fields — normalize to [] when Prismic returns an empty link stub. */
+const GALLERY_FIELDS = new Set(["gallery"]);
+
+/** Recursively strip data fields, handling slices and nested relation docs. */
+function stripData(data: any): Record<string, unknown> {
+  if (!data || typeof data !== "object") return data;
+
+  const result: Record<string, unknown> = {};
+  for (const [key, value] of Object.entries(data)) {
+    if (key === "slices") {
+      result.slices = (value as any[]).map(stripSlice);
+    } else if (GALLERY_FIELDS.has(key)) {
+      // Gallery fields must always be arrays — normalize empty Prismic link stubs to [].
+      result[key] = Array.isArray(value)
+        ? (value as any[]).map(normalizeField).filter(Boolean)
+        : [];
+    } else if (SINGLE_IMAGE_FIELDS.has(key)) {
+      // Single image fields — normalize empty Prismic link stubs to null.
+      result[key] = normalizeField(value);
+    } else if (Array.isArray(value)) {
+      // Relation group fields (e.g. spaces, event_pages) contain items with
+      // a `page` key that holds a resolved nested document.
+      result[key] = value.map((item: any) => {
+        if (item && typeof item === "object" && "page" in item && item.page?.uid) {
+          return { ...item, page: stripNestedDoc(item.page) };
+        }
+        return item;
+      });
+    } else {
+      result[key] = value;
+    }
+  }
+  return result;
+}
+
+/** Strip a slice — keep id (required by @prismicio/react for React keys), drop authoring metadata. */
+function stripSlice(slice: any): { id: string; slice_type: string; primary: Record<string, unknown>; items: Record<string, unknown>[] } {
+  return {
+    id: slice.id as string,
+    slice_type: slice.slice_type as string,
+    primary: slice.primary ?? {},
+    items: (slice.items ?? []) as Record<string, unknown>[],
+  };
+}
+
+/**
+ * Normalize a Prismic image/gallery field.
+ * Prismic returns `{ link_type: "Any" }` for unset image/gallery fields —
+ * convert these to empty values so our typed data is always a clean shape.
+ */
+function normalizeField(value: any): any {
+  if (value === null || value === undefined) return value;
+  // Empty Prismic link / unset field stub
+  if (typeof value === "object" && !Array.isArray(value) && value.link_type) {
+    return null;
+  }
+  return value;
+}
+
+/**
+ * Strip a nested relation document (resolved via fetchLinks).
+ * These appear inside group fields like spaces[].page or event_pages[].page.
+ */
+function stripNestedDoc(doc: any): { uid: string; data: Record<string, unknown> } {
+  return { uid: doc.uid as string, data: doc.data ?? {} };
+}
+
+// ─── Serialise helpers ─────────────────────────────────────────────────────
+
+function serialize(data: unknown): string {
+  // U+2028 (LINE SEPARATOR) and U+2029 (PARAGRAPH SEPARATOR) are valid JSON
+  // but TypeScript treats them as line terminators inside string literals.
+  return JSON.stringify(data, null, 2)
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029");
+}
 
 function ensureDir(dir: string) {
   fs.mkdirSync(dir, { recursive: true });
@@ -75,14 +184,6 @@ function writeTs(filePath: string, content: string) {
   ensureDir(path.dirname(filePath));
   fs.writeFileSync(filePath, content, "utf-8");
   console.log(`  ✓  ${path.relative(ROOT, filePath)}`);
-}
-
-function serialize(data: unknown): string {
-  // U+2028 (LINE SEPARATOR) and U+2029 (PARAGRAPH SEPARATOR) are valid in JSON
-  // but TypeScript treats them as line terminators inside string literals.
-  return JSON.stringify(data, null, 2)
-    .replace(/\u2028/g, "\\u2028")
-    .replace(/\u2029/g, "\\u2029");
 }
 
 function header(note?: string) {
@@ -157,19 +258,19 @@ async function main() {
   writeTs(
     path.join(CONTENT_DIR, "shared.constants.ts"),
     `${header("Global data shared across all routes (replaces getExtra)")}
-import type { Content } from "@prismicio/client";
+import type { SharedDoc } from "content/types";
 
 /** Global site settings (favicon, SEO defaults, etc.) */
-export const settings = ${serialize(settings)} as unknown as Content.SettingsDocument;
+export const settings: SharedDoc = ${serialize(stripSharedDoc(settings))};
 
 /** Primary navigation links */
-export const navigation = ${serialize(navigation)} as unknown as Content.NavLinksDocument | null;
+export const navigation: SharedDoc | null = ${serialize(navigation ? stripSharedDoc(navigation) : null)};
 
 /** CTA footer fragment (bottom-of-page call-to-action) */
-export const ctaFooter = ${serialize(cta)} as unknown as Content.FragmentCtaFooterDocument | null;
+export const ctaFooter: SharedDoc | null = ${serialize(cta ? stripSharedDoc(cta) : null)};
 
 /** Footer tile cards — tour, events, menus */
-export const footerCards = ${serialize([tourCard, eventsCard, menusCard])} as unknown as Content.FragmentCardDocument[];
+export const footerCards: SharedDoc[] = ${serialize([tourCard, eventsCard, menusCard].map(stripSharedDoc))};
 `
   );
 
@@ -177,10 +278,10 @@ export const footerCards = ${serialize([tourCard, eventsCard, menusCard])} as un
 
   writeTs(
     path.join(SRC_SITE, "content.ts"),
-    `${header("Home page content (replaces Prismic page uid='home')")}
-import type { Content } from "@prismicio/client";
+    `${header("Home page content")}
+import type { PageDoc } from "content/types";
 
-export const homePage = ${serialize(homePage)} as unknown as Content.PageDocument;
+export const homePage: PageDoc = ${serialize(stripDoc(homePage))};
 `
   );
 
@@ -188,10 +289,10 @@ export const homePage = ${serialize(homePage)} as unknown as Content.PageDocumen
 
   writeTs(
     path.join(SRC_SITE, "about/content.ts"),
-    `${header("About page content (replaces Prismic page uid='about')")}
-import type { Content } from "@prismicio/client";
+    `${header("About page content")}
+import type { PageDoc } from "content/types";
 
-export const aboutPage = ${serialize(aboutPage)} as unknown as Content.PageDocument;
+export const aboutPage: PageDoc = ${serialize(stripDoc(aboutPage))};
 `
   );
 
@@ -199,10 +300,10 @@ export const aboutPage = ${serialize(aboutPage)} as unknown as Content.PageDocum
 
   writeTs(
     path.join(SRC_SITE, "contact/content.ts"),
-    `${header("Contact page content (replaces Prismic page uid='contact')")}
-import type { Content } from "@prismicio/client";
+    `${header("Contact page content")}
+import type { PageDoc } from "content/types";
 
-export const contactPage = ${serialize(contactPage)} as unknown as Content.PageDocument;
+export const contactPage: PageDoc = ${serialize(stripDoc(contactPage))};
 `
   );
 
@@ -210,10 +311,10 @@ export const contactPage = ${serialize(contactPage)} as unknown as Content.PageD
 
   writeTs(
     path.join(SRC_SITE, "menus/content.ts"),
-    `${header("Menus index page content (replaces Prismic page uid='menus')")}
-import type { Content } from "@prismicio/client";
+    `${header("Menus index page content")}
+import type { PageDoc } from "content/types";
 
-export const menuIndexPage = ${serialize(menuIndexPage)} as unknown as Content.PageDocument;
+export const menuIndexPage: PageDoc = ${serialize(stripDoc(menuIndexPage))};
 `
   );
 
@@ -221,10 +322,10 @@ export const menuIndexPage = ${serialize(menuIndexPage)} as unknown as Content.P
 
   writeTs(
     path.join(SRC_SITE, "tour/content.ts"),
-    `${header("Tour index page content (replaces Prismic tour_index_page uid='tour')")}
-import type { Content } from "@prismicio/client";
+    `${header("Tour index page content")}
+import type { PageDoc } from "content/types";
 
-export const tourIndexPage = ${serialize(tourIndexPage)} as unknown as Content.TourIndexPageDocument;
+export const tourIndexPage: PageDoc = ${serialize(stripDoc(tourIndexPage))};
 `
   );
 
@@ -232,10 +333,10 @@ export const tourIndexPage = ${serialize(tourIndexPage)} as unknown as Content.T
 
   writeTs(
     path.join(SRC_SITE, "events/content.ts"),
-    `${header("Events index page content (replaces Prismic event_index_page uid='events')")}
-import type { Content } from "@prismicio/client";
+    `${header("Events index page content")}
+import type { PageDoc } from "content/types";
 
-export const eventIndexPage = ${serialize(eventIndexPage)} as unknown as Content.EventIndexPageDocument;
+export const eventIndexPage: PageDoc = ${serialize(stripDoc(eventIndexPage))};
 `
   );
 
@@ -243,90 +344,81 @@ export const eventIndexPage = ${serialize(eventIndexPage)} as unknown as Content
 
   writeTs(
     path.join(SRC_SITE, "offsite/content.ts"),
-    `${header("Offsite index page content (replaces Prismic offsite_index_page uid='offsite')")}
-import type { Content } from "@prismicio/client";
+    `${header("Offsite index page content")}
+import type { PageDoc } from "content/types";
 
-export const offsiteIndexPage = ${serialize(offsiteIndexPage)} as unknown as Content.OffsiteIndexPageDocument;
+export const offsiteIndexPage: PageDoc = ${serialize(stripDoc(offsiteIndexPage))};
 `
   );
 
   // ── 9. Tour detail pages (uid-keyed map) ──────────────────────────────────
 
-  const tourPageMap: Record<string, unknown> = {};
-  for (const p of tourPages) {
-    tourPageMap[p.uid] = p;
-  }
+  const tourPageMap: Record<string, Stripped> = {};
+  for (const p of tourPages) tourPageMap[p.uid] = stripDoc(p);
 
   writeTs(
     path.join(SRC_SITE, "tour/[uid]/content.ts"),
-    `${header("Tour detail pages — uid-keyed map (replaces Prismic tour_page per uid)")}
-import type { Content } from "@prismicio/client";
+    `${header("Tour detail pages — uid-keyed map")}
+import type { PageDoc } from "content/types";
 
-export const tourPages: Record<string, Content.TourPageDocument> = ${serialize(tourPageMap)} as unknown as Record<string, Content.TourPageDocument>;
+export const tourPages: Record<string, PageDoc> = ${serialize(tourPageMap)};
 
-/** Sorted UIDs for generateStaticParams */
+/** UIDs for generateStaticParams */
 export const tourPageUids = ${serialize(tourPages.map((p) => p.uid))};
 `
   );
 
   // ── 10. Event detail pages (uid-keyed map) ────────────────────────────────
 
-  const eventPageMap: Record<string, unknown> = {};
-  for (const p of eventPages) {
-    eventPageMap[p.uid] = p;
-  }
+  const eventPageMap: Record<string, Stripped> = {};
+  for (const p of eventPages) eventPageMap[p.uid] = stripDoc(p);
 
   writeTs(
     path.join(SRC_SITE, "events/[uid]/content.ts"),
-    `${header("Event detail pages — uid-keyed map (replaces Prismic event_page per uid)")}
-import type { Content } from "@prismicio/client";
+    `${header("Event detail pages — uid-keyed map")}
+import type { PageDoc } from "content/types";
 
-export const eventPages: Record<string, Content.EventPageDocument> = ${serialize(eventPageMap)} as unknown as Record<string, Content.EventPageDocument>;
+export const eventPages: Record<string, PageDoc> = ${serialize(eventPageMap)};
 
-/** Sorted UIDs for generateStaticParams */
+/** UIDs for generateStaticParams */
 export const eventPageUids = ${serialize(eventPages.map((p) => p.uid))};
 `
   );
 
   // ── 11. Offsite detail pages (uid-keyed map) ──────────────────────────────
 
-  const offsitePageMap: Record<string, unknown> = {};
-  for (const p of offsitePages) {
-    offsitePageMap[p.uid] = p;
-  }
+  const offsitePageMap: Record<string, Stripped> = {};
+  for (const p of offsitePages) offsitePageMap[p.uid] = stripDoc(p);
 
   writeTs(
     path.join(SRC_SITE, "offsite/[uid]/content.ts"),
-    `${header("Offsite detail pages — uid-keyed map (replaces Prismic offsite_page per uid)")}
-import type { Content } from "@prismicio/client";
+    `${header("Offsite detail pages — uid-keyed map")}
+import type { PageDoc } from "content/types";
 
-export const offsitePages: Record<string, Content.OffsitePageDocument> = ${serialize(offsitePageMap)} as unknown as Record<string, Content.OffsitePageDocument>;
+export const offsitePages: Record<string, PageDoc> = ${serialize(offsitePageMap)};
 
-/** Sorted UIDs for generateStaticParams */
+/** UIDs for generateStaticParams */
 export const offsitePageUids = ${serialize(offsitePages.map((p) => p.uid))};
 `
   );
 
   // ── 12. General pages (uid-keyed map for /:uid catch-all) ─────────────────
 
-  // Exclude special pages already handled above
   const EXCLUDED = new Set(["home", "about", "contact", "menus"]);
-  const generalPageMap: Record<string, unknown> = {};
+  const generalPageMap: Record<string, Stripped> = {};
   for (const p of generalPages) {
-    if (!EXCLUDED.has(p.uid)) {
-      generalPageMap[p.uid] = p;
-    }
+    if (!EXCLUDED.has(p.uid)) generalPageMap[p.uid] = stripDoc(p);
   }
 
   ensureDir(path.join(SRC_SITE, "[uid]"));
   writeTs(
     path.join(SRC_SITE, "[uid]/content.ts"),
-    `${header("General pages — uid-keyed map (replaces Prismic page type with general_page tag)")}
-import type { Content } from "@prismicio/client";
+    `${header("General pages — uid-keyed map")}
+import type { PageDoc } from "content/types";
 
-export const generalPages: Record<string, Content.PageDocument> = ${serialize(generalPageMap)} as unknown as Record<string, Content.PageDocument>;
+export const generalPages: Record<string, PageDoc> = ${serialize(generalPageMap)};
 
-/** Sorted UIDs for generateStaticParams */
+/** UIDs for generateStaticParams */
 export const generalPageUids = ${serialize(Object.keys(generalPageMap))};
 `
   );
@@ -335,8 +427,8 @@ export const generalPageUids = ${serialize(Object.keys(generalPageMap))};
 
   console.log("\n✅  Migration complete!\n");
   console.log("  Content files written:");
-  console.log(`    • content/shared.constants.ts (navigation, settings, cta, footerCards)`);
-  console.log(`    • src/app/(site)/content.ts (home)`);
+  console.log(`    • content/shared.constants.ts`);
+  console.log(`    • src/app/(site)/content.ts`);
   console.log(`    • src/app/(site)/about/content.ts`);
   console.log(`    • src/app/(site)/contact/content.ts`);
   console.log(`    • src/app/(site)/menus/content.ts`);
@@ -346,9 +438,7 @@ export const generalPageUids = ${serialize(Object.keys(generalPageMap))};
   console.log(`    • src/app/(site)/tour/[uid]/content.ts  (${tourPages.length} spaces)`);
   console.log(`    • src/app/(site)/events/[uid]/content.ts  (${eventPages.length} events)`);
   console.log(`    • src/app/(site)/offsite/[uid]/content.ts  (${offsitePages.length} offsites)`);
-  console.log(`    • src/app/(site)/[uid]/content.ts  (${Object.keys(generalPageMap).length} general pages)`);
-  console.log("\n  Next: update page components to import from these files.");
-  console.log("  See docs/migration-tracker.md for the full checklist.\n");
+  console.log(`    • src/app/(site)/[uid]/content.ts  (${Object.keys(generalPageMap).length} general pages)\n`);
 }
 
 main().catch((err) => {

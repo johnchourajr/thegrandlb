@@ -8,8 +8,7 @@ export const revalidate = false;
 
 export default async function Page() {
   const { settings, navigation, cta } = await getExtra({});
-  const { slices, title, gallery, media } = menuIndexPage.data;
-  const video_url = (menuIndexPage.data as { video_url?: string }).video_url;
+  const { slices, title, gallery, media, video_url } = menuIndexPage.data;
 
   return (
     <Layout page={menuIndexPage} settings={settings} navigation={navigation} hidePageUid>

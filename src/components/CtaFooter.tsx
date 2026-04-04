@@ -62,10 +62,11 @@ const CtaFooter = ({ data }: CtaFooterProps) => {
   if (!data?.data) return null;
 
   // Safe destructuring with fallbacks
-  const headline = data.data.headline || "";
-  const video_url = (data.data as { video_url?: string }).video_url ?? null;
-  const media = data.data.media || null;
-  const inquire_card = data.data.inquire_card || null;
+  const d = data.data as Record<string, any>;
+  const headline = d.headline || "";
+  const video_url = d.video_url ?? null;
+  const media = d.media || null;
+  const inquire_card = d.inquire_card || null;
 
   // Safely extract inquire card data
   const cardData = inquire_card
