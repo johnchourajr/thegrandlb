@@ -25,7 +25,7 @@ const BLOCKED_PATH_PATTERNS = [
   /\.cgi$/i,
 ];
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const userAgent = request.headers.get("user-agent") ?? "";
 
