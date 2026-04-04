@@ -67,7 +67,10 @@ export function cloudflareImageLoader({
 }): string {
   // If src is a Cloudflare Images URL (imagedelivery.net/{hash}/{id}/{variant}),
   // extract the image ID and rebuild with the correct width/quality for this request.
+  // If the account hash env var is missing, fall back to the original URL so the
+  // image still loads (at the stored variant) rather than producing a broken path.
   if (src.startsWith("https://imagedelivery.net/")) {
+    if (!CF_IMAGES_BASE) return src;
     const parts = src.split("/");
     // parts: ["https:", "", "imagedelivery.net", "{hash}", "{id}", "{variant}"]
     const id = parts[4];
