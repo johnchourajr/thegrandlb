@@ -65,10 +65,19 @@ export function cloudflareImageLoader({
   width: number;
   quality?: number; // ignored — fixed at 75 for consistent cache keys
 }): string {
-  // If src is already a full URL (e.g. during migration from Prismic), return as-is.
+  // If src is a Cloudflare Images URL (imagedelivery.net/{hash}/{id}/{variant}),
+  // extract the image ID and rebuild with the correct width/quality for this request.
+  if (src.startsWith("https://imagedelivery.net/")) {
+    const parts = src.split("/");
+    // parts: ["https:", "", "imagedelivery.net", "{hash}", "{id}", "{variant}"]
+    const id = parts[4];
+    if (id) return cfImageUrl(id, { width, quality: 75, format: "webp" });
+  }
+  // Other full URLs (e.g. R2 SVGs at cdn.thegrandlb.com) — pass through as-is.
   if (src.startsWith("http://") || src.startsWith("https://")) {
     return src;
   }
+  // Bare CF image ID → build URL.
   // Fixed quality and format so the same image + width always produces the
   // same URL → maximum cache reuse on Cloudflare's edge.
   return cfImageUrl(src, { width, quality: 75, format: "webp" });

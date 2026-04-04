@@ -35,7 +35,7 @@ export const eventPages: Record<string, PageDoc> = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/8e0a95ab-f3a9-41c3-9a51-5a516c8156d5_cover.jpg?auto=compress,format",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/8b05ce0f-a2a7-4abb-5de6-233074cd7c00/public",
               "id": "ZNcY_xAAACcAomse",
               "edit": {
                 "x": 0,
@@ -114,7 +114,7 @@ export const eventPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/e36092fd-2316-42f4-b510-936b1a3d1ef2_elegant.svg",
+                "url": "https://cdn.thegrandlb.com/elegant.svg",
                 "id": "ZGVJpBAAACAAd5xv",
                 "edit": {
                   "x": 0,
@@ -151,7 +151,7 @@ export const eventPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/c09bb552-df46-461d-88a1-63edd8f1f7a7_flexible.svg",
+                "url": "https://cdn.thegrandlb.com/flexible.svg",
                 "id": "ZGVJpBAAACEAd5xw",
                 "edit": {
                   "x": 0,
@@ -182,7 +182,7 @@ export const eventPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/c1aebc83-c2ff-40f9-9b8e-932fa8270f31_personal.svg",
+                "url": "https://cdn.thegrandlb.com/personal.svg",
                 "id": "ZGVJpBAAACAAd5xx",
                 "edit": {
                   "x": 0,
@@ -239,7 +239,7 @@ export const eventPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/5e9c5b5d-944b-4a57-9bab-157e682c567c_glb-events-social-02.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/39670f24-73de-4ddb-91c8-b992f36ccd00/public",
                       "id": "ZNcRvxAAACYAoksg",
                       "edit": {
                         "x": 0,
@@ -265,7 +265,7 @@ export const eventPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/acbabfac-dd9d-46e2-b0a1-59c87e1138d2_glb-broll-07.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/6f029f31-cd81-4ccd-232e-5ee5d19a3a00/public",
                       "id": "ZNcRvhAAACcAoksa",
                       "edit": {
                         "x": 0,
@@ -291,7 +291,7 @@ export const eventPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/95b6d827-d384-4a7c-a9c1-036a48f090a7_glb-broll-08.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/b974fb0d-4d15-49e8-351b-fa4018109e00/public",
                       "id": "ZNcRvBAAACgAoksU",
                       "edit": {
                         "x": 0,
@@ -317,7 +317,7 @@ export const eventPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/30a664d2-af13-4062-a55f-c737f9736fd9_glb-events-social-02-1.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/3742c9dc-4bcb-4666-3b4d-0d261819b000/public",
                       "id": "ZNcRwBAAACkAoksq",
                       "edit": {
                         "x": 0,
@@ -343,7 +343,7 @@ export const eventPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/aa6fdf42-1125-4baf-b50a-2cf4d8c26d10_glb-events-social-03.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/eedc2a6f-b2ca-4e4f-ad7e-52754836e100/public",
                       "id": "ZNcRvBAAACgAoksO",
                       "edit": {
                         "x": 0,
@@ -369,7 +369,7 @@ export const eventPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/c73c96d3-048f-49f8-8234-fea83e991c8c_glb-broll-05.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/57e9f3bd-4c87-41fc-efe1-792f35567300/public",
                       "id": "ZNcRvxAAACgAoksl",
                       "edit": {
                         "x": 0,
@@ -538,7 +538,7 @@ export const eventPages: Record<string, PageDoc> = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/220954ca-95d5-42ab-b253-a1b38d3bc2a2_glb-events-business-04.jpg?auto=compress,format",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/2a7a2b5f-e94b-41cf-4694-4c40e9f53d00/public",
               "id": "ZNcZKRAAACgAomvc",
               "edit": {
                 "x": 0,
@@ -617,7 +617,7 @@ export const eventPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/e36092fd-2316-42f4-b510-936b1a3d1ef2_elegant.svg",
+                "url": "https://cdn.thegrandlb.com/elegant.svg",
                 "id": "ZGVJpBAAACAAd5xv",
                 "edit": {
                   "x": 0,
@@ -654,7 +654,7 @@ export const eventPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/c09bb552-df46-461d-88a1-63edd8f1f7a7_flexible.svg",
+                "url": "https://cdn.thegrandlb.com/flexible.svg",
                 "id": "ZGVJpBAAACEAd5xw",
                 "edit": {
                   "x": 0,
@@ -691,7 +691,7 @@ export const eventPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/c1aebc83-c2ff-40f9-9b8e-932fa8270f31_personal.svg",
+                "url": "https://cdn.thegrandlb.com/personal.svg",
                 "id": "ZGVJpBAAACAAd5xx",
                 "edit": {
                   "x": 0,
@@ -748,7 +748,7 @@ export const eventPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/a9c115b0-9df7-4c25-90e4-d8579107f45e_glb-events-business-03.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/023e8045-5fbe-40ff-1d88-2d6f8eaec900/public",
                       "id": "ZNcSWRAAACgAok29",
                       "edit": {
                         "x": 0,
@@ -774,7 +774,7 @@ export const eventPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/88c4e0ad-5f0c-47ac-98ea-059b4632263d_glb-events-business-02.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/b554ec79-70c2-4abb-18a4-f3d4e387ff00/public",
                       "id": "ZNcSVxAAACYAok2z",
                       "edit": {
                         "x": 0,
@@ -800,7 +800,7 @@ export const eventPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/99eadb3b-11a2-4938-bad6-bb153274b732_glb-events-business-01.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/3763f95d-0637-42a6-3c2c-c92111d1ef00/public",
                       "id": "ZNcSVxAAACkAok2y",
                       "edit": {
                         "x": 0,
@@ -948,7 +948,7 @@ export const eventPages: Record<string, PageDoc> = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/57b63738-193f-4d7f-a3bb-13d37b4203ae_glb-events-wedding.jpg?auto=compress,format",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/d7c0d809-c76f-4f45-62f3-9af5ad5a0400/public",
               "id": "ZNcYvBAAACYAomno",
               "edit": {
                 "x": 0,
@@ -1027,7 +1027,7 @@ export const eventPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/e36092fd-2316-42f4-b510-936b1a3d1ef2_elegant.svg",
+                "url": "https://cdn.thegrandlb.com/elegant.svg",
                 "id": "ZGVJpBAAACAAd5xv",
                 "edit": {
                   "x": 0,
@@ -1058,7 +1058,7 @@ export const eventPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/c09bb552-df46-461d-88a1-63edd8f1f7a7_flexible.svg",
+                "url": "https://cdn.thegrandlb.com/flexible.svg",
                 "id": "ZGVJpBAAACEAd5xw",
                 "edit": {
                   "x": 0,
@@ -1089,7 +1089,7 @@ export const eventPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/c1aebc83-c2ff-40f9-9b8e-932fa8270f31_personal.svg",
+                "url": "https://cdn.thegrandlb.com/personal.svg",
                 "id": "ZGVJpBAAACAAd5xx",
                 "edit": {
                   "x": 0,
@@ -1146,7 +1146,7 @@ export const eventPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/21ffdf36-273b-4a0d-b43d-b4963d096f49_glb-events-wedding-01.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/c647a4c0-5d20-4460-82ad-d029b7c14800/public",
                       "id": "ZNcRChAAACcAokf3",
                       "edit": {
                         "x": 0,
@@ -1172,7 +1172,7 @@ export const eventPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/92798031-cee8-4a2b-bea5-5c18a8a14424_glb-broll-07.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/c94179f3-6554-4e3a-0f02-c9818b0e4600/public",
                       "id": "ZNcSDBAAACgAokxf",
                       "edit": {
                         "x": 0,
@@ -1198,7 +1198,7 @@ export const eventPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/6bd76197-93b0-44a3-ac40-f47f22a5cd70_glb-events-wedding-03.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/358f8b46-075f-469b-567b-4e0e9f02ee00/public",
                       "id": "ZNcRChAAACkAokf2",
                       "edit": {
                         "x": 0,
@@ -1224,7 +1224,7 @@ export const eventPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/e7017c18-9fad-4ba4-9856-4d2ce836479f_glb-events-wedding-02.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/20cb49a5-6155-4016-44a5-eb72a13d9d00/public",
                       "id": "ZNcRCxAAACgAokf8",
                       "edit": {
                         "x": 0,
@@ -1250,7 +1250,7 @@ export const eventPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/ed1c69c1-4367-46aa-96b7-a3d261ca78ca_glb-broll-01.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/14280994-4b15-4ee4-d9e5-0ca3e1e4d600/public",
                       "id": "ZNcSDhAAACYAokxp",
                       "edit": {
                         "x": 0,

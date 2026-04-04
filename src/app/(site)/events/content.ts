@@ -18,7 +18,7 @@ export const eventIndexPage: PageDoc = {
       },
       "alt": null,
       "copyright": null,
-      "url": "https://images.prismic.io/the-grand/1ed340c1-6cd2-4eff-b69c-b888e7622284_Events+Index+15s--final.jpg?auto=format,compress",
+      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/cfe41bb3-f218-430d-868d-99feb6668300/public",
       "id": "ZNR7JxAAACYAlyJK",
       "edit": {
         "x": 0,
@@ -38,7 +38,7 @@ export const eventIndexPage: PageDoc = {
           },
           "alt": null,
           "copyright": null,
-          "url": "https://images.prismic.io/the-grand/c38c4ba5-aef7-4dde-9856-9af82d548ca2_events-index-weddings.jpg?auto=format,compress",
+          "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/17986f96-43c9-44bb-705c-10d3e326b600/public",
           "id": "ZNR68xAAACkAlyFZ",
           "edit": {
             "x": 0,
@@ -64,7 +64,7 @@ export const eventIndexPage: PageDoc = {
           },
           "alt": null,
           "copyright": null,
-          "url": "https://images.prismic.io/the-grand/5e940a57-d197-4326-919c-9073fcb27c39_events-index-social.jpg?auto=format,compress",
+          "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/f7ffd2cf-564c-4fd8-006e-ff1219868b00/public",
           "id": "ZNR69RAAACkAlyFj",
           "edit": {
             "x": 0,
@@ -90,7 +90,7 @@ export const eventIndexPage: PageDoc = {
           },
           "alt": null,
           "copyright": null,
-          "url": "https://images.prismic.io/the-grand/0aba2005-07bc-491a-b49a-34e760e3fcf2_events-index-business.jpg?auto=format,compress",
+          "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/d3737cc7-41a3-499b-cca7-9269111c0b00/public",
           "id": "ZNR69BAAACkAlyFe",
           "edit": {
             "x": 0,
@@ -140,7 +140,7 @@ export const eventIndexPage: PageDoc = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://the-grand.cdn.prismic.io/the-grand/b42d2e10-44c0-4d07-bbd2-e55d843862c4_elegant.svg?auto=compress,format",
+              "url": "https://cdn.thegrandlb.com/elegant.svg",
               "id": "ZFiYuhEAACMAsKH2",
               "edit": {
                 "x": 0,
@@ -177,7 +177,7 @@ export const eventIndexPage: PageDoc = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://the-grand.cdn.prismic.io/the-grand/aee6d307-213a-433b-bd4b-716283adb258_flexible.svg?auto=compress,format",
+              "url": "https://cdn.thegrandlb.com/flexible.svg",
               "id": "ZFiYuhEAACEAsKIH",
               "edit": {
                 "x": 0,
@@ -214,7 +214,7 @@ export const eventIndexPage: PageDoc = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://the-grand.cdn.prismic.io/the-grand/de8c70ba-a037-4013-8fa6-4e10fb524c34_personal.svg?auto=compress,format",
+              "url": "https://cdn.thegrandlb.com/personal.svg",
               "id": "ZFiYuhEAACIAsKH_",
               "edit": {
                 "x": 0,
@@ -318,7 +318,7 @@ export const eventIndexPage: PageDoc = {
                     },
                     "alt": null,
                     "copyright": null,
-                    "url": "https://images.prismic.io/the-grand/4e5da9ea-5102-4733-a6f6-bdeaf11f9000_glb-events-01.jpg?auto=compress,format",
+                    "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/9d0dccc6-cc37-4965-8019-d351ad9f3700/public",
                     "id": "ZNR65BAAACkAlyEW",
                     "edit": {
                       "x": 0,
@@ -344,7 +344,7 @@ export const eventIndexPage: PageDoc = {
                     },
                     "alt": null,
                     "copyright": null,
-                    "url": "https://images.prismic.io/the-grand/b2424da6-f04e-4c13-bbd4-8dd886d8af5a_glb-events-index-08.jpg?auto=compress,format",
+                    "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/45647c84-beeb-4396-f30c-dd2846eec100/public",
                     "id": "ZN22XxAAACYAwG_v",
                     "edit": {
                       "x": 0,
@@ -370,7 +370,7 @@ export const eventIndexPage: PageDoc = {
                     },
                     "alt": null,
                     "copyright": null,
-                    "url": "https://images.prismic.io/the-grand/698f27a2-826f-423e-ad0b-015a588c99ef_glb-events-index-04.jpg?auto=compress,format",
+                    "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/ba00e56c-e108-4405-26e1-f16ba5b35c00/public",
                     "id": "ZN22YRAAACkAwG_4",
                     "edit": {
                       "x": 0,
@@ -396,7 +396,7 @@ export const eventIndexPage: PageDoc = {
                     },
                     "alt": null,
                     "copyright": null,
-                    "url": "https://images.prismic.io/the-grand/88768009-a7ce-4fcf-a9a2-254b74eebfe5_glb-events-index-03.jpg?auto=compress,format",
+                    "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/166c57dc-8df9-4af7-b71d-1acd17872100/public",
                     "id": "ZN22XxAAACYAwG_w",
                     "edit": {
                       "x": 0,
@@ -422,7 +422,7 @@ export const eventIndexPage: PageDoc = {
                     },
                     "alt": null,
                     "copyright": null,
-                    "url": "https://images.prismic.io/the-grand/1def0af8-87c9-4159-9fbb-2c2a45f0ad55_glb-events-index-07.jpg?auto=compress,format",
+                    "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/07acd8a1-873a-46a9-2481-8b8de3197b00/public",
                     "id": "ZN22XxAAACYAwG_y",
                     "edit": {
                       "x": 0,
@@ -448,7 +448,7 @@ export const eventIndexPage: PageDoc = {
                     },
                     "alt": null,
                     "copyright": null,
-                    "url": "https://images.prismic.io/the-grand/57c08adf-ad1f-4128-af28-6e3eb99288ef_glb-events-index-02.jpg?auto=compress,format",
+                    "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/0061dc98-91d8-48c7-a03c-391748748a00/public",
                     "id": "ZN22XxAAACgAwG_x",
                     "edit": {
                       "x": 0,
@@ -474,7 +474,7 @@ export const eventIndexPage: PageDoc = {
                     },
                     "alt": null,
                     "copyright": null,
-                    "url": "https://images.prismic.io/the-grand/253f1a9a-60f9-4f10-8ed3-fc19ffed1a36_glb-events-index-01.jpg?auto=compress,format",
+                    "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/889f2c5d-d996-4f19-c5c3-6da3daa08b00/public",
                     "id": "ZN22YhAAACkAwHAD",
                     "edit": {
                       "x": 0,
@@ -500,7 +500,7 @@ export const eventIndexPage: PageDoc = {
                     },
                     "alt": null,
                     "copyright": null,
-                    "url": "https://images.prismic.io/the-grand/f49722e7-50f2-4bfb-b421-7ab784f19983_glb-events-index-06.jpg?auto=compress,format",
+                    "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/bc27becf-bed9-4be0-7e8d-125bfa267200/public",
                     "id": "ZN22YRAAACkAwG_3",
                     "edit": {
                       "x": 0,

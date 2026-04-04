@@ -18,7 +18,7 @@ export const tourIndexPage: PageDoc = {
       },
       "alt": null,
       "copyright": null,
-      "url": "https://images.prismic.io/the-grand/62739841-30e8-45b6-b49e-61692eb5b1ab_Tour+Index+15s--final.jpg?auto=compress,format",
+      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/569cb5d0-cd2b-433e-6f65-d237efee8900/public",
       "id": "ZNR5aBAAACgAlxpE",
       "edit": {
         "x": 0,
@@ -34,7 +34,7 @@ export const tourIndexPage: PageDoc = {
       },
       "alt": "Couple walking hand in hand",
       "copyright": null,
-      "url": "https://the-grand.cdn.prismic.io/the-grand/433265db-fc1a-4a81-977d-7821a31ee0c8_lovely+couple.svg",
+      "url": "https://cdn.thegrandlb.com/lovely-couple.svg",
       "id": "ZD9snBAAACIAn2PT",
       "edit": {
         "x": 0,
@@ -54,7 +54,7 @@ export const tourIndexPage: PageDoc = {
           },
           "alt": null,
           "copyright": null,
-          "url": "https://images.prismic.io/the-grand/c2092984-f2c9-4c17-a901-a3adb110ccb5_glb-index-ballroom.jpg?auto=compress,format",
+          "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/856df71a-3832-4963-6cc1-1fc9c6115c00/public",
           "id": "ZM3b9BIAACkAQ8CB",
           "edit": {
             "x": 0,
@@ -92,7 +92,7 @@ export const tourIndexPage: PageDoc = {
           },
           "alt": null,
           "copyright": null,
-          "url": "https://images.prismic.io/the-grand/ff23859d-1c3f-4479-8295-1199f4ee1e65_glb-index-terrace.jpg?auto=compress,format",
+          "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/550c0c0b-0622-40ff-8bb5-652e4d630400/public",
           "id": "ZM3b9hIAACcAQ8CL",
           "edit": {
             "x": 0,
@@ -127,7 +127,7 @@ export const tourIndexPage: PageDoc = {
           },
           "alt": null,
           "copyright": null,
-          "url": "https://images.prismic.io/the-grand/881c9d97-c13b-4b23-9057-7172022fce3b_glb-index-monarch.jpg?auto=compress,format",
+          "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/a035a74c-382a-4391-b4a1-70313da9ff00/public",
           "id": "ZM3b9RIAACcAQ8CG",
           "edit": {
             "x": 0,
@@ -171,7 +171,7 @@ export const tourIndexPage: PageDoc = {
           },
           "alt": null,
           "copyright": null,
-          "url": "https://images.prismic.io/the-grand/f252a9b2-264c-44bc-ba49-22dfd45f4e3d_glb-index-catalina.jpg?auto=compress,format",
+          "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/23b476ce-ac42-4720-9881-fd7dfa9ab300/public",
           "id": "ZM3b9BIAACgAQ8B-",
           "edit": {
             "x": 0,
@@ -218,7 +218,7 @@ export const tourIndexPage: PageDoc = {
           },
           "alt": null,
           "copyright": null,
-          "url": "https://images.prismic.io/the-grand/995e70a1-b757-4b03-a1ce-dc6b8ff95781_glb-index-garden.jpg?auto=compress,format",
+          "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/701687bb-7fe3-46ad-40c7-b4574f704300/public",
           "id": "ZM3b9BIAACgAQ8CA",
           "edit": {
             "x": 0,
@@ -262,7 +262,7 @@ export const tourIndexPage: PageDoc = {
           },
           "alt": null,
           "copyright": null,
-          "url": "https://images.prismic.io/the-grand/389847bc-c1c2-4f59-9d0d-b2b4bd734724_glb-index-pacific.jpg?auto=compress,format",
+          "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/0e026458-c661-4886-4be5-66945466f500/public",
           "id": "ZM3b9xIAACgAQ8CQ",
           "edit": {
             "x": 0,
@@ -306,7 +306,7 @@ export const tourIndexPage: PageDoc = {
           },
           "alt": null,
           "copyright": null,
-          "url": "https://images.prismic.io/the-grand/a18b9bf7-7071-4ff5-be33-fc749535a0c9_glb-index-board.jpg?auto=compress,format",
+          "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/553cdde0-df5f-4907-932f-2805da4e4600/public",
           "id": "ZM3c2BIAACUAQ8Rq",
           "edit": {
             "x": 0,
@@ -399,7 +399,7 @@ export const tourIndexPage: PageDoc = {
                     },
                     "alt": null,
                     "copyright": null,
-                    "url": "https://images.prismic.io/the-grand/67de966f-f1f7-442e-b27c-92f98bd22985_glb-tour-lifestyle-01.jpg?auto=compress,format",
+                    "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/11a9b4fb-b982-4cd1-7aec-f800b0bafd00/public",
                     "id": "ZNCGUBIAACUAT5rt",
                     "edit": {
                       "x": 0,
@@ -425,7 +425,7 @@ export const tourIndexPage: PageDoc = {
                     },
                     "alt": null,
                     "copyright": null,
-                    "url": "https://images.prismic.io/the-grand/67f892ca-b85e-4b9f-a129-d5baf0ca1e31_glb-tour-lifestyle-02.jpg?auto=compress,format",
+                    "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/6e11ea19-e97b-4e26-95bc-47560099ca00/public",
                     "id": "ZNCGTBIAACcAT5rZ",
                     "edit": {
                       "x": 0,
@@ -451,7 +451,7 @@ export const tourIndexPage: PageDoc = {
                     },
                     "alt": null,
                     "copyright": null,
-                    "url": "https://images.prismic.io/the-grand/33c40290-2eeb-4ec3-820c-92da1547a312_glb-tour-lifestyle-03.jpg?auto=compress,format",
+                    "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/318ad625-1012-4c7b-401a-cccc1fde7200/public",
                     "id": "ZNCGTxIAACgAT5ro",
                     "edit": {
                       "x": 0,
@@ -477,7 +477,7 @@ export const tourIndexPage: PageDoc = {
                     },
                     "alt": null,
                     "copyright": null,
-                    "url": "https://images.prismic.io/the-grand/65673693-4452-47cc-8ac4-d2f233625807_glb-tour-lifestyle-04.jpg?auto=compress,format",
+                    "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/35fc10fd-ffbf-42f1-90f8-f5d099771b00/public",
                     "id": "ZNCGSxIAACgAT5rU",
                     "edit": {
                       "x": 0,
@@ -698,7 +698,7 @@ export const tourIndexPage: PageDoc = {
                     },
                     "alt": null,
                     "copyright": null,
-                    "url": "https://images.prismic.io/the-grand/f3133888-dec6-4954-89e5-f47c6acc4b59_glb-tour-ext-01.jpg?auto=compress,format",
+                    "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/fd44e436-6b35-48e5-a137-25578b682000/public",
                     "id": "ZNCGHhIAACkAT5oF",
                     "edit": {
                       "x": 0,
@@ -724,7 +724,7 @@ export const tourIndexPage: PageDoc = {
                     },
                     "alt": null,
                     "copyright": null,
-                    "url": "https://images.prismic.io/the-grand/adb5508b-00cc-410d-b4df-018597e58e6e_glb-tour-ext-02.jpg?auto=compress,format",
+                    "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/0b3cacb3-aa0c-4f70-cc26-14da10e9e700/public",
                     "id": "ZNCGHxIAACUAT5oH",
                     "edit": {
                       "x": 0,
@@ -750,7 +750,7 @@ export const tourIndexPage: PageDoc = {
                     },
                     "alt": null,
                     "copyright": null,
-                    "url": "https://images.prismic.io/the-grand/330b00a5-dcf9-4b47-b022-1137fcd29f71_glb-tour-ext-03.jpg?auto=compress,format",
+                    "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/e1afd8d5-5eb2-4eff-cfac-be0b75a0f700/public",
                     "id": "ZNCGHhIAACgAT5oG",
                     "edit": {
                       "x": 0,
@@ -776,7 +776,7 @@ export const tourIndexPage: PageDoc = {
                     },
                     "alt": null,
                     "copyright": null,
-                    "url": "https://images.prismic.io/the-grand/b21d93f3-661c-4430-95da-290a1e07b761_glb-tour-ext-04.jpg?auto=compress,format",
+                    "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/46afeef1-2580-419e-f2ae-fe0b82295400/public",
                     "id": "ZNCGIBIAACgAT5oS",
                     "edit": {
                       "x": 0,

@@ -97,7 +97,7 @@ const FooterUpper = ({
               { child_link_source, child_link_title, ...childExtra }: any,
               index: number
             ) => {
-              if (primary.show === false || !child_link_source.id) return null;
+              if (primary.show === false || !child_link_source?.id) return null;
 
               return (
                 <NavLinkItem
@@ -269,12 +269,13 @@ export default function Footer({ settings, navigation }: FooterProps) {
     legal_text,
   } = settings?.data || {};
 
-  const getItemsWithKey = (key: string) => {
-    return ensureArray(slices).filter((slice: any) => slice.variation === key);
-  };
-
-  const footerColumns = getItemsWithKey("withChildren");
-  const footerLinks = getItemsWithKey("default");
+  const visibleSlices = ensureArray(slices).filter(
+    (slice: any) => slice.primary?.show !== false
+  );
+  const hasRealItems = (slice: any) =>
+    slice.items?.some((item: any) => Object.keys(item).length > 0);
+  const footerColumns = visibleSlices.filter(hasRealItems);
+  const footerLinks = visibleSlices.filter((slice: any) => !hasRealItems(slice));
 
   const getFooterState = () => {
     if (pathname === "/inquire") {

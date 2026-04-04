@@ -78,7 +78,7 @@ export const aboutPage: PageDoc = {
                     },
                     "alt": null,
                     "copyright": null,
-                    "url": "https://images.prismic.io/the-grand/f8cfb285-d1fd-4369-8bd8-94bb8f85adeb_team-sales.jpg?auto=compress,format",
+                    "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/9291de0f-7b81-40bf-3fc8-a8df9ebf2700/public",
                     "id": "ZLTXIBEAAB8Aer27",
                     "edit": {
                       "x": 0,
@@ -104,7 +104,7 @@ export const aboutPage: PageDoc = {
                     },
                     "alt": null,
                     "copyright": null,
-                    "url": "https://images.prismic.io/the-grand/5b512322-d819-4000-a521-5efd3124cdcd_team-jesus.jpg?auto=compress,format",
+                    "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/8e96112c-b8bc-46c4-2844-5de5ad562700/public",
                     "id": "ZLTXMBEAACIAer4D",
                     "edit": {
                       "x": 0,
@@ -130,7 +130,7 @@ export const aboutPage: PageDoc = {
                     },
                     "alt": null,
                     "copyright": null,
-                    "url": "https://images.prismic.io/the-grand/d11221f2-3a4c-49cb-9469-330307b993f1_team-cheers.jpg?auto=compress,format",
+                    "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/24d9f1d6-31a6-4a42-d147-6e99ddf24500/public",
                     "id": "ZLTXQBEAACIAer5K",
                     "edit": {
                       "x": 0,
@@ -156,7 +156,7 @@ export const aboutPage: PageDoc = {
                     },
                     "alt": null,
                     "copyright": null,
-                    "url": "https://images.prismic.io/the-grand/f50f8ce8-bf13-4347-b0d7-b883d9fc4f96_glb-about-04.jpg?auto=compress,format",
+                    "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/dd8a664a-14f9-489f-f212-9836ba6f7800/public",
                     "id": "ZNcZ1hAAACgAom7e",
                     "edit": {
                       "x": 0,
@@ -268,7 +268,7 @@ export const aboutPage: PageDoc = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/74fde4be-581e-479e-a375-f7210e360024_jim-back.jpg?auto=format,compress",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/0a830e64-16a7-4af8-f53a-1ea322919e00/public",
               "id": "ZLTK0hEAAB8Aeoaz",
               "edit": {
                 "x": 0,
@@ -284,7 +284,7 @@ export const aboutPage: PageDoc = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/6302e335-4663-4ada-8cdd-99eeeb436509_jim-front.jpg?auto=format,compress",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/22fb4442-0635-4729-391b-6a6fac7af400/public",
               "id": "ZLTK0hEAACEAeoa0",
               "edit": {
                 "x": 0,
@@ -304,7 +304,7 @@ export const aboutPage: PageDoc = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/1f552660-53f1-40ca-9488-df917c16705c_melanie.jpg?auto=format,compress",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/bc23dc72-1b4e-454b-9572-15465ee2a800/public",
               "id": "ZLTK1REAAB8AeobP",
               "edit": {
                 "x": 0,
@@ -325,7 +325,7 @@ export const aboutPage: PageDoc = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/dc18ebaa-9fcc-418d-a40c-c061cac76d16_dan-back.jpg?auto=format,compress",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/dfcae997-e4ab-43db-9b06-6b58ccbfec00/public",
               "id": "ZLTK0hEAACEAeoa1",
               "edit": {
                 "x": 0,
@@ -341,7 +341,7 @@ export const aboutPage: PageDoc = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/a68fdfc1-a655-4a8c-8f71-b8be8da28490_dan-front.jpg?auto=format,compress",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/12712332-36fa-4d26-10c8-35f35f3c4c00/public",
               "id": "ZLTK0xEAAB8Aeoa4",
               "edit": {
                 "x": 0,
@@ -361,7 +361,7 @@ export const aboutPage: PageDoc = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/e3d14aab-e4a9-41ec-93b5-8b822e6de514_rachael-front.jpg?auto=format,compress",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/2c55bfad-d55a-4464-8afe-8a622a5e0c00/public",
               "id": "ZLTK0xEAAB8Aeoa9",
               "edit": {
                 "x": 0,
@@ -382,7 +382,7 @@ export const aboutPage: PageDoc = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/6c92c415-581c-47ac-880d-27de65c2127c_beto-front.jpg?auto=format,compress",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/dc4d9630-6872-458e-7223-8e94e5fb8800/public",
               "id": "ZLTK0xEAAB8Aeoa2",
               "edit": {
                 "x": 0,
@@ -398,7 +398,7 @@ export const aboutPage: PageDoc = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/b7e5f84c-03ad-4c67-89af-f0dcd7224a7c_beto-back.jpg?auto=format,compress",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/792ee76a-6878-4c90-8b77-9448f34b9b00/public",
               "id": "ZLTK1BEAAB8AeobE",
               "edit": {
                 "x": 0,
@@ -418,7 +418,7 @@ export const aboutPage: PageDoc = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/ed720552-a86a-4c64-8b92-38141c2ea1a9_elexis.jpg?auto=format,compress",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/5c5a5a88-be98-49ee-62ab-80e5f1b16a00/public",
               "id": "ZLTK1BEAACEAeobC",
               "edit": {
                 "x": 0,
@@ -439,7 +439,7 @@ export const aboutPage: PageDoc = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/82b3e1a4-fdd9-415e-9171-5bf6d36471e1_jesus.jpg?auto=format,compress",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/b6065055-4022-4fb1-948f-9285a0a87000/public",
               "id": "ZLTK0xEAACIAeoa8",
               "edit": {
                 "x": 0,
@@ -460,7 +460,7 @@ export const aboutPage: PageDoc = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/fd58f8e0-e840-4f4e-920b-c8e96a3c5660_marissa-front.jpg?auto=format,compress",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/afd5ef59-c7c5-4ac7-fecf-e91d3cf00c00/public",
               "id": "ZLTK1BEAACEAeobI",
               "edit": {
                 "x": 0,
@@ -481,7 +481,7 @@ export const aboutPage: PageDoc = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/b66dd2ed-9fc6-47fa-99a5-fd0eab336674_elizabeth-front.jpg?auto=format,compress",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/9778f178-81ac-478e-a9ea-2a2f358a1e00/public",
               "id": "ZLTK1BEAAB8AeobK",
               "edit": {
                 "x": 0,
@@ -502,7 +502,7 @@ export const aboutPage: PageDoc = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/50973021-7f76-43d3-816a-f9bbdc1bb207_lisa-front.jpg?auto=format,compress",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/109ad8aa-2787-4674-e8a5-bcc3a150bc00/public",
               "id": "ZLTK1REAACEAeobO",
               "edit": {
                 "x": 0,
@@ -518,7 +518,7 @@ export const aboutPage: PageDoc = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/e6125962-8d0c-44f5-9fc6-6a267055e09d_lisa-back.jpg?auto=format,compress",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/8ab52e5d-0104-45a8-309b-bd61686c6f00/public",
               "id": "ZLTK0xEAAB8Aeoa3",
               "edit": {
                 "x": 0,

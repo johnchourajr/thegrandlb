@@ -17,7 +17,18 @@
       "Bash(sed -n '60,80p' /Users/johnchoura/Dropbox/Sites/thegrandlb/src/components/CtaFooter.tsx)",
       "Bash(sed -n '120,135p' /Users/johnchoura/Dropbox/Sites/thegrandlb/src/components/CtaFooter.tsx)",
       "Bash(sed -n '62,66p' /Users/johnchoura/Dropbox/Sites/thegrandlb/src/app/\\\\\\(site\\\\\\)/tour/\\\\[uid\\\\]/page.tsx)",
-      "Bash(sed -n '60,68p' /Users/johnchoura/Dropbox/Sites/thegrandlb/src/components/HeaderRight.tsx)"
+      "Bash(sed -n '60,68p' /Users/johnchoura/Dropbox/Sites/thegrandlb/src/components/HeaderRight.tsx)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d.get\\('scripts',{}\\), indent=2\\)\\)\")",
+      "Bash(brew list:*)",
+      "Bash(pip3 show:*)",
+      "Read(//opt/**)",
+      "Bash(npm install:*)",
+      "Bash(node -e \"console.log\\(require\\('./node_modules/next/package.json'\\).version\\)\")",
+      "Bash(npm info:*)",
+      "Bash(pnpm info:*)",
+      "Bash(ls /Users/johnchoura/Dropbox/Sites/thegrandlb/next.config*)",
+      "Bash(node -e \"const c = require\\('./next.config.js'\\); console.log\\(JSON.stringify\\(c.images.remotePatterns, null, 2\\)\\)\")",
+      "Bash(grep -v \"^$\")"
     ]
   }
 }

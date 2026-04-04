@@ -20,7 +20,7 @@ export const tourPages: Record<string, PageDoc> = {
         },
         "alt": null,
         "copyright": null,
-        "url": "https://images.prismic.io/the-grand/450d5939-4a66-4d92-8b13-4a9756b4cc38_Board+Room+30s--final.jpg?auto=format,compress",
+        "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/a4c776c5-dfdb-4a6a-e959-6646d4905900/public",
         "id": "ZNcOIRAAACkAojsO",
         "edit": {
           "x": 0,
@@ -55,7 +55,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/8d0b621c-df5b-445b-a9ed-3745247e33e0_social.svg?auto=compress,format",
+                "url": "https://cdn.thegrandlb.com/social.svg",
                 "id": "ZFiYuhEAACEAsKIK",
                 "edit": {
                   "x": 0,
@@ -86,7 +86,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/3c0f7044-8368-47e7-bd68-5c8248e657e8_theater.svg?auto=compress,format",
+                "url": "https://cdn.thegrandlb.com/theater.svg",
                 "id": "ZFiYuhEAACIAsKIG",
                 "edit": {
                   "x": 0,
@@ -117,7 +117,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/089b07a2-1345-4e6d-affd-68c72b6c3e06_classroom.svg?auto=compress,format",
+                "url": "https://cdn.thegrandlb.com/classroom.svg",
                 "id": "ZFiYuREAACMAsKHw",
                 "edit": {
                   "x": 0,
@@ -148,7 +148,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/a8bfedd3-e488-4da3-ac84-56e091607daa_flex.svg?auto=compress,format",
+                "url": "https://cdn.thegrandlb.com/flex.svg",
                 "id": "ZFiYuhEAACMAsKH5",
                 "edit": {
                   "x": 0,
@@ -205,7 +205,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/c094280d-ee2b-472d-bd76-aad629217b13_board-01.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/67cadf3c-e458-4680-7b4d-da63fb3d7300/public",
                       "id": "ZNcN8BAAACYAojor",
                       "edit": {
                         "x": 0,
@@ -231,7 +231,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/c7ef50c4-c913-4f92-99fe-a074d2cf1c23_board-02.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/97a6d0ad-5e40-4587-40ec-534ad0f2d500/public",
                       "id": "ZNcN8BAAACgAojot",
                       "edit": {
                         "x": 0,
@@ -257,7 +257,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/70926f65-ec76-4c9a-b134-456fab1adc92_board-03.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/f59eff0c-96f3-4a03-cdf4-26282d36d500/public",
                       "id": "ZNcN8hAAACcAojo2",
                       "edit": {
                         "x": 0,
@@ -377,7 +377,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/74aa713f-c44e-438f-baf7-2d44b1812e8f_lighting.svg?auto=compress,format",
+                "url": "https://cdn.thegrandlb.com/lighting.svg",
                 "id": "ZFiYuhEAACEAsKIL",
                 "edit": {
                   "x": 0,
@@ -408,7 +408,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/2b9c0773-6a9a-427d-ba70-9df6babba25c_rentals.svg?auto=compress,format",
+                "url": "https://cdn.thegrandlb.com/rentals.svg",
                 "id": "ZFiYuhEAACMAsKIE",
                 "edit": {
                   "x": 0,
@@ -439,7 +439,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/08faa555-6ebc-4f48-8ced-8dee409498da_spark.svg?auto=compress,format",
+                "url": "https://cdn.thegrandlb.com/spark.svg",
                 "id": "ZFiYuhEAACEAsKII",
                 "edit": {
                   "x": 0,
@@ -701,7 +701,7 @@ export const tourPages: Record<string, PageDoc> = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/5a5fdaf6-bcbc-41d6-9226-7029288a66ac_board-faq.jpg?auto=format,compress",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/9a7da4ec-51de-4611-d292-4dbcd925e700/public",
               "id": "ZNcOShAAACgAojvA",
               "edit": {
                 "x": 0,
@@ -845,7 +845,7 @@ export const tourPages: Record<string, PageDoc> = {
         },
         "alt": null,
         "copyright": null,
-        "url": "https://images.prismic.io/the-grand/6f56dd30-8ce8-433e-bf39-35ffadd5dc52_Catalina+Room+30s--final.jpg?auto=compress,format",
+        "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/a1f4b734-5327-4aeb-7c5c-80715d53f100/public",
         "id": "ZNcNQxAAACgAojco",
         "edit": {
           "x": 0,
@@ -880,7 +880,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/8d0b621c-df5b-445b-a9ed-3745247e33e0_social.svg",
+                "url": "https://cdn.thegrandlb.com/social.svg",
                 "id": "ZFiYuhEAACEAsKIK",
                 "edit": {
                   "x": 0,
@@ -911,7 +911,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/3c0f7044-8368-47e7-bd68-5c8248e657e8_theater.svg",
+                "url": "https://cdn.thegrandlb.com/theater.svg",
                 "id": "ZFiYuhEAACIAsKIG",
                 "edit": {
                   "x": 0,
@@ -942,7 +942,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/089b07a2-1345-4e6d-affd-68c72b6c3e06_classroom.svg",
+                "url": "https://cdn.thegrandlb.com/classroom.svg",
                 "id": "ZFiYuREAACMAsKHw",
                 "edit": {
                   "x": 0,
@@ -973,7 +973,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/a8bfedd3-e488-4da3-ac84-56e091607daa_flex.svg",
+                "url": "https://cdn.thegrandlb.com/flex.svg",
                 "id": "ZFiYuhEAACMAsKH5",
                 "edit": {
                   "x": 0,
@@ -1030,7 +1030,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/13109df7-4d67-4fbd-96d5-2389c3e91f68_catalina-01.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/b17a9cce-4843-4fd5-54d8-c8639d6c4900/public",
                       "id": "ZNcM0RAAACkAojUl",
                       "edit": {
                         "x": 0,
@@ -1056,7 +1056,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/31caad80-6591-495a-afc0-f8700e675dda_catalina-04.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/43f087ef-d3f4-4f46-0fe2-99e4031c5000/public",
                       "id": "ZNcM0hAAACgAojUr",
                       "edit": {
                         "x": 0,
@@ -1082,7 +1082,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/87451cca-b7be-4b7d-bec3-c2bb82298e6f_catalina-02.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/f8ec6e4c-0ef9-413a-4fbf-d1c3fc16e100/public",
                       "id": "ZNcM0RAAACgAojUk",
                       "edit": {
                         "x": 0,
@@ -1108,7 +1108,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/dc01e557-5aac-4d06-96dd-3b58ce63d120_catalina-03.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/94cee58e-f579-47e3-714b-7e1a04d8a800/public",
                       "id": "ZNcM0BAAACkAojUj",
                       "edit": {
                         "x": 0,
@@ -1134,7 +1134,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/13018bac-da34-482d-8d7f-a23037eb392b_catalina-05.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/f191b26e-899e-41ae-9354-aecd4a48fd00/public",
                       "id": "ZNcM0BAAACcAojUd",
                       "edit": {
                         "x": 0,
@@ -1266,7 +1266,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/f9c7d22f-f88e-4c7f-822c-ebc883c1c744_art.svg",
+                "url": "https://cdn.thegrandlb.com/art.svg",
                 "id": "ZFiYuREAACMAsKHv",
                 "edit": {
                   "x": 0,
@@ -1297,7 +1297,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/620e4ded-f73e-4aa3-ad5a-657c2873b1af_mic.svg",
+                "url": "https://cdn.thegrandlb.com/mic.svg",
                 "id": "ZFiYuhEAACMAsKIF",
                 "edit": {
                   "x": 0,
@@ -1328,7 +1328,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/eca315e1-c455-4d6e-9d85-de3f6f893dc5_dance.svg",
+                "url": "https://cdn.thegrandlb.com/dance.svg",
                 "id": "ZFiYuhEAACIAsKH7",
                 "edit": {
                   "x": 0,
@@ -1359,7 +1359,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/ba32f1b7-bea0-4b07-af7b-d4374f9b8ba5_podium.svg",
+                "url": "https://cdn.thegrandlb.com/podium.svg",
                 "id": "ZFiYuhEAACMAsKH-",
                 "edit": {
                   "x": 0,
@@ -1390,7 +1390,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/74aa713f-c44e-438f-baf7-2d44b1812e8f_lighting.svg",
+                "url": "https://cdn.thegrandlb.com/lighting.svg",
                 "id": "ZFiYuhEAACEAsKIL",
                 "edit": {
                   "x": 0,
@@ -1421,7 +1421,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/08faa555-6ebc-4f48-8ced-8dee409498da_spark.svg",
+                "url": "https://cdn.thegrandlb.com/spark.svg",
                 "id": "ZFiYuhEAACEAsKII",
                 "edit": {
                   "x": 0,
@@ -1655,7 +1655,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/97eb3cee-ebc2-422e-9ac3-2e213f7896be_gallery-catalina-07.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/b3efdfa5-90c4-491f-d04e-b38e102df500/public",
                       "id": "ZNcNCxAAACgAojYt",
                       "edit": {
                         "x": 0,
@@ -1681,7 +1681,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/d059a03c-7732-4486-9605-2c1258c5aa3e_gallery-catalina-06.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/1965a8be-df9a-4531-e8dc-b3c9fa293200/public",
                       "id": "ZNcNChAAACgAojYs",
                       "edit": {
                         "x": 0,
@@ -1707,7 +1707,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/5c3c6962-34c5-4f39-be89-1c241b3ae3ba_gallery-catalina-08.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/1783ee0c-d007-4b8d-128e-13309b18dd00/public",
                       "id": "ZNcNDBAAACgAojY3",
                       "edit": {
                         "x": 0,
@@ -1795,7 +1795,7 @@ export const tourPages: Record<string, PageDoc> = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/1b4e2ec2-a861-4631-bf60-790a9c319831_faq-catalina-09.jpg?auto=compress,format",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/69ff6ae0-4b3f-4cfc-2a02-c33350a31100/public",
               "id": "ZNcNdBAAACcAojgC",
               "edit": {
                 "x": 0,
@@ -1964,7 +1964,7 @@ export const tourPages: Record<string, PageDoc> = {
         },
         "alt": null,
         "copyright": null,
-        "url": "https://images.prismic.io/the-grand/1eda0676-7d05-4159-9096-8ad62dd327a1_Palm+Terrace+30s--final.jpg?auto=compress,format",
+        "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/35d98bbb-5f73-4176-3020-759e692d6700/public",
         "id": "ZNXKthAAACcAnFoX",
         "edit": {
           "x": 0,
@@ -1999,7 +1999,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/4029b5e0-f8f9-4451-b691-c5456b7b293e_social.svg",
+                "url": "https://cdn.thegrandlb.com/social.svg",
                 "id": "ZFiYmREAACMAsKFb",
                 "edit": {
                   "x": 0,
@@ -2030,7 +2030,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/fe3261cf-b2cc-4342-acfb-bbb51363f73f_flexible+2.svg",
+                "url": "https://cdn.thegrandlb.com/flexible.svg",
                 "id": "ZFiYuhEAACAAsKH6",
                 "edit": {
                   "x": 0,
@@ -2061,7 +2061,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/a8bfedd3-e488-4da3-ac84-56e091607daa_flex.svg",
+                "url": "https://cdn.thegrandlb.com/flex.svg",
                 "id": "ZFiYuhEAACMAsKH5",
                 "edit": {
                   "x": 0,
@@ -2118,7 +2118,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/20793515-9e26-469b-a38c-239b117375bb_terrace-02.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/28150dc9-361a-446d-94e8-513710c15800/public",
                       "id": "ZNXLEhAAACYAnFu7",
                       "edit": {
                         "x": 0,
@@ -2144,7 +2144,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/18400cb3-606c-4d1d-8fe9-2848c92cf6eb_terrace-06.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/bad51c37-0a71-4bb6-e0e0-699b19c0ef00/public",
                       "id": "ZNXLExAAACkAnFvG",
                       "edit": {
                         "x": 0,
@@ -2170,7 +2170,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/8f21a445-9695-4e3b-ac26-9d8c0e6a47cf_terrace-03.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/fda46957-db2b-4df2-71ed-f59b57773f00/public",
                       "id": "ZNXLExAAACcAnFvB",
                       "edit": {
                         "x": 0,
@@ -2196,7 +2196,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/7f5970ea-41a1-4a01-b320-c895193b32e4_terrace-05.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/984b240c-df65-48f8-b3f5-9435eebc5700/public",
                       "id": "ZNXLERAAACgAnFu6",
                       "edit": {
                         "x": 0,
@@ -2222,7 +2222,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/a44568f9-5934-41f7-93fe-642654783642_terrace-01.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/fb5d8069-34d9-4eae-0cf5-43acad511600/public",
                       "id": "ZNXLERAAACkAnFu1",
                       "edit": {
                         "x": 0,
@@ -2248,7 +2248,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/b91c9d71-6557-44b7-9743-3fdc8e7185de_terrace-04.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/a4f9887c-324e-489c-c975-51ab9519ef00/public",
                       "id": "ZNXLEBAAACcAnFuw",
                       "edit": {
                         "x": 0,
@@ -2434,7 +2434,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/a8bfedd3-e488-4da3-ac84-56e091607daa_flex.svg",
+                "url": "https://cdn.thegrandlb.com/flex.svg",
                 "id": "ZFiYuhEAACMAsKH5",
                 "edit": {
                   "x": 0,
@@ -2465,7 +2465,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/08faa555-6ebc-4f48-8ced-8dee409498da_spark.svg",
+                "url": "https://cdn.thegrandlb.com/spark.svg",
                 "id": "ZFiYuhEAACEAsKII",
                 "edit": {
                   "x": 0,
@@ -2496,7 +2496,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/0185816e-edba-47d6-8f0a-3e75f49f6b9c_cocktails.svg",
+                "url": "https://cdn.thegrandlb.com/cocktails.svg",
                 "id": "ZFiYuREAACIAsKHs",
                 "edit": {
                   "x": 0,
@@ -2527,7 +2527,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/74aa713f-c44e-438f-baf7-2d44b1812e8f_lighting.svg",
+                "url": "https://cdn.thegrandlb.com/lighting.svg",
                 "id": "ZFiYuhEAACEAsKIL",
                 "edit": {
                   "x": 0,
@@ -2558,7 +2558,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/c4e0d774-9be5-41c6-b1ae-b5c4fdfcb91a_rentals+2.svg",
+                "url": "https://cdn.thegrandlb.com/rentals.svg",
                 "id": "ZFiYuhEAACMAsKH9",
                 "edit": {
                   "x": 0,
@@ -2808,7 +2808,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/ad227bd2-15cd-4007-9a98-f451f4b3d033_gallery-terrace-08.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/08333a96-97ef-4d0c-f638-60872e45dd00/public",
                       "id": "ZNXLcBAAACcAnF1o",
                       "edit": {
                         "x": 0,
@@ -2834,7 +2834,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/f1771f7b-0d80-4290-8e6c-1d8f3f19cad2_gallery-terrace-07.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/e9bf67ab-d15c-44e6-dee5-7d3019a2b400/public",
                       "id": "ZNXLbhAAACcAnF1h",
                       "edit": {
                         "x": 0,
@@ -2922,7 +2922,7 @@ export const tourPages: Record<string, PageDoc> = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/1ff76c92-56e9-4c3b-ad17-c4fa90510590_faq-terrace-09.jpg?auto=compress,format",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/c75e4503-e033-4109-55f8-c007074e0c00/public",
               "id": "ZNXK6xAAACgAnFsG",
               "edit": {
                 "x": 0,
@@ -3079,7 +3079,7 @@ export const tourPages: Record<string, PageDoc> = {
         },
         "alt": null,
         "copyright": null,
-        "url": "https://images.prismic.io/the-grand/40c40fd1-2f4f-419a-87b3-1af0440402d5_Monarch+Room+30s--final.jpg?auto=compress,format",
+        "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/6e2b5666-7f70-41c7-4916-139093221700/public",
         "id": "ZNcJ4RAAACkAoigH",
         "edit": {
           "x": 0,
@@ -3114,7 +3114,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/4029b5e0-f8f9-4451-b691-c5456b7b293e_social.svg",
+                "url": "https://cdn.thegrandlb.com/social.svg",
                 "id": "ZFiYmREAACMAsKFb",
                 "edit": {
                   "x": 0,
@@ -3145,7 +3145,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/0c04a50a-bd1f-4a5b-b70e-9b8cbd667d1a_theater.svg",
+                "url": "https://cdn.thegrandlb.com/theater.svg",
                 "id": "ZFiYmREAACMAsKFa",
                 "edit": {
                   "x": 0,
@@ -3176,7 +3176,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/daf659bd-d48e-48ce-b000-576333427358_classroom.svg",
+                "url": "https://cdn.thegrandlb.com/classroom.svg",
                 "id": "ZFiYmhEAACMAsKFc",
                 "edit": {
                   "x": 0,
@@ -3207,7 +3207,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/a8bfedd3-e488-4da3-ac84-56e091607daa_flex.svg",
+                "url": "https://cdn.thegrandlb.com/flex.svg",
                 "id": "ZFiYuhEAACMAsKH5",
                 "edit": {
                   "x": 0,
@@ -3264,7 +3264,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/23fc000e-a63a-46bf-8c6d-8288f2c2da4e_monarch-03.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/bb4114e2-ad13-41e5-e440-ab8aab4acf00/public",
                       "id": "ZNcJLBAAACcAoiTc",
                       "edit": {
                         "x": 0,
@@ -3290,7 +3290,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/a1677b20-16dc-40f3-abd0-2170f812e47d_monarch-02.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/e7455f65-b172-438b-77f2-d2b782adda00/public",
                       "id": "ZNcJLBAAACgAoiTh",
                       "edit": {
                         "x": 0,
@@ -3316,7 +3316,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/f01b1f8a-c434-41db-8965-25635c2eca30_monarch-01.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/9eb76e6f-9d8d-443c-7d81-df245dbf9400/public",
                       "id": "ZNcJLBAAACcAoiTa",
                       "edit": {
                         "x": 0,
@@ -3342,7 +3342,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/258e9862-e6fa-4c58-bf86-c8dfd7e36e3c_monarch-04.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/003e6a49-b9e9-4186-2778-3b167de12200/public",
                       "id": "ZNcJKxAAACkAoiTZ",
                       "edit": {
                         "x": 0,
@@ -3501,7 +3501,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/f9c7d22f-f88e-4c7f-822c-ebc883c1c744_art.svg",
+                "url": "https://cdn.thegrandlb.com/art.svg",
                 "id": "ZFiYuREAACMAsKHv",
                 "edit": {
                   "x": 0,
@@ -3532,7 +3532,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/c4e0d774-9be5-41c6-b1ae-b5c4fdfcb91a_rentals+2.svg",
+                "url": "https://cdn.thegrandlb.com/rentals.svg",
                 "id": "ZFiYuhEAACMAsKH9",
                 "edit": {
                   "x": 0,
@@ -3563,7 +3563,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/d4fe7fb2-b985-4084-bc02-b6e6010244f6_mic.svg",
+                "url": "https://cdn.thegrandlb.com/mic.svg",
                 "id": "ZEy6GxEAACkApY4p",
                 "edit": {
                   "x": 0,
@@ -3594,7 +3594,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/e62b86d6-6fa4-406e-a776-7a6c474cd20c_dance.svg",
+                "url": "https://cdn.thegrandlb.com/dance.svg",
                 "id": "ZEy6GxEAACkApY4s",
                 "edit": {
                   "x": 0,
@@ -3625,7 +3625,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/9c717b7c-c943-42cd-8609-0c55e1c11042_lighting.svg",
+                "url": "https://cdn.thegrandlb.com/lighting.svg",
                 "id": "ZEy6GxEAACkApY4t",
                 "edit": {
                   "x": 0,
@@ -3656,7 +3656,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/6ac64900-4c28-4859-8a6d-abe543a2f3d5_dressing.svg",
+                "url": "https://cdn.thegrandlb.com/dressing.svg",
                 "id": "ZFiYuREAACIAsKHy",
                 "edit": {
                   "x": 0,
@@ -3890,7 +3890,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/cafeb02d-42d4-45e3-8754-35cffbf143c0_gallery-monarch-07.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/dbbd7285-1c7a-4ad2-cc2c-bc63ea9a3900/public",
                       "id": "ZNcJdRAAACcAoiYn",
                       "edit": {
                         "x": 0,
@@ -3916,7 +3916,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/880b1d80-1dca-4ddb-8fd0-cfcd6cd00987_gallery-monarch-08.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/ff9d9566-2957-40b5-e49d-ed47f59b4a00/public",
                       "id": "ZNcJdBAAACYAoiYi",
                       "edit": {
                         "x": 0,
@@ -3942,7 +3942,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/dd262d0f-93d3-499b-b896-a8720fc54627_gallery-monarch-05.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/5ffdbab1-11ba-477a-f11e-3d9b0e70b900/public",
                       "id": "ZNcJcxAAACYAoiYh",
                       "edit": {
                         "x": 0,
@@ -3968,7 +3968,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/06282aaf-785d-4396-920a-045d1289419d_gallery-monarch-06.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/b79fb67e-391b-42e1-2cd6-56eca0f6a900/public",
                       "id": "ZNcJcxAAACgAoiYc",
                       "edit": {
                         "x": 0,
@@ -4056,7 +4056,7 @@ export const tourPages: Record<string, PageDoc> = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/33aa653f-a9cd-4017-b920-335ac084441e_faq-monarch-09.jpg?auto=compress,format",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/5024f3df-bc07-443b-8c27-2112edb8f800/public",
               "id": "ZNcKHxAAACgAoike",
               "edit": {
                 "x": 0,
@@ -4222,7 +4222,7 @@ export const tourPages: Record<string, PageDoc> = {
         },
         "alt": null,
         "copyright": null,
-        "url": "https://images.prismic.io/the-grand/54c5cb47-352b-4eec-90ec-eb31d0dca510_Grand+Ballroom+30s--final.jpg?auto=compress,format",
+        "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/c8b247ca-ab6b-4f95-0af4-e412e6ad4c00/public",
         "id": "ZNXIghAAACgAnE_6",
         "edit": {
           "x": 0,
@@ -4257,7 +4257,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/dabdc3bd-6980-4f8a-9ffa-c27c7d225b6f_theater.svg",
+                "url": "https://cdn.thegrandlb.com/theater.svg",
                 "id": "ZEy5jhEAACgApYuv",
                 "edit": {
                   "x": 0,
@@ -4288,7 +4288,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/b765811e-432a-4f15-94da-af176c6ecc8e_social.svg",
+                "url": "https://cdn.thegrandlb.com/social.svg",
                 "id": "ZEy5jhEAACkApYuy",
                 "edit": {
                   "x": 0,
@@ -4319,7 +4319,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/66588c5f-3ed8-4871-b47c-b15462959b1c_classroom.svg",
+                "url": "https://cdn.thegrandlb.com/classroom.svg",
                 "id": "ZEy5jhEAACgApYux",
                 "edit": {
                   "x": 0,
@@ -4350,7 +4350,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/1c37305a-3b4b-49fb-ac42-b0c905372841_flex.svg",
+                "url": "https://cdn.thegrandlb.com/flex.svg",
                 "id": "ZEy5jhEAACkApYuz",
                 "edit": {
                   "x": 0,
@@ -4407,7 +4407,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/8b9f7c31-8f5e-4fdd-9a8c-efde54b681d0_ballroom-05.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/48eb9ff1-7ac7-431e-e380-079a64b59a00/public",
                       "id": "ZNXI8BAAACYAnFH7",
                       "edit": {
                         "x": 0,
@@ -4433,7 +4433,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/f10c42cd-e1f0-46ab-b021-fdc458f0b310_ballroom-02.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/32248fb5-d086-4925-9b48-c43302529100/public",
                       "id": "ZNXI8BAAACYAnFH6",
                       "edit": {
                         "x": 0,
@@ -4459,7 +4459,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/b7131889-060b-4ff4-8c02-29a4172397f8_ballroom-06.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/622e7bcd-2da3-4629-a8e1-4b9cfac18b00/public",
                       "id": "ZNXI7xAAACcAnFH0",
                       "edit": {
                         "x": 0,
@@ -4485,7 +4485,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/6ff84f7a-5cde-49c8-bc55-e2b3f8cea6bc_ballroom-01.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/87f0c8bf-146c-414a-aa10-978ea0890600/public",
                       "id": "ZNXI7BAAACkAnFHq",
                       "edit": {
                         "x": 0,
@@ -4511,7 +4511,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/4d2de1ef-5043-48d7-8406-65ee1c51aaa3_ballroom-03.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/3562cb12-8916-4107-ba62-834da911cb00/public",
                       "id": "ZNXI7BAAACYAnFHp",
                       "edit": {
                         "x": 0,
@@ -4537,7 +4537,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/35ae8d80-1c07-460f-b78c-3a3052be07c2_ballroom-04.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/50691ccf-e12f-4687-eeae-8bc3f7c66400/public",
                       "id": "ZNXI6hAAACcAnFHg",
                       "edit": {
                         "x": 0,
@@ -4690,7 +4690,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/84cbbccd-0e2d-49e1-a3be-ca89669ebe87_columns.svg",
+                "url": "https://cdn.thegrandlb.com/columns.svg",
                 "id": "ZEy6GxEAACsApY4o",
                 "edit": {
                   "x": 0,
@@ -4721,7 +4721,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/e62b86d6-6fa4-406e-a776-7a6c474cd20c_dance.svg",
+                "url": "https://cdn.thegrandlb.com/dance.svg",
                 "id": "ZEy6GxEAACkApY4s",
                 "edit": {
                   "x": 0,
@@ -4752,7 +4752,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/b5030360-8ef1-476a-8742-3fa89510e18e_podium.svg",
+                "url": "https://cdn.thegrandlb.com/podium.svg",
                 "id": "ZEy6GxEAACkApY4m",
                 "edit": {
                   "x": 0,
@@ -4783,7 +4783,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/6d4d7729-6ea9-4a05-bfb4-edc43b364e82_flexible+2.svg",
+                "url": "https://cdn.thegrandlb.com/flexible-2.svg",
                 "id": "ZEy6GxEAACkApY4q",
                 "edit": {
                   "x": 0,
@@ -4814,7 +4814,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/79682990-9e25-4c50-94b4-90f1c399bf56_cocktails.svg",
+                "url": "https://cdn.thegrandlb.com/cocktails.svg",
                 "id": "ZEy6GxEAACkApY4l",
                 "edit": {
                   "x": 0,
@@ -4845,7 +4845,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/9c717b7c-c943-42cd-8609-0c55e1c11042_lighting.svg",
+                "url": "https://cdn.thegrandlb.com/lighting.svg",
                 "id": "ZEy6GxEAACkApY4t",
                 "edit": {
                   "x": 0,
@@ -4876,7 +4876,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/e8e82e44-3378-4e37-a9ce-6b231efe003c_spark.svg",
+                "url": "https://cdn.thegrandlb.com/spark.svg",
                 "id": "ZEy6GxEAACsApY4n",
                 "edit": {
                   "x": 0,
@@ -4907,7 +4907,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/d4fe7fb2-b985-4084-bc02-b6e6010244f6_mic.svg",
+                "url": "https://cdn.thegrandlb.com/mic.svg",
                 "id": "ZEy6GxEAACkApY4p",
                 "edit": {
                   "x": 0,
@@ -5141,7 +5141,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/39a7a6b3-2ee5-4c0c-90aa-b25978235287_gallery-ballroom-07.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/e2724b59-2b54-48ab-d7fe-7800d2d2fb00/public",
                       "id": "ZNXJSxAAACgAnFOe",
                       "edit": {
                         "x": 0,
@@ -5167,7 +5167,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/824afabe-1dd6-470f-82a9-190196deee51_gallery-ballroom-08.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/bdc5bd25-ad1d-45a3-1242-3fd77afbb800/public",
                       "id": "ZNXJTBAAACkAnFOi",
                       "edit": {
                         "x": 0,
@@ -5193,7 +5193,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/5d2bf5fa-8b99-4862-8a9b-5837cc832796_gallery-ballroom-10.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/a99e14e7-1ba6-49c4-1654-ef161e724100/public",
                       "id": "ZNXJThAAACkAnFOw",
                       "edit": {
                         "x": 0,
@@ -5219,7 +5219,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/5ef116ba-a265-480f-9a22-e896011aad28_gallery-ballroom-09.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/fbabdfb9-4baa-4836-0516-44294e16b600/public",
                       "id": "ZNXJSxAAACgAnFOc",
                       "edit": {
                         "x": 0,
@@ -5307,7 +5307,7 @@ export const tourPages: Record<string, PageDoc> = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/0da3fc33-5db2-4ce7-9423-b5de364c7cc4_faq-ballroom-11.jpg?auto=compress,format",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/5d755ebb-0900-4db2-3a68-70f3ca2efa00/public",
               "id": "ZNXKNBAAACYAnFfI",
               "edit": {
                 "x": 0,
@@ -5467,7 +5467,7 @@ export const tourPages: Record<string, PageDoc> = {
         },
         "alt": null,
         "copyright": null,
-        "url": "https://images.prismic.io/the-grand/b00023dd-6a20-45b4-8c81-29c2302eac77_Garden+Room+30s--final.jpg?auto=compress,format",
+        "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/30e7d61c-d2c4-423e-3bd3-d7498839bd00/public",
         "id": "ZNXMVxAAACkAnGG5",
         "edit": {
           "x": 0,
@@ -5502,7 +5502,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/8d0b621c-df5b-445b-a9ed-3745247e33e0_social.svg",
+                "url": "https://cdn.thegrandlb.com/social.svg",
                 "id": "ZFiYuhEAACEAsKIK",
                 "edit": {
                   "x": 0,
@@ -5533,7 +5533,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/3c0f7044-8368-47e7-bd68-5c8248e657e8_theater.svg",
+                "url": "https://cdn.thegrandlb.com/theater.svg",
                 "id": "ZFiYuhEAACIAsKIG",
                 "edit": {
                   "x": 0,
@@ -5564,7 +5564,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/089b07a2-1345-4e6d-affd-68c72b6c3e06_classroom.svg",
+                "url": "https://cdn.thegrandlb.com/classroom.svg",
                 "id": "ZFiYuREAACMAsKHw",
                 "edit": {
                   "x": 0,
@@ -5595,7 +5595,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/a8bfedd3-e488-4da3-ac84-56e091607daa_flex.svg",
+                "url": "https://cdn.thegrandlb.com/flex.svg",
                 "id": "ZFiYuhEAACMAsKH5",
                 "edit": {
                   "x": 0,
@@ -5652,7 +5652,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/87623fe5-0b3c-4b0c-815e-b07c109c70d0_garden-04.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/3fe21ffc-6b5f-4cee-c1b1-a53d1793dd00/public",
                       "id": "ZNXMuBAAACkAnGO3",
                       "edit": {
                         "x": 0,
@@ -5678,7 +5678,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/287fb998-5eab-4632-9284-a0099f8db5ee_garden-01.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/3edab71f-a985-4597-fb80-ccba0c012a00/public",
                       "id": "ZNXMuxAAACgAnGPI",
                       "edit": {
                         "x": 0,
@@ -5704,7 +5704,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/80fe72ec-b161-4c2c-adc0-e26b6019faad_garden-03.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/388081a7-5177-4ca9-6dc6-41b5aaff3500/public",
                       "id": "ZNXMuxAAACgAnGPJ",
                       "edit": {
                         "x": 0,
@@ -5730,7 +5730,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/97b92cdd-0785-4959-8682-8bf991218ad0_garden-02.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/9e238529-fd80-4c3f-ae79-a10a7562d100/public",
                       "id": "ZNXMuBAAACkAnGO4",
                       "edit": {
                         "x": 0,
@@ -5756,7 +5756,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/430bd75b-7b5d-46b9-90f3-c8f9d800542b_glb-tour-ext-04.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/4d446732-70fd-43a5-762e-e709f97fe400/public",
                       "id": "ZNXN9BAAACcAnGoy",
                       "edit": {
                         "x": 0,
@@ -5915,7 +5915,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/eca315e1-c455-4d6e-9d85-de3f6f893dc5_dance.svg",
+                "url": "https://cdn.thegrandlb.com/dance.svg",
                 "id": "ZFiYuhEAACIAsKH7",
                 "edit": {
                   "x": 0,
@@ -5946,7 +5946,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/620e4ded-f73e-4aa3-ad5a-657c2873b1af_mic.svg",
+                "url": "https://cdn.thegrandlb.com/mic.svg",
                 "id": "ZFiYuhEAACMAsKIF",
                 "edit": {
                   "x": 0,
@@ -5977,7 +5977,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/d2446702-2a54-443c-955f-628aa17ed0e7_cocktails+2.svg",
+                "url": "https://cdn.thegrandlb.com/cocktails.svg",
                 "id": "ZFiYuhEAACIAsKHz",
                 "edit": {
                   "x": 0,
@@ -6008,7 +6008,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/74aa713f-c44e-438f-baf7-2d44b1812e8f_lighting.svg",
+                "url": "https://cdn.thegrandlb.com/lighting.svg",
                 "id": "ZFiYuhEAACEAsKIL",
                 "edit": {
                   "x": 0,
@@ -6039,7 +6039,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/08faa555-6ebc-4f48-8ced-8dee409498da_spark.svg",
+                "url": "https://cdn.thegrandlb.com/spark.svg",
                 "id": "ZFiYuhEAACEAsKII",
                 "edit": {
                   "x": 0,
@@ -6257,7 +6257,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/23ff4ad1-9f19-40e3-bbfb-f3d8d3324dd6_gallery-garden-06.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/64afff82-8a14-4fae-9434-9debdeaa3700/public",
                       "id": "ZNXM-BAAACcAnGUJ",
                       "edit": {
                         "x": 0,
@@ -6283,7 +6283,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/6afa0948-39c0-4885-be89-ed8a80b3580a_gallery-garden-05.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/553154e2-acd9-4f5e-6ce5-9d8d37fd9a00/public",
                       "id": "ZNXM-BAAACgAnGUF",
                       "edit": {
                         "x": 0,
@@ -6371,7 +6371,7 @@ export const tourPages: Record<string, PageDoc> = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/bd06c675-1c47-4438-a7ec-1f74f114dad2_faq-garden-07.jpg?auto=compress,format",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/60c6b33f-d09c-4f0d-1064-63237b61c500/public",
               "id": "ZNXMiBAAACYAnGK6",
               "edit": {
                 "x": 0,
@@ -6521,7 +6521,7 @@ export const tourPages: Record<string, PageDoc> = {
         },
         "alt": null,
         "copyright": null,
-        "url": "https://images.prismic.io/the-grand/50261498-6566-4265-8fb6-b492b237764b_Pacific+Room+30s--final.jpg?auto=compress,format",
+        "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/e931f5af-d53c-4108-d65b-dab7f149de00/public",
         "id": "ZNcLSRAAACgAoi5d",
         "edit": {
           "x": 0,
@@ -6556,7 +6556,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/8d0b621c-df5b-445b-a9ed-3745247e33e0_social.svg",
+                "url": "https://cdn.thegrandlb.com/social.svg",
                 "id": "ZFiYuhEAACEAsKIK",
                 "edit": {
                   "x": 0,
@@ -6587,7 +6587,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/3c0f7044-8368-47e7-bd68-5c8248e657e8_theater.svg",
+                "url": "https://cdn.thegrandlb.com/theater.svg",
                 "id": "ZFiYuhEAACIAsKIG",
                 "edit": {
                   "x": 0,
@@ -6618,7 +6618,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/089b07a2-1345-4e6d-affd-68c72b6c3e06_classroom.svg",
+                "url": "https://cdn.thegrandlb.com/classroom.svg",
                 "id": "ZFiYuREAACMAsKHw",
                 "edit": {
                   "x": 0,
@@ -6649,7 +6649,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/a8bfedd3-e488-4da3-ac84-56e091607daa_flex.svg",
+                "url": "https://cdn.thegrandlb.com/flex.svg",
                 "id": "ZFiYuhEAACMAsKH5",
                 "edit": {
                   "x": 0,
@@ -6706,7 +6706,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/05b0a956-617a-485d-aadb-f07404d2accc_pacific-01.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/7573ad4a-ba05-4e5f-e1cd-c7375ee52200/public",
                       "id": "ZNcK4BAAACYAoix0",
                       "edit": {
                         "x": 0,
@@ -6732,7 +6732,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/817dd89a-94a4-47a3-9690-1384bc0833f5_pacific-03.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/eaa674d0-b46a-4473-4464-f2aaba173500/public",
                       "id": "ZNcK3xAAACYAoixv",
                       "edit": {
                         "x": 0,
@@ -6758,7 +6758,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/ad20c856-a626-4863-b48a-6976b3821a83_pacific-02.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/50c4f831-b640-4d51-1858-805075229600/public",
                       "id": "ZNcK3xAAACkAoixt",
                       "edit": {
                         "x": 0,
@@ -6890,7 +6890,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/d4fe7fb2-b985-4084-bc02-b6e6010244f6_mic.svg",
+                "url": "https://cdn.thegrandlb.com/mic.svg",
                 "id": "ZEy6GxEAACkApY4p",
                 "edit": {
                   "x": 0,
@@ -6921,7 +6921,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/e62b86d6-6fa4-406e-a776-7a6c474cd20c_dance.svg",
+                "url": "https://cdn.thegrandlb.com/dance.svg",
                 "id": "ZEy6GxEAACkApY4s",
                 "edit": {
                   "x": 0,
@@ -6952,7 +6952,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/9c717b7c-c943-42cd-8609-0c55e1c11042_lighting.svg",
+                "url": "https://cdn.thegrandlb.com/lighting.svg",
                 "id": "ZEy6GxEAACkApY4t",
                 "edit": {
                   "x": 0,
@@ -6983,7 +6983,7 @@ export const tourPages: Record<string, PageDoc> = {
                 },
                 "alt": null,
                 "copyright": null,
-                "url": "https://the-grand.cdn.prismic.io/the-grand/4dba7afe-231f-49be-87f2-95298e9e45f2_flex.svg",
+                "url": "https://cdn.thegrandlb.com/flex.svg",
                 "id": "ZEy6GxEAACkApY4r",
                 "edit": {
                   "x": 0,
@@ -7217,7 +7217,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/8f139c91-06b5-47d8-85df-be19d49fe4b5_gallery-pacific-05.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/a2aa72f8-8821-4b26-a0b7-e50db6933300/public",
                       "id": "ZNcLFhAAACkAoi1w",
                       "edit": {
                         "x": 0,
@@ -7243,7 +7243,7 @@ export const tourPages: Record<string, PageDoc> = {
                       },
                       "alt": null,
                       "copyright": null,
-                      "url": "https://images.prismic.io/the-grand/b770dfb7-90ce-4943-b295-53821ebb6399_gallery-pacific-04.jpg?auto=compress,format",
+                      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/bf13ca43-9923-43b7-213c-ece539894400/public",
                       "id": "ZNcLFhAAACgAoi1s",
                       "edit": {
                         "x": 0,
@@ -7331,7 +7331,7 @@ export const tourPages: Record<string, PageDoc> = {
               },
               "alt": null,
               "copyright": null,
-              "url": "https://images.prismic.io/the-grand/6395cfc2-5f26-418a-a0a6-856a54f7a7cb_faq-pacific-06.jpg?auto=compress,format",
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/50ed405a-6497-4840-ef60-ae92a71acb00/public",
               "id": "ZNcLbRAAACgAoi7-",
               "edit": {
                 "x": 0,
