@@ -1,17 +1,10 @@
 import ClientLayout from "@/components/ClientLayout";
 import { GTM_ID } from "@/utils/gtm";
-import { repositoryName } from "@/prismicio";
 import type { ExtraData } from "@/types/services";
 import { GoogleTagManager } from "@next/third-parties/google";
 import "@/styles/globals.css";
-import { PrismicPreview } from "@prismicio/next";
 import type { FC } from "react";
 import { Inter, Lexend_Zetta } from "next/font/google";
-
-/** Typed alias: PrismicPreview can return Promise<Element> in App Router; TS expects Element. */
-const Preview: FC<{ repositoryName: string }> = PrismicPreview as FC<{
-  repositoryName: string;
-}>;
 import localFont from "next/font/local";
 
 const lexend = Lexend_Zetta({
@@ -81,7 +74,6 @@ export default function RootLayoutShell({
         >
           {children}
         </ClientLayout>
-        <Preview repositoryName={repositoryName} />
       </body>
     </html>
   );

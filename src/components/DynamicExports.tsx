@@ -10,10 +10,6 @@ const DynamicSuperProvider = dynamic(
   }
 );
 
-const DynamicPrismicPreview = dynamic(
-  () => import("@prismicio/next").then((mod) => mod.PrismicPreview) as any
-);
-
 const DynamicMotionConfig = dynamic(() =>
   import("framer-motion").then((mod) => mod.MotionConfig)
 );
@@ -62,7 +58,6 @@ export {
   DynamicLazyMotion,
   DynamicMenuPageContent,
   DynamicMotionConfig,
-  DynamicPrismicPreview,
   DynamicSliceZone,
   DynamicSuperProvider,
   DynamicTileFooter,

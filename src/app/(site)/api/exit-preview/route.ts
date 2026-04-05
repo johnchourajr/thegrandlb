@@ -1,5 +1,6 @@
-import { exitPreview } from "@prismicio/next";
+import { NextResponse } from "next/server";
 
-export async function GET() {
-  return exitPreview();
+/** Prismic preview removed — stub redirects home. */
+export function GET() {
+  return NextResponse.redirect("/");
 }

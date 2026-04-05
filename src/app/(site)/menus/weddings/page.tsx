@@ -4,45 +4,22 @@ import { MenuPageContent } from "@/components/MenuPageContent";
 import { getExtra } from "@/services/get-extra";
 import { fetchMenuCollection } from "@/services/menu-data";
 import type { MenuPageDocumentWithGroup } from "@/types/menu";
-import fetchLinks from "@/utils/fetchLinks";
-import { createClient } from "@/prismicio";
-
-/**
- * Types
- */
 
 export const revalidate = 3600;
 
 export default async function WeddingsMenuPage() {
   try {
-    const client = createClient();
     const extra = await getExtra({});
-
-    const [page] = await Promise.all([
-      client.getByUID("menu_page", "weddings", {
-        fetchLinks,
-      }),
-    ]);
-
-    if (!page) {
-      throw new Error("Weddings menu page not found");
-    }
-
     const { cta, settings, navigation } = extra;
 
-    // Fetch menu data from external Prismic repo
-    let menuSource: MenuPageDocumentWithGroup;
+    const page = { uid: "weddings", type: "menu_page" as const, data: { menu_api_uid: "weddings" } };
 
-    if (page.data.menu_api_uid) {
-      try {
-        menuSource = await fetchMenuCollection(page.data.menu_api_uid);
-      } catch (menuError) {
-        console.error("Error fetching weddings menu data:", menuError);
-        // Fallback to page data if external fetch fails
-        menuSource = page as MenuPageDocumentWithGroup;
-      }
-    } else {
-      menuSource = page as MenuPageDocumentWithGroup;
+    let menuSource: MenuPageDocumentWithGroup;
+    try {
+      menuSource = await fetchMenuCollection("weddings");
+    } catch (menuError) {
+      console.error("Error fetching weddings menu data:", menuError);
+      menuSource = page;
     }
 
     return (

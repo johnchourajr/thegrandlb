@@ -7,7 +7,6 @@ import {
   getSelectValue,
 } from "@/utils/prismic-helpers";
 import { splitTextIntoArray } from "@/utils/utils";
-import type { Content } from "@prismicio/client";
 import clsx from "clsx";
 import { useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
@@ -70,7 +69,7 @@ const CtaFooter = ({ data }: CtaFooterProps) => {
 
   // Safely extract inquire card data
   const cardData = inquire_card
-    ? (inquire_card as unknown as Content.FragmentCardDocument)?.data
+    ? (inquire_card as any)?.data
     : null;
 
   const headlineArray = splitTextIntoArray(headline);

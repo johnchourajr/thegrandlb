@@ -2,7 +2,6 @@ import type { RtBlock } from "content/types";
 
 /**
  * Extract plain text from a rich text field (RtBlock[]) or a plain string/number.
- * Drop-in replacement for prismicH.asText.
  */
 export function toText(field: unknown): string {
   if (!field) return "";
@@ -25,7 +24,6 @@ export function toText(field: unknown): string {
 
 /**
  * Convert a rich text field to a simple HTML string (for use in JSON-LD, meta tags, etc.).
- * Drop-in replacement for prismicH.asHTML.
  */
 export function toHtml(field: unknown): string {
   if (!field) return "";
