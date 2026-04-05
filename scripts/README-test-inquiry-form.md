@@ -31,6 +31,7 @@ npm run test:inquiry-form
 ## GitHub Actions
 
 The workflow (`.github/workflows/test-inquiry-form.yml`) uses pnpm (same as Vercel) and runs automatically on:
+
 - Push to `main` or `develop`
 - Pull requests to `main` or `develop`
 - Manual trigger via `workflow_dispatch`

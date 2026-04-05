@@ -5,7 +5,7 @@ import { isValidEmail, validateValueWithRule } from "./inquire-validation";
 
 test("isValidEmail accepts valid email formats", () => {
   const validEmails = [
-    "camposgris@icloud.com",
+    "alex@example.com",
     "user.name+tag@example.co",
     "person@sub.domain.org",
     "  trimmed@example.com  ",
@@ -19,9 +19,9 @@ test("isValidEmail accepts valid email formats", () => {
 test("isValidEmail rejects invalid email formats", () => {
   const invalidEmails = [
     "",
-    "camposgris@icloud,com",
-    "camposgris@icloud",
-    "campos gris@icloud.com",
+    "alex@example,com",
+    "alex@example",
+    "alex sample@example.com",
     "missing-at-sign.example.com",
   ];
 
@@ -36,8 +36,27 @@ test("validateValueWithRule handles regex validation", () => {
     value: "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$",
   };
 
-  assert.equal(validateValueWithRule("camposgris@icloud.com", regexRule), true);
-  assert.equal(validateValueWithRule("camposgris@icloud,com", regexRule), false);
+  assert.equal(validateValueWithRule("alex@example.com", regexRule), true);
+  assert.equal(validateValueWithRule("alex@example,com", regexRule), false);
+});
+
+test("validateValueWithRule rejects unknown regex patterns", () => {
+  const unsupportedRegexRule = {
+    rule: "regex",
+    value: "^(a+)+$",
+  };
+
+  assert.equal(validateValueWithRule("aaaaaa", unsupportedRegexRule), false);
+});
+
+test("validateValueWithRule handles long input for allowlisted regex", () => {
+  const minLengthRule = {
+    rule: "regex",
+    value: "^[\\s\\S]{3,}$",
+  };
+  const longInput = "A".repeat(10000);
+
+  assert.equal(validateValueWithRule(longInput, minLengthRule), true);
 });
 
 test("validateValueWithRule handles min_value validation", () => {
@@ -75,11 +94,11 @@ test("form.json email validation rejects comma domains", () => {
   assert.ok(emailQuestion.validations, "Email question should have validations");
 
   assert.equal(
-    validateValueWithRule("camposgris@icloud,com", emailQuestion.validations),
+    validateValueWithRule("alex@example,com", emailQuestion.validations),
     false
   );
   assert.equal(
-    validateValueWithRule("camposgris@icloud.com", emailQuestion.validations),
+    validateValueWithRule("alex@example.com", emailQuestion.validations),
     true
   );
 });
@@ -94,6 +113,38 @@ test("form schema validation rules stay within supported set", () => {
       assert.ok(
         supportedRules.has(rule),
         `Unsupported rule "${rule}" on question "${question.question_key}"`
+      );
+    });
+  });
+});
+
+test("form schema regex patterns stay within supported allowlist", () => {
+  const supportedRegexValues = new Set([
+    "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$",
+    "^\\d{3}-\\d{3}-\\d{4}$",
+    "^.{1,}$",
+    "^.{2,}$",
+    "^[\\s\\S]{3,}$",
+    "^.{0,500}$",
+  ]);
+
+  const formPages = getFormData();
+
+  formPages.forEach((page) => {
+    page.questions.forEach((question) => {
+      const validations = question.validations;
+      if (validations?.rule !== "regex") {
+        return;
+      }
+
+      assert.equal(
+        typeof validations.value,
+        "string",
+        `Regex validation should be a string on question "${question.question_key}"`
+      );
+      assert.ok(
+        supportedRegexValues.has(String(validations.value)),
+        `Unsupported regex value "${validations.value}" on question "${question.question_key}"`
       );
     });
   });

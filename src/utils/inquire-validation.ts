@@ -5,6 +5,20 @@ export type ValidationRule = {
 };
 
 const EMAIL_REGEX = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+const PHONE_REGEX = /^\d{3}-\d{3}-\d{4}$/;
+const MIN_LENGTH_1_REGEX = /^.{1,}$/;
+const MIN_LENGTH_2_REGEX = /^.{2,}$/;
+const MIN_LENGTH_3_ANY_CHAR_REGEX = /^[\s\S]{3,}$/;
+const MAX_LENGTH_500_REGEX = /^.{0,500}$/;
+
+const SAFE_REGEX_PATTERNS: Record<string, RegExp> = {
+  "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$": EMAIL_REGEX,
+  "^\\d{3}-\\d{3}-\\d{4}$": PHONE_REGEX,
+  "^.{1,}$": MIN_LENGTH_1_REGEX,
+  "^.{2,}$": MIN_LENGTH_2_REGEX,
+  "^[\\s\\S]{3,}$": MIN_LENGTH_3_ANY_CHAR_REGEX,
+  "^.{0,500}$": MAX_LENGTH_500_REGEX,
+};
 
 export const isValidEmail = (email: string): boolean => {
   return EMAIL_REGEX.test(email.trim());
@@ -20,7 +34,15 @@ export const validateValueWithRule = (
 
   switch (rule) {
     case "regex": {
-      const regexPattern = new RegExp(String(validationValue));
+      if (typeof validationValue !== "string") {
+        return false;
+      }
+
+      const regexPattern = SAFE_REGEX_PATTERNS[validationValue];
+      if (!regexPattern) {
+        return false;
+      }
+
       return regexPattern.test(String(value));
     }
     case "min_value": {

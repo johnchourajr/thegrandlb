@@ -6,18 +6,18 @@
  */
 
 const BASE_URL = process.env.TEST_BASE_URL || "http://localhost:3000";
-const TEST_EMAIL = "ci-test@thegrandlb.com";
+const TEST_EMAIL = "ci-test@example.com";
 
 const testFormData = {
-  full_name: "CI Test User",
+  full_name: "Sample Test User",
   email: TEST_EMAIL,
   phone: "555-555-5555",
-  event_name: "CI Test Event",
-  event_type: "Birthday Party",
+  event_name: "Sample Event",
+  event_type: "Private Event",
   head_count: 50,
   desired_date: "2025-12-31",
   desired_time: "6pm",
-  desired_space: "Grand Ballroom",
+  desired_space: "Sample Venue",
   additional_details: "This is an automated CI test submission",
 };
 
@@ -35,7 +35,9 @@ async function waitForServer(url: string, maxRetries = 30, delayMs = 2000) {
       await new Promise((resolve) => setTimeout(resolve, delayMs));
     }
   }
-  throw new Error(`Server at ${url} did not become available after ${maxRetries} attempts`);
+  throw new Error(
+    `Server at ${url} did not become available after ${maxRetries} attempts`
+  );
 }
 
 async function testInquiryForm() {
@@ -75,7 +77,10 @@ async function testInquiryForm() {
     }
 
     const dbResult = await dbResponse.json();
-    if (dbResult.message !== "Data inserted successfully" && !dbResult.testMode) {
+    if (
+      dbResult.message !== "Data inserted successfully" &&
+      !dbResult.testMode
+    ) {
       throw new Error(`Unexpected response: ${JSON.stringify(dbResult)}`);
     }
 
@@ -146,7 +151,10 @@ async function testInquiryForm() {
     }
 
     // Trigger error notification if we can
-    if (process.env.NEXT_RESEND_API_KEY && process.env.CI_ERROR_NOTIFICATION_EMAIL) {
+    if (
+      process.env.NEXT_RESEND_API_KEY &&
+      process.env.CI_ERROR_NOTIFICATION_EMAIL
+    ) {
       try {
         console.log("\nSending error notification...");
         const { Resend } = await import("resend");
@@ -159,7 +167,8 @@ async function testInquiryForm() {
         resendAny.request.defaults.baseURL = "https://api.resend.com";
 
         await resend.emails.send({
-          from: process.env.NEXT_PUBLIC_RESEND_FROM_EMAIL || "hello@thegrandlb.com",
+          from:
+            process.env.NEXT_PUBLIC_RESEND_FROM_EMAIL || "hello@thegrandlb.com",
           to: process.env.CI_ERROR_NOTIFICATION_EMAIL,
           subject: "[CI] Inquiry form test failed",
           html: `
@@ -167,11 +176,27 @@ async function testInquiryForm() {
             <p>The inquiry form CI test failed.</p>
             <h3>Failed Tests:</h3>
             <ul>
-              ${!addToDbSuccess ? `<li>add-to-database: ${addToDbError?.message || "Unknown error"}</li>` : ""}
-              ${!sendEmailSuccess ? `<li>send-client-email: ${sendEmailError?.message || "Unknown error"}</li>` : ""}
+              ${
+                !addToDbSuccess
+                  ? `<li>add-to-database: ${
+                      addToDbError?.message || "Unknown error"
+                    }</li>`
+                  : ""
+              }
+              ${
+                !sendEmailSuccess
+                  ? `<li>send-client-email: ${
+                      sendEmailError?.message || "Unknown error"
+                    }</li>`
+                  : ""
+              }
             </ul>
-            <p><strong>Commit:</strong> ${process.env.GITHUB_SHA || "unknown"}</p>
-            <p><strong>Workflow:</strong> ${process.env.GITHUB_WORKFLOW || "unknown"}</p>
+            <p><strong>Commit:</strong> ${
+              process.env.GITHUB_SHA || "unknown"
+            }</p>
+            <p><strong>Workflow:</strong> ${
+              process.env.GITHUB_WORKFLOW || "unknown"
+            }</p>
           `,
         });
         console.log("   ✓ Error notification sent");
