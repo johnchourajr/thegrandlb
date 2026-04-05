@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 type Spacer = "None" | "Small" | "Medium" | "Large" | null;
 
 interface GridSectionProps {
-  gridSectionRef?: React.RefObject<HTMLDivElement> | null;
+  gridSectionRef?: React.RefObject<HTMLDivElement | null> | null;
   children: React.ReactNode;
   gridSectionType?: "grid" | "flex";
   as?: "section" | "div" | "footer";

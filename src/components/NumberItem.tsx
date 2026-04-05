@@ -52,7 +52,7 @@ export const NumberItem: React.FC<NumberItemProps> = ({
         delay,
         staggerChildren: 0.2,
         duration: 2,
-        ease: [0.19, 1, 0.22, 1],
+        ease: [0.19, 1, 0.22, 1] as const,
       },
     },
   };
@@ -64,7 +64,7 @@ export const NumberItem: React.FC<NumberItemProps> = ({
       y: 0,
       transition: {
         duration: 1,
-        ease: [0.19, 1, 0.22, 1],
+        ease: [0.19, 1, 0.22, 1] as const,
       },
     },
   };

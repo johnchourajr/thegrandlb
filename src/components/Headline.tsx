@@ -41,7 +41,7 @@ const wrapEachLetterInSpan = (word: string, index: number) => {
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 1, ease: [0.19, 1, 0.22, 1] },
+      transition: { duration: 1, ease: [0.19, 1, 0.22, 1] as const },
     },
   };
   const letters = word.toString().split("");
@@ -65,7 +65,7 @@ const wrapEachWordInSpan = (word: string, index: number) => {
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 2, ease: [0.19, 1, 0.22, 1] },
+      transition: { duration: 2, ease: [0.19, 1, 0.22, 1] as const },
     },
   };
 
@@ -241,7 +241,7 @@ function Headline({
         staggerChildren: staggerChildren(),
         delayChildren: delayChildren(),
         duration: duration || 2,
-        ease: [0.19, 1, 0.22, 1],
+        ease: [0.19, 1, 0.22, 1] as const,
       },
     },
   } as Variants;

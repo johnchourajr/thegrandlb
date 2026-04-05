@@ -19,7 +19,7 @@ export type SplitGalleryProps = SliceComponentProps<
 >;
 
 const SplitGallery = ({ slice }: SplitGalleryProps): JSX.Element => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],

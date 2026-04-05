@@ -45,7 +45,7 @@ export default function Header({ navigation }: HeaderProps) {
       backgroundColor: "inherit",
       color: "unset",
       y: 0,
-      transition: { duration: 1, ease: [0.19, 1, 0.22, 1], delay: 0 },
+      transition: { duration: 1, ease: [0.19, 1, 0.22, 1] as const, delay: 0 },
     },
     scrolled: {
       "--navTop": "-1rem",
@@ -57,7 +57,7 @@ export default function Header({ navigation }: HeaderProps) {
       backgroundColor: "inherit",
       color: "unset",
       y: 0,
-      transition: { duration: 1, ease: [0.19, 1, 0.22, 1] },
+      transition: { duration: 1, ease: [0.19, 1, 0.22, 1] as const },
     },
     modal: {
       "--navTop": "-2rem",

@@ -37,7 +37,7 @@ const LayoutHead = ({ settings, page, headContent }: any) => {
         page?.data?.title || page?.data?.page_title
       )} | `;
 
-  const metaTitle = `${"" || showTitle}${siteTitle}`;
+  const metaTitle = `${showTitle}${siteTitle}`;
 
   const siteDesc = prismicH.asText(settings?.data?.site_description);
   const pageDesc = page?.data?.meta_description;

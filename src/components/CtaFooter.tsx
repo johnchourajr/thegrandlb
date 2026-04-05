@@ -48,7 +48,7 @@ const CtaFooterHeadlineItem = ({
 
 const CtaFooter = ({ data }: CtaFooterProps) => {
   // Always call hooks first
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "-20%"],
