@@ -24,7 +24,7 @@ import {
   getNumberForRowStart,
 } from "./utils";
 
-const MotionComp = motion(ForwardedPrismicLink, {
+const MotionComp = motion.create(ForwardedPrismicLink, {
   forwardMotionProps: true,
 }) as any;
 

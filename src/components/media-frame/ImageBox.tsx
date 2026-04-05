@@ -1,4 +1,3 @@
-import { PrismicNextImage, PrismicNextImageProps } from "@prismicio/next";
 import clsx from "clsx";
 import Image from "next/image";
 import { cloudflareImageLoader, isCfImageUrl } from "@/lib/image-cdn";
@@ -15,11 +14,13 @@ type ImageBoxProps = {
   id?: string;
   media: MediaFrameProps["media"] | CdnImageField;
   priority?: boolean;
-  imgixParams?: PrismicNextImageProps["imgixParams"];
+  /** Kept for API compatibility — ignored; all images are served via first-party CDN */
+  imgixParams?: Record<string, string | number>;
   className?: string;
   customAlt?: string;
   decorative?: boolean;
-} & Omit<PrismicNextImageProps, "field" | "priority">;
+  sizes?: string;
+};
 
 const RESPONSIVE_SIZES =
   "(min-width: 1440px) 1440px, (min-width: 1080px) 1080px, (min-width: 640px) 640px, 100vw";
@@ -37,54 +38,50 @@ const ImageBox = ({
   id,
   media,
   priority,
-  imgixParams,
+  imgixParams: _ignored,
   className,
   customAlt,
   decorative,
-  ...rest
+  sizes = RESPONSIVE_SIZES,
 }: ImageBoxProps) => {
   const loading = priority ? "eager" : "lazy";
 
   if (isCdnImageField(media)) {
+    const isSvg = media.url.endsWith(".svg");
     return (
       <Image
         id={id}
         src={media.url}
         alt={decorative ? "" : (customAlt ?? media.alt ?? "")}
-        loader={cloudflareImageLoader}
+        {...(isSvg
+          ? { unoptimized: true }
+          : { loader: cloudflareImageLoader, sizes })}
         width={media.width ?? 1920}
         height={media.height ?? 1080}
         priority={priority}
         loading={loading}
-        sizes={RESPONSIVE_SIZES}
         className={clsx(className)}
       />
     );
   }
 
-  const hasCustomAlt = customAlt ? { alt: customAlt } : undefined;
-  const field = media
-    ? ({ ...media, hasCustomAlt } as PrismicNextImageProps["field"])
-    : undefined;
+  // Fallback for any media with a URL that isn't a first-party CDN field
+  const m = media as Record<string, unknown> | null | undefined;
+  const url = typeof m?.url === "string" ? m.url : null;
+  if (!url) return null;
 
   return (
-    <PrismicNextImage
+    <Image
       id={id}
-      field={field}
-      className={clsx(className)}
+      src={url}
+      alt={decorative ? "" : (customAlt ?? (typeof m?.alt === "string" ? m.alt : ""))}
+      unoptimized
+      width={typeof m?.width === "number" ? m.width : 1920}
+      height={typeof m?.height === "number" ? m.height : 1080}
       priority={priority}
       loading={loading}
-      sizes={RESPONSIVE_SIZES}
-      imgixParams={{
-        q: 75,
-        fm: "webp",
-        auto: ["compress", "format"],
-        fit: "max",
-        ...imgixParams,
-      }}
-      alt={decorative ? "" : undefined}
-      fallbackAlt={""}
-      {...rest}
+      sizes={sizes}
+      className={clsx(className)}
     />
   );
 };

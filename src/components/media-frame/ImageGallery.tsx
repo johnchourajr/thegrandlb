@@ -1,7 +1,6 @@
 "use client";
 
 import { handleEvent } from "@/utils/events";
-import type { PrismicNextImageProps } from "@prismicio/next";
 import clsx from "clsx";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import React, { useEffect, useState } from "react";
@@ -32,7 +31,7 @@ interface ImageGalleryProps {
   delayStart?: number;
   outerControls?: boolean;
   controlPosition?: "Bottom Right" | "Top Right" | "Bottom Left" | "Top Left";
-  imgixParams?: PrismicNextImageProps["imgixParams"];
+  imgixParams?: Record<string, string | number>;
   overlay?: boolean;
 }
 
