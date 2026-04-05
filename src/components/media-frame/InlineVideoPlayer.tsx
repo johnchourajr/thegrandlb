@@ -4,7 +4,6 @@
 import { shouldAutoPlayVideo } from "@/utils/bandwidth-optimization";
 import clsx from "clsx";
 import { useInView, useReducedMotion } from "framer-motion";
-import Image from "next/image";
 import React, { useEffect, useState, VideoHTMLAttributes } from "react";
 import ParallaxWrapper from "../ParallaxWrapper";
 import LazyVideo from "./LazyVideo";
@@ -101,11 +100,13 @@ const InlineVideoPlayer = ({
     };
   }, [isInView, effectiveAutoplay]);
 
-  const getVideoProgress = (): {
-    progress: number;
-    currentTime: number;
-    duration: number;
-  } | 0 => {
+  const getVideoProgress = ():
+    | {
+        progress: number;
+        currentTime: number;
+        duration: number;
+      }
+    | 0 => {
     const video = ref?.current;
     if (video) {
       const { currentTime, duration } = video;
@@ -185,13 +186,11 @@ const InlineVideoPlayer = ({
           />
           {posterUrl && (
             <div className={"absolute inset-0 z-0 h-full w-full"}>
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 className={clsx("h-full w-full object-cover", videoClassName)}
                 src={posterUrl}
-                width={`480`}
-                height={`270`}
-                priority={priority || false}
-                quality={50}
+                loading={priority ? "eager" : "lazy"}
                 alt=""
               />
             </div>

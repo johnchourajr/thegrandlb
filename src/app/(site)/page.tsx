@@ -1,41 +1,16 @@
-/**
- * Components
- */
 import Layout from "@components/Layout";
-
-/**
- * Services
- */
 import { getExtra } from "@/services/get-extra";
-import fetchLinks from "@/utils/fetchLinks";
-import { createClient } from "@/prismicio";
-
-/**
- * Slices
- */
-import {
-  DynamicCtaFooter,
-  DynamicSliceZone,
-} from "@/components/DynamicExports";
-
-/**
- * Types
- */
+import { DynamicCtaFooter, DynamicSliceZone } from "@/components/DynamicExports";
+import { homePage } from "./content";
 
 export const revalidate = false;
 
-/**
- * @name Homepage
- */
 export default async function Homepage() {
-  const { cta, page, settings, navigation } = await getPageData();
-  const {
-    data: { slices },
-  } = page;
+  const { cta, settings, navigation } = await getExtra({});
 
   return (
-    <Layout page={page} settings={settings} navigation={navigation}>
-      <DynamicSliceZone slices={slices} />
+    <Layout page={homePage} settings={settings} navigation={navigation}>
+      <DynamicSliceZone slices={homePage.data.slices} />
       <DynamicCtaFooter data={cta} />
     </Layout>
   );
@@ -55,21 +30,5 @@ export async function generateMetadata() {
       description:
         "SoCal's premier 40,000 sq ft event venue. Host weddings, corporate events and private celebrations in Long Beach. 20 minutes from LAX.",
     },
-  };
-}
-
-async function getPageData() {
-  const client = createClient();
-  const extra = await getExtra({});
-
-  const [page] = await Promise.all([
-    client.getByUID("page", "home", {
-      fetchLinks,
-    }),
-  ]);
-
-  return {
-    page,
-    ...extra,
   };
 }

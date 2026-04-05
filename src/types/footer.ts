@@ -1,18 +1,10 @@
-import type { Content } from "@prismicio/client";
+import type { SharedDoc } from "content/types";
 import { MotionValue } from "framer-motion";
 
-/**
- * Footer Component Types
- *
- * Type definitions for footer and CTA footer components.
- */
-
-// CTA Footer component props
 export interface CtaFooterProps {
-  data?: Content.FragmentCtaFooterDocument | null;
+  data?: SharedDoc | null;
 }
 
-// CTA Footer headline item props
 export interface CtaFooterHeadlineItemProps {
   word: string;
   index: number;
@@ -21,17 +13,15 @@ export interface CtaFooterHeadlineItemProps {
   media?: any;
 }
 
-// Navigation link item props
 export interface NavLinkItemProps {
   stringTextSize?: "default" | "small" | "large";
-  link_source: Content.NavLinksDocument["data"]["slices"][number]["primary"]["link_source"];
+  link_source: unknown;
   link_title: string;
   className?: string;
   [key: string]: unknown;
 }
 
-// Main footer props
 export interface FooterProps {
-  settings?: Content.SettingsDocument;
-  navigation?: Content.NavLinksDocument;
+  settings?: SharedDoc;
+  navigation?: SharedDoc | null;
 }

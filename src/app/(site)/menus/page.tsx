@@ -1,39 +1,24 @@
-import {
-  DynamicCtaFooter,
-  DynamicSliceZone,
-} from "@/components/DynamicExports";
+import { DynamicCtaFooter, DynamicSliceZone } from "@/components/DynamicExports";
 import HeroCategoryPage from "@/components/HeroCategoryPage";
 import Layout from "@/components/Layout";
 import { getExtra } from "@/services/get-extra";
-import fetchLinks from "@/utils/fetchLinks";
-import { createClient } from "@/prismicio";
+import { menuIndexPage } from "./content";
 
-export const revalidate = 3600;
+export const revalidate = false;
 
 export default async function Page() {
-  const client = createClient();
-  const extra = await getExtra({});
-
-  const [page] = await Promise.all([
-    client.getByUID("page", "menus", {
-      fetchLinks,
-    }),
-  ]);
-
-  const { settings, navigation, cta } = extra;
-  const { data } = page;
-  const { slices, title, gallery, media } = data;
-  const video_url = (data as { video_url?: string }).video_url;
+  const { settings, navigation, cta } = await getExtra({});
+  const { slices, title, gallery, media, video_url } = menuIndexPage.data;
 
   return (
-    <Layout page={page} settings={settings} navigation={navigation} hidePageUid>
+    <Layout page={menuIndexPage} settings={settings} navigation={navigation} hidePageUid>
       <HeroCategoryPage
         headline={title}
         gallery={gallery}
         video_url={video_url}
         media={media}
       />
-      <DynamicSliceZone slices={page.data.slices} />
+      <DynamicSliceZone slices={slices} />
       <DynamicCtaFooter data={cta} />
     </Layout>
   );

@@ -22,7 +22,7 @@ export type ClientLayoutProps = {
   fontStack: string;
   hideHeader?: boolean;
   /** When provided (from layout server fetch), Header shows nav on first paint and client getExtra is skipped. */
-  initialNavigation?: Content.NavLinksDocument | null;
+  initialNavigation?: import("content/types").SharedDoc | null;
 };
 
 function ClientLayoutContent({
@@ -32,7 +32,7 @@ function ClientLayoutContent({
   initialNavigation,
 }: ClientLayoutProps) {
   const { modalOverlay } = useModalContext();
-  const [navigation, setNavigation] = useState<Content.NavLinksDocument | null>(
+  const [navigation, setNavigation] = useState<import("content/types").SharedDoc | null>(
     initialNavigation ?? null
   );
 

@@ -5,7 +5,7 @@ import StringText from "@/components/StringText";
 import { handleEvent } from "@/utils/events";
 import { isEmptyObject } from "@/utils/utils";
 import * as prismicH from "@prismicio/helpers";
-import { PrismicNextImage } from "@prismicio/next";
+import ImageBox from "@/components/media-frame/ImageBox";
 import { PrismicLink, PrismicRichText } from "@prismicio/react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
@@ -82,10 +82,10 @@ export const NumberItem: React.FC<NumberItemProps> = ({
     >
       {hasMedia && (
         <motion.div variants={item}>
-          <PrismicNextImage
-            field={media}
-            className=" h-[4.375rem] w-[4.375rem]"
-            fallbackAlt={""}
+          <ImageBox
+            media={media}
+            className="h-[4.375rem] w-[4.375rem]"
+            decorative
           />
         </motion.div>
       )}
