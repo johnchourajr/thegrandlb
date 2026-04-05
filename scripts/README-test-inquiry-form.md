@@ -11,7 +11,7 @@ This test validates that the inquiry form submission flow works correctly after 
 
 - **TEST_MODE**: When `TEST_MODE=true` is set, both endpoints skip actual database inserts and email sends
 - **Validation**: The endpoints still validate data structure, required fields, and email template rendering
-- **Test email**: Uses `ci-test@example.com` (configurable via `TEST_EMAIL` env var)
+- **Test email**: Uses `ci-test@thegrandlb.com` (configurable via `TEST_EMAIL` env var)
 - **Failure notification**: If tests fail, an error notification email is sent to the address configured in `CI_ERROR_NOTIFICATION_EMAIL`
 
 ## Running locally
@@ -31,6 +31,7 @@ npm run test:inquiry-form
 ## GitHub Actions
 
 The workflow (`.github/workflows/test-inquiry-form.yml`) uses pnpm (same as Vercel) and runs automatically on:
+
 - Push to `main` or `develop`
 - Pull requests to `main` or `develop`
 - Manual trigger via `workflow_dispatch`

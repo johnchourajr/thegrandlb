@@ -15,7 +15,7 @@ const replyEmailsRaw = (process.env.NEXT_PUBLIC_RESEND_REPLY_EMAILS ?? "")
   .split(",")
   .map((s) => s.trim())
   .filter(Boolean);
-const defaultReplyTo = replyEmailsRaw[0] ?? "reply@example.com";
+const defaultReplyTo = replyEmailsRaw[0] ?? "dan@grandfandb.com";
 const isNotProduction = process.env.NODE_ENV !== "production";
 const testText = isNotProduction ? `TEST: ` : "";
 
@@ -91,19 +91,18 @@ export async function POST(request: NextRequest) {
     const { email = "", formState = {} } = body || {};
     const sanitizedEmail = typeof email === "string" ? email.trim() : "";
     if (!isValidEmail(sanitizedEmail)) {
-      return new Response(
-        JSON.stringify({ error: "Invalid email address" }),
-        {
-          status: 400,
-          headers: { "Content-Type": "application/json" },
-        }
-      );
+      return new Response(JSON.stringify({ error: "Invalid email address" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      });
     }
 
     // TEST_MODE: Skip actual email send but validate email structure
     const isTestMode = process.env.TEST_MODE === "true";
     if (isTestMode) {
-      console.log("[TEST_MODE] Skipping email send, validating email structure");
+      console.log(
+        "[TEST_MODE] Skipping email send, validating email structure"
+      );
       // Validate email templates can be rendered
       try {
         ClientEmail(formState);

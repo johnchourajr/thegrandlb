@@ -36,9 +36,9 @@ jobs:
       - name: Build Next.js app
         run: pnpm run build
         env:
-          NEXT_PUBLIC_RESEND_FROM_EMAIL: ${{ secrets.NEXT_PUBLIC_RESEND_FROM_EMAIL || 'test@example.com' }}
-          NEXT_PUBLIC_RESEND_SALES_EMAIL: ${{ secrets.NEXT_PUBLIC_RESEND_SALES_EMAIL || 'test@example.com' }}
-          NEXT_PUBLIC_RESEND_REPLY_EMAILS: ${{ secrets.NEXT_PUBLIC_RESEND_REPLY_EMAILS || 'test@example.com' }}
+          NEXT_PUBLIC_RESEND_FROM_EMAIL: ${{ secrets.NEXT_PUBLIC_RESEND_FROM_EMAIL || 'test@thegrandlb.com' }}
+          NEXT_PUBLIC_RESEND_SALES_EMAIL: ${{ secrets.NEXT_PUBLIC_RESEND_SALES_EMAIL || 'test@thegrandlb.com' }}
+          NEXT_PUBLIC_RESEND_REPLY_EMAILS: ${{ secrets.NEXT_PUBLIC_RESEND_REPLY_EMAILS || 'test@thegrandlb.com' }}
           NEXT_RESEND_API_KEY: ${{ secrets.NEXT_RESEND_API_KEY || 're_test_key' }}
           NEXT_DATABASE_URL: ${{ secrets.NEXT_DATABASE_URL || 'postgresql://test:test@localhost:5432/test' }}
           NEXT_PUBLIC_DATABASE_TABLE: ${{ secrets.NEXT_PUBLIC_DATABASE_TABLE || 'glb_submissions' }}
@@ -50,9 +50,9 @@ jobs:
           echo $! > server.pid
         env:
           PORT: 3000
-          NEXT_PUBLIC_RESEND_FROM_EMAIL: ${{ secrets.NEXT_PUBLIC_RESEND_FROM_EMAIL || 'test@example.com' }}
-          NEXT_PUBLIC_RESEND_SALES_EMAIL: ${{ secrets.NEXT_PUBLIC_RESEND_SALES_EMAIL || 'test@example.com' }}
-          NEXT_PUBLIC_RESEND_REPLY_EMAILS: ${{ secrets.NEXT_PUBLIC_RESEND_REPLY_EMAILS || 'test@example.com' }}
+          NEXT_PUBLIC_RESEND_FROM_EMAIL: ${{ secrets.NEXT_PUBLIC_RESEND_FROM_EMAIL || 'test@thegrandlb.com' }}
+          NEXT_PUBLIC_RESEND_SALES_EMAIL: ${{ secrets.NEXT_PUBLIC_RESEND_SALES_EMAIL || 'test@thegrandlb.com' }}
+          NEXT_PUBLIC_RESEND_REPLY_EMAILS: ${{ secrets.NEXT_PUBLIC_RESEND_REPLY_EMAILS || 'test@thegrandlb.com' }}
           NEXT_RESEND_API_KEY: ${{ secrets.NEXT_RESEND_API_KEY || 're_test_key' }}
           NEXT_DATABASE_URL: ${{ secrets.NEXT_DATABASE_URL || 'postgresql://test:test@localhost:5432/test' }}
           NEXT_PUBLIC_DATABASE_TABLE: ${{ secrets.NEXT_PUBLIC_DATABASE_TABLE || 'glb_submissions' }}
@@ -77,7 +77,7 @@ jobs:
           TEST_BASE_URL: "http://localhost:3000"
           TEST_MODE: "true"
           NEXT_RESEND_API_KEY: ${{ secrets.NEXT_RESEND_API_KEY }}
-          NEXT_PUBLIC_RESEND_FROM_EMAIL: ${{ secrets.NEXT_PUBLIC_RESEND_FROM_EMAIL || 'test@example.com' }}
+          NEXT_PUBLIC_RESEND_FROM_EMAIL: ${{ secrets.NEXT_PUBLIC_RESEND_FROM_EMAIL || 'test@thegrandlb.com' }}
           CI_ERROR_NOTIFICATION_EMAIL: ${{ secrets.CI_ERROR_NOTIFICATION_EMAIL }}
           GITHUB_SHA: ${{ github.sha }}
           GITHUB_WORKFLOW: ${{ github.workflow }}

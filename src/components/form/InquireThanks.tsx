@@ -13,7 +13,7 @@ export type HandleFormFunction = (
   validations: any
 ) => void;
 
-//?event_name=Team%20Gathering&event_type=business&desired_date=2026-06-10&desired_time=6pm&head_count=80&desired_space=board-room&full_name=Sample%20Contact&email=sample.user%40example.com&phone=555-555-5555&additional_details=Automated%20sample%20submission
+//?event_name=John%27s%20Birthday&event_type=birthday_party&desired_date=2024-11-17&desired_time=9pm&head_count=100&desired_space=board-room&full_name=John%20Choura&email=hi%40john.design&phone=555-555-5555&additional_details=This%20is%20a%20test%20inquiry%20from%20the%20website
 
 export default function InquireThanks() {
   return (

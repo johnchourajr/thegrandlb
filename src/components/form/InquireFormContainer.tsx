@@ -32,7 +32,11 @@ export type HandleFormFunction = (
   validations: any
 ) => void;
 
-//?event_name=Sample%20Event&event_type=party&desired_date=2024-11-17&desired_time=9pm&head_count=100&desired_space=board-room&full_name=Sample%20Person&email=sample.person%40example.com&phone=555-555-5555&additional_details=This%20is%20a%20sample%20inquiry%20for%20local%20testing
+//?event_name=John%27s%20Birthday&event_type=birthday_party&desired_date=2024-11-17&desired_time=9pm&head_count=100&desired_space=board-room&full_name=John%20Choura&email=hi%40john.design&phone=555-555-5555&additional_details=This%20is%20a%20test%20inquiry%20from%20the%20website
+
+//?event_name=TEST%20John%27s%20Birthday&event_type=birthday_party&desired_date=2024-11-17&desired_time=9pm&head_count=100&desired_space=board-room&full_name=TEST%20John%20Choura&email=hi%40john.design&phone=555-555-5555&additional_details=This%20is%20a%20test%20inquiry%20from%20the%20website
+
+//?event_name=TEST%20John%27s%20Birthday&event_type=birthday_party&desired_date=2024-11-17&desired_time=9pm&head_count=100&desired_space=board-room&full_name=TEST%20John%20Choura&email=hi%40john.design&phone=555-555-5555
 
 export function InquireFormContainer() {
   const router = useRouter();
