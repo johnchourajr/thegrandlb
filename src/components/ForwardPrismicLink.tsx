@@ -1,18 +1,9 @@
-import { PrismicLink } from "@prismicio/react";
 import React from "react";
+import AppLink, { type AppLinkProps } from "./AppLink";
 
-type PrismicLinkProps = React.ComponentProps<typeof PrismicLink>;
-
-const ForwardedPrismicLink = React.forwardRef<
-  HTMLAnchorElement,
-  PrismicLinkProps
->((props, ref) => {
-  // Only pass ref if it's a valid ref object
-  if (ref && typeof ref === "object" && "current" in ref) {
-    return <PrismicLink ref={ref} {...props} />;
-  }
-  return <PrismicLink {...props} />;
-});
+const ForwardedPrismicLink = React.forwardRef<HTMLAnchorElement, AppLinkProps>(
+  (props, ref) => <AppLink ref={ref} {...props} />
+);
 
 ForwardedPrismicLink.displayName = "ForwardedPrismicLink";
 

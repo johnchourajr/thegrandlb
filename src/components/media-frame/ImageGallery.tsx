@@ -10,19 +10,16 @@ import GalleryControls from "./GalleryControls";
 import ImageBox from "./ImageBox";
 
 export type ImageItem = {
-  caption: string;
-  link: {
+  caption?: string | null;
+  link?: {
     link_type: string;
-  };
+  } | null;
   video_url?: string | null;
-  media: {
-    dimensions: {
-      width: number;
-      height: number;
-    };
-    alt: string;
-    url: string;
-  };
+  media?: {
+    dimensions?: { width: number; height: number } | null;
+    alt?: string | null;
+    url?: string | null;
+  } | null;
 };
 
 interface ImageGalleryProps {

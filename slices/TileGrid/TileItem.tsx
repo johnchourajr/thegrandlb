@@ -52,8 +52,6 @@ export const TileItem = ({
   section_id,
   ...rest
 }: TileItemProps) => {
-  if (!link) return null;
-
   const hasCardFragment = card_fragment?.data ? true : false;
   if (hasCardFragment && card_fragment) {
     col_span = getSelectValue(card_fragment.data.col_span) || col_span;
@@ -69,6 +67,9 @@ export const TileItem = ({
     eyebrow = getKeyText(card_fragment.data.eyebrow) || eyebrow;
     body = getKeyText(card_fragment.data.body) || body;
   }
+
+  // Guard: skip tiles with no usable link (empty object, missing link_type, etc.)
+  if (!link || typeof link !== "object" || !("link_type" in link)) return null;
 
   const getStyles = (): TileStyleProps => {
     switch (theme) {

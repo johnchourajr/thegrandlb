@@ -1,47 +1,46 @@
-import * as prismicH from "@prismicio/helpers";
+import { toText } from "./rich-text";
 
 /**
- * Prismic Helper Utilities
+ * Helper Utilities
  *
- * Helper functions for extracting values from Prismic fields safely.
+ * Helper functions for extracting values from content fields safely.
  */
 
 /**
- * Safely extracts text value from Prismic KeyTextField
+ * Safely extracts text value from a key/text field.
  */
 export const getKeyText = (field: any): string | undefined => {
   return field || undefined;
 };
 
 /**
- * Safely extracts select value from Prismic SelectField
+ * Safely extracts select value from a select field.
  */
 export const getSelectValue = <T extends string>(field: any): T | undefined => {
   return field || undefined;
 };
 
 /**
- * Safely extracts rich text as plain string from Prismic RichTextField
+ * Safely extracts rich text as plain string.
  */
 export const getRichTextAsString = (field: any): string => {
-  if (!field) return "";
-  try {
-    return prismicH.asText(field) || "";
-  } catch {
-    return "";
-  }
+  return toText(field);
 };
 
 /**
- * Safely extracts image field from Prismic ImageField
+ * Safely extracts image field — returns undefined if no url present.
  */
 export const getImageField = (field: any) => {
-  return field && !prismicH.isFilled.image(field) ? undefined : field;
+  if (!field || typeof field !== "object") return undefined;
+  if ("url" in field && field.url) return field;
+  return undefined;
 };
 
 /**
- * Safely extracts link field from Prismic LinkField
+ * Safely extracts link field — returns undefined if no link_type present.
  */
 export const getLinkField = (field: any) => {
-  return field && !prismicH.isFilled.link(field) ? undefined : field;
+  if (!field || typeof field !== "object") return undefined;
+  if ("link_type" in field) return field;
+  return undefined;
 };

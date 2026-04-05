@@ -1,11 +1,11 @@
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { handleEvent } from "@/utils/events";
-import { PrismicLink } from "@prismicio/react";
+import AppLink from "./AppLink";
+import { linkResolver } from "@/prismicio";
 import clsx from "clsx";
 import { motion, useAnimation } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { linkResolver } from "@/prismicio";
 import { NavItem } from "./NavItem";
 import StringText from "./StringText";
 
@@ -61,7 +61,7 @@ export const NavParentItem = ({
     onHoverEnd: handleHoverEnd,
   };
 
-  const CategoryAction: any = isMobile && hasChildren ? "button" : PrismicLink;
+  const CategoryAction: any = isMobile && hasChildren ? "button" : AppLink;
 
   const categoryActionProps = () => {
     if (isMobile && hasChildren) {
@@ -70,7 +70,6 @@ export const NavParentItem = ({
       };
     } else {
       return {
-        linkResolver,
         field: link_source,
         onClick: () =>
           handleEvent({

@@ -4,9 +4,10 @@ import Text from "@/components/Paragraph";
 import StringText from "@/components/StringText";
 import { handleEvent } from "@/utils/events";
 import { isEmptyObject } from "@/utils/utils";
-import * as prismicH from "@prismicio/helpers";
+import { toText } from "@/utils/rich-text";
 import ImageBox from "@/components/media-frame/ImageBox";
-import { PrismicLink, PrismicRichText } from "@prismicio/react";
+import AppLink from "@/components/AppLink";
+import { RichText } from "@/components/RichText";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 
@@ -33,10 +34,8 @@ export const NumberItem: React.FC<NumberItemProps> = ({
   delay = 0,
   ...rest
 }) => {
-  // console.log({ action_text, action_link });
-
-  const numberAsString = prismicH.asText(number);
-  const bodyAsString = prismicH.asText(body) || "";
+  const numberAsString = toText(number);
+  const bodyAsString = toText(body);
 
   const bodyLong = bodyAsString?.length > 100;
   const hasMedia = isEmptyObject(media) ? false : true;
@@ -68,8 +67,6 @@ export const NumberItem: React.FC<NumberItemProps> = ({
       },
     },
   };
-
-  // console.log({ media });
 
   return (
     <MotionBox
@@ -117,37 +114,41 @@ export const NumberItem: React.FC<NumberItemProps> = ({
           variants={item}
           className={clsx(bodyLong ? "max-w-[24em]" : "max-w-[18em]")}
         >
-          <PrismicRichText
-            field={body}
-            components={{
-              paragraph: ({ children }) => (
-                <Text
-                  as="span"
-                  className={clsx(bodyLong ? "max-w-[24em]" : "max-w-[18em]")}
-                >
-                  {children}
-                </Text>
-              ),
-              hyperlink: ({ text, node: { data } }) => {
-                return (
-                  <PrismicLink
+          {!Array.isArray(body) ? (
+            <Text as="span" className={clsx(bodyLong ? "max-w-[24em]" : "max-w-[18em]")}>
+              {bodyAsString}
+            </Text>
+          ) : (
+            <RichText
+              field={body}
+              components={{
+                paragraph: ({ children }) => (
+                  <Text
+                    as="span"
+                    className={clsx(bodyLong ? "max-w-[24em]" : "max-w-[18em]")}
+                  >
+                    {children}
+                  </Text>
+                ),
+                hyperlink: ({ text, node: { data } }) => (
+                  <AppLink
                     field={data as any}
                     onClick={() => {
                       handleEvent({
                         action: "click",
                         category: `rich_text_link`,
                         label: `text_url`,
-                        value: `${text}: ${data?.url}`,
+                        value: `${text}: ${(data as any)?.url}`,
                       });
                     }}
                     className="hover:underline"
                   >
                     {text}
-                  </PrismicLink>
-                );
-              },
-            }}
-          />
+                  </AppLink>
+                ),
+              }}
+            />
+          )}
         </motion.div>
       )}
     </MotionBox>

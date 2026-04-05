@@ -1,5 +1,5 @@
 import type { MenuItemProps } from "@/types/menu";
-import { PrismicRichText } from "@prismicio/react";
+import { RichText } from "@/components/RichText";
 import clsx from "clsx";
 import MotionBox from "../MotionBox";
 import Text from "../Paragraph";
@@ -23,7 +23,7 @@ export function MenuItem({ data }: MenuItemProps) {
     >
       <div className="relative flex max-w-[60%] flex-col gap-4">
         {data.title && (
-          <PrismicRichText
+          <RichText
             field={data.title}
             components={{
               heading4: ({ children }) => (
@@ -35,7 +35,7 @@ export function MenuItem({ data }: MenuItemProps) {
           />
         )}
         {data.description && (
-          <PrismicRichText
+          <RichText
             field={data.description}
             components={{
               paragraph: ({ children, key }) => (

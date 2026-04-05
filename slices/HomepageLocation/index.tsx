@@ -5,26 +5,19 @@ import MotionBox from "@/components/MotionBox";
 import { NumberItem } from "@/components/NumberItem";
 import Text from "@/components/Paragraph";
 import StringText from "@/components/StringText";
-import { Content } from "@prismicio/client";
-import * as prismicH from "@prismicio/helpers";
-import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import type { SliceComponentProps } from "@/types/slices";
+import type { HomepageLocationSlice } from "../slice-types";
+import { RichText } from "@/components/RichText";
 import clsx from "clsx";
 import { TileItem } from "slices/TileGrid/TileItem";
 
-/**
- * Props for `HomepageLocation`.
- */
-export type HomepageLocationProps = SliceComponentProps<
-  Content.HomepageLocationSlice | any
->;
-
-const HomepageLocation = ({ slice }: HomepageLocationProps): JSX.Element => {
+const HomepageLocation = ({
+  slice,
+}: SliceComponentProps<HomepageLocationSlice>): JSX.Element => {
   const {
     section_id,
-    gallery,
     video_url,
     media,
-    caption,
     title,
     description,
     top_spacer,
@@ -34,9 +27,9 @@ const HomepageLocation = ({ slice }: HomepageLocationProps): JSX.Element => {
     action_text,
     action_link,
     bullet_list,
-  } = slice.primary;
+  } = slice;
 
-  const bullet_list_data = (bullet_list as any)?.data?.bullet_list;
+  const bullet_list_data = bullet_list?.data?.bullet_list;
 
   return (
     <>
@@ -50,12 +43,12 @@ const HomepageLocation = ({ slice }: HomepageLocationProps): JSX.Element => {
         </MotionBox>
         <MotionBox className="col-span-full pt-10 pb-0 lg:col-span-5 lg:col-start-2 lg:pb-20">
           <Headline size={"xl"} className={"max-w-[7em]"} animateOnce>
-            {prismicH.asText(title)}
+            {title}
           </Headline>
         </MotionBox>
         <MotionBox className="col-span-full pb-12 lg:col-span-5 lg:col-start-auto lg:mt-4 lg:pt-16">
           <Text paragraph className="max-w-[35em]">
-            {prismicH.asText(description)}
+            {description}
           </Text>
         </MotionBox>
       </GridSection>
@@ -77,15 +70,15 @@ const HomepageLocation = ({ slice }: HomepageLocationProps): JSX.Element => {
               {address_label}
             </StringText>
           )}
-          {prismicH.asText(address) && (
-            <PrismicRichText
+          {address && address.length > 0 && (
+            <RichText
               field={address}
               components={{
                 paragraph: ({ children }) => (
                   <Text
                     size="large"
                     paragraph
-                    className="max-w-[35em] whitespace-normal "
+                    className="max-w-[35em] whitespace-normal"
                   >
                     {children}
                   </Text>
@@ -99,9 +92,7 @@ const HomepageLocation = ({ slice }: HomepageLocationProps): JSX.Element => {
             link={action_link}
             headline={action_text}
             theme={"Outlined"}
-            className={
-              "3lg:!h-56 relative z-10 col-span-full mt-[-2px] mb-[-2px] !h-[12vw] !border-red lg:col-span-7 lg:col-start-auto "
-            }
+            className="3lg:!h-56 relative z-10 col-span-full mt-[-2px] mb-[-2px] !h-[12vw] !border-red lg:col-span-7 lg:col-start-auto"
           />
         )}
       </GridSection>
@@ -114,22 +105,17 @@ const HomepageLocation = ({ slice }: HomepageLocationProps): JSX.Element => {
         {bullet_list_data && (
           <MotionBox className="col-span-full flex flex-col items-center justify-evenly gap-10 lg:col-span-8 lg:col-start-3 lg:flex-row lg:gap-6">
             {bullet_list_data.map(
-              (
-                { media, number, eyebrow, body, action_text, action_link }: any,
-                i: number
-              ) => {
-                return (
-                  <NumberItem
-                    key={i}
-                    media={media}
-                    number={number}
-                    eyebrow={eyebrow}
-                    body={body}
-                    action_text={action_text}
-                    action_link={action_link}
-                  />
-                );
-              }
+              ({ media, number, eyebrow, body, action_text, action_link }, i) => (
+                <NumberItem
+                  key={i}
+                  media={media}
+                  number={number}
+                  eyebrow={eyebrow}
+                  body={body}
+                  action_text={action_text}
+                  action_link={action_link}
+                />
+              )
             )}
           </MotionBox>
         )}

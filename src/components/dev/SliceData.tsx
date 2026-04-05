@@ -16,9 +16,9 @@ const SliceData = ({ slice, hidden }: SliceDataProps) => {
         )}
       >
         <pre>
-          {slice.slice_type ? (
+          {slice.type ? (
             <>
-              slice_type: <strong>{slice.slice_type}</strong>
+              type: <strong>{slice.type}</strong>
             </>
           ) : (
             "data"

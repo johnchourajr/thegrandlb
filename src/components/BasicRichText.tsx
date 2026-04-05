@@ -1,11 +1,11 @@
 import { handleEvent } from "@/utils/events";
 import Headline from "@components/Headline";
 import Text from "@components/Paragraph";
-import { PrismicNextImage } from "@prismicio/next";
-import { PrismicLink, PrismicRichText } from "@prismicio/react";
+import AppLink from "./AppLink";
+import { RichText } from "./RichText";
 
 export const BasicRichText = ({ field, paragraphSize = "default" }: any) => (
-  <PrismicRichText
+  <RichText
     field={field}
     components={{
       heading1: ({ children, key }) => (
@@ -79,46 +79,24 @@ export const BasicRichText = ({ field, paragraphSize = "default" }: any) => (
           {children}
         </ol>
       ),
-      image: ({ children, key, node, ...rest }) => {
-        return (
-          <div className={"relative w-full"}>
-            <PrismicNextImage
-              field={node as any}
-              fill
-              className="relative w-full"
-              key={key}
-            />
-          </div>
-        );
-      },
-      embed: ({ node, key }) => (
-        <div
-          key={key}
-          data-oembed={node.oembed.embed_url}
-          data-oembed-type={node.oembed.type}
-          data-oembed-provider={node.oembed.provider_name}
-          dangerouslySetInnerHTML={{ __html: node.oembed.html ?? "" }}
-        />
+      hyperlink: ({ text, node: { data } }) => (
+        <AppLink
+          field={data as any}
+          onClick={() => {
+            handleEvent({
+              action: "click",
+              category: `rich_text_link`,
+              label: `text_url`,
+              value: `${text}: ${(data as any)?.url}`,
+            });
+          }}
+          className="hover:underline"
+        >
+          {text}
+        </AppLink>
       ),
-      hyperlink: ({ text, node: { data } }) => {
-        return (
-          <PrismicLink
-            field={data as any}
-            onClick={() => {
-              handleEvent({
-                action: "click",
-                category: `rich_text_link`,
-                label: `text_url`,
-                value: `${text}: ${data?.url}`,
-              });
-            }}
-          >
-            {text}
-          </PrismicLink>
-        );
-      },
       label: ({ node, children, key }) => (
-        <span key={key} className={node.data.label}>
+        <span key={key} className={(node.data as any)?.label}>
           {children}
         </span>
       ),

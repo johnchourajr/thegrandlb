@@ -3,10 +3,9 @@
 import useTouchDevice from "@/hooks/useTouchDevice";
 import { handleEvent } from "@/utils/events";
 import { clampBuilder } from "@/utils/utils";
-import { PrismicLink } from "@prismicio/react";
+import AppLink from "@/components/AppLink";
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import { linkResolver } from "@/prismicio";
 import { useEffect, useState } from "react";
 import {
   getNumberForColSpan,
@@ -82,9 +81,8 @@ export const GridIndexItem = ({
       variants={item}
       {...hoverProps()}
     >
-      <PrismicLink
+      <AppLink
         href={`/${parentUid}/${uid}`}
-        linkResolver={linkResolver}
         className="absolute inset-0 z-20"
         onClick={() =>
           handleEvent({

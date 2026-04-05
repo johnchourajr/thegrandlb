@@ -10,12 +10,12 @@ export interface ClientSliceZoneProps {
   context?: PageDoc;
 }
 
-export type SliceComponentProps<T = unknown> = {
+export type SliceComponentProps<T = Slice> = {
   slice: T;
   context?: PageDoc;
 };
 
 export interface SliceDataProps {
-  slice?: { slice_type?: string; [key: string]: unknown };
+  slice?: { type?: string; [key: string]: unknown };
   hidden?: boolean;
 }

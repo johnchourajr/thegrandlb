@@ -1,4 +1,4 @@
-import * as prismicH from "@prismicio/helpers";
+import { toText } from "@/utils/rich-text";
 import Head from "next/head";
 
 function stringOneHasWordsSimilarToTwo(str1: string, str2: string) {
@@ -23,13 +23,9 @@ function removeEscapedCharacters(str: string) {
 }
 const LayoutHead = ({ settings, page, headContent }: any) => {
   if (!settings) return null;
-  // console.log({ settings, page, headContent });
-  const siteTitle = prismicH.asText(settings?.data?.site_title) || "";
+  const siteTitle = toText(settings?.data?.site_title) || "";
   const pageTitle = page?.data?.title || page?.data?.meta_title;
-  // const dontShowTitle = pageTitle !== siteTitle;
-  // pageTitle does not contain content from siteTitle
-  const dontShowTitle = // pagetitle does not contain content from siteTitle
-    stringOneHasWordsSimilarToTwo(pageTitle, siteTitle);
+  const dontShowTitle = stringOneHasWordsSimilarToTwo(pageTitle, siteTitle);
 
   const showTitle = dontShowTitle
     ? ``
@@ -39,7 +35,7 @@ const LayoutHead = ({ settings, page, headContent }: any) => {
 
   const metaTitle = `${showTitle}${siteTitle}`;
 
-  const siteDesc = prismicH.asText(settings?.data?.site_description);
+  const siteDesc = toText(settings?.data?.site_description);
   const pageDesc = page?.data?.meta_description;
   const desc = pageDesc ? pageDesc : siteDesc;
 

@@ -1,5 +1,4 @@
 import * as prismic from "@prismicio/client";
-import * as prismicH from "@prismicio/helpers";
 import * as prismicNext from "@prismicio/next";
 import config from "../slicemachine.config.json";
 
@@ -31,7 +30,7 @@ const routes: prismic.ClientConfig["routes"] = [
 /**
  * Link Resolver: determines the URL for a given Prismic document.
  */
-export const linkResolver: prismicH.LinkResolverFunction = (doc) => {
+export const linkResolver = (doc: { uid?: string | null; type?: string; [key: string]: unknown }): string => {
   if (doc.uid === "home") {
     return "/";
   }

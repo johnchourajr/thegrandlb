@@ -1,21 +1,24 @@
 import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
 import Text from "@/components/Paragraph";
-import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import type { SliceComponentProps } from "@/types/slices";
+import type { TileGridSlice } from "../slice-types";
 import clsx from "clsx";
 import { TileItem } from "./TileItem";
 import type { TileItemProps } from "./types";
 
-/**
- * Props for `TileGrid`.
- */
-export type TileGridProps = SliceComponentProps<Content.TileGridSlice | any>;
-
-const TileGrid = ({ slice }: TileGridProps): JSX.Element => {
-  const { items = [], primary } = slice as any;
-  const { section_id, headline, theme, body, top_spacer, bottom_spacer } =
-    primary ?? {};
+const TileGrid = ({
+  slice,
+}: SliceComponentProps<TileGridSlice>): JSX.Element => {
+  const {
+    section_id,
+    headline,
+    theme,
+    body,
+    top_spacer,
+    bottom_spacer,
+    items = [],
+  } = slice;
 
   const getTheme = () => {
     switch (theme) {
@@ -42,16 +45,14 @@ const TileGrid = ({ slice }: TileGridProps): JSX.Element => {
         {headline && (
           <GridSection id="" as="div" topSpacer="None" bottomSpacer="None">
             <div className={"col-span-full lg:col-start-2"}>
-              {headline && (
-                <Headline
-                  as="h2"
-                  size="lg"
-                  className="max-w-[10em]"
-                  animateOnce={true}
-                >
-                  {headline}
-                </Headline>
-              )}
+              <Headline
+                as="h2"
+                size="lg"
+                className="max-w-[10em]"
+                animateOnce={true}
+              >
+                {headline}
+              </Headline>
               {body && <Text>{body}</Text>}
             </div>
           </GridSection>
@@ -63,9 +64,13 @@ const TileGrid = ({ slice }: TileGridProps): JSX.Element => {
           topSpacer="Small"
           bottomSpacer="None"
         >
-          {items.map((item: TileItemProps, index: number) => {
-            return <TileItem key={index} section_id={section_id} {...item} />;
-          })}
+          {items.map((item, index) => (
+            <TileItem
+              key={index}
+              section_id={section_id ?? undefined}
+              {...(item as TileItemProps)}
+            />
+          ))}
         </GridSection>
       </GridSection>
     </>

@@ -3,8 +3,8 @@
 import { BasicRichText } from "@/components/BasicRichText";
 import Headline from "@/components/Headline";
 import MotionBox from "@/components/MotionBox";
-import * as prismicH from "@prismicio/helpers";
-import { PrismicRichText } from "@prismicio/react";
+import { RichText } from "@/components/RichText";
+import { toText } from "@/utils/rich-text";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -27,8 +27,8 @@ export const FaqItem = ({ question, answer, open }: any) => {
         )}
         onClick={toggleOpen}
       >
-        {prismicH.asText(question) && (
-          <PrismicRichText
+        {toText(question) && (
+          <RichText
             field={question}
             components={{
               paragraph: ({ children }) => (
@@ -81,7 +81,7 @@ export const FaqItem = ({ question, answer, open }: any) => {
         transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
         className="relative max-w-[90%] overflow-hidden will-change-transform"
       >
-        {prismicH.asText(answer) && (
+        {toText(answer) && (
           <div className="mb-2 mt-4 whitespace-pre-wrap leading-[2] last:mb-0 ">
             <BasicRichText field={answer} paragraphSize="large" />
           </div>

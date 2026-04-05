@@ -3,8 +3,8 @@
 import type { MenuSectionProps } from "@/types/menu";
 import { ensureArray, safeMap } from "@/utils/safe-array";
 import { convertToSlug } from "@/utils/utils";
-import * as prismicH from "@prismicio/helpers";
-import { PrismicRichText } from "@prismicio/react";
+import { toText } from "@/utils/rich-text";
+import { RichText } from "@/components/RichText";
 import clsx from "clsx";
 import Headline from "../Headline";
 import MotionBox from "../MotionBox";
@@ -71,7 +71,7 @@ export function MenuSection({ uid, group }: MenuSectionProps) {
             </a>
             <div className="-mt-16 flex flex-col gap-8 ">
               {section.page_description && (
-                <PrismicRichText
+                <RichText
                   field={section.page_description}
                   components={{
                     paragraph: ({ children, key }) => (
@@ -83,7 +83,7 @@ export function MenuSection({ uid, group }: MenuSectionProps) {
                 />
               )}
               {section.page_disclaimer && (
-                <PrismicRichText
+                <RichText
                   field={section.page_disclaimer}
                   components={{
                     paragraph: ({ children, key }) => (
@@ -96,7 +96,7 @@ export function MenuSection({ uid, group }: MenuSectionProps) {
               )}
             </div>
             {safeMap(section.body, ({ items, primary }, groupIndex: number) => {
-              const prim_title = prismicH.asText(primary.title);
+              const prim_title = toText(primary.title);
               const prim_desc = primary.description;
 
               return (
@@ -139,7 +139,7 @@ export function MenuSection({ uid, group }: MenuSectionProps) {
                       </a>
                     )}
                     {prim_desc && (
-                      <PrismicRichText
+                      <RichText
                         field={prim_desc}
                         components={{
                           paragraph: ({ children, key }) => (
@@ -156,9 +156,9 @@ export function MenuSection({ uid, group }: MenuSectionProps) {
                       safeMap(items, (item, itemIndex: number) => (
                         <MenuItem key={itemIndex} data={item} />
                       ))}
-                    {prismicH.asText(primary.caption) && (
+                    {toText(primary.caption) && (
                       <div className="item-caption">
-                        <PrismicRichText field={primary.caption} />
+                        <RichText field={primary.caption} />
                       </div>
                     )}
                   </div>

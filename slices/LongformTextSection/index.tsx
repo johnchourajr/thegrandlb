@@ -1,22 +1,12 @@
 import { GridSection } from "@/components/GridSection";
-import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import type { SliceComponentProps } from "@/types/slices";
+import type { LongformTextSectionSlice } from "../slice-types";
 import clsx from "clsx";
 import { LongformRichText } from "./LongformRichText";
 
-/**
- * Props for `LongformTextSection`.
- */
-export type LongformTextSectionProps = SliceComponentProps<
-  Content.LongformTextSectionSlice | any
->;
-
-/**
- * Component for "LongformTextSection" Slices.
- */
 const LongformTextSection = ({
   slice,
-}: LongformTextSectionProps): JSX.Element => {
+}: SliceComponentProps<LongformTextSectionSlice>): JSX.Element => {
   const {
     section_id,
     text,
@@ -24,12 +14,12 @@ const LongformTextSection = ({
     top_spacer,
     bottom_border = true,
     bottom_spacer,
-  } = slice.primary;
+  } = slice;
 
   return (
     <>
       <GridSection
-        id={section_id || slice.id}
+        id={section_id || slice.type}
         bottomSpacer={bottom_spacer || null}
         topSpacer={top_spacer || null}
         className={clsx("!gap-y-10 lg:!gap-y-24")}

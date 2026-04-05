@@ -1,8 +1,6 @@
 import { ReactNode } from "react";
 
 import { MotionConfig, MotionConfigProps } from "framer-motion";
-import Link from "next/link";
-import { PrismicProvider } from "@prismicio/react";
 
 export type SuperProviderProps = {
   children: ReactNode;
@@ -16,11 +14,7 @@ export const SuperProvider = ({ children }: SuperProviderProps) => {
     },
     reducedMotion: "user",
   } as MotionConfigProps;
-  return (
-    <PrismicProvider internalLinkComponent={(props) => <Link {...props} />}>
-      <MotionConfig {...motionConfig}>{children}</MotionConfig>
-    </PrismicProvider>
-  );
+  return <MotionConfig {...motionConfig}>{children}</MotionConfig>;
 };
 
 export default SuperProvider;
