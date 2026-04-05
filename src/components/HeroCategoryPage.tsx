@@ -92,7 +92,7 @@ const HeroCategoryPage = ({
   body,
   icon_media,
 }: any) => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["-30%", "end start"],

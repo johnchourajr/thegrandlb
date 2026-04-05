@@ -30,7 +30,22 @@
       "Bash(node -e \"const c = require\\('./next.config.js'\\); console.log\\(JSON.stringify\\(c.images.remotePatterns, null, 2\\)\\)\")",
       "Bash(grep -v \"^$\")",
       "Bash(pnpm add:*)",
-      "Bash(pnpm install:*)"
+      "Bash(pnpm install:*)",
+      "Bash(pnpm outdated:*)",
+      "Bash(ls /Users/johnchoura/Dropbox/Sites/thegrandlb/.eslint* /Users/johnchoura/Dropbox/Sites/thegrandlb/.prettier*)",
+      "Bash(node -e \"console.log\\(require\\('/Users/johnchoura/Dropbox/Sites/thegrandlb/node_modules/framer-motion/package.json'\\).version\\)\")",
+      "Bash(node -e \"console.log\\(require\\('/Users/johnchoura/Dropbox/Sites/thegrandlb/node_modules/@next/third-parties/package.json'\\).version\\)\")",
+      "Bash(node -e \"const pkg = require\\('/Users/johnchoura/Dropbox/Sites/thegrandlb/node_modules/eslint-config-next/package.json'\\); console.log\\(Object.keys\\(pkg.exports || {}\\).join\\('\\\\n'\\)\\)\")",
+      "Bash(ls /Users/johnchoura/Dropbox/Sites/thegrandlb/node_modules/.pnpm/eslint-config-next@16.2.2*/node_modules/eslint-config-next/)",
+      "Bash(ls /Users/johnchoura/Dropbox/Sites/thegrandlb/node_modules/.pnpm/eslint-config-next@16.2.2*/node_modules/eslint-config-next/dist/)",
+      "Bash(head -20 /Users/johnchoura/Dropbox/Sites/thegrandlb/node_modules/.pnpm/eslint-config-next@16.2.2*/node_modules/eslint-config-next/dist/index.js)",
+      "Bash(head -5 /Users/johnchoura/Dropbox/Sites/thegrandlb/node_modules/.pnpm/eslint-config-next@16.2.2*/node_modules/eslint-config-next/dist/core-web-vitals.js)",
+      "Bash(node -e \"const c = require\\('/Users/johnchoura/Dropbox/Sites/thegrandlb/node_modules/.pnpm/eslint-config-next@16.2.2_eslint@10.2.0_typescript@6.0.2/node_modules/eslint-config-next/dist/core-web-vitals.js'\\); console.log\\(typeof c, Array.isArray\\(c\\)\\)\")",
+      "Bash(node -e \"const c = require\\('eslint-config-next/core-web-vitals'\\); console.log\\(typeof c, Array.isArray\\(c\\), c && c.length\\)\")",
+      "Bash(pnpm type-check:*)",
+      "Bash(ls /Users/johnchoura/Dropbox/Sites/thegrandlb/node_modules/.pnpm/framer-motion@12.38.0*/node_modules/framer-motion/dist/*.d.ts)",
+      "Bash(grep -rn \"type Easing\\\\b\\\\|BezierDefinition\" /Users/johnchoura/Dropbox/Sites/thegrandlb/node_modules/.pnpm/motion-utils*/node_modules/motion-utils/dist/*.d.ts)",
+      "Bash(grep -rn \"react/experimental\" /Users/johnchoura/Dropbox/Sites/thegrandlb/node_modules/.pnpm/next@16.2.2*/node_modules/next/)"
     ]
   }
 }

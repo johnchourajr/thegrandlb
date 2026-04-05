@@ -12,7 +12,7 @@ const container = {
     transition: {
       staggerChildren: 0.1,
       duration: 1.5,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as const,
     },
   },
 };

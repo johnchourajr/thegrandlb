@@ -7,9 +7,7 @@ import {
   VideoHTMLAttributes,
 } from "react";
 
-type LazyLoadVideoProps = {
-  src: string;
-} & VideoHTMLAttributes<HTMLVideoElement>;
+type LazyLoadVideoProps = VideoHTMLAttributes<HTMLVideoElement>;
 
 const LazyVideo = forwardRef<HTMLVideoElement, LazyLoadVideoProps>(
   ({ src, ...rest }, ref) => {
@@ -24,7 +22,7 @@ const LazyVideo = forwardRef<HTMLVideoElement, LazyLoadVideoProps>(
     });
 
     useEffect(() => {
-      if (inView && videoRef.current) {
+      if (inView && videoRef.current && typeof src === "string") {
         videoRef.current.src = src;
         videoRef.current.load();
         console.log("video loaded, in view", src, videoRef.current.clientTop);
