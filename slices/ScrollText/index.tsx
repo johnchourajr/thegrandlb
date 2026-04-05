@@ -3,47 +3,43 @@ import { GridSection } from "@/components/GridSection";
 import Headline from "@/components/Headline";
 import Tick from "@/components/TickerContainer";
 import { stringToUnderscore } from "@/utils/utils";
-import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import type { SliceComponentProps } from "@/types/slices";
+import type { ScrollTextSlice } from "../slice-types";
 import clsx from "clsx";
 
-/**
- * Props for `ScrollText`.
- */
-export type ScrollTextProps = SliceComponentProps<
-  Content.ScrollTextSlice | any
->;
+const ScrollText = ({
+  slice,
+  context,
+}: SliceComponentProps<ScrollTextSlice>): JSX.Element => {
+  const {
+    section_id,
+    top_title,
+    line_one,
+    line_two,
+    bottom_title,
+    top_spacer,
+    bottom_spacer,
+    primary_action,
+    primary_action_link,
+  } = slice;
 
-const ScrollText = ({ slice, context }: ScrollTextProps): JSX.Element => {
+  const uid = (context as any)?.uid;
+
   const makeAriaLabel = () => {
-    let ariaLabel = "";
-    if (slice.primary.top_title) {
-      ariaLabel += `${slice.primary.top_title} `;
-    }
-    if (slice.primary.line_one) {
-      ariaLabel += `${slice.primary.line_one} `;
-    }
-    if (slice.primary.line_two) {
-      ariaLabel += `${slice.primary.line_two} `;
-    }
-    if (slice.primary.bottom_title) {
-      ariaLabel += `${slice.primary.bottom_title}`;
-    }
-    return ariaLabel;
+    const parts = [top_title, line_one, line_two, bottom_title].filter(Boolean);
+    return parts.join(" ");
   };
-
-  const { uid }: any = context;
 
   return (
     <>
       <GridSection
-        id={slice.primary.section_id}
+        id={section_id}
         aria-label={makeAriaLabel()}
         className={clsx("!gap-0")}
-        bottomSpacer={slice.primary.bottom_spacer}
-        topSpacer={slice.primary.top_spacer}
+        bottomSpacer={bottom_spacer}
+        topSpacer={top_spacer}
       >
-        {slice.primary.top_title && (
+        {top_title && (
           <div
             className={`col-span-full text-center md:col-span-10 md:col-start-2 md:text-left`}
           >
@@ -55,11 +51,11 @@ const ScrollText = ({ slice, context }: ScrollTextProps): JSX.Element => {
               uppercase
               animateOnce
             >
-              {slice.primary.top_title}
+              {top_title}
             </Headline>
           </div>
         )}
-        {slice.primary.line_one && (
+        {line_one && (
           <Tick toLeft={false} className={clsx("col-span-full")} animateOnce>
             <Headline
               as="span"
@@ -69,11 +65,11 @@ const ScrollText = ({ slice, context }: ScrollTextProps): JSX.Element => {
               emphasis
               aria-hidden={true}
             >
-              {slice.primary.line_one}{" "}
+              {line_one}{" "}
             </Headline>
           </Tick>
         )}
-        {slice.primary.line_two && (
+        {line_two && (
           <Tick toLeft={true} className={clsx("col-span-full")} animateOnce>
             <Headline
               as="span"
@@ -83,22 +79,20 @@ const ScrollText = ({ slice, context }: ScrollTextProps): JSX.Element => {
               emphasis
               aria-hidden={true}
             >
-              {slice.primary.line_two}{" "}
+              {line_two}{" "}
             </Headline>
           </Tick>
         )}
-        {slice.primary.bottom_title && (
+        {bottom_title && (
           <div
             className={`col-span-full flex flex-col-reverse gap-3 text-center md:col-span-10 md:col-start-2 md:flex-row md:items-center md:justify-between md:gap-0 md:text-end`}
           >
-            {slice.primary.primary_action_link && (
+            {primary_action_link && (
               <Button
-                field={slice.primary.primary_action_link}
-                text={slice.primary.primary_action}
+                field={primary_action_link}
+                text={primary_action}
                 eventCategory={stringToUnderscore(`${uid} Scroll Text Action`)}
-                eventLabel={stringToUnderscore(
-                  `${slice.primary.section_id} Primary CTA`
-                )}
+                eventLabel={stringToUnderscore(`${section_id} Primary CTA`)}
                 type={"outline-black"}
                 size={"default"}
               />
@@ -111,7 +105,7 @@ const ScrollText = ({ slice, context }: ScrollTextProps): JSX.Element => {
               uppercase
               animateOnce
             >
-              {slice.primary.bottom_title}
+              {bottom_title}
             </Headline>
           </div>
         )}

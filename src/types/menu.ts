@@ -1,48 +1,46 @@
-import type { Content } from "@prismicio/client";
-import type * as prismicT from "@prismicio/types";
+import type { RtBlock } from "content/types";
 
 // Menu item data structure (used in MenuItem component)
 export type MenuItemData = {
-  title: prismicT.RichTextField;
-  description: prismicT.RichTextField;
+  title: RtBlock[];
+  description: RtBlock[];
   price_per: string;
   price_min: number;
   price_max: number;
 };
 
-// Menu section body structure (from external Prismic repo)
+// Menu section body structure (from external menu repo)
 export type MenuSectionBody = {
   items?: MenuItemData[];
   primary: {
-    title: prismicT.RichTextField;
-    description: prismicT.RichTextField;
-    caption: prismicT.RichTextField;
+    title: RtBlock[];
+    description: RtBlock[];
+    caption: RtBlock[];
   };
 };
 
 // Menu link data structure (represents a menu section from external repo)
 export type ExternalMenuLinkData = {
   page_title?: string;
-  page_description: prismicT.RichTextField;
-  page_disclaimer: prismicT.RichTextField;
+  page_description: RtBlock[];
+  page_disclaimer: RtBlock[];
   body: MenuSectionBody[];
 };
 
-// External menu group item structure (from external Prismic repo)
-// Based on console output, the group items have menu_link with data containing the section info
+// External menu group item structure (from external menu repo)
 export type ExternalMenuGroupItem = {
   menu_link: {
     data: ExternalMenuLinkData;
   };
 };
 
-// Legacy menu group item structure (for internal fallback)
+// Internal menu group item structure (for internal fallback)
 export type InternalMenuGroupItem = {
   menu_link: {
     data: {
       page_title?: string;
-      page_description: prismicT.RichTextField;
-      page_disclaimer: prismicT.RichTextField;
+      page_description: RtBlock[] | string;
+      page_disclaimer: RtBlock[] | string;
       body: MenuSectionBody[];
     };
   };
@@ -74,18 +72,22 @@ export type MenuCollectionDocument = {
   };
 };
 
-// Internal menu page document with group data (fallback)
-export type InternalMenuPageDocument = Content.MenuPageDocument & {
-  data: Content.MenuPageDocument["data"] & {
-    group?: InternalMenuGroupItem[];
+// Internal menu page document (first-party)
+export type InternalMenuPageDocument = {
+  uid: string;
+  type?: "menu_page";
+  data: {
+    title?: string;
     page_title?: string;
-    page_description?: string | prismicT.RichTextField;
-    page_disclaimer?: string | prismicT.RichTextField;
+    page_description?: string | RtBlock[];
+    page_disclaimer?: string | RtBlock[];
+    group?: InternalMenuGroupItem[];
+    menu_api_uid?: string;
+    [key: string]: unknown;
   };
 };
 
 // Extended menu page document that includes the group field
-// This can be either the external MenuCollectionDocument or internal MenuPageDocument
 export type MenuPageDocumentWithGroup =
   | MenuCollectionDocument
   | InternalMenuPageDocument;
@@ -116,18 +118,17 @@ export type MenuItemProps = {
 export function isMenuCollectionDocument(
   page: MenuPageDocumentWithGroup
 ): page is MenuCollectionDocument {
-  return page.type === "menu_collection";
+  return (page as MenuCollectionDocument).type === "menu_collection";
 }
 
 export function isInternalMenuPageDocument(
   page: MenuPageDocumentWithGroup
 ): page is InternalMenuPageDocument {
-  return page.type === "menu_page";
+  return (page as InternalMenuPageDocument).type === "menu_page";
 }
 
 export function isExternalMenuGroupItem(
   item: MenuGroupItem
 ): item is ExternalMenuGroupItem {
-  // External items come from menu collections which have string fields
   return typeof item.menu_link?.data?.page_title === "string";
 }

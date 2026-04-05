@@ -4,7 +4,7 @@ import clsx from "clsx";
 import type { MotionProps } from "framer-motion";
 import { motion } from "framer-motion";
 
-type Spacer = "None" | "Small" | "Medium" | "Large" | null;
+type Spacer = string | null;
 
 interface GridSectionProps {
   gridSectionRef?: React.RefObject<HTMLDivElement | null> | null;
@@ -13,8 +13,8 @@ interface GridSectionProps {
   as?: "section" | "div" | "footer";
   id: string | null | undefined;
   className?: string;
-  topSpacer: Spacer;
-  bottomSpacer: Spacer;
+  topSpacer?: Spacer;
+  bottomSpacer?: Spacer;
   overflowHidden?: boolean;
 }
 

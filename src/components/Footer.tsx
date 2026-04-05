@@ -2,11 +2,11 @@
 
 import { handleEvent } from "@/utils/events";
 import { stringToUnderscore } from "@/utils/utils";
-import * as prismicH from "@prismicio/helpers";
-import { PrismicLink, PrismicRichText } from "@prismicio/react";
+import { toText } from "@/utils/rich-text";
+import AppLink from "./AppLink";
+import { RichText } from "./RichText";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
-import { linkResolver } from "@/prismicio";
 import type { FooterProps } from "../types/footer";
 import { ensureArray, safeMap } from "../utils/safe-array";
 import Button from "./Button";
@@ -30,15 +30,14 @@ const NavLinkItem = ({
   extra?: any;
 }): JSX.Element => {
   return (
-    <PrismicLink
-      linkResolver={linkResolver}
+    <AppLink
       field={link_source}
       className={clsx("group relative z-10", className)}
       onClick={() =>
         handleEvent({
           category: `footer_item`,
           label: link_title,
-          value: link_source.uid,
+          value: link_source?.uid,
         })
       }
     >
@@ -52,7 +51,7 @@ const NavLinkItem = ({
       >
         {link_title}
       </StringText>
-    </PrismicLink>
+    </AppLink>
   );
 };
 
@@ -73,9 +72,6 @@ const FooterUpper = ({
         "flex flex-col items-center justify-evenly text-center lg:flex-row lg:items-start lg:text-start",
         "gap-y-2 border-y-2 border-white",
         "padding-top-md padding-bottom-md",
-        /**
-         * PRINT STYLES
-         */
         "print:hidden"
       )}
     >
@@ -143,9 +139,8 @@ const FooterUpper = ({
           />
         )}
         {address && (
-          <PrismicRichText
+          <RichText
             field={address}
-            linkResolver={linkResolver}
             components={{
               paragraph: ({ children }) => (
                 <Text className="my-2 underline">{children}</Text>
@@ -154,9 +149,8 @@ const FooterUpper = ({
           />
         )}
         {phone_number && (
-          <PrismicRichText
+          <RichText
             field={phone_number}
-            linkResolver={linkResolver}
             components={{
               paragraph: ({ children }) => (
                 <Text className="my-1 underline">{children}</Text>
@@ -177,14 +171,11 @@ const FooterMiddle = ({ tag_line }: { tag_line: any }): JSX.Element | null => {
         "flex flex-row items-start justify-evenly text-center",
         "border-b-2 border-white",
         "padding-top-md padding-bottom-md",
-        /**
-         * PRINT STYLES
-         */
         "print:items-end print:border-none"
       )}
     >
       <Headline size={"xl"} disableMotion uppercase>
-        {prismicH.asText(tag_line)}
+        {toText(tag_line)}
       </Headline>
     </div>
   );
@@ -211,9 +202,6 @@ const FooterLower = ({
       <div
         className={clsx(
           "relative order-1 mb-4 flex h-full w-full items-center justify-center text-center lg:order-[unset] lg:mb-0",
-          /**
-           * PRINT STYLES
-           */
           "print:h-[unset]"
         )}
       >
@@ -223,18 +211,13 @@ const FooterLower = ({
       </div>
       <div className="order-2 mb-4 w-full lg:order-[unset] lg:text-end">
         {legal_text && (
-          <PrismicRichText
+          <RichText
             field={legal_text}
-            linkResolver={linkResolver}
             components={{
               hyperlink: ({ text, node: { data } }) => (
-                <PrismicLink
-                  linkResolver={linkResolver}
-                  field={data as any}
-                  className="underline"
-                >
+                <AppLink field={data as any} className="underline">
                   {text}
-                </PrismicLink>
+                </AppLink>
               ),
               paragraph: ({ children }) => (
                 <StringText size="xsmall" className="">
@@ -279,21 +262,13 @@ export default function Footer({ settings, navigation }: FooterProps) {
 
   const getFooterState = () => {
     if (pathname === "/inquire") {
-      return {
-        show: false,
-      };
+      return { show: false };
     } else if (pathname === "/thanks") {
-      return {
-        show: false,
-      };
+      return { show: false };
     } else if (pathname === "/map") {
-      return {
-        show: false,
-      };
+      return { show: false };
     } else {
-      return {
-        show: true,
-      };
+      return { show: true };
     }
   };
 
@@ -309,9 +284,6 @@ export default function Footer({ settings, navigation }: FooterProps) {
         overflowHidden={false}
         className={clsx(
           "gap-y-0",
-          /**
-           * PRINT STYLES
-           */
           "print:min-h-[100vh]"
         )}
       >

@@ -11,7 +11,7 @@ export const offsiteIndexPage: PageDoc = {
     "gallery": [],
     "video_media": null,
     "video_url": null,
-    "media": {},
+    "media": null,
     "slices": [],
     "meta_title": null,
     "meta_description": null,

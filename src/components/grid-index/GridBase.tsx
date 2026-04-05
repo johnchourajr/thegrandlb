@@ -50,14 +50,7 @@ const GridBase = ({ uid: parentUid, sectionId, items }: GridBaseProps) => {
               theme={"Outlined"}
               size="Default"
               headline={"See Interactive Map"}
-              link={{
-                id: "ZD9uPxAAACMAn2so",
-                type: "page",
-                lang: "en-us",
-                slug: "interactive-map",
-                uid: "map",
-                link_type: "Document",
-              }}
+              link={{ link_type: "Web", url: "/map" }}
               col_span={"Span 12"}
               col_start={"Start 1"}
               row_span={"Span 1"}
@@ -73,15 +66,7 @@ const GridBase = ({ uid: parentUid, sectionId, items }: GridBaseProps) => {
               theme={"Outlined"}
               size="Default"
               headline={"Tour Our Spaces"}
-              link={{
-                id: "ZC5XThAAAB8A0yhs",
-                isBroken: false,
-                lang: "en-us",
-                link_type: "Document",
-                slug: "tour-index-page",
-                type: "tour_index_page",
-                uid: "tour",
-              }}
+              link={{ link_type: "Web", url: "/tour" }}
               col_span={"Span 12"}
               col_start={"Start 1"}
               row_span={"Span 1"}

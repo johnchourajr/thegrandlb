@@ -1,27 +1,21 @@
 import { GridSection } from "@/components/GridSection";
 import MediaFrame from "@/components/media-frame";
 import MotionBox from "@/components/MotionBox";
-import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import type { SliceComponentProps } from "@/types/slices";
+import type { ImageSectionSlice } from "../slice-types";
 import clsx from "clsx";
 
-/**
- * Props for `ImageSection`.
- */
-export type ImageSectionProps = SliceComponentProps<
-  Content.ImageSectionSlice | any
->;
-
-/**
- * Component for "ImageSection" Slices.
- */
-const ImageSection = ({ slice }: ImageSectionProps): JSX.Element => {
+const ImageSection = ({
+  slice,
+}: SliceComponentProps<ImageSectionSlice>): JSX.Element => {
+  const { section_id, top_spacer, bottom_spacer, media, video_url, gallery } =
+    slice;
   return (
     <>
       <GridSection
-        id={slice.primary.section_id}
-        topSpacer={slice.primary.top_spacer}
-        bottomSpacer={slice.primary.bottom_spacer}
+        id={section_id}
+        topSpacer={top_spacer}
+        bottomSpacer={bottom_spacer}
       >
         <MotionBox
           className={clsx(
@@ -29,9 +23,9 @@ const ImageSection = ({ slice }: ImageSectionProps): JSX.Element => {
           )}
         >
           <MediaFrame
-            media={slice.primary.media}
-            video_url={(slice.primary as { video_url?: string }).video_url}
-            gallery={slice.primary.gallery}
+            media={media}
+            video_url={video_url}
+            gallery={gallery}
             className="absolute inset-0 h-full w-full"
           />
         </MotionBox>

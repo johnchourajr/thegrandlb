@@ -1,8 +1,7 @@
 import { handleEvent } from "@/utils/events";
-import { PrismicLink } from "@prismicio/react";
+import AppLink from "./AppLink";
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import { linkResolver } from "@/prismicio";
 import StringText from "./StringText";
 
 type NavItemProps = {
@@ -28,15 +27,14 @@ export const NavItem = ({
   if (show === false) return null;
   return (
     <motion.li className={clsx(className)}>
-      <PrismicLink
-        linkResolver={linkResolver}
+      <AppLink
         field={field}
         className={clsx("group relative z-10", linkClassName)}
         onClick={() =>
           handleEvent({
             category: `nav_item`,
             label: text,
-            value: field.uid,
+            value: field?.uid,
           })
         }
         tabIndex={tabIndex}
@@ -53,7 +51,7 @@ export const NavItem = ({
         >
           {text}
         </StringText>
-      </PrismicLink>
+      </AppLink>
     </motion.li>
   );
 };

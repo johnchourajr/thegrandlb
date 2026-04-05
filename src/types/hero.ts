@@ -19,7 +19,7 @@ export interface HeroDetailPageProps {
   video_url?: string | null;
   subhead?: string | null;
   body?: string | null;
-  primary_action?: string;
+  primary_action?: string | null;
   primary_action_link?: LinkField | Record<string, unknown>;
   bottomSpacer?: "None" | "Small" | "Medium" | "Large";
 }

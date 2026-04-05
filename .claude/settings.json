@@ -45,7 +45,10 @@
       "Bash(pnpm type-check:*)",
       "Bash(ls /Users/johnchoura/Dropbox/Sites/thegrandlb/node_modules/.pnpm/framer-motion@12.38.0*/node_modules/framer-motion/dist/*.d.ts)",
       "Bash(grep -rn \"type Easing\\\\b\\\\|BezierDefinition\" /Users/johnchoura/Dropbox/Sites/thegrandlb/node_modules/.pnpm/motion-utils*/node_modules/motion-utils/dist/*.d.ts)",
-      "Bash(grep -rn \"react/experimental\" /Users/johnchoura/Dropbox/Sites/thegrandlb/node_modules/.pnpm/next@16.2.2*/node_modules/next/)"
+      "Bash(grep -rn \"react/experimental\" /Users/johnchoura/Dropbox/Sites/thegrandlb/node_modules/.pnpm/next@16.2.2*/node_modules/next/)",
+      "Bash(ls -la /Users/johnchoura/Dropbox/Sites/thegrandlb/src/content/types*)",
+      "Bash(echo \"Exit code: $?\")",
+      "Bash(awk 'NR>=40 && NR<=55')"
     ]
   }
 }

@@ -1,16 +1,5 @@
-import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import type { SliceComponentProps } from "@/types/slices";
 
-/**
- * Props for `StarSection`.
- */
-export type StarSectionProps = SliceComponentProps<
-  Content.StarSectionSlice | any
->;
-
-/**
- * @todo Implement `StarSection` component.
- */
-const StarSection = ({ slice }: StarSectionProps): JSX.Element => <></>;
+const StarSection = ({ slice }: SliceComponentProps): JSX.Element => <></>;
 
 export default StarSection;

@@ -5,13 +5,10 @@ import {
   DynamicCursor,
   DynamicFormOverlay,
   DynamicLazyMotion,
-  DynamicPrismicProvider,
   DynamicToastRoot,
 } from "@/components/DynamicExports";
-import Link from "@/components/Link";
 import { ModalProvider, useModalContext } from "@/contexts/ModalContext";
 import { getExtra } from "@/services/get-extra";
-import type { Content } from "@prismicio/client";
 import clsx from "clsx";
 import { domAnimation, MotionConfig, MotionConfigProps } from "framer-motion";
 import { Suspense, useEffect, useState } from "react";
@@ -37,17 +34,6 @@ function ClientLayoutContent({
   );
 
   useEffect(() => {
-    const preconnect = document.createElement("link");
-    preconnect.rel = "preconnect";
-    preconnect.href = "https://the-grand.cdn.prismic.io";
-    document.head.appendChild(preconnect);
-    const dnsPrefetch = document.createElement("link");
-    dnsPrefetch.rel = "dns-prefetch";
-    dnsPrefetch.href = "https://the-grand.cdn.prismic.io";
-    document.head.appendChild(dnsPrefetch);
-  }, []);
-
-  useEffect(() => {
     if (initialNavigation !== undefined) return;
     const fetchNavigation = async () => {
       try {
@@ -70,10 +56,7 @@ function ClientLayoutContent({
   } as MotionConfigProps;
 
   return (
-    <DynamicPrismicProvider
-      internalLinkComponent={(props) => <Link {...props} />}
-    >
-        <DynamicAppWrapper
+    <DynamicAppWrapper
         className={clsx(
           fontStack,
           "relative min-h-screen bg-bg transition-colors duration-500 ease-out-expo",
@@ -92,7 +75,6 @@ function ClientLayoutContent({
         <DynamicCursor />
         <DynamicToastRoot />
       </DynamicAppWrapper>
-    </DynamicPrismicProvider>
   );
 }
 

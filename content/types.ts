@@ -2,8 +2,6 @@
  * Local content types — no dependency on @prismicio/client.
  *
  * These describe the shape of data in the static content files.
- * The underlying values were serialized from Prismic documents but
- * the types are fully owned by this project.
  */
 
 // ─── Rich text ─────────────────────────────────────────────────────────────
@@ -23,6 +21,16 @@ export type RtBlock = {
 
 // ─── Images ────────────────────────────────────────────────────────────────
 
+export type ImageField =
+  | {
+      url: string;
+      alt?: string | null;
+      dimensions?: { width: number; height: number };
+    }
+  | null
+  | undefined;
+
+/** @deprecated Use ImageField */
 export type PrismicImageLike =
   | {
       url: string;
@@ -40,13 +48,13 @@ export type WebLink = {
   link_type: "Web";
   url: string;
   target?: string;
-  key?: string;
 };
 
+/** Kept for nav/legacy usage — prefer WebLink in first-party content */
 export type DocumentLink = {
   link_type: "Document";
-  uid: string;
-  type: string;
+  uid?: string;
+  type?: string;
   id?: string;
   lang?: string;
   slug?: string;
@@ -56,67 +64,42 @@ export type DocumentLink = {
 
 export type AnyLink = { link_type: "Any" };
 
-export type LinkField = WebLink | DocumentLink | AnyLink;
+export type LinkField = WebLink | DocumentLink | AnyLink | null | undefined;
 
 // ─── Slices ────────────────────────────────────────────────────────────────
 
 /**
- * A stripped content slice.
- * Prismic authoring metadata (variation, version, id, slice_label) is omitted.
+ * A flat content slice. First-party slices have `type`; Prismic nav slices
+ * may still carry `slice_type`. The index signature covers all field values.
  */
-export type Slice<
-  TPrimary = Record<string, unknown>,
-  TItem = Record<string, unknown>,
-> = {
-  /** Prismic-generated slice ID — required by @prismicio/react SliceZone for React keys. */
-  id: string;
-  slice_type: string;
-  primary: TPrimary;
-  items: TItem[];
+export type Slice = {
+  type?: string;
+  slice_type?: string;
+  [key: string]: unknown;
 };
 
 // ─── Documents ─────────────────────────────────────────────────────────────
 
-/**
- * Common fields every page document has.
- * The index signature allows arbitrary additional data fields per page type
- * while still giving typed access to the fields all pages share.
- */
 export type PageData = {
-  // Slice zone — every page has this
   slices: Slice[];
-  // SEO fields
   meta_title?: string | null;
   meta_description?: string | null;
-  meta_image?: PrismicImageLike;
-  // Common content fields shared across page types
   title?: string | null;
+  // Common hero / detail-page fields
   headline?: string | null;
   caption?: string | null;
   subhead?: string | null;
   body?: string | null;
-  // Media fields used by index and detail pages
-  media?: PrismicImageLike | null;
-  gallery?: PrismicImageLike[];
-  icon_media?: PrismicImageLike | null;
   video_url?: string | null;
-  // Arbitrary additional fields per page type
+  media?: ImageField;
   [key: string]: unknown;
 };
 
-/**
- * A stripped page document.
- * Prismic CMS envelope (id, type, href, lang, tags, dates…) removed.
- */
 export type PageDoc = {
   uid: string;
   data: PageData;
 };
 
-/**
- * Shared/fragment document (settings, navigation, CTA footer, footer cards).
- * Navigation has slices; settings and other fragments do not.
- */
 export type SharedDoc = {
   uid?: string;
   data: {

@@ -1,55 +1,37 @@
-import type { Content } from "@prismicio/client";
-import type { MapItem, PrismicTourSpace } from "../types/map";
+import type { MapItem, TourSpace } from "../types/map";
 
 /**
- * Map Utility Functions
- *
- * Helper functions for converting between Prismic data and map item formats.
- */
-
-/**
- * Converts Prismic tour space data to MapItem format
- * @param prismicSpace - Prismic tour space data
- * @param letter - Letter identifier for the space (A, B, C, etc.)
- * @returns MapItem or null if conversion fails
+ * Converts tour space data to MapItem format.
  */
 export const convertPrismicToMapItem = (
-  prismicSpace: PrismicTourSpace,
+  space: TourSpace,
   letter: string
 ): MapItem | null => {
-  const tourPage = prismicSpace.page as unknown as Content.TourPageDocument;
-  if (!tourPage || !tourPage.uid || !tourPage.data.title) {
-    return null;
-  }
+  const page = space.page;
+  if (!page || !page.uid || !page.data?.title) return null;
 
   const attributes: string[] = [];
 
-  // Add max capacity if available
-  if (tourPage.data.max_capacity) {
-    attributes.push(`${tourPage.data.max_capacity} Max Guests`);
+  if (page.data.max_capacity) {
+    attributes.push(`${page.data.max_capacity} Max Guests`);
   }
 
-  // Add features if available
-  if (tourPage.data.features) {
-    tourPage.data.features.forEach((featureItem) => {
-      if (featureItem.feature) {
-        attributes.push(featureItem.feature);
-      }
-    });
+  if (page.data.features) {
+    for (const item of page.data.features) {
+      if (item.feature) attributes.push(item.feature);
+    }
   }
 
   return {
-    key: tourPage.uid,
+    key: page.uid,
     letter,
-    name: tourPage.data.title,
+    name: page.data.title,
     attributes,
   };
 };
 
 /**
  * Generates letter identifiers for map items (A, B, C, etc.)
- * @param index - Zero-based index
- * @returns Letter string
  */
 export const generateMapLetter = (index: number): string => {
   const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";

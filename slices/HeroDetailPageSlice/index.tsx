@@ -1,21 +1,12 @@
 import HeroDetailPage from "@/components/HeroDetailPage";
-import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import type { SliceComponentProps } from "@/types/slices";
+import type { HeroDetailPageSlice } from "../slice-types";
 
-/**
- * Props for `HeroDetailPageSlice`.
- */
-export type HeroDetailPageSliceProps = SliceComponentProps<
-  Content.HeroDetailPageSliceSlice | any
->;
-
-/**
- * Component for "HeroDetailPageSlice" Slices.
- */
 const HeroDetailPageSlice = ({
   slice,
-}: HeroDetailPageSliceProps): JSX.Element => {
-  return <HeroDetailPage {...slice.primary} />;
+}: SliceComponentProps<HeroDetailPageSlice>): JSX.Element => {
+  const { type: _type, ...props } = slice;
+  return <HeroDetailPage {...props} />;
 };
 
 export default HeroDetailPageSlice;

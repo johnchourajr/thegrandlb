@@ -2,32 +2,28 @@ import { GridSection } from "@/components/GridSection";
 import MediaFrame from "@/components/media-frame";
 import MotionBox from "@/components/MotionBox";
 import StringText from "@/components/StringText";
-import { Content } from "@prismicio/client";
-import * as prismicH from "@prismicio/helpers";
-import { SliceComponentProps } from "@prismicio/react";
+import type { SliceComponentProps } from "@/types/slices";
+import type { FaqSectionSlice } from "../slice-types";
+import { toText, toHtml } from "@/utils/rich-text";
 import clsx from "clsx";
 import Head from "next/head";
 import { FaqItem } from "./FaqItem";
 
-/**
- * Props for `FaqSection`.
- */
-export type FaqSectionProps = SliceComponentProps<
-  Content.FaqSectionSlice | any
->;
-
-const FaqSection = ({ slice }: FaqSectionProps): JSX.Element => {
+const FaqSection = ({
+  slice,
+}: SliceComponentProps<FaqSectionSlice>): JSX.Element => {
   const {
     section_id,
     title,
     gallery,
     media,
+    video_url,
     asset_position = true,
-  } = slice.primary;
-  const items = slice.items ?? [];
+    items = [],
+  } = slice;
 
-  const getAssetPosition = (asset_position: boolean) => {
-    switch (asset_position) {
+  const getAssetPosition = (pos: boolean) => {
+    switch (pos) {
       case true:
         return "lg:col-start-7";
       case false:
@@ -44,13 +40,13 @@ const FaqSection = ({ slice }: FaqSectionProps): JSX.Element => {
         "@type": "FAQPage",
         "mainEntity": [
         ${items.map(
-          ({ question, answer }: any) =>
+          ({ question, answer }) =>
             `{
               "@type": "Question",
-              "name": "${prismicH.asText(question)}",
+              "name": "${toText(question)}",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "${prismicH.asHTML(answer)}"
+                "text": "${toHtml(answer)}"
               }
             }`
         )}
@@ -60,21 +56,19 @@ const FaqSection = ({ slice }: FaqSectionProps): JSX.Element => {
     };
   }
 
-  const openByDefault = items.length <= 4 ? true : false;
+  const openByDefault = items.length <= 4;
 
   return (
     <>
       <Head>
-        {
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={faqJsonLd()}
-            key={`faq-${slice.id}-jsonld`}
-          />
-        }
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={faqJsonLd()}
+          key={`faq-${section_id || "faq"}-jsonld`}
+        />
       </Head>
       <GridSection
-        id={section_id || slice.id}
+        id={section_id || slice.type}
         bottomSpacer={"Medium"}
         topSpacer={"Medium"}
         overflowHidden={false}
@@ -86,16 +80,14 @@ const FaqSection = ({ slice }: FaqSectionProps): JSX.Element => {
             </StringText>
           )}
           <MotionBox className="flex w-full flex-col items-start justify-start">
-            {items.map((item: any, index: number) => {
-              return (
-                <FaqItem
-                  key={index}
-                  question={item.question}
-                  answer={item.answer}
-                  open={openByDefault}
-                />
-              );
-            })}
+            {items.map((item, index) => (
+              <FaqItem
+                key={index}
+                question={item.question}
+                answer={item.answer}
+                open={openByDefault}
+              />
+            ))}
           </MotionBox>
         </MotionBox>
         <MotionBox
@@ -107,7 +99,7 @@ const FaqSection = ({ slice }: FaqSectionProps): JSX.Element => {
           <MediaFrame
             className="absolute inset-0 h-full w-full overflow-hidden"
             gallery={gallery}
-            video_url={(slice.primary as { video_url?: string }).video_url}
+            video_url={video_url}
             media={media}
           />
         </MotionBox>

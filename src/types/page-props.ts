@@ -1,26 +1,19 @@
-import type {
-  FragmentCardDocument,
-  FragmentCtaFooterDocument,
-  InquirePageDocument,
-  NavLinksDocument,
-  PageDocument,
-  SettingsDocument,
-} from "../../prismicio-types";
+import type { PageDoc, SharedDoc } from "content/types";
 
 export type PageProps = {
-  page: PageDocument;
-  settings: SettingsDocument;
-  navigation: NavLinksDocument | null;
-  cta: FragmentCtaFooterDocument | null;
-  footer_cards: FragmentCardDocument[];
+  page: PageDoc;
+  settings: SharedDoc;
+  navigation: SharedDoc | null;
+  cta: SharedDoc | null;
+  footer_cards: SharedDoc[];
 };
 
 export type InquirePageProps = {
-  page: InquirePageDocument;
-  settings: SettingsDocument;
-  navigation: NavLinksDocument | null;
-  cta: FragmentCtaFooterDocument | null;
-  footer_cards: FragmentCardDocument[];
+  page: PageDoc;
+  settings: SharedDoc;
+  navigation: SharedDoc | null;
+  cta: SharedDoc | null;
+  footer_cards: SharedDoc[];
 };
 
 export type PreviewData = {

@@ -1,7 +1,6 @@
 "use client";
 
 import { handleEvent } from "@/utils/events";
-import type { PrismicNextImageProps } from "@prismicio/next";
 import clsx from "clsx";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import React, { useEffect, useState } from "react";
@@ -10,19 +9,16 @@ import GalleryControls from "./GalleryControls";
 import ImageBox from "./ImageBox";
 
 export type ImageItem = {
-  caption: string;
-  link: {
+  caption?: string | null;
+  link?: {
     link_type: string;
-  };
+  } | null;
   video_url?: string | null;
-  media: {
-    dimensions: {
-      width: number;
-      height: number;
-    };
-    alt: string;
-    url: string;
-  };
+  media?: {
+    dimensions?: { width: number; height: number } | null;
+    alt?: string | null;
+    url?: string | null;
+  } | null;
 };
 
 interface ImageGalleryProps {
@@ -35,7 +31,7 @@ interface ImageGalleryProps {
   delayStart?: number;
   outerControls?: boolean;
   controlPosition?: "Bottom Right" | "Top Right" | "Bottom Left" | "Top Left";
-  imgixParams?: PrismicNextImageProps["imgixParams"];
+  imgixParams?: Record<string, string | number>;
   overlay?: boolean;
 }
 

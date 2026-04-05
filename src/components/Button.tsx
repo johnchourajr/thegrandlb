@@ -2,18 +2,13 @@
 
 import { event as handleEvent } from "@/utils/gtm";
 import { stringToUnderscore } from "@/utils/utils";
-import { PrismicLink, PrismicLinkProps } from "@prismicio/react";
-import {
-  EmptyLinkField,
-  FilledLinkToDocumentField,
-  FilledLinkToMediaField,
-  FilledLinkToWebField,
-} from "@prismicio/types";
+import { linkResolver } from "@/prismicio";
+import type { LinkField } from "content/types";
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { LinkProps } from "next/link";
-import { linkResolver } from "@/prismicio";
 import React, { ButtonHTMLAttributes, useRef } from "react";
+import AppLink from "./AppLink";
 import Link from "./Link";
 import StringText from "./StringText";
 
@@ -22,12 +17,7 @@ import StringText from "./StringText";
  */
 interface ButtonTypes {
   key?: string;
-  field?:
-    | EmptyLinkField<"Any">
-    | FilledLinkToWebField
-    | FilledLinkToDocumentField<string, string, never>
-    | FilledLinkToMediaField
-    | any;
+  field?: LinkField | any;
   href?: string;
   params?: string;
   as?: "span" | "button";
@@ -135,18 +125,18 @@ function Button({
   loading = false,
   ...rest
 }: ButtonTypes) {
-  const buttonRef = useRef<HTMLButtonElement>(null); // Create a ref for the button element
+  const buttonRef = useRef<HTMLButtonElement>(null);
   const isButton = onClick && ButtonElement;
   const isNextLink = href && !isButton;
-  const isPrismicLink = field && !isButton;
+  const isAppLink = field && !isButton;
 
   const getType = () => {
     if (isButton) {
       return "button";
     } else if (isNextLink) {
       return "next-link";
-    } else if (isPrismicLink) {
-      return "prismic-link";
+    } else if (isAppLink) {
+      return "app-link";
     } else {
       return "button";
     }
@@ -166,20 +156,16 @@ function Button({
   };
 
   const getLinkProps = (
-    type: "button" | "next-link" | "prismic-link"
-  ):
-    | LinkProps
-    | PrismicLinkProps
-    | ButtonHTMLAttributes<HTMLButtonElement>
-    | any => {
+    type: "button" | "next-link" | "app-link"
+  ): LinkProps | ButtonHTMLAttributes<HTMLButtonElement> | any => {
     switch (type) {
       case "next-link":
         return { href } as LinkProps;
-      case "prismic-link":
+      case "app-link":
         if (params) {
           return { href: `${linkResolver(field)}?${params}` } as any;
         }
-        return { field, linkResolver } as PrismicLinkProps;
+        return { field };
       default:
         return {
           type: buttonType,
@@ -191,8 +177,8 @@ function Button({
     ? ButtonElement
     : isNextLink
     ? Link
-    : isPrismicLink
-    ? PrismicLink
+    : isAppLink
+    ? AppLink
     : "button";
 
   return (
@@ -215,7 +201,6 @@ function Button({
       {...getLinkProps(buttonTypeName)}
       {...rest}
     >
-      {/* <motion.span layout> */}
       <AnimatePresence>
         {loading && (
           <motion.span
@@ -254,7 +239,6 @@ function Button({
           {text || children}
         </StringText>
       )}
-      {/* </motion.span> */}
 
       <span
         className={clsx(
