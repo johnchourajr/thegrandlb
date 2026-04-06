@@ -74,10 +74,10 @@ export const FaqItem = ({ question, answer, open }: any) => {
             height: 0,
             opacity: 0,
             marginTop: "0rem",
-            transitionEnd: { display: "none" },
           },
         }}
         animate={isOpen ? "open" : "closed"}
+        initial="closed"
         transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
         className="relative max-w-[90%] overflow-hidden will-change-transform"
       >

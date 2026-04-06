@@ -1,31 +1,28 @@
 "use client";
 
 import Link from "@/components/Link";
-import type { MenuSectionNavProps } from "@/types/menu";
-import { ensureArray, safeMap } from "@/utils/safe-array";
+import type { MenuDoc } from "content/types";
 import { convertToSlug } from "@/utils/utils";
 import clsx from "clsx";
 import StringText from "../StringText";
 import MenuArrowScroll from "./menu-arrow-scroll";
 
-export function MenuSectionNav({ uid, group }: MenuSectionNavProps) {
-  // Ensure group is always an array to prevent map errors
-  const safeGroup = ensureArray(group);
+type MenuSectionNavProps = {
+  uid?: string;
+  groups?: MenuDoc["groups"];
+};
 
+export function MenuSectionNav({ groups = [] }: MenuSectionNavProps) {
   return (
     <div
       className={clsx(
         "col-span-full md:col-span-1 md:col-start-1 lg:col-span-5 lg:col-start-2",
         "fixed bottom-0 left-0 h-fit md:sticky md:bottom-[unset] md:left-[unset] md:top-[12rem] md:h-[calc(100vh-16rem)]",
         "z-50 w-full bg-bg",
-        /**
-         * PRINT STYLES
-         */
         "print:hidden"
       )}
       data-no-print
     >
-      {/* {safeGroup.length > 1 && ( */}
       <div className="flex-rows inline-flex w-full items-center gap-8 overflow-y-clip overflow-x-scroll p-6 md:m-0 md:flex md:flex-col md:items-start md:gap-6 md:overflow-hidden md:p-0">
         <StringText
           size={"small"}
@@ -34,9 +31,8 @@ export function MenuSectionNav({ uid, group }: MenuSectionNavProps) {
         >
           Menu Sections
         </StringText>
-        {safeMap(safeGroup, ({ menu_link }, i) => {
-          const { page_title } = menu_link.data;
-          const sectionLink = page_title && convertToSlug(page_title);
+        {groups.map((group, i) => {
+          const slug = convertToSlug(group.title);
           return (
             <Link
               key={i}
@@ -45,8 +41,8 @@ export function MenuSectionNav({ uid, group }: MenuSectionNavProps) {
               )}
               eventCategory={"menusLink"}
               eventLabel={"menusJumpLink"}
-              eventValue={page_title}
-              href={`#${sectionLink}`}
+              eventValue={group.title}
+              href={`#${slug}`}
             >
               <StringText
                 className={clsx(
@@ -57,13 +53,12 @@ export function MenuSectionNav({ uid, group }: MenuSectionNavProps) {
                 uppercase
                 bold
               >
-                {page_title}
+                {group.title}
               </StringText>
             </Link>
           );
         })}
       </div>
-      {/* )} */}
       <MenuArrowScroll />
     </div>
   );

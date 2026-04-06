@@ -1,9 +1,13 @@
-import type { MenuItemProps } from "@/types/menu";
+import type { MenuItemData } from "content/types";
 import { RichText } from "@/components/RichText";
 import clsx from "clsx";
 import MotionBox from "../MotionBox";
 import Text from "../Paragraph";
 import StringText from "../StringText";
+
+type MenuItemProps = {
+  data: MenuItemData;
+};
 
 export function MenuItem({ data }: MenuItemProps) {
   if (!data.price_min && !data.price_per) return null;
@@ -15,14 +19,11 @@ export function MenuItem({ data }: MenuItemProps) {
     <MotionBox
       className={clsx(
         "flex flex-row justify-between",
-        /**
-         * PRINT STYLES
-         */
         "print:!translate-y-0 print:!opacity-100"
       )}
     >
       <div className="relative flex max-w-[60%] flex-col gap-4">
-        {data.title && (
+        {data.title.length > 0 && (
           <RichText
             field={data.title}
             components={{
@@ -34,7 +35,7 @@ export function MenuItem({ data }: MenuItemProps) {
             }}
           />
         )}
-        {data.description && (
+        {data.description.length > 0 && (
           <RichText
             field={data.description}
             components={{
@@ -81,30 +82,28 @@ export function MenuItem({ data }: MenuItemProps) {
         )}
       </div>
 
-      {min && (
+      {min ? (
         <div className="flex flex-col items-end gap-0 text-right">
-          {min && (
-            <StringText
-              size="large"
-              className="inline-flex gap-1"
-              uppercase
-              bold
-            >
-              {min && <span className="mb-0">${min}</span>}
-              {min && max && <span className="mb-0"> / </span>}
-              {max && <span className="mb-0">${max}</span>}
-            </StringText>
-          )}
-          <p className="">
-            {min && (
+          <StringText
+            size="large"
+            className="inline-flex gap-1"
+            uppercase
+            bold
+          >
+            <span className="mb-0">${min}</span>
+            {max ? (
               <>
-                —<br />
+                <span className="mb-0"> / </span>
+                <span className="mb-0">${max}</span>
               </>
-            )}
+            ) : null}
+          </StringText>
+          <p>
+            —<br />
             {data.price_per}
           </p>
         </div>
-      )}
+      ) : null}
     </MotionBox>
   );
 }

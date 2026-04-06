@@ -2,36 +2,21 @@ import CtaFooter from "@/components/CtaFooter";
 import Layout from "@/components/Layout";
 import { MenuPageContent } from "@/components/MenuPageContent";
 import { getExtra } from "@/services/get-extra";
-import { fetchMenuCollection } from "@/services/menu-data";
-import type { MenuPageDocumentWithGroup } from "@/types/menu";
+import milestonesMenu from "content/menus/milestones.menu";
 
-export const revalidate = 3600;
+export const revalidate = false;
 
 export default async function MilestonesMenuPage() {
-  try {
-    const extra = await getExtra({});
-    const { cta, settings, navigation } = extra;
+  const extra = await getExtra({});
+  const { cta, settings, navigation } = extra;
+  const page = { uid: milestonesMenu.uid, data: {} };
 
-    const page = { uid: "milestones", type: "menu_page" as const, data: { menu_api_uid: "milestones" } };
-
-    let menuSource: MenuPageDocumentWithGroup;
-    try {
-      menuSource = await fetchMenuCollection("milestones");
-    } catch (menuError) {
-      console.error("Error fetching milestones menu data:", menuError);
-      menuSource = page;
-    }
-
-    return (
-      <Layout page={page} settings={settings} navigation={navigation}>
-        <MenuPageContent page={menuSource} />
-        <CtaFooter data={cta} />
-      </Layout>
-    );
-  } catch (error) {
-    console.error("Error loading milestones menu page:", error);
-    throw error;
-  }
+  return (
+    <Layout page={page} settings={settings} navigation={navigation}>
+      <MenuPageContent menu={milestonesMenu} />
+      <CtaFooter data={cta} />
+    </Layout>
+  );
 }
 
 export async function generateMetadata() {

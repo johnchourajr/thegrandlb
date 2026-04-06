@@ -1,3 +1,5 @@
+"use client";
+
 import { GridSection } from "@/components/GridSection";
 import MediaFrame from "@/components/media-frame";
 import MotionBox from "@/components/MotionBox";
@@ -6,7 +8,7 @@ import type { SliceComponentProps } from "@/types/slices";
 import type { FaqSectionSlice } from "../slice-types";
 import { toText, toHtml } from "@/utils/rich-text";
 import clsx from "clsx";
-import Head from "next/head";
+import Script from "next/script";
 import { FaqItem } from "./FaqItem";
 
 const FaqSection = ({
@@ -60,13 +62,12 @@ const FaqSection = ({
 
   return (
     <>
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={faqJsonLd()}
-          key={`faq-${section_id || "faq"}-jsonld`}
-        />
-      </Head>
+      <Script
+        id={`faq-${section_id || "faq"}-jsonld`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={faqJsonLd()}
+        strategy="afterInteractive"
+      />
       <GridSection
         id={section_id || slice.type}
         bottomSpacer={"Medium"}
