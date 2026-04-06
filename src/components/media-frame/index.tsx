@@ -65,7 +65,7 @@ const MediaFrame = ({
     } else return null;
   };
 
-  if (!mediaUrl && !hasVideo && !gallery) return null;
+  if (!media?.kind && !hasVideo && !gallery) return null;
   return (
     <motion.div
       id={id}

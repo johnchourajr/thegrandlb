@@ -1,9 +1,10 @@
 "use client";
 
-import { RichText } from "@/components/RichText";
-import { toText } from "@/utils/rich-text";
-import type { MenuDoc } from "content/types";
+import type { MenuSectionProps } from "@/types/menu";
+import { ensureArray, safeMap } from "@/utils/safe-array";
 import { convertToSlug } from "@/utils/utils";
+import { toText } from "@/utils/rich-text";
+import { RichText } from "@/components/RichText";
 import clsx from "clsx";
 import Headline from "../Headline";
 import MotionBox from "../MotionBox";
@@ -11,39 +12,42 @@ import Text from "../Paragraph";
 import Star from "../svg/Star";
 import MenuItem from "./menu-item";
 
-type MenuSectionProps = {
-  uid?: string;
-  groups?: MenuDoc["groups"];
-};
+export function MenuSection({ uid, group }: MenuSectionProps) {
+  // Ensure group is always an array to prevent map errors
+  const safeGroup = ensureArray(group);
 
-export function MenuSection({ groups = [] }: MenuSectionProps) {
   return (
     <MotionBox
       className={clsx(
         "col-span-full col-start-1 flex flex-col gap-20 md:col-span-3 lg:col-span-5",
+        /**
+         * PRINT STYLES
+         */
         "print:!translate-y-0 print:!opacity-100"
       )}
     >
-      {groups.map((group, groupIndex) => {
-        const groupSlug = convertToSlug(group.title);
-
+      {safeMap(safeGroup, ({ menu_link }, groupIndex) => {
+        const section = menu_link.data;
         return (
           <div key={groupIndex} className="relative flex flex-col gap-20">
-            {/* Group anchor */}
             <div
-              id={groupSlug}
+              id={convertToSlug(section.page_title)}
               className={clsx(
                 "absolute left-0 top-[-10rem] w-full",
+                /**
+                 * PRINT STYLES
+                 */
                 "print:relative print:top-[unset] print:hidden"
               )}
             />
-
-            {/* Group heading */}
             <a
-              href={`#${groupSlug}`}
+              href={`#${convertToSlug(section.page_title)}`}
               className={clsx(
                 "group sticky top-[5rem] z-50 inline-flex h-fit md:top-[6rem]",
                 "after:from-transparent after:pointer-events-none after:absolute after:inset-[-1rem] after:bottom-[-2rem] after:top-[-2rem] after:z-10 after:bg-gradient-to-b after:from-bg after:via-bg after:via-20% after:to-[transparent] after:opacity-100 after:transition-opacity after:delay-500 after:duration-500 after:ease-in-out after:content-['']",
+                /**
+                 * PRINT STYLES
+                 */
                 "print:relative print:top-[unset] print:break-before-page print:after:hidden"
               )}
             >
@@ -51,8 +55,10 @@ export function MenuSection({ groups = [] }: MenuSectionProps) {
                 size={"xl"}
                 as="h2"
                 animateOnce={true}
-                id={`menu-group-title-${groupSlug}`}
-                layoutId={`menu-group-title-${groupSlug}`}
+                id={`menu-section-title-${convertToSlug(section.page_title)}`}
+                layoutId={`menu-section-title-${convertToSlug(
+                  section.page_title
+                )}`}
                 className={clsx(
                   "relative z-40 !whitespace-nowrap",
                   "after:absolute after:bottom-[0em] after:left-0 after:z-20 after:h-[1.5px] after:w-[100%] after:origin-top-right after:scale-x-0 after:bg-black after:transition-transform after:duration-300 after:ease-out-expo after:content-['']",
@@ -60,47 +66,67 @@ export function MenuSection({ groups = [] }: MenuSectionProps) {
                 )}
                 disableMotion={true}
               >
-                {group.title}
+                {section.page_title}
               </Headline>
             </a>
-
-            {/* Group description */}
-            {group.description && (
-              <div className="-mt-16 flex flex-col gap-4">
-                <Text size="large" className="mb-0">
-                  {group.description}
-                </Text>
-              </div>
-            )}
-
-            {/* Sections within group */}
-            {group.sections.map((section, sectionIndex) => {
-              const sectionTitle = toText(section.primary.title);
-              const sectionSlug = convertToSlug(sectionTitle);
+            <div className="-mt-16 flex flex-col gap-8 ">
+              {section.page_description && (
+                <RichText
+                  field={section.page_description}
+                  components={{
+                    paragraph: ({ children, key }) => (
+                      <Text key={key} size="large" className="mb-0">
+                        {children}
+                      </Text>
+                    ),
+                  }}
+                />
+              )}
+              {section.page_disclaimer && (
+                <RichText
+                  field={section.page_disclaimer}
+                  components={{
+                    paragraph: ({ children, key }) => (
+                      <Text key={key} size="large" className="mb-0">
+                        {children}
+                      </Text>
+                    ),
+                  }}
+                />
+              )}
+            </div>
+            {safeMap(section.body, ({ items, primary }, groupIndex: number) => {
+              const prim_title = toText(primary.title);
+              const prim_desc = primary.description;
 
               return (
                 <MotionBox
-                  key={sectionIndex}
+                  key={groupIndex}
                   className={clsx(
                     "flex flex-col gap-10",
+                    /**
+                     * PRINT STYLES
+                     */
                     "print:!translate-y-0 print:!opacity-100"
                   )}
                 >
                   <div className="relative flex flex-col gap-4">
-                    {sectionTitle && (
+                    {prim_title && (
                       <a
-                        href={`#${sectionSlug}`}
+                        href={`#${convertToSlug(prim_title)}`}
                         className="group inline-flex h-fit"
                       >
                         <div
-                          id={sectionSlug}
+                          id={convertToSlug(prim_title)}
                           className="absolute left-0 top-[-18rem] w-full"
                         />
                         <Headline
                           size={"sm"}
                           as="h3"
                           animateOnce={true}
-                          layoutId={`menu-section-title-${sectionSlug}`}
+                          layoutId={`menu-lower-title-${convertToSlug(
+                            prim_title
+                          )}`}
                           className={clsx(
                             "relative",
                             "after:absolute after:bottom-[0em] after:left-0 after:z-20 after:h-[1.5px] after:w-[100%] after:origin-top-right after:scale-x-0 after:bg-black after:transition-transform after:duration-300 after:ease-out-expo after:content-['']",
@@ -108,13 +134,13 @@ export function MenuSection({ groups = [] }: MenuSectionProps) {
                           )}
                           disableMotion={true}
                         >
-                          {sectionTitle}
+                          {prim_title}
                         </Headline>
                       </a>
                     )}
-                    {section.primary.description.length > 0 && (
+                    {prim_desc && (
                       <RichText
-                        field={section.primary.description}
+                        field={prim_desc}
                         components={{
                           paragraph: ({ children, key }) => (
                             <Text key={key} size="large" className="mb-0">
@@ -125,25 +151,24 @@ export function MenuSection({ groups = [] }: MenuSectionProps) {
                       />
                     )}
                   </div>
-
                   <div className="flex flex-col gap-8">
-                    {section.items.map((item, itemIndex) => (
-                      <MenuItem key={itemIndex} data={item} />
-                    ))}
-                    {toText(section.primary.caption) && (
+                    {items &&
+                      safeMap(items, (item, itemIndex: number) => (
+                        <MenuItem key={itemIndex} data={item} />
+                      ))}
+                    {toText(primary.caption) && (
                       <div className="item-caption">
-                        <RichText field={section.primary.caption} />
+                        <RichText field={primary.caption} />
                       </div>
                     )}
                   </div>
                 </MotionBox>
               );
             })}
-
             <Star
               className={clsx(
                 "h-16 w-16 text-white",
-                groupIndex === groups.length - 1 && "!opacity-0"
+                groupIndex === (group?.length ?? 0) - 1 && "!opacity-0"
               )}
             />
           </div>

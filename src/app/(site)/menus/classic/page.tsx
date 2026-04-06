@@ -2,21 +2,36 @@ import CtaFooter from "@/components/CtaFooter";
 import Layout from "@/components/Layout";
 import { MenuPageContent } from "@/components/MenuPageContent";
 import { getExtra } from "@/services/get-extra";
-import classicMenu from "content/menus/classic.menu";
+import { fetchMenuCollection } from "@/services/menu-data";
+import type { MenuPageDocumentWithGroup } from "@/types/menu";
 
-export const revalidate = false;
+export const revalidate = 3600;
 
 export default async function ClassicMenuPage() {
-  const extra = await getExtra({});
-  const { cta, settings, navigation } = extra;
-  const page = { uid: classicMenu.uid, data: {} };
+  try {
+    const extra = await getExtra({});
+    const { cta, settings, navigation } = extra;
 
-  return (
-    <Layout page={page} settings={settings} navigation={navigation}>
-      <MenuPageContent menu={classicMenu} />
-      <CtaFooter data={cta} />
-    </Layout>
-  );
+    const page = { uid: "classic", type: "menu_page" as const, data: { menu_api_uid: "classic" } };
+
+    let menuSource: MenuPageDocumentWithGroup;
+    try {
+      menuSource = await fetchMenuCollection("classic");
+    } catch (menuError) {
+      console.error("Error fetching classic menu data:", menuError);
+      menuSource = page;
+    }
+
+    return (
+      <Layout page={page} settings={settings} navigation={navigation}>
+        <MenuPageContent page={menuSource} />
+        <CtaFooter data={cta} />
+      </Layout>
+    );
+  } catch (error) {
+    console.error("Error loading classic menu page:", error);
+    throw error;
+  }
 }
 
 export async function generateMetadata() {
