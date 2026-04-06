@@ -365,7 +365,7 @@ const classicMenu: MenuDoc = {
         {
           primary: {
             title: [
-                          { type: "heading2", text: "Cold Hors D’oeuvres", spans: [] },
+                          { type: "heading2", text: "Cold Hors D'oeuvres", spans: [] },
                         ],
             description: [
                           { type: "paragraph", text: "Chilled and ready to eat. A la Carte. ", spans: [{"start": 26, "end": 37, "type": "em"}] },
@@ -544,7 +544,7 @@ const classicMenu: MenuDoc = {
         {
           primary: {
             title: [
-                          { type: "heading2", text: "Warm Hors D’oeuvres", spans: [] },
+                          { type: "heading2", text: "Warm Hors D'oeuvres", spans: [] },
                         ],
             description: [
                           { type: "paragraph", text: "Warm and ready to eat. A la Carte. ", spans: [{"start": 23, "end": 34, "type": "em"}] },
@@ -1739,7 +1739,7 @@ const classicMenu: MenuDoc = {
                               { type: "list-item", text: "Paneer Tikka - Stir Fried Vegetables with Curry Spice", spans: [] },
                               { type: "list-item", text: "Dal Makhani - Lentils, Onion, Garlic, Cumin & Cream", spans: [] },
                               { type: "paragraph", text: "Dessert — Included", spans: [] },
-                              { type: "list-item", text: "Chef’s Choice", spans: [] },
+                              { type: "list-item", text: "Chef's Choice", spans: [] },
                             ],
               price_per: "lunch/dinner",
               price_min: 53.75,

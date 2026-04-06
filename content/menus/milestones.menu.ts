@@ -26,7 +26,7 @@ const milestonesMenu: MenuDoc = {
                               { type: "heading4", text: "The Ruby", spans: [] },
                             ],
               description: [
-                              { type: "list-item", text: "“The Standard” Menu", spans: [{"start": 1, "end": 13, "type": "hyperlink", "data": {"link_type": "Web", "url": "https://#the-standard"}}] },
+                              { type: "list-item", text: ""The Standard" Menu", spans: [{"start": 1, "end": 13, "type": "hyperlink", "data": {"link_type": "Web", "url": "https://#the-standard"}}] },
                               { type: "list-item", text: "Complimentary Entrée for Guest of Honor", spans: [] },
                               { type: "list-item", text: "Fruit Punch -or- Lemonade Station", spans: [] },
                               { type: "list-item", text: "Served Champagne & Sparkling Cider Toast", spans: [] },
@@ -41,13 +41,13 @@ const milestonesMenu: MenuDoc = {
                               { type: "heading4", text: "The Pearl", spans: [] },
                             ],
               description: [
-                              { type: "list-item", text: "“The Grand Standard” Menu", spans: [{"start": 1, "end": 19, "type": "hyperlink", "data": {"link_type": "Web", "url": "https://#the-grand-standard"}}] },
+                              { type: "list-item", text: ""The Grand Standard" Menu", spans: [{"start": 1, "end": 19, "type": "hyperlink", "data": {"link_type": "Web", "url": "https://#the-grand-standard"}}] },
                               { type: "list-item", text: "Complimentary Entrée for Guest of Honor", spans: [] },
                               { type: "list-item", text: "Fruit Punch -or- Lemonade Station", spans: [] },
                               { type: "list-item", text: "Unlimited Soft Drinks", spans: [] },
                               { type: "list-item", text: "Served Champagne & Sparkling Cider Toast", spans: [] },
                               { type: "list-item", text: "Cake Cutting & Serving", spans: [] },
-                              { type: "list-item", text: "10” Mirrored Round for Each Guest Table", spans: [] },
+                              { type: "list-item", text: "10" Mirrored Round for Each Guest Table", spans: [] },
                             ],
               price_per: "lunch/dinner",
               price_min: 73.75,
@@ -58,14 +58,14 @@ const milestonesMenu: MenuDoc = {
                               { type: "heading4", text: "The Diamond", spans: [] },
                             ],
               description: [
-                              { type: "list-item", text: "“The Choura Standard” Menu", spans: [{"start": 1, "end": 20, "type": "hyperlink", "data": {"link_type": "Web", "url": "https://#the-choura-standard"}}] },
+                              { type: "list-item", text: ""The Choura Standard" Menu", spans: [{"start": 1, "end": 20, "type": "hyperlink", "data": {"link_type": "Web", "url": "https://#the-choura-standard"}}] },
                               { type: "list-item", text: "Complimentary Entrée for Guest of Honor", spans: [] },
                               { type: "list-item", text: "Fruit Punch -or- Lemonade Station", spans: [] },
                               { type: "list-item", text: "Unlimited Soft Drinks", spans: [] },
                               { type: "list-item", text: "Served Champagne & Sparkling Cider Toast", spans: [] },
                               { type: "list-item", text: "Chocolate Fountain with Five Dipping Items", spans: [] },
                               { type: "list-item", text: "Cake Cutting & Serving", spans: [] },
-                              { type: "list-item", text: "10” Mirrored Round for Each Guest Table", spans: [] },
+                              { type: "list-item", text: "10" Mirrored Round for Each Guest Table", spans: [] },
                               { type: "list-item", text: "Chair Covers with Sash -or- Chiavari Chairs", spans: [] },
                               { type: "list-item", text: "Additional Event Hour", spans: [] },
                             ],
@@ -165,7 +165,7 @@ const milestonesMenu: MenuDoc = {
         {
           primary: {
             title: [
-                          { type: "heading2", text: "Cold Hors D’oeuvres", spans: [] },
+                          { type: "heading2", text: "Cold Hors D'oeuvres", spans: [] },
                         ],
             description: [
                           { type: "paragraph", text: "Chilled and ready to eat. A la Carte. ", spans: [{"start": 26, "end": 37, "type": "em"}] },
@@ -344,7 +344,7 @@ const milestonesMenu: MenuDoc = {
         {
           primary: {
             title: [
-                          { type: "heading2", text: "Warm Hors D’oeuvres", spans: [] },
+                          { type: "heading2", text: "Warm Hors D'oeuvres", spans: [] },
                         ],
             description: [
                           { type: "paragraph", text: "Warm and ready to eat. A la Carte. ", spans: [{"start": 23, "end": 34, "type": "em"}] },
@@ -1539,7 +1539,7 @@ const milestonesMenu: MenuDoc = {
                               { type: "list-item", text: "Paneer Tikka - Stir Fried Vegetables with Curry Spice", spans: [] },
                               { type: "list-item", text: "Dal Makhani - Lentils, Onion, Garlic, Cumin & Cream", spans: [] },
                               { type: "paragraph", text: "Dessert — Included", spans: [] },
-                              { type: "list-item", text: "Chef’s Choice", spans: [] },
+                              { type: "list-item", text: "Chef's Choice", spans: [] },
                             ],
               price_per: "lunch/dinner",
               price_min: 53.75,

@@ -11,7 +11,7 @@ export const settings: SharedDoc = {
     site_title: [
       {
         type: "heading1",
-        text: "The Grand Long Beach — So Cal’s Premier Event Venue",
+        text: "The Grand Long Beach — So Cal's Premier Event Venue",
         spans: [],
       },
     ],
