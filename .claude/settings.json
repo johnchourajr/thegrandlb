@@ -48,7 +48,26 @@
       "Bash(grep -rn \"react/experimental\" /Users/johnchoura/Dropbox/Sites/thegrandlb/node_modules/.pnpm/next@16.2.2*/node_modules/next/)",
       "Bash(ls -la /Users/johnchoura/Dropbox/Sites/thegrandlb/src/content/types*)",
       "Bash(echo \"Exit code: $?\")",
-      "Bash(awk 'NR>=40 && NR<=55')"
+      "Bash(awk 'NR>=40 && NR<=55')",
+      "Bash(curl -s 'https://grandmenus.cdn.prismic.io/api/v2?access_token=MC5aSmt1ZHhFQUFDd0FkcVJm.77-977-9Cg5U77-9U--_ve-_ve-_ve-_vV3vv70s77-977-9dnLvv70677-9Je-_ve-_ve-_vRLvv73vv73vv70077-9Sg')",
+      "Bash(python3 -m json.tool)",
+      "Bash(python3)",
+      "Bash(mkdir -p /Users/johnchoura/Dropbox/Sites/thegrandlb/content/menus)",
+      "Bash(cp /tmp/classic.menu.ts /Users/johnchoura/Dropbox/Sites/thegrandlb/content/menus/classic.menu.ts)",
+      "Bash(cp /tmp/corporate.menu.ts /Users/johnchoura/Dropbox/Sites/thegrandlb/content/menus/corporate.menu.ts)",
+      "Bash(cp /tmp/milestones.menu.ts /Users/johnchoura/Dropbox/Sites/thegrandlb/content/menus/milestones.menu.ts)",
+      "Bash(cp /tmp/weddings.menu.ts /Users/johnchoura/Dropbox/Sites/thegrandlb/content/menus/weddings.menu.ts)",
+      "Bash(grep -n \"MenuSectionNav\\\\|menu-section-nav\\\\|SectionNav\" /Users/johnchoura/Dropbox/Sites/thegrandlb/src/components/menu/*.tsx /Users/johnchoura/Dropbox/Sites/thegrandlb/src/components/menu/index.ts)",
+      "Bash(python3 -c ':*)",
+      "WebFetch(domain:localhost)",
+      "Bash(curl -s http://127.0.0.1:3000/menus/classic)",
+      "Bash(curl -s http://127.0.0.1:3000/menus/corporate)",
+      "Bash(curl -s http://127.0.0.1:3000/menus/milestones)",
+      "Bash(curl -s http://127.0.0.1:3000/menus/weddings)",
+      "Bash(python3 /dev/stdin)",
+      "Bash(curl -s http://localhost:3000/menus)",
+      "Bash(git checkout:*)",
+      "Bash(git revert:*)"
     ]
   }
 }
