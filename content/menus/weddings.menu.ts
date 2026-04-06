@@ -47,7 +47,7 @@ const weddingsMenu: MenuDoc = {
                               { type: "list-item", text: "Complimentary Entrées for Bride & Groom", spans: [] },
                               { type: "list-item", text: "90 Minute Limited Hosted Bar (Beer, Wine & Soft Drinks)", spans: [{"start": 29, "end": 55, "type": "em"}] },
                               { type: "list-item", text: "Choice of Three “To Start” Displayed Appetizers", spans: [{"start": 17, "end": 25, "type": "hyperlink", "data": {"link_type": "Web", "url": "https://#to-start", "target": "_blank"}}] },
-                              { type: "list-item", text: "Choice of Two Tray Passed Hors D’oeuvres", spans: [] },
+                              { type: "list-item", text: "Choice of Two Tray Passed Hors D'oeuvres", spans: [] },
                               { type: "list-item", text: "Wine Service with Dinner (two bottles per table)", spans: [{"start": 25, "end": 48, "type": "em"}] },
                               { type: "list-item", text: "Served Champagne & Sparkling Cider Toast", spans: [] },
                               { type: "list-item", text: "10” Mirrored Round for Each Guest Table", spans: [] },
@@ -66,7 +66,7 @@ const weddingsMenu: MenuDoc = {
                               { type: "list-item", text: "Complimentary Entrées for Bride & Groom", spans: [] },
                               { type: "list-item", text: "90 Minute Hosted Bar (Cocktails, Beer, Wine & Soft Drinks)", spans: [{"start": 21, "end": 58, "type": "em"}] },
                               { type: "list-item", text: "Choice of Three “To Start” Displayed Appetizers", spans: [{"start": 17, "end": 25, "type": "hyperlink", "data": {"link_type": "Web", "url": "https://#to-start", "target": "_blank"}}] },
-                              { type: "list-item", text: "Choice of Three Tray Passed Hors D’oeuvres", spans: [] },
+                              { type: "list-item", text: "Choice of Three Tray Passed Hors D'oeuvres", spans: [] },
                               { type: "list-item", text: "Wine Service with Dinner (two bottles per table)", spans: [{"start": 25, "end": 48, "type": "em"}] },
                               { type: "list-item", text: "Served Champagne & Sparkling Cider Toast", spans: [] },
                               { type: "list-item", text: "10” Mirrored Round for Each Guest Table", spans: [] },
@@ -113,7 +113,7 @@ const weddingsMenu: MenuDoc = {
                               { type: "list-item", text: "White Aisle Runner", spans: [] },
                               { type: "list-item", text: "Bridal Suite – Available on a 'First Come, First Served' Basis Upon Booking", spans: [] },
                               { type: "paragraph", text: "Not Included", spans: [{"start": 0, "end": 12, "type": "strong"}] },
-                              { type: "list-item", text: "Groom’s Room, Wedding Coordinator, Photographer, Decorations, Clergy, and Music. Referrals are available upon request", spans: [{"start": 81, "end": 117, "type": "em"}] },
+                              { type: "list-item", text: "Groom's Room, Wedding Coordinator, Photographer, Decorations, Clergy, and Music. Referrals are available upon request", spans: [{"start": 81, "end": 117, "type": "em"}] },
                             ],
               price_per: "per person",
               price_min: 20,
@@ -307,7 +307,7 @@ const weddingsMenu: MenuDoc = {
         {
           primary: {
             title: [
-                          { type: "heading2", text: "Cold Hors D’oeuvres", spans: [] },
+                          { type: "heading2", text: "Cold Hors D'oeuvres", spans: [] },
                         ],
             description: [
                           { type: "paragraph", text: "Chilled and ready to eat. A la Carte. ", spans: [{"start": 26, "end": 37, "type": "em"}] },
@@ -486,7 +486,7 @@ const weddingsMenu: MenuDoc = {
         {
           primary: {
             title: [
-                          { type: "heading2", text: "Warm Hors D’oeuvres", spans: [] },
+                          { type: "heading2", text: "Warm Hors D'oeuvres", spans: [] },
                         ],
             description: [
                           { type: "paragraph", text: "Warm and ready to eat. A la Carte. ", spans: [{"start": 23, "end": 34, "type": "em"}] },
@@ -1681,7 +1681,7 @@ const weddingsMenu: MenuDoc = {
                               { type: "list-item", text: "Paneer Tikka - Stir Fried Vegetables with Curry Spice", spans: [] },
                               { type: "list-item", text: "Dal Makhani - Lentils, Onion, Garlic, Cumin & Cream", spans: [] },
                               { type: "paragraph", text: "Dessert — Included", spans: [] },
-                              { type: "list-item", text: "Chef’s Choice", spans: [] },
+                              { type: "list-item", text: "Chef's Choice", spans: [] },
                             ],
               price_per: "lunch/dinner",
               price_min: 53.75,
