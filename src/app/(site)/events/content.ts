@@ -15,7 +15,7 @@ export const eventIndexPage: PageDoc = {
       "alt": null,
       "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/cfe41bb3-f218-430d-868d-99feb6668300/public"
     },
-    "headline": "No matter your thing, we're here for you.",
+    "headline": "No matter your thing, we’re here for you.",
     "body": "We believe that every occasion is deserving of a personalized touch. Each of our unique spaces is flexible to suit the range of need for any event or gathering.",
     "event_pages": [
       {
