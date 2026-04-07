@@ -1,0 +1,1350 @@
+{
+  "uid": "weddings",
+  "page_title": "Our Weddings Menu",
+  "page_description": "Our weddings menu has the perfect packages for your special day.",
+  "page_disclaimer": "Add 22% production fee and applicable sales tax to all menus",
+  "groups": [
+    {
+      "title": "Wedding Packages",
+      "description": "All Packages Include\n5 Hour Event Time Inclusive of Ceremony, Two Hour Access Window Prior to Event Start, Served Champagne & Sparkling Cider Toast, Customized Room Setup, Choice of White, Black or Ivory Linens for all Tables, Selection of Napkin Color(s), All China, Glassware & Flatware, Complimentary Parking for all Guests, and Uniformed, Professional Staff",
+      "disclaimer": "",
+      "sections": [
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "Lunch and Dinner Packages", "spans": [] }],
+            "description": [],
+            "caption": []
+          },
+          "items": [
+            {
+              "title": [{ "type": "heading4", "text": "The Silver", "spans": [] }],
+              "description": [
+                { "type": "list-item", "text": "\u201cThe Standard\u201d Menu", "spans": [{ "start": 1, "end": 13, "type": "hyperlink", "data": { "link_type": "Web", "url": "https://#the-standard", "target": "_blank" } }] },
+                { "type": "list-item", "text": "Complimentary Entr\u00e9es for Bride & Groom", "spans": [] },
+                { "type": "list-item", "text": "Choice of Two \u201cTo Start\u201d Displayed Appetizers", "spans": [{ "start": 15, "end": 23, "type": "hyperlink", "data": { "link_type": "Web", "url": "https://#to-start", "target": "_blank" } }] },
+                { "type": "list-item", "text": "Choice of One Tray Passed Hors D\u2019Oeuvre", "spans": [] },
+                { "type": "list-item", "text": "Wine Service with Dinner (two bottles per table)", "spans": [{ "start": 25, "end": 48, "type": "em" }] },
+                { "type": "list-item", "text": "Served Champagne & Sparkling Cider Toast", "spans": [] },
+                { "type": "list-item", "text": "Cake Cutting & Serving", "spans": [] }
+              ],
+              "price_per": "lunch/dinner",
+              "price_min": 83.75,
+              "price_max": 93.75
+            },
+            {
+              "title": [{ "type": "heading4", "text": "The Gold", "spans": [] }],
+              "description": [
+                { "type": "list-item", "text": "\u201cThe Grand Standard\u201d Menu", "spans": [{ "start": 1, "end": 19, "type": "hyperlink", "data": { "link_type": "Web", "url": "https://#the-grand-standard", "target": "_blank" } }] },
+                { "type": "list-item", "text": "Complimentary Entr\u00e9es for Bride & Groom", "spans": [] },
+                { "type": "list-item", "text": "90 Minute Limited Hosted Bar (Beer, Wine & Soft Drinks)", "spans": [{ "start": 29, "end": 55, "type": "em" }] },
+                { "type": "list-item", "text": "Choice of Three \u201cTo Start\u201d Displayed Appetizers", "spans": [{ "start": 17, "end": 25, "type": "hyperlink", "data": { "link_type": "Web", "url": "https://#to-start", "target": "_blank" } }] },
+                { "type": "list-item", "text": "Choice of Two Tray Passed Hors D\u2019oeuvres", "spans": [] },
+                { "type": "list-item", "text": "Wine Service with Dinner (two bottles per table)", "spans": [{ "start": 25, "end": 48, "type": "em" }] },
+                { "type": "list-item", "text": "Served Champagne & Sparkling Cider Toast", "spans": [] },
+                { "type": "list-item", "text": "10\u201d Mirrored Round for Each Guest Table", "spans": [] },
+                { "type": "list-item", "text": "Cake Cutting & Serving", "spans": [] }
+              ],
+              "price_per": "lunch/dinner",
+              "price_min": 107.75,
+              "price_max": 118.75
+            },
+            {
+              "title": [{ "type": "heading4", "text": "The Platinum", "spans": [] }],
+              "description": [
+                { "type": "list-item", "text": "\u201cThe Choura Standard\u201d Menu", "spans": [{ "start": 1, "end": 20, "type": "hyperlink", "data": { "link_type": "Web", "url": "https://#the-choura-standard", "target": "_blank" } }] },
+                { "type": "list-item", "text": "Complimentary Entr\u00e9es for Bride & Groom", "spans": [] },
+                { "type": "list-item", "text": "90 Minute Hosted Bar (Cocktails, Beer, Wine & Soft Drinks)", "spans": [{ "start": 21, "end": 58, "type": "em" }] },
+                { "type": "list-item", "text": "Choice of Three \u201cTo Start\u201d Displayed Appetizers", "spans": [{ "start": 17, "end": 25, "type": "hyperlink", "data": { "link_type": "Web", "url": "https://#to-start", "target": "_blank" } }] },
+                { "type": "list-item", "text": "Choice of Three Tray Passed Hors D\u2019oeuvres", "spans": [] },
+                { "type": "list-item", "text": "Wine Service with Dinner (two bottles per table)", "spans": [{ "start": 25, "end": 48, "type": "em" }] },
+                { "type": "list-item", "text": "Served Champagne & Sparkling Cider Toast", "spans": [] },
+                { "type": "list-item", "text": "10\u201d Mirrored Round for Each Guest Table", "spans": [] },
+                { "type": "list-item", "text": "Chair Covers with Sash -or- Chiavari Chairs", "spans": [] },
+                { "type": "list-item", "text": "Cake Cutting & Serving", "spans": [] },
+                { "type": "list-item", "text": "Additional Event Hour", "spans": [] }
+              ],
+              "price_per": "lunch/dinner",
+              "price_min": 125.75,
+              "price_max": 138.75
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "More Packages",
+      "description": "",
+      "disclaimer": "",
+      "sections": [
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "Say, \u2018I do...\u2019", "spans": [] }],
+            "description": [],
+            "caption": []
+          },
+          "items": [
+            {
+              "title": [{ "type": "heading4", "text": "Garden Ceremony", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Have your Garden Ceremony outside on our Palm Terrace or on our Monarch Patio. Minimum 100 guests", "spans": [{ "start": 79, "end": 97, "type": "em" }] },
+                { "type": "paragraph", "text": "Pricing", "spans": [{ "start": 0, "end": 7, "type": "strong" }] },
+                { "type": "list-item", "text": "Without Reception $23.00 per person", "spans": [{ "start": 25, "end": 35, "type": "em" }] },
+                { "type": "list-item", "text": "With Reception $20.00 per person", "spans": [{ "start": 22, "end": 32, "type": "em" }] },
+                { "type": "paragraph", "text": "Includes", "spans": [{ "start": 0, "end": 8, "type": "strong" }] },
+                { "type": "list-item", "text": "Iced Water Station", "spans": [] },
+                { "type": "list-item", "text": "White Wood Chairs", "spans": [] },
+                { "type": "list-item", "text": "Serene Garden Setting", "spans": [] },
+                { "type": "list-item", "text": "Wedding Arch -or- Columns", "spans": [] },
+                { "type": "list-item", "text": "White Aisle Runner", "spans": [] },
+                { "type": "list-item", "text": "Bridal Suite \u2013 Available on a \u2018First Come, First Served\u2019 Basis Upon Booking", "spans": [] },
+                { "type": "paragraph", "text": "Not Included", "spans": [{ "start": 0, "end": 12, "type": "strong" }] },
+                { "type": "list-item", "text": "Groom\u2019s Room, Wedding Coordinator, Photographer, Decorations, Clergy, and Music. Referrals are available upon request", "spans": [{ "start": 81, "end": 117, "type": "em" }] }
+              ],
+              "price_per": "per person",
+              "price_min": 20,
+              "price_max": 23
+            }
+          ]
+        },
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "Bridal Room Packages", "spans": [] }],
+            "description": [
+              { "type": "paragraph", "text": "Each package is a flat cost and serves six people.", "spans": [] }
+            ],
+            "caption": []
+          },
+          "items": [
+            {
+              "title": [{ "type": "heading4", "text": "Afternoon Treat", "spans": [] }],
+              "description": [
+                { "type": "list-item", "text": "Ice Cream Bars", "spans": [] },
+                { "type": "list-item", "text": "Assorted Cookies", "spans": [] },
+                { "type": "list-item", "text": "Coffee, Decaf, Assorted Sodas", "spans": [] }
+              ],
+              "price_per": "per",
+              "price_min": 88,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Spice It Up", "spans": [] }],
+              "description": [
+                { "type": "list-item", "text": "Mini Chicken Quesadillas", "spans": [] },
+                { "type": "list-item", "text": "Guacamole and Pico de Gallo", "spans": [] },
+                { "type": "list-item", "text": "Tortilla Chips", "spans": [] },
+                { "type": "list-item", "text": "Coffee, Decaf, Assorted Sodas", "spans": [] }
+              ],
+              "price_per": "per",
+              "price_min": 113,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Napa Valley", "spans": [] }],
+              "description": [
+                { "type": "list-item", "text": "Marinated Olives, Goat Cheese, Grapes, and Crostinis", "spans": [] },
+                { "type": "list-item", "text": "Sliced Seasonal Fruit and Berries", "spans": [] },
+                { "type": "list-item", "text": "Coffee, Decaf, Tea, Mineral Water, Assorted Sodas", "spans": [] }
+              ],
+              "price_per": "per",
+              "price_min": 113,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Balance", "spans": [] }],
+              "description": [
+                { "type": "list-item", "text": "Granola Bars", "spans": [] },
+                { "type": "list-item", "text": "Whole Fruit", "spans": [] },
+                { "type": "list-item", "text": "Vegetable Crudit\u00e9s with Dip", "spans": [] },
+                { "type": "list-item", "text": "Assorted Vitamin Water", "spans": [] }
+              ],
+              "price_per": "per",
+              "price_min": 128,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Time For Tea", "spans": [] }],
+              "description": [
+                { "type": "list-item", "text": "Freshly Baked Scones", "spans": [] },
+                { "type": "list-item", "text": "Assorted Tea Sandwiches", "spans": [] },
+                { "type": "list-item", "text": "Strawberries with Whipped Cream", "spans": [] },
+                { "type": "list-item", "text": "Assorted Hot Teas", "spans": [] }
+              ],
+              "price_per": "per",
+              "price_min": 140,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Ultimate Relaxation", "spans": [] }],
+              "description": [
+                { "type": "list-item", "text": "Premium House Chardonnay and Cabernet Sauvignon", "spans": [] },
+                { "type": "list-item", "text": "Gourmet Cheese Display with Dried Fruit and Nuts", "spans": [] },
+                { "type": "list-item", "text": "Seasonal Fruit Platter", "spans": [] },
+                { "type": "list-item", "text": "Assorted Breads & Crostinis", "spans": [] },
+                { "type": "list-item", "text": "Mineral Water", "spans": [] }
+              ],
+              "price_per": "per",
+              "price_min": 200,
+              "price_max": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Appetizers",
+      "description": "",
+      "disclaimer": "",
+      "sections": [
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "To Start", "spans": [] }],
+            "description": [
+              { "type": "paragraph", "text": "Displayed - A la Carte. ", "spans": [{ "start": 12, "end": 23, "type": "em" }] },
+              { "type": "paragraph", "text": "$5.75 per person", "spans": [] }
+            ],
+            "caption": []
+          },
+          "items": [
+            {
+              "title": [{ "type": "heading4", "text": "Domestic Cheese Platter", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Domestic Cheese, Dried Fruit, Roasted Rosemary Nuts, & Assorted Crackers", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Gourmet Cheese Platter", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Gourmet Cheese, Dried Fruit, & Roasted Rosemary Nuts. Add Assorted Crostinis & Crackers (Add $1.50 per person)", "spans": [{ "start": 88, "end": 110, "type": "em" }] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Fruit Platter", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Assorted Seasonal Melon & Berries", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Vegetable Crudi\u00e9ts", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Herb Ranch Dip", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Antipasto Platter", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Assorted Cured Meats, Marinated Artichoke Hearts, Assorted Olives, & Roasted Peppers", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Roasted Garlic Hummus", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Served with Pita Chips. Add Grilled Vegetables (Add $2.00 per person)", "spans": [{ "start": 47, "end": 69, "type": "em" }] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            }
+          ]
+        },
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "Cold Hors D\u2019oeuvres", "spans": [] }],
+            "description": [
+              { "type": "paragraph", "text": "Chilled and ready to eat. A la Carte. ", "spans": [{ "start": 26, "end": 37, "type": "em" }] },
+              { "type": "paragraph", "text": "$7.00 per person for Tray Passed or $8.00 per person for Displayed", "spans": [] }
+            ],
+            "caption": []
+          },
+          "items": [
+            {
+              "title": [{ "type": "heading4", "text": "Antipasto Skewers", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Cherry Tomatoes, Olives, Marinated Artichoke Hearts, & Bocconcini Mozzarella", "spans": [] }],
+              "price_per": "per person tray passed/per person displayed",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Chopped Heirloom Tomato Salad", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Baby Arugula, Crushed Pistachios, Goat Cheese, Basil & Dijon Vinaigrette on Endive Spear [tray passed only]", "spans": [{ "start": 89, "end": 107, "type": "em" }] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Sesame Crusted Goat Cheese", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "on Wonton Crisp", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Ahi Poke", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Tuna, Soy Sauce, Black Sesame Seeds, and Scallions on a Wonton Crisp [tray passed only]", "spans": [{ "start": 69, "end": 87, "type": "em" }] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "White Fish Ceviche", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "on Tostada Round", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Grilled Peach Crostini", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Balsamic Glaze, Goat Cheese & Honey Drizzle", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "NY Steak Crostini", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Caramelized Onions & Gorgonzola Cream", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Open Faced NY Steak Sandwich Bite", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Arugula & Spicy Aioli", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Jumbo Shrimp", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Cocktail Sauce & Lemon Wedges (add $1.50 per person)", "spans": [{ "start": 30, "end": 52, "type": "em" }] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Grilled Shrimp", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Thai Chili Sauce (add $1.50 per person)", "spans": [{ "start": 17, "end": 39, "type": "em" }] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Pan Seared Ahi", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Cucumber Slice with Japanese Spice, Pickled Onions, & Sriracha Aioli", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Fresh Spring Rolls", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Green Tea Soba Noodles, Thai Basil, Cucumber, Mint, & Spicy Hoisin", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Caprese Skewers", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Cherry Tomato, Bocconcini Mozzarella, Fresh Basil, & Basil Pesto", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Roasted Artichoke Crostini", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Fennel Herb Goat Cheese", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Avocado Kale Toast", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Lemon, Olive Oil, Salt, & Pepper", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            }
+          ]
+        },
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "Warm Hors D\u2019oeuvres", "spans": [] }],
+            "description": [
+              { "type": "paragraph", "text": "Warm and ready to eat. A la Carte. ", "spans": [{ "start": 23, "end": 34, "type": "em" }] },
+              { "type": "paragraph", "text": "$7.00 per person for Tray Passed or $8.00 per person for Displayed", "spans": [] }
+            ],
+            "caption": []
+          },
+          "items": [
+            {
+              "title": [{ "type": "heading4", "text": "Homemade Meatballs", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Select One: Teriyaki, Turkey, or Italian", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Buffalo Chicken Drumettes", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Served with Ranch Dressing", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Crispy Chicken Egg Rolls", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Served with Sweet + Sour Dipping Sauce", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Pork & Shrimp Egg Rolls", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Served with Sweet Chili Hoisin Sauce", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Chicken Satay", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Select One: Served with Spicy Peanut Sauce, Tikka Masala Sauce, or Teriyaki Pineapple", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Spanakopita", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Flaky Phyllo Stuffed with Spinach & Feta Cheese", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Sicilian Stuffed Mushrooms", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Sicilian Sausage & Cheddar", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Yucatan Beef Empanadas", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Served with Avocado Cr\u00e8me", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Mini Beef Wellington", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Tender Beef Wrapped in Puff Pastry with Saut\u00e9ed Mushrooms & Shallots Duxelle, & Madera Wine Demi Glaze", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Lump Crab Cakes", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Served with Cilantro Lime Aioli", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Mongolian Beef Skewers", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "With Grilled Scallions", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Short Rib Quesadilla", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Served with Chipotle Cr\u00e8me", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Soup Shooter", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Select One: Tomato Bisque, Butternut Squash, or Mushroom Cream", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Angus Beef Slider", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Bleu Cheese & Port Wine Pickled Onions (add $1.00 per person)", "spans": [{ "start": 39, "end": 61, "type": "em" }] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Tikka Masala Taco", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Chicken Tikka Masala, Cilantro & Cucumber Raita [tray passed only]", "spans": [{ "start": 48, "end": 66, "type": "em" }] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Italian Surf & Turf", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Shrimp Scampi and Italian Sausage Bite", "spans": [] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Lobster Corndogs", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Served with Green Peppercorn Aioli (add $1.50 per person)", "spans": [{ "start": 35, "end": 57, "type": "em" }] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Thai Chicken Lettuce Wraps", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Asian Inspired Diced Chicken on an Endive Spear [tray passed only]", "spans": [{ "start": 48, "end": 66, "type": "em" }] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Mini Rolls", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "Served on Toasted, Homemade Roll. Choice of: Meatball, Philly Cheese Steak, or Lobster with Garlic Butter (Add $2.00 per person)", "spans": [{ "start": 106, "end": 128, "type": "em" }] }],
+              "price_per": "per person",
+              "price_min": 0,
+              "price_max": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Main Courses",
+      "description": "Served Meals. All entr\u00e9es include homemade rolls & butter, one gourmet salad, one starch, one vegetable, & one dessert. Beverage service includes coffee, iced tea & iced water. For split menu (Add $5.00 per person). For buffet choose additional salad & entr\u00e9e (Add $5.00 per person).",
+      "disclaimer": "",
+      "sections": [
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "The Standard", "spans": [] }],
+            "description": [
+              { "type": "paragraph", "text": "Choose one. ", "spans": [] },
+              { "type": "paragraph", "text": "$56.75 for Lunch and $67.75 for Dinner per person. Choose two options for a duet plate (Add $5.00 per person).", "spans": [{ "start": 39, "end": 49, "type": "em" }, { "start": 87, "end": 109, "type": "em" }] }
+            ],
+            "caption": []
+          },
+          "items": [
+            { "title": [{ "type": "heading4", "text": "Lemon Rosemary Chicken", "spans": [] }], "description": [{ "type": "paragraph", "text": "Bone-in Chicken Breast with Lemon Caper Beurre Blanc", "spans": [] }], "price_per": "per person", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Chicken Parmesan", "spans": [] }], "description": [{ "type": "paragraph", "text": "Parmesan Panko Crusted Chicken Breast with Provolone & Basil Marinara Sauce", "spans": [] }], "price_per": "per person", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Chicken Marsala", "spans": [] }], "description": [{ "type": "paragraph", "text": "Bone-in Chicken Breast with Saut\u00e9ed Mushrooms, Caramelized Onions, & Marsala Wine Sauce", "spans": [] }], "price_per": "per person", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Beef Brisket", "spans": [] }], "description": [{ "type": "paragraph", "text": "Fork Tender Roasted Beef Brisket with Natural Jus", "spans": [] }], "price_per": "per person", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Spiced Pork Loin", "spans": [] }], "description": [{ "type": "paragraph", "text": "Roasted Poblano Ancho Chile Demi", "spans": [] }], "price_per": "per person", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Asian Inspired Salmon", "spans": [] }], "description": [{ "type": "paragraph", "text": "Shiitake Mushrooms, Bok Choy, & Sweet Soy Reduction (add $1.50 per person)", "spans": [{ "start": 52, "end": 74, "type": "em" }] }], "price_per": "per person", "price_min": 0, "price_max": 0 }
+          ]
+        },
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "The Grand Standard", "spans": [] }],
+            "description": [
+              { "type": "paragraph", "text": "Choose one. ", "spans": [] },
+              { "type": "paragraph", "text": "$61.75 for Lunch and $72.75 for Dinner per person. Choose two options for a duet plate (Add $7.00 per person).", "spans": [{ "start": 39, "end": 49, "type": "em" }, { "start": 87, "end": 109, "type": "em" }] }
+            ],
+            "caption": []
+          },
+          "items": [
+            { "title": [{ "type": "heading4", "text": "Chicken Wellington", "spans": [] }], "description": [{ "type": "paragraph", "text": "Boneless Chicken Breast Wrapped in Puff Pastry with Saut\u00e9ed Mushrooms & Shallots Duxelle, & Madera Wine Demi Glaze", "spans": [] }], "price_per": "per person", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Chicken Piccata", "spans": [] }], "description": [{ "type": "paragraph", "text": "Italian Herb Crusted Chicken with Lemon Sauce and Capers", "spans": [] }], "price_per": "per person", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Beef Stroganoff", "spans": [] }], "description": [{ "type": "paragraph", "text": "Braised Filet Mignon Beef Tips, Mushrooms, & Demi Sauce", "spans": [] }], "price_per": "per person", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Bistecca", "spans": [] }], "description": [{ "type": "paragraph", "text": "Grilled Tri Tip with Fresh Lemon, Garlic, Shaved Parmesan, & Tomato Basil Vinaigrette", "spans": [] }], "price_per": "per person", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Red Snapper", "spans": [] }], "description": [{ "type": "paragraph", "text": "Served with Chipotle Cream & Roasted Poblano Chiles", "spans": [] }], "price_per": "per person", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Pistachio Crusted Mahi Mahi", "spans": [] }], "description": [{ "type": "paragraph", "text": "Served with Mango Relish", "spans": [] }], "price_per": "per person", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Coconut Crusted Salmon", "spans": [] }], "description": [{ "type": "paragraph", "text": "Served with Coconut Lychee Cream", "spans": [] }], "price_per": "per person", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Turf and Turf", "spans": [] }], "description": [{ "type": "paragraph", "text": "Chicken Grilled Breast & Herb Crusted Tri-tip with Rosemary Demi", "spans": [] }], "price_per": "per person", "price_min": 0, "price_max": 0 }
+          ]
+        },
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "The Choura Standard", "spans": [] }],
+            "description": [
+              { "type": "paragraph", "text": "Choose one. ", "spans": [] },
+              { "type": "paragraph", "text": "$71.75 for Lunch and $82.75 for Dinner per person. Choose two options for a duet plate (Add $9.00 per person).", "spans": [{ "start": 39, "end": 49, "type": "em" }, { "start": 87, "end": 109, "type": "em" }] }
+            ],
+            "caption": []
+          },
+          "items": [
+            { "title": [{ "type": "heading4", "text": "Classic Beef Wellington", "spans": [] }], "description": [{ "type": "paragraph", "text": "Filet Wrapped in Puff Pastry with Saut\u00e9ed Mushrooms & Shallots Duxelle, & Madera Wine Demi Glaze", "spans": [] }], "price_per": "per person", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Braised Short Ribs", "spans": [] }], "description": [{ "type": "paragraph", "text": "Served with Aromatics & Chipotle Honey Jus", "spans": [] }], "price_per": "per person", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Chicken Cordon Bleu", "spans": [] }], "description": [{ "type": "paragraph", "text": "Panko Crusted Chicken Breast with Virginia Ham, Swiss Cheese, & Classic Cheese Mornay Sauce", "spans": [] }], "price_per": "per person", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Chicken Florentine", "spans": [] }], "description": [{ "type": "paragraph", "text": "Roasted Chicken Breast Stuffed with Saut\u00e9ed Spinach, Artichoke Hearts, and Topped with a Parmesan Cream Sauce", "spans": [] }], "price_per": "per person", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Prime Rib", "spans": [] }], "description": [{ "type": "paragraph", "text": "Served with Green Peppercorn Demi", "spans": [] }], "price_per": "market price", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Filet Mignon", "spans": [] }], "description": [{ "type": "paragraph", "text": "Served with B\u00e9arnaise Sauce (MP)", "spans": [] }], "price_per": "market price", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Chilean Sea Bass", "spans": [] }], "description": [{ "type": "paragraph", "text": "Garlic Fennel Rubbed with Blood Orange Beurre Blanc (MP)", "spans": [] }], "price_per": "market price", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Spice Rubbed Halibut", "spans": [] }], "description": [{ "type": "paragraph", "text": "Served with Lemon Cilantro Crema (MP)", "spans": [] }], "price_per": "market price", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Land and Sea", "spans": [] }], "description": [{ "type": "paragraph", "text": "Petite Filet & Pan Seared Shrimp with Demi Glaze", "spans": [] }], "price_per": "per person", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Ribeye", "spans": [] }], "description": [{ "type": "paragraph", "text": "Pan Seared with Thyme, Bellini Onions, & Cabernet Demi (Only Available for Dinner Service)", "spans": [{ "start": 55, "end": 90, "type": "em" }] }], "price_per": "market price", "price_min": 0, "price_max": 0 }
+          ]
+        },
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "Vegetarian Options", "spans": [] }],
+            "description": [],
+            "caption": []
+          },
+          "items": [
+            { "title": [{ "type": "heading4", "text": "Pasta Primavera", "spans": [] }], "description": [{ "type": "paragraph", "text": "Penne Pasta with Roasted Vegetables and tossed in a White Wine Cream Sauce", "spans": [] }], "price_per": "per person", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Eggplant Parmesan", "spans": [] }], "description": [{ "type": "paragraph", "text": "Parmesan Panko Crusted Eggplant with Provolone & Basil Marinara Sauce", "spans": [] }], "price_per": "per person", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Grilled Portobello Mushroom Cap", "spans": [] }], "description": [{ "type": "paragraph", "text": "Filled with Roasted Vegetables and topped with a Tomato Coulis (Vegan & Gluten Free)", "spans": [{ "start": 63, "end": 84, "type": "em" }] }], "price_per": "per person", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Roasted Butternut Squash", "spans": [] }], "description": [{ "type": "paragraph", "text": "Stuffed with Roasted Vegetables and Topped with a Balsamic Glaze (Vegan & Gluten Free)", "spans": [{ "start": 65, "end": 86, "type": "em" }] }], "price_per": "per person", "price_min": 0, "price_max": 0 }
+          ]
+        },
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "Other Options", "spans": [] }],
+            "description": [],
+            "caption": []
+          },
+          "items": [
+            { "title": [{ "type": "heading4", "text": "Kids Meals", "spans": [] }], "description": [{ "type": "paragraph", "text": "Chicken Strips, Macaroni & Cheese, French Fries, Fresh Fruit & Juice or Milk", "spans": [] }], "price_per": "per person", "price_min": 31, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Vendor Meals", "spans": [] }], "description": [{ "type": "paragraph", "text": "Chef's Choice", "spans": [] }], "price_per": "per person", "price_min": 38, "price_max": 0 }
+          ]
+        },
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "Carving Station Enhancement", "spans": [] }],
+            "description": [{ "type": "paragraph", "text": "Chef Required; additional labor fees apply.", "spans": [] }],
+            "caption": []
+          },
+          "items": [
+            { "title": [{ "type": "heading4", "text": "Spice Rub Pork Loin", "spans": [] }], "description": [{ "type": "paragraph", "text": "Ancho Chile Demi & Avocado Corn Relish", "spans": [] }], "price_per": "additional per person", "price_min": 18, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Turkey Airline Breast", "spans": [] }], "description": [{ "type": "paragraph", "text": "Cranberry Relish & Sage Turkey Gravy", "spans": [] }], "price_per": "additional per person", "price_min": 18, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Smoked Pitt Ham", "spans": [] }], "description": [{ "type": "paragraph", "text": "Honey Clove Orange Glaze & Ground Mustard Herb", "spans": [] }], "price_per": "additional per person", "price_min": 18, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Roasted Prime Rib of Beef", "spans": [] }], "description": [{ "type": "paragraph", "text": "Horseradish cream & Au Jus", "spans": [] }], "price_per": "additional per person", "price_min": 22, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Peppercorn Crusted Beef Filet", "spans": [] }], "description": [{ "type": "paragraph", "text": "B\u00e9arnaise & Bordelaise Sauce", "spans": [] }], "price_per": "additional per person", "price_min": 23, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Pig Lechon", "spans": [] }], "description": [{ "type": "paragraph", "text": "Extra Large 70lb Pig", "spans": [] }], "price_per": "per whole", "price_min": 1200, "price_max": 0 }
+          ]
+        },
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "Salad", "spans": [] }],
+            "description": [{ "type": "paragraph", "text": "Select One.", "spans": [] }],
+            "caption": []
+          },
+          "items": [
+            { "title": [{ "type": "heading4", "text": "Tossed Green", "spans": [] }], "description": [{ "type": "paragraph", "text": "Cucumber, Tomato, Carrot, Ranch & Balsamic Dressing", "spans": [] }], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Arugula", "spans": [] }], "description": [{ "type": "paragraph", "text": "Cranberries, Walnuts, Gorgonzola Cheese & Balsamic Vinaigrette", "spans": [] }], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Spinach", "spans": [] }], "description": [{ "type": "paragraph", "text": "Smoked Bacon, Mushrooms, Goat Cheese, & Caramelized Onion Bacon Vinaigrette", "spans": [] }], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Panzanella", "spans": [] }], "description": [{ "type": "paragraph", "text": "Cucumbers, Tomato, Slivered Red Onions, Fresh Basil, Croutons, & Creamy Basil Dressing", "spans": [] }], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Orzo", "spans": [] }], "description": [{ "type": "paragraph", "text": "Cherry Tomatoes, Kalamata Olives, Capers, Grilled Asparagus, & Homemade Pesto", "spans": [] }], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Angel Hair Pasta", "spans": [] }], "description": [{ "type": "paragraph", "text": "Olives, Capers, Tomatoes, & Roasted Tomato Vinaigrette", "spans": [] }], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Antipasto", "spans": [] }], "description": [{ "type": "paragraph", "text": "Chopped Romaine, Roasted Peppers, Marinated Artichokes, Assorted Cured Meats, Provolone Cheese, Olives, & Italian Dressing", "spans": [] }], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Potato Salad", "spans": [] }], "description": [{ "type": "paragraph", "text": "Red Potatoes, Capers, Smoked Bacon, Scallions, & Sweet Pickled Relish", "spans": [] }], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Caesar", "spans": [] }], "description": [{ "type": "paragraph", "text": "Chopped Romaine, Croutons, Shaved Parmesan, & Caesar Dressing", "spans": [] }], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Spanish Caesar", "spans": [] }], "description": [{ "type": "paragraph", "text": "Sweet Corn, Tomato, Cilantro, Pepitas, Cotija Cheese, & Creamy Parmesan Cilantro Dressing", "spans": [] }], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Black Bean", "spans": [] }], "description": [{ "type": "paragraph", "text": "Grilled Corn, Tomatoes, Queso Fresco, & Spicy Honey Lime Vinaigrette", "spans": [] }], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "BLT", "spans": [] }], "description": [{ "type": "paragraph", "text": "Romaine, Smoked Bacon, Candied Walnuts, Tomatoes, & Avocado Vinaigrette", "spans": [] }], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Spinach + Melon", "spans": [] }], "description": [{ "type": "paragraph", "text": "Diced Watermelon, Pickled Red Onions, Toasted Pumpkin Seeds, Feta Cheese, & Citrus Vinaigrette", "spans": [] }], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Green Tea Soba Noodle", "spans": [] }], "description": [{ "type": "paragraph", "text": "Bok Choy, Shiitake Mushrooms, Fresh Mint, & Sweet Soy Vinaigrette", "spans": [] }], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Spinach Citrus Salad", "spans": [] }], "description": [{ "type": "paragraph", "text": "Spinach, Red Onions, Mandarin Orange, Toasted Pecans, Sesame Seeds, Feta Cheese with Orange Marmalade Vinaigrette", "spans": [] }], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Boston Wedge", "spans": [] }], "description": [{ "type": "paragraph", "text": "Diced Tomato, Scallion, Bacon, Blue Cheese Crumbles, & Ranch Dressing", "spans": [] }], "price_per": "additional per person", "price_min": 1.75, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Caprese", "spans": [] }], "description": [{ "type": "paragraph", "text": "Field greens, Bocconcini Mozzarella, Cherry Tomatoes, Fresh Basil, & Balsamic Vinaigrette", "spans": [] }], "price_per": "additional per person", "price_min": 1.75, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Deconstructed", "spans": [] }], "description": [{ "type": "paragraph", "text": "Romaine Lettuce, Pickled Onion, Candied Pecans, Bleu Cheese Crumbles, Heirloom Tomatoes & Bleu Cheese Dressing", "spans": [] }], "price_per": "additional per person", "price_min": 1.75, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Classic Cobb", "spans": [] }], "description": [{ "type": "paragraph", "text": "Romaine, Avocado, Smoked Ham, Bleu Cheese Crumbles, Tomatoes, Bacon, Egg, & Buttermilk Ranch", "spans": [] }], "price_per": "additional per person", "price_min": 1.75, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Southwest Chicken Salad", "spans": [] }], "description": [{ "type": "paragraph", "text": "Chopped Romaine, Crispy Tortilla Strips, Sweet Corn, Black Beans, Cilantro, Cherry Tomatoes, Avocado, Crispy Chicken & Chipotle Ranch Dressing", "spans": [] }], "price_per": "additional per person", "price_min": 2, "price_max": 0 }
+          ]
+        },
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "Starch", "spans": [] }],
+            "description": [{ "type": "paragraph", "text": "Select One.", "spans": [] }],
+            "caption": []
+          },
+          "items": [
+            { "title": [{ "type": "heading4", "text": "Brown Rice", "spans": [] }], "description": [], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "White Jasmine Rice", "spans": [] }], "description": [], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Wild Rice Pilaf", "spans": [] }], "description": [], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Roasted Red Potato", "spans": [] }], "description": [], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Scalloped Potatoes", "spans": [] }], "description": [], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Sweet Potato", "spans": [] }], "description": [], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Butter Quinoa", "spans": [] }], "description": [], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Couscous", "spans": [] }], "description": [], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Roasted Garlic Mashed Potatoes", "spans": [] }], "description": [], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Cauliflower Mash", "spans": [] }], "description": [], "price_per": "included", "price_min": 0, "price_max": 0 }
+          ]
+        },
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "Vegetable", "spans": [] }],
+            "description": [{ "type": "paragraph", "text": "Select One.", "spans": [] }],
+            "caption": []
+          },
+          "items": [
+            { "title": [{ "type": "heading4", "text": "Vegetable Medley", "spans": [] }], "description": [], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Ratatouille", "spans": [] }], "description": [], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Baby Carrots", "spans": [] }], "description": [], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Grilled Zucchini", "spans": [] }], "description": [], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Grilled Bok Choy", "spans": [] }], "description": [], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Spicy Green Beans", "spans": [] }], "description": [], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "French Green Beans", "spans": [] }], "description": [], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Root Vegetable Hash", "spans": [] }], "description": [], "price_per": "included", "price_min": 0, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Roasted Brussel Sprouts w/ Pancetta & Balsamic Glaze", "spans": [] }], "description": [], "price_per": "additional per person", "price_min": 1.25, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Roasted Asparagus", "spans": [] }], "description": [], "price_per": "additional per person", "price_min": 1.25, "price_max": 0 }
+          ]
+        },
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "Perfectly Packaged Buffet", "spans": [] }],
+            "description": [{ "type": "paragraph", "text": "All packages include homemade rolls and butter, coffee, iced tea & iced water. Please note, the Eats & Sweets Package only does not include homemade rolls and butter.", "spans": [] }],
+            "caption": []
+          },
+          "items": [
+            {
+              "title": [{ "type": "heading4", "text": "Taste of Asia", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Salads \u2014 Included", "spans": [{ "start": 0, "end": 17, "type": "strong" }] },
+                { "type": "list-item", "text": "Chinese Chicken Salad - Chicken, Romaine, Thai Basil, Cucumber, Bean Sprout, & Toasted Sesame Vinaigrette", "spans": [] },
+                { "type": "list-item", "text": "Green Tea Soba Noodle - Bok Choy, Shiitake Mushrooms, Fresh Mint, & Sweet Soy Vinaigrette", "spans": [] },
+                { "type": "paragraph", "text": "Entr\u00e9es \u2014 Select Two", "spans": [{ "start": 0, "end": 20, "type": "strong" }] },
+                { "type": "list-item", "text": "Orange Chicken - Crispy Chicken Tossed with Orange Zest & Chiles", "spans": [] },
+                { "type": "list-item", "text": "Spicy Kung Pao Chicken - Pan Fried Chicken with Dried Chile Pods, Scallions, Peanuts, Cilantro, Peppers, Onions, & Red Chile Sauce", "spans": [] },
+                { "type": "list-item", "text": "Beef + Broccoli - with a Sweet Soy Ginger Glaze", "spans": [] },
+                { "type": "list-item", "text": "Mongolian Beef - Saut\u00e9ed Tender Beef with Scallions & Garlic", "spans": [] },
+                { "type": "list-item", "text": "Asian Salmon - Shiitake Mushrooms, Bok Choy, & Sweet Soy Reduction (Add $1.50 per person)", "spans": [{ "start": 67, "end": 89, "type": "em" }] },
+                { "type": "paragraph", "text": "Sides \u2014 Select Two", "spans": [{ "start": 0, "end": 18, "type": "strong" }] },
+                { "type": "list-item", "text": "Pan Fried Noodles - with Bean Sprouts, Asparagus, Shiitake Mushrooms, & Bok Choy", "spans": [] },
+                { "type": "list-item", "text": "House Fried Rice - with Fresh Peas, Egg, Carrots, Scallions, & Fresh Herbs", "spans": [] },
+                { "type": "list-item", "text": "Vegetable Stir Fry - Assorted Vegetables Saut\u00e9ed with Garlic, Ginger, Asian Herbs, & Sweet Soy Sauce", "spans": [] },
+                { "type": "list-item", "text": "Steamed White Rice (brown rice available upon request)", "spans": [{ "start": 19, "end": 54, "type": "em" }] },
+                { "type": "paragraph", "text": "Dessert \u2014 Select One", "spans": [{ "start": 0, "end": 20, "type": "strong" }] },
+                { "type": "list-item", "text": "Pineapple Upside-down Cake", "spans": [] },
+                { "type": "list-item", "text": "Almond Cookies", "spans": [] }
+              ],
+              "price_per": "lunch/dinner",
+              "price_min": 53.75,
+              "price_max": 63.75
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Taste of India", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Served with Naan Bread", "spans": [] },
+                { "type": "paragraph", "text": "Salads \u2014 Included", "spans": [{ "start": 0, "end": 17, "type": "strong" }] },
+                { "type": "list-item", "text": "Tossed Green - Cucumber, Tomato, Carrot, Ranch & Balsamic Dressing", "spans": [] },
+                { "type": "list-item", "text": "Cucumber Raita - Cucumber, Yogurt, Lemon, Garlic & Mint", "spans": [] },
+                { "type": "paragraph", "text": "Entr\u00e9es \u2014 Select Two", "spans": [{ "start": 0, "end": 20, "type": "strong" }] },
+                { "type": "list-item", "text": "Chicken Tikka Masala - Boneless Chicken Marinated with Cumin, Cardamom, Paprika, Cayenne, and Garlic & Served with Traditional Indian Tikka Masala Sauce", "spans": [] },
+                { "type": "list-item", "text": "Curry Chicken - Boneless Chicken with a Classic Indian Curry Sauce (Add $1.50 per person for Shrimp)", "spans": [{ "start": 67, "end": 100, "type": "em" }] },
+                { "type": "list-item", "text": "Vegetable Skewers - Choose Tikka Masala or Curry Sauce", "spans": [] },
+                { "type": "paragraph", "text": "Sides \u2014 Select Two", "spans": [{ "start": 0, "end": 18, "type": "strong" }] },
+                { "type": "list-item", "text": "Basmati Rice", "spans": [] },
+                { "type": "list-item", "text": "Paneer Tikka - Stir Fried Vegetables with Curry Spice", "spans": [] },
+                { "type": "list-item", "text": "Dal Makhani - Lentils, Onion, Garlic, Cumin & Cream", "spans": [] },
+                { "type": "paragraph", "text": "Dessert \u2014 Included", "spans": [] },
+                { "type": "list-item", "text": "Chef's Choice", "spans": [] }
+              ],
+              "price_per": "lunch/dinner",
+              "price_min": 53.75,
+              "price_max": 63.75
+            },
+            {
+              "title": [{ "type": "heading4", "text": "South of the Border", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Salads \u2014 Included", "spans": [{ "start": 0, "end": 17, "type": "strong" }] },
+                { "type": "list-item", "text": "Black Bean - Grilled Corn, Tomatoes, Queso Fresco, & Spicy Honey Lime Vinaigrette", "spans": [] },
+                { "type": "list-item", "text": "Mexican Chopped Salad - Mixed Greens with Jicama, Radishes, Tomatoes, Crispy Tortillas Strips, & Spicy Chipotle Dressing", "spans": [] },
+                { "type": "paragraph", "text": "Entr\u00e9es \u2014 Select Two", "spans": [{ "start": 0, "end": 20, "type": "strong" }] },
+                { "type": "list-item", "text": "Beef or Chicken Fajitas - Marinated with Cilantro, Lime, Toasted Cumin, Caramelized Onions, & Mixed Peppers (Add $4 per person for Shrimp)", "spans": [{ "start": 108, "end": 138, "type": "em" }] },
+                { "type": "list-item", "text": "Chicken Enchilada Casserole - Slow Roasted & Shredded with Mexican Spices, Homemade Red or Green sauce, & Cheese", "spans": [] },
+                { "type": "list-item", "text": "Pollo Asado - Marinated Chicken with Fresh Citrus, Cumin, Cilantro, Garlic, & Fresh Herbs (Add $3 per person for Carne Asada)", "spans": [{ "start": 90, "end": 125, "type": "em" }] },
+                { "type": "paragraph", "text": "Sides \u2014 Included", "spans": [{ "start": 0, "end": 16, "type": "strong" }] },
+                { "type": "list-item", "text": "Mexican Rice", "spans": [] },
+                { "type": "list-item", "text": "Refried, Pinto, or Black Beans with Queso Fresco", "spans": [] },
+                { "type": "list-item", "text": "Corn or Flour Tortillas", "spans": [] },
+                { "type": "list-item", "text": "Homemade Salsa", "spans": [] },
+                { "type": "list-item", "text": "Sour Cream", "spans": [] },
+                { "type": "paragraph", "text": "Dessert \u2014 Select One", "spans": [{ "start": 0, "end": 20, "type": "strong" }] },
+                { "type": "list-item", "text": "Tres Leches Cake", "spans": [] },
+                { "type": "list-item", "text": "Churros with Caramel", "spans": [] }
+              ],
+              "price_per": "lunch/dinner",
+              "price_min": 53.75,
+              "price_max": 63.75
+            },
+            {
+              "title": [{ "type": "heading4", "text": "The Cowboy", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Salads \u2014 Included", "spans": [{ "start": 0, "end": 17, "type": "strong" }] },
+                { "type": "list-item", "text": "Classic Cobb - Romaine, Avocado, Smoked Ham, Bleu Cheese Crumbles, Tomatoes, Bacon, Egg, & Buttermilk Ranch", "spans": [] },
+                { "type": "list-item", "text": "Cole Slaw - Shredded Napa Cabbage, Apples, Toasted Pecans, Fresh Citrus, & Spicy Dijon Vinaigrette", "spans": [] },
+                { "type": "paragraph", "text": "Entr\u00e9es \u2014 Select Two", "spans": [{ "start": 0, "end": 20, "type": "strong" }] },
+                { "type": "list-item", "text": "Oven Fried Chicken", "spans": [] },
+                { "type": "list-item", "text": "Smoked Pork Spare Ribs - Featuring the Choura Signature Rub", "spans": [] },
+                { "type": "list-item", "text": "BBQ Brisket - Glazed with BBQ Sauce & Orange Zest", "spans": [] },
+                { "type": "list-item", "text": "Tri Tip - Marinated with Fresh Herbs, Garlic, & Lemon (Add $1.25 per person)", "spans": [{ "start": 54, "end": 76, "type": "em" }] },
+                { "type": "paragraph", "text": "Sides \u2014 Select Two", "spans": [{ "start": 0, "end": 18, "type": "strong" }] },
+                { "type": "list-item", "text": "The Mash - Yukon Gold Potatoes with Roasted Garlic, Sour Cream, & Scallions", "spans": [] },
+                { "type": "list-item", "text": "Corn on the Cob - Grilled with Smokey Chipotle Butter", "spans": [] },
+                { "type": "list-item", "text": "Mac + Cheese - Elbow Pasta with Farmhouse Cheddar, Crispy Pancetta, Fresh Chives, & Crispy Bread Crumb Crust", "spans": [] },
+                { "type": "list-item", "text": "Baked Beans - Slow Baked with Caramelized Onions, Brown Sugar, & Smoked Bacon", "spans": [] },
+                { "type": "paragraph", "text": "Dessert \u2014 Included", "spans": [{ "start": 0, "end": 18, "type": "strong" }] },
+                { "type": "list-item", "text": "Apple Pan Doude", "spans": [] }
+              ],
+              "price_per": "lunch/dinner",
+              "price_min": 53.75,
+              "price_max": 63.75
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Mambo Italiano", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Salads \u2014 Select Two", "spans": [{ "start": 0, "end": 19, "type": "strong" }] },
+                { "type": "list-item", "text": "Orzo - Cherry Tomatoes, Kalamata Olives, Capers, Grilled Asparagus, & Homemade Pesto", "spans": [] },
+                { "type": "list-item", "text": "Angel Hair Pasta - Olives, Capers, Tomatoes, & Roasted Tomato Vinaigrette", "spans": [] },
+                { "type": "list-item", "text": "Caesar Salad - Chopped Romaine, Croutons, Shaved Parmesan, & Caesar Dressing", "spans": [] },
+                { "type": "list-item", "text": "Antipasto Salad - Chopped Romaine, Roasted Peppers, Marinated Artichokes, Assorted Cured Meats, Provolone Cheese, Olives, & Italian Dressing", "spans": [] },
+                { "type": "paragraph", "text": "Entr\u00e9es \u2014 Select Two", "spans": [{ "start": 0, "end": 20, "type": "strong" }] },
+                { "type": "list-item", "text": "Chicken or Eggplant Parmesan - Parmesan Panko Crusted Chicken Breast or Baked Eggplant with Provolone & Basil Marinara Sauce", "spans": [] },
+                { "type": "list-item", "text": "Bistecca - Grilled Tri Tip with Fresh Lemon, Garlic, Shaved Parmesan & Tomato Basil Vinaigrette (Add $1.25 per person)", "spans": [{ "start": 96, "end": 118, "type": "em" }] },
+                { "type": "list-item", "text": "Penne Pasta - Italian Sausage, Caramelized Onions, Roasted Peppers, & Rustic Basil-Alfredo Sauce", "spans": [] },
+                { "type": "list-item", "text": "Pasta Primavera - Garlic Butter Saut\u00e9ed Seasonal Vegetables & White Wine Cream Sauce", "spans": [] },
+                { "type": "paragraph", "text": "Sides \u2014 Included", "spans": [{ "start": 0, "end": 16, "type": "strong" }] },
+                { "type": "list-item", "text": "Vegetable Ratatouille - Grilled Zucchini, Peppers, Asparagus, & Roasted Baby Carrots Seasoned with Garlic-Basil Butter", "spans": [] },
+                { "type": "list-item", "text": "Fettuccine Olio di Burro - Pasta Tossed with Butter, Fresh Italian Parsley, Extra Virgin Olive Oil and Parmesan Cheese", "spans": [] },
+                { "type": "paragraph", "text": "Dessert \u2014 Included", "spans": [{ "start": 0, "end": 18, "type": "strong" }] },
+                { "type": "list-item", "text": "Coconut Macaroons & Mini Cannolis", "spans": [] }
+              ],
+              "price_per": "lunch/dinner",
+              "price_min": 53.75,
+              "price_max": 63.75
+            },
+            {
+              "title": [{ "type": "heading4", "text": "From The Deli", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Salads \u2014 Included", "spans": [{ "start": 0, "end": 17, "type": "strong" }] },
+                { "type": "list-item", "text": "Antipasto - Chopped Romaine, Roasted Peppers, Marinated Artichokes, Assorted Cured Meats, Provolone Cheese, Olives, & Italian Dressing", "spans": [] },
+                { "type": "list-item", "text": "Panzanella \u2013 Cucumber, Tomato, Slivered Red Onion, Fresh Basil, Croutons, & Creamy Basil Dressing", "spans": [] },
+                { "type": "paragraph", "text": "Between The Bread \u2014 Select Two", "spans": [{ "start": 0, "end": 30, "type": "strong" }] },
+                { "type": "list-item", "text": "Smoked Ham - Brie & Honey Mustard", "spans": [] },
+                { "type": "list-item", "text": "Roast Beef - Cheddar Cheese, Caramelized Onions, & Gorgonzola Spread", "spans": [] },
+                { "type": "list-item", "text": "Classic BLT - Bacon, Lettuce, Tomato, & Lemon Aioli", "spans": [] },
+                { "type": "list-item", "text": "Chicken Caesar Pita - Romaine Lettuce, Tomato, Parmesan, & Caesar Dressing", "spans": [] },
+                { "type": "list-item", "text": "Club Sandwich - Roasted Turkey, Ham, Lettuce, Tomato, Bacon, & Garlic Aioli", "spans": [] },
+                { "type": "list-item", "text": "Roasted Turkey - Provolone, Roasted Red Peppers, & Basil Pesto", "spans": [] },
+                { "type": "list-item", "text": "Santa Fe Chicken - Ortega Chiles, Pepperjack Cheese, Greens, & Chipotle Aioli", "spans": [] },
+                { "type": "list-item", "text": "Roasted Pork Loin - Asian Slaw, Thai Basil, Pea Sprouts, Pickled Cucumber, & Sriracha Aioli", "spans": [] },
+                { "type": "list-item", "text": "Albacore Tuna - with Scallions, Fresh Tarragon, & Lemon Zest", "spans": [] },
+                { "type": "list-item", "text": "Curry Chicken Salad - with Celery, Fresh Herbs, Dried Cherries, Chives, & Curry Aioli", "spans": [] },
+                { "type": "list-item", "text": "Chicken Salad - with Celery, Fresh Herbs, Chives, & Mayo", "spans": [] },
+                { "type": "list-item", "text": "Garden Stack - Grilled Vegetables, Feta, & Olive Tapenade Spread", "spans": [] },
+                { "type": "list-item", "text": "Caprese Stack - Arugula, Mozzarella, Tomatoes, Balsamic Glaze, & Basil Pesto", "spans": [] },
+                { "type": "paragraph", "text": "Side \u2014 Included", "spans": [{ "start": 0, "end": 15, "type": "strong" }] },
+                { "type": "list-item", "text": "Assorted Chips", "spans": [] },
+                { "type": "paragraph", "text": "Dessert \u2014 Included", "spans": [{ "start": 0, "end": 18, "type": "strong" }] },
+                { "type": "list-item", "text": "Assorted Cookies & Brownies", "spans": [] }
+              ],
+              "price_per": "lunch/dinner",
+              "price_min": 49.75,
+              "price_max": 59.75
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Eats + Sweets", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Appetizers \u2014 Select Six", "spans": [{ "start": 0, "end": 23, "type": "strong" }] },
+                { "type": "list-item", "text": "Sesame Crusted Goat Cheese - on Wonton Crisp", "spans": [] },
+                { "type": "list-item", "text": "Ahi Poke - Tuna, Soy Sauce, Black Sesame Seeds, & Scallions on a Wonton Crisp", "spans": [] },
+                { "type": "list-item", "text": "White Fish Ceviche - on Tostada Round", "spans": [] },
+                { "type": "list-item", "text": "Grilled Peach Crostini - Balsamic Glaze, Goat Cheese, & Honey Drizzle", "spans": [] },
+                { "type": "list-item", "text": "NY Steak Crostini - Caramelized Onions & Gorgonzola Cream", "spans": [] },
+                { "type": "list-item", "text": "Pan Seared Ahi - atop Cucumber Slice with Japanese Spice, Pickled Onions, & Sriracha Aioli", "spans": [] },
+                { "type": "list-item", "text": "Roasted Garlic Humus - Served with Pita Chips (Add $1.00 per person)", "spans": [{ "start": 46, "end": 68, "type": "em" }] },
+                { "type": "list-item", "text": "Fresh Spring Rolls - Green Tea Soba Noodles, Thai Basil, Cucumber, Mint, & Spicy Hoisin", "spans": [] },
+                { "type": "list-item", "text": "Caprese Skewers - Cherry Tomato, Bocconcini Mozzarella, Olives, & Basil Pesto", "spans": [] },
+                { "type": "list-item", "text": "Roasted Artichoke Crostini - with Fennel Herb Goat Cheese", "spans": [] },
+                { "type": "list-item", "text": "Avocado Kale Toast - Lemon, Olive Oil, Salt, & Pepper", "spans": [] },
+                { "type": "list-item", "text": "Homemade Meatballs - Teriyaki, Turkey or Italian", "spans": [] },
+                { "type": "list-item", "text": "Crispy Spring Rolls - with Sweet + Sour Dipping Sauce", "spans": [] },
+                { "type": "list-item", "text": "Chicken Satay - with Spicy Peanut Sauce, Tikka Masala Sauce or Chimichurri Sauce", "spans": [] },
+                { "type": "list-item", "text": "Mini Beef Wellington - Tender Beef Wrapped in Puff Pastry with Saut\u00e9ed Mushrooms & Shallots Duxelle, & Madera Wine Demi Glaze", "spans": [] },
+                { "type": "list-item", "text": "Tikka Masala Taco - Chicken Tikka Masala, Cilantro, & Cucumber Raita", "spans": [] },
+                { "type": "list-item", "text": "Mongolian Beef Skewers - Grilled Scallions", "spans": [] },
+                { "type": "list-item", "text": "Short Rib Quesadilla - with Chipotle Cr\u00e8me", "spans": [] },
+                { "type": "list-item", "text": "Thai Chicken Lettuce Wraps - Asian Inspired Diced Chicken on an Endive Spear", "spans": [] },
+                { "type": "list-item", "text": "Lobster Corndogs - with Green Peppercorn Aioli (Add $1.50 per person)", "spans": [{ "start": 47, "end": 69, "type": "em" }] },
+                { "type": "paragraph", "text": "Desserts \u2014 Select Two", "spans": [{ "start": 0, "end": 21, "type": "strong" }] },
+                { "type": "list-item", "text": "Traditional New York Cheesecake - with Seasonal Berries", "spans": [] },
+                { "type": "list-item", "text": "Cinnamon Apple Tart - with Fresh Whipped Cream", "spans": [] },
+                { "type": "list-item", "text": "Dolce Italiano \u2013 Coconut Macaroons & Mini Chocolate Chip Cannolis", "spans": [] },
+                { "type": "list-item", "text": "Mini Beignets - Dusted with Cinnamon Sugar or Powdered Sugar", "spans": [] }
+              ],
+              "price_per": "lunch/dinner",
+              "price_min": 53.75,
+              "price_max": 63.75
+            }
+          ]
+        },
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "Live Cooking Stations", "spans": [] }],
+            "description": [
+              { "type": "paragraph", "text": "Chef Required, additional labor fees apply. Minimum 25 people. All Live Stations open for 90 minutes only.", "spans": [] },
+              { "type": "paragraph", "text": "Lunch - 2 Station Minimum | Dinner - 3 Station Minimum", "spans": [{ "start": 0, "end": 26, "type": "em" }, { "start": 28, "end": 54, "type": "em" }] }
+            ],
+            "caption": [{ "type": "paragraph", "text": "**Any Add-On Add $2.50 per person", "spans": [] }]
+          },
+          "items": [
+            {
+              "title": [{ "type": "heading4", "text": "Mashed Potato Bar", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Select Two", "spans": [{ "start": 0, "end": 10, "type": "strong" }] },
+                { "type": "list-item", "text": "Red Bliss Mash", "spans": [] },
+                { "type": "list-item", "text": "Cheddar & Chive Mash", "spans": [] },
+                { "type": "list-item", "text": "Wasabi Mash", "spans": [] },
+                { "type": "list-item", "text": "Garlic Mash", "spans": [] },
+                { "type": "list-item", "text": "Sweet Potato Mash", "spans": [] },
+                { "type": "paragraph", "text": "Select Two", "spans": [{ "start": 0, "end": 10, "type": "strong" }] },
+                { "type": "list-item", "text": "Garlic Chive Butter Shrimp (Add $1.50 per person)", "spans": [{ "start": 27, "end": 49, "type": "em" }] },
+                { "type": "list-item", "text": "Shredded Rotisserie Chicken", "spans": [] },
+                { "type": "list-item", "text": "Beef Short Ribs", "spans": [] },
+                { "type": "list-item", "text": "Saut\u00e9ed Mushrooms", "spans": [] },
+                { "type": "list-item", "text": "Chili", "spans": [] },
+                { "type": "list-item", "text": "BBQ Brisket", "spans": [] },
+                { "type": "paragraph", "text": "Includes All", "spans": [{ "start": 0, "end": 12, "type": "strong" }] },
+                { "type": "list-item", "text": "Sharp Cheddar", "spans": [] },
+                { "type": "list-item", "text": "Smoked Bacon Bits", "spans": [] },
+                { "type": "list-item", "text": "Sour Cream", "spans": [] },
+                { "type": "list-item", "text": "Whipped Butter", "spans": [] },
+                { "type": "list-item", "text": "Blue Cheese Crumbles", "spans": [] },
+                { "type": "list-item", "text": "Shoe-String Onions", "spans": [] },
+                { "type": "list-item", "text": "Scallions", "spans": [] }
+              ],
+              "price_per": "per person",
+              "price_min": 13.75,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Mac n' Cheese Martinis", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Select Two", "spans": [{ "start": 0, "end": 10, "type": "strong" }] },
+                { "type": "list-item", "text": "Cheddar Cheese Sauce", "spans": [] },
+                { "type": "list-item", "text": "White Cheddar", "spans": [] },
+                { "type": "list-item", "text": "Brown Ale Bacon Cheddar", "spans": [] },
+                { "type": "list-item", "text": "Swiss Chive Roasted Garlic", "spans": [] },
+                { "type": "paragraph", "text": "Select Two", "spans": [{ "start": 0, "end": 10, "type": "strong" }] },
+                { "type": "list-item", "text": "Shredded Rotisserie Chicken", "spans": [] },
+                { "type": "list-item", "text": "Chili", "spans": [] },
+                { "type": "list-item", "text": "BBQ Brisket", "spans": [] },
+                { "type": "list-item", "text": "Saut\u00e9ed Mushrooms", "spans": [] },
+                { "type": "list-item", "text": "Beef Short Ribs", "spans": [] },
+                { "type": "paragraph", "text": "Includes All", "spans": [{ "start": 0, "end": 12, "type": "strong" }] },
+                { "type": "list-item", "text": "Sharp Cheddar", "spans": [] },
+                { "type": "list-item", "text": "Sour Cream", "spans": [] },
+                { "type": "list-item", "text": "Smoked Bacon Bits", "spans": [] },
+                { "type": "list-item", "text": "Scallions", "spans": [] },
+                { "type": "list-item", "text": "Shoe-String Onions", "spans": [] }
+              ],
+              "price_per": "per person",
+              "price_min": 13.75,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Taco Experience", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Select Two", "spans": [{ "start": 0, "end": 10, "type": "strong" }] },
+                { "type": "list-item", "text": "Carne Asada", "spans": [] },
+                { "type": "list-item", "text": "Pollo Asado", "spans": [] },
+                { "type": "list-item", "text": "Carnitas", "spans": [] },
+                { "type": "list-item", "text": "Barbacoa", "spans": [] },
+                { "type": "list-item", "text": "Chorizo", "spans": [] },
+                { "type": "paragraph", "text": "Includes All", "spans": [{ "start": 0, "end": 12, "type": "strong" }] },
+                { "type": "list-item", "text": "Cheese", "spans": [] },
+                { "type": "list-item", "text": "Sour Cream", "spans": [] },
+                { "type": "list-item", "text": "Salsa", "spans": [] },
+                { "type": "list-item", "text": "Cilantro", "spans": [] },
+                { "type": "list-item", "text": "Onion", "spans": [] },
+                { "type": "list-item", "text": "Corn -or- Flour Tortillas", "spans": [] },
+                { "type": "paragraph", "text": "Add Spanish Rice & Beans for $3.00 per person", "spans": [{ "start": 0, "end": 45, "type": "em" }] }
+              ],
+              "price_per": "per person",
+              "price_min": 13.75,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Chinese \"To-Go\" Cup", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Select Two", "spans": [{ "start": 0, "end": 10, "type": "strong" }] },
+                { "type": "list-item", "text": "Kung Pao Chicken", "spans": [] },
+                { "type": "list-item", "text": "Teriyaki Chicken", "spans": [] },
+                { "type": "list-item", "text": "Stir Fry Veggies", "spans": [] },
+                { "type": "list-item", "text": "Shrimp (Add $1.50 per person)", "spans": [{ "start": 7, "end": 29, "type": "em" }] },
+                { "type": "paragraph", "text": "Includes All", "spans": [{ "start": 0, "end": 12, "type": "strong" }] },
+                { "type": "list-item", "text": "Wonton Strips", "spans": [] },
+                { "type": "list-item", "text": "Scallions", "spans": [] },
+                { "type": "list-item", "text": "Roasted Peanuts", "spans": [] },
+                { "type": "list-item", "text": "Toasted Sesame Seeds", "spans": [] },
+                { "type": "list-item", "text": "Sriracha", "spans": [] },
+                { "type": "list-item", "text": "Soy Sauce", "spans": [] }
+              ],
+              "price_per": "per person",
+              "price_min": 13.75,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Slider Station", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Select Two", "spans": [{ "start": 0, "end": 10, "type": "strong" }] },
+                { "type": "list-item", "text": "Kahlua Pulled Pork on Hawaiian Roll", "spans": [] },
+                { "type": "list-item", "text": "Angus Beef w/ Caramelized Onions & Blue Cheese", "spans": [] },
+                { "type": "list-item", "text": "Blackened Chicken w/ Honey Mustard & Swiss", "spans": [] },
+                { "type": "list-item", "text": "Southwest Black Bean w/ Pepperjack & Guacamole", "spans": [] },
+                { "type": "paragraph", "text": "Includes All", "spans": [{ "start": 0, "end": 12, "type": "strong" }] },
+                { "type": "list-item", "text": "Cheddar", "spans": [] },
+                { "type": "list-item", "text": "Lettuce", "spans": [] },
+                { "type": "list-item", "text": "Tomato", "spans": [] },
+                { "type": "list-item", "text": "Onion", "spans": [] },
+                { "type": "list-item", "text": "Pickles", "spans": [] },
+                { "type": "list-item", "text": "Thousand Island", "spans": [] },
+                { "type": "list-item", "text": "Ketchup", "spans": [] },
+                { "type": "list-item", "text": "Mustard", "spans": [] },
+                { "type": "list-item", "text": "Mayo", "spans": [] }
+              ],
+              "price_per": "per person",
+              "price_min": 13.75,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "By The Sea", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Included", "spans": [{ "start": 0, "end": 8, "type": "strong" }] },
+                { "type": "list-item", "text": "Butter Bowtie Pasta w/ Shrimp Scampi", "spans": [] },
+                { "type": "paragraph", "text": "Toppings", "spans": [{ "start": 0, "end": 8, "type": "strong" }] },
+                { "type": "list-item", "text": "Crushed Red Pepper Flakes", "spans": [] },
+                { "type": "list-item", "text": "Parmesan Cheese", "spans": [] }
+              ],
+              "price_per": "per person",
+              "price_min": 13.75,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Butcher Shoppe", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Included", "spans": [] },
+                { "type": "list-item", "text": "Carved Tri-Tip Sliders with Spicy Aioli & Micro Arugula on Toasted Asiago Rolls", "spans": [] }
+              ],
+              "price_per": "per person",
+              "price_min": 13.75,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Sope Station", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Select Two", "spans": [{ "start": 0, "end": 10, "type": "strong" }] },
+                { "type": "list-item", "text": "Carne Asada", "spans": [] },
+                { "type": "list-item", "text": "Pollo Asado", "spans": [] },
+                { "type": "list-item", "text": "Birria", "spans": [] },
+                { "type": "list-item", "text": "Carnitas", "spans": [] },
+                { "type": "list-item", "text": "Ground Beef", "spans": [] },
+                { "type": "paragraph", "text": "Included", "spans": [{ "start": 0, "end": 8, "type": "strong" }] },
+                { "type": "list-item", "text": "Refried Beans", "spans": [] },
+                { "type": "list-item", "text": "Pickled Onions", "spans": [] },
+                { "type": "list-item", "text": "Onions & Cilantro", "spans": [] },
+                { "type": "list-item", "text": "Shredded Cheese", "spans": [] },
+                { "type": "list-item", "text": "Shredded Lettuce", "spans": [] },
+                { "type": "list-item", "text": "Jalapenos", "spans": [] }
+              ],
+              "price_per": "per person",
+              "price_min": 9,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Tostada Station", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Select Two", "spans": [{ "start": 0, "end": 10, "type": "strong" }] },
+                { "type": "list-item", "text": "Carne Asada", "spans": [] },
+                { "type": "list-item", "text": "Pollo Asado", "spans": [] },
+                { "type": "list-item", "text": "Birria", "spans": [] },
+                { "type": "list-item", "text": "Carnitas", "spans": [] },
+                { "type": "list-item", "text": "Ground Beef", "spans": [] },
+                { "type": "list-item", "text": "White Fish Ceviche", "spans": [] },
+                { "type": "paragraph", "text": "Included", "spans": [{ "start": 0, "end": 8, "type": "strong" }] },
+                { "type": "list-item", "text": "Refried Beans", "spans": [] },
+                { "type": "list-item", "text": "Pickled Onions", "spans": [] },
+                { "type": "list-item", "text": "Onions & Cilantro", "spans": [] },
+                { "type": "list-item", "text": "Shredded Cheese", "spans": [] },
+                { "type": "list-item", "text": "Shredded Lettuce", "spans": [] },
+                { "type": "list-item", "text": "Jalapenos", "spans": [] }
+              ],
+              "price_per": "per person",
+              "price_min": 9,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Farmer's Market", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Select Three", "spans": [{ "start": 0, "end": 12, "type": "strong" }] },
+                { "type": "list-item", "text": "Tossed Green | Cucumber, Tomato, Carrot, Ranch & Balsamic Dressing", "spans": [{ "start": 0, "end": 12, "type": "em" }] },
+                { "type": "list-item", "text": "Arugula | Cranberries, Candied Walnuts, Gorgonzola Cheese & Balsamic Vinaigrette", "spans": [{ "start": 0, "end": 10, "type": "em" }] },
+                { "type": "list-item", "text": "Spinach | Smoked Bacon, Mushrooms, Goat Cheese, & Caramelized Onion Bacon Vinaigrette", "spans": [{ "start": 0, "end": 10, "type": "em" }] },
+                { "type": "list-item", "text": "Panzanella | Cucumbers, Tomato, Slivered Red Onions, Fresh Basil, Croutons, & Creamy Basil Dressing", "spans": [{ "start": 0, "end": 13, "type": "em" }] },
+                { "type": "list-item", "text": "Orzo | Cherry Tomatoes, Kalamata Olives, Capers, Grilled Asparagus, & Homemade Pesto", "spans": [{ "start": 0, "end": 7, "type": "em" }] },
+                { "type": "list-item", "text": "Angel Hair Pasta | Olives, Capers, Tomatoes, & Roasted Tomato Vinaigrette", "spans": [{ "start": 0, "end": 19, "type": "em" }] },
+                { "type": "list-item", "text": "Antipasto | Chopped Romaine, Roasted Peppers, Marinated Artichokes, Assorted Cured Meats, Provolone Cheese, Olives, & Italian Dressing", "spans": [{ "start": 0, "end": 12, "type": "em" }] },
+                { "type": "list-item", "text": "Potato Salad | Red Potatoes, Capers, Smoked Bacon, Scallions, & Sweet Pickled Relish", "spans": [{ "start": 0, "end": 15, "type": "em" }] },
+                { "type": "list-item", "text": "Caesar | Chopped Romaine, Croutons, Shaved Parmesan, & Caesar Dressing", "spans": [{ "start": 0, "end": 9, "type": "em" }] },
+                { "type": "list-item", "text": "Spanish Caesar | Sweet Corn, Tomato, Cilantro, Pepitas, Cotija Cheese, & Creamy Parmesan Cilantro Dressing", "spans": [{ "start": 0, "end": 17, "type": "em" }] },
+                { "type": "list-item", "text": "Black Bean | Grilled Corn, Tomatoes, Queso Fresco, & Spicy Honey Lime Vinaigrette", "spans": [{ "start": 0, "end": 13, "type": "em" }] },
+                { "type": "list-item", "text": "BLT | Romaine, Smoked Bacon, Candied Walnuts, Tomatoes, & Avocado Vinaigrette", "spans": [{ "start": 0, "end": 6, "type": "em" }] },
+                { "type": "list-item", "text": "Spinach + Melon | Diced Watermelon, Pickled Red Onions, Toasted Pumpkin Seeds, Feta Cheese, & Citrus Vinaigrette", "spans": [{ "start": 0, "end": 18, "type": "em" }] },
+                { "type": "list-item", "text": "Green Tea Soba Noodle | Bok Choy, Shiitake Mushrooms, Fresh Mint, & Sweet Soy Vinaigrette", "spans": [{ "start": 0, "end": 24, "type": "em" }] },
+                { "type": "list-item", "text": "Spinach Citrus Salad | Spinach, Red Onions, Mandarin Orange, Toasted Pecans, Sesame Seeds, Feta Cheese, Orange Marmalade Vinaigrette", "spans": [{ "start": 0, "end": 23, "type": "em" }] },
+                { "type": "list-item", "text": "Boston Wedge | Diced Tomato, Scallion, Bacon, Blue Cheese Crumbles, & Ranch Dressing", "spans": [{ "start": 0, "end": 15, "type": "em" }] },
+                { "type": "list-item", "text": "Caprese | Field greens, Boccaccini Mozzarella, Cherry Tomatoes, Fresh Basil, & Basalmic Vinaigrette", "spans": [{ "start": 0, "end": 10, "type": "em" }] },
+                { "type": "list-item", "text": "Deconstructed | Romaine Lettuce, Pickled Onion, Candied Pecans, Bleu Cheese Crumbles, Heirloom Tomatoes & Bleu Cheese Dressing", "spans": [{ "start": 0, "end": 16, "type": "em" }] },
+                { "type": "list-item", "text": "Classic Cobb | Romaine, Avocado, Smoked Ham, Bleu Cheese Crumbles, Tomatoes, Bacon, Egg, & Buttermilk Ranch", "spans": [{ "start": 0, "end": 15, "type": "em" }] },
+                { "type": "list-item", "text": "Southwest Chicken Salad | Chopped Romaine, Crispy Tortilla Strips, Sweet Corn, Black Beans, Cilantro, Cherry Tomatoes, Avocado, Crispy Chicken & Chipotle Ranch Dressing  ", "spans": [{ "start": 0, "end": 26, "type": "em" }, { "start": 169, "end": 170, "type": "em" }] }
+              ],
+              "price_per": "per person",
+              "price_min": 10,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Glizzy Street (LA Street Dogs)", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "$200 attendant fee", "spans": [{ "start": 0, "end": 18, "type": "em" }] },
+                { "type": "paragraph", "text": "Included", "spans": [{ "start": 0, "end": 8, "type": "strong" }] },
+                { "type": "list-item", "text": "All Beef Hotdog with or without Bacon", "spans": [] },
+                { "type": "paragraph", "text": "Toppings", "spans": [{ "start": 0, "end": 8, "type": "strong" }] },
+                { "type": "list-item", "text": "Grilled Onions, Peppers & Jalapenos", "spans": [] },
+                { "type": "list-item", "text": "Mayo", "spans": [] },
+                { "type": "list-item", "text": "Mustard", "spans": [] },
+                { "type": "list-item", "text": "Ketchup", "spans": [] },
+                { "type": "list-item", "text": "Glizzy Sauce", "spans": [] }
+              ],
+              "price_per": "per person",
+              "price_min": 5,
+              "price_max": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Sweets",
+      "description": "",
+      "disclaimer": "",
+      "sections": [
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "Sweet Tooth", "spans": [] }],
+            "description": [],
+            "caption": []
+          },
+          "items": [
+            {
+              "title": [{ "type": "heading4", "text": "Sweet Tooth Treats", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Served or Displayed - A la Carte", "spans": [] },
+                { "type": "list-item", "text": "Assorted Dessert Bars - Lemon & Pecan", "spans": [] },
+                { "type": "list-item", "text": "Tres Leches Cake", "spans": [] },
+                { "type": "list-item", "text": "Gourmet Homemade Pie - Caramel Apple or Chocolate Mousse", "spans": [] },
+                { "type": "list-item", "text": "Mini Bundt Cakes - Carrot, Lemon, or Chocolate", "spans": [] },
+                { "type": "list-item", "text": "Mini Cupcakes - PBJ, Lemon, Chocolate, Red Velvet, Vanilla or Mint Chocolate Chip", "spans": [] },
+                { "type": "list-item", "text": "Individual Fruit Tarts", "spans": [] },
+                { "type": "list-item", "text": "Tuxedo Trifle Mousse Cake - Chocolate Cake Layered with Vanilla Mousse and Chocolate Shell", "spans": [] },
+                { "type": "list-item", "text": "Cheesecake - Traditional New York with Seasonal Berries or Cookies and Cream with Oreo Crust", "spans": [] },
+                { "type": "list-item", "text": "Cinnamon Apple Tart - with Fresh Whipped Cream", "spans": [] },
+                { "type": "list-item", "text": "Dolce Italiano - Hazelnut Macaroons & Mini Chocolate Chip Cannolis", "spans": [] },
+                { "type": "list-item", "text": "Mini Beignets - Dusted with Cinnamon Sugar or Powdered Sugar", "spans": [] },
+                { "type": "list-item", "text": "Churros \u2013 with Caramel Sauce", "spans": [] },
+                { "type": "list-item", "text": "Chocolate Tartlet \u2013 with Salted Caramel", "spans": [] },
+                { "type": "list-item", "text": "Petite Fours - Add $1.00 per person", "spans": [{ "start": 15, "end": 35, "type": "em" }] }
+              ],
+              "price_per": "per person",
+              "price_min": 6,
+              "price_max": 0
+            }
+          ]
+        },
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "Custom Dessert Bar", "spans": [] }],
+            "description": [{ "type": "paragraph", "text": "Displayed.", "spans": [] }],
+            "caption": []
+          },
+          "items": [
+            { "title": [{ "type": "heading4", "text": "3 Sweet Tooth Treats", "spans": [] }], "description": [{ "type": "paragraph", "text": "Select options from Sweet Tooth treat list", "spans": [] }], "price_per": "per person", "price_min": 16.5, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "4 Sweet Tooth Treats", "spans": [] }], "description": [{ "type": "paragraph", "text": "Select options from Sweet Tooth treat list", "spans": [] }], "price_per": "per person", "price_min": 20.5, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "5 Sweet Tooth Treats", "spans": [] }], "description": [{ "type": "paragraph", "text": "Select options from Sweet Tooth treat list", "spans": [] }], "price_per": "per person", "price_min": 23, "price_max": 0 }
+          ]
+        },
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "Sweet Stations", "spans": [] }],
+            "description": [],
+            "caption": []
+          },
+          "items": [
+            {
+              "title": [{ "type": "heading4", "text": "Float Home Station", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Attendant Required; additional labor fee applies", "spans": [] },
+                { "type": "paragraph", "text": "Select Two Soda Flavors (served with Vanilla Ice Cream)", "spans": [{ "start": 0, "end": 55, "type": "strong" }, { "start": 24, "end": 55, "type": "em" }] },
+                { "type": "list-item", "text": "Root Beer", "spans": [] },
+                { "type": "list-item", "text": "Orange", "spans": [] },
+                { "type": "list-item", "text": "Grape", "spans": [] },
+                { "type": "list-item", "text": "Coke", "spans": [] }
+              ],
+              "price_per": "per person",
+              "price_min": 10,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Churro Station", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Attendant Required; additional labor fee applies", "spans": [] },
+                { "type": "paragraph", "text": "Includes All", "spans": [{ "start": 0, "end": 12, "type": "strong" }] },
+                { "type": "list-item", "text": "Vanilla Ice Cream", "spans": [] },
+                { "type": "list-item", "text": "Chocolate Sauce", "spans": [] },
+                { "type": "list-item", "text": "Caramel Sauce", "spans": [] }
+              ],
+              "price_per": "per person",
+              "price_min": 11,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Dredging Station", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "$300 Rental fee", "spans": [] },
+                { "type": "paragraph", "text": "Minimum 25 people.", "spans": [] },
+                { "type": "paragraph", "text": "Includes", "spans": [{ "start": 0, "end": 8, "type": "strong" }] },
+                { "type": "list-item", "text": "20lbs of Belgium Chocolate (choice of dark, semisweet, milk, or white)", "spans": [] },
+                { "type": "list-item", "text": "Round, Skirted Table", "spans": [] },
+                { "type": "list-item", "text": "Napkins, Mini Plates, & 8in Skewers", "spans": [] },
+                { "type": "paragraph", "text": "Dipping Items", "spans": [{ "start": 0, "end": 13, "type": "strong" }] },
+                { "type": "list-item", "text": "Choose Three for $16.00 per person", "spans": [{ "start": 24, "end": 34, "type": "em" }] },
+                { "type": "list-item", "text": "Choose Four for $18.00 per person", "spans": [{ "start": 23, "end": 33, "type": "em" }] },
+                { "type": "list-item", "text": "Choose Five for $20.00 per person", "spans": [{ "start": 23, "end": 33, "type": "em" }] },
+                { "type": "paragraph", "text": "Choice of", "spans": [{ "start": 0, "end": 9, "type": "strong" }] },
+                { "type": "list-item", "text": "Cheesecake Bites", "spans": [] },
+                { "type": "list-item", "text": "Brownie Squares", "spans": [] },
+                { "type": "list-item", "text": "Strawberries", "spans": [] },
+                { "type": "list-item", "text": "Apples", "spans": [] },
+                { "type": "list-item", "text": "Oreo Cookies", "spans": [] },
+                { "type": "list-item", "text": "Caramel", "spans": [] },
+                { "type": "list-item", "text": "Bananas", "spans": [] },
+                { "type": "list-item", "text": "Peanut Butter Balls", "spans": [] },
+                { "type": "list-item", "text": "Nutter Butter Cookies", "spans": [] },
+                { "type": "list-item", "text": "Shortbread Cookies", "spans": [] },
+                { "type": "list-item", "text": "Snicker Pieces", "spans": [] },
+                { "type": "list-item", "text": "Pretzel Rods", "spans": [] },
+                { "type": "list-item", "text": "Cream Puffs", "spans": [] },
+                { "type": "list-item", "text": "Pineapple", "spans": [] },
+                { "type": "list-item", "text": "Rice Krispie Treats", "spans": [] },
+                { "type": "list-item", "text": "Graham Cracker Squares", "spans": [] },
+                { "type": "list-item", "text": "Coconut Macaroons", "spans": [] },
+                { "type": "list-item", "text": "Coconut Balls", "spans": [] },
+                { "type": "list-item", "text": "Biscotti", "spans": [] },
+                { "type": "list-item", "text": "Marshmallows", "spans": [] }
+              ],
+              "price_per": "per person",
+              "price_min": 16,
+              "price_max": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Drinks",
+      "description": "Wet Your Whistle",
+      "disclaimer": "",
+      "sections": [
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "Beer", "spans": [] }],
+            "description": [],
+            "caption": []
+          },
+          "items": [
+            { "title": [{ "type": "heading4", "text": "Domestic Beer", "spans": [] }], "description": [], "price_per": "per item", "price_min": 9, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Import/Specialty Beer", "spans": [] }], "description": [], "price_per": "per item", "price_min": 10, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Domestic Keg", "spans": [] }], "description": [{ "type": "paragraph", "text": "Approximately 150 servings", "spans": [] }], "price_per": "per item", "price_min": 750, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Import/Specialty Keg", "spans": [] }], "description": [{ "type": "paragraph", "text": "Approximately 150 servings", "spans": [] }], "price_per": "per item", "price_min": 800, "price_max": 0 }
+          ]
+        },
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "Wine", "spans": [] }],
+            "description": [],
+            "caption": []
+          },
+          "items": [
+            { "title": [{ "type": "heading4", "text": "Wine by the Glass", "spans": [] }], "description": [], "price_per": "per item", "price_min": 10, "price_max": 11 },
+            { "title": [{ "type": "heading4", "text": "Wine by the Bottle", "spans": [] }], "description": [], "price_per": "per item", "price_min": 30, "price_max": 46 },
+            { "title": [{ "type": "heading4", "text": "Champagne by the Glass", "spans": [] }], "description": [], "price_per": "per item", "price_min": 10, "price_max": 13 },
+            { "title": [{ "type": "heading4", "text": "Champagne by the Bottle", "spans": [] }], "description": [], "price_per": "per item", "price_min": 25, "price_max": 108 }
+          ]
+        },
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "Mixed Cocktails", "spans": [] }],
+            "description": [],
+            "caption": []
+          },
+          "items": [
+            { "title": [{ "type": "heading4", "text": "Cocktail", "spans": [] }], "description": [], "price_per": "per item", "price_min": 12.5, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Martinis", "spans": [] }], "description": [], "price_per": "per item", "price_min": 14, "price_max": 0 }
+          ]
+        },
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "Non-Alcoholic", "spans": [] }],
+            "description": [],
+            "caption": []
+          },
+          "items": [
+            { "title": [{ "type": "heading4", "text": "Bottled Water", "spans": [] }], "description": [], "price_per": "per item", "price_min": 4, "price_max": 6 },
+            { "title": [{ "type": "heading4", "text": "Pellegrino Sparkling Water", "spans": [] }], "description": [], "price_per": "per item", "price_min": 5, "price_max": 7 },
+            { "title": [{ "type": "heading4", "text": "Soft Drinks", "spans": [] }], "description": [], "price_per": "per item", "price_min": 5, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Juices", "spans": [] }], "description": [], "price_per": "per item", "price_min": 4, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Sparkling Cider", "spans": [] }], "description": [], "price_per": "per item", "price_min": 17, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Unlimited Sodas", "spans": [] }], "description": [], "price_per": "per person", "price_min": 6, "price_max": 0 },
+            { "title": [{ "type": "heading4", "text": "Corkage Fee", "spans": [] }], "description": [], "price_per": "per item", "price_min": 17, "price_max": 0 }
+          ]
+        },
+        {
+          "primary": {
+            "title": [{ "type": "heading2", "text": "Bar Service", "spans": [] }],
+            "description": [],
+            "caption": []
+          },
+          "items": [
+            {
+              "title": [{ "type": "heading4", "text": "Cash Bar", "spans": [] }],
+              "description": [{ "type": "paragraph", "text": "One bartender per 75 guests recommended", "spans": [] }],
+              "price_per": "per item",
+              "price_min": 450,
+              "price_max": 0
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Limited Hosted Bar", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Bartender fee waived when bar is hosted by client. $1000 minimum for flat-rate hosted bars. $7 for each additional hour.", "spans": [] },
+                { "type": "list-item", "text": "1 hour for $20 per person", "spans": [{ "start": 15, "end": 25, "type": "em" }] },
+                { "type": "list-item", "text": "2 hours for $24 per person", "spans": [{ "start": 16, "end": 26, "type": "em" }] },
+                { "type": "list-item", "text": "3 hours for $28 per person", "spans": [{ "start": 16, "end": 26, "type": "em" }] },
+                { "type": "list-item", "text": "Limited Hosted Includes: Domestic & Imported Beer, House Wine, Soft Drinks, and Mineral Water.", "spans": [] }
+              ],
+              "price_per": "per person per hour",
+              "price_min": 20,
+              "price_max": 28
+            },
+            {
+              "title": [{ "type": "heading4", "text": "Hosted Bar", "spans": [] }],
+              "description": [
+                { "type": "paragraph", "text": "Bartender fee waived when bar is hosted by client. $1000 minimum for flat-rate hosted bars. $9 for each additional hour.", "spans": [] },
+                { "type": "list-item", "text": "1 hour for $24 per person", "spans": [{ "start": 15, "end": 25, "type": "em" }] },
+                { "type": "list-item", "text": "2 hours for $31 per person", "spans": [{ "start": 16, "end": 26, "type": "em" }] },
+                { "type": "list-item", "text": "3 hours for $37 per person", "spans": [{ "start": 16, "end": 26, "type": "em" }] },
+                { "type": "list-item", "text": "Hosted Bar Includes: Mixed Cocktails, Domestic & Imported Beer, House Wine, Soft Drinks, and Mineral Water.", "spans": [] }
+              ],
+              "price_per": "per person per hour",
+              "price_min": 24,
+              "price_max": 37
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
