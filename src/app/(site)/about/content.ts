@@ -37,7 +37,7 @@ export const aboutPage: PageDoc = {
                     "height": 1280
                   },
                   "alt": null,
-                  "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/9291de0f-7b81-40bf-3fc8-a8df9ebf2700/public"
+                  "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/12559b25-b543-4fe7-c999-e7d746b7a000/public"
                 }
               },
               {
@@ -49,31 +49,7 @@ export const aboutPage: PageDoc = {
                     "height": 1280
                   },
                   "alt": null,
-                  "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/8e96112c-b8bc-46c4-2844-5de5ad562700/public"
-                }
-              },
-              {
-                "link": null,
-                "video_media": null,
-                "media": {
-                  "dimensions": {
-                    "width": 1920,
-                    "height": 1280
-                  },
-                  "alt": null,
-                  "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/24d9f1d6-31a6-4a42-d147-6e99ddf24500/public"
-                }
-              },
-              {
-                "link": null,
-                "video_media": null,
-                "media": {
-                  "dimensions": {
-                    "width": 2354,
-                    "height": 1786
-                  },
-                  "alt": null,
-                  "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/dd8a664a-14f9-489f-f212-9836ba6f7800/public"
+                  "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/d8ca11cb-4683-497a-f327-21606bc31a00/public"
                 }
               }
             ]
@@ -225,23 +201,11 @@ export const aboutPage: PageDoc = {
             "position": "Event Manager",
             "primary_media": {
               "dimensions": {
-                "width": 2667,
-                "height": 2667
-              },
-              "alt": null,
-              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/afd5ef59-c7c5-4ac7-fecf-e91d3cf00c00/public"
-            }
-          },
-          {
-            "name": "Elizabeth\nNoecker",
-            "position": "Event Manager",
-            "primary_media": {
-              "dimensions": {
                 "width": 1000,
                 "height": 1000
               },
               "alt": null,
-              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/9778f178-81ac-478e-a9ea-2a2f358a1e00/public"
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/e925b2b4-950d-43f6-8234-d209195abe00/public"
             }
           },
           {
@@ -253,7 +217,7 @@ export const aboutPage: PageDoc = {
                 "height": 1000
               },
               "alt": null,
-              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/109ad8aa-2787-4674-e8a5-bcc3a150bc00/public"
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/b0c44b08-2811-4899-5f8b-b84dac06ff00/public"
             },
             "secondary_media": {
               "dimensions": {
@@ -261,7 +225,73 @@ export const aboutPage: PageDoc = {
                 "height": 1000
               },
               "alt": null,
-              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/8ab52e5d-0104-45a8-309b-bd61686c6f00/public"
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/b0c44b08-2811-4899-5f8b-b84dac06ff00/public"
+            }
+          },
+          {
+            "name": "Mariaelena\nGonzalez",
+            "position": "Event Manager",
+            "primary_media": {
+              "dimensions": {
+                "width": 1000,
+                "height": 1000
+              },
+              "alt": null,
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/b386e330-b61e-4c9d-310d-304b20000000/public"
+            }
+          },
+          {
+            "name": "Yvette\nDeLeon",
+            "position": "Details Manager",
+            "primary_media": {
+              "dimensions": {
+                "width": 1000,
+                "height": 1000
+              },
+              "alt": null,
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/3b611b74-29b4-4561-a6a3-001dbbaad600/public"
+            }
+          },
+          {
+            "name": "Alexis\nCastaneda",
+            "position": "Details Manager",
+            "primary_media": {
+              "dimensions": {
+                "width": 1000,
+                "height": 1000
+              },
+              "alt": null,
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/796ef0d9-fc84-4199-a3b2-1376b7918800/public"
+            }
+          },
+          {
+            "name": "Briella\nVan Horn",
+            "position": "Front Desk Coordinator",
+            "primary_media": {
+              "dimensions": {
+                "width": 1000,
+                "height": 1000
+              },
+              "alt": null,
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/43ae91e7-b3e8-428a-f770-1b4a14dda300/public"
+            }
+          },
+          {
+            "name": "Nicole\nRidley",
+            "position": "Event Manager, The Rancho Los Alamitos",
+            "primary_media": {
+              "dimensions": {
+                "width": 1000,
+                "height": 1000
+              },
+              "alt": null,
+              "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/dc01d6e5-c70a-4930-ade2-7f7c4cd4af00/public"
+            },
+            "website_label": "Visit The Rancho Los Alamitos",
+            "website_link": {
+              "link_type": "Web",
+              "url": "https://www.rancholosalamitos.org/",
+              "target": "_blank"
             }
           }
         ]
