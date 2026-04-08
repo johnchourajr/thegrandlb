@@ -87,6 +87,8 @@ export type TeamMember = {
   position?: string;
   primary_media?: ImageField;
   secondary_media?: ImageField;
+  website_label?: string | null;
+  website_link?: LinkField;
 };
 
 export type TeamGallerySlice = Slice & {
