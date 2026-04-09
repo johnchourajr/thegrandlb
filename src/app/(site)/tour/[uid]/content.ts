@@ -14,11 +14,11 @@ export const tourPages: Record<string, PageDoc> = {
           "width": 3840,
           "height": 2160
         },
-        "alt": null,
+        "alt": "The Board Room meeting space at The Grand Long Beach",
         "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/a4c776c5-dfdb-4a6a-e959-6646d4905900/public"
       },
       "subhead": "Small space, \nbig impact.",
-      "body": "Welcome to the Board Room, a small but sophisticated meeting space perfect for corporate brainstorms, workshops, client presentations, business lunches, and more. The Board Room offers a professional and high-end ambiance that is sure to impress your clients and colleagues alike.",
+      "body": "Welcome to the Board Room, a focused and sophisticated meeting space designed for corporate brainstorms, workshops, client presentations, and business lunches. With its high-end ambiance and intimate scale, the Board Room sets the tone for productive, impressive gatherings.",
       "square_feet": 570,
       "max_capacity": 40,
       "features": [
@@ -32,8 +32,8 @@ export const tourPages: Record<string, PageDoc> = {
           "feature": "Access to Monarch Room"
         }
       ],
-      "meta_title": null,
-      "meta_description": null,
+      "meta_title": "The Board Room at The Grand LB | Meeting Space in Long Beach",
+      "meta_description": "A focused meeting space for up to 40 guests. Large mahogany table, dynamic lighting, and access to the Monarch Room. Ideal for workshops, presentations, and executive offsites.",
       "slices": [
         {
           "type": "numbers_section",
@@ -183,7 +183,7 @@ export const tourPages: Record<string, PageDoc> = {
               "body": [
                 {
                   "type": "paragraph",
-                  "text": "The Board Room boasts a capacity of up to 40 guests, making it the ideal space for team workshops, board meetings, executive offsites, and project \"war rooms.\" The indoor space features a large mahogany table, dynamic lighting, and access to the Monarch Room for larger events.",
+                  "text": "The Board Room seats up to 40 guests, making it the ideal space for team workshops, board meetings, executive offsites, and project war rooms. The indoor space features a large mahogany table, dynamic lighting, and access to the Monarch Room for larger events.",
                   "spans": []
                 }
               ],
@@ -379,11 +379,11 @@ export const tourPages: Record<string, PageDoc> = {
           "body": [
             {
               "type": "paragraph",
-              "text": "The Board Room is the perfect venue for hosting a range of corporate events, from team workshops to client presentations. With a small but focused space, large mahogany table, and dynamic lighting, the Board Room offers a professional and sophisticated ambiance that will leave a lasting impression on your clients and colleagues. Let us help you create an unforgettable event in our elegant space.",
+              "text": "The Board Room is built for focused corporate events, from team workshops to client presentations. With its large mahogany table, dynamic lighting, and intimate scale, the space delivers a professional and sophisticated setting that leaves a lasting impression. Let us help you plan your next gathering.",
               "spans": []
             }
           ],
-          "primary_action": "Make an inquiry",
+          "primary_action": "Make an Inquiry",
           "primary_action_link": {
             "link_type": "Web",
             "url": "/inquire"
@@ -436,7 +436,7 @@ export const tourPages: Record<string, PageDoc> = {
               "answer": [
                 {
                   "type": "paragraph",
-                  "text": "The Board Room is perfect for a variety of corporate events, including team workshops, board meetings, executive offsites, and client presentations.",
+                  "text": "The Board Room is ideal for a variety of corporate events, including team workshops, board meetings, executive offsites, and client presentations.",
                   "spans": []
                 }
               ]
@@ -521,11 +521,11 @@ export const tourPages: Record<string, PageDoc> = {
           "width": 3840,
           "height": 2160
         },
-        "alt": null,
+        "alt": "The Catalina Room event space with Catalina Island artwork",
         "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/a1f4b734-5327-4aeb-7c5c-80715d53f100/public"
       },
       "subhead": "Island-inspired, \nstunning elegance.",
-      "body": "Experience island-adorn elegance at the Catalina Room. Our large indoor space boasts stunning artwork featuring California's iconic Catalina Island, a stylish chandelier, and built-in dance floor and stage. With a capacity of up to 400 guests, the Catalina Room is perfect for medium to large-scale events.",
+      "body": "Experience island-inspired elegance at the Catalina Room. This large indoor space features stunning artwork of California's iconic Catalina Island, a stylish chandelier, and a built-in dance floor and stage. With a capacity of up to 400 guests, the Catalina Room is designed for medium to large-scale events.",
       "square_feet": 3340,
       "max_capacity": 400,
       "features": [
@@ -548,8 +548,8 @@ export const tourPages: Record<string, PageDoc> = {
           "feature": "Perfect for Medium to Large Gatherings"
         }
       ],
-      "meta_title": null,
-      "meta_description": null,
+      "meta_title": "The Catalina Room at The Grand LB | Event Space for Up to 400 Guests",
+      "meta_description": "Island-inspired elegance with Catalina artwork, built-in stage, dance floor, and chandelier. 3,340 sqft indoor space for up to 400 guests in Long Beach, CA.",
       "slices": [
         {
           "type": "numbers_section",
@@ -712,7 +712,7 @@ export const tourPages: Record<string, PageDoc> = {
               "body": [
                 {
                   "type": "paragraph",
-                  "text": "The Catalina Room offers a range of features to ensure your event is a success.  The space can accommodate large amounts of guests and is perfect for weddings, fundraisers, corporate events, and more.",
+                  "text": "The Catalina Room offers a range of features to ensure your event is a success. The space comfortably accommodates large groups and is ideal for weddings, fundraisers, corporate events, and more.",
                   "spans": []
                 }
               ],
@@ -738,7 +738,7 @@ export const tourPages: Record<string, PageDoc> = {
               "body": [
                 {
                   "type": "paragraph",
-                  "text": "Experience the beauty of Catalina Island in our stunning artwork. The Catalina Room boasts California-inspired artwork that adds a unique touch of elegance to your event.",
+                  "text": "Experience the beauty of Catalina Island in our stunning artwork. The Catalina Room features California-inspired artwork that adds a unique touch of elegance to your event.",
                   "spans": []
                 }
               ],
@@ -1040,11 +1040,11 @@ export const tourPages: Record<string, PageDoc> = {
           "body": [
             {
               "type": "paragraph",
-              "text": "The Catalina Room is perfect for a range of events, including pageants, weddings, workshops, fundraisers, birthdays, quinceaneras, church services, corporate conferences, memorial services, corporate events, and parties of all types. Our customizable event spaces and flexible layout can accommodate a variety of event types and sizes. ",
+              "text": "The Catalina Room hosts a wide range of events -- pageants, weddings, workshops, fundraisers, birthdays, quinces, church services, corporate conferences, memorials, and celebrations of all kinds. Our flexible layout adapts to your vision and your guest count.",
               "spans": []
             }
           ],
-          "primary_action": "Make an inquiry",
+          "primary_action": "Make an Inquiry",
           "primary_action_link": {
             "link_type": "Web",
             "url": "/inquire"
@@ -1097,7 +1097,7 @@ export const tourPages: Record<string, PageDoc> = {
               "answer": [
                 {
                   "type": "paragraph",
-                  "text": "The Catalina Room is perfect for medium to large events, such as weddings, corporate conferences, workshops, birthdays, holiday events, fundraisers, pageants, Quinceaneras, memorial services, and parties of all types.",
+                  "text": "The Catalina Room is ideal for medium to large events, such as weddings, corporate conferences, workshops, birthdays, holiday events, fundraisers, pageants, quinces, memorials, and celebrations of all types.",
                   "spans": []
                 }
               ]
@@ -1129,7 +1129,7 @@ export const tourPages: Record<string, PageDoc> = {
               "answer": [
                 {
                   "type": "paragraph",
-                  "text": "Yes, our world-class kitchen can provide customized menus to fit your event's theme and dietary restrictions. Our team can work with you to create the perfect menu for your event.",
+                  "text": "Yes, our world-class kitchen can provide customized menus to fit your event's theme and dietary restrictions. Our team can work with you to create a custom menu for your event.",
                   "spans": []
                 }
               ]
@@ -1198,11 +1198,11 @@ export const tourPages: Record<string, PageDoc> = {
           "width": 3840,
           "height": 2160
         },
-        "alt": null,
+        "alt": "The Palm Terrace outdoor event space with palm trees and string lights",
         "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/35d98bbb-5f73-4176-3020-759e692d6700/public"
       },
       "subhead": "Lush ambiance,\nunforgettable memories.",
-      "body": "Experience the perfect blend of sophistication and tropical paradise on the Palm Terrace. From intimate gatherings to grand celebrations, our customizable event spaces offer endless possibilities to create your dream event. Let us help you design a truly unforgettable experience.",
+      "body": "Experience sophistication meets tropical paradise on the Palm Terrace. From intimate gatherings to grand celebrations, this outdoor space offers endless possibilities to create your dream event. Let us help you design a one-of-a-kind experience.",
       "square_feet": 3400,
       "max_capacity": 400,
       "features": [
@@ -1213,8 +1213,8 @@ export const tourPages: Record<string, PageDoc> = {
           "feature": "Perfect for Medium to Large Gatherings"
         }
       ],
-      "meta_title": null,
-      "meta_description": null,
+      "meta_title": "The Palm Terrace at The Grand LB | Outdoor Event Space in Long Beach",
+      "meta_description": "An outdoor terrace surrounded by towering palms, fountains, and string lights. Seats up to 400 guests for ceremonies, receptions, and celebrations under the SoCal sky.",
       "slices": [
         {
           "type": "numbers_section",
@@ -1372,7 +1372,7 @@ export const tourPages: Record<string, PageDoc> = {
               "body": [
                 {
                   "type": "paragraph",
-                  "text": "The Palm Terrace is the perfect venue for hosting small to large events. The dynamic space will give your guests plenty of room to mingle while also enjoying an intimate atmosphere that will make your event unforgettable.",
+                  "text": "The Palm Terrace hosts events of every size. The dynamic space gives your guests plenty of room to mingle while maintaining an intimate atmosphere that makes your event memorable.",
                   "spans": []
                 }
               ],
@@ -1411,7 +1411,7 @@ export const tourPages: Record<string, PageDoc> = {
               "body": [
                 {
                   "type": "paragraph",
-                  "text": "Enjoy the stunning scenery of our picturesque soft and hardscapes. The tropical landscape, along with the soft and hard design elements, create the perfect setting for your event.",
+                  "text": "Enjoy the stunning scenery of our picturesque soft and hardscapes. The tropical landscape, along with the soft and hard design elements, create a stunning setting for your event.",
                   "spans": []
                 }
               ],
@@ -1424,7 +1424,7 @@ export const tourPages: Record<string, PageDoc> = {
               "body": [
                 {
                   "type": "paragraph",
-                  "text": "Experience the perfect blend of sophistication and tropical paradise, creating an ambiance that transports you to a different world. The lush, tropical landscape of the Palm Terrace, paired with our customizable event spaces, will help you design a truly unforgettable experience.",
+                  "text": "The lush, tropical landscape of the Palm Terrace, paired with our customizable event spaces, creates an ambiance that transports you somewhere special. Let us help you design an experience your guests will remember.",
                   "spans": []
                 }
               ],
@@ -1705,11 +1705,11 @@ export const tourPages: Record<string, PageDoc> = {
           "body": [
             {
               "type": "paragraph",
-              "text": "The Palm Terrace is the perfect venue for hosting all kinds of events, from small gatherings to large celebrations. Our customizable event spaces and flexible layout can accommodate pageants, weddings, holiday parties, fundraisers, celebrations of life, dating mixers, birthdays, quinceañeras, evening cocktail hours, and more. Let us help you create an unforgettable event in our tropical paradise.",
+              "text": "The Palm Terrace hosts all kinds of events, from small gatherings to large celebrations. Our flexible layout can accommodate weddings, holiday parties, fundraisers, celebrations of life, birthdays, quinces, evening cocktail hours, and more. Let us help you plan your next event in our tropical paradise.",
               "spans": []
             }
           ],
-          "primary_action": "Make an inquiry",
+          "primary_action": "Make an Inquiry",
           "primary_action_link": {
             "link_type": "Web",
             "url": "/inquire"
@@ -1762,7 +1762,7 @@ export const tourPages: Record<string, PageDoc> = {
               "answer": [
                 {
                   "type": "paragraph",
-                  "text": "The Palm Terrace is perfect for hosting a range of events, from intimate gatherings to grand celebrations. Event types include weddings, holiday parties, fundraisers, celebrations of life, dating mixers, birthdays, quinceaneras, evening cocktail hours, and parties of all types.",
+                  "text": "The Palm Terrace is well-suited for a range of events, from intimate gatherings to grand celebrations. Event types include weddings, holiday parties, fundraisers, celebrations of life, birthdays, quinces, evening cocktail hours, and celebrations of all types.",
                   "spans": []
                 }
               ]
@@ -1794,7 +1794,7 @@ export const tourPages: Record<string, PageDoc> = {
               "answer": [
                 {
                   "type": "paragraph",
-                  "text": "Yes, our world-class kitchen can provide customized menus to fit your event's theme and dietary restrictions. Our team can work with you to create the perfect menu for your event.",
+                  "text": "Yes, our world-class kitchen can provide customized menus to fit your event's theme and dietary restrictions. Our team can work with you to create a custom menu for your event.",
                   "spans": []
                 }
               ]
@@ -1863,11 +1863,11 @@ export const tourPages: Record<string, PageDoc> = {
           "width": 3840,
           "height": 2160
         },
-        "alt": null,
+        "alt": "The Monarch Room event space with Italian-inspired decor",
         "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/6e2b5666-7f70-41c7-4916-139093221700/public"
       },
       "subhead": "Rustic beauty, \nItalian influence.",
-      "body": "Experience the perfect blend of sophistication and Italian-inspired elegance at the Monarch Room & Patio. Our indoor space boasts stunning Italian artwork and dynamic lighting, while the large outdoor patio offers a picturesque setting for your event. Let us help you create an unforgettable experience in our elegant space.",
+      "body": "Experience Italian-inspired elegance at the Monarch Room & Patio. The indoor space features stunning Italian artwork and dynamic lighting, while the large outdoor patio offers a picturesque setting for your event. Let us help you create a memorable experience in this versatile space.",
       "square_feet": 3400,
       "max_capacity": 280,
       "features": [
@@ -1887,8 +1887,8 @@ export const tourPages: Record<string, PageDoc> = {
           "feature": "View of Palm Terrace"
         }
       ],
-      "meta_title": null,
-      "meta_description": null,
+      "meta_title": "The Monarch Room at The Grand LB | Indoor-Outdoor Event Space",
+      "meta_description": "Versatile indoor space with direct patio access for up to 280 guests. Dynamic lighting, dance floor, and seamless indoor-outdoor flow in Long Beach, CA.",
       "slices": [
         {
           "type": "numbers_section",
@@ -2039,7 +2039,7 @@ export const tourPages: Record<string, PageDoc> = {
               "body": [
                 {
                   "type": "paragraph",
-                  "text": "A perfect medium-to-large indoor area with a dance floor and a spacious outdoor covered patio. It's perfect for banquets or classrooms and has a versatile design with an open floor plan. The stunning lattice design adds to the elegant ambiance.",
+                  "text": "A versatile medium-to-large indoor area with a dance floor and a spacious outdoor covered patio. Ideal for banquets or classroom-style events, with an open floor plan and stunning lattice design that adds to the elegant ambiance.",
                   "spans": []
                 }
               ],
@@ -2052,7 +2052,7 @@ export const tourPages: Record<string, PageDoc> = {
               "body": [
                 {
                   "type": "paragraph",
-                  "text": "The Monarch Room offers a perfect medium-to-large indoor area with a dance floor and a large outdoor covered patio. It's perfect for banquets or classrooms and has a versatile design with an open floor plan. The stunning Italian-inspired artwork and dynamic lighting add to the elegant ambiance.",
+                  "text": "The Monarch Room offers a versatile medium-to-large indoor area with a dance floor and a large outdoor covered patio. Well-suited for banquets and classroom-style events, with an open floor plan, Italian-inspired artwork, and dynamic lighting that set the tone.",
                   "spans": []
                 }
               ],
@@ -2065,7 +2065,7 @@ export const tourPages: Record<string, PageDoc> = {
               "body": [
                 {
                   "type": "paragraph",
-                  "text": "Take advantage of the Southern California weather in our large outdoor covered patio. The space is perfect for cocktail receptions or outdoor ceremonies and offers picturesque views of the surrounding landscape.",
+                  "text": "Take advantage of the Southern California weather in our large outdoor covered patio. The space is ideal for cocktail receptions or outdoor ceremonies with picturesque views of the surrounding landscape.",
                   "spans": []
                 }
               ],
@@ -2393,11 +2393,11 @@ export const tourPages: Record<string, PageDoc> = {
           "body": [
             {
               "type": "paragraph",
-              "text": "The Monarch Room & Patio is the perfect venue for hosting a range of events, from corporate functions to weddings and other celebrations. With indoor and outdoor spaces, Italian-inspired artwork, and dynamic lighting, we offer a sophisticated yet comfortable ambiance that will leave your guests impressed. Let us help you create an unforgettable event in our elegant space.",
+              "text": "The Monarch Room & Patio hosts a range of events, from corporate functions to weddings and celebrations. With indoor and outdoor spaces, Italian-inspired artwork, and dynamic lighting, we deliver a sophisticated yet comfortable ambiance. Let us help you plan your next event.",
               "spans": []
             }
           ],
-          "primary_action": "Make an inquiry",
+          "primary_action": "Make an Inquiry",
           "primary_action_link": {
             "link_type": "Web",
             "url": "/inquire"
@@ -2450,7 +2450,7 @@ export const tourPages: Record<string, PageDoc> = {
               "answer": [
                 {
                   "type": "paragraph",
-                  "text": "The Monarch Room & Patio is perfect for hosting a range of events, from corporate functions to weddings and other celebrations.",
+                  "text": "The Monarch Room & Patio is well-suited for a range of events, from corporate functions to weddings and celebrations.",
                   "spans": []
                 }
               ]
@@ -2482,7 +2482,7 @@ export const tourPages: Record<string, PageDoc> = {
               "answer": [
                 {
                   "type": "paragraph",
-                  "text": "Yes, our world-class kitchen can provide customized menus to fit your event's theme and dietary restrictions. Our team can work with you to create the perfect menu for your event.",
+                  "text": "Yes, our world-class kitchen can provide customized menus to fit your event's theme and dietary restrictions. Our team can work with you to create a custom menu for your event.",
                   "spans": []
                 }
               ]
@@ -2551,7 +2551,7 @@ export const tourPages: Record<string, PageDoc> = {
           "width": 3840,
           "height": 2160
         },
-        "alt": null,
+        "alt": "The Grand Ballroom set up for a large-scale event",
         "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/c8b247ca-ab6b-4f95-0af4-e412e6ad4c00/public"
       },
       "subhead": "Large capacity,\nbigger possibilities.",
@@ -2569,8 +2569,8 @@ export const tourPages: Record<string, PageDoc> = {
           "feature": "Large Dance Floor"
         }
       ],
-      "meta_title": null,
-      "meta_description": null,
+      "meta_title": "The Grand Ballroom | Largest Event Space at The Grand LB",
+      "meta_description": "SoCal's premier ballroom with room for 675 guests. 13,000+ sqft, built-in stage, professional lighting, and in-house catering in Long Beach, CA.",
       "slices": [
         {
           "type": "numbers_section",
@@ -2778,7 +2778,7 @@ export const tourPages: Record<string, PageDoc> = {
               "body": [
                 {
                   "type": "paragraph",
-                  "text": "The 425 square stage is perfect for events that need powerful stage presence.",
+                  "text": "The 425 sqft stage is built for events that need commanding stage presence.",
                   "spans": []
                 }
               ],
@@ -3133,7 +3133,7 @@ export const tourPages: Record<string, PageDoc> = {
               "spans": []
             }
           ],
-          "primary_action": "Make an inquiry",
+          "primary_action": "Make an Inquiry",
           "primary_action_link": {
             "link_type": "Web",
             "url": "/inquire"
@@ -3186,7 +3186,7 @@ export const tourPages: Record<string, PageDoc> = {
               "answer": [
                 {
                   "type": "paragraph",
-                  "text": "The Grand Ballroom is perfect for hosting large-scale events such as weddings, corporate events, galas, fundraisers, and more.",
+                  "text": "The Grand Ballroom is designed for large-scale events such as weddings, corporate galas, fundraisers, and more.",
                   "spans": []
                 }
               ]
@@ -3287,11 +3287,11 @@ export const tourPages: Record<string, PageDoc> = {
           "width": 3840,
           "height": 2160
         },
-        "alt": null,
+        "alt": "The Garden Room with natural light and garden views",
         "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/30e7d61c-d2c4-423e-3bd3-d7498839bd00/public"
       },
       "subhead": "Sophisticated setting, \nlaid-back feel.",
-      "body": "With its unique shape and design, the Garden Room offers a sophisticated yet relaxed atmosphere for your event. From stunning views of Palm Terrace to an open dance floor, our customizable event space is perfect for all types of occasions. Let us help you create a truly unforgettable experience.",
+      "body": "With its unique shape and design, the Garden Room offers a sophisticated yet relaxed atmosphere. Enjoy views of the Palm Terrace, an open dance floor, and a customizable layout suited for all types of occasions. Let us help you create a one-of-a-kind experience.",
       "square_feet": 2757,
       "max_capacity": 140,
       "features": [
@@ -3311,8 +3311,8 @@ export const tourPages: Record<string, PageDoc> = {
           "feature": "View of Palm Terrace"
         }
       ],
-      "meta_title": null,
-      "meta_description": null,
+      "meta_title": "The Garden Room at The Grand LB | Intimate Event Space in Long Beach",
+      "meta_description": "A charming indoor space with garden views for up to 140 guests. Natural light, elegant decor, and a warm atmosphere for showers, luncheons, and celebrations.",
       "slices": [
         {
           "type": "numbers_section",
@@ -3476,7 +3476,7 @@ export const tourPages: Record<string, PageDoc> = {
               "body": [
                 {
                   "type": "paragraph",
-                  "text": "The Garden Room is perfect for hosting medium-sized events, including parties, fundraisers, corporate events, and more. Our versatile space and open layout make it easy to create the ambiance you want for your event.",
+                  "text": "The Garden Room hosts medium-sized events of all kinds -- parties, fundraisers, corporate events, and more. Our versatile space and open layout make it easy to create the ambiance you want.",
                   "spans": []
                 }
               ],
@@ -3489,7 +3489,7 @@ export const tourPages: Record<string, PageDoc> = {
               "body": [
                 {
                   "type": "paragraph",
-                  "text": "With a raised seating area, large windows, and French doors that attach to the Palm Terrace, creating a seamless indoor/outdoor experience. The natural sunlight and open floor plan make this space perfect for any event.",
+                  "text": "With a raised seating area, large windows, and French doors that attach to the Palm Terrace, creating a seamless indoor/outdoor experience. The natural sunlight and open floor plan make this space well-suited for any event.",
                   "spans": []
                 }
               ],
@@ -3502,7 +3502,7 @@ export const tourPages: Record<string, PageDoc> = {
               "body": [
                 {
                   "type": "paragraph",
-                  "text": "The Garden Room's large attached bar area has high raised ceilings and is the largest bar area at The Grand. It offers plenty of space for your guests to enjoy drinks and cocktails, making it the perfect space to mix and mingle.",
+                  "text": "The Garden Room's large attached bar area has high raised ceilings and is the largest bar area at The Grand. It offers plenty of space for your guests to enjoy drinks and cocktails, making it a great space to mix and mingle.",
                   "spans": []
                 }
               ],
@@ -3776,11 +3776,11 @@ export const tourPages: Record<string, PageDoc> = {
           "body": [
             {
               "type": "paragraph",
-              "text": "The Garden Room is the perfect space for hosting medium-sized events, offering stunning views of the tropical Palm Terrace and plenty of room for guests to mix and mingle. Our customizable event space can accommodate a range of occasions, including parties, fundraisers, corporate events, and more. With its natural sunlight and open floor plan, the Garden Room offers a relaxed yet sophisticated ambiance that will make your event unforgettable.",
+              "text": "The Garden Room is a versatile space for medium-sized events, offering stunning views of the tropical Palm Terrace and plenty of room for guests to mix and mingle. Our customizable layout accommodates a range of occasions, including parties, fundraisers, corporate events, and more. Natural sunlight and an open floor plan create a relaxed yet sophisticated ambiance.",
               "spans": []
             }
           ],
-          "primary_action": "Make an inquiry",
+          "primary_action": "Make an Inquiry",
           "primary_action_link": {
             "link_type": "Web",
             "url": "/inquire"
@@ -3833,7 +3833,7 @@ export const tourPages: Record<string, PageDoc> = {
               "answer": [
                 {
                   "type": "paragraph",
-                  "text": "The Garden Room is perfect for hosting medium-sized events, including parties, fundraisers, corporate events, and more.",
+                  "text": "The Garden Room is ideal for medium-sized events, including parties, fundraisers, corporate events, and more.",
                   "spans": []
                 }
               ]
@@ -3918,11 +3918,11 @@ export const tourPages: Record<string, PageDoc> = {
           "width": 3840,
           "height": 2160
         },
-        "alt": null,
+        "alt": "The Pacific Room intimate event space with coastal decor",
         "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/e931f5af-d53c-4108-d65b-dab7f149de00/public"
       },
       "subhead": "Coastal charm,\ninviting gatherings.",
-      "body": "The Pacific Room is a stylish and intimate space perfect for small gatherings. With its built-in wood dance floor, California beach artwork, and stylish columns, this room exudes a charming coastal vibe. The room also features a small attached bar and is adjacent to the Palm Terrace, offering the flexibility to expand your event.",
+      "body": "The Pacific Room is a stylish and intimate space designed for small gatherings. With its built-in wood dance floor, California beach artwork, and stylish columns, this room exudes a charming coastal vibe. A small attached bar and direct access to the Palm Terrace offer the flexibility to expand your event.",
       "square_feet": 1557,
       "max_capacity": 90,
       "features": [
@@ -3942,8 +3942,8 @@ export const tourPages: Record<string, PageDoc> = {
           "feature": "Perfect for Small Gatherings"
         }
       ],
-      "meta_title": null,
-      "meta_description": null,
+      "meta_title": "The Pacific Room at The Grand LB | Event Space for Up to 90 Guests",
+      "meta_description": "An intimate indoor space for up to 90 guests with warm wood paneling and classic decor. Ideal for rehearsal dinners, corporate meetings, and private gatherings.",
       "slices": [
         {
           "type": "numbers_section",
@@ -4095,7 +4095,7 @@ export const tourPages: Record<string, PageDoc> = {
               "body": [
                 {
                   "type": "paragraph",
-                  "text": "The Pacific Room is a cozy and inviting space with a total of 1,557 square feet. This size is perfect for small to medium-sized events, providing ample space for your guests to relax and enjoy the ambiance.",
+                  "text": "The Pacific Room is a cozy and inviting space with a total of 1,557 square feet. This size is well-suited for small to medium-sized events, providing ample space for your guests to relax and enjoy the ambiance.",
                   "spans": []
                 }
               ],
@@ -4361,11 +4361,11 @@ export const tourPages: Record<string, PageDoc> = {
           "body": [
             {
               "type": "paragraph",
-              "text": "The Pacific Room is perfect for hosting a variety of events, including small weddings, receptions, workshops, birthdays, holiday events, 50th-anniversary celebrations, and parties of all types. Whether you're hosting an intimate celebration or a larger gathering, the Pacific Room is the perfect space for your event needs.",
+              "text": "The Pacific Room hosts a variety of events, including small weddings, receptions, workshops, birthdays, holiday events, anniversary celebrations, and parties of all types. Whether you're planning an intimate celebration or an expanded gathering with Palm Terrace access, this space adapts to your needs.",
               "spans": []
             }
           ],
-          "primary_action": "Make an inquiry",
+          "primary_action": "Make an Inquiry",
           "primary_action_link": {
             "link_type": "Web",
             "url": "/inquire"
@@ -4450,7 +4450,7 @@ export const tourPages: Record<string, PageDoc> = {
               "answer": [
                 {
                   "type": "paragraph",
-                  "text": "Yes, our world-class kitchen can provide customized menus to fit your event's theme and dietary restrictions. Our team can work with you to create the perfect menu for your event.",
+                  "text": "Yes, our world-class kitchen can provide customized menus to fit your event's theme and dietary restrictions. Our team can work with you to create a custom menu for your event.",
                   "spans": []
                 }
               ]
