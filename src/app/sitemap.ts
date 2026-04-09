@@ -12,7 +12,20 @@ const TOUR_UIDS = [
   "board-room",
 ];
 
-const EVENT_UIDS = ["milestones", "business", "weddings", "quinces"];
+const EVENT_UIDS = [
+  "milestones",
+  "business",
+  "weddings",
+  "quinces",
+  "indian-weddings",
+  "sweet-16",
+  "bar-bat-mitzvah",
+  "graduation-parties",
+  "galas",
+  "baby-showers",
+  "rehearsal-dinners",
+  "anniversary-parties",
+];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [

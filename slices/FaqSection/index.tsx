@@ -6,7 +6,7 @@ import type { SliceComponentProps } from "@/types/slices";
 import type { FaqSectionSlice } from "../slice-types";
 import { toText, toHtml } from "@/utils/rich-text";
 import clsx from "clsx";
-import Head from "next/head";
+import Script from "next/script";
 import { FaqItem } from "./FaqItem";
 
 const FaqSection = ({
@@ -33,40 +33,32 @@ const FaqSection = ({
     }
   };
 
-  function faqJsonLd() {
-    return {
-      __html: `{
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-        ${items.map(
-          ({ question, answer }) =>
-            `{
-              "@type": "Question",
-              "name": "${toText(question)}",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "${toHtml(answer)}"
-              }
-            }`
-        )}
-        ]
-      }
-    `,
+  function buildFaqJsonLd() {
+    const faq = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: items.map(({ question, answer }) => ({
+        "@type": "Question",
+        name: toText(question),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: toHtml(answer),
+        },
+      })),
     };
+    return JSON.stringify(faq);
   }
 
   const openByDefault = items.length <= 4;
 
   return (
     <>
-      <Head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={faqJsonLd()}
-          key={`faq-${section_id || "faq"}-jsonld`}
-        />
-      </Head>
+      <Script
+        id={`faq-${section_id || "faq"}-jsonld`}
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: buildFaqJsonLd() }}
+      />
       <GridSection
         id={section_id || slice.type}
         bottomSpacer={"Medium"}
