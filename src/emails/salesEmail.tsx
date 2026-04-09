@@ -62,7 +62,7 @@ export const SalesEmail = (props: any) => {
               </a>
             </Section>
             <hr className="border-[1px] !border-solid border-[white] !outline-[none]" />
-            <h1 className="text-[20px]">Hey sales team.</h1>
+            <h1 className="text-[20px]">Hey, sales team.</h1>
             <p className="text-[16px]">
               {full_name.value || "Someone"} just submitted an inquiry for{" "}
               {`"${event_name?.value}"` || "an event"} on{" "}
