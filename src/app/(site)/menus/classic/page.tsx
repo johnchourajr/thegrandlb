@@ -36,8 +36,8 @@ export default async function ClassicMenuPage() {
 
 export async function generateMetadata() {
   return {
-    title: "Classic Menu",
+    title: "Classic Catering Menu | Event Venue Dining at The Grand LB",
     description:
-      "Classic catering and banquet menu options for events at The Grand LB.",
+      "Classic catering menu for events at The Grand Long Beach. Plated dinners, buffet options, and action stations prepared by our in-house kitchen in Long Beach, CA.",
   };
 }

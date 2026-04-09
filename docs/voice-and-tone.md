@@ -343,4 +343,3 @@ The site currently ranks well for branded terms ("The Grand LB," "The Grand Long
 ---
 
 _Last updated: April 2026_
-_Last updated: April 2026_

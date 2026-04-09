@@ -19,8 +19,8 @@ export default async function InquirePage() {
 
 export async function generateMetadata() {
   return {
-    title: "Inquire",
+    title: "Make an Inquiry | Book Your Event at The Grand LB in Long Beach",
     description:
-      "Request a proposal or schedule a tour. Inquire about weddings, corporate events and private celebrations.",
+      "Request a proposal or schedule a tour at The Grand Long Beach. Inquire about weddings, quinceañeras, corporate events, and private celebrations in Long Beach, CA.",
   };
 }

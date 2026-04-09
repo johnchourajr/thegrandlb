@@ -36,8 +36,8 @@ export default async function MilestonesMenuPage() {
 
 export async function generateMetadata() {
   return {
-    title: "Milestones Menu",
+    title: "Milestone Celebration Catering Menu | Quinceañeras, Birthdays & More",
     description:
-      "Catering for milestone celebrations: quinceaneras, bar mitzvahs and anniversaries at The Grand LB.",
+      "Catering menu for milestone celebrations at The Grand Long Beach. Customizable menus for quinceañeras, birthdays, anniversaries, and more. In-house kitchen in Long Beach, CA.",
   };
 }

@@ -16,7 +16,7 @@ export const eventIndexPage: PageDoc = {
       "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/cfe41bb3-f218-430d-868d-99feb6668300/public"
     },
     "headline": "No matter your thing, we're here for you.",
-    "body": "Every occasion deserves a personalized touch. Our seven indoor and outdoor event spaces in Long Beach accommodate 40 to 675 guests -- flexible enough for weddings, quinceañeras, corporate conferences, and everything in between.",
+    "body": "Every occasion deserves a personalized touch. Our seven indoor and outdoor event spaces in Long Beach accommodate 40 to 675 guests—flexible enough for weddings, quinceañeras, corporate conferences, and everything in between.",
     "event_pages": [
       {
         "page_media": {
