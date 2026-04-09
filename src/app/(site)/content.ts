@@ -7,8 +7,8 @@ export const homePage: PageDoc = {
   "data": {
     "title": "The Grand Long Beach Event Center",
     "video_url": null,
-    "meta_title": null,
-    "meta_description": null,
+    "meta_title": "The Grand LB | Premier Event Venue & Weddings in Long Beach, CA",
+    "meta_description": "SoCal's premier 40,000 sqft event venue for weddings, corporate events, and milestone celebrations. 7 unique spaces, in-house catering, and 55+ years of expertise. 20 minutes from LAX.",
     "slices": [
       {
         "type": "page_hero",
@@ -21,15 +21,15 @@ export const homePage: PageDoc = {
             "width": 3840,
             "height": 2160
           },
-          "alt": null,
+          "alt": "The Grand Long Beach venue exterior at twilight",
           "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/b41a724a-b3ad-40ae-57df-98a1b8ce3400/public"
         },
-        "primary_action": "Make an inquiry",
+        "primary_action": "Make an Inquiry",
         "primary_action_link": {
           "link_type": "Web",
           "url": "/inquire"
         },
-        "secondary_action": "Take a tour",
+        "secondary_action": "Take a Tour",
         "secondary_action_link": {
           "link_type": "Web",
           "url": "/tour"
@@ -48,7 +48,7 @@ export const homePage: PageDoc = {
                 "width": 217,
                 "height": 216
               },
-              "alt": null,
+              "alt": "Couple illustration",
               "url": "https://cdn.thegrandlb.com/lovely-couple.svg"
             },
             "headline": "Tour the spaces",
@@ -162,10 +162,10 @@ export const homePage: PageDoc = {
         "type": "scroll_text",
         "section_id": "scroller",
         "top_title": "Your Grand",
-        "line_one": "Quince’s & Birthdays & Engagements & Weddings & Banquets &",
+        "line_one": "Quinces & Birthdays & Engagements & Weddings & Banquets &",
         "line_two": "Conferences & Church Services & Pageants & Fundraisers &",
         "bottom_title": "Start here.",
-        "primary_action": "See the possibilities",
+        "primary_action": "See the Possibilities",
         "primary_action_link": {
           "link_type": "Web",
           "url": "/events"
@@ -188,7 +188,7 @@ export const homePage: PageDoc = {
                     "width": 2464,
                     "height": 1849
                   },
-                  "alt": null,
+                  "alt": "The Grand Long Beach venue exterior",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/62bc010e-8ab6-42cd-5207-9160ff96f700/public"
                 }
               },
@@ -201,7 +201,7 @@ export const homePage: PageDoc = {
                     "width": 2465,
                     "height": 1849
                   },
-                  "alt": null,
+                  "alt": "Palm-lined walkway leading to The Grand Long Beach",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/1433ea04-6645-4d6a-2468-cf8b4fb04100/public"
                 }
               },
@@ -214,7 +214,7 @@ export const homePage: PageDoc = {
                     "width": 2465,
                     "height": 1849
                   },
-                  "alt": null,
+                  "alt": "The Grand Long Beach entrance with elegant lighting",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/da91e312-621d-4a89-4ec7-c627dbcfe100/public"
                 }
               },
@@ -226,7 +226,7 @@ export const homePage: PageDoc = {
                     "width": 1849,
                     "height": 2464
                   },
-                  "alt": null,
+                  "alt": "Event setup at The Grand Long Beach",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/5dc64eb6-f953-4d0a-479f-ba4ab10fc500/public"
                 }
               }
@@ -244,7 +244,7 @@ export const homePage: PageDoc = {
                     "width": 1847,
                     "height": 2464
                   },
-                  "alt": null,
+                  "alt": "Elegant table setting inside The Grand Long Beach",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/babaa885-4edc-4fb7-63c6-5693245c4e00/public"
                 }
               },
@@ -256,7 +256,7 @@ export const homePage: PageDoc = {
                     "width": 2465,
                     "height": 1848
                   },
-                  "alt": null,
+                  "alt": "Wedding reception decor at The Grand Long Beach",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/17563442-2ec9-45eb-9451-d8dfdbd20b00/public"
                 }
               },
@@ -268,7 +268,7 @@ export const homePage: PageDoc = {
                     "width": 1845,
                     "height": 2464
                   },
-                  "alt": null,
+                  "alt": "Guests celebrating at The Grand Long Beach",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/d8b7f538-ec4f-4688-e22b-f6706a576a00/public"
                 }
               },
@@ -280,7 +280,7 @@ export const homePage: PageDoc = {
                     "width": 2464,
                     "height": 1848
                   },
-                  "alt": null,
+                  "alt": "Ballroom configured for a large event at The Grand",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/6d437bce-c364-42fa-aa3d-8686a2fa3f00/public"
                 }
               },
@@ -292,7 +292,7 @@ export const homePage: PageDoc = {
                     "width": 1848,
                     "height": 2464
                   },
-                  "alt": null,
+                  "alt": "Floral arrangement detail at The Grand Long Beach",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/531e6536-68f1-4105-86e5-fe56512fdd00/public"
                 }
               }
@@ -306,7 +306,7 @@ export const homePage: PageDoc = {
       {
         "type": "homepage_numbers",
         "section_id": "numbers",
-        "title": "Numeros",
+        "title": "By the Numbers",
         "top_spacer": "Large",
         "bottom_spacer": "None",
         "number_list": {
@@ -420,11 +420,11 @@ export const homePage: PageDoc = {
             "width": 3840,
             "height": 2160
           },
-          "alt": null,
+          "alt": "Aerial view of The Grand Long Beach and surrounding Long Beach community",
           "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/52b8ff11-1b88-41c1-72e8-512662e19700/public"
         },
         "title": "Family-owned and rooted.",
-        "description": "This place is more than just a venue, it's a hub of social activity that sits at the center of the Long Beach community, where people from all walks of life can come together to celebrate, network, and make memories that last a lifetime. Our 40+ years of expertise and local roots make us the premier event venue for all your So Cal events.",
+        "description": "This place is more than just a venue, it's a hub of social activity that sits at the center of the Long Beach community, where people from all walks of life can come together to celebrate, network, and make memories that last a lifetime. Our 55+ years of expertise and local roots make us the premier event venue for all your SoCal events.",
         "top_spacer": "Large",
         "bottom_spacer": "Large",
         "address_label": "Find Us",
@@ -559,8 +559,8 @@ export const homePage: PageDoc = {
         "bottom_spacer": "Large",
         "items": [
           {
-            "eyebrow": "SEE OUR SPACES",
-            "headline": "TOUR THE GRAND SPACES",
+            "eyebrow": "See Our Spaces",
+            "headline": "Tour The Grand Spaces",
             "body": "Explore our venue virtually and discover the grand possibilities for your next event.",
             "link": {
               "link_type": "Web",
@@ -574,9 +574,9 @@ export const homePage: PageDoc = {
             "row_span": "Span 3"
           },
           {
-            "eyebrow": "SEE OUR MENUS",
-            "headline": "A taste of Grand",
-            "body": "Our in-house catering team is dedicated to delivering delicious and innovative cuisine that will impress your guests. Our menu options are designed to be both delicious and visually stunning, ensuring that your event is a memorable one.",
+            "eyebrow": "See Our Menus",
+            "headline": "A Taste of Grand",
+            "body": "Our in-house catering team delivers innovative cuisine tailored to your event. From plated dinners to action stations, every menu is designed to impress your guests and elevate the occasion.",
             "link": {
               "link_type": "Web",
               "url": "/menus"

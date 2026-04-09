@@ -11,7 +11,7 @@ export const settings: SharedDoc = {
     site_title: [
       {
         type: "heading1",
-        text: "The Grand Long Beach — So Cal's Premier Event Venue",
+        text: "The Grand Long Beach — SoCal's Premier Event Venue",
         spans: [],
       },
     ],
@@ -371,20 +371,6 @@ export const navigation: SharedDoc | null = {
             },
             show: true,
           },
-          {
-            child_link_title: "For Quinceañeras",
-            child_link_source: {
-              link_type: "Any",
-            },
-            show: false,
-          },
-          {
-            child_link_title: "For Indian Weddings",
-            child_link_source: {
-              link_type: "Any",
-            },
-            show: false,
-          },
         ],
       },
       {
@@ -672,7 +658,7 @@ export const footerCards: SharedDoc[] = [
       media: {},
       eyebrow: "See our menus",
       headline: "A Taste of Grand",
-      body: "Our in-house catering team is dedicated to delivering delicious and innovative cuisine that will impress your guests. Our menu options are designed to be both delicious and visually stunning, ensuring that your event is a memorable one.",
+      body: "Our in-house catering team delivers innovative cuisine tailored to your event. From plated dinners to action stations, every menu is designed to impress your guests and elevate the occasion.",
       link: { link_type: "Web", url: "/menus" },
       theme: "White/Black",
       size: "Large",
