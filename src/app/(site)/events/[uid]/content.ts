@@ -794,12 +794,12 @@ export const eventPages: Record<string, PageDoc> = {
           body: [
             {
               type: "paragraph",
-              text: "From the grand entrance to the last toast, The Grand Long Beach has been hosting quinceañeras and milestone celebrations for over 55 years. Our team understands the cultural significance of this tradition and works closely with families to make sure every element -- from the chambelanes' entrance to the surprise dance -- is executed with care.",
+              text: "From the grand entrance to the last toast, The Grand Long Beach has been hosting quinceañeras and milestone celebrations for over 55 years. Our team understands the cultural significance of this tradition and works closely with families to make sure every element—from the chambelanes' entrance to the surprise dance—is executed with care.",
               spans: [],
             },
             {
               type: "paragraph",
-              text: "Our venue is located in the heart of Long Beach, just 20 minutes from LAX, making it easy for family and friends traveling from across Southern California and beyond. With on-site parking for up to 500 cars and valet service available, your guests will arrive stress-free.",
+              text: "Our venue is located in the heart of Long Beach, just 20 minutes from LAX, making it easy for family and friends traveling from across Southern California and beyond. With on-site parking for up to 500 cars, your guests will arrive stress-free.",
               spans: [],
             },
           ],
