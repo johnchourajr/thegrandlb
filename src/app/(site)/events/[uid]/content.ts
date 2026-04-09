@@ -10,8 +10,8 @@ export const eventPages: Record<string, PageDoc> = {
       "headline": "Party in grand style",
       "caption": "Celebrate your milestones in style.",
       "video_url": null,
-      "meta_title": null,
-      "meta_description": null,
+      "meta_title": "Milestone Celebrations at The Grand LB | Birthdays, Quinces & More",
+      "meta_description": "Host your next milestone celebration at The Grand Long Beach. From birthdays and quinces to anniversaries, our team handles every detail across 7 event spaces.",
       "slices": [
         {
           "type": "image_section",
@@ -21,7 +21,7 @@ export const eventPages: Record<string, PageDoc> = {
               "width": 2816,
               "height": 1826
             },
-            "alt": null,
+            "alt": "Milestone celebration at The Grand Long Beach",
             "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/8b05ce0f-a2a7-4abb-5de6-233074cd7c00/public"
           },
           "bottom_spacer": "None"
@@ -32,11 +32,11 @@ export const eventPages: Record<string, PageDoc> = {
           "body": [
             {
               "type": "paragraph",
-              "text": "Celebrate your milestones at The Grand and make unforgettable memories. Our experienced event planners will help you craft a personalized celebration that fits your needs and budget. Let us make your event unforgettable.",
+              "text": "Celebrate your milestones at The Grand and make memories that last a lifetime. Our experienced event planners will help you craft a personalized celebration that fits your needs and budget, from intimate gatherings to large-scale parties.",
               "spans": []
             }
           ],
-          "primary_action": "Make an inquiry",
+          "primary_action": "Make an Inquiry",
           "primary_action_link": {
             "link_type": "Web",
             "url": "/inquire"
@@ -74,7 +74,7 @@ export const eventPages: Record<string, PageDoc> = {
               "body": [
                 {
                   "type": "paragraph",
-                  "text": "Our spacious ballrooms and elegant dining rooms provide the perfect setting for your milestone or party event.",
+                  "text": "Seven elegant indoor and outdoor spaces set the stage for celebrations of every kind, from intimate birthday dinners to large-scale quinces.",
                   "spans": []
                 }
               ],
@@ -93,7 +93,7 @@ export const eventPages: Record<string, PageDoc> = {
               "body": [
                 {
                   "type": "paragraph",
-                  "text": "The Grand Long Beach can accommodate events of all sizes, from intimate gatherings of 50 guests to large-scale celebrations of 1,000 guests.",
+                  "text": "With spaces ranging from 40 to 675 guests, we have the right room for every milestone -- whether it's an intimate gathering or a large-scale celebration.",
                   "spans": []
                 }
               ],
@@ -112,7 +112,7 @@ export const eventPages: Record<string, PageDoc> = {
               "body": [
                 {
                   "type": "paragraph",
-                  "text": "Our experienced event planners will work with you to create a celebration that is tailored to your needs and reflects your unique style.",
+                  "text": "Our event planners work with you to bring your vision to life -- from custom decor and lighting to tailored menus that match your celebration's theme.",
                   "spans": []
                 }
               ],
@@ -246,8 +246,8 @@ export const eventPages: Record<string, PageDoc> = {
       "headline": "Business meets pleasure",
       "caption": "Elevate your events with our professional touch.",
       "video_url": null,
-      "meta_title": null,
-      "meta_description": null,
+      "meta_title": "Corporate Events & Meetings at The Grand LB | Long Beach, CA",
+      "meta_description": "Host conferences, meetings, and corporate events at The Grand Long Beach. 7 flexible spaces, in-house catering, AV support, and dedicated event planners. 20 minutes from LAX.",
       "slices": [
         {
           "type": "image_section",
@@ -257,7 +257,7 @@ export const eventPages: Record<string, PageDoc> = {
               "width": 2816,
               "height": 1826
             },
-            "alt": null,
+            "alt": "Corporate event setup at The Grand Long Beach",
             "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/2a7a2b5f-e94b-41cf-4694-4c40e9f53d00/public"
           },
           "bottom_spacer": "None"
@@ -272,7 +272,7 @@ export const eventPages: Record<string, PageDoc> = {
               "spans": []
             }
           ],
-          "primary_action": "Plan your event",
+          "primary_action": "Plan Your Event",
           "primary_action_link": {
             "link_type": "Web",
             "url": "/inquire"
@@ -306,11 +306,11 @@ export const eventPages: Record<string, PageDoc> = {
                   "spans": []
                 }
               ],
-              "eyebrow": "Sophistication",
+              "eyebrow": "Professionalism",
               "body": [
                 {
                   "type": "paragraph",
-                  "text": "Our spacious ballrooms and elegant dining rooms provide the perfect setting for your milestone or party event.",
+                  "text": "From boardroom strategy sessions to large-scale conferences, our spaces are equipped to make your team and your clients feel right at home.",
                   "spans": []
                 }
               ],
@@ -332,11 +332,11 @@ export const eventPages: Record<string, PageDoc> = {
                   "spans": []
                 }
               ],
-              "eyebrow": "Flexibility",
+              "eyebrow": "Scalability",
               "body": [
                 {
                   "type": "paragraph",
-                  "text": "The Grand Long Beach can accommodate events of all sizes, from intimate gatherings of 50 guests to large-scale celebrations of 1,000 guests.",
+                  "text": "Need a focused boardroom for 10 or a ballroom for 675? We have seven spaces that flex to fit your headcount, format, and AV requirements.",
                   "spans": []
                 }
               ],
@@ -351,11 +351,11 @@ export const eventPages: Record<string, PageDoc> = {
                 "alt": null,
                 "url": "https://cdn.thegrandlb.com/personal.svg"
               },
-              "eyebrow": "Customization",
+              "eyebrow": "Full Service",
               "body": [
                 {
                   "type": "paragraph",
-                  "text": "Our experienced event planners will work with you to create a celebration that is tailored to your needs and reflects your unique style.",
+                  "text": "In-house catering, AV support, and a dedicated event planner are included so you can focus on your agenda, not the logistics.",
                   "spans": []
                 }
               ],
@@ -447,8 +447,8 @@ export const eventPages: Record<string, PageDoc> = {
       "headline": "Let's get married",
       "caption": "Your dream wedding, made simple.",
       "video_url": null,
-      "meta_title": null,
-      "meta_description": null,
+      "meta_title": "Weddings at The Grand LB | Ceremony & Reception Venue in Long Beach",
+      "meta_description": "Plan your wedding at The Grand Long Beach. Indoor and outdoor ceremony and reception spaces for up to 675 guests, in-house catering, and dedicated wedding planners.",
       "slices": [
         {
           "type": "image_section",
@@ -458,7 +458,7 @@ export const eventPages: Record<string, PageDoc> = {
               "width": 2816,
               "height": 1826
             },
-            "alt": null,
+            "alt": "Wedding reception at The Grand Long Beach ballroom",
             "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/d7c0d809-c76f-4f45-62f3-9af5ad5a0400/public"
           },
           "bottom_spacer": "None"
@@ -469,11 +469,11 @@ export const eventPages: Record<string, PageDoc> = {
           "body": [
             {
               "type": "paragraph",
-              "text": "A wedding is a truly amazing moment in life, and we would love to help make it special and memorable. We offer a range of wedding packages to fit any budget or style, from intimate ceremonies to elaborate ballroom receptions. Let us help make your day perfect and truly unforgettable.",
+              "text": "Your wedding day deserves a venue that rises to the occasion. We offer a range of wedding packages to fit any budget and style, from intimate garden ceremonies to grand ballroom receptions. Our dedicated wedding planners handle the details so you can focus on each other.",
               "spans": []
             }
           ],
-          "primary_action": "Plan your wedding",
+          "primary_action": "Plan Your Wedding",
           "primary_action_link": {
             "link_type": "Web",
             "url": "/inquire"
@@ -630,7 +630,7 @@ export const eventPages: Record<string, PageDoc> = {
             },
             {
               "headline": "400+",
-              "eyebrow": "Weddings last year:",
+              "eyebrow": "Weddings last year",
               "primary_action_link": null,
               "secondary_action_link": null
             },
