@@ -7,8 +7,8 @@ export const aboutPage: PageDoc = {
   "data": {
     "title": "About The Grand",
     "video_url": null,
-    "meta_title": null,
-    "meta_description": null,
+      "meta_title": "About The Grand LB | Family-Owned Event Venue Since 1969",
+    "meta_description": "Meet the team behind The Grand Long Beach. Family-owned since 1969, our 65+ member team produces over 1,000 events each year across 7 distinctive spaces in Long Beach, CA.",
     "slices": [
       {
         "type": "hero_detail_page_slice",
@@ -74,12 +74,26 @@ export const aboutPage: PageDoc = {
           {
             "headline_size": "md",
             "headline": "Bar-none event professionals.",
+            "body": [
+              {
+                "type": "paragraph",
+                "text": "Our event planners, managers, and operations team bring decades of combined experience to every celebration. From the first inquiry to the final send-off, we handle the details so you can be present for the moments that matter.",
+                "spans": []
+              }
+            ],
             "primary_action_link": null,
             "secondary_action_link": null
           },
           {
             "headline_size": "md",
             "headline": "No-nonsense kitchen staff.",
+            "body": [
+              {
+                "type": "paragraph",
+                "text": "Led by Executive Chef Jesus Gonzalez, our in-house culinary team crafts menus that match the scale and style of your event. Whether it's a plated dinner for 50 or stations for 600, every dish is prepared on-site with care.",
+                "spans": []
+              }
+            ],
             "primary_action_link": null,
             "secondary_action_link": null
           }
