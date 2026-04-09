@@ -371,6 +371,23 @@ export const navigation: SharedDoc | null = {
             },
             show: true,
           },
+          {
+            child_link_title: "For Quinceañeras",
+            child_link_source: {
+              id: "quinces-page-001",
+              type: "event_page",
+              tags: [],
+              lang: "en-us",
+              slug: "quinces",
+              first_publication_date: "2026-04-09T00:00:00+0000",
+              last_publication_date: "2026-04-09T00:00:00+0000",
+              uid: "quinces",
+              link_type: "Document",
+              key: "quinces-nav-001",
+              isBroken: false,
+            },
+            show: true,
+          },
         ],
       },
       {

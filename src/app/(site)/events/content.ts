@@ -12,11 +12,11 @@ export const eventIndexPage: PageDoc = {
         "width": 3840,
         "height": 2160
       },
-      "alt": null,
+      "alt": "The Grand Long Beach event venue interior with elegant decor",
       "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/cfe41bb3-f218-430d-868d-99feb6668300/public"
     },
     "headline": "No matter your thing, we're here for you.",
-    "body": "We believe that every occasion is deserving of a personalized touch. Each of our unique spaces is flexible to suit the range of need for any event or gathering.",
+    "body": "Every occasion deserves a personalized touch. Our seven indoor and outdoor event spaces in Long Beach accommodate 40 to 675 guests -- flexible enough for weddings, quinceañeras, corporate conferences, and everything in between.",
     "event_pages": [
       {
         "page_media": {
@@ -73,13 +73,31 @@ export const eventIndexPage: PageDoc = {
         }
       },
       {
+        "page_media": {
+          "dimensions": {
+            "width": 2464,
+            "height": 1849
+          },
+          "alt": "Quinceañera celebration at The Grand Long Beach",
+          "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/39670f24-73de-4ddb-91c8-b992f36ccd00/public"
+        },
+        "page": {
+          "uid": "quinces",
+          "data": {
+            "caption": "A quinceañera venue as unforgettable as the moment itself.",
+            "title": "Quinces",
+            "headline": "Celebrate her grand day"
+          }
+        }
+      },
+      {
         "page": {
           "uid": "tour"
         }
       }
     ],
-    "meta_title": null,
-    "meta_description": null,
+    "meta_title": "Event Venue in Long Beach, CA | Weddings, Quinceañeras & Corporate Events",
+    "meta_description": "The Grand Long Beach is a 40,000 sq ft event venue for weddings, quinceañeras, corporate events, and private celebrations. 7 spaces for 40-675 guests with in-house catering. 20 min from LAX.",
     "slices": [
       {
         "type": "numbers_section",
@@ -313,14 +331,14 @@ export const eventIndexPage: PageDoc = {
             "question": [
               {
                 "type": "paragraph",
-                "text": "What types of events are possible?",
+                "text": "What types of events can you host?",
                 "spans": []
               }
             ],
             "answer": [
               {
                 "type": "paragraph",
-                "text": "The Grand Long Beach is a versatile event venue that can accommodate a wide range of events, including weddings, corporate meetings, banquets, private parties, fundraisers, conferences, trade shows, product launches, galas, awards ceremonies, concerts, plays, dance recitals, bar mitzvahs, bat mitzvahs, sweet 16 parties, graduation parties, retirement parties, anniversaries, birthday parties, and more. ",
+                "text": "The Grand Long Beach is a versatile event venue for weddings, quinceañeras, corporate meetings, conferences, trade shows, banquets, birthday parties, anniversary celebrations, baby showers, galas, fundraisers, bar and bat mitzvahs, sweet 16 parties, graduation parties, retirement parties, product launches, awards ceremonies, and more.",
                 "spans": []
               }
             ]
