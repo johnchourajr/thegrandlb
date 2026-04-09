@@ -51,3 +51,4 @@ next-env.d.ts
 
 # video migration (downloaded/original, optimized, manifest)
 /videos/
+/docs/archive
