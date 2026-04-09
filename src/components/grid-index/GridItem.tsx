@@ -62,10 +62,6 @@ export const GridIndexItem = ({
     show: { opacity: 1 },
   };
 
-  const truncate = (str: string, n: number) => {
-    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
-  };
-
   return (
     <motion.div
       key={id}
