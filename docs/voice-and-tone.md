@@ -140,14 +140,14 @@ A page-by-page audit of the current site content, identifying inconsistencies, m
 
 ### 6.1 Critical Gaps
 
-| #   | Issue                                            | Where                                                                                                                                   | Recommendation                                                                                                        |
-| --- | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| 1   | **Missing meta descriptions on most pages**      | Tour space pages, event pages, about, contact -- `meta_description: null` across nearly every route                                     | Write unique, keyword-rich meta descriptions (120-155 chars) for every page. This is a significant SEO gap.           |
-| 2   | **Missing meta titles on most pages**            | Same as above -- `meta_title: null` everywhere                                                                                          | Write unique `<title>` tags. Current fallback pattern "The Grand LB - {page title}" is functional but not optimized.  |
-| 3   | **Missing alt text on the majority of images**   | Homepage galleries, tour space galleries, hero images -- pervasive `alt: null`                                                          | Add descriptive alt text to every image. This is both an accessibility requirement and an SEO factor.                 |
-| 4   | **No About page body copy**                      | `/about` page has team photos and names but no written narrative about the venue's history, mission, or values beyond a single sentence | Write a proper "Our Story" section: founding in 1969, family ownership, community roots, what makes the team special. |
-| 5   | **No dedicated testimonials or reviews content** | The site references Yelp (4.5 stars, 200+), The Knot (4.9), and Wedding Wire (4.4) ratings but shows no actual customer quotes          | Add a testimonials section with curated reviews. Social proof is one of the strongest conversion drivers for venues.  |
-| 6   | **Hidden nav items with no pages**               | "For Quincea-eras" and "For Indian Weddings" exist in nav data but are hidden and have no linked content                                | Either build out these pages (strong audience opportunity) or remove them from the data entirely.                     |
+| #   | Issue                                            | Where                                                                                                                                   | Recommendation                                                                                                                                                            |
+| --- | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | **Missing meta descriptions on most pages**      | Tour space pages, event pages, about, contact -- `meta_description: null` across nearly every route                                     | Write unique, keyword-rich meta descriptions (120-155 chars) for every page. This is a significant SEO gap.                                                               |
+| 2   | **Missing meta titles on most pages**            | Same as above -- `meta_title: null` everywhere                                                                                          | Write unique `<title>` tags. Current fallback pattern "The Grand LB - {page title}" is functional but not optimized.                                                      |
+| 3   | **Missing alt text on the majority of images**   | Homepage galleries, tour space galleries, hero images -- pervasive `alt: null`                                                          | Add descriptive alt text to every image. This is both an accessibility requirement and an SEO factor.                                                                     |
+| 4   | **No About page body copy**                      | `/about` page has team photos and names but no written narrative about the venue's history, mission, or values beyond a single sentence | Write a proper "Our Story" section: founding in 1969, family ownership, community roots, what makes the team special.                                                     |
+| 5   | **No dedicated testimonials or reviews content** | The site references Yelp (4.5 stars, 200+), The Knot (4.9), and Wedding Wire (4.4) ratings but shows no actual customer quotes          | Add a testimonials section with curated reviews. Social proof is one of the strongest conversion drivers for venues.                                                      |
+| 6   | ~~**Hidden nav items with no pages**~~           | ~~"For Quinceañeras" existed in nav data but was hidden with no linked content~~                                                        | **RESOLVED:** `/events/quinces` page is now live with full content, SEO metadata, FAQ section, and navigation link. Indian Weddings page remains as a future opportunity. |
 
 ### 6.2 Content Consistency Issues
 
@@ -299,6 +299,46 @@ Words and phrases to use -- and to avoid.
 - **Ownership:** Marketing lead or content owner should approve all new page copy before publication.
 - **Updates:** When new spaces, event types, or services are added, create content using the templates in Section 7 before launch.
 - **Stats:** Verify all numerical claims (events per year, review counts, capacity figures) annually.
+
+---
+
+## 11. SEO Strategy -- Recommended New Pages for Organic Search
+
+The site currently ranks well for branded terms ("The Grand LB," "The Grand Long Beach"). To capture non-branded organic traffic, the following pages are recommended. Each targets high-intent local search queries that potential clients use before they know a specific venue.
+
+### 11.1 Implemented
+
+| Page         | Route             | Target Keywords                                                                                      | Status |
+| ------------ | ----------------- | ---------------------------------------------------------------------------------------------------- | ------ |
+| Quinceañeras | `/events/quinces` | quinceañera venue long beach, quince venue near me, quinceañera party venue, quince halls long beach | Live   |
+
+### 11.2 Recommended -- High Priority
+
+| Page                     | Proposed Route            | Target Keywords                                                                           | Rationale                                                                                                                                                                     |
+| ------------------------ | ------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Indian Weddings          | `/events/indian-weddings` | indian wedding venue long beach, south asian wedding venue, baraat venue los angeles      | Large underserved market in the LA metro area. The venue already hosts these events. Cultural-specific content builds trust with this audience and captures long-tail search. |
+| FAQ (site-wide)          | `/faq`                    | event venue questions long beach, wedding venue faq, how to book a venue                  | Consolidates questions scattered across space pages. FAQ pages rank well for voice search and featured snippets. Reduces friction for prospects in the research phase.        |
+| Pricing / What to Expect | `/pricing`                | event venue pricing long beach, wedding venue cost long beach, how much does a venue cost | "Pricing" is one of the highest-intent queries for venue searches. Even general ranges or "starting from" figures capture traffic from people actively comparing.             |
+| Gallery / Inspiration    | `/gallery`                | event venue photos long beach, wedding venue gallery, quinceañera venue photos            | Image-heavy pages drive organic image search traffic and give prospects visual proof. Cross-link to tour pages and event categories.                                          |
+
+### 11.3 Recommended -- Medium Priority
+
+| Page                  | Proposed Route               | Target Keywords                                                      | Rationale                                                                                                               |
+| --------------------- | ---------------------------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Sweet 16              | `/events/sweet-16`           | sweet 16 venue long beach, sweet sixteen party venue, sweet 16 halls | Already listed as event type in the inquiry form. Dedicated page captures searches from parents planning these parties. |
+| Bar / Bat Mitzvah     | `/events/bar-bat-mitzvah`    | bar mitzvah venue long beach, bat mitzvah party venue                | Captures searches from a specific audience with high spending and strong referral networks.                             |
+| Graduation Parties    | `/events/graduation-parties` | graduation party venue long beach, graduation venue near me          | Seasonal keyword volume spikes in April-June. Dedicated page captures that traffic annually.                            |
+| Holiday & Gala Events | `/events/galas`              | gala venue long beach, holiday party venue, fundraiser venue         | Groups related high-formality events for corporate and nonprofit audiences.                                             |
+
+### 11.4 SEO Content Guidelines for New Pages
+
+- **Meta title format:** `[Primary Keyword] in Long Beach, CA | The Grand LB | [Secondary Qualifier]`
+- **Meta description:** 150-160 characters. Include location, capacity range, a differentiator, and a soft CTA.
+- **Body copy:** Minimum 300 words per page. Include the primary keyword naturally within the first 100 words. Mention "Long Beach," capacity figures, and "in-house catering" on every event page.
+- **FAQ sections:** Add 4-6 event-specific questions per page. These target voice search and featured snippets.
+- **Internal linking:** Every event page should link to the inquiry form, the tour page, and at least one related event page (cross-sell).
+- **Alt text:** Every hero image and gallery image must have descriptive alt text including the event type and venue name.
+- **Schema markup:** The existing EventVenue JSON-LD covers the venue. Consider adding FAQPage schema per event page for richer SERP results.
 
 ---
 

@@ -1,9 +1,9 @@
 "use client";
 
+import AppLink from "@/components/AppLink";
 import useTouchDevice from "@/hooks/useTouchDevice";
 import { handleEvent } from "@/utils/events";
 import { clampBuilder } from "@/utils/utils";
-import AppLink from "@/components/AppLink";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -76,7 +76,7 @@ export const GridIndexItem = ({
         getNumberForColSpan(layout?.col_span),
         getNumberForRowStart(layout?.row_start),
         getNumberForRowSpan(layout?.row_span),
-        layout?.container
+        layout?.container,
       )}
       variants={item}
       {...hoverProps()}
@@ -126,7 +126,7 @@ export const GridIndexItem = ({
 
           {caption && (
             <>
-              <Text>{truncate(caption, 50)}</Text>{" "}
+              <Text className="truncate line-clamp-1">{caption}</Text>{" "}
             </>
           )}
         </motion.div>

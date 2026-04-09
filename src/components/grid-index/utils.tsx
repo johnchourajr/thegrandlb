@@ -84,7 +84,8 @@ export const getTourIndexLayout = (uid: string): GetIndexReturn => {
 export const getEventIndexLayout = (uid: string): GetIndexReturn => {
   // uid: "weddings", Weddings, col start 1, col span 8, row start 1, row span 2
   // uid: "milestones", Milestones, col start 9, col span 4, row start 1, row span 4
-  // uid: "business", Corporate, col start 1, col span 8, row start 3, row span 2
+  // uid: "business", Corporate, col start 1, col span 4, row start 3, row span 2
+  // uid: "quinces", Quinces, col start 5, col span 4, row start 3, row span 2
 
   switch (uid) {
     case "weddings":
@@ -106,7 +107,15 @@ export const getEventIndexLayout = (uid: string): GetIndexReturn => {
     case "business":
       return {
         col_start: "Start 1",
-        col_span: "Span 8",
+        col_span: "Span 4",
+        row_start: "Start 3",
+        row_span: "Span 2",
+        container: "flex-col-reverse",
+      };
+    case "quinces":
+      return {
+        col_start: "Start 5",
+        col_span: "Span 4",
         row_start: "Start 3",
         row_span: "Span 2",
         container: "flex-col-reverse",

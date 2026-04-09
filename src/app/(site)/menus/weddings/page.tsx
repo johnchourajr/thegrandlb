@@ -36,8 +36,8 @@ export default async function WeddingsMenuPage() {
 
 export async function generateMetadata() {
   return {
-    title: "Weddings Menu",
+    title: "Wedding Catering Menu | Reception Dining at The Grand LB",
     description:
-      "Wedding catering and banquet options. Plated, buffet and stations for your reception at The Grand LB.",
+      "Wedding catering menu at The Grand Long Beach. Plated dinners, buffet service, and action stations for receptions of up to 675 guests. In-house kitchen in Long Beach, CA.",
   };
 }

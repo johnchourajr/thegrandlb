@@ -36,8 +36,8 @@ export default async function CorporateMenuPage() {
 
 export async function generateMetadata() {
   return {
-    title: "Corporate Menu",
+    title: "Corporate Event Catering Menu | Meetings & Conferences at The Grand LB",
     description:
-      "Corporate event catering and lunch or dinner menus for meetings and galas at The Grand LB.",
+      "Corporate catering menu at The Grand Long Beach. Lunch, dinner, and break service for meetings, conferences, galas, and team events. In-house kitchen in Long Beach, CA.",
   };
 }
