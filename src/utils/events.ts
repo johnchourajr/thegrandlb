@@ -105,7 +105,7 @@ export const toastSubmitSuccess = (value?: string | number) => {
 };
 
 export const toastSubmitError = (value?: string | number) => {
-  toast.error("Something went wrong check inputs and try again");
+  toast.error("Something went wrong -- please check your inputs and try again.");
   event({
     action: "click",
     category: "inquire_form_error",

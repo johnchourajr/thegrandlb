@@ -40,8 +40,19 @@ export const ClientEmail = (props: any) => {
             <hr className="border-[1px] !border-solid border-[white] !outline-[none]" />
             <h1 className="text-[20px]">Hey, {full_name.value || "there"}.</h1>
             <p className="text-[16px]">
-              Thanks for your submission. Our sales team should reach out in the
-              next 2-3 business days.
+              Thanks for your submission. Our sales team will reach out within
+              2-3 business days to discuss your event and next steps.
+            </p>
+            <p className="text-[16px]">
+              In the meantime, feel free to{" "}
+              <a href="https://thegrandlb.com/tour" target="_blank" rel="noreferrer">
+                explore our spaces
+              </a>{" "}
+              or{" "}
+              <a href="https://thegrandlb.com/menus" target="_blank" rel="noreferrer">
+                browse our menus
+              </a>
+              .
             </p>
             <p className="text-[16px]">
               Cheers,

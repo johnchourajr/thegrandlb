@@ -39,10 +39,10 @@ const ItemSelected = ({ filteredItem }: ItemSelectedProps) => {
     return (
       <div className="grid-inset flex w-full flex-col gap-2 border-b-[1px] border-[#C8C2BC] py-4 lg:py-8">
         <Headline size={"md"} className="opacity-50" animateOnce>
-          Choose a space →
+          Select a space
         </Headline>
         <m.div className="inline flex-row gap-2 whitespace-pre-wrap">
-          <Text size={"small"}>Select a space for more details</Text>
+          <Text size={"small"}>Tap a space to explore it</Text>
         </m.div>
       </div>
     );

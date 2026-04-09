@@ -41,8 +41,8 @@ export default function InquireThanks() {
           Thanks!
         </Headline>
         <Text className={clsx("max-w-[20em]")}>
-          Thanks for telling us about your event, our sales team should reach
-          out in the next 2-3 business days.
+          Thanks for telling us about your event. Our sales team will reach out
+          within 2-3 business days to discuss next steps.
         </Text>
         <Button
           text={"Return to site"}

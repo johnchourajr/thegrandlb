@@ -207,7 +207,7 @@
       },
       {
         "title": "Head Count",
-        "placeholder": "100",
+        "placeholder": "Estimated number of guests",
         "question_type": "number",
         "question_key": "head_count",
         "required": true,
@@ -320,7 +320,7 @@
   },
   {
     "title": "Recap",
-    "description": "Here’s what we’ve heard, if everything looks okay hit “submit.”",
+    "description": "Here's what we've heard. If everything looks good, hit submit.",
     "page_key": "review_and_submit",
     "questions": [
       {
