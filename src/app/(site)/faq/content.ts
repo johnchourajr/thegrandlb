@@ -16,40 +16,11 @@ export const faqPage: PageDoc = {
         type: "faq_section",
         section_id: "venue",
         title: "Venue & Spaces",
-        gallery: {
-          data: {
-            gallery_items: [
-              {
-                link: null,
-                video_media: null,
-                media: {
-                  dimensions: { width: 2464, height: 1848 },
-                  alt: "The Grand Ballroom event space at The Grand Long Beach",
-                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/ba00e56c-e108-4405-26e1-f16ba5b35c00/public",
-                },
-              },
-              {
-                link: null,
-                video_media: null,
-                media: {
-                  dimensions: { width: 2464, height: 1848 },
-                  alt: "The Palm Terrace outdoor event space",
-                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/9d0dccc6-cc37-4965-8019-d351ad9f3700/public",
-                },
-              },
-              {
-                link: null,
-                video_media: null,
-                media: {
-                  dimensions: { width: 2464, height: 1848 },
-                  alt: "The Monarch Room indoor-outdoor event space",
-                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/3742c9dc-4bcb-4666-3b4d-0d261819b000/public",
-                },
-              },
-            ],
-          },
+        media: {
+          dimensions: { width: 2464, height: 1848 },
+          alt: "The Grand Ballroom event space at The Grand Long Beach",
+          url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/ba00e56c-e108-4405-26e1-f16ba5b35c00/public",
         },
-        video_media: null,
         asset_position: true,
         items: [
           {
@@ -138,31 +109,11 @@ export const faqPage: PageDoc = {
         type: "faq_section",
         section_id: "catering",
         title: "Catering & Menus",
-        gallery: {
-          data: {
-            gallery_items: [
-              {
-                link: null,
-                video_media: null,
-                media: {
-                  dimensions: { width: 2464, height: 1848 },
-                  alt: "Elegant table settings with in-house catering at The Grand LB",
-                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/6f029f31-cd81-4ccd-232e-5ee5d19a3a00/public",
-                },
-              },
-              {
-                link: null,
-                video_media: null,
-                media: {
-                  dimensions: { width: 2464, height: 1848 },
-                  alt: "Plated dinner service at The Grand Long Beach",
-                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/c94179f3-6554-4e3a-0f02-c9818b0e4600/public",
-                },
-              },
-            ],
-          },
+        media: {
+          dimensions: { width: 2464, height: 1848 },
+          alt: "Elegant table settings with in-house catering at The Grand LB",
+          url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/6f029f31-cd81-4ccd-232e-5ee5d19a3a00/public",
         },
-        video_media: null,
         asset_position: false,
         items: [
           {
@@ -283,29 +234,10 @@ export const faqPage: PageDoc = {
         type: "faq_section",
         section_id: "logistics",
         title: "Logistics & Planning",
-        gallery: {
-          data: {
-            gallery_items: [
-              {
-                link: null,
-                video_media: null,
-                media: {
-                  dimensions: { width: 2464, height: 1848 },
-                  alt: "Aerial view of The Grand Long Beach venue and grounds",
-                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/023e8045-5fbe-40ff-1d88-2d6f8eaec900/public",
-                },
-              },
-              {
-                link: null,
-                video_media: null,
-                media: {
-                  dimensions: { width: 2464, height: 1848 },
-                  alt: "Professional event setup at The Grand LB",
-                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/b554ec79-70c2-4abb-18a4-f3d4e387ff00/public",
-                },
-              },
-            ],
-          },
+        media: {
+          dimensions: { width: 2464, height: 1848 },
+          alt: "Aerial view of The Grand Long Beach venue and grounds",
+          url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/023e8045-5fbe-40ff-1d88-2d6f8eaec900/public",
         },
         video_media: null,
         asset_position: true,
