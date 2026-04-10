@@ -5,8 +5,7 @@ export const indianWeddingsPage: PageDoc = {
   data: {
     title: "Indian Weddings",
     headline: "Your grand celebration, honored",
-    caption:
-      "A venue built for the scale and beauty of South Asian weddings.",
+    caption: "A venue built for the scale and beauty of South Asian weddings.",
     video_url: null,
     meta_title:
       "Indian Wedding Venue in Long Beach, CA | South Asian Weddings | The Grand LB",
@@ -29,7 +28,7 @@ export const indianWeddingsPage: PageDoc = {
         body: [
           {
             type: "paragraph",
-            text: "Indian weddings are multi-day celebrations that deserve a venue built for grandeur. At The Grand Long Beach, our 40,000 sq ft property provides the space and flexibility for every event in your wedding weekend -- from the mehndi and sangeet to the baraat procession, ceremony, and reception. Our 11-acre grounds give you room for the baraat entrance, and our seven indoor and outdoor spaces adapt to each function's unique needs.",
+            text: "Indian weddings are multi-day celebrations that deserve a venue built for grandeur. At The Grand Long Beach, our 40,000 sq ft property provides the space and flexibility for every event in your wedding weekend—from the mehndi and sangeet to the baraat procession, ceremony, and reception. Our 11-acre grounds give you room for the baraat entrance, and our seven indoor and outdoor spaces adapt to each function's unique needs.",
             spans: [],
           },
         ],
@@ -58,7 +57,7 @@ export const indianWeddingsPage: PageDoc = {
             body: [
               {
                 type: "paragraph",
-                text: "The Grand Ballroom seats up to 675 guests for the reception, with additional spaces for the ceremony, cocktail hour, and pre-wedding events -- all on a single property.",
+                text: "The Grand Ballroom seats up to 675 guests for the reception, with additional spaces for the ceremony, cocktail hour, and pre-wedding events—all on a single property.",
                 spans: [],
               },
             ],
@@ -90,7 +89,7 @@ export const indianWeddingsPage: PageDoc = {
             body: [
               {
                 type: "paragraph",
-                text: "Our kitchen works with you to create menus that reflect your heritage -- from traditional Indian cuisine to fusion options. We accommodate vegetarian, vegan, and dietary requirements for large guest counts.",
+                text: "Our kitchen works with you to create menus that reflect your heritage—from traditional Indian cuisine to fusion options. We accommodate vegetarian, vegan, and dietary requirements for large guest counts.",
                 spans: [],
               },
             ],
@@ -104,7 +103,7 @@ export const indianWeddingsPage: PageDoc = {
         body: [
           {
             type: "paragraph",
-            text: "The Grand Long Beach has hosted South Asian weddings of every tradition -- Hindu, Sikh, Muslim, and interfaith. Our outdoor Palm Terrace and 11-acre grounds provide a natural setting for the baraat procession, while The Grand Ballroom offers the scale and acoustics for a lively sangeet or reception with live music and dancing.",
+            text: "The Grand Long Beach has hosted South Asian weddings of every tradition—Hindu, Sikh, Muslim, and interfaith. Our outdoor Palm Terrace and 11-acre grounds provide a natural setting for the baraat procession, while The Grand Ballroom offers the scale and acoustics for a lively sangeet or reception with live music and dancing.",
             spans: [],
           },
           {

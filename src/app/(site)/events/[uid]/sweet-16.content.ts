@@ -7,8 +7,7 @@ export const sweet16Page: PageDoc = {
     headline: "Make it a night to remember",
     caption: "A Sweet 16 celebration as bold as the guest of honor.",
     video_url: null,
-    meta_title:
-      "Sweet 16 Party Venue in Long Beach, CA | The Grand LB",
+    meta_title: "Sweet 16 Party Venue in Long Beach, CA | The Grand LB",
     meta_description:
       "Throw a Sweet 16 party at The Grand Long Beach. 7 event spaces for 40-675 guests with in-house catering, DJ-ready AV, and dedicated event planners in Long Beach, CA. 20 min from LAX.",
     slices: [
@@ -28,7 +27,7 @@ export const sweet16Page: PageDoc = {
         body: [
           {
             type: "paragraph",
-            text: "A Sweet 16 is a once-in-a-lifetime milestone. At The Grand Long Beach, we give your celebration the space and style it deserves -- from intimate dinners with close friends to full-scale parties with a DJ, dance floor, and custom lighting. Our event planners handle the details so the guest of honor and their family can enjoy every moment.",
+            text: "A Sweet 16 is a once-in-a-lifetime milestone. At The Grand Long Beach, we give your celebration the space and style it deserves—from intimate dinners with close friends to full-scale parties with a DJ, dance floor, and custom lighting. Our event planners handle the details so the guest of honor and their family can enjoy every moment.",
             spans: [],
           },
         ],
@@ -58,7 +57,7 @@ export const sweet16Page: PageDoc = {
             body: [
               {
                 type: "paragraph",
-                text: "From uplighting and photo backdrops to themed decor, our spaces transform into the vibe your teen envisions -- elegant, modern, or all-out fun.",
+                text: "From uplighting and photo backdrops to themed decor, our spaces transform into the vibe your teen envisions—elegant, modern, or all-out fun.",
                 spans: [],
               },
             ],

@@ -8,8 +8,7 @@ export const graduationPartiesPage: PageDoc = {
     caption:
       "Celebrate the graduate with a party that matches the achievement.",
     video_url: null,
-    meta_title:
-      "Graduation Party Venue in Long Beach, CA | The Grand LB",
+    meta_title: "Graduation Party Venue in Long Beach, CA | The Grand LB",
     meta_description:
       "Host a graduation party at The Grand Long Beach. 7 event spaces for 40-675 guests, in-house catering, and outdoor terraces. Near CSULB and LBSU. 20 min from LAX.",
     slices: [
@@ -29,7 +28,7 @@ export const graduationPartiesPage: PageDoc = {
         body: [
           {
             type: "paragraph",
-            text: "From high school diplomas to doctoral degrees, every graduation marks years of hard work. At The Grand Long Beach, we help families celebrate the graduate with a party that feels as big as the accomplishment -- whether that means a backyard-style gathering on the Palm Terrace or a formal dinner in The Grand Ballroom. Located minutes from CSULB and Long Beach City College, we are the local choice for graduation season.",
+            text: "From high school diplomas to doctoral degrees, every graduation marks years of hard work. At The Grand Long Beach, we help families celebrate the graduate with a party that feels as big as the accomplishment—whether that means a backyard-style gathering on the Palm Terrace or a formal dinner in The Grand Ballroom. Located minutes from CSULB and Long Beach City College, we are the local choice for graduation season.",
             spans: [],
           },
         ],
@@ -59,7 +58,7 @@ export const graduationPartiesPage: PageDoc = {
             body: [
               {
                 type: "paragraph",
-                text: "Choose from seven spaces including sun-filled terraces for casual celebrations and climate-controlled ballrooms for formal events -- or combine both for the best of each.",
+                text: "Choose from seven spaces including sun-filled terraces for casual celebrations and climate-controlled ballrooms for formal events—or combine both for the best of each.",
                 spans: [],
               },
             ],

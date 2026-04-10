@@ -5,11 +5,9 @@ export const rehearsalDinnersPage: PageDoc = {
   data: {
     title: "Rehearsal Dinners",
     headline: "The night before, done right",
-    caption:
-      "An intimate setting for the celebration before the celebration.",
+    caption: "An intimate setting for the celebration before the celebration.",
     video_url: null,
-    meta_title:
-      "Rehearsal Dinner Venue in Long Beach, CA | The Grand LB",
+    meta_title: "Rehearsal Dinner Venue in Long Beach, CA | The Grand LB",
     meta_description:
       "Host your rehearsal dinner at The Grand Long Beach. Intimate indoor and outdoor spaces for 20-200 guests with in-house catering and a dedicated planner. 20 min from LAX.",
     slices: [
@@ -29,7 +27,7 @@ export const rehearsalDinnersPage: PageDoc = {
         body: [
           {
             type: "paragraph",
-            text: "The rehearsal dinner sets the tone for the wedding weekend. At The Grand Long Beach, we offer intimate indoor and outdoor spaces that give the wedding party and close family a chance to connect before the big day. Our in-house kitchen creates custom menus for seated dinners, family-style meals, or cocktail receptions -- and our event planners coordinate the timing so you can move seamlessly between rehearsal and dinner.",
+            text: "The rehearsal dinner sets the tone for the wedding weekend. At The Grand Long Beach, we offer intimate indoor and outdoor spaces that give the wedding party and close family a chance to connect before the big day. Our in-house kitchen creates custom menus for seated dinners, family-style meals, or cocktail receptions—and our event planners coordinate the timing so you can move seamlessly between rehearsal and dinner.",
             spans: [],
           },
         ],
@@ -59,7 +57,7 @@ export const rehearsalDinnersPage: PageDoc = {
             body: [
               {
                 type: "paragraph",
-                text: "The Pacific Room, Garden Room, and Board Room provide refined settings for groups of 20 to 140 -- sized to feel warm and personal for your closest guests.",
+                text: "The Pacific Room, Garden Room, and Board Room provide refined settings for groups of 20 to 140—sized to feel warm and personal for your closest guests.",
                 spans: [],
               },
             ],

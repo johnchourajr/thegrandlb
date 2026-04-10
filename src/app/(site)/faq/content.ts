@@ -5,10 +5,10 @@ export const faqPage: PageDoc = {
   data: {
     title: "Frequently Asked Questions",
     headline: "All the answers",
-    caption: "Everything you need to know about hosting an event at The Grand Long Beach.",
+    caption:
+      "Everything you need to know about hosting an event at The Grand Long Beach.",
     video_url: null,
-    meta_title:
-      "FAQ | Event Venue Questions | The Grand LB in Long Beach, CA",
+    meta_title: "FAQ | Event Venue Questions | The Grand LB in Long Beach, CA",
     meta_description:
       "Answers to common questions about hosting weddings, quinceañeras, corporate events, and private celebrations at The Grand Long Beach. Capacity, catering, parking, and more.",
     slices: [
@@ -20,7 +20,6 @@ export const faqPage: PageDoc = {
           data: {
             gallery_items: [
               {
-                caption: "The Grand Ballroom",
                 link: null,
                 video_media: null,
                 media: {
@@ -30,7 +29,6 @@ export const faqPage: PageDoc = {
                 },
               },
               {
-                caption: "The Palm Terrace",
                 link: null,
                 video_media: null,
                 media: {
@@ -40,7 +38,6 @@ export const faqPage: PageDoc = {
                 },
               },
               {
-                caption: "The Monarch Room",
                 link: null,
                 video_media: null,
                 media: {
@@ -114,7 +111,7 @@ export const faqPage: PageDoc = {
             answer: [
               {
                 type: "paragraph",
-                text: "Yes. Every space is flexible and can be configured to match your event format -- banquet rounds, theater-style, classroom, cocktail, or a custom layout. Our team works with you on floor plans, lighting, and sound to fit your vision.",
+                text: "Yes. Every space is flexible and can be configured to match your event format—banquet rounds, theater-style, classroom, cocktail, or a custom layout. Our team works with you on floor plans, lighting, and sound to fit your vision.",
                 spans: [],
               },
             ],
@@ -145,7 +142,6 @@ export const faqPage: PageDoc = {
           data: {
             gallery_items: [
               {
-                caption: "In-house catering",
                 link: null,
                 video_media: null,
                 media: {
@@ -155,7 +151,6 @@ export const faqPage: PageDoc = {
                 },
               },
               {
-                caption: "Event dining",
                 link: null,
                 video_media: null,
                 media: {
@@ -292,7 +287,6 @@ export const faqPage: PageDoc = {
           data: {
             gallery_items: [
               {
-                caption: "The Grand Long Beach",
                 link: null,
                 video_media: null,
                 media: {
@@ -302,7 +296,6 @@ export const faqPage: PageDoc = {
                 },
               },
               {
-                caption: "Event setup",
                 link: null,
                 video_media: null,
                 media: {
@@ -344,7 +337,7 @@ export const faqPage: PageDoc = {
             answer: [
               {
                 type: "paragraph",
-                text: "We are located at 4101 E. Willow St., Long Beach, CA 90815 -- just 20 minutes from LAX. Our central Southern California location makes us easy to reach from across the LA metro area, Orange County, and the Inland Empire.",
+                text: "We are located at 4101 E. Willow St., Long Beach, CA 90815—just 20 minutes from LAX. Our central Southern California location makes us easy to reach from across the LA metro area, Orange County, and the Inland Empire.",
                 spans: [],
               },
             ],
@@ -424,7 +417,7 @@ export const faqPage: PageDoc = {
             answer: [
               {
                 type: "paragraph",
-                text: "Yes. We have a list of preferred vendors including florists, photographers, DJs, and more. You are not required to use them -- you are welcome to bring your own vendors as long as they meet our requirements.",
+                text: "Yes. We have a list of preferred vendors including florists, photographers, DJs, and more. You are not required to use them—you are welcome to bring your own vendors as long as they meet our requirements.",
                 spans: [],
               },
             ],
@@ -451,23 +444,12 @@ export const faqPage: PageDoc = {
         type: "faq_section",
         section_id: "booking",
         title: "Booking & Availability",
-        gallery: {
-          data: {
-            gallery_items: [
-              {
-                caption: "Make an inquiry",
-                link: null,
-                video_media: null,
-                media: {
-                  dimensions: { width: 2464, height: 1848 },
-                  alt: "The Grand Long Beach venue exterior",
-                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/8b05ce0f-a2a7-4abb-5de6-233074cd7c00/public",
-                },
-              },
-            ],
-          },
+        media: {
+          dimensions: { width: 2464, height: 1848 },
+          alt: "The Grand Long Beach venue exterior",
+          url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/8b05ce0f-a2a7-4abb-5de6-233074cd7c00/public",
         },
-        video_media: null,
+
         asset_position: false,
         items: [
           {

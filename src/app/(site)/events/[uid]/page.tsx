@@ -49,10 +49,14 @@ export async function generateMetadata({
   const { uid } = await params;
   const page = eventPages[uid];
   if (!page) {
-    return { title: "Event - The Grand LB", description: "The Grand LB - Luxury Event Venue" };
+    return {
+      title: "Event - The Grand LB",
+      description: "The Grand LB - Luxury Event Venue",
+    };
   }
   const title = page.data.meta_title || `${page.data.title} | The Grand LB`;
-  const description = page.data.meta_description || "The Grand LB - Luxury Event Venue";
+  const description =
+    page.data.meta_description || "The Grand LB - Luxury Event Venue";
   const heroImage = page.data.slices?.find((s) => s.type === "image_section");
   const media = heroImage?.media as { url?: string } | undefined;
   const ogImage = media?.url;

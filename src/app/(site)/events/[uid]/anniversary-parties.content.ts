@@ -5,11 +5,9 @@ export const anniversaryPartiesPage: PageDoc = {
   data: {
     title: "Anniversary Parties",
     headline: "Celebrate the years together",
-    caption:
-      "Mark the milestone with a venue that honors the journey.",
+    caption: "Mark the milestone with a venue that honors the journey.",
     video_url: null,
-    meta_title:
-      "Anniversary Party Venue in Long Beach, CA | The Grand LB",
+    meta_title: "Anniversary Party Venue in Long Beach, CA | The Grand LB",
     meta_description:
       "Host an anniversary party at The Grand Long Beach. Elegant indoor and outdoor event spaces for 40-675 guests with in-house catering and dedicated planners. 20 min from LAX.",
     slices: [
@@ -29,7 +27,7 @@ export const anniversaryPartiesPage: PageDoc = {
         body: [
           {
             type: "paragraph",
-            text: "Whether it is a golden 50th anniversary or a first-year celebration, The Grand Long Beach provides the setting your milestone deserves. Our seven indoor and outdoor spaces accommodate everything from intimate dinners for close family to large-scale parties with live music and dancing. Our team has been hosting celebrations for over 55 years -- we know what it takes to make an anniversary feel truly special.",
+            text: "Whether it is a golden 50th anniversary or a first-year celebration, The Grand Long Beach provides the setting your milestone deserves. Our seven indoor and outdoor spaces accommodate everything from intimate dinners for close family to large-scale parties with live music and dancing. Our team has been hosting celebrations for over 55 years—we know what it takes to make an anniversary feel truly special.",
             spans: [],
           },
         ],
@@ -59,7 +57,7 @@ export const anniversaryPartiesPage: PageDoc = {
             body: [
               {
                 type: "paragraph",
-                text: "Our ballrooms and garden spaces set an elegant tone for anniversary celebrations -- from candlelit dinners to lively cocktail receptions with photo montages.",
+                text: "Our ballrooms and garden spaces set an elegant tone for anniversary celebrations—from candlelit dinners to lively cocktail receptions with photo montages.",
                 spans: [],
               },
             ],

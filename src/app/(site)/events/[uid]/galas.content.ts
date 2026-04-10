@@ -8,8 +8,7 @@ export const galasPage: PageDoc = {
     caption:
       "Galas, fundraisers, and holiday events with the polish they demand.",
     video_url: null,
-    meta_title:
-      "Gala & Holiday Party Venue in Long Beach, CA | The Grand LB",
+    meta_title: "Gala & Holiday Party Venue in Long Beach, CA | The Grand LB",
     meta_description:
       "Host galas, fundraisers, award ceremonies, and holiday parties at The Grand Long Beach. 7 event spaces for up to 675 guests with in-house catering and AV. 20 min from LAX.",
     slices: [

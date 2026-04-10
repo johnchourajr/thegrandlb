@@ -5,8 +5,7 @@ export const barBatMitzvahPage: PageDoc = {
   data: {
     title: "Bar & Bat Mitzvah",
     headline: "A celebration of tradition",
-    caption:
-      "Mark the milestone with a venue that rises to the occasion.",
+    caption: "Mark the milestone with a venue that rises to the occasion.",
     video_url: null,
     meta_title:
       "Bar Mitzvah & Bat Mitzvah Venue in Long Beach, CA | The Grand LB",
@@ -29,7 +28,7 @@ export const barBatMitzvahPage: PageDoc = {
         body: [
           {
             type: "paragraph",
-            text: "A Bar or Bat Mitzvah is a milestone that calls for a meaningful celebration. At The Grand Long Beach, we provide the setting, the service, and the attention to detail that let families focus on what matters most -- honoring the young person at the center of it all. From elegant seated dinners to high-energy dance parties, our team builds the event around your vision.",
+            text: "A Bar or Bat Mitzvah is a milestone that calls for a meaningful celebration. At The Grand Long Beach, we provide the setting, the service, and the attention to detail that let families focus on what matters most—honoring the young person at the center of it all. From elegant seated dinners to high-energy dance parties, our team builds the event around your vision.",
             spans: [],
           },
         ],
@@ -59,7 +58,7 @@ export const barBatMitzvahPage: PageDoc = {
             body: [
               {
                 type: "paragraph",
-                text: "Our ballrooms and event spaces set the stage for a celebration that balances tradition with fun -- from the candle-lighting ceremony to the hora.",
+                text: "Our ballrooms and event spaces set the stage for a celebration that balances tradition with fun—from the candle-lighting ceremony to the hora.",
                 spans: [],
               },
             ],
@@ -75,7 +74,7 @@ export const barBatMitzvahPage: PageDoc = {
             body: [
               {
                 type: "paragraph",
-                text: "Host 40 guests in an intimate setting or up to 675 in The Grand Ballroom. We configure the space to fit your format -- whether that includes a DJ, live entertainment, or both.",
+                text: "Host 40 guests in an intimate setting or up to 675 in The Grand Ballroom. We configure the space to fit your format—whether that includes a DJ, live entertainment, or both.",
                 spans: [],
               },
             ],
