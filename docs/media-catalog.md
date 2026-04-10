@@ -6,7 +6,8 @@ This document helps humans and agents find **where media lives**, **what it is f
 
 | Source | Role | Typical use |
 |--------|------|-------------|
-| **Cloudflare R2** served at `https://cdn.thegrandlb.com/` | Primary CDN for **optimized video** and **SVG illustrations** referenced in static TypeScript content | Hero/section `video_url`, icon rows, decorative SVGs |
+| **Cloudflare Images** (`https://imagedelivery.net/…`) | **Raster photos** for static TypeScript page content | Hero stills, galleries, tour/event imagery (`/public` variant URLs in `*.content.ts`) |
+| **Cloudflare R2** served at `https://cdn.thegrandlb.com/` | **Video** and **SVG** illustrations (not Cloudflare Images) | Hero/section `video_url`, icon rows, decorative SVGs |
 | **`public/`** | Static files shipped with the Next.js app | Open Graph / Apple touch: `/logo.png` (`src/app/(site)/layout.tsx`) |
 | **Prismic CDN** (`the-grand.cdn.prismic.io`, `images.prismic.io`) | Assets uploaded in Prismic or legacy URLs | Form illustration, transactional email logo, some menu PDFs |
 | **Prismic documents** | Editorial **photos** for pages | Slice-driven `ImageField` data (not enumerated here; lives in CMS) |
@@ -14,17 +15,46 @@ This document helps humans and agents find **where media lives**, **what it is f
 
 ## How to place media in the app
 
-1. **Raster images on first-party CDN**  
-   `ImageBox` treats `https://cdn.thegrandlb.com/...` like other CDN image fields: SVGs use `unoptimized`; raster can use the Cloudflare image loader when applicable (`src/components/media-frame/ImageBox.tsx`).
+1. **Cloudflare Images (raster photos)**  
+   URLs look like `https://imagedelivery.net/{account_hash}/{image_id}/public`. Next.js uses `cloudflareImageLoader` in `src/lib/image-cdn.ts` to rewrite requests to flexible variants (`w=…,q=75,f=webp`). Set `NEXT_PUBLIC_CF_IMAGES_ACCOUNT_HASH` to match the hash in your URLs (`jq-BfOr8JDGgGxqbx8v5CA` in this repo). `ImageBox` detects `imagedelivery.net` via `isCfImageUrl` (`src/components/media-frame/ImageBox.tsx`).
 
-2. **Video**  
+2. **R2-hosted SVG (and any full URL passthrough)**  
+   `ImageBox` treats `https://cdn.thegrandlb.com/...` as a CDN image field: SVGs use `unoptimized`; non-SVG URLs pass through the loader when applicable.
+
+3. **Video**  
    Section content uses string fields such as `video_url` pointing at `https://cdn.thegrandlb.com/.../*.mp4`. Upload flow and R2 bucket are described in `scripts/upload-to-r2.sh`.
 
-3. **Posters / thumbnails**  
+4. **Posters / thumbnails**  
    Helpers such as `generateVideoPoster` in `src/utils/bandwidth-optimization.ts` assume a `.jpg` sibling of the video URL may exist for some CDNs; confirm behavior for R2-hosted files before relying on it.
 
-4. **Prefer consistency**  
-   New marketing video and illustration assets should follow existing patterns: upload to R2, use `https://cdn.thegrandlb.com/<key>`, then reference from `content.ts` / `*.content.ts` / `content/shared.constants.ts` as appropriate.
+5. **Prefer consistency**  
+   New **photos**: Cloudflare Images dashboard, then use the delivered URL (or `cfImageUrl` in code). New **video/SVG** on R2: `https://cdn.thegrandlb.com/<key>` in `content.ts` / `*.content.ts` / `content/shared.constants.ts`.
+
+---
+
+## Cloudflare Images — all photo URLs in this repo
+
+There are **146** distinct `imagedelivery.net` image URLs checked into TypeScript content (variant `public`, account hash `jq-BfOr8JDGgGxqbx8v5CA`). IDs are opaque UUIDs; the catalog does not embed human-readable titles (those live next to each `url` in the content files).
+
+**Full machine-readable list (one URL per line):** [`docs/cloudflare-images-urls.txt`](cloudflare-images-urls.txt)
+
+**Where they appear (reference counts):**
+
+| File | URL references |
+|------|------------------|
+| `src/app/(site)/tour/[uid]/content.ts` | 63 |
+| `src/app/(site)/about/content.ts` | 20 |
+| `src/app/(site)/tour/content.ts` | 16 |
+| `src/app/(site)/events/content.ts` | 13 |
+| `src/app/(site)/content.ts` | 11 |
+| `src/app/(site)/menus/content.ts` | 7 |
+| `src/app/(site)/events/[uid]/milestones.content.ts` | 7 |
+| `src/app/(site)/events/[uid]/weddings.content.ts` | 6 |
+| `src/app/(site)/faq/content.ts` | 4 |
+| Each of several `events/[uid]/*.content.ts` | 4 |
+| `content/shared.constants.ts` | 1 |
+
+To see which pages use a given ID, search the repo for the middle segment of the URL (the image id), e.g. `ba00e56c-e108-4405-26e1-f16ba5b35c00`.
 
 ---
 
@@ -143,6 +173,13 @@ Unique `cdn.thegrandlb.com` URLs in `src/` and `content/`:
 ```bash
 rg -o 'https://cdn\.thegrandlb\.com/[^"'\''\s)]+' content src --glob '*.ts' --glob '*.tsx' | \
   sed 's/.*:https/https/' | sort -u
+```
+
+Unique Cloudflare Images URLs (rewrite `jq-BfOr8JDGgGxqbx8v5CA` if the account hash ever changes):
+
+```bash
+rg -o 'https://imagedelivery\.net/jq-BfOr8JDGgGxqbx8v5CA/[a-f0-9-]+/public' . \
+  --glob '*.ts' --glob '*.tsx' | sed 's/.*:https/https/' | sort -u > docs/cloudflare-images-urls.txt
 ```
 
 Merge the output into the tables above when assets change.

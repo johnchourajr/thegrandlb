@@ -24,7 +24,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## Documentation
 
-Project notes and decisions live in [`/docs`](docs/), including [voice and tone](docs/voice-and-tone.md) and a [media catalog](docs/media-catalog.md) (CDN video, SVGs, static assets, and where they are referenced in code).
+Project notes and decisions live in [`/docs`](docs/), including [voice and tone](docs/voice-and-tone.md) and a [media catalog](docs/media-catalog.md) (Cloudflare Images photo URLs, R2 video/SVGs, static assets, and code references). The full list of `imagedelivery.net` URLs in the repo is in [`docs/cloudflare-images-urls.txt`](docs/cloudflare-images-urls.txt).
 
 ## Testing
 
