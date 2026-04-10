@@ -8,10 +8,17 @@ import { toText } from "@/utils/rich-text";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import type { FaqItem as FaqSliceItem } from "../slice-types";
 
-export const FaqItem = ({ question, answer, open }: any) => {
-  const [isOpen, setIsOpen] = useState(open || false);
-  const toggleOpen = () => setIsOpen(!isOpen);
+type FaqItemProps = {
+  question: FaqSliceItem["question"];
+  answer: FaqSliceItem["answer"];
+  open?: boolean;
+};
+
+export const FaqItem = ({ question, answer, open = false }: FaqItemProps) => {
+  const [isOpen, setIsOpen] = useState<boolean>(open);
+  const toggleOpen = () => setIsOpen((prevIsOpen) => !prevIsOpen);
 
   return (
     <MotionBox
@@ -74,7 +81,6 @@ export const FaqItem = ({ question, answer, open }: any) => {
             height: 0,
             opacity: 0,
             marginTop: "0rem",
-            transitionEnd: { display: "none" },
           },
         }}
         animate={isOpen ? "open" : "closed"}
