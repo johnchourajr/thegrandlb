@@ -308,27 +308,34 @@ The site currently ranks well for branded terms ("The Grand LB," "The Grand Long
 
 ### 11.1 Implemented
 
-| Page         | Route             | Target Keywords                                                                                      | Status |
-| ------------ | ----------------- | ---------------------------------------------------------------------------------------------------- | ------ |
-| Quinceañeras | `/events/quinces` | quinceañera venue long beach, quince venue near me, quinceañera party venue, quince halls long beach | Live   |
+| Page                  | Route                        | Target Keywords                                                                                      | Status |
+| --------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------- | ------ |
+| Quinceañeras          | `/events/quinces`            | quinceañera venue long beach, quince venue near me, quinceañera party venue, quince halls long beach | Live   |
+| Indian Weddings       | `/events/indian-weddings`    | indian wedding venue long beach, south asian wedding venue, baraat venue los angeles                 | Live   |
+| Sweet 16              | `/events/sweet-16`           | sweet 16 venue long beach, sweet sixteen party venue, sweet 16 halls                                | Live   |
+| Bar / Bat Mitzvah     | `/events/bar-bat-mitzvah`    | bar mitzvah venue long beach, bat mitzvah party venue                                               | Live   |
+| Graduation Parties    | `/events/graduation-parties` | graduation party venue long beach, graduation venue near me                                         | Live   |
+| Holiday & Gala Events | `/events/galas`              | gala venue long beach, holiday party venue, fundraiser venue                                        | Live   |
+| Baby Showers          | `/events/baby-showers`       | baby shower venue long beach, baby shower event space                                               | Live   |
+| Rehearsal Dinners     | `/events/rehearsal-dinners`  | rehearsal dinner venue long beach, rehearsal dinner near me                                         | Live   |
+| Anniversary Parties   | `/events/anniversary-parties`| anniversary party venue long beach, anniversary celebration venue                                   | Live   |
 
-### 11.2 Recommended -- High Priority
+### 11.2 Recommended -- High Priority (Not Yet Built)
 
-| Page                     | Proposed Route            | Target Keywords                                                                           | Rationale                                                                                                                                                                     |
-| ------------------------ | ------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Indian Weddings          | `/events/indian-weddings` | indian wedding venue long beach, south asian wedding venue, baraat venue los angeles      | Large underserved market in the LA metro area. The venue already hosts these events. Cultural-specific content builds trust with this audience and captures long-tail search. |
-| FAQ (site-wide)          | `/faq`                    | event venue questions long beach, wedding venue faq, how to book a venue                  | Consolidates questions scattered across space pages. FAQ pages rank well for voice search and featured snippets. Reduces friction for prospects in the research phase.        |
-| Pricing / What to Expect | `/pricing`                | event venue pricing long beach, wedding venue cost long beach, how much does a venue cost | "Pricing" is one of the highest-intent queries for venue searches. Even general ranges or "starting from" figures capture traffic from people actively comparing.             |
-| Gallery / Inspiration    | `/gallery`                | event venue photos long beach, wedding venue gallery, quinceañera venue photos            | Image-heavy pages drive organic image search traffic and give prospects visual proof. Cross-link to tour pages and event categories.                                          |
+| Page                     | Proposed Route | Target Keywords                                                                           | Rationale                                                                                                                                                                     |
+| ------------------------ | -------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| FAQ (site-wide)          | `/faq`         | event venue questions long beach, wedding venue faq, how to book a venue                  | Consolidates questions scattered across space pages. FAQ pages rank well for voice search and featured snippets. Reduces friction for prospects in the research phase.        |
+| Pricing / What to Expect | `/pricing`     | event venue pricing long beach, wedding venue cost long beach, how much does a venue cost | "Pricing" is one of the highest-intent queries for venue searches. Even general ranges or "starting from" figures capture traffic from people actively comparing.             |
+| Gallery / Inspiration    | `/gallery`     | event venue photos long beach, wedding venue gallery, quinceañera venue photos            | Image-heavy pages drive organic image search traffic and give prospects visual proof. Cross-link to tour pages and event categories.                                          |
 
-### 11.3 Recommended -- Medium Priority
+### 11.3 Recommended -- Medium Priority (Not Yet Built)
 
-| Page                  | Proposed Route               | Target Keywords                                                      | Rationale                                                                                                               |
-| --------------------- | ---------------------------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Sweet 16              | `/events/sweet-16`           | sweet 16 venue long beach, sweet sixteen party venue, sweet 16 halls | Already listed as event type in the inquiry form. Dedicated page captures searches from parents planning these parties. |
-| Bar / Bat Mitzvah     | `/events/bar-bat-mitzvah`    | bar mitzvah venue long beach, bat mitzvah party venue                | Captures searches from a specific audience with high spending and strong referral networks.                             |
-| Graduation Parties    | `/events/graduation-parties` | graduation party venue long beach, graduation venue near me          | Seasonal keyword volume spikes in April-June. Dedicated page captures that traffic annually.                            |
-| Holiday & Gala Events | `/events/galas`              | gala venue long beach, holiday party venue, fundraiser venue         | Groups related high-formality events for corporate and nonprofit audiences.                                             |
+| Page               | Proposed Route          | Target Keywords                                                         | Rationale                                                                                                  |
+| ------------------ | ----------------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Engagement Parties | `/events/engagement`    | engagement party venue long beach, engagement celebration venue         | Natural cross-sell from the weddings page; captures couples early in the planning process.                 |
+| Retirement Parties | `/events/retirement`    | retirement party venue long beach, retirement celebration space         | Underserved search term with moderate intent; appeals to corporate and family audiences.                   |
+| Bridal Showers     | `/events/bridal-shower` | bridal shower venue long beach, bridal shower event space               | Closely related to weddings; captures a different stage of the wedding planning journey.                   |
+| Prom After-Parties | `/events/prom`          | prom venue long beach, prom after-party venue, prom event space         | Seasonal demand (April-June); appeals to parents and school organizations seeking a safe, upscale setting. |
 
 ### 11.4 SEO Content Guidelines for New Pages
 

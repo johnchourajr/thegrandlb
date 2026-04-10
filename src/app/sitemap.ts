@@ -12,7 +12,20 @@ const TOUR_UIDS = [
   "board-room",
 ];
 
-const EVENT_UIDS = ["milestones", "business", "weddings", "quinces"];
+const EVENT_UIDS = [
+  "milestones",
+  "business",
+  "weddings",
+  "quinces",
+  "indian-weddings",
+  "sweet-16",
+  "bar-bat-mitzvah",
+  "graduation-parties",
+  "galas",
+  "baby-showers",
+  "rehearsal-dinners",
+  "anniversary-parties",
+];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -29,6 +42,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE_URL}/events`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/tour`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/offsite`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE_URL}/faq`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE_URL}/sitemap-page`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.3 },
   ];
 
   const tourRoutes: MetadataRoute.Sitemap = TOUR_UIDS.map((uid) => ({

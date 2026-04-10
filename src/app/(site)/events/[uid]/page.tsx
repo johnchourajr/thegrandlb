@@ -51,9 +51,27 @@ export async function generateMetadata({
   if (!page) {
     return { title: "Event - The Grand LB", description: "The Grand LB - Luxury Event Venue" };
   }
+  const title = page.data.meta_title || `${page.data.title} | The Grand LB`;
+  const description = page.data.meta_description || "The Grand LB - Luxury Event Venue";
+  const heroImage = page.data.slices?.find((s) => s.type === "image_section");
+  const media = heroImage?.media as { url?: string } | undefined;
+  const ogImage = media?.url;
   return {
-    title: page.data.meta_title || `The Grand LB - ${page.data.title}`,
-    description: page.data.meta_description || "The Grand LB - Luxury Event Venue",
+    title: { absolute: title },
+    description,
+    ...(ogImage && {
+      openGraph: {
+        title,
+        description,
+        images: [{ url: ogImage, width: 1200, height: 630 }],
+      },
+      twitter: {
+        card: "summary_large_image" as const,
+        title,
+        description,
+        images: [ogImage],
+      },
+    }),
   };
 }
 

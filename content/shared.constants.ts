@@ -100,7 +100,7 @@ export const settings: SharedDoc = {
     legal_text: [
       {
         type: "paragraph",
-        text: "Privacy Policy. Site by John.Design",
+        text: "Privacy Policy. Sitemap. Site by John.Design",
         spans: [
           {
             start: 0,
@@ -120,8 +120,17 @@ export const settings: SharedDoc = {
             },
           },
           {
-            start: 24,
-            end: 35,
+            start: 16,
+            end: 23,
+            type: "hyperlink",
+            data: {
+              link_type: "Web",
+              url: "/sitemap-page",
+            },
+          },
+          {
+            start: 34,
+            end: 45,
             type: "hyperlink",
             data: {
               link_type: "Web",
