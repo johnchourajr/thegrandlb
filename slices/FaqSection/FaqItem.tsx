@@ -11,7 +11,7 @@ import { useState } from "react";
 
 export const FaqItem = ({ question, answer, open }: any) => {
   const [isOpen, setIsOpen] = useState(open || false);
-  const toggleOpen = () => setIsOpen(!isOpen);
+  const toggleOpen = () => setIsOpen((prevIsOpen) => !prevIsOpen);
 
   return (
     <MotionBox
@@ -74,7 +74,6 @@ export const FaqItem = ({ question, answer, open }: any) => {
             height: 0,
             opacity: 0,
             marginTop: "0rem",
-            transitionEnd: { display: "none" },
           },
         }}
         animate={isOpen ? "open" : "closed"}
