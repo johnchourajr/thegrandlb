@@ -49,5 +49,6 @@ export async function generateMetadata() {
     title: "Tour Our Event Spaces | 7 Venues for 40-675 Guests in Long Beach, CA",
     description:
       "Explore 7 indoor and outdoor event spaces at The Grand Long Beach. From The Grand Ballroom (675 guests) to The Board Room (40 guests). 40,000 sq ft venue in Long Beach, CA.",
+    alternates: { canonical: "/tour" },
   };
 }

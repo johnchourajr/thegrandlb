@@ -21,8 +21,9 @@ export default async function MapPage() {
 
 export async function generateMetadata() {
   return {
-    title: "Map",
+    title: "Directions & Map | The Grand LB in Long Beach, CA",
     description:
       "Directions and map for The Grand LB. 4101 E. Willow St, Long Beach, CA 90815. 20 minutes from LAX.",
+    alternates: { canonical: "/map" },
   };
 }

@@ -55,5 +55,6 @@ export async function generateMetadata() {
     title: "Event Venue in Long Beach, CA | Weddings, Quinceañeras & Corporate Events",
     description:
       "The Grand Long Beach is a 40,000 sq ft event venue for weddings, quinceañeras, corporate events, and private celebrations. 7 spaces for 40-675 guests with in-house catering. 20 min from LAX.",
+    alternates: { canonical: "/events" },
   };
 }

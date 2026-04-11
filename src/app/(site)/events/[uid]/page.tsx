@@ -8,6 +8,7 @@ import {
   DynamicSliceZone,
   DynamicTileFooter,
 } from "@/components/DynamicExports";
+import JsonLdBreadcrumb from "@/components/JsonLdBreadcrumb";
 import { eventPages, eventPageUids } from "./content";
 
 export const revalidate = false;
@@ -26,6 +27,13 @@ export default async function Page({
 
   return (
     <Layout page={page} settings={settings} navigation={navigation}>
+      <JsonLdBreadcrumb
+        crumbs={[
+          { name: "Home", url: "https://thegrandlb.com" },
+          { name: "Events", url: "https://thegrandlb.com/events" },
+          { name: page.data.title ?? uid, url: `https://thegrandlb.com/events/${uid}` },
+        ]}
+      />
       <DynamicHeroDetailPage
         uid={page.uid}
         title={title}
@@ -63,6 +71,7 @@ export async function generateMetadata({
   return {
     title: { absolute: title },
     description,
+    alternates: { canonical: `/events/${uid}` },
     ...(ogImage && {
       openGraph: {
         title,

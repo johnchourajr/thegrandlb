@@ -1,6 +1,7 @@
 import CtaFooter from "@/components/CtaFooter";
 import { DynamicSliceZone } from "@/components/DynamicExports";
 import HeroDetailPage from "@/components/HeroDetailPage";
+import JsonLdBreadcrumb from "@/components/JsonLdBreadcrumb";
 import TileFooter from "@/components/TileFooter";
 import { getExtra } from "@/services/get-extra";
 import Layout from "@components/Layout";
@@ -26,6 +27,7 @@ export async function generateMetadata({
   return {
     title: { absolute: title },
     description,
+    alternates: { canonical: `/tour/${uid}` },
     ...(ogImage && {
       openGraph: {
         title,
@@ -60,6 +62,13 @@ export default async function Page({
 
   return (
     <Layout page={page} settings={settings} navigation={navigation}>
+      <JsonLdBreadcrumb
+        crumbs={[
+          { name: "Home", url: "https://thegrandlb.com" },
+          { name: "Tour", url: "https://thegrandlb.com/tour" },
+          { name: page.data.headline ?? uid, url: `https://thegrandlb.com/tour/${uid}` },
+        ]}
+      />
       <HeroDetailPage
         uid={page.uid}
         headline={headline}

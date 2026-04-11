@@ -25,6 +25,7 @@ export async function generateMetadata() {
         "The Grand LB | Event Venue & Wedding Venue in Long Beach, CA",
     },
     description,
+    alternates: { canonical: "/" },
     openGraph: {
       title:
         "The Grand LB | Event Venue & Wedding Venue in Long Beach, CA",

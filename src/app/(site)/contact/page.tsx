@@ -20,5 +20,6 @@ export async function generateMetadata() {
     title: "Contact The Grand LB | Event Venue in Long Beach, CA",
     description:
       "Contact The Grand Long Beach at (562) 426-0555 or visit us at 4101 E. Willow St., Long Beach, CA 90815. Inquire about weddings, corporate events, and private celebrations.",
+    alternates: { canonical: "/contact" },
   };
 }

@@ -5,6 +5,7 @@ import {
   DynamicHeroDetailPage,
   DynamicSliceZone,
 } from "@/components/DynamicExports";
+import JsonLdFaq from "@/components/JsonLdFaq";
 import { faqPage } from "./content";
 
 export const revalidate = false;
@@ -15,6 +16,7 @@ export default async function Page() {
 
   return (
     <Layout page={faqPage} settings={settings} navigation={navigation}>
+      <JsonLdFaq />
       <DynamicHeroDetailPage
         uid={faqPage.uid}
         title={title}
@@ -39,5 +41,6 @@ export async function generateMetadata() {
     description:
       faqPage.data.meta_description ||
       "Frequently asked questions about The Grand Long Beach event venue.",
+    alternates: { canonical: "/faq" },
   };
 }

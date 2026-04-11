@@ -22,5 +22,6 @@ export async function generateMetadata() {
     title: "About The Grand LB | Family-Owned Event Venue Since 1969 in Long Beach",
     description:
       "The Grand Long Beach is a family-owned, 40,000 sq ft event venue with 55+ years of history. 7 spaces, in-house catering, and a team that has hosted over 1,000 events per year.",
+    alternates: { canonical: "/about" },
   };
 }
