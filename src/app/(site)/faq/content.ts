@@ -18,7 +18,7 @@ export const faqPage: PageDoc = {
         title: "Venue & Spaces",
         media: {
           dimensions: { width: 2464, height: 1848 },
-          alt: "The Grand Ballroom event space at The Grand Long Beach",
+          alt: "Grand Ballroom with ornate ceiling, crystal chandeliers, formal rounds.",
           url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/ba00e56c-e108-4405-26e1-f16ba5b35c00/public",
         },
         asset_position: true,
@@ -111,7 +111,7 @@ export const faqPage: PageDoc = {
         title: "Catering & Menus",
         media: {
           dimensions: { width: 2464, height: 1848 },
-          alt: "Elegant table settings with in-house catering at The Grand LB",
+          alt: "Elegant plated table: glassware, flatware, centerpiece in warm light.",
           url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/6f029f31-cd81-4ccd-232e-5ee5d19a3a00/public",
         },
         asset_position: false,
@@ -236,7 +236,7 @@ export const faqPage: PageDoc = {
         title: "Logistics & Planning",
         media: {
           dimensions: { width: 2464, height: 1848 },
-          alt: "Aerial view of The Grand Long Beach venue and grounds",
+          alt: "High aerial of the venue campus, parking, and surrounding city grid.",
           url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/023e8045-5fbe-40ff-1d88-2d6f8eaec900/public",
         },
         video_media: null,
@@ -378,7 +378,7 @@ export const faqPage: PageDoc = {
         title: "Booking & Availability",
         media: {
           dimensions: { width: 2464, height: 1848 },
-          alt: "The Grand Long Beach venue exterior",
+          alt: "Daytime exterior of the venue with porte-cochere and landscaping.",
           url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/8b05ce0f-a2a7-4abb-5de6-233074cd7c00/public",
         },
 

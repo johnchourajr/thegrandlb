@@ -17,7 +17,7 @@ export const barBatMitzvahPage: PageDoc = {
         video_media: null,
         media: {
           dimensions: { width: 2816, height: 1826 },
-          alt: "Event space set up for a Bar Mitzvah celebration at The Grand Long Beach",
+          alt: "Elegant plated table: glassware, flatware, centerpiece in warm light.",
           url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/6f029f31-cd81-4ccd-232e-5ee5d19a3a00/public",
         },
         bottom_spacer: "None",
@@ -109,7 +109,7 @@ export const barBatMitzvahPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: { width: 2464, height: 1848 },
-                  alt: "Elegant table settings for a milestone celebration",
+                  alt: "Elegant plated table: glassware, flatware, centerpiece in warm light.",
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/6f029f31-cd81-4ccd-232e-5ee5d19a3a00/public",
                 },
               },
@@ -118,7 +118,7 @@ export const barBatMitzvahPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: { width: 2464, height: 1848 },
-                  alt: "Party setup with decorations in a Long Beach event venue",
+                  alt: "Ballroom with vibrant purple and blue stage lighting and dance floor.",
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/3742c9dc-4bcb-4666-3b4d-0d261819b000/public",
                 },
               },
@@ -127,7 +127,7 @@ export const barBatMitzvahPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: { width: 2464, height: 1848 },
-                  alt: "Guests celebrating at a milestone event at The Grand LB",
+                  alt: "Garden room or conservatory-style space with guests at tables.",
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/b974fb0d-4d15-49e8-351b-fa4018109e00/public",
                 },
               },

@@ -573,7 +573,7 @@ export const ctaFooter: SharedDoc | null = {
         width: 3840,
         height: 2160,
       },
-      alt: null,
+      alt: "Evening exterior with palms and illuminated entry (footer mood).",
       copyright: null,
       url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/9c4a00e5-743d-41fc-f500-8e35b371b000/public",
       id: "ZNRzHxAAACcAlv4o",

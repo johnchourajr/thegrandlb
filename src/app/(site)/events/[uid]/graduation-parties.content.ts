@@ -17,7 +17,7 @@ export const graduationPartiesPage: PageDoc = {
         video_media: null,
         media: {
           dimensions: { width: 2816, height: 1826 },
-          alt: "Graduation party celebration at The Grand Long Beach",
+          alt: "Daytime exterior of the venue with porte-cochere and landscaping.",
           url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/8b05ce0f-a2a7-4abb-5de6-233074cd7c00/public",
         },
         bottom_spacer: "None",
@@ -109,7 +109,7 @@ export const graduationPartiesPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: { width: 2464, height: 1848 },
-                  alt: "Outdoor terrace celebration at The Grand Long Beach",
+                  alt: "Outdoor terrace reception under string lights with palm trees.",
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/9d0dccc6-cc37-4965-8019-d351ad9f3700/public",
                 },
               },
@@ -118,7 +118,7 @@ export const graduationPartiesPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: { width: 2464, height: 1848 },
-                  alt: "Event space with elegant table settings for a celebration",
+                  alt: "Elegant plated table: glassware, flatware, centerpiece in warm light.",
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/6f029f31-cd81-4ccd-232e-5ee5d19a3a00/public",
                 },
               },
@@ -127,7 +127,7 @@ export const graduationPartiesPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: { width: 2464, height: 1848 },
-                  alt: "Guests at a celebration event in Long Beach",
+                  alt: "Guests seated at a celebration with balloons and centerpieces.",
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/eedc2a6f-b2ca-4e4f-ad7e-52754836e100/public",
                 },
               },

@@ -24,6 +24,12 @@ Files under **`src/app/(site)/events/[uid]/*.content.ts`** are excluded as a gui
 node scripts/generate-visual-classification.mjs
 ```
 
+**Sync repo `alt` fields** to match each image’s vision `summary` (run after the JSON above changes):
+
+```bash
+node scripts/sync-cf-image-alts.mjs
+```
+
 **Tour detail: which file chunk an interior ID belongs to** (placement map only—not scene description): [`tour-room-image-ids.json`](tour-room-image-ids.json)
 
 ```bash

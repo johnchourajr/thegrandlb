@@ -12,7 +12,7 @@ export const tourIndexPage: PageDoc = {
         "width": 3840,
         "height": 2160
       },
-      "alt": null,
+      "alt": "Evening exterior of the venue with palms and illuminated facade.",
       "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/569cb5d0-cd2b-433e-6f65-d237efee8900/public"
     },
     "icon_media": {
@@ -32,7 +32,7 @@ export const tourIndexPage: PageDoc = {
             "width": 1814,
             "height": 2416
           },
-          "alt": null,
+          "alt": "Grand Ballroom with rounds, stage, and chandeliers.",
           "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/856df71a-3832-4963-6cc1-1fc9c6115c00/public"
         },
         "page": {
@@ -62,7 +62,7 @@ export const tourIndexPage: PageDoc = {
             "width": 2422,
             "height": 1818
           },
-          "alt": null,
+          "alt": "Palm Terrace with palms and open patio (daytime or soft dusk).",
           "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/550c0c0b-0622-40ff-8bb5-652e4d630400/public"
         },
         "page": {
@@ -89,7 +89,7 @@ export const tourIndexPage: PageDoc = {
             "width": 2426,
             "height": 1787
           },
-          "alt": null,
+          "alt": "Monarch Room with ornate ceiling, stage, and dance floor.",
           "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/a035a74c-382a-4391-b4a1-70313da9ff00/public"
         },
         "page": {
@@ -125,7 +125,7 @@ export const tourIndexPage: PageDoc = {
             "width": 2422,
             "height": 1818
           },
-          "alt": null,
+          "alt": "Catalina Room with rounds, stage, and Catalina-themed wall art.",
           "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/23b476ce-ac42-4720-9881-fd7dfa9ab300/public"
         },
         "page": {
@@ -164,7 +164,7 @@ export const tourIndexPage: PageDoc = {
             "width": 2426,
             "height": 1820
           },
-          "alt": null,
+          "alt": "Garden Room with garden mural, chandeliers, and rounds.",
           "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/701687bb-7fe3-46ad-40c7-b4574f704300/public"
         },
         "page": {
@@ -200,7 +200,7 @@ export const tourIndexPage: PageDoc = {
             "width": 2424,
             "height": 1820
           },
-          "alt": null,
+          "alt": "Pacific Room: warm wood tones, coastal art, built-in bar, lounge seating.",
           "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/0e026458-c661-4886-4be5-66945466f500/public"
         },
         "page": {
@@ -236,7 +236,7 @@ export const tourIndexPage: PageDoc = {
             "width": 2800,
             "height": 1868
           },
-          "alt": null,
+          "alt": "Board Room: long mahogany table, leather chairs, built-ins.",
           "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/553cdde0-df5f-4907-932f-2805da4e4600/public"
         },
         "page": {
@@ -295,7 +295,7 @@ export const tourIndexPage: PageDoc = {
                     "width": 2464,
                     "height": 1848
                   },
-                  "alt": null,
+                  "alt": "Large hall set with rounds and stage lighting accents (ballroom scale).",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/11a9b4fb-b982-4cd1-7aec-f800b0bafd00/public"
                 }
               },
@@ -307,7 +307,7 @@ export const tourIndexPage: PageDoc = {
                     "width": 1849,
                     "height": 2464
                   },
-                  "alt": null,
+                  "alt": "Outdoor terrace with palm trees and string lights.",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/6e11ea19-e97b-4e26-95bc-47560099ca00/public"
                 }
               },
@@ -319,7 +319,7 @@ export const tourIndexPage: PageDoc = {
                     "width": 2465,
                     "height": 1848
                   },
-                  "alt": null,
+                  "alt": "Outdoor terrace event with palm trees and market lights.",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/318ad625-1012-4c7b-401a-cccc1fde7200/public"
                 }
               },
@@ -331,7 +331,7 @@ export const tourIndexPage: PageDoc = {
                     "width": 2464,
                     "height": 1849
                   },
-                  "alt": null,
+                  "alt": "Outdoor evening reception under lights with palm silhouettes.",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/35fc10fd-ffbf-42f1-90f8-f5d099771b00/public"
                 }
               }
@@ -414,7 +414,7 @@ export const tourIndexPage: PageDoc = {
                     "width": 2464,
                     "height": 1848
                   },
-                  "alt": null,
+                  "alt": "Outdoor terrace with market lights and palm trees.",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/fd44e436-6b35-48e5-a137-25578b682000/public"
                 }
               },
@@ -426,7 +426,7 @@ export const tourIndexPage: PageDoc = {
                     "width": 2465,
                     "height": 1848
                   },
-                  "alt": null,
+                  "alt": "Outdoor terrace with white drapery, palm trees, tented or ceremony feel.",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/0b3cacb3-aa0c-4f70-cc26-14da10e9e700/public"
                 }
               },
@@ -438,7 +438,7 @@ export const tourIndexPage: PageDoc = {
                     "width": 2464,
                     "height": 1849
                   },
-                  "alt": null,
+                  "alt": "Outdoor terrace with market lights and palm silhouettes.",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/e1afd8d5-5eb2-4eff-cfac-be0b75a0f700/public"
                 }
               },
@@ -450,7 +450,7 @@ export const tourIndexPage: PageDoc = {
                     "width": 2465,
                     "height": 1849
                   },
-                  "alt": null,
+                  "alt": "Outdoor evening: market lights and palm trunks (atmospheric).",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/46afeef1-2580-419e-f2ae-fe0b82295400/public"
                 }
               }

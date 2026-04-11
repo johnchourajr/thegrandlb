@@ -16,7 +16,7 @@ export const anniversaryPartiesPage: PageDoc = {
         video_media: null,
         media: {
           dimensions: { width: 2816, height: 1826 },
-          alt: "Anniversary celebration dinner at The Grand Long Beach",
+          alt: "Garden room or conservatory-style space with guests at tables.",
           url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/b974fb0d-4d15-49e8-351b-fa4018109e00/public",
         },
         bottom_spacer: "None",
@@ -108,7 +108,7 @@ export const anniversaryPartiesPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: { width: 2464, height: 1848 },
-                  alt: "Anniversary dinner setup with elegant decor",
+                  alt: "Garden room or conservatory-style space with guests at tables.",
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/b974fb0d-4d15-49e8-351b-fa4018109e00/public",
                 },
               },
@@ -117,7 +117,7 @@ export const anniversaryPartiesPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: { width: 2464, height: 1848 },
-                  alt: "Outdoor terrace celebration at The Grand Long Beach",
+                  alt: "Outdoor terrace reception under string lights with palm trees.",
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/9d0dccc6-cc37-4965-8019-d351ad9f3700/public",
                 },
               },
@@ -126,7 +126,7 @@ export const anniversaryPartiesPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: { width: 2464, height: 1848 },
-                  alt: "Guests celebrating a milestone at The Grand LB",
+                  alt: "Guests seated at a celebration with balloons and centerpieces.",
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/eedc2a6f-b2ca-4e4f-ad7e-52754836e100/public",
                 },
               },

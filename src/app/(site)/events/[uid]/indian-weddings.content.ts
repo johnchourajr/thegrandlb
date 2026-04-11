@@ -17,7 +17,7 @@ export const indianWeddingsPage: PageDoc = {
         video_media: null,
         media: {
           dimensions: { width: 2816, height: 1826 },
-          alt: "Grand Ballroom set up for a large Indian wedding reception at The Grand Long Beach",
+          alt: "Grand Ballroom with ornate ceiling, crystal chandeliers, formal rounds.",
           url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/ba00e56c-e108-4405-26e1-f16ba5b35c00/public",
         },
         bottom_spacer: "None",
@@ -133,7 +133,7 @@ export const indianWeddingsPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: { width: 2464, height: 1848 },
-                  alt: "Grand Ballroom configured for a large Indian wedding celebration",
+                  alt: "Grand Ballroom with ornate ceiling, crystal chandeliers, formal rounds.",
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/ba00e56c-e108-4405-26e1-f16ba5b35c00/public",
                 },
               },
@@ -143,7 +143,7 @@ export const indianWeddingsPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: { width: 2464, height: 1848 },
-                  alt: "Palm Terrace outdoor space for baraat procession and ceremonies",
+                  alt: "Outdoor terrace reception under string lights with palm trees.",
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/9d0dccc6-cc37-4965-8019-d351ad9f3700/public",
                 },
               },
@@ -153,7 +153,7 @@ export const indianWeddingsPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: { width: 2464, height: 1848 },
-                  alt: "Monarch Room set up for a sangeet or mehndi event",
+                  alt: "Ballroom with vibrant purple and blue stage lighting and dance floor.",
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/3742c9dc-4bcb-4666-3b4d-0d261819b000/public",
                 },
               },

@@ -16,7 +16,7 @@ export const rehearsalDinnersPage: PageDoc = {
         video_media: null,
         media: {
           dimensions: { width: 2816, height: 1826 },
-          alt: "Rehearsal dinner table setup at The Grand Long Beach",
+          alt: "Reception tables with tall white floral centerpieces and candles.",
           url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/c94179f3-6554-4e3a-0f02-c9818b0e4600/public",
         },
         bottom_spacer: "None",
@@ -108,7 +108,7 @@ export const rehearsalDinnersPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: { width: 2464, height: 1848 },
-                  alt: "Intimate dining setup for a rehearsal dinner",
+                  alt: "Reception tables with tall white floral centerpieces and candles.",
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/c94179f3-6554-4e3a-0f02-c9818b0e4600/public",
                 },
               },
@@ -117,7 +117,7 @@ export const rehearsalDinnersPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: { width: 2466, height: 1850 },
-                  alt: "Wedding party dinner in a private event room at The Grand LB",
+                  alt: "Head table or sweetheart setup with abundant white and green florals.",
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/20cb49a5-6155-4016-44a5-eb72a13d9d00/public",
                 },
               },
@@ -126,7 +126,7 @@ export const rehearsalDinnersPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: { width: 2466, height: 1850 },
-                  alt: "Elegant table setting with floral arrangements at The Grand LB",
+                  alt: "Indoor ceremony wide shot with floral arch and guests.",
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/c647a4c0-5d20-4460-82ad-d029b7c14800/public",
                 },
               },
