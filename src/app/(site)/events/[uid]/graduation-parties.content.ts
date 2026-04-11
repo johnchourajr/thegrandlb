@@ -16,9 +16,9 @@ export const graduationPartiesPage: PageDoc = {
         type: "image_section",
         video_media: null,
         media: {
-          dimensions: { width: 2816, height: 1826 },
-          alt: "Daytime exterior of the venue with porte-cochere and landscaping.",
-          url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/8b05ce0f-a2a7-4abb-5de6-233074cd7c00/public",
+          dimensions: { width: 3696, height: 2772 },
+          alt: "Grand Ballroom with stage, dance floor, and pink uplighting.",
+          url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/3562cb12-8916-4107-ba62-834da911cb00/public",
         },
         bottom_spacer: "None",
       },

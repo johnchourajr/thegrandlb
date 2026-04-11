@@ -17,11 +17,11 @@ export const milestonesPage: PageDoc = {
         video_media: null,
         media: {
           dimensions: {
-            width: 2816,
-            height: 1826,
+            width: 2464,
+            height: 1849,
           },
-          alt: "Daytime exterior of the venue with porte-cochere and landscaping.",
-          url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/8b05ce0f-a2a7-4abb-5de6-233074cd7c00/public",
+          alt: "Ballroom with cake table, dessert spread, and pink lighting.",
+          url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/f7ffd2cf-564c-4fd8-006e-ff1219868b00/public",
         },
         bottom_spacer: "None",
       },
