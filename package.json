@@ -12,7 +12,9 @@
     "format": "prettier --write .",
     "type-check": "tsc --noEmit",
     "test:unit": "tsx --test src/utils/inquire-validation.test.ts",
-    "test:inquiry-form": "tsx scripts/test-inquiry-form.ts"
+    "test:inquiry-form": "tsx scripts/test-inquiry-form.ts",
+    "sync:cf-image-alts": "node scripts/sync-cf-image-alts.mjs",
+    "verify:cf-image-alts": "node scripts/verify-cf-image-alts.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.2.2",

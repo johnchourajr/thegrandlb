@@ -21,7 +21,7 @@ export const homePage: PageDoc = {
             "width": 3840,
             "height": 2160
           },
-          "alt": "The Grand Long Beach venue exterior at twilight",
+          "alt": "Twilight exterior of the venue with palms and dramatic sky.",
           "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/b41a724a-b3ad-40ae-57df-98a1b8ce3400/public"
         },
         "primary_action": "Make an Inquiry",
@@ -188,7 +188,7 @@ export const homePage: PageDoc = {
                     "width": 2464,
                     "height": 1849
                   },
-                  "alt": "The Grand Long Beach venue exterior",
+                  "alt": "Daytime exterior of the modern venue facade and signage.",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/62bc010e-8ab6-42cd-5207-9160ff96f700/public"
                 }
               },
@@ -201,7 +201,7 @@ export const homePage: PageDoc = {
                     "width": 2465,
                     "height": 1849
                   },
-                  "alt": "Palm-lined walkway leading to The Grand Long Beach",
+                  "alt": "Palm-lined walkway leading toward the lit venue entrance.",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/1433ea04-6645-4d6a-2468-cf8b4fb04100/public"
                 }
               },
@@ -214,7 +214,7 @@ export const homePage: PageDoc = {
                     "width": 2465,
                     "height": 1849
                   },
-                  "alt": "The Grand Long Beach entrance with elegant lighting",
+                  "alt": "Grand entrance hallway with chandelier and checkered floor.",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/da91e312-621d-4a89-4ec7-c627dbcfe100/public"
                 }
               },
@@ -226,7 +226,7 @@ export const homePage: PageDoc = {
                     "width": 1849,
                     "height": 2464
                   },
-                  "alt": "Event setup at The Grand Long Beach",
+                  "alt": "Large event hall with rounds, stage, and blue lighting accents.",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/5dc64eb6-f953-4d0a-479f-ba4ab10fc500/public"
                 }
               }
@@ -244,7 +244,7 @@ export const homePage: PageDoc = {
                     "width": 1847,
                     "height": 2464
                   },
-                  "alt": "Elegant table setting inside The Grand Long Beach",
+                  "alt": "Close table setting with glassware and low floral centerpiece.",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/babaa885-4edc-4fb7-63c6-5693245c4e00/public"
                 }
               },
@@ -256,7 +256,7 @@ export const homePage: PageDoc = {
                     "width": 2465,
                     "height": 1848
                   },
-                  "alt": "Wedding reception decor at The Grand Long Beach",
+                  "alt": "Reception tables with tall floral centerpieces and ambient uplighting.",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/17563442-2ec9-45eb-9451-d8dfdbd20b00/public"
                 }
               },
@@ -268,7 +268,7 @@ export const homePage: PageDoc = {
                     "width": 1845,
                     "height": 2464
                   },
-                  "alt": "Guests celebrating at The Grand Long Beach",
+                  "alt": "Guests mingling in a warmly lit reception space.",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/d8b7f538-ec4f-4688-e22b-f6706a576a00/public"
                 }
               },
@@ -280,7 +280,7 @@ export const homePage: PageDoc = {
                     "width": 2464,
                     "height": 1848
                   },
-                  "alt": "Ballroom configured for a large event at The Grand",
+                  "alt": "Large ballroom with blue uplighting and stage.",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/6d437bce-c364-42fa-aa3d-8686a2fa3f00/public"
                 }
               },
@@ -292,7 +292,7 @@ export const homePage: PageDoc = {
                     "width": 1848,
                     "height": 2464
                   },
-                  "alt": "Floral arrangement detail at The Grand Long Beach",
+                  "alt": "Close-up of a tall floral centerpiece with candles and glassware.",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/531e6536-68f1-4105-86e5-fe56512fdd00/public"
                 }
               }
@@ -420,7 +420,7 @@ export const homePage: PageDoc = {
             "width": 3840,
             "height": 2160
           },
-          "alt": "Aerial view of The Grand Long Beach and surrounding Long Beach community",
+          "alt": "Aerial twilight over the venue block and adjacent streets.",
           "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/52b8ff11-1b88-41c1-72e8-512662e19700/public"
         },
         "title": "Family-owned and rooted.",

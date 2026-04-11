@@ -16,7 +16,7 @@ export const babyShowersPage: PageDoc = {
         video_media: null,
         media: {
           dimensions: { width: 2816, height: 1826 },
-          alt: "Elegant baby shower celebration at The Grand Long Beach venue",
+          alt: "Elegant plated table: glassware, flatware, centerpiece in warm light.",
           url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/6f029f31-cd81-4ccd-232e-5ee5d19a3a00/public",
         },
         bottom_spacer: "None",
@@ -108,7 +108,7 @@ export const babyShowersPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: { width: 2464, height: 1848 },
-                  alt: "Outdoor terrace set up for an intimate celebration",
+                  alt: "Outdoor terrace reception under string lights with palm trees.",
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/9d0dccc6-cc37-4965-8019-d351ad9f3700/public",
                 },
               },
@@ -117,7 +117,7 @@ export const babyShowersPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: { width: 2464, height: 1848 },
-                  alt: "Intimate event space with elegant decor at The Grand LB",
+                  alt: "Ballroom with bright stage lighting and dance floor (party energy).",
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/57e9f3bd-4c87-41fc-efe1-792f35567300/public",
                 },
               },
@@ -126,7 +126,7 @@ export const babyShowersPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: { width: 2464, height: 1848 },
-                  alt: "Beautiful garden-view event room in Long Beach",
+                  alt: "Garden room or conservatory-style space with guests at tables.",
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/b974fb0d-4d15-49e8-351b-fa4018109e00/public",
                 },
               },

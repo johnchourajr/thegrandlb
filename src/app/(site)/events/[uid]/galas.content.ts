@@ -17,7 +17,7 @@ export const galasPage: PageDoc = {
         video_media: null,
         media: {
           dimensions: { width: 2816, height: 1826 },
-          alt: "Formal gala event setup at The Grand Long Beach ballroom",
+          alt: "Large ballroom for corporate or gala: stage, screen, rounds with uplighting.",
           url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/2a7a2b5f-e94b-41cf-4694-4c40e9f53d00/public",
         },
         bottom_spacer: "None",
@@ -109,7 +109,7 @@ export const galasPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: { width: 2464, height: 1848 },
-                  alt: "Corporate gala with professional stage and lighting setup",
+                  alt: "High aerial of the venue campus, parking, and surrounding city grid.",
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/023e8045-5fbe-40ff-1d88-2d6f8eaec900/public",
                 },
               },
@@ -118,7 +118,7 @@ export const galasPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: { width: 2464, height: 1848 },
-                  alt: "Formal dining setup for an award ceremony at The Grand LB",
+                  alt: "Conference room with presenter and seated attendees.",
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/b554ec79-70c2-4abb-18a4-f3d4e387ff00/public",
                 },
               },
@@ -127,7 +127,7 @@ export const galasPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: { width: 2464, height: 1848 },
-                  alt: "Event venue with professional AV and lighting in Long Beach",
+                  alt: "Conference or gala room with stage, screen, and magenta uplighting.",
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/3763f95d-0637-42a6-3c2c-c92111d1ef00/public",
                 },
               },
