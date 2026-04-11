@@ -42,6 +42,8 @@ There are **146** distinct `imagedelivery.net` image URLs checked into TypeScrip
 
 **Extracted `alt` strings** (adjacent `alt` / `url` pairs in TS): [`docs/cloudflare-images-alt-text.json`](cloudflare-images-alt-text.json)
 
+**Visual scene classification (all 146 images):** [`docs/cloudflare-images-visual-classification.json`](cloudflare-images-visual-classification.json) — see also [`docs/cloudflare-images-for-agents.md`](cloudflare-images-for-agents.md).
+
 **Tour detail interiors → room uid:** [`docs/tour-room-image-ids.json`](tour-room-image-ids.json)
 
 **Where they appear (reference counts):**
@@ -193,6 +195,7 @@ Refresh derived Cloudflare Images docs:
 ```bash
 node scripts/extract-cf-image-alt-pairs.mjs > docs/cloudflare-images-alt-text.json
 node scripts/map-tour-room-images.mjs > docs/tour-room-image-ids.json
+node scripts/generate-visual-classification.mjs
 ```
 
 Merge the output into the tables above when assets change.

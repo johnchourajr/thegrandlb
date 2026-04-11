@@ -10,6 +10,14 @@ This document explains **what each referenced photo represents** (from copy in t
 node scripts/extract-cf-image-alt-pairs.mjs > docs/cloudflare-images-alt-text.json
 ```
 
+**Visual classification (every image, human-reviewed from 800px previews):** [`cloudflare-images-visual-classification.json`](cloudflare-images-visual-classification.json). Each entry includes `summary`, `sceneType`, `setting`, `subjects`, optional `estimatedVenueArea` (aligned with tour room slugs where the interior clearly matches), and `suggestedUseTags`. Regenerate the JSON after updating embedded data in `scripts/generate-visual-classification.mjs` and run:
+
+```bash
+node scripts/generate-visual-classification.mjs
+```
+
+Preview URL used for review: `https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/{imageId}/w=800,q=80,f=webp`
+
 **Tour room detail — which interior photos belong to which space:** [`tour-room-image-ids.json`](tour-room-image-ids.json). Regenerate if `tour/[uid]/content.ts` structure changes:
 
 ```bash
