@@ -2,9 +2,17 @@
 
 This document explains **what each referenced photo represents** (from copy in the repo) and **how agents should reuse** Cloudflare Images on landing pages without guessing from pixels alone.
 
+## Do not infer from generated event vertical pages
+
+Files under **`src/app/(site)/events/[uid]/*.content.ts`** (per-uid event verticals) are **excluded from ground truth** for image meaning and reuse. Those pages are known to have **weak or inappropriate image choices** in places. Agents must **not** learn “what an image is for” from how it appears on those pages, and must **not** copy their `alt` text as canonical (the alt export below skips that directory for the same reason).
+
+**Use instead:** [`cloudflare-images-visual-classification.json`](cloudflare-images-visual-classification.json), placements on **home**, **tour** (`tour/content.ts`, `tour/[uid]/content.ts`), **events index** (`events/content.ts`), **FAQ**, **menus**, **about**, **`content/shared.constants.ts`**, and captions on the events index FAQ gallery.
+
+---
+
 **Canonical URL list:** [`cloudflare-images-urls.txt`](cloudflare-images-urls.txt) (146 unique IDs).
 
-**Structured alt text** (where `alt` sits on the line before `url` in TypeScript): [`cloudflare-images-alt-text.json`](cloudflare-images-alt-text.json). Regenerate after content edits:
+**Structured alt text** (where `alt` sits on the line before `url` in TypeScript): [`cloudflare-images-alt-text.json`](cloudflare-images-alt-text.json). **`events/[uid]` is excluded** so alts here are not polluted by the generated verticals. Regenerate after content edits in **included** files:
 
 ```bash
 node scripts/extract-cf-image-alt-pairs.mjs > docs/cloudflare-images-alt-text.json
@@ -41,37 +49,38 @@ Agents should **keep the full URL** when pasting into `*.content.ts` fields, or 
 
 ## How to learn what a photo “is”
 
-1. **Read `alt` in the content file** — Many event and FAQ images include editorial `alt` strings; see the JSON export above for a merged view.
-2. **Read `caption`** — FAQ-style galleries and the events index FAQ gallery use `caption` for space names (for example, “The Palm Terrace”, “The Grand Ballroom”).
-3. **Read the parent page** — `data.title`, `data.headline`, slice `section_id`, and nearby body copy constrain the intended story (weddings vs corporate vs tour).
-4. **Tour interiors without `alt`** — Gallery shots under each room in `tour/[uid]/content.ts` usually have **`alt: null`**. Treat them as **that room’s** photography; use `tour-room-image-ids.json` to map `image-id` → `board-room` | `catalina-room` | … and read that room’s `data.headline`, `data.body`, and `features` for tone.
-5. **Team headshots** — `about/content.ts` ties each URL to **`name`** and **`position`**; the image is a portrait of that person (primary or secondary headshot).
+1. **Read [`cloudflare-images-visual-classification.json`](cloudflare-images-visual-classification.json)** — Scene summary, subjects, and suggested tags for every ID (independent of any one page’s image choices).
+2. **Read `alt` only from trusted files** — The [`cloudflare-images-alt-text.json`](cloudflare-images-alt-text.json) export merges `alt` from `src/` **excluding** `events/[uid]/`. For alts inside included files (FAQ, home, tour detail heroes, etc.), you can still read the source directly.
+3. **Read `caption`** — FAQ-style galleries and the **events index** FAQ gallery use `caption` for space names (for example, “The Palm Terrace”, “The Grand Ballroom”).
+4. **Read trusted parent pages** — Use `data.title`, headlines, and slice copy on **home**, **tour**, **events index**, **FAQ**, **menus**, **about**, and **shared footer**—not on `events/[uid]/*` verticals—to understand why an image was paired with a story.
+5. **Tour interiors without `alt`** — Gallery shots under each room in `tour/[uid]/content.ts` usually have **`alt: null`**. Treat them as **that room’s** photography; use `tour-room-image-ids.json` to map `image-id` → `board-room` | `catalina-room` | … and read that room’s `data.headline`, `data.body`, and `features` for tone.
+6. **Team headshots** — `about/content.ts` ties each URL to **`name`** and **`position`**; the image is a portrait of that person (primary or secondary headshot).
 
 ---
 
 ## Reusable “stock” venue photos (same ID, many pages)
 
-These IDs appear in **multiple** event or FAQ files. They are **general venue or catering imagery**, not locked to a single event type. When writing a new landing page, they are safe defaults **if** the copy matches the alt themes (outdoor terrace, ballroom scale, aerial campus, table settings, guests celebrating).
+These IDs appear in **multiple** files (often including `events/[uid]/` **plus** FAQ or index pages). **Do not** take the event vertical’s pairing as guidance. Use **[`cloudflare-images-visual-classification.json`](cloudflare-images-visual-classification.json)** for what the frame actually shows, and use **FAQ / events index / home** when you need an editorial precedent.
 
-| Image ID | Alt texts in repo (themes) | Typical use |
-|----------|----------------------------|---------------|
-| `ba00e56c-e108-4405-26e1-f16ba5b35c00` | Grand Ballroom; large Indian wedding / quince setup; FAQ “venue” hero | **Hero or full-bleed ballroom**; large celebrations, Indian wedding, quinceañera |
-| `9d0dccc6-cc37-4965-8019-d351ad9f3700` | Palm Terrace / outdoor terrace; baraat; intimate outdoor; FAQ gallery | **Outdoor / terrace** story, South Asian procession, general “celebrate outside” |
-| `6f029f31-cd81-4ccd-232e-5ee5d19a3a00` | Catering and table settings; milestones; FAQ “catering” hero; baby shower / bar mitzvah | **Food, service, plated elegance**, FAQ catering column |
-| `023e8045-5fbe-40ff-1d88-2d6f8eaec900` | Aerial venue; corporate conference; gala stage | **Scale / logistics / corporate or gala** (check which alt fits the headline) |
-| `3742c9dc-4bcb-4666-3b4d-0d261819b000` | Monarch / decorated party / sangeet / milestone decor | **Mid-size ballroom or Monarch**-style decorated reception (match copy to Indian vs general milestone) |
-| `39670f24-73de-4ddb-91c8-b992f36ccd00` | Quinceañera ballroom; birthday / Sweet 16 dance floor | **Quinces, teen milestones**, energetic dance-floor story |
-| `8b05ce0f-a2a7-4abb-5de6-233074cd7c00` | Building exterior; Sweet 16; graduation; milestone | **Venue exterior OR** youthful milestone pages (pick one narrative; alts differ) |
-| `b974fb0d-4d15-49e8-351b-fa4018109e00` | Anniversary, garden room, milestone guests | **Anniversary, intimate garden-room, guest emotion** |
-| `eedc2a6f-b2ca-4e4f-ad7e-52754836e100` | Guests celebrating (milestone / anniversary / graduation) | **Social proof / crowd energy** |
-| `2a7a2b5f-e94b-41cf-4694-4c40e9f53d00` | Corporate setup; formal gala ballroom | **Corporate OR black-tie gala** hero |
-| `b554ec79-70c2-4abb-18a4-f3d4e387ff00` | Private meeting room; formal award dining | **Breakout / board-adjacent** or **awards dinner** |
-| `3763f95d-0637-42a6-3c2c-c92111d1ef00` | AV-heavy corporate; professional lighting | **Production / AV / conference** emphasis |
-| `c647a4c0-5d20-4460-82ad-d029b7c14800` | Ceremony wide shot; floral table detail (wedding + rehearsal) | **Ceremony establishing** or **table detail** |
-| `c94179f3-6554-4e3a-0f02-c9818b0e4600` | Rehearsal dinner tables; wedding reception tables | **Intimate dining / rehearsal / reception tables** |
-| `20cb49a5-6155-4016-44a5-eb72a13d9d00` | Floral reception; wedding party dinner | **Decor-forward reception** |
+| Image ID | What it shows (visual index) | Typical use (agent) |
+|----------|------------------------------|---------------------|
+| `ba00e56c-e108-4405-26e1-f16ba5b35c00` | Grand Ballroom, chandeliers, formal rounds | Large ballroom hero; FAQ venue column |
+| `9d0dccc6-cc37-4965-8019-d351ad9f3700` | Outdoor terrace, string lights, palms | Outdoor / Palm Terrace story |
+| `6f029f31-cd81-4ccd-232e-5ee5d19a3a00` | Plated table, glassware, centerpiece | Catering, elegance, FAQ catering |
+| `023e8045-5fbe-40ff-1d88-2d6f8eaec900` | Aerial campus / city grid | Location, scale, logistics |
+| `3742c9dc-4bcb-4666-3b4d-0d261819b000` | Ballroom party, purple-blue wash, dance floor | Reception / DJ / dance energy (check visual summary vs headline) |
+| `39670f24-73de-4ddb-91c8-b992f36ccd00` | Ballroom, pink wash, DJ, dance floor | Dance-forward celebration (verify copy matches scene) |
+| `8b05ce0f-a2a7-4abb-5de6-233074cd7c00` | Venue exterior daytime | Arrival, FAQ booking |
+| `b974fb0d-4d15-49e8-351b-fa4018109e00` | Conservatory-style dining with guests | Garden-room / seated dinner mood |
+| `eedc2a6f-b2ca-4e4f-ad7e-52754836e100` | Seated guests, balloons, celebration | Social proof, party energy |
+| `2a7a2b5f-e94b-41cf-4694-4c40e9f53d00` | Large ballroom, stage, screen, uplighting | Corporate or gala scale |
+| `b554ec79-70c2-4abb-18a4-f3d4e387ff00` | Meeting / presentation with audience | Corporate breakout or session |
+| `3763f95d-0637-42a6-3c2c-c92111d1ef00` | Ballroom AV, projection, magenta wash | AV-heavy program |
+| `c647a4c0-5d20-4460-82ad-d029b7c14800` | Indoor ceremony, arch, guests | Ceremony establishing |
+| `c94179f3-6554-4e3a-0f02-c9818b0e4600` | Tall white florals, candles, tables | Reception / rehearsal tablescape |
+| `20cb49a5-6155-4016-44a5-eb72a13d9d00` | Head table florals, sweetheart style | Decor-forward head table |
 
-If two alt strings conflict, **prefer the alt from the file you are editing** or add a new Cloudflare image instead of stretching one photo across incompatible stories.
+If the visual summary and your landing copy disagree, **pick a different image ID** or add new photography in Cloudflare Images—do not stretch a stock ID to fit a mismatched story.
 
 ---
 
@@ -167,12 +176,13 @@ Six vertical food / service images (`72908b93`, `34a92d62`, `f8325240`, `45e64cf
 
 ## Agent rules for landing pages
 
-1. **Match image to headline** — Prefer an `alt` or `caption` that agrees with the section promise (outdoor vs ballroom vs corporate).
-2. **Do not invent scene details** — If `alt` is null and the ID is only in `tour-room-image-ids.json`, describe it as “[Room name] interior gallery” rather than inventing decor specifics.
-3. **Respect shared-stock semantics** — IDs in the shared table work across many event types; narrow the story with **surrounding copy**, not by mislabeling the photo.
-4. **Team portraits are people-specific** — See About content; avoid repurposing as generic “staff” unless the design calls for that person.
-5. **Add `alt` when you add reuse** — If you place an image on a new page, supply `alt` consistent with the strongest existing description or the new section’s truth.
-6. **Dimensions** — Preserve `dimensions` from an existing usage when copying a `media` object so layout hints stay stable.
+1. **Match image to headline** — Start from [`cloudflare-images-visual-classification.json`](cloudflare-images-visual-classification.json); then align with `caption` or trusted-file `alt` when present.
+2. **Do not infer from `events/[uid]/*`** — Treat those pages as **not authoritative** for which image belongs where.
+3. **Do not invent scene details** — If `alt` is null and the ID is only in `tour-room-image-ids.json`, describe it as “[Room name] interior gallery” rather than inventing decor specifics.
+4. **Respect shared-stock semantics** — IDs in the shared table work across many event types; narrow the story with **surrounding copy**, not by mislabeling the photo.
+5. **Team portraits are people-specific** — See About content; avoid repurposing as generic “staff” unless the design calls for that person.
+6. **Add `alt` when you add reuse** — If you place an image on a new page, supply `alt` consistent with the visual classification and the section’s truth.
+7. **Dimensions** — Preserve `dimensions` from an existing **trusted** usage when copying a `media` object so layout hints stay stable.
 
 ---
 

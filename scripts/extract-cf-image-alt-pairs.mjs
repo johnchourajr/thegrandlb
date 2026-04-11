@@ -10,6 +10,11 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const ACCOUNT = "jq-BfOr8JDGgGxqbx8v5CA";
 
+/** Per-uid event verticals under `events/[uid]/` are excluded: image choices and alts there are not treated as ground truth for cataloging or inference. */
+function skipFile(relFromSrc) {
+  return relFromSrc.includes(`${path.sep}events${path.sep}[uid]${path.sep}`);
+}
+
 function walk(dir, out = []) {
   if (!fs.existsSync(dir)) return out;
   for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -30,7 +35,10 @@ const re = new RegExp(
 /** @type {Map<string, Set<string>>} */
 const byId = new Map();
 
-for (const file of walk(path.join(ROOT, "src"))) {
+const srcRoot = path.join(ROOT, "src");
+for (const file of walk(srcRoot)) {
+  const rel = path.relative(srcRoot, file);
+  if (skipFile(rel)) continue;
   const text = fs.readFileSync(file, "utf8");
   let m;
   re.lastIndex = 0;
@@ -48,4 +56,19 @@ const out = Object.fromEntries(
     .map(([id, set]) => [id, [...set].sort()])
 );
 
-process.stdout.write(JSON.stringify({ accountHash: ACCOUNT, withAltCount: Object.keys(out).length, byId: out }, null, 2));
+process.stdout.write(
+  JSON.stringify(
+    {
+      accountHash: ACCOUNT,
+      withAltCount: Object.keys(out).length,
+      meta: {
+        excludedFromAltExtraction: [
+          "src/app/(site)/events/[uid]/** — generated event verticals; image use and alts there are not authoritative for cataloging or agent inference.",
+        ],
+      },
+      byId: out,
+    },
+    null,
+    2
+  )
+);
