@@ -27,7 +27,13 @@ node scripts/generate-visual-classification.mjs
 **Sync repo `alt` fields** to match each image’s vision `summary` (run after the JSON above changes):
 
 ```bash
-node scripts/sync-cf-image-alts.mjs
+pnpm run sync:cf-image-alts
+```
+
+Verify:
+
+```bash
+pnpm run verify:cf-image-alts
 ```
 
 **Tour detail: which file chunk an interior ID belongs to** (placement map only—not scene description): [`tour-room-image-ids.json`](tour-room-image-ids.json)

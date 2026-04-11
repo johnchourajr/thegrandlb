@@ -198,7 +198,13 @@ node scripts/generate-visual-classification.mjs
 Sync **`alt`** on every `imagedelivery.net` media field to the vision catalog `summary` (after editing `cloudflare-images-visual-classification.json` and regenerating, or when onboarding new image URLs):
 
 ```bash
-node scripts/sync-cf-image-alts.mjs
+pnpm run sync:cf-image-alts
+```
+
+Check that every Cloudflare image `alt` still matches the JSON:
+
+```bash
+pnpm run verify:cf-image-alts
 ```
 
 Merge the output into the tables above when assets change.
