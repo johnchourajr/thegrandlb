@@ -34,9 +34,15 @@ This document helps humans and agents find **where media lives**, **what it is f
 
 ## Cloudflare Images — all photo URLs in this repo
 
-There are **146** distinct `imagedelivery.net` image URLs checked into TypeScript content (variant `public`, account hash `jq-BfOr8JDGgGxqbx8v5CA`). IDs are opaque UUIDs; the catalog does not embed human-readable titles (those live next to each `url` in the content files).
+There are **146** distinct `imagedelivery.net` image URLs checked into TypeScript content (variant `public`, account hash `jq-BfOr8JDGgGxqbx8v5CA`).
+
+**Agent-oriented meaning, reuse rules, and shared “stock” semantics:** [`docs/cloudflare-images-for-agents.md`](cloudflare-images-for-agents.md)
 
 **Full machine-readable list (one URL per line):** [`docs/cloudflare-images-urls.txt`](cloudflare-images-urls.txt)
+
+**Extracted `alt` strings** (adjacent `alt` / `url` pairs in TS): [`docs/cloudflare-images-alt-text.json`](cloudflare-images-alt-text.json)
+
+**Tour detail interiors → room uid:** [`docs/tour-room-image-ids.json`](tour-room-image-ids.json)
 
 **Where they appear (reference counts):**
 
@@ -180,6 +186,13 @@ Unique Cloudflare Images URLs (rewrite `jq-BfOr8JDGgGxqbx8v5CA` if the account h
 ```bash
 rg -o 'https://imagedelivery\.net/jq-BfOr8JDGgGxqbx8v5CA/[a-f0-9-]+/public' . \
   --glob '*.ts' --glob '*.tsx' | sed 's/.*:https/https/' | sort -u > docs/cloudflare-images-urls.txt
+```
+
+Refresh derived Cloudflare Images docs:
+
+```bash
+node scripts/extract-cf-image-alt-pairs.mjs > docs/cloudflare-images-alt-text.json
+node scripts/map-tour-room-images.mjs > docs/tour-room-image-ids.json
 ```
 
 Merge the output into the tables above when assets change.
