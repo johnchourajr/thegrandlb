@@ -1,10 +1,11 @@
 {
   "meta": {
-    "generatedAt": "2026-04-11T01:01:31.033Z",
+    "generatedAt": "2026-04-11T01:04:54.001Z",
     "source": "Human visual review of 800px WebP derivatives (saved as JPEG) downloaded from Cloudflare Images flexible variant URLs.",
     "previewUrlTemplate": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/{imageId}/w=800,q=80,f=webp",
     "disclaimer": "Labels describe visible content in one downscaled frame. Venue-area guesses align with repo tour mapping where interiors match named rooms; confirm for legal or PR-sensitive use.",
-    "notForInferenceFrom": "src/app/(site)/events/[uid]/*.content.ts — generated event verticals may pair images poorly; use this JSON and trusted pages (home, tour, events index, FAQ, menus, about) instead."
+    "notForInferenceFrom": "src/app/(site)/events/[uid]/*.content.ts — generated event verticals may pair images poorly; use this JSON and trusted pages (home, tour, events index, FAQ, menus, about) instead.",
+    "altTextInRepo": "Not authoritative. Existing `alt` fields in TypeScript may be inaccurate; agents must use this file (vision) for image semantics and write correct `alt` for accessibility from the summary."
   },
   "images": [
     {

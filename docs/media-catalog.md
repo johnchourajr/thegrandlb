@@ -40,9 +40,7 @@ There are **146** distinct `imagedelivery.net` image URLs checked into TypeScrip
 
 **Full machine-readable list (one URL per line):** [`docs/cloudflare-images-urls.txt`](cloudflare-images-urls.txt)
 
-**Extracted `alt` strings** (adjacent `alt` / `url` pairs in TS, **`events/[uid]` excluded** so generated verticals do not pollute the catalog): [`docs/cloudflare-images-alt-text.json`](cloudflare-images-alt-text.json)
-
-**Visual scene classification (all 146 images):** [`docs/cloudflare-images-visual-classification.json`](cloudflare-images-visual-classification.json) — see also [`docs/cloudflare-images-for-agents.md`](cloudflare-images-for-agents.md).
+**Visual scene classification (all 146 images; vision-only, do not trust repo `alt` for meaning):** [`docs/cloudflare-images-visual-classification.json`](cloudflare-images-visual-classification.json) — see [`docs/cloudflare-images-for-agents.md`](cloudflare-images-for-agents.md).
 
 **Tour detail interiors → room uid:** [`docs/tour-room-image-ids.json`](tour-room-image-ids.json)
 
@@ -193,7 +191,6 @@ rg -o 'https://imagedelivery\.net/jq-BfOr8JDGgGxqbx8v5CA/[a-f0-9-]+/public' . \
 Refresh derived Cloudflare Images docs:
 
 ```bash
-node scripts/extract-cf-image-alt-pairs.mjs > docs/cloudflare-images-alt-text.json
 node scripts/map-tour-room-images.mjs > docs/tour-room-image-ids.json
 node scripts/generate-visual-classification.mjs
 ```

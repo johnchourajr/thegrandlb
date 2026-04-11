@@ -24,7 +24,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## Documentation
 
-Project notes and decisions live in [`/docs`](docs/), including [voice and tone](docs/voice-and-tone.md) and a [media catalog](docs/media-catalog.md) (Cloudflare Images photo URLs, R2 video/SVGs, static assets, and code references). For **what each Cloudflare Image depicts and how to reuse it on landing pages**, see [`docs/cloudflare-images-for-agents.md`](docs/cloudflare-images-for-agents.md). Machine-readable **visual** labels for all 146 assets are in [`docs/cloudflare-images-visual-classification.json`](docs/cloudflare-images-visual-classification.json). The full URL list is in [`docs/cloudflare-images-urls.txt`](docs/cloudflare-images-urls.txt).
+Project notes and decisions live in [`/docs`](docs/), including [voice and tone](docs/voice-and-tone.md) and a [media catalog](docs/media-catalog.md) (Cloudflare Images photo URLs, R2 video/SVGs, static assets, and code references). For **what each Cloudflare Image depicts and how to reuse it on landing pages**, see [`docs/cloudflare-images-for-agents.md`](docs/cloudflare-images-for-agents.md). Machine-readable **vision-only** labels for all 146 assets are in [`docs/cloudflare-images-visual-classification.json`](docs/cloudflare-images-visual-classification.json) (do not use existing repo `alt` strings as ground truth for image meaning). The full URL list is in [`docs/cloudflare-images-urls.txt`](docs/cloudflare-images-urls.txt).
 
 ## Testing
 

@@ -1290,6 +1290,8 @@ const meta = {
     "Labels describe visible content in one downscaled frame. Venue-area guesses align with repo tour mapping where interiors match named rooms; confirm for legal or PR-sensitive use.",
   notForInferenceFrom:
     "src/app/(site)/events/[uid]/*.content.ts — generated event verticals may pair images poorly; use this JSON and trusted pages (home, tour, events index, FAQ, menus, about) instead.",
+  altTextInRepo:
+    "Not authoritative. Existing `alt` fields in TypeScript may be inaccurate; agents must use this file (vision) for image semantics and write correct `alt` for accessibility from the summary.",
 };
 
 const images = ids.map((id) => ({
