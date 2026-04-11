@@ -21,6 +21,12 @@ const nextConfig = {
     dangerouslyAllowSVG: false,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
+  async redirects() {
+    return [
+      { source: "/home", destination: "/", permanent: true },
+      { source: "/tour/map", destination: "/map", permanent: true },
+    ];
+  },
   async headers() {
     return [
       {
