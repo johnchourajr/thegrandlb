@@ -282,7 +282,7 @@ export default function MenuEditorPage() {
       <div className="flex gap-10">
         {/* Sidebar */}
         <aside className="hidden lg:block w-48 shrink-0">
-          <div className="sticky top-24">
+          <div className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto pr-1">
             <SectionNav
               groups={doc.groups}
               visibleIds={visibleIds}

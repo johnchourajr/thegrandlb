@@ -2,6 +2,7 @@
 
 import type { MenuItemData } from "@/types/menu";
 import clsx from "clsx";
+import { useState } from "react";
 import { inputCls, labelCls } from "../utils/classes";
 import { rtRead, rtWrite } from "../utils/rt";
 import { ReorderControls } from "./ReorderControls";
@@ -19,6 +20,16 @@ export function ItemRow({
   onMoveUp?: () => void;
   onMoveDown?: () => void;
 }) {
+  const [confirming, setConfirming] = useState(false);
+
+  function handleRemoveClick() {
+    if (confirming) {
+      onRemove();
+    } else {
+      setConfirming(true);
+    }
+  }
+
   return (
     <div className="flex gap-2">
       <ReorderControls onMoveUp={onMoveUp} onMoveDown={onMoveDown} label="item" />
@@ -93,10 +104,16 @@ export function ItemRow({
           </div>
           <button
             type="button"
-            onClick={onRemove}
-            className="mt-4 px-3 py-2 rounded border border-red/30 bg-red/5 text-string-default font-medium text-red hover:bg-red/10 transition-colors"
+            onClick={handleRemoveClick}
+            onBlur={() => setConfirming(false)}
+            className={clsx(
+              "mt-4 px-3 py-2 rounded border text-string-default font-medium transition-colors",
+              confirming
+                ? "border-red bg-red text-white hover:bg-red/80"
+                : "border-red/30 bg-red/5 text-red hover:bg-red/10",
+            )}
           >
-            Remove
+            {confirming ? "Confirm removal" : "Remove"}
           </button>
         </div>
       </div>

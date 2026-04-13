@@ -3,6 +3,7 @@
 import type { MenuGroup, MenuSectionData } from "@/types/menu";
 import clsx from "clsx";
 import { inputCls, labelCls } from "../utils/classes";
+import { newSection } from "../utils/newItem";
 import { SectionBlock } from "./SectionBlock";
 
 export function GroupPanel({
@@ -24,11 +25,20 @@ export function GroupPanel({
     onChange({ ...group, sections });
   }
 
+  function removeSection(index: number) {
+    const sections = group.sections.filter((_, i) => i !== index);
+    onChange({ ...group, sections });
+  }
+
   function moveSection(from: number, to: number) {
     const sections = [...group.sections];
     const [moved] = sections.splice(from, 1);
     sections.splice(to, 0, moved);
     onChange({ ...group, sections });
+  }
+
+  function addSection() {
+    onChange({ ...group, sections: [...group.sections, newSection()] });
   }
 
   return (
@@ -91,12 +101,21 @@ export function GroupPanel({
               sectionId={`section-${groupId}-${i}`}
               section={section}
               onChange={(updated) => updateSection(i, updated)}
+              onRemove={() => removeSection(i)}
               onMoveUp={i > 0 ? () => moveSection(i, i - 1) : undefined}
               onMoveDown={
                 i < group.sections.length - 1 ? () => moveSection(i, i + 1) : undefined
               }
             />
           ))}
+
+          <button
+            type="button"
+            onClick={addSection}
+            className="mt-5 w-full px-3 py-2 rounded border border-dashed border-black/20 text-string-default font-medium text-black/40 hover:border-black/40 hover:text-black/70 hover:bg-black/5 transition-colors"
+          >
+            + Add Section
+          </button>
         </div>
       )}
     </div>

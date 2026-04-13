@@ -2,6 +2,7 @@
 
 import type { MenuItemData, MenuSectionData } from "@/types/menu";
 import clsx from "clsx";
+import { useState } from "react";
 import { inputCls, labelCls } from "../utils/classes";
 import { newItem } from "../utils/newItem";
 import { rtRead, rtWrite } from "../utils/rt";
@@ -12,15 +13,18 @@ export function SectionBlock({
   sectionId,
   section,
   onChange,
+  onRemove,
   onMoveUp,
   onMoveDown,
 }: {
   sectionId: string;
   section: MenuSectionData;
   onChange: (updated: MenuSectionData) => void;
+  onRemove?: () => void;
   onMoveUp?: () => void;
   onMoveDown?: () => void;
 }) {
+  const [confirmingRemove, setConfirmingRemove] = useState(false);
   const sectionTitle = rtRead(section.primary.title);
 
   function updateItem(index: number, updated: MenuItemData) {
@@ -45,7 +49,10 @@ export function SectionBlock({
     onChange({ ...section, items: [...section.items, newItem()] });
   }
 
-  function updatePrimary(field: "title" | "description" | "caption", value: string) {
+  function updatePrimary(
+    field: "title" | "description" | "caption",
+    value: string,
+  ) {
     onChange({
       ...section,
       primary: {
@@ -57,12 +64,42 @@ export function SectionBlock({
 
   return (
     <div id={sectionId} className="mt-4 scroll-mt-20 flex gap-1.5">
-      <ReorderControls onMoveUp={onMoveUp} onMoveDown={onMoveDown} label="section" />
+      <ReorderControls
+        onMoveUp={onMoveUp}
+        onMoveDown={onMoveDown}
+        label="section"
+      />
 
       <div className="flex-1 min-w-0 pl-4">
-        <h4 className="text-paragraph-default">
-          {sectionTitle || <span>Untitled Section</span>}
-        </h4>
+        <div className="flex items-center justify-between gap-2 mb-1">
+          <h4 className="text-paragraph-default">
+            {sectionTitle || (
+              <span className="text-black/30">Untitled Section</span>
+            )}
+          </h4>
+
+          {onRemove && (
+            <button
+              type="button"
+              onClick={() => {
+                if (confirmingRemove) {
+                  onRemove();
+                } else {
+                  setConfirmingRemove(true);
+                }
+              }}
+              onBlur={() => setConfirmingRemove(false)}
+              className={clsx(
+                "shrink-0 px-3 py-1 rounded border text-string-default font-medium transition-colors",
+                confirmingRemove
+                  ? "border-red bg-red text-white hover:bg-red/80"
+                  : "border-red/30 bg-red/5 text-red hover:bg-red/10",
+              )}
+            >
+              {confirmingRemove ? "Confirm removal" : "Remove section"}
+            </button>
+          )}
+        </div>
 
         <div className="grid gap-2 my-4">
           <div>
@@ -98,7 +135,9 @@ export function SectionBlock({
         </div>
 
         {section.items.length === 0 && (
-          <p className="text-string-default text-black/30 italic">No items yet.</p>
+          <p className="text-string-default text-black/30 italic">
+            No items yet.
+          </p>
         )}
 
         <div className="flex flex-col gap-3">
@@ -110,7 +149,9 @@ export function SectionBlock({
               onRemove={() => removeItem(i)}
               onMoveUp={i > 0 ? () => moveItem(i, i - 1) : undefined}
               onMoveDown={
-                i < section.items.length - 1 ? () => moveItem(i, i + 1) : undefined
+                i < section.items.length - 1
+                  ? () => moveItem(i, i + 1)
+                  : undefined
               }
             />
           ))}

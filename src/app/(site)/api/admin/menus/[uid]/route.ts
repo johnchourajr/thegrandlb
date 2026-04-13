@@ -5,6 +5,7 @@ import type { NextRequest } from "next/server";
 import type { MenuDoc } from "content/types";
 import { Resend } from "resend";
 import PublishEmail from "@/emails/publishEmail";
+import { diffMenuDocs } from "@/app/(admin)/admin/(protected)/menus/[uid]/utils/diff";
 
 const VALID_UIDS = ["classic", "corporate", "milestones", "weddings"] as const;
 
@@ -142,6 +143,17 @@ export async function PUT(
     });
   }
 
+  // Read the local file before committing so we can diff what changed
+  let originalDoc: MenuDoc | null = null;
+  try {
+    const localPath = localMenuPath(uid);
+    if (fs.existsSync(localPath)) {
+      originalDoc = JSON.parse(fs.readFileSync(localPath, "utf-8"));
+    }
+  } catch { /* non-fatal — email will omit the diff */ }
+
+  const changes = originalDoc ? diffMenuDocs(originalDoc, body) : [];
+
   try {
     // 1. Fetch current file SHA from GitHub
     const getUrl = `${githubContentsUrl(uid)}?ref=${GITHUB_BRANCH}`;
@@ -201,6 +213,7 @@ export async function PUT(
           menuTitle: MENU_TITLES[uid] ?? uid,
           menuUrl: MENU_URLS[uid] ?? "https://thegrandlb.com/menus",
           publishedBy: publisherEmail,
+          changes,
         }),
       }).catch((err) => console.error("[publish-notify] Failed to send email:", err));
     }
