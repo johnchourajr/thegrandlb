@@ -4,13 +4,15 @@ import type { MenuDoc, MenuGroup } from "@/types/menu";
 import clsx from "clsx";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { DraftBanner } from "./components/DraftBanner";
 import { GroupPanel } from "./components/GroupPanel";
+import { HistoryPanel } from "./components/HistoryPanel";
 import { MobileJumpSelect } from "./components/MobileJumpSelect";
+import { ReviewModal } from "./components/ReviewModal";
 import { SectionNav } from "./components/SectionNav";
 import { Toast } from "./components/Toast";
 import type { ToastState } from "./components/Toast";
-import { ReviewModal } from "./components/ReviewModal";
 import { diffMenuDocs } from "./utils/diff";
 import { inputCls, labelCls } from "./utils/classes";
 
@@ -18,13 +20,16 @@ export default function MenuEditorPage() {
   const { uid } = useParams<{ uid: string }>();
   const [doc, setDoc] = useState<MenuDoc | null>(null);
   const originalDoc = useRef<MenuDoc | null>(null);
+  const publishedJson = useRef<string>("");
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [showReview, setShowReview] = useState(false);
+  const [showHistory, setShowHistory] = useState(false);
   const [toast, setToast] = useState<ToastState>(null);
   const [openGroups, setOpenGroups] = useState<Set<number>>(new Set([0]));
   const [visibleIds, setVisibleIds] = useState<Set<string>>(new Set());
+  const [draftDoc, setDraftDoc] = useState<MenuDoc | null>(null);
 
   useEffect(() => {
     async function load() {
@@ -34,7 +39,18 @@ export default function MenuEditorPage() {
         const data: MenuDoc = await res.json();
         setDoc(data);
         originalDoc.current = data;
+        publishedJson.current = JSON.stringify(data);
         setOpenGroups(new Set([0]));
+
+        // Check sessionStorage for an unsaved draft from a previous session
+        const saved = sessionStorage.getItem(`menu-draft-${uid}`);
+        if (saved && saved !== publishedJson.current) {
+          try {
+            setDraftDoc(JSON.parse(saved));
+          } catch {
+            sessionStorage.removeItem(`menu-draft-${uid}`);
+          }
+        }
       } catch (err) {
         setLoadError(err instanceof Error ? err.message : "Unknown error");
       } finally {
@@ -42,6 +58,41 @@ export default function MenuEditorPage() {
       }
     }
     load();
+  }, [uid]);
+
+  // Persist draft to sessionStorage whenever doc changes
+  useEffect(() => {
+    if (!doc) return;
+    const currentJson = JSON.stringify(doc);
+    if (currentJson !== publishedJson.current) {
+      sessionStorage.setItem(`menu-draft-${uid}`, currentJson);
+    } else {
+      sessionStorage.removeItem(`menu-draft-${uid}`);
+    }
+  }, [doc, uid]);
+
+  // Warn before browser close/refresh when there are unsaved changes
+  useEffect(() => {
+    if (!doc) return;
+    const isDirty = JSON.stringify(doc) !== publishedJson.current;
+    if (!isDirty) return;
+    const handler = (e: BeforeUnloadEvent) => {
+      e.preventDefault();
+    };
+    window.addEventListener("beforeunload", handler);
+    return () => window.removeEventListener("beforeunload", handler);
+  }, [doc]);
+
+  const handleRestoreDraft = useCallback(() => {
+    if (draftDoc) {
+      setDoc(draftDoc);
+      setDraftDoc(null);
+    }
+  }, [draftDoc]);
+
+  const handleDiscardDraft = useCallback(() => {
+    sessionStorage.removeItem(`menu-draft-${uid}`);
+    setDraftDoc(null);
   }, [uid]);
 
   // Track which groups/sections are currently visible in the viewport
@@ -138,6 +189,8 @@ export default function MenuEditorPage() {
         throw new Error(body || `Save failed (${res.status})`);
       }
       originalDoc.current = doc;
+      publishedJson.current = JSON.stringify(doc);
+      sessionStorage.removeItem(`menu-draft-${uid}`);
       setShowReview(false);
       setToast({
         type: "success",
@@ -205,6 +258,13 @@ export default function MenuEditorPage() {
           <div className="flex items-center gap-2">
             <button
               type="button"
+              onClick={() => setShowHistory(true)}
+              className="shrink-0 px-4 py-2.5 rounded-lg border border-black/15 text-paragraph-small font-medium text-black/60 hover:text-black hover:border-black/30 transition-colors"
+            >
+              History
+            </button>
+            <button
+              type="button"
               onClick={() => setShowReview(true)}
               className="shrink-0 px-5 py-2.5 rounded-lg bg-black text-white text-paragraph-small font-semibold hover:bg-black/80 transition-colors"
             >
@@ -213,6 +273,10 @@ export default function MenuEditorPage() {
           </div>
         </div>
       </div>
+
+      {draftDoc && (
+        <DraftBanner onRestore={handleRestoreDraft} onDiscard={handleDiscardDraft} />
+      )}
 
       {/* Two-column layout */}
       <div className="flex gap-10">
@@ -306,6 +370,12 @@ export default function MenuEditorPage() {
           onCancel={() => setShowReview(false)}
         />
       )}
+
+      <HistoryPanel
+        uid={uid}
+        open={showHistory}
+        onClose={() => setShowHistory(false)}
+      />
     </>
   );
 }
