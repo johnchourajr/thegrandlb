@@ -662,7 +662,7 @@ function GroupPanel({
       {/* Sticky header — sibling to content so it spans the full group height */}
       <div
         className={clsx(
-          "sticky top-20 z-[5] bg-white",
+          "sticky top-[68px] z-[5] bg-white",
           open ? "rounded-t-xl" : "rounded-xl",
         )}
       >
