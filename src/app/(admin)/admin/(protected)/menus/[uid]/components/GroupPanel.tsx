@@ -44,7 +44,8 @@ export function GroupPanel({
   return (
     <div
       id={groupId}
-      className="scroll-mt-20 relative h-fit flex flex-col border border-black/10 rounded-xl"
+      className="relative h-fit flex flex-col border border-black/10 rounded-xl"
+      style={{ scrollMarginTop: "var(--scroll-offset, 9rem)" }}
     >
       <div
         className={clsx(

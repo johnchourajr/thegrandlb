@@ -63,7 +63,7 @@ export function SectionBlock({
   }
 
   return (
-    <div id={sectionId} className="mt-4 scroll-mt-20 flex gap-1.5">
+    <div id={sectionId} className="mt-4 flex gap-1.5" style={{ scrollMarginTop: "var(--scroll-offset, 9rem)" }}>
       <ReorderControls
         onMoveUp={onMoveUp}
         onMoveDown={onMoveDown}
@@ -96,7 +96,9 @@ export function SectionBlock({
                   : "border-red/30 bg-red/5 text-red hover:bg-red/10",
               )}
             >
-              {confirmingRemove ? "Confirm removal" : "Remove section"}
+              {confirmingRemove
+                ? "Confirm removal"
+                : `Remove "${sectionTitle || "Untitled Section"}"`}
             </button>
           )}
         </div>

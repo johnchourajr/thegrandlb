@@ -22,6 +22,8 @@ export default function MenuEditorPage() {
   const [doc, setDoc] = useState<MenuDoc | null>(null);
   const originalDoc = useRef<MenuDoc | null>(null);
   const publishedJson = useRef<string>("");
+  const stickyHeaderRef = useRef<HTMLDivElement>(null);
+  const [scrollOffset, setScrollOffset] = useState(144);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
@@ -61,6 +63,17 @@ export default function MenuEditorPage() {
     }
     load();
   }, [uid]);
+
+  // Measure sticky header height and expose as a CSS custom property
+  useEffect(() => {
+    const el = stickyHeaderRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(([entry]) => {
+      setScrollOffset(Math.round(entry.contentRect.height) + 16);
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   // Persist draft to sessionStorage whenever doc changes
   useEffect(() => {
@@ -243,9 +256,9 @@ export default function MenuEditorPage() {
   }
 
   return (
-    <>
+    <div style={{ "--scroll-offset": `${scrollOffset}px` } as React.CSSProperties}>
       {/* Sticky page header */}
-      <div className="sticky top-0 z-20 bg-cream/95 backdrop-blur py-3 -mt-8 border-b border-black/10 mb-6">
+      <div ref={stickyHeaderRef} className="sticky top-0 z-20 bg-cream/95 backdrop-blur py-3 -mt-8 border-b border-black/10 mb-6">
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <Link
@@ -381,6 +394,6 @@ export default function MenuEditorPage() {
         open={showHistory}
         onClose={() => setShowHistory(false)}
       />
-    </>
+    </div>
   );
 }
