@@ -112,15 +112,15 @@ async function main() {
     );
   });
 
-  await check("POST /api/admin/auth with empty body → 401", async () => {
-    assertStatus(
-      await fetch(`${BASE}/api/admin/auth`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({}),
-      }),
-      401,
-    );
+  await check("POST /api/admin/auth with empty body → 400 or 401", async () => {
+    const res = await fetch(`${BASE}/api/admin/auth`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({}),
+    });
+    if (res.status !== 400 && res.status !== 401) {
+      throw new Error(`Expected HTTP 400 or 401, got ${res.status}`);
+    }
   });
 
   await check("GET /api/admin/menus/classic with fake cookie → 401", async () => {

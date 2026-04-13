@@ -5,6 +5,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { DeployStatusBanner } from "./components/DeployStatusBanner";
 import { DraftBanner } from "./components/DraftBanner";
 import { GroupPanel } from "./components/GroupPanel";
 import { HistoryPanel } from "./components/HistoryPanel";
@@ -26,6 +27,7 @@ export default function MenuEditorPage() {
   const [saving, setSaving] = useState(false);
   const [showReview, setShowReview] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
+  const [deployCommitSha, setDeployCommitSha] = useState<string | null>(null);
   const [toast, setToast] = useState<ToastState>(null);
   const [openGroups, setOpenGroups] = useState<Set<number>>(new Set([0]));
   const [visibleIds, setVisibleIds] = useState<Set<string>>(new Set());
@@ -188,9 +190,11 @@ export default function MenuEditorPage() {
         const body = await res.text();
         throw new Error(body || `Save failed (${res.status})`);
       }
+      const result = await res.json();
       originalDoc.current = doc;
       publishedJson.current = JSON.stringify(doc);
       sessionStorage.removeItem(`menu-draft-${uid}`);
+      setDeployCommitSha(result.commit ?? null);
       setShowReview(false);
       setToast({
         type: "success",
@@ -256,6 +260,7 @@ export default function MenuEditorPage() {
             </h1>
           </div>
           <div className="flex items-center gap-2">
+            <DeployStatusBanner uid={uid} commitSha={deployCommitSha} />
             <button
               type="button"
               onClick={() => setShowHistory(true)}
