@@ -1,5 +1,6 @@
 // Menu types — re-exported from content/types for component use.
 export type {
+  RtBlock,
   MenuDoc,
   MenuGroup,
   MenuSectionData,

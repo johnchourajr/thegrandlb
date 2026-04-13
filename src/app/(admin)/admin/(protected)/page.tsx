@@ -26,25 +26,23 @@ const MENU_SECTIONS = [
 export default function AdminPage() {
   return (
     <div>
-      <h1 className="text-2xl font-semibold tracking-tight mb-2">
-        Menu Admin
-      </h1>
-      <p className="text-neutral-400 text-sm mb-8">
+      <h1 className="font-serif text-3xl italic mb-2">Menu Admin</h1>
+      <p className="text-black/50 text-sm mb-8">
         Select a menu section to edit.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {MENU_SECTIONS.map(({ uid, label, description }) => (
           <Link
             key={uid}
             href={`/admin/menus/${uid}`}
-            className="block rounded-lg border border-neutral-800 bg-neutral-900 p-6 hover:border-neutral-600 hover:bg-neutral-800 transition-colors group"
+            className="block rounded-lg border border-black/10 bg-white p-5 hover:border-black/30 hover:shadow-sm transition-all group"
           >
-            <h2 className="text-lg font-medium mb-1 group-hover:text-white transition-colors">
+            <h2 className="text-lg font-medium mb-1">
               {label}
             </h2>
-            <p className="text-sm text-neutral-500">{description}</p>
-            <span className="mt-4 inline-block text-xs text-neutral-600 group-hover:text-neutral-400 transition-colors">
+            <p className="text-sm text-black/50">{description}</p>
+            <span className="mt-4 inline-block text-xs text-black/30 group-hover:text-black/60 transition-colors">
               /admin/menus/{uid} →
             </span>
           </Link>

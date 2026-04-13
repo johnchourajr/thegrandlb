@@ -49,9 +49,41 @@
       "Bash(ls -la /Users/johnchoura/Dropbox/Sites/thegrandlb/src/content/types*)",
       "Bash(echo \"Exit code: $?\")",
       "Bash(awk 'NR>=40 && NR<=55')",
+      "Bash(curl -s 'https://grandmenus.cdn.prismic.io/api/v2?access_token=MC5aSmt1ZHhFQUFDd0FkcVJm.77-977-9Cg5U77-9U--_ve-_ve-_ve-_vV3vv70s77-977-9dnLvv70677-9Je-_ve-_ve-_vRLvv73vv73vv70077-9Sg')",
+      "Bash(python3 -m json.tool)",
+      "Bash(python3)",
+      "Bash(mkdir -p /Users/johnchoura/Dropbox/Sites/thegrandlb/content/menus)",
+      "Bash(cp /tmp/classic.menu.ts /Users/johnchoura/Dropbox/Sites/thegrandlb/content/menus/classic.menu.ts)",
+      "Bash(cp /tmp/corporate.menu.ts /Users/johnchoura/Dropbox/Sites/thegrandlb/content/menus/corporate.menu.ts)",
+      "Bash(cp /tmp/milestones.menu.ts /Users/johnchoura/Dropbox/Sites/thegrandlb/content/menus/milestones.menu.ts)",
+      "Bash(cp /tmp/weddings.menu.ts /Users/johnchoura/Dropbox/Sites/thegrandlb/content/menus/weddings.menu.ts)",
+      "Bash(grep -n \"MenuSectionNav\\\\|menu-section-nav\\\\|SectionNav\" /Users/johnchoura/Dropbox/Sites/thegrandlb/src/components/menu/*.tsx /Users/johnchoura/Dropbox/Sites/thegrandlb/src/components/menu/index.ts)",
+      "Bash(python3 -c ':*)",
+      "WebFetch(domain:localhost)",
+      "Bash(curl -s http://127.0.0.1:3000/menus/classic)",
+      "Bash(curl -s http://127.0.0.1:3000/menus/corporate)",
+      "Bash(curl -s http://127.0.0.1:3000/menus/milestones)",
+      "Bash(curl -s http://127.0.0.1:3000/menus/weddings)",
+      "Bash(python3 /dev/stdin)",
+      "Bash(curl -s http://localhost:3000/menus)",
       "Bash(git checkout:*)",
-      "Bash(ls /Users/johnchoura/Dropbox/Sites/thegrandlb/src/middleware*)",
-      "Bash(ls /Users/johnchoura/Dropbox/Sites/thegrandlb/middleware*)"
+      "Bash(git revert:*)",
+      "Bash(git -C /Users/johnchoura/Dropbox/Sites/thegrandlb log --oneline -20)",
+      "Bash(git -C /Users/johnchoura/Dropbox/Sites/thegrandlb branch -a)",
+      "Bash(git -C /Users/johnchoura/Dropbox/Sites/thegrandlb log feat/menu-migration --oneline -20)",
+      "Bash(git -C /Users/johnchoura/Dropbox/Sites/thegrandlb log main..feat/menu-migration --oneline)",
+      "Bash(git -C /Users/johnchoura/Dropbox/Sites/thegrandlb diff main..feat/menu-migration --stat)",
+      "Bash(git -C /Users/johnchoura/Dropbox/Sites/thegrandlb checkout feat/menu-migration)",
+      "Bash(git -C /Users/johnchoura/Dropbox/Sites/thegrandlb stash)",
+      "Bash(openssl rand:*)",
+      "WebFetch(domain:docs.github.com)",
+      "Bash(npx playwright:*)"
+    ],
+    "additionalDirectories": [
+      "/Users/johnchoura/Dropbox/Sites/thegrandlb/src/app/(site)/admin/(protected)/menus",
+      "/Users/johnchoura/Dropbox/Sites/thegrandlb/src/app/(site)/admin/menus/[uid]",
+      "/Users/johnchoura/Dropbox/Sites/thegrandlb/src/app/(admin)/admin/(protected)/menus",
+      "/Users/johnchoura/Dropbox/Sites/thegrandlb/src/app/admin/(protected)/menus/[uid]"
     ]
   }
 }

@@ -1,4 +1,6 @@
 import { cookies } from "next/headers";
+import * as fs from "fs";
+import * as path from "path";
 import type { NextRequest } from "next/server";
 import type { MenuDoc } from "content/types";
 
@@ -8,12 +10,16 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = process.env.GITHUB_REPO;
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH ?? "feat/menu-migration";
 
-function menuFilePath(uid: string) {
+function localMenuPath(uid: string) {
+  return path.join(process.cwd(), "content", "menus", `${uid}.menu.json`);
+}
+
+function githubFilePath(uid: string) {
   return `content/menus/${uid}.menu.json`;
 }
 
 function githubContentsUrl(uid: string) {
-  return `https://api.github.com/repos/${GITHUB_REPO}/contents/${menuFilePath(uid)}`;
+  return `https://api.github.com/repos/${GITHUB_REPO}/contents/${githubFilePath(uid)}`;
 }
 
 function githubHeaders() {
@@ -44,13 +50,13 @@ function notFound(uid: string) {
   });
 }
 
-// ─── GET ──────────────────────────────────────────────────────────────────────
+// ─── GET — reads from local filesystem ────────────────────────────────────────
 
 export async function GET(
   _request: NextRequest,
   { params }: { params: Promise<{ uid: string }> }
 ) {
-  if (!isAuthenticated()) return unauthorized();
+  if (!(await isAuthenticated())) return unauthorized();
 
   const { uid } = await params;
 
@@ -59,31 +65,18 @@ export async function GET(
   }
 
   try {
-    const url = `${githubContentsUrl(uid)}?ref=${GITHUB_BRANCH}`;
-    const res = await fetch(url, { headers: githubHeaders() });
-
-    if (res.status === 404) return notFound(uid);
-
-    if (!res.ok) {
-      const text = await res.text();
-      return new Response(
-        JSON.stringify({ error: "GitHub API error", detail: text }),
-        { status: res.status, headers: { "Content-Type": "application/json" } }
-      );
-    }
-
-    const githubFile = await res.json();
-    const decoded = Buffer.from(githubFile.content, "base64").toString("utf-8");
-    const menu: MenuDoc = JSON.parse(decoded);
-
-    return new Response(
-      JSON.stringify({ sha: githubFile.sha, menu }),
-      { status: 200, headers: { "Content-Type": "application/json" } }
-    );
+    const filePath = localMenuPath(uid);
+    if (!fs.existsSync(filePath)) return notFound(uid);
+    const raw = fs.readFileSync(filePath, "utf-8");
+    const menu: MenuDoc = JSON.parse(raw);
+    return new Response(JSON.stringify(menu), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
   } catch (error) {
     return new Response(
       JSON.stringify({
-        error: "Failed to fetch menu",
+        error: "Failed to read menu",
         detail: error instanceof Error ? error.message : String(error),
       }),
       { status: 500, headers: { "Content-Type": "application/json" } }
@@ -91,18 +84,25 @@ export async function GET(
   }
 }
 
-// ─── PUT ──────────────────────────────────────────────────────────────────────
+// ─── PUT — commits to GitHub ───────────────────────────────────────────────────
 
 export async function PUT(
   request: NextRequest,
   { params }: { params: Promise<{ uid: string }> }
 ) {
-  if (!isAuthenticated()) return unauthorized();
+  if (!(await isAuthenticated())) return unauthorized();
 
   const { uid } = await params;
 
   if (!VALID_UIDS.includes(uid as (typeof VALID_UIDS)[number])) {
     return notFound(uid);
+  }
+
+  if (!GITHUB_TOKEN || !GITHUB_REPO) {
+    return new Response(
+      JSON.stringify({ error: "GitHub credentials not configured." }),
+      { status: 503, headers: { "Content-Type": "application/json" } }
+    );
   }
 
   let body: MenuDoc;
@@ -135,10 +135,7 @@ export async function PUT(
     }
 
     // 2. Commit updated JSON
-    const encoded = Buffer.from(
-      JSON.stringify(body, null, 2),
-      "utf-8"
-    ).toString("base64");
+    const encoded = Buffer.from(JSON.stringify(body, null, 2), "utf-8").toString("base64");
 
     const commitPayload: Record<string, unknown> = {
       message: `cms: update ${uid} menu`,
@@ -146,9 +143,7 @@ export async function PUT(
       branch: GITHUB_BRANCH,
     };
 
-    if (currentSha) {
-      commitPayload.sha = currentSha;
-    }
+    if (currentSha) commitPayload.sha = currentSha;
 
     const putRes = await fetch(githubContentsUrl(uid), {
       method: "PUT",
@@ -165,13 +160,8 @@ export async function PUT(
     }
 
     const result = await putRes.json();
-
     return new Response(
-      JSON.stringify({
-        ok: true,
-        sha: result.content?.sha,
-        commit: result.commit?.sha,
-      }),
+      JSON.stringify({ ok: true, sha: result.content?.sha, commit: result.commit?.sha }),
       { status: 200, headers: { "Content-Type": "application/json" } }
     );
   } catch (error) {

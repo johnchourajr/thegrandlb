@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 const defaultTheme = require("tailwindcss/defaultTheme");
+const twColors = require("tailwindcss/colors");
 
 function clampBuilder(minWidthPx, maxWidthPx, minFontSize, maxFontSize) {
   const minWidth = minWidthPx / 16;
@@ -176,6 +177,9 @@ module.exports = {
       ],
     },
     extend: {
+      colors: {
+        neutral: twColors.neutral,
+      },
       spacing: {
         "layout-sm": "1.5rem",
         "layout-md": "2rem",

@@ -36,20 +36,20 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-neutral-950 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-cream flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
         <div className="mb-8 text-center">
-          <p className="text-xs tracking-widest uppercase text-neutral-500 mb-2">
+          <p className="font-serif text-2xl italic text-black mb-1">
             The Grand LB
           </p>
-          <h1 className="text-xl font-semibold text-white">Admin Access</h1>
+          <p className="text-xs tracking-widest uppercase text-black/40">Admin</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label
               htmlFor="password"
-              className="block text-xs text-neutral-400 mb-1.5"
+              className="block text-xs text-black/50 mb-1.5"
             >
               Password
             </label>
@@ -61,13 +61,13 @@ export default function LoginPage() {
               required
               autoFocus
               autoComplete="current-password"
-              className="w-full bg-neutral-900 border border-neutral-700 rounded-md px-3 py-2.5 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-neutral-500 transition-colors"
+              className="w-full bg-white border border-black/15 rounded-md px-3 py-2.5 text-sm text-black placeholder-black/30 focus:outline-none focus:border-black/40 transition-colors"
               placeholder="Enter admin password"
             />
           </div>
 
           {error && (
-            <p className="text-xs text-red-400 bg-red-950/40 border border-red-900/50 rounded-md px-3 py-2">
+            <p className="text-xs text-red-600 bg-red-50 border border-red-200 rounded-md px-3 py-2">
               {error}
             </p>
           )}
@@ -75,7 +75,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading || !password}
-            className="w-full bg-white text-black text-sm font-medium py-2.5 rounded-md hover:bg-neutral-200 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="w-full bg-black text-white text-sm font-medium py-2.5 rounded-md hover:bg-black/80 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             {loading ? "Signing in…" : "Sign in"}
           </button>
