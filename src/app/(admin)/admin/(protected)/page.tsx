@@ -26,7 +26,7 @@ const MENU_SECTIONS = [
 export default function AdminPage() {
   return (
     <div>
-      <h1 className="font-serif text-3xl italic mb-2">Menu Admin</h1>
+      <h1 className="font-serif text-headline-sm italic mb-2">Menus</h1>
       <p className="text-black/50 text-sm mb-8">
         Select a menu section to edit.
       </p>
@@ -38,9 +38,7 @@ export default function AdminPage() {
             href={`/admin/menus/${uid}`}
             className="block rounded-lg border border-black/10 bg-white p-5 hover:border-black/30 hover:shadow-sm transition-all group"
           >
-            <h2 className="text-lg font-medium mb-1">
-              {label}
-            </h2>
+            <h2 className="text-lg font-medium mb-1">{label}</h2>
             <p className="text-sm text-black/50">{description}</p>
             <span className="mt-4 inline-block text-xs text-black/30 group-hover:text-black/60 transition-colors">
               /admin/menus/{uid} →

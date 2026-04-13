@@ -8,8 +8,9 @@ import type {
   RtBlock,
 } from "@/types/menu";
 import clsx from "clsx";
+import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // ─── RtBlock helpers ────────────────────────────────────────────────────────
 
@@ -36,6 +37,294 @@ function newItem(): MenuItemData {
   };
 }
 
+// ─── Diff ────────────────────────────────────────────────────────────────────
+
+type ChangeKind = "modified" | "added" | "removed";
+
+type ChangeEntry = {
+  path: string;
+  before: string;
+  after: string;
+  kind: ChangeKind;
+};
+
+function diffMenuDocs(original: MenuDoc, current: MenuDoc): ChangeEntry[] {
+  const changes: ChangeEntry[] = [];
+
+  function field(path: string, before: string, after: string) {
+    if (before !== after)
+      changes.push({ path, before, after, kind: "modified" });
+  }
+
+  field("Page / Title", original.page_title, current.page_title);
+  field(
+    "Page / Description",
+    original.page_description,
+    current.page_description,
+  );
+  field("Page / Disclaimer", original.page_disclaimer, current.page_disclaimer);
+
+  const maxGroups = Math.max(original.groups.length, current.groups.length);
+  for (let gi = 0; gi < maxGroups; gi++) {
+    const og = original.groups[gi];
+    const cg = current.groups[gi];
+    const groupLabel = og?.title ?? cg?.title ?? `Group ${gi + 1}`;
+
+    if (!og) {
+      changes.push({
+        path: groupLabel,
+        before: "",
+        after: "(group added)",
+        kind: "added",
+      });
+      continue;
+    }
+    if (!cg) {
+      changes.push({
+        path: groupLabel,
+        before: "(group existed)",
+        after: "",
+        kind: "removed",
+      });
+      continue;
+    }
+
+    field(`${groupLabel} / Description`, og.description, cg.description);
+    field(`${groupLabel} / Disclaimer`, og.disclaimer, cg.disclaimer);
+
+    const maxSections = Math.max(og.sections.length, cg.sections.length);
+    for (let si = 0; si < maxSections; si++) {
+      const os = og.sections[si];
+      const cs = cg.sections[si];
+      const sectionLabel =
+        rtRead(os?.primary?.title ?? []) ||
+        rtRead(cs?.primary?.title ?? []) ||
+        `Section ${si + 1}`;
+
+      if (!os) {
+        changes.push({
+          path: `${groupLabel} / ${sectionLabel}`,
+          before: "",
+          after: "(section added)",
+          kind: "added",
+        });
+        continue;
+      }
+      if (!cs) {
+        changes.push({
+          path: `${groupLabel} / ${sectionLabel}`,
+          before: "(section existed)",
+          after: "",
+          kind: "removed",
+        });
+        continue;
+      }
+
+      field(
+        `${groupLabel} / ${sectionLabel} / Title`,
+        rtRead(os.primary.title),
+        rtRead(cs.primary.title),
+      );
+      field(
+        `${groupLabel} / ${sectionLabel} / Description`,
+        rtRead(os.primary.description),
+        rtRead(cs.primary.description),
+      );
+      field(
+        `${groupLabel} / ${sectionLabel} / Caption`,
+        rtRead(os.primary.caption),
+        rtRead(cs.primary.caption),
+      );
+
+      const maxItems = Math.max(os.items.length, cs.items.length);
+      for (let ii = 0; ii < maxItems; ii++) {
+        const oi = os.items[ii];
+        const ci = cs.items[ii];
+        const itemLabel =
+          rtRead(oi?.title ?? []) ||
+          rtRead(ci?.title ?? []) ||
+          `Item ${ii + 1}`;
+        const itemPath = `${groupLabel} / ${sectionLabel} / ${itemLabel}`;
+
+        if (!oi) {
+          changes.push({
+            path: itemPath,
+            before: "",
+            after: "(item added)",
+            kind: "added",
+          });
+          continue;
+        }
+        if (!ci) {
+          changes.push({
+            path: itemPath,
+            before: "(item existed)",
+            after: "",
+            kind: "removed",
+          });
+          continue;
+        }
+
+        field(`${itemPath} / Name`, rtRead(oi.title), rtRead(ci.title));
+        field(
+          `${itemPath} / Description`,
+          rtRead(oi.description),
+          rtRead(ci.description),
+        );
+        field(`${itemPath} / Price Per`, oi.price_per, ci.price_per);
+        if (oi.price_min !== ci.price_min)
+          changes.push({
+            path: `${itemPath} / Min Price`,
+            before: String(oi.price_min),
+            after: String(ci.price_min),
+            kind: "modified",
+          });
+        if (oi.price_max !== ci.price_max)
+          changes.push({
+            path: `${itemPath} / Max Price`,
+            before: String(oi.price_max),
+            after: String(ci.price_max),
+            kind: "modified",
+          });
+      }
+    }
+  }
+
+  return changes;
+}
+
+// ─── Review modal ─────────────────────────────────────────────────────────────
+
+function ReviewModal({
+  changes,
+  saving,
+  onConfirm,
+  onCancel,
+}: {
+  changes: ChangeEntry[];
+  saving: boolean;
+  onConfirm: () => void;
+  onCancel: () => void;
+}) {
+  return (
+    <>
+      {/* Backdrop */}
+      <div
+        className="fixed inset-0 z-[9998] bg-black/20 backdrop-blur-sm"
+        onClick={onCancel}
+        aria-hidden
+      />
+      {/* Scroll container */}
+      <div className="fixed inset-0 z-[9999] overflow-y-auto flex items-start justify-center p-4 pt-16 ">
+        <div className="w-full max-w-2xl rounded-xl border border-black/10 bg-white shadow-2xl flex flex-col min-h-[calc(100vh-64px)] max-h-[calc(100vh-64px)]">
+          {/* Header */}
+          <div className="flex items-center justify-between px-6 py-4 border-b border-black/10">
+            <div>
+              <h2 className="font-semibold text-black text-paragraph-default">
+                Review Changes
+              </h2>
+              <p className="text-string-default text-black/40 mt-0.5">
+                {changes.length === 0
+                  ? "No changes detected."
+                  : `${changes.length} change${changes.length !== 1 ? "s" : ""} will be published.`}
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={onCancel}
+              className="text-black/30 hover:text-black transition-colors text-string-default"
+            >
+              ✕
+            </button>
+          </div>
+
+          {/* Change list */}
+          <div className="px-6 py-4 flex flex-col gap-2 max-h-[60vh] overflow-y-auto">
+            {changes.length === 0 ? (
+              <p className="text-paragraph-small text-black/40 italic text-center py-8">
+                No edits have been made since the menu was loaded.
+              </p>
+            ) : (
+              changes.map((c, i) => (
+                <div
+                  key={i}
+                  className={clsx(
+                    "rounded-lg border px-4 py-3 grid gap-1.5",
+                    c.kind === "added" && "border-gold/40 bg-gold/10",
+                    c.kind === "removed" && "border-red/20 bg-red/5",
+                    c.kind === "modified" && "border-black/10 bg-black/[0.02]",
+                  )}
+                >
+                  <p className="text-string-extra-small font-medium uppercase tracking-widest text-black/40">
+                    {c.path}
+                  </p>
+                  {c.kind === "modified" && (
+                    <div className="grid grid-cols-2 gap-2">
+                      <div>
+                        <p className="text-string-extra-small text-black/30 mb-0.5">
+                          Before
+                        </p>
+                        <p className="text-paragraph-small text-black/60 break-words line-through">
+                          {c.before || (
+                            <span className="italic text-black/25">
+                              (empty)
+                            </span>
+                          )}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-string-extra-small text-black/30 mb-0.5">
+                          After
+                        </p>
+                        <p className="text-paragraph-small text-black break-words">
+                          {c.after || (
+                            <span className="italic text-black/25">
+                              (empty)
+                            </span>
+                          )}
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                  {c.kind === "added" && (
+                    <p className="text-paragraph-small text-black/60">
+                      {c.after}
+                    </p>
+                  )}
+                  {c.kind === "removed" && (
+                    <p className="text-paragraph-small text-red line-through">
+                      {c.before}
+                    </p>
+                  )}
+                </div>
+              ))
+            )}
+          </div>
+
+          {/* Footer */}
+          <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-black/10">
+            <button
+              type="button"
+              onClick={onCancel}
+              className="px-4 py-2 rounded-lg border border-black/15 text-paragraph-small font-medium text-black/60 hover:text-black hover:border-black/30 transition-colors"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              onClick={onConfirm}
+              disabled={saving || changes.length === 0}
+              className="px-5 py-2 rounded-lg bg-black text-white text-paragraph-small font-semibold hover:bg-black/80 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            >
+              {saving ? "Publishing…" : "Publish"}
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
 // ─── Shared input/textarea classes ───────────────────────────────────────────
 
 const inputCls = clsx(
@@ -51,7 +340,7 @@ const labelCls = clsx(
 const reorderBtnCls = clsx(
   "w-6 h-6 flex items-center justify-center rounded border border-black/10 bg-white",
   "text-black/30 text-string-small leading-none",
-  "hover:text-black hover:border-black/25 disabled:opacity-0 transition-colors",
+  "hover:text-black hover:border-black/25 disabled:opacity-0 transition-colors cursor-pointer",
 );
 
 function ReorderControls({
@@ -614,9 +903,11 @@ function MobileJumpSelect({
 export default function MenuEditorPage() {
   const { uid } = useParams<{ uid: string }>();
   const [doc, setDoc] = useState<MenuDoc | null>(null);
+  const originalDoc = useRef<MenuDoc | null>(null);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+  const [showReview, setShowReview] = useState(false);
   const [toast, setToast] = useState<ToastState>(null);
   const [openGroups, setOpenGroups] = useState<Set<number>>(new Set([0]));
   const [visibleIds, setVisibleIds] = useState<Set<string>>(new Set());
@@ -628,6 +919,7 @@ export default function MenuEditorPage() {
         if (!res.ok) throw new Error(`Failed to load menu (${res.status})`);
         const data: MenuDoc = await res.json();
         setDoc(data);
+        originalDoc.current = data;
         setOpenGroups(new Set([0]));
       } catch (err) {
         setLoadError(err instanceof Error ? err.message : "Unknown error");
@@ -734,7 +1026,9 @@ export default function MenuEditorPage() {
         const body = await res.text();
         throw new Error(body || `Save failed (${res.status})`);
       }
-      setToast({ type: "success", message: "Menu saved." });
+      originalDoc.current = doc;
+      setShowReview(false);
+      setToast({ type: "success", message: "Menu published." });
     } catch (err) {
       setToast({
         type: "error",
@@ -781,25 +1075,25 @@ export default function MenuEditorPage() {
       {/* Sticky page header */}
       <div className="sticky top-0 z-20 bg-cream/95 backdrop-blur py-3 -mt-8 border-b border-black/10 mb-6">
         <div className="flex items-center justify-between gap-4">
-          <div>
-            <a
+          <div className="flex items-center gap-4">
+            <Link
               href="/admin"
-              className="text-string-default text-black/40 hover:text-black transition-colors mb-1.5 inline-block"
+              className="font-serif text-headline-sm italic  text-black/40 hover:text-black transition-colors inline-block"
             >
-              ← Menus
-            </a>
-            <h1 className="font-serif text-2xl italic text-black">
+              Menus
+            </Link>
+            <span className="text-string-default text-black/40">/</span>
+            <h1 className="font-serif text-headline-sm italic text-black">
               {doc.page_title || uid}
             </h1>
           </div>
           <div className="flex items-center gap-2">
             <button
               type="button"
-              onClick={handleSave}
-              disabled={saving}
-              className="shrink-0 px-5 py-2.5 rounded-lg bg-black text-white text-paragraph-small font-semibold hover:bg-black/80 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              onClick={() => setShowReview(true)}
+              className="shrink-0 px-5 py-2.5 rounded-lg bg-black text-white text-paragraph-small font-semibold hover:bg-black/80 transition-colors"
             >
-              {saving ? "Saving…" : "Save"}
+              Review Changes
             </button>
           </div>
         </div>
@@ -890,6 +1184,15 @@ export default function MenuEditorPage() {
       </div>
 
       <Toast toast={toast} onDismiss={() => setToast(null)} />
+
+      {showReview && (
+        <ReviewModal
+          changes={diffMenuDocs(originalDoc.current ?? doc, doc)}
+          saving={saving}
+          onConfirm={handleSave}
+          onCancel={() => setShowReview(false)}
+        />
+      )}
     </>
   );
 }

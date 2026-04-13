@@ -19,9 +19,9 @@ export default async function ProtectedAdminLayout({
       <header className="border-b border-black/10 px-10 py-3 flex items-center justify-between">
         <a
           href="/admin"
-          className="font-serif text-base italic text-black/60 hover:text-black transition-colors"
+          className="text-string-default font-lexend font uppercase text-black/60 hover:text-black transition-colors"
         >
-          The Grand LB
+          The Grand Content
         </a>
         <a
           href="/"

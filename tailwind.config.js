@@ -56,12 +56,7 @@ const colors = {
 };
 
 module.exports = {
-  mode: "jit",
-  content: [
-    // Or if using `src` directory:
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./slices/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx}", "./slices/**/*.{js,ts,jsx,tsx}"],
   plugins: [
     require("tailwindcss-scoped-groups")({
       groups: ["one", "two", "three"],
@@ -91,20 +86,20 @@ module.exports = {
         375,
         1920,
         headline.min["-1"],
-        headline.max["-1"]
+        headline.max["-1"],
       ),
       "headline-4xl": clampBuilder(375, 1920, headline.min[0], headline.max[0]),
       "headline-3xl": clampBuilder(
         1024,
         1920,
         headline.min[1],
-        headline.max[1]
+        headline.max[1],
       ),
       "headline-2xl": clampBuilder(
         1024,
         1920,
         headline.min[2],
-        headline.max[2]
+        headline.max[2],
       ),
       "headline-xl": clampBuilder(1024, 1920, headline.min[3], headline.max[3]),
       "headline-lg": clampBuilder(1024, 1920, headline.min[4], headline.max[4]),
