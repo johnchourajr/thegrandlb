@@ -3,12 +3,28 @@ import * as fs from "fs";
 import * as path from "path";
 import type { NextRequest } from "next/server";
 import type { MenuDoc } from "content/types";
+import { Resend } from "resend";
+import PublishEmail from "@/emails/publishEmail";
 
 const VALID_UIDS = ["classic", "corporate", "milestones", "weddings"] as const;
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = process.env.GITHUB_REPO;
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH ?? "feat/menu-migration";
+
+const MENU_TITLES: Record<string, string> = {
+  classic: "Classic",
+  corporate: "Corporate",
+  milestones: "Milestones",
+  weddings: "Weddings",
+};
+
+const MENU_URLS: Record<string, string> = {
+  classic: "https://thegrandlb.com/menus/classic",
+  corporate: "https://thegrandlb.com/menus/corporate",
+  milestones: "https://thegrandlb.com/menus/milestones",
+  weddings: "https://thegrandlb.com/menus/weddings",
+};
 
 function localMenuPath(uid: string) {
   return path.join(process.cwd(), "content", "menus", `${uid}.menu.json`);
@@ -30,10 +46,20 @@ function githubHeaders() {
   };
 }
 
-async function isAuthenticated(): Promise<boolean> {
+// Returns the authenticated user's email, or null if not authenticated
+async function getAuthenticatedEmail(): Promise<string | null> {
   const cookieStore = await cookies();
   const session = cookieStore.get("admin_session");
-  return session?.value === process.env.ADMIN_PASSWORD;
+  const email = session?.value ?? "";
+  if (!email) return null;
+
+  const raw = process.env.ADMIN_USERS ?? "";
+  const validEmails = raw
+    .split(",")
+    .map((p) => p.slice(0, p.indexOf(":")).trim().toLowerCase())
+    .filter(Boolean);
+
+  return validEmails.includes(email) ? email : null;
 }
 
 function unauthorized() {
@@ -56,7 +82,7 @@ export async function GET(
   _request: NextRequest,
   { params }: { params: Promise<{ uid: string }> }
 ) {
-  if (!(await isAuthenticated())) return unauthorized();
+  if (!(await getAuthenticatedEmail())) return unauthorized();
 
   const { uid } = await params;
 
@@ -90,7 +116,8 @@ export async function PUT(
   request: NextRequest,
   { params }: { params: Promise<{ uid: string }> }
 ) {
-  if (!(await isAuthenticated())) return unauthorized();
+  const publisherEmail = await getAuthenticatedEmail();
+  if (!publisherEmail) return unauthorized();
 
   const { uid } = await params;
 
@@ -160,6 +187,24 @@ export async function PUT(
     }
 
     const result = await putRes.json();
+
+    // 3. Send publish notification (fire-and-forget — don't block the response)
+    const resendKey = process.env.NEXT_RESEND_API_KEY;
+    const fromEmail = process.env.NEXT_PUBLIC_RESEND_FROM_EMAIL;
+    if (resendKey && fromEmail) {
+      const resend = new Resend(resendKey);
+      resend.emails.send({
+        from: fromEmail,
+        to: publisherEmail,
+        subject: `${MENU_TITLES[uid] ?? uid} menu published`,
+        react: PublishEmail({
+          menuTitle: MENU_TITLES[uid] ?? uid,
+          menuUrl: MENU_URLS[uid] ?? "https://thegrandlb.com/menus",
+          publishedBy: publisherEmail,
+        }),
+      }).catch((err) => console.error("[publish-notify] Failed to send email:", err));
+    }
+
     return new Response(
       JSON.stringify({ ok: true, sha: result.content?.sha, commit: result.commit?.sha }),
       { status: 200, headers: { "Content-Type": "application/json" } }

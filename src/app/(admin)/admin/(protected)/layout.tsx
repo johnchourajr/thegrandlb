@@ -10,8 +10,16 @@ export default async function ProtectedAdminLayout({
   const session = cookieStore.get("admin_session");
 
   const isDev = process.env.NODE_ENV === "development";
-  if (!isDev && (!session || session.value !== process.env.ADMIN_PASSWORD)) {
-    redirect("/admin/login");
+  if (!isDev) {
+    const email = session?.value ?? "";
+    const raw = process.env.ADMIN_USERS ?? "";
+    const validEmails = raw
+      .split(",")
+      .map((p) => p.slice(0, p.indexOf(":")).trim().toLowerCase())
+      .filter(Boolean);
+    if (!validEmails.includes(email)) {
+      redirect("/admin/login");
+    }
   }
 
   return (
@@ -25,6 +33,8 @@ export default async function ProtectedAdminLayout({
         </a>
         <a
           href="/"
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-xs text-black/40 hover:text-black transition-colors"
         >
           Back to site

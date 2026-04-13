@@ -1028,7 +1028,7 @@ export default function MenuEditorPage() {
       }
       originalDoc.current = doc;
       setShowReview(false);
-      setToast({ type: "success", message: "Menu published." });
+      setToast({ type: "success", message: "Published! Updates are deploying and should be live in a few minutes." });
     } catch (err) {
       setToast({
         type: "error",
