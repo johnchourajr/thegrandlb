@@ -1,6 +1,5 @@
 "use client";
 
-import { linkResolver } from "@/prismicio";
 import type { LinkField } from "content/types";
 import Link from "next/link";
 import React from "react";
@@ -32,10 +31,6 @@ function resolveField(
         url.startsWith("mailto:") ||
         url.startsWith("tel:");
       return { url, external };
-    }
-    if (field.link_type === "Document") {
-      const url = linkResolver(field as any);
-      return { url, external: false };
     }
   }
 
