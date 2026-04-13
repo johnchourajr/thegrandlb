@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import LogoutButton from "./LogoutButton";
 
 export default async function ProtectedAdminLayout({
   children,
@@ -31,14 +32,17 @@ export default async function ProtectedAdminLayout({
         >
           The Grand Content
         </a>
-        <a
-          href="/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs text-black/40 hover:text-black transition-colors"
-        >
-          Back to site
-        </a>
+        <div className="flex items-center gap-4">
+          <a
+            href="/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-black/40 hover:text-black transition-colors"
+          >
+            Back to site
+          </a>
+          <LogoutButton />
+        </div>
       </header>
       <main className="px-10 py-8 w-full mx-auto">{children}</main>
     </div>
