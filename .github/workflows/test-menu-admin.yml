@@ -1,0 +1,115 @@
+name: Test Admin Menu
+
+on:
+  push:
+    branches: [main-v2, develop, "feat/menu-**"]
+    paths:
+      - "src/app/(admin)/**"
+      - "src/app/(site)/api/admin/**"
+      - "src/emails/publishEmail.tsx"
+      - "src/__tests__/admin/**"
+      - "scripts/test-menu-admin-auth.ts"
+      - "content/menus/**"
+      - ".github/workflows/test-menu-admin.yml"
+  pull_request:
+    branches: [main-v2]
+  workflow_dispatch:
+
+jobs:
+  unit-tests:
+    name: Unit tests (diff / rt / newItem)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run existing unit tests
+        run: pnpm run test:unit
+
+      - name: Run admin menu unit tests
+        run: pnpm run test:menu-unit
+
+  auth-integration:
+    name: Auth integration tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs: unit-tests
+
+    env:
+      # A disposable credential pair used only in CI.
+      # The server reads ADMIN_USERS; the test script reads CI_ADMIN_EMAIL/KEY.
+      ADMIN_USERS: "ci@thegrandlb.com:ci-secret-key-for-testing"
+      CI_ADMIN_EMAIL: "ci@thegrandlb.com"
+      CI_ADMIN_KEY: "ci-secret-key-for-testing"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Next.js app
+        run: pnpm run build
+        env:
+          # Provide dummy values so the build succeeds without real secrets.
+          NEXT_PUBLIC_RESEND_FROM_EMAIL: "ci@thegrandlb.com"
+          NEXT_PUBLIC_RESEND_SALES_EMAIL: "ci@thegrandlb.com"
+          NEXT_PUBLIC_RESEND_REPLY_EMAILS: "ci@thegrandlb.com"
+          NEXT_RESEND_API_KEY: "re_ci_placeholder"
+          NEXT_DATABASE_URL: "postgresql://test:test@localhost:5432/test"
+          NEXT_PUBLIC_DATABASE_TABLE: "glb_submissions"
+          # Leave GitHub / Vercel tokens absent — auth tests don't publish.
+
+      - name: Start Next.js server
+        run: pnpm start &
+        env:
+          PORT: 3000
+          ADMIN_USERS: "ci@thegrandlb.com:ci-secret-key-for-testing"
+          NEXT_PUBLIC_RESEND_FROM_EMAIL: "ci@thegrandlb.com"
+          NEXT_PUBLIC_RESEND_SALES_EMAIL: "ci@thegrandlb.com"
+          NEXT_PUBLIC_RESEND_REPLY_EMAILS: "ci@thegrandlb.com"
+          NEXT_RESEND_API_KEY: "re_ci_placeholder"
+          NEXT_DATABASE_URL: "postgresql://test:test@localhost:5432/test"
+          NEXT_PUBLIC_DATABASE_TABLE: "glb_submissions"
+
+      - name: Wait for server
+        run: |
+          for i in {1..30}; do
+            if curl -sf http://localhost:3000/api/admin/menus/classic > /dev/null 2>&1 || \
+               curl -o /dev/null -s -w "%{http_code}" http://localhost:3000/api/admin/menus/classic | grep -qE '^(200|401)$'; then
+              echo "Server ready"
+              exit 0
+            fi
+            echo "Waiting ($i/30)…"
+            sleep 2
+          done
+          echo "Server did not become ready"; exit 1
+
+      - name: Run auth integration tests
+        run: pnpm run test:menu-api
+        env:
+          TEST_BASE_URL: "http://localhost:3000"
+          CI_ADMIN_EMAIL: "ci@thegrandlb.com"
+          CI_ADMIN_KEY: "ci-secret-key-for-testing"
