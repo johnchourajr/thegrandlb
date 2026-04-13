@@ -37,6 +37,49 @@ function newItem(): MenuItemData {
   };
 }
 
+// ─── Inline word diff ─────────────────────────────────────────────────────────
+
+type DiffPart = { text: string; kind: "same" | "add" | "del" };
+
+function inlineDiff(before: string, after: string): DiffPart[] {
+  // Tokenize into words + whitespace runs as separate tokens
+  const tok = (s: string) => s.match(/\S+|\s+/g) ?? (s === "" ? [] : [s]);
+  const a = tok(before);
+  const b = tok(after);
+  const m = a.length;
+  const n = b.length;
+
+  // LCS table
+  const dp: number[][] = Array.from({ length: m + 1 }, () =>
+    new Array(n + 1).fill(0),
+  );
+  for (let i = m - 1; i >= 0; i--)
+    for (let j = n - 1; j >= 0; j--)
+      dp[i][j] =
+        a[i] === b[j]
+          ? dp[i + 1][j + 1] + 1
+          : Math.max(dp[i + 1][j], dp[i][j + 1]);
+
+  // Backtrack
+  const parts: DiffPart[] = [];
+  let i = 0,
+    j = 0;
+  while (i < m || j < n) {
+    if (i < m && j < n && a[i] === b[j]) {
+      parts.push({ text: a[i], kind: "same" });
+      i++;
+      j++;
+    } else if (j < n && (i >= m || dp[i][j + 1] >= dp[i + 1][j])) {
+      parts.push({ text: b[j], kind: "add" });
+      j++;
+    } else {
+      parts.push({ text: a[i], kind: "del" });
+      i++;
+    }
+  }
+  return parts;
+}
+
 // ─── Diff ────────────────────────────────────────────────────────────────────
 
 type ChangeKind = "modified" | "added" | "removed";
@@ -259,32 +302,27 @@ function ReviewModal({
                     {c.path}
                   </p>
                   {c.kind === "modified" && (
-                    <div className="grid grid-cols-2 gap-2">
-                      <div>
-                        <p className="text-string-extra-small text-black/30 mb-0.5">
-                          Before
-                        </p>
-                        <p className="text-paragraph-small text-black/60 break-words line-through">
-                          {c.before || (
-                            <span className="italic text-black/25">
-                              (empty)
-                            </span>
-                          )}
-                        </p>
-                      </div>
-                      <div>
-                        <p className="text-string-extra-small text-black/30 mb-0.5">
-                          After
-                        </p>
-                        <p className="text-paragraph-small text-black break-words">
-                          {c.after || (
-                            <span className="italic text-black/25">
-                              (empty)
-                            </span>
-                          )}
-                        </p>
-                      </div>
-                    </div>
+                    <p className="text-paragraph-small text-black leading-relaxed break-words">
+                      {inlineDiff(c.before, c.after).map((part, pi) =>
+                        part.kind === "same" ? (
+                          <span key={pi}>{part.text}</span>
+                        ) : part.kind === "del" ? (
+                          <span
+                            key={pi}
+                            className="bg-red/15 text-red line-through"
+                          >
+                            {part.text}
+                          </span>
+                        ) : (
+                          <span
+                            key={pi}
+                            className="bg-gold/30 text-black"
+                          >
+                            {part.text || "·"}
+                          </span>
+                        ),
+                      )}
+                    </p>
                   )}
                   {c.kind === "added" && (
                     <p className="text-paragraph-small text-black/60">
