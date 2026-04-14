@@ -91,7 +91,10 @@ function CommitRow({ commit, isLast }: { commit: GlobalCommitRecord; isLast: boo
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`/api/admin/menus/changes/${commit.sha}?uid=${commit.menuUid}`);
+      const res = await fetch(
+        `/api/admin/menus/changes/${commit.sha}?uid=${commit.menuUid}`,
+        { cache: "no-store" }
+      );
       const data = await res.json();
       if (data.error) setError(data.error);
       else setChanges(data.changes ?? []);
@@ -188,7 +191,7 @@ export function ChangesClient() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/api/admin/menus/changes")
+    fetch("/api/admin/menus/changes", { cache: "no-store" })
       .then((r) => r.json())
       .then((data) => {
         if (data.error) setError(data.error);

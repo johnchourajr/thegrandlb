@@ -6,6 +6,10 @@ import { diffMenuDocs } from "@/app/(admin)/admin/(protected)/menus/[uid]/utils/
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = process.env.GITHUB_REPO;
 
+const NO_STORE_HEADERS = {
+  "Cache-Control": "private, no-store, no-cache, must-revalidate",
+};
+
 async function getAuthenticatedEmail(): Promise<string | null> {
   const cookieStore = await cookies();
   const session = cookieStore.get("admin_session");
@@ -43,18 +47,27 @@ export async function GET(
   { params }: { params: Promise<{ sha: string }> }
 ) {
   if (!(await getAuthenticatedEmail())) {
-    return Response.json({ error: "Unauthorized" }, { status: 401 });
+    return Response.json(
+      { error: "Unauthorized" },
+      { status: 401, headers: NO_STORE_HEADERS }
+    );
   }
 
   const { sha } = await params;
   const uid = request.nextUrl.searchParams.get("uid");
 
   if (!uid || !sha) {
-    return Response.json({ error: "Missing uid or sha" }, { status: 400 });
+    return Response.json(
+      { error: "Missing uid or sha" },
+      { status: 400, headers: NO_STORE_HEADERS }
+    );
   }
 
   if (!GITHUB_TOKEN || !GITHUB_REPO) {
-    return Response.json({ error: "GitHub not configured" }, { status: 503 });
+    return Response.json(
+      { error: "GitHub not configured" },
+      { status: 503, headers: NO_STORE_HEADERS }
+    );
   }
 
   const filePath = `content/menus/${uid}.menu.json`;
@@ -72,7 +85,10 @@ export async function GET(
   ).catch(() => null);
 
   if (!commitRes?.ok) {
-    return Response.json({ error: "Failed to fetch commit" }, { status: 502 });
+    return Response.json(
+      { error: "Failed to fetch commit" },
+      { status: 502, headers: NO_STORE_HEADERS }
+    );
   }
 
   const commitData = await commitRes.json();
@@ -84,10 +100,13 @@ export async function GET(
   ]);
 
   if (!current) {
-    return Response.json({ error: "Could not fetch file at commit" }, { status: 502 });
+    return Response.json(
+      { error: "Could not fetch file at commit" },
+      { status: 502, headers: NO_STORE_HEADERS }
+    );
   }
 
   const changes = parent ? diffMenuDocs(parent, current) : [];
 
-  return Response.json({ changes });
+  return Response.json({ changes }, { headers: NO_STORE_HEADERS });
 }

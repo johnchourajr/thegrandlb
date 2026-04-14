@@ -55,3 +55,4 @@ next-env.d.ts
 
 # agent scratch (e.g. bulk image downloads for visual QA)
 /tmp/
+.playwright-mcp/

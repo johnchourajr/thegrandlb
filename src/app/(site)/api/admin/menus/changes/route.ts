@@ -43,13 +43,23 @@ const MENU_LABELS: Record<string, string> = {
   shared: "Shared",
 };
 
+const NO_STORE_HEADERS = {
+  "Cache-Control": "private, no-store, no-cache, must-revalidate",
+};
+
 export async function GET(_request: NextRequest) {
   if (!(await getAuthenticatedEmail())) {
-    return Response.json({ error: "Unauthorized" }, { status: 401 });
+    return Response.json(
+      { error: "Unauthorized" },
+      { status: 401, headers: NO_STORE_HEADERS }
+    );
   }
 
   if (!GITHUB_TOKEN || !GITHUB_REPO) {
-    return Response.json({ commits: [], error: "GitHub not configured" });
+    return Response.json(
+      { commits: [], error: "GitHub not configured" },
+      { headers: NO_STORE_HEADERS }
+    );
   }
 
   // ─── Fetch commits for all menus in parallel ────────────────────────────────
@@ -115,5 +125,5 @@ export async function GET(_request: NextRequest) {
     }))
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-  return Response.json({ commits: flat });
+  return Response.json({ commits: flat }, { headers: NO_STORE_HEADERS });
 }
