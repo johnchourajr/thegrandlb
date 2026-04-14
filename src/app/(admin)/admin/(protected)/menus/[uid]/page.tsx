@@ -44,7 +44,13 @@ export default function MenuEditorPage() {
         setDoc(data);
         originalDoc.current = data;
         publishedJson.current = JSON.stringify(data);
-        setOpenGroups(new Set([0]));
+        // Open all non-shared groups by default
+        const defaultOpen = new Set(
+          data.groups
+            .map((g, i) => (!g._shared ? i : -1))
+            .filter((i) => i !== -1)
+        );
+        setOpenGroups(defaultOpen);
 
         // Check sessionStorage for an unsaved draft from a previous session
         const saved = sessionStorage.getItem(`menu-draft-${uid}`);
