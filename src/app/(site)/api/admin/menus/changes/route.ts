@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import type { NextRequest } from "next/server";
 import type { DeployRecord } from "@/app/(site)/api/admin/menus/[uid]/history/route";
-import { getActiveBranch, GITHUB_TOKEN, GITHUB_REPO } from "../_github";
+import { GITHUB_TOKEN, GITHUB_REPO, GITHUB_BRANCH } from "../_github";
 
 const MENU_UIDS = ["classic", "corporate", "milestones", "weddings", "shared"] as const;
 
@@ -52,19 +52,17 @@ export async function GET(_request: NextRequest) {
     return Response.json({ commits: [], error: "GitHub not configured" });
   }
 
-  const branch = await getActiveBranch();
-
   // ─── Fetch commits for all menus in parallel ────────────────────────────────
   const results = await Promise.all(
     MENU_UIDS.map(async (uid) => {
       const filePath = `content/menus/${uid}.menu.json`;
-      const url = `https://api.github.com/repos/${GITHUB_REPO}/commits?path=${filePath}&sha=${branch}&per_page=20`;
+      const url = `https://api.github.com/repos/${GITHUB_REPO}/commits?path=${filePath}&sha=${GITHUB_BRANCH}&per_page=20`;
       const res = await fetch(url, {
         headers: {
           Authorization: `token ${GITHUB_TOKEN}`,
           Accept: "application/vnd.github+json",
         },
-        next: { revalidate: 60 },
+        cache: "no-store",
       }).catch(() => null);
       if (!res?.ok) return [];
 

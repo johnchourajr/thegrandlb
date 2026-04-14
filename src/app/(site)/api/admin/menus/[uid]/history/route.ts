@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import type { NextRequest } from "next/server";
-import { getActiveBranch, GITHUB_TOKEN, GITHUB_REPO } from "../../_github";
+import { GITHUB_TOKEN, GITHUB_REPO, GITHUB_BRANCH } from "../../_github";
 
 const VALID_UIDS = ["classic", "corporate", "milestones", "weddings", "shared"] as const;
 
@@ -67,10 +67,8 @@ export async function GET(
   }
 
   const filePath = `content/menus/${uid}.menu.json`;
-  const branch = await getActiveBranch();
-
   // ─── Fetch commit history from GitHub ────────────────────────────────────────
-  const commitsUrl = `https://api.github.com/repos/${GITHUB_REPO}/commits?path=${filePath}&sha=${branch}&per_page=20`;
+  const commitsUrl = `https://api.github.com/repos/${GITHUB_REPO}/commits?path=${filePath}&sha=${GITHUB_BRANCH}&per_page=20`;
   const commitsRes = await fetch(commitsUrl, {
     headers: {
       Authorization: `token ${GITHUB_TOKEN}`,

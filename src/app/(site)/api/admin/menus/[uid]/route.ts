@@ -6,7 +6,7 @@ import type { MenuDoc } from "content/types";
 import { Resend } from "resend";
 import PublishEmail from "@/emails/publishEmail";
 import { diffMenuDocs } from "@/app/(admin)/admin/(protected)/menus/[uid]/utils/diff";
-import { getActiveBranch, GITHUB_TOKEN, GITHUB_REPO, githubHeaders } from "../_github";
+import { GITHUB_TOKEN, GITHUB_REPO, GITHUB_BRANCH, githubHeaders } from "../_github";
 
 const VALID_UIDS = ["classic", "corporate", "milestones", "weddings", "shared"] as const;
 
@@ -178,11 +178,10 @@ export async function PUT(
   } catch { /* non-fatal — email will omit the diff */ }
 
   const changes = originalDoc ? diffMenuDocs(originalDoc, body) : [];
-  const branch = await getActiveBranch();
 
   try {
     // 1. Fetch current file SHA from GitHub
-    const getUrl = `${githubContentsUrl(uid)}?ref=${branch}`;
+    const getUrl = `${githubContentsUrl(uid)}?ref=${GITHUB_BRANCH}`;
     const getRes = await fetch(getUrl, { headers: githubHeaders() });
 
     if (!getRes.ok && getRes.status !== 404) {
@@ -205,7 +204,7 @@ export async function PUT(
     const commitPayload: Record<string, unknown> = {
       message: `cms: update ${uid} menu`,
       content: encoded,
-      branch,
+      branch: GITHUB_BRANCH,
     };
 
     if (currentSha) commitPayload.sha = currentSha;
