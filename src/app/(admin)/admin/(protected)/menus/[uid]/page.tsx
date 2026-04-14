@@ -278,6 +278,19 @@ export default function MenuEditorPage() {
             <h1 className="font-serif text-headline-sm italic text-black">
               {doc.page_title || uid}
             </h1>
+            {uid !== "shared" && (
+              <a
+                href={`https://thegrandlb.com/menus/${uid}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black/30 hover:text-black transition-colors"
+                title="View live menu"
+              >
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden>
+                  <path d="M1.5 11.5L11.5 1.5M11.5 1.5H4.5M11.5 1.5V8.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
+            )}
           </div>
           <div className="flex items-center gap-2">
             <DeployStatusBanner uid={uid} commitSha={deployCommitSha} />
