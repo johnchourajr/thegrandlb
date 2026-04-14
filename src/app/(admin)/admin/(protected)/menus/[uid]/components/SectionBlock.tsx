@@ -63,7 +63,10 @@ export function SectionBlock({
   }
 
   return (
-    <div id={sectionId} className="mt-4 flex gap-1.5" style={{ scrollMarginTop: "var(--scroll-offset, 9rem)" }}>
+    <div
+      id={sectionId}
+      className="my-4 py-4 border-t border-primary/10 flex gap-1.5 scroll-mt-[var(--scroll-offset,9rem)]"
+    >
       <ReorderControls
         onMoveUp={onMoveUp}
         onMoveDown={onMoveDown}
