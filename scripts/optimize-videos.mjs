@@ -17,7 +17,9 @@ const OPTIMIZED = path.join(ROOT, "videos", "optimized");
 const MANIFEST_PATH = path.join(ROOT, "videos", "video-manifest.json");
 
 if (!fs.existsSync(MANIFEST_PATH)) {
-  console.error("Run audit first: node scripts/audit-prismic-videos.mjs");
+  console.error(
+    "Missing videos/video-manifest.json. Create it (see videos/video-manifest.json format) or run your video inventory step before optimize."
+  );
   process.exit(1);
 }
 

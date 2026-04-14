@@ -9,7 +9,7 @@ This document helps humans and agents find **where media lives**, **what it is f
 | **Cloudflare Images** (`https://imagedelivery.net/…`) | **Raster photos** for static TypeScript page content | Hero stills, galleries, tour/event imagery (`/public` variant URLs in `*.content.ts`) |
 | **Cloudflare R2** served at `https://cdn.thegrandlb.com/` | **Video** and **SVG** illustrations (not Cloudflare Images) | Hero/section `video_url`, icon rows, decorative SVGs |
 | **`public/`** | Static files shipped with the Next.js app | Open Graph / Apple touch: `/logo.png` (`src/app/(site)/layout.tsx`); inquiry thanks art `/handshake.svg`; offsite catering PDFs under `/offsite-catering/*.pdf` |
-| **Prismic documents** | Editorial **photos** for pages | Slice-driven `ImageField` data (not enumerated here; lives in CMS) |
+| **Slice / Storybook data** | Editorial **photos** in slice mocks | `ImageField`-shaped JSON under `slices/` (not enumerated here) |
 | **`slices/**/screenshot-*.png`** | Slice Machine / Storybook previews | Documentation and Slice Machine UI only—not used in production pages |
 
 ## How to place media in the app
@@ -32,7 +32,7 @@ This document helps humans and agents find **where media lives**, **what it is f
    This repo’s `cdn.thegrandlb.com` hostname is wired to the **`grandlb-videos`** bucket in `scripts/upload-to-r2.sh`. A separate bucket needs its **own** public hostname (or you consolidate objects into one bucket under different key prefixes).
 
 4. **Posters / thumbnails**  
-   Helpers such as `generateVideoPoster` in `src/utils/bandwidth-optimization.ts` assume a `.jpg` sibling of the video URL may exist for some CDNs; confirm behavior for R2-hosted files before relying on it.
+   For R2-hosted video (`cdn.thegrandlb.com`), set an explicit poster in the player unless you know a matching still asset exists.
 
 5. **Prefer consistency**  
    New **photos**: Cloudflare Images dashboard, then use the delivered URL (or `cfImageUrl` in code). New **video/SVG** on R2: `https://cdn.thegrandlb.com/<key>` in `content.ts` / `*.content.ts` / `content/shared.constants.ts`.
@@ -220,5 +220,5 @@ Merge the output into the tables above when assets change.
 
 ## What this catalog does not include
 
-- **Prismic-managed photos** for slices and pages (URLs are content-dependent). Use Prismic or generated types (`prismicio-types.d.ts`) for those fields.
-- **Videos or images** only referenced from Prismic documents at runtime and never hard-coded in this repo.
+- **CMS-managed photos** for Slice Machine / Storybook slice previews (URLs are content-dependent; not enumerated here).
+- **Runtime-only** media URLs that never appear in checked-in TypeScript.

@@ -8,7 +8,7 @@ export default async function InquirePage() {
 
   return (
     <Layout
-      page={{ uid: "inquire", data: {} } as any}
+      page={{ uid: "inquire", data: {} }}
       settings={settings}
       navigation={navigation}
       className={"!min-h-[0vh]"}

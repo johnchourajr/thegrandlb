@@ -2,7 +2,6 @@
 
 import clsx from "clsx";
 import type { LayoutProps } from "../types/layout";
-import BandwidthMonitor from "./BandwidthMonitor";
 import Footer from "./Footer";
 import LayoutHead from "./LayoutHead";
 
@@ -35,8 +34,6 @@ const Layout = ({
       </main>
       {/* FOOTER */}
       {navigation && <Footer settings={settings} navigation={navigation} />}
-      {/* BANDWIDTH MONITOR */}
-      <BandwidthMonitor />
     </div>
   );
 };

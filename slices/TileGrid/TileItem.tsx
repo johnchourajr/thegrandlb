@@ -1,6 +1,6 @@
 "use client";
 
-import ForwardedPrismicLink from "@/components/ForwardPrismicLink";
+import AppLink from "@/components/AppLink";
 import Headline from "@/components/Headline";
 import ImageBox from "@/components/media-frame/ImageBox";
 import Text from "@/components/Paragraph";
@@ -12,7 +12,7 @@ import {
   getKeyText,
   getLinkField,
   getSelectValue,
-} from "@/utils/prismic-helpers";
+} from "@/utils/content-field-helpers";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import type { TileItemProps, TileStyleProps } from "./types";
@@ -23,7 +23,7 @@ import {
   getNumberForRowStart,
 } from "./utils";
 
-const MotionComp = motion.create(ForwardedPrismicLink, {
+const MotionComp = motion.create(AppLink, {
   forwardMotionProps: true,
 }) as any;
 

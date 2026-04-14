@@ -3,7 +3,7 @@ import type { MapItem, TourSpace } from "../types/map";
 /**
  * Converts tour space data to MapItem format.
  */
-export const convertPrismicToMapItem = (
+export const tourSpaceToMapItem = (
   space: TourSpace,
   letter: string
 ): MapItem | null => {

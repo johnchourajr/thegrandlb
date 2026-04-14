@@ -1,9 +1,7 @@
 import { toText } from "./rich-text";
 
 /**
- * Helper Utilities
- *
- * Helper functions for extracting values from content fields safely.
+ * Helper utilities for extracting values from static content fields safely.
  */
 
 /**

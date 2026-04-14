@@ -1,5 +1,5 @@
 /**
- * Local content types — no dependency on @prismicio/client.
+ * Local content types for static TypeScript content files.
  *
  * These describe the shape of data in the static content files.
  */
@@ -30,8 +30,8 @@ export type ImageField =
   | null
   | undefined;
 
-/** @deprecated Use ImageField */
-export type PrismicImageLike =
+/** Image-shaped field as stored in static content (includes legacy empty-object form). */
+export type ContentImageField =
   | {
       url: string;
       alt?: string | null;
@@ -69,7 +69,7 @@ export type LinkField = WebLink | DocumentLink | AnyLink | null | undefined;
 // ─── Slices ────────────────────────────────────────────────────────────────
 
 /**
- * A flat content slice. First-party slices have `type`; Prismic nav slices
+ * A flat content slice. First-party slices have `type`; legacy nav slices
  * may still carry `slice_type`. The index signature covers all field values.
  */
 export type Slice = {

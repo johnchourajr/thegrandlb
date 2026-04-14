@@ -25,7 +25,6 @@ const LazyVideo = forwardRef<HTMLVideoElement, LazyLoadVideoProps>(
       if (inView && videoRef.current && typeof src === "string") {
         videoRef.current.src = src;
         videoRef.current.load();
-        console.log("video loaded, in view", src, videoRef.current.clientTop);
       }
     }, [src, inView]);
 

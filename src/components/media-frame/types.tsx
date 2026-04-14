@@ -19,13 +19,13 @@ export interface GalleryControlsProps {
   handlePlayPauseClick: () => void;
 }
 
-/** Prismic-style image field with optional url (e.g. from fragment_media). Accepts Prismic ImageField. */
+/** Image-shaped field with optional url (e.g. fragment_media slice data). */
 export type MediaFrameMedia = {
   url?: string | null;
   [key: string]: unknown;
 } | null | undefined;
 
-/** Prismic-style gallery slice data with gallery_items. */
+/** Gallery slice data with gallery_items. */
 export type MediaFrameGallery =
   | { data?: { gallery_items?: ImageItem[] }; [key: string]: unknown }
   | null;

@@ -9,7 +9,7 @@ import type {
   MapItemKey,
 } from "../types/map";
 import {
-  convertPrismicToMapItem,
+  tourSpaceToMapItem,
   generateMapLetter,
 } from "../utils/map-helpers";
 import { ensureArray, safeMap } from "../utils/safe-array";
@@ -21,17 +21,10 @@ import StringText from "./StringText";
 import Map from "./svg/Map";
 
 /**
- * MapContainer Component - Interactive venue map with space selection
+ * MapContainer — interactive venue map with space selection.
  *
- * This component is fully typed using Prismic content types and provides a
- * type-safe interface for displaying interactive venue spaces. It supports
- * both hardcoded fallback data and dynamic Prismic tour space data.
- *
- * Usage with Prismic data:
- * <MapContainer tourSpaces={tourIndexPage.data.spaces} />
- *
- * Usage with fallback data:
- * <MapContainer />
+ * Pass `tourSpaces` from the tour index page data, or omit it to use built-in
+ * fallback spaces.
  */
 
 const ItemSelected = ({ filteredItem }: ItemSelectedProps) => {
@@ -205,14 +198,14 @@ const MapContainer = ({ tourSpaces, ...extra }: MapContainerProps) => {
     // Ensure we always have a valid array
     const safeTourSpaces = ensureArray(tourSpaces);
 
-    // If Prismic tour spaces are provided, convert them to MapItems
+    // If tour index spaces are provided, convert them to MapItems
     if (safeTourSpaces.length > 0) {
-      const prismicItems = safeMap(safeTourSpaces, (space, index) =>
-        convertPrismicToMapItem(space, generateMapLetter(index))
+      const mapItems = safeMap(safeTourSpaces, (space, index) =>
+        tourSpaceToMapItem(space, generateMapLetter(index))
       ).filter((item): item is MapItem => item !== null);
 
-      if (prismicItems.length > 0) {
-        setFilteredList(prismicItems);
+      if (mapItems.length > 0) {
+        setFilteredList(mapItems);
         return;
       }
     }

@@ -82,7 +82,7 @@ function menuDocToCollectionDocument(doc: MenuDoc): MenuCollectionDocument {
 
 /**
  * Fetch a menu from the local JSON files (with shared groups merged in).
- * Replaces the old Prismic fetchMenuCollection call.
+ * Reads merged menu JSON from disk / API-backed content.
  */
 export async function fetchMenuCollection(
   menuApiUid: string
