@@ -11,7 +11,7 @@ const VALID_UIDS = ["classic", "corporate", "milestones", "weddings", "shared"] 
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = process.env.GITHUB_REPO;
-const GITHUB_BRANCH = process.env.GITHUB_BRANCH ?? "feat/menu-migration";
+const GITHUB_BRANCH = process.env.GITHUB_BRANCH ?? "main";
 
 const MENU_TITLES: Record<string, string> = {
   classic: "Classic",

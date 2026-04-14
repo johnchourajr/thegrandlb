@@ -5,7 +5,7 @@ const VALID_UIDS = ["classic", "corporate", "milestones", "weddings", "shared"] 
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = process.env.GITHUB_REPO;
-const GITHUB_BRANCH = process.env.GITHUB_BRANCH ?? "feat/menu-migration";
+const GITHUB_BRANCH = process.env.GITHUB_BRANCH ?? "main";
 
 const VERCEL_TOKEN = process.env.VERCEL_TOKEN;
 const VERCEL_PROJECT_ID = process.env.VERCEL_PROJECT_ID;
