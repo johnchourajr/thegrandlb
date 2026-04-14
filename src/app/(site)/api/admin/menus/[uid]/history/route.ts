@@ -1,11 +1,8 @@
 import { cookies } from "next/headers";
 import type { NextRequest } from "next/server";
+import { getActiveBranch, GITHUB_TOKEN, GITHUB_REPO } from "../../_github";
 
 const VALID_UIDS = ["classic", "corporate", "milestones", "weddings", "shared"] as const;
-
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-const GITHUB_REPO = process.env.GITHUB_REPO;
-const GITHUB_BRANCH = process.env.GITHUB_BRANCH ?? "main";
 
 const VERCEL_TOKEN = process.env.VERCEL_TOKEN;
 const VERCEL_PROJECT_ID = process.env.VERCEL_PROJECT_ID;
@@ -70,9 +67,10 @@ export async function GET(
   }
 
   const filePath = `content/menus/${uid}.menu.json`;
+  const branch = await getActiveBranch();
 
   // ─── Fetch commit history from GitHub ────────────────────────────────────────
-  const commitsUrl = `https://api.github.com/repos/${GITHUB_REPO}/commits?path=${filePath}&sha=${GITHUB_BRANCH}&per_page=20`;
+  const commitsUrl = `https://api.github.com/repos/${GITHUB_REPO}/commits?path=${filePath}&sha=${branch}&per_page=20`;
   const commitsRes = await fetch(commitsUrl, {
     headers: {
       Authorization: `token ${GITHUB_TOKEN}`,

@@ -6,12 +6,9 @@ import type { MenuDoc } from "content/types";
 import { Resend } from "resend";
 import PublishEmail from "@/emails/publishEmail";
 import { diffMenuDocs } from "@/app/(admin)/admin/(protected)/menus/[uid]/utils/diff";
+import { getActiveBranch, GITHUB_TOKEN, GITHUB_REPO, githubHeaders } from "../_github";
 
 const VALID_UIDS = ["classic", "corporate", "milestones", "weddings", "shared"] as const;
-
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-const GITHUB_REPO = process.env.GITHUB_REPO;
-const GITHUB_BRANCH = process.env.GITHUB_BRANCH ?? "main";
 
 const MENU_TITLES: Record<string, string> = {
   classic: "Classic",
@@ -37,14 +34,6 @@ function githubFilePath(uid: string) {
 
 function githubContentsUrl(uid: string) {
   return `https://api.github.com/repos/${GITHUB_REPO}/contents/${githubFilePath(uid)}`;
-}
-
-function githubHeaders() {
-  return {
-    Authorization: `token ${GITHUB_TOKEN}`,
-    Accept: "application/vnd.github+json",
-    "Content-Type": "application/json",
-  };
 }
 
 // Returns the authenticated user's email, or null if not authenticated
@@ -189,10 +178,11 @@ export async function PUT(
   } catch { /* non-fatal — email will omit the diff */ }
 
   const changes = originalDoc ? diffMenuDocs(originalDoc, body) : [];
+  const branch = await getActiveBranch();
 
   try {
     // 1. Fetch current file SHA from GitHub
-    const getUrl = `${githubContentsUrl(uid)}?ref=${GITHUB_BRANCH}`;
+    const getUrl = `${githubContentsUrl(uid)}?ref=${branch}`;
     const getRes = await fetch(getUrl, { headers: githubHeaders() });
 
     if (!getRes.ok && getRes.status !== 404) {
@@ -215,7 +205,7 @@ export async function PUT(
     const commitPayload: Record<string, unknown> = {
       message: `cms: update ${uid} menu`,
       content: encoded,
-      branch: GITHUB_BRANCH,
+      branch,
     };
 
     if (currentSha) commitPayload.sha = currentSha;
