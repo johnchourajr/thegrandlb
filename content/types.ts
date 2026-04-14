@@ -132,6 +132,8 @@ export type MenuGroup = {
   description: string;
   disclaimer: string;
   sections: MenuSectionData[];
+  /** Set at runtime by the API when this group comes from shared.menu.json */
+  _shared?: boolean;
 };
 
 export type MenuDoc = {
@@ -140,4 +142,6 @@ export type MenuDoc = {
   page_description: string;
   page_disclaimer: string;
   groups: MenuGroup[];
+  /** Titles of groups inherited from shared.menu.json, appended after own groups */
+  shared_group_refs?: string[];
 };

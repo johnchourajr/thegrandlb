@@ -7,7 +7,7 @@ import { Resend } from "resend";
 import PublishEmail from "@/emails/publishEmail";
 import { diffMenuDocs } from "@/app/(admin)/admin/(protected)/menus/[uid]/utils/diff";
 
-const VALID_UIDS = ["classic", "corporate", "milestones", "weddings"] as const;
+const VALID_UIDS = ["classic", "corporate", "milestones", "weddings", "shared"] as const;
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = process.env.GITHUB_REPO;
@@ -77,6 +77,37 @@ function notFound(uid: string) {
   });
 }
 
+// ─── Shared group helpers ──────────────────────────────────────────────────────
+
+function readSharedGroups(): MenuDoc["groups"] {
+  try {
+    const sharedPath = localMenuPath("shared");
+    if (!fs.existsSync(sharedPath)) return [];
+    return (JSON.parse(fs.readFileSync(sharedPath, "utf-8")) as MenuDoc).groups ?? [];
+  } catch {
+    return [];
+  }
+}
+
+/** Merge shared groups into a menu doc, marking each with _shared: true */
+function mergeSharedGroups(menu: MenuDoc): MenuDoc {
+  if (!menu.shared_group_refs?.length) return menu;
+  const sharedGroups = readSharedGroups();
+  const merged = menu.shared_group_refs
+    .map((title) => sharedGroups.find((g) => g.title === title))
+    .filter((g): g is NonNullable<typeof g> => !!g)
+    .map((g) => ({ ...g, _shared: true as const }));
+  return { ...menu, groups: [...menu.groups, ...merged] };
+}
+
+/** Strip shared groups from a menu doc before saving */
+function stripSharedGroups(menu: MenuDoc): MenuDoc {
+  const groups = menu.groups.filter((g) => !g._shared);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { _shared: _s, ...rest } = menu as MenuDoc & { _shared?: unknown };
+  return { ...rest, groups };
+}
+
 // ─── GET — reads from local filesystem ────────────────────────────────────────
 
 export async function GET(
@@ -96,7 +127,9 @@ export async function GET(
     if (!fs.existsSync(filePath)) return notFound(uid);
     const raw = fs.readFileSync(filePath, "utf-8");
     const menu: MenuDoc = JSON.parse(raw);
-    return new Response(JSON.stringify(menu), {
+    // For non-shared menus, merge in the shared groups so the editor can display them
+    const merged = uid === "shared" ? menu : mergeSharedGroups(menu);
+    return new Response(JSON.stringify(merged), {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
@@ -142,6 +175,9 @@ export async function PUT(
       headers: { "Content-Type": "application/json" },
     });
   }
+
+  // Strip shared groups before saving — they live in shared.menu.json, not here
+  body = stripSharedGroups(body);
 
   // Read the local file before committing so we can diff what changed
   let originalDoc: MenuDoc | null = null;

@@ -41,6 +41,37 @@ export function GroupPanel({
     onChange({ ...group, sections: [...group.sections, newSection()] });
   }
 
+  // ─── Shared group — read-only, links to shared editor ──────────────────────
+  if (group._shared) {
+    return (
+      <div
+        id={groupId}
+        className="relative h-fit flex flex-col border border-black/10 rounded-xl bg-black/[0.02]"
+        style={{ scrollMarginTop: "var(--scroll-offset, 9rem)" }}
+      >
+        <div className={clsx("sticky top-[68px] z-[5] rounded-xl bg-black/[0.02]")}>
+          <div className="w-full flex items-center justify-between px-5 py-3">
+            <div className="flex items-center gap-2">
+              <span className="font-semibold text-black/50 text-paragraph-default">
+                {group.title}
+              </span>
+              <span className="px-1.5 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider bg-black/10 text-black/40">
+                Shared
+              </span>
+            </div>
+            <a
+              href="/admin/menus/shared"
+              className="text-string-small font-medium text-black/40 hover:text-black underline underline-offset-2 transition-colors"
+            >
+              Edit shared content →
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // ─── Normal editable group ──────────────────────────────────────────────────
   return (
     <div
       id={groupId}

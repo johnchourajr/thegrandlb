@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import type { NextRequest } from "next/server";
 
-const VALID_UIDS = ["classic", "corporate", "milestones", "weddings"] as const;
+const VALID_UIDS = ["classic", "corporate", "milestones", "weddings", "shared"] as const;
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const GITHUB_REPO = process.env.GITHUB_REPO;
