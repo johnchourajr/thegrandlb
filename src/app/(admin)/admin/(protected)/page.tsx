@@ -69,6 +69,24 @@ export default function AdminPage() {
           </span>
         </Link>
       </div>
+
+      <div className="mt-8 pt-8 border-t border-black/10">
+        <h2 className="text-sm font-semibold uppercase tracking-widest text-black/40 mb-3">
+          Activity
+        </h2>
+        <Link
+          href="/admin/changes"
+          className="block rounded-lg border border-black/10 bg-white p-5 hover:border-black/30 hover:shadow-sm transition-all group"
+        >
+          <h2 className="text-lg font-medium mb-1">Change Log</h2>
+          <p className="text-sm text-black/50">
+            All menu publishes across every menu, with change details.
+          </p>
+          <span className="mt-4 inline-block text-xs text-black/30 group-hover:text-black/60 transition-colors">
+            /admin/changes →
+          </span>
+        </Link>
+      </div>
     </div>
   );
 }
