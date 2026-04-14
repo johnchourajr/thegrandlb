@@ -1,4 +1,4 @@
-import type { PrismicImageLike } from "content/types";
+import type { ContentImageField } from "content/types";
 
 export type GridItemLayout = {
   col_span?: string;
@@ -25,7 +25,7 @@ export type TourSpaceRef = {
 
 export type TourSpaceWithLayout = {
   page: TourSpaceRef;
-  page_media: PrismicImageLike;
+  page_media: ContentImageField;
   layout: GridItemLayout;
 };
 
@@ -41,7 +41,7 @@ export type EventPageRef = {
 
 export type EventPageWithLayout = {
   page: EventPageRef;
-  page_media?: PrismicImageLike;
+  page_media?: ContentImageField;
   layout: GridItemLayout;
 };
 

@@ -16,7 +16,7 @@ export const MenuPageContent = ({ page }: MenuPageContentProps) => {
   // Use type guard to determine data structure
   const isExternalData = isMenuCollectionDocument(page);
 
-  // Handle different data structures from internal vs external Prismic repos
+  // Handle different data shapes (API menu collection vs legacy rich-text fields)
   let pageTitle: string;
   let pageDescription: string | undefined;
   let pageDisclaimer: string | undefined;

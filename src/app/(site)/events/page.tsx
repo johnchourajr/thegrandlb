@@ -8,7 +8,7 @@ import { getExtra } from "@/services/get-extra";
 import type { EventPageWithLayout } from "@/types/grid";
 import { DynamicSliceZone } from "@/components/DynamicExports";
 import { eventIndexPage } from "./content";
-import type { PrismicImageLike } from "content/types";
+import type { ContentImageField } from "content/types";
 
 export const revalidate = false;
 
@@ -18,7 +18,7 @@ export default async function Page() {
   const { slices, title, gallery, media, video_url, headline, body } = eventIndexPage.data;
   const eventPages = eventIndexPage.data.event_pages as Array<{
     page: { uid: string; data: { title?: string | null; headline?: string | null; caption?: string | null } };
-    page_media?: PrismicImageLike;
+    page_media?: ContentImageField;
   }> | undefined;
 
   const itemsWithLayout: EventPageWithLayout[] =

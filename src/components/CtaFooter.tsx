@@ -5,7 +5,7 @@ import {
   getKeyText,
   getLinkField,
   getSelectValue,
-} from "@/utils/prismic-helpers";
+} from "@/utils/content-field-helpers";
 import { splitTextIntoArray } from "@/utils/utils";
 import clsx from "clsx";
 import { useScroll, useSpring, useTransform } from "framer-motion";

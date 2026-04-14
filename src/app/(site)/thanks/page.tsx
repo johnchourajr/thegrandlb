@@ -8,7 +8,7 @@ export default async function ThanksPage() {
 
   return (
     <Layout
-      page={{ uid: "thanks", data: {} } as any}
+      page={{ uid: "thanks", data: {} }}
       settings={settings}
       navigation={navigation}
       className={"!min-h-[0vh]"}

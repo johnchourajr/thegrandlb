@@ -13,7 +13,7 @@ export default async function Page() {
   const { settings, navigation, cta, footer_cards } = await getExtra({});
 
   const { slices, title, gallery, media, icon_media, headline, body, video_url } = tourIndexPage.data;
-  const spaces = tourIndexPage.data.spaces as Array<{ page: { uid: string; data: Record<string, unknown> }; page_media: import("content/types").PrismicImageLike }> | undefined;
+  const spaces = tourIndexPage.data.spaces as Array<{ page: { uid: string; data: Record<string, unknown> }; page_media: import("content/types").ContentImageField }> | undefined;
 
   const spacesWithLayout: TourSpaceWithLayout[] =
     (spaces ?? []).map((item) => ({

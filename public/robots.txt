@@ -7,9 +7,6 @@ User-agent: *
 # Disallow API routes (internal use only)
 Disallow: /api/
 
-# Disallow preview routes
-Disallow: /preview/
-
 # Disallow thank you page (form submission)
 Disallow: /thanks
 
