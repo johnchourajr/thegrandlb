@@ -284,11 +284,5 @@
         }
       ]
     }
-  ],
-  "shared_group_refs": [
-    "Appetizers",
-    "Main Courses",
-    "Sweets",
-    "Drinks"
   ]
 }

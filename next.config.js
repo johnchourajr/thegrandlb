@@ -1,6 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
+  // Ensure content/menus JSON files are included in the Vercel serverless
+  // function bundle so fs.readFileSync works at runtime (ISR, API routes).
+  outputFileTracingIncludes: {
+    "/menus/[uid]": ["./content/menus/*.menu.json"],
+    "/api/admin/menus/[uid]": ["./content/menus/*.menu.json"],
+  },
   images: {
     remotePatterns: [
       {
