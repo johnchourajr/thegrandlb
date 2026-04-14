@@ -11,7 +11,7 @@ const urls = fs
 const ids = urls
   .map((u) => u.match(/\/([a-f0-9-]{36})\/public/)?.[1])
   .filter(Boolean);
-if (ids.length !== 146) throw new Error(`expected 146 ids, got ${ids.length}`);
+if (ids.length !== 151) throw new Error(`expected 151 ids, got ${ids.length}`);
 
 const C = {
   "003e6a49-b9e9-4186-2778-3b167de12200": {
@@ -475,6 +475,15 @@ const C = {
     estimatedVenueArea: "palm-terrace",
     suggestedUseTags: ["tour_index"],
   },
+  "551b3578-47d1-44b7-8754-253b9ea34400": {
+    summary:
+      "Indoor reception in a banquet hall: damask tablecloths, gold Chiavari chairs with seafoam sashes, stone pillars, greenery in arched niches, white ceiling draping, polished wood floor.",
+    sceneType: "indoor_reception",
+    setting: "indoor",
+    subjects: ["tables", "chairs", "pillars", "draping", "linens"],
+    estimatedVenueArea: null,
+    suggestedUseTags: ["weddings", "reception", "events_index_faq", "ballroom"],
+  },
   "553154e2-acd9-4f5e-6ce5-9d8d37fd9a00": {
     summary: "Garden Room with green mural wall and chandelier.",
     sceneType: "ballroom_botanical",
@@ -647,6 +656,15 @@ const C = {
     subjects: ["chefs", "kitchen"],
     estimatedVenueArea: null,
     suggestedUseTags: ["menus", "culinary"],
+  },
+  "732665b9-4a78-4489-a0d5-26e8d6869000": {
+    summary:
+      "Palm Terrace outdoor wedding ceremony: white aisle runner, folding chairs with aisle florals, floral arch, bamboo and palm backdrop, string lights overhead.",
+    sceneType: "outdoor_ceremony",
+    setting: "outdoor",
+    subjects: ["ceremony", "aisle", "arch", "chairs", "palms", "string_lights"],
+    estimatedVenueArea: "palm-terrace",
+    suggestedUseTags: ["weddings", "ceremony", "palm_terrace", "events_index_faq"],
   },
   "7573ad4a-ba05-4e5f-e1cd-c7375ee52200": {
     summary:
@@ -994,6 +1012,14 @@ const C = {
     estimatedVenueArea: "pacific-room",
     suggestedUseTags: ["tour"],
   },
+  "bf87763c-0f39-4979-462c-f7ca3b03e300": {
+    summary: "The Grand LB",
+    sceneType: "brand_logo",
+    setting: "graphic",
+    subjects: ["logo", "wordmark"],
+    estimatedVenueArea: null,
+    suggestedUseTags: ["email", "transactional"],
+  },
   "c647a4c0-5d20-4460-82ad-d029b7c14800": {
     summary:
       "Indoor ceremony wide shot with floral arch and guests.",
@@ -1037,6 +1063,15 @@ const C = {
     estimatedVenueArea: null,
     suggestedUseTags: ["weddings", "rehearsal_dinner"],
   },
+  "ce6b6df3-de8f-4d7a-0191-2013927d3b00": {
+    summary:
+      "Indoor ballroom wedding reception: draped walls and ceiling swags, guest tables with peach accents, raised sweetheart table with fabric canopy, throne chairs, floral wall backdrop, warm uplighting.",
+    sceneType: "ballroom_reception",
+    setting: "indoor",
+    subjects: ["draping", "sweetheart_table", "guest_tables", "uplighting", "canopy"],
+    estimatedVenueArea: null,
+    suggestedUseTags: ["weddings", "reception", "sweetheart", "events_index_faq"],
+  },
   "cfe41bb3-f218-430d-868d-99feb6668300": {
     summary:
       "Elegant ballroom interior with rounds, chandeliers, soft uplighting.",
@@ -1045,6 +1080,15 @@ const C = {
     subjects: ["chandeliers", "tables"],
     estimatedVenueArea: null,
     suggestedUseTags: ["events_index_hero"],
+  },
+  "d32523d7-4727-4d69-7b24-d5a5d95d9b00": {
+    summary:
+      "Sweetheart or head table on a raised stage: pleated ivory draping, candles, coordinated florals; guest rounds visible in warm uplighting.",
+    sceneType: "sweetheart_table",
+    setting: "indoor",
+    subjects: ["sweetheart_table", "draping", "candles", "florals", "uplighting"],
+    estimatedVenueArea: null,
+    suggestedUseTags: ["weddings", "reception", "draping", "head_table"],
   },
   "d3737cc7-41a3-499b-cca7-9269111c0b00": {
     summary:

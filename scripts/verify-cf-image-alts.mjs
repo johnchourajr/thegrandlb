@@ -43,7 +43,10 @@ function altBeforeUrl(text, urlIndex) {
   const quoted = [...slice.matchAll(/"alt":\s*"((?:[^"\\]|\\.)*)"/g)].map(
     (m) => decodeAlt(m[1])
   );
-  const candidates = [...unquoted, ...quoted];
+  const jsxAlt = [...slice.matchAll(/\balt="((?:[^"\\]|\\.)*)"/g)].map((m) =>
+    decodeAlt(m[1])
+  );
+  const candidates = [...unquoted, ...quoted, ...jsxAlt];
   return candidates.length ? candidates[candidates.length - 1] : null;
 }
 

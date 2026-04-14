@@ -41,13 +41,13 @@ This document helps humans and agents find **where media lives**, **what it is f
 
 ## Cloudflare Images — all photo URLs in this repo
 
-There are **146** distinct `imagedelivery.net` image URLs checked into TypeScript content (variant `public`, account hash `jq-BfOr8JDGgGxqbx8v5CA`).
+There are **151** distinct `imagedelivery.net` image URLs checked into TypeScript content (variant `public`, account hash `jq-BfOr8JDGgGxqbx8v5CA`).
 
 **Agent-oriented meaning, reuse rules, and shared “stock” semantics:** [`docs/cloudflare-images-for-agents.md`](cloudflare-images-for-agents.md)
 
 **Full machine-readable list (one URL per line):** [`docs/cloudflare-images-urls.txt`](cloudflare-images-urls.txt)
 
-**Visual scene classification (all 146 images; vision-only, do not trust repo `alt` for meaning):** [`docs/cloudflare-images-visual-classification.json`](cloudflare-images-visual-classification.json) — see [`docs/cloudflare-images-for-agents.md`](cloudflare-images-for-agents.md).
+**Visual scene classification (all 151 images; vision-only, do not trust repo `alt` for meaning):** [`docs/cloudflare-images-visual-classification.json`](cloudflare-images-visual-classification.json) — see [`docs/cloudflare-images-for-agents.md`](cloudflare-images-for-agents.md).
 
 **Tour detail interiors → room uid:** [`docs/tour-room-image-ids.json`](tour-room-image-ids.json)
 
@@ -58,7 +58,7 @@ There are **146** distinct `imagedelivery.net` image URLs checked into TypeScrip
 | `src/app/(site)/tour/[uid]/content.ts` | 63 |
 | `src/app/(site)/about/content.ts` | 20 |
 | `src/app/(site)/tour/content.ts` | 16 |
-| `src/app/(site)/events/content.ts` | 13 |
+| `src/app/(site)/events/content.ts` | 17 |
 | `src/app/(site)/content.ts` | 11 |
 | `src/app/(site)/menus/content.ts` | 7 |
 | `src/app/(site)/events/[uid]/milestones.content.ts` | 7 |

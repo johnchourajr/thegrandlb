@@ -22,9 +22,6 @@ type EmailTemplateProps = {
   children: ReactNode;
 };
 
-const logoUrl =
-  "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/bf87763c-0f39-4979-462c-f7ca3b03e300/public";
-
 const logoStyle = {
   margin: "0 0 20px",
 };
@@ -102,10 +99,10 @@ export default function EmailTemplate({
               <Section style={logoStyle}>
                 <Link href="https://thegrandlb.com" target="_blank" rel="noreferrer">
                   <Img
-                    src={logoUrl}
+                    alt="The Grand LB"
+                    src="https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/bf87763c-0f39-4979-462c-f7ca3b03e300/public"
                     width="177"
                     height="65"
-                    alt="The Grand LB"
                   />
                 </Link>
               </Section>

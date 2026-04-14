@@ -16,7 +16,21 @@ Files under **`src/app/(site)/events/[uid]/*.content.ts`** are excluded as a gui
 
 ---
 
-**Canonical URL list:** [`cloudflare-images-urls.txt`](cloudflare-images-urls.txt) (146 unique IDs).
+**Canonical URL list:** [`cloudflare-images-urls.txt`](cloudflare-images-urls.txt) (151 unique IDs; bump the count in the generator script when you add lines).
+
+### Adding new Cloudflare Images (human workflow)
+
+1. **Delivery URL, not dashboard filename** — In Cloudflare Images, open the asset and copy the **Image Delivery URL** (or build it yourself). The `{image-id}` segment is a UUID-shaped id in the path, **not** the upload filename (e.g. `141a6551.jpg` is only a label; the id in the URL is different).
+
+   `https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/{image-id}/public`
+
+2. **Append one full URL per line** to [`cloudflare-images-urls.txt`](cloudflare-images-urls.txt) (sorted alphabetically by URL keeps diffs tidy).
+
+3. **Curate vision metadata** — In [`scripts/generate-visual-classification.mjs`](../scripts/generate-visual-classification.mjs), add a new entry in the `C` object keyed by that `{image-id}` (`summary`, `sceneType`, `setting`, `subjects`, optional `estimatedVenueArea`, `suggestedUseTags`). Until that entry exists, the generator will not know how to describe the image.
+
+4. **Update the expected count** — The script asserts `ids.length === 151` (search for `expected 151 ids`). After adding `N` new URLs, change that number accordingly (or replace the magic number with validation you prefer).
+
+5. **Regenerate JSON, sync alts, verify** — Run the commands below, then use the visual JSON to pick **which** `*.content.ts` blocks get the new id (see [How to pick an image](#how-to-pick-an-image-for-a-landing-block)). For **events verticals** (`events/[uid]/*`), still pick by vision, not by copying another vertical’s gallery.
 
 **Regenerate visual classifications** (after editing curated entries in the generator script):
 
@@ -127,7 +141,10 @@ In `events/content.ts`, captions group IDs by **space label**. Confirm each ID a
 
 | Caption | Image IDs (order in file) |
 |---------|---------------------------|
-| The Palm Terrace | `9d0dccc6-cc37-4965-8019-d351ad9f3700`, `45647c84-beeb-4396-f30c-dd2846eec100`, `166c57dc-8df9-4af7-b71d-1acd17872100`, `bc27becf-bed9-4be0-7e8d-125bfa267200` |
+| The Palm Terrace | `9d0dccc6-cc37-4965-8019-d351ad9f3700`, `45647c84-beeb-4396-f30c-dd2846eec100`, `166c57dc-8df9-4af7-b71d-1acd17872100`, `bc27becf-bed9-4be0-7e8d-125bfa267200`, `732665b9-4a78-4489-a0d5-26e8d6869000` |
+| Ballroom reception | `ce6b6df3-de8f-4d7a-0191-2013927d3b00` |
+| Indoor reception | `551b3578-47d1-44b7-8754-253b9ea34400` |
+| Sweetheart table | `d32523d7-4727-4d69-7b24-d5a5d95d9b00` |
 | The Grand Ballroom | `ba00e56c-e108-4405-26e1-f16ba5b35c00`, `0061dc98-91d8-48c7-a03c-391748748a00` |
 | The Monarch Patio | `07acd8a1-873a-46a9-2481-8b8de3197b00` |
 | The Garden Room | `889f2c5d-d996-4f19-c5c3-6da3daa08b00` |

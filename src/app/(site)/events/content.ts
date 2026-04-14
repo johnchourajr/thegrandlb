@@ -325,6 +325,58 @@ export const eventIndexPage: PageDoc = {
                   url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/bc27becf-bed9-4be0-7e8d-125bfa267200/public",
                 },
               },
+              {
+                caption: "Ballroom reception",
+                link: null,
+                video_media: null,
+                media: {
+                  dimensions: {
+                    width: 2464,
+                    height: 1848,
+                  },
+                  alt: "Indoor ballroom wedding reception: draped walls and ceiling swags, guest tables with peach accents, raised sweetheart table with fabric canopy, throne chairs, floral wall backdrop, warm uplighting.",
+                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/ce6b6df3-de8f-4d7a-0191-2013927d3b00/public",
+                },
+              },
+              {
+                caption: "Indoor reception",
+                link: null,
+                video_media: null,
+                media: {
+                  dimensions: {
+                    width: 2464,
+                    height: 1848,
+                  },
+                  alt: "Indoor reception in a banquet hall: damask tablecloths, gold Chiavari chairs with seafoam sashes, stone pillars, greenery in arched niches, white ceiling draping, polished wood floor.",
+                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/551b3578-47d1-44b7-8754-253b9ea34400/public",
+                },
+              },
+              {
+                caption: "The Palm Terrace",
+                link: null,
+                video_media: null,
+                media: {
+                  dimensions: {
+                    width: 2464,
+                    height: 1848,
+                  },
+                  alt: "Palm Terrace outdoor wedding ceremony: white aisle runner, folding chairs with aisle florals, floral arch, bamboo and palm backdrop, string lights overhead.",
+                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/732665b9-4a78-4489-a0d5-26e8d6869000/public",
+                },
+              },
+              {
+                caption: "Sweetheart table",
+                link: null,
+                video_media: null,
+                media: {
+                  dimensions: {
+                    width: 2464,
+                    height: 1848,
+                  },
+                  alt: "Sweetheart or head table on a raised stage: pleated ivory draping, candles, coordinated florals; guest rounds visible in warm uplighting.",
+                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/d32523d7-4727-4d69-7b24-d5a5d95d9b00/public",
+                },
+              },
             ],
           },
         },
