@@ -2,6 +2,7 @@
 
 import type { MenuGroup, MenuSectionData } from "@/types/menu";
 import clsx from "clsx";
+import { AnimatePresence, motion } from "framer-motion";
 import { inputCls, labelCls } from "../utils/classes";
 import { newSection } from "../utils/newItem";
 import { SectionBlock } from "./SectionBlock";
@@ -127,19 +128,29 @@ export function GroupPanel({
             </div>
           </div>
 
-          {group.sections.map((section, i) => (
-            <SectionBlock
-              key={i}
-              sectionId={`section-${groupId}-${i}`}
-              section={section}
-              onChange={(updated) => updateSection(i, updated)}
-              onRemove={() => removeSection(i)}
-              onMoveUp={i > 0 ? () => moveSection(i, i - 1) : undefined}
-              onMoveDown={
-                i < group.sections.length - 1 ? () => moveSection(i, i + 1) : undefined
-              }
-            />
-          ))}
+          <AnimatePresence initial={false}>
+            {group.sections.map((section, i) => {
+              const stableKey = section.primary.title[0]?.text || String(i);
+              return (
+                <motion.div
+                  key={stableKey}
+                  layout
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
+                >
+                  <SectionBlock
+                    sectionId={`section-${groupId}-${i}`}
+                    section={section}
+                    onChange={(updated) => updateSection(i, updated)}
+                    onRemove={() => removeSection(i)}
+                    onMoveUp={i > 0 ? () => moveSection(i, i - 1) : undefined}
+                    onMoveDown={
+                      i < group.sections.length - 1 ? () => moveSection(i, i + 1) : undefined
+                    }
+                  />
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
 
           <button
             type="button"

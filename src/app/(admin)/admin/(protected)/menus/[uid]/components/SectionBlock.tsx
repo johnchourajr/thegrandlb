@@ -2,6 +2,7 @@
 
 import type { MenuItemData, MenuSectionData } from "@/types/menu";
 import clsx from "clsx";
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { inputCls, labelCls } from "../utils/classes";
 import { newItem } from "../utils/newItem";
@@ -146,20 +147,30 @@ export function SectionBlock({
         )}
 
         <div className="flex flex-col gap-3">
-          {section.items.map((item, i) => (
-            <ItemRow
-              key={i}
-              item={item}
-              onChange={(updated) => updateItem(i, updated)}
-              onRemove={() => removeItem(i)}
-              onMoveUp={i > 0 ? () => moveItem(i, i - 1) : undefined}
-              onMoveDown={
-                i < section.items.length - 1
-                  ? () => moveItem(i, i + 1)
-                  : undefined
-              }
-            />
-          ))}
+          <AnimatePresence initial={false}>
+            {section.items.map((item, i) => {
+              const stableKey = item.title[0]?.text || String(i);
+              return (
+                <motion.div
+                  key={stableKey}
+                  layout
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
+                >
+                  <ItemRow
+                    item={item}
+                    onChange={(updated) => updateItem(i, updated)}
+                    onRemove={() => removeItem(i)}
+                    onMoveUp={i > 0 ? () => moveItem(i, i - 1) : undefined}
+                    onMoveDown={
+                      i < section.items.length - 1
+                        ? () => moveItem(i, i + 1)
+                        : undefined
+                    }
+                  />
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
         </div>
 
         <button
