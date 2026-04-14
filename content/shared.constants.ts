@@ -11,7 +11,7 @@ export const settings: SharedDoc = {
     site_title: [
       {
         type: "heading1",
-        text: "The Grand Long Beach — So Cal's Premier Event Venue",
+        text: "The Grand Long Beach — SoCal's Premier Event Venue",
         spans: [],
       },
     ],
@@ -100,7 +100,7 @@ export const settings: SharedDoc = {
     legal_text: [
       {
         type: "paragraph",
-        text: "Privacy Policy. Site by John.Design",
+        text: "Privacy Policy. Sitemap. Site by John.Design",
         spans: [
           {
             start: 0,
@@ -120,8 +120,17 @@ export const settings: SharedDoc = {
             },
           },
           {
-            start: 24,
-            end: 35,
+            start: 16,
+            end: 23,
+            type: "hyperlink",
+            data: {
+              link_type: "Web",
+              url: "/sitemap-page",
+            },
+          },
+          {
+            start: 34,
+            end: 45,
             type: "hyperlink",
             data: {
               link_type: "Web",
@@ -374,16 +383,19 @@ export const navigation: SharedDoc | null = {
           {
             child_link_title: "For Quinceañeras",
             child_link_source: {
-              link_type: "Any",
+              id: "quinces-page-001",
+              type: "event_page",
+              tags: [],
+              lang: "en-us",
+              slug: "quinces",
+              first_publication_date: "2026-04-09T00:00:00+0000",
+              last_publication_date: "2026-04-09T00:00:00+0000",
+              uid: "quinces",
+              link_type: "Document",
+              key: "quinces-nav-001",
+              isBroken: false,
             },
-            show: false,
-          },
-          {
-            child_link_title: "For Indian Weddings",
-            child_link_source: {
-              link_type: "Any",
-            },
-            show: false,
+            show: true,
           },
         ],
       },
@@ -561,7 +573,7 @@ export const ctaFooter: SharedDoc | null = {
         width: 3840,
         height: 2160,
       },
-      alt: null,
+      alt: "Evening exterior with palms and illuminated entry (footer mood).",
       copyright: null,
       url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/9c4a00e5-743d-41fc-f500-8e35b371b000/public",
       id: "ZNRzHxAAACcAlv4o",
@@ -672,7 +684,7 @@ export const footerCards: SharedDoc[] = [
       media: {},
       eyebrow: "See our menus",
       headline: "A Taste of Grand",
-      body: "Our in-house catering team is dedicated to delivering delicious and innovative cuisine that will impress your guests. Our menu options are designed to be both delicious and visually stunning, ensuring that your event is a memorable one.",
+      body: "Our in-house catering team delivers innovative cuisine tailored to your event. From plated dinners to action stations, every menu is designed to impress your guests and elevate the occasion.",
       link: { link_type: "Web", url: "/menus" },
       theme: "White/Black",
       size: "Large",

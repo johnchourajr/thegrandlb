@@ -17,8 +17,9 @@ export default async function ContactPage() {
 
 export async function generateMetadata() {
   return {
-    title: "Contact",
+    title: "Contact The Grand LB | Event Venue in Long Beach, CA",
     description:
-      "Get in touch with The Grand LB. Phone, address and contact form for venue inquiries and bookings.",
+      "Contact The Grand Long Beach at (562) 426-0555 or visit us at 4101 E. Willow St., Long Beach, CA 90815. Inquire about weddings, corporate events, and private celebrations.",
+    alternates: { canonical: "/contact" },
   };
 }

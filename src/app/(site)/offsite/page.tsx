@@ -19,7 +19,8 @@ export default async function Page() {
 
 export async function generateMetadata() {
   return {
-    title: "Offsite - The Grand LB",
-    description: "Explore our offsite event options at The Grand LB",
+    title: "Offsite Events & Catering | The Grand LB in Long Beach, CA",
+    description: "Explore offsite catering and event services from The Grand Long Beach. Full-service catering and event support beyond our Long Beach venue.",
+    alternates: { canonical: "/offsite" },
   };
 }

@@ -12,7 +12,7 @@ export const menuIndexPage: PageDoc = {
         "width": 3840,
         "height": 2160
       },
-      "alt": null,
+      "alt": "Chef garnishing a plated dish with precision (hands and plate).",
       "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/8c590e41-1860-402a-44a1-767881408e00/public"
     },
     "meta_title": null,
@@ -196,7 +196,7 @@ export const menuIndexPage: PageDoc = {
                     "width": 1850,
                     "height": 2466
                   },
-                  "alt": null,
+                  "alt": "Kitchen or prep line with chefs working.",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/72908b93-f2c2-44c4-ccb0-b3294d921400/public"
                 }
               },
@@ -208,7 +208,7 @@ export const menuIndexPage: PageDoc = {
                     "width": 1850,
                     "height": 2466
                   },
-                  "alt": null,
+                  "alt": "Passed hors d'oeuvre tray with bruschetta-like bites (service detail).",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/34a92d62-a25b-4a27-422f-2e8777714600/public"
                 }
               },
@@ -220,7 +220,7 @@ export const menuIndexPage: PageDoc = {
                     "width": 2466,
                     "height": 1850
                   },
-                  "alt": null,
+                  "alt": "Chef garnishing small bites on a tray.",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/f8325240-f0c7-4319-7703-026e3d803000/public"
                 }
               },
@@ -232,7 +232,7 @@ export const menuIndexPage: PageDoc = {
                     "width": 2467,
                     "height": 1850
                   },
-                  "alt": null,
+                  "alt": "Plated dessert with berry garnish and chocolate decoration.",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/45e64cf1-7202-4c5e-634b-1965815d2400/public"
                 }
               },
@@ -244,7 +244,7 @@ export const menuIndexPage: PageDoc = {
                     "width": 1850,
                     "height": 2466
                   },
-                  "alt": null,
+                  "alt": "Chef torching or finishing a dish at the pass.",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/c86282c4-c74f-46ed-b93e-f618390c0e00/public"
                 }
               },
@@ -256,7 +256,7 @@ export const menuIndexPage: PageDoc = {
                     "width": 2467,
                     "height": 1850
                   },
-                  "alt": null,
+                  "alt": "Plated entree with vegetables and sauce (food hero).",
                   "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/98e95b5f-8018-45cb-e8e2-c26b9c68bd00/public"
                 }
               }

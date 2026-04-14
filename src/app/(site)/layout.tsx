@@ -23,8 +23,12 @@ export const metadata: Metadata = {
   keywords: [
     "event venue Long Beach",
     "wedding venue Long Beach",
+    "quinceañera venue Long Beach",
     "corporate events Long Beach",
     "private events SoCal",
+    "party venue Long Beach CA",
+    "banquet hall Long Beach",
+    "event space near LAX",
   ],
   authors: [{ name: "The Grand Long Beach" }],
   openGraph: {

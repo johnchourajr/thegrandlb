@@ -2,27 +2,42 @@ import CtaFooter from "@/components/CtaFooter";
 import Layout from "@/components/Layout";
 import { MenuPageContent } from "@/components/MenuPageContent";
 import { getExtra } from "@/services/get-extra";
-import milestonesMenu from "content/menus/milestones.menu";
+import { fetchMenuCollection } from "@/services/menu-data";
+import type { MenuPageDocumentWithGroup } from "@/types/menu";
 
-export const revalidate = false;
+export const revalidate = 3600;
 
 export default async function MilestonesMenuPage() {
-  const extra = await getExtra({});
-  const { cta, settings, navigation } = extra;
-  const page = { uid: milestonesMenu.uid, data: {} };
+  try {
+    const extra = await getExtra({});
+    const { cta, settings, navigation } = extra;
 
-  return (
-    <Layout page={page} settings={settings} navigation={navigation}>
-      <MenuPageContent menu={milestonesMenu} />
-      <CtaFooter data={cta} />
-    </Layout>
-  );
+    const page = { uid: "milestones", type: "menu_page" as const, data: { menu_api_uid: "milestones" } };
+
+    let menuSource: MenuPageDocumentWithGroup;
+    try {
+      menuSource = await fetchMenuCollection("milestones");
+    } catch (menuError) {
+      console.error("Error fetching milestones menu data:", menuError);
+      menuSource = page;
+    }
+
+    return (
+      <Layout page={page} settings={settings} navigation={navigation}>
+        <MenuPageContent page={menuSource} />
+        <CtaFooter data={cta} />
+      </Layout>
+    );
+  } catch (error) {
+    console.error("Error loading milestones menu page:", error);
+    throw error;
+  }
 }
 
 export async function generateMetadata() {
   return {
-    title: "Milestones Menu",
+    title: "Milestone Celebration Catering Menu | Quinceañeras, Birthdays & More",
     description:
-      "Catering for milestone celebrations: quinceaneras, bar mitzvahs and anniversaries at The Grand LB.",
+      "Catering menu for milestone celebrations at The Grand Long Beach. Customizable menus for quinceañeras, birthdays, anniversaries, and more. In-house kitchen in Long Beach, CA.",
   };
 }

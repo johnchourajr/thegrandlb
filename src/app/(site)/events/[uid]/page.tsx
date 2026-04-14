@@ -8,6 +8,7 @@ import {
   DynamicSliceZone,
   DynamicTileFooter,
 } from "@/components/DynamicExports";
+import JsonLdBreadcrumb from "@/components/JsonLdBreadcrumb";
 import { eventPages, eventPageUids } from "./content";
 
 export const revalidate = false;
@@ -26,6 +27,13 @@ export default async function Page({
 
   return (
     <Layout page={page} settings={settings} navigation={navigation}>
+      <JsonLdBreadcrumb
+        crumbs={[
+          { name: "Home", url: "https://thegrandlb.com" },
+          { name: "Events", url: "https://thegrandlb.com/events" },
+          { name: page.data.title ?? uid, url: `https://thegrandlb.com/events/${uid}` },
+        ]}
+      />
       <DynamicHeroDetailPage
         uid={page.uid}
         title={title}
@@ -49,11 +57,34 @@ export async function generateMetadata({
   const { uid } = await params;
   const page = eventPages[uid];
   if (!page) {
-    return { title: "Event - The Grand LB", description: "The Grand LB - Luxury Event Venue" };
+    return {
+      title: "Event - The Grand LB",
+      description: "The Grand LB - Luxury Event Venue",
+    };
   }
+  const title = page.data.meta_title || `${page.data.title} | The Grand LB`;
+  const description =
+    page.data.meta_description || "The Grand LB - Luxury Event Venue";
+  const heroImage = page.data.slices?.find((s) => s.type === "image_section");
+  const media = heroImage?.media as { url?: string } | undefined;
+  const ogImage = media?.url;
   return {
-    title: page.data.meta_title || `The Grand LB - ${page.data.title}`,
-    description: page.data.meta_description || "The Grand LB - Luxury Event Venue",
+    title: { absolute: title },
+    description,
+    alternates: { canonical: `/events/${uid}` },
+    ...(ogImage && {
+      openGraph: {
+        title,
+        description,
+        images: [{ url: ogImage, width: 1200, height: 630 }],
+      },
+      twitter: {
+        card: "summary_large_image" as const,
+        title,
+        description,
+        images: [ogImage],
+      },
+    }),
   };
 }
 

@@ -51,6 +51,7 @@ next-env.d.ts
 
 # video migration (downloaded/original, optimized, manifest)
 /videos/
+/docs/archive
 
-# Docs
-/docs
+# agent scratch (e.g. bulk image downloads for visual QA)
+/tmp/

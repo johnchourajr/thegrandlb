@@ -46,8 +46,9 @@ export default async function Page() {
 
 export async function generateMetadata() {
   return {
-    title: "Tour",
+    title: "Tour Our Event Spaces | 7 Venues for 40-675 Guests in Long Beach, CA",
     description:
-      "Explore our ballrooms, dining rooms and 40,000 sq ft event spaces. Virtual tour of The Grand LB in Long Beach.",
+      "Explore 7 indoor and outdoor event spaces at The Grand Long Beach. From The Grand Ballroom (675 guests) to The Board Room (40 guests). 40,000 sq ft venue in Long Beach, CA.",
+    alternates: { canonical: "/tour" },
   };
 }

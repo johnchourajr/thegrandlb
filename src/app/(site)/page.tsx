@@ -17,18 +17,19 @@ export default async function Homepage() {
 }
 
 export async function generateMetadata() {
+  const description =
+    "Premier 40,000 sq ft event venue in Long Beach, CA. Host weddings, quinceañeras, corporate events, and private celebrations across 7 spaces for up to 675 guests. 20 min from LAX.";
   return {
     title: {
       absolute:
-        "The Grand LB | Premier Event Venue & Weddings in Long Beach, CA",
+        "The Grand LB | Event Venue & Wedding Venue in Long Beach, CA",
     },
-    description:
-      "SoCal's premier 40,000 sq ft event venue. Host weddings, corporate events and private celebrations in Long Beach. 20 minutes from LAX.",
+    description,
+    alternates: { canonical: "/" },
     openGraph: {
       title:
-        "The Grand LB | Premier Event Venue & Weddings in Long Beach, CA",
-      description:
-        "SoCal's premier 40,000 sq ft event venue. Host weddings, corporate events and private celebrations in Long Beach. 20 minutes from LAX.",
+        "The Grand LB | Event Venue & Wedding Venue in Long Beach, CA",
+      description,
     },
   };
 }

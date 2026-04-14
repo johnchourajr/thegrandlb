@@ -1,5 +1,3 @@
-"use client";
-
 import { GridSection } from "@/components/GridSection";
 import MediaFrame from "@/components/media-frame";
 import MotionBox from "@/components/MotionBox";
@@ -35,27 +33,20 @@ const FaqSection = ({
     }
   };
 
-  function faqJsonLd() {
-    return {
-      __html: `{
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-        ${items.map(
-          ({ question, answer }) =>
-            `{
-              "@type": "Question",
-              "name": "${toText(question)}",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "${toHtml(answer)}"
-              }
-            }`
-        )}
-        ]
-      }
-    `,
+  function buildFaqJsonLd() {
+    const faq = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: items.map(({ question, answer }) => ({
+        "@type": "Question",
+        name: toText(question),
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: toHtml(answer),
+        },
+      })),
     };
+    return JSON.stringify(faq);
   }
 
   const openByDefault = items.length <= 4;
@@ -65,8 +56,8 @@ const FaqSection = ({
       <Script
         id={`faq-${section_id || "faq"}-jsonld`}
         type="application/ld+json"
-        dangerouslySetInnerHTML={faqJsonLd()}
-        strategy="afterInteractive"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{ __html: buildFaqJsonLd() }}
       />
       <GridSection
         id={section_id || slice.type}

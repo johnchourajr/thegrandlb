@@ -26,8 +26,9 @@ export default async function Page() {
 
 export async function generateMetadata() {
   return {
-    title: "Menus",
+    title: "Event Catering Menus | In-House Kitchen at The Grand LB in Long Beach",
     description:
-      "Catering and banquet menus for weddings, corporate events and private celebrations at The Grand LB.",
+      "In-house catering menus for weddings, quinceañeras, corporate events, and private celebrations at The Grand Long Beach. Plated dinners, buffet service, and action stations.",
+    alternates: { canonical: "/menus" },
   };
 }
