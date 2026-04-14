@@ -12,10 +12,10 @@ import { HistoryPanel } from "./components/HistoryPanel";
 import { MobileJumpSelect } from "./components/MobileJumpSelect";
 import { ReviewModal } from "./components/ReviewModal";
 import { SectionNav } from "./components/SectionNav";
-import { Toast } from "./components/Toast";
 import type { ToastState } from "./components/Toast";
-import { diffMenuDocs } from "./utils/diff";
+import { Toast } from "./components/Toast";
 import { inputCls, labelCls } from "./utils/classes";
+import { diffMenuDocs } from "./utils/diff";
 
 export default function MenuEditorPage() {
   const { uid } = useParams<{ uid: string }>();
@@ -136,7 +136,9 @@ export default function MenuEditorPage() {
         const groupEl = document.getElementById(`group-${gi}`);
         if (groupEl) observer.observe(groupEl);
         group.sections.forEach((_, si) => {
-          const sectionEl = document.getElementById(`section-group-${gi}-${si}`);
+          const sectionEl = document.getElementById(
+            `section-group-${gi}-${si}`,
+          );
           if (sectionEl) observer.observe(sectionEl);
         });
       });
@@ -256,9 +258,14 @@ export default function MenuEditorPage() {
   }
 
   return (
-    <div style={{ "--scroll-offset": `${scrollOffset}px` } as React.CSSProperties}>
+    <div
+      style={{ "--scroll-offset": `${scrollOffset}px` } as React.CSSProperties}
+    >
       {/* Sticky page header */}
-      <div ref={stickyHeaderRef} className="sticky top-0 z-20 bg-cream/95 backdrop-blur py-3 -mt-8 border-b border-black/10 mb-6">
+      <div
+        ref={stickyHeaderRef}
+        className="sticky top-0 z-20 bg-cream/95 backdrop-blur py-3 -mt-3 border-b border-black/10 mb-6"
+      >
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <Link
@@ -293,7 +300,10 @@ export default function MenuEditorPage() {
       </div>
 
       {draftDoc && (
-        <DraftBanner onRestore={handleRestoreDraft} onDiscard={handleDiscardDraft} />
+        <DraftBanner
+          onRestore={handleRestoreDraft}
+          onDiscard={handleDiscardDraft}
+        />
       )}
 
       {/* Two-column layout */}
@@ -328,7 +338,9 @@ export default function MenuEditorPage() {
                   <input
                     type="text"
                     value={doc.page_title}
-                    onChange={(e) => setDoc({ ...doc, page_title: e.target.value })}
+                    onChange={(e) =>
+                      setDoc({ ...doc, page_title: e.target.value })
+                    }
                     className={inputCls}
                   />
                 </div>
