@@ -34,30 +34,44 @@ export function SectionNav({
             <div className="flex items-center gap-1.5">
               <button
                 type="button"
-                onClick={() => onGroupNavigate(gi)}
+                onClick={() => group._shared ? undefined : onGroupNavigate(gi)}
                 className={clsx(
                   "min-w-0 flex-1 truncate rounded py-1 text-left text-string-default font-semibold uppercase tracking-wide transition-colors",
                   groupVisible ? "text-black" : "text-black/40 hover:text-black",
+                  group._shared && "cursor-default",
                 )}
               >
                 {group.title}
               </button>
-              <button
-                type="button"
-                aria-expanded={expanded}
-                aria-label={expanded ? "Collapse group" : "Expand group"}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onToggleGroup(gi);
-                }}
-                className={reorderBtnCls}
-              >
-                <span aria-hidden className="select-none">
-                  {expanded ? "−" : "+"}
-                </span>
-              </button>
+              {group._shared ? (
+                <a
+                  href="/admin/menus/shared"
+                  aria-label="Edit shared content"
+                  className={clsx(reorderBtnCls, "flex items-center justify-center")}
+                  title="Edit in shared editor"
+                >
+                  <svg aria-hidden width="10" height="10" viewBox="0 0 10 10" fill="none" className="opacity-60">
+                    <path d="M1 9L9 1M9 1H3.5M9 1V6.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  aria-expanded={expanded}
+                  aria-label={expanded ? "Collapse group" : "Expand group"}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onToggleGroup(gi);
+                  }}
+                  className={reorderBtnCls}
+                >
+                  <span aria-hidden className="select-none">
+                    {expanded ? "−" : "+"}
+                  </span>
+                </button>
+              )}
             </div>
-            {expanded && (
+            {!group._shared && expanded && (
               <div className="mt-0.5 flex flex-col gap-0.5">
                 {group.sections.map((section, si) => {
                   const id = `section-group-${gi}-${si}`;
