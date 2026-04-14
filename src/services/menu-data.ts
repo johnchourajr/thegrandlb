@@ -1,46 +1,93 @@
-import type { MenuCollectionDocument } from "@/types/menu";
+import * as fs from "fs";
+import * as path from "path";
+import type { RtBlock } from "content/types";
+import type { MenuDoc, MenuGroup } from "content/types";
+import type { MenuCollectionDocument, ExternalMenuGroupItem } from "@/types/menu";
 
-const GRANDMENUS_API = "https://grandmenus.cdn.prismic.io/api/v2";
-const ACCESS_TOKEN = process.env.NEXT_PRISMIC_MENUS_TOKEN;
+// ─── Local file helpers ────────────────────────────────────────────────────────
 
-async function getMasterRef(): Promise<string> {
-  const url = ACCESS_TOKEN
-    ? `${GRANDMENUS_API}?access_token=${ACCESS_TOKEN}`
-    : GRANDMENUS_API;
-  const res = await fetch(url, { next: { revalidate: 3600 } } as RequestInit);
-  if (!res.ok) throw new Error(`Failed to fetch Grandmenus API ref: ${res.status}`);
-  const data = await res.json();
-  const master = data.refs?.find((r: { isMasterRef?: boolean }) => r.isMasterRef);
-  return master?.ref ?? data.refs?.[0]?.ref;
+function menuFilePath(uid: string) {
+  return path.join(process.cwd(), "content", "menus", `${uid}.menu.json`);
 }
 
-const FETCH_LINKS = [
-  "menu.page_title",
-  "menu.page_description",
-  "menu.page_disclaimer",
-  "menu.group",
-  "menu.body",
-].join(",");
+function readMenuJson(uid: string): MenuDoc | null {
+  try {
+    const p = menuFilePath(uid);
+    if (!fs.existsSync(p)) return null;
+    return JSON.parse(fs.readFileSync(p, "utf-8")) as MenuDoc;
+  } catch {
+    return null;
+  }
+}
 
+function readSharedGroups(): MenuGroup[] {
+  return readMenuJson("shared")?.groups ?? [];
+}
+
+/** Merge shared groups into a MenuDoc's groups array */
+function mergeShared(doc: MenuDoc): MenuGroup[] {
+  const own = doc.groups;
+  if (!doc.shared_group_refs?.length) return own;
+  const shared = readSharedGroups();
+  const merged = doc.shared_group_refs
+    .map((title) => shared.find((g) => g.title === title))
+    .filter((g): g is MenuGroup => !!g);
+  return [...own, ...merged];
+}
+
+function stringToRtBlocks(text: string): RtBlock[] {
+  if (!text) return [];
+  return [{ type: "paragraph", text, spans: [] }];
+}
+
+/** Convert our flat MenuDoc format to the shape MenuSection/MenuSectionNav expect */
+function menuDocToCollectionDocument(doc: MenuDoc): MenuCollectionDocument {
+  const groups = mergeShared(doc);
+
+  const group: ExternalMenuGroupItem[] = groups.map((g) => ({
+    menu_link: {
+      data: {
+        page_title: g.title,
+        page_description: stringToRtBlocks(g.description),
+        page_disclaimer: stringToRtBlocks(g.disclaimer),
+        body: g.sections,
+      },
+    },
+  }));
+
+  return {
+    id: doc.uid,
+    uid: doc.uid,
+    url: null,
+    type: "menu_collection",
+    href: "",
+    tags: [],
+    first_publication_date: "",
+    last_publication_date: "",
+    slugs: [],
+    linked_documents: [],
+    lang: "en-us",
+    alternate_languages: [],
+    data: {
+      path: doc.uid,
+      page_title: doc.page_title,
+      page_description: doc.page_description,
+      page_disclaimer: doc.page_disclaimer,
+      group,
+    },
+  };
+}
+
+// ─── Public API ────────────────────────────────────────────────────────────────
+
+/**
+ * Fetch a menu from the local JSON files (with shared groups merged in).
+ * Replaces the old Prismic fetchMenuCollection call.
+ */
 export async function fetchMenuCollection(
   menuApiUid: string
 ): Promise<MenuCollectionDocument> {
-  const ref = await getMasterRef();
-  const params = new URLSearchParams({
-    q: `[[at(my.menu_collection.uid,"${menuApiUid}")]]`,
-    ref,
-    fetchLinks: FETCH_LINKS,
-    lang: "*",
-    ...(ACCESS_TOKEN ? { access_token: ACCESS_TOKEN } : {}),
-  });
-
-  const res = await fetch(`${GRANDMENUS_API}/documents/search?${params}`, {
-    next: { tags: ["menus"], revalidate: 3600 },
-    cache: "force-cache",
-  } as RequestInit);
-
-  if (!res.ok) throw new Error(`Menu fetch failed: ${res.status}`);
-  const data = await res.json();
-  if (!data.results?.length) throw new Error(`Menu not found: ${menuApiUid}`);
-  return data.results[0] as MenuCollectionDocument;
+  const doc = readMenuJson(menuApiUid);
+  if (!doc) throw new Error(`Menu not found: ${menuApiUid}`);
+  return menuDocToCollectionDocument(doc);
 }
