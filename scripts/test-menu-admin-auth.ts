@@ -1,3 +1,6 @@
+import { existsSync, readFileSync } from "fs";
+import { join } from "path";
+
 /**
  * HTTP integration tests for the admin menu API.
  *
@@ -5,11 +8,43 @@
  * and rejects malformed inputs — without relying on real GitHub / Vercel
  * credentials. Run against a live Next.js server.
  *
- * Required env:
+ * On the **Next.js server** (e.g. `.env.local` loaded by `next dev`):
+ *   ADMIN_USERS         Comma-separated `email:secret` pairs. Must include the same
+ *                        email and secret you use below (auth route does not read CI_*).
+ *
+ * For this **script** (shell env, or optional `.env.local` keys `CI_ADMIN_EMAIL` / `CI_ADMIN_KEY`):
  *   TEST_BASE_URL       Base URL of the running server (default: http://localhost:3000)
- *   CI_ADMIN_EMAIL      Email configured in ADMIN_USERS on the test server
- *   CI_ADMIN_KEY        Matching secret key configured in ADMIN_USERS on the test server
+ *   CI_ADMIN_EMAIL      Must match an email in ADMIN_USERS
+ *   CI_ADMIN_KEY        Must match that user’s secret in ADMIN_USERS
  */
+
+/** Pick up CI vars from `.env.local` when `npm run test:menu-api` does not inherit them. */
+function loadCiAdminFromEnvLocal(): void {
+  try {
+    const p = join(process.cwd(), ".env.local");
+    if (!existsSync(p)) return;
+    for (const line of readFileSync(p, "utf8").split("\n")) {
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith("#")) continue;
+      const eq = trimmed.indexOf("=");
+      if (eq < 1) continue;
+      const key = trimmed.slice(0, eq).trim();
+      if (key !== "CI_ADMIN_EMAIL" && key !== "CI_ADMIN_KEY") continue;
+      let val = trimmed.slice(eq + 1).trim();
+      if (
+        (val.startsWith('"') && val.endsWith('"')) ||
+        (val.startsWith("'") && val.endsWith("'"))
+      ) {
+        val = val.slice(1, -1);
+      }
+      if (!process.env[key]) process.env[key] = val;
+    }
+  } catch {
+    /* ignore unreadable .env.local */
+  }
+}
+
+loadCiAdminFromEnvLocal();
 
 const BASE = process.env.TEST_BASE_URL ?? "http://localhost:3000";
 const CI_EMAIL = process.env.CI_ADMIN_EMAIL ?? "ci@thegrandlb.com";
