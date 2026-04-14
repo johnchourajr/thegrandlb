@@ -23,6 +23,14 @@ This document helps humans and agents find **where media lives**, **what it is f
 3. **Video**  
    Section content uses string fields such as `video_url` pointing at `https://cdn.thegrandlb.com/.../*.mp4`. Upload flow and R2 bucket are described in `scripts/upload-to-r2.sh`.
 
+   **Second R2 bucket (e.g. `grandlb-files`)**  
+   The S3 endpoint `https://<ACCOUNT_ID>.r2.cloudflarestorage.com/<bucket>/<key>` is for API uploads only, not for browsers. To get a **public** link:
+
+   - **Custom domain (recommended for production):** R2 → bucket → Settings → Public access → connect a hostname (for example `files.thegrandlb.com`). After DNS propagates, the URL is `https://files.thegrandlb.com/<object-key>` (the key is exactly what appears in the Objects list, including any `folder/` prefix).
+   - **R2.dev subdomain (quick tests):** enable public access on the bucket and use the dashboard base URL, typically `https://pub-<id>.r2.dev/<object-key>`.
+
+   This repo’s `cdn.thegrandlb.com` hostname is wired to the **`grandlb-videos`** bucket in `scripts/upload-to-r2.sh`. A separate bucket needs its **own** public hostname (or you consolidate objects into one bucket under different key prefixes).
+
 4. **Posters / thumbnails**  
    Helpers such as `generateVideoPoster` in `src/utils/bandwidth-optimization.ts` assume a `.jpg` sibling of the video URL may exist for some CDNs; confirm behavior for R2-hosted files before relying on it.
 
