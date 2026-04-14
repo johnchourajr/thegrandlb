@@ -107,3 +107,37 @@ export type SharedDoc = {
     [key: string]: unknown;
   };
 };
+
+// ─── Menus ─────────────────────────────────────────────────────────────────
+
+export type MenuItemData = {
+  title: RtBlock[];
+  description: RtBlock[];
+  price_per: string;
+  price_min: number;
+  price_max: number;
+};
+
+export type MenuSectionData = {
+  primary: {
+    title: RtBlock[];
+    description: RtBlock[];
+    caption: RtBlock[];
+  };
+  items: MenuItemData[];
+};
+
+export type MenuGroup = {
+  title: string;
+  description: string;
+  disclaimer: string;
+  sections: MenuSectionData[];
+};
+
+export type MenuDoc = {
+  uid: string;
+  page_title: string;
+  page_description: string;
+  page_disclaimer: string;
+  groups: MenuGroup[];
+};
