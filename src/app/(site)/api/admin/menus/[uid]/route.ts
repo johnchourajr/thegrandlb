@@ -24,6 +24,18 @@ const MENU_URLS: Record<string, string> = {
   weddings: "https://thegrandlb.com/menus/weddings",
 };
 
+function formatPublishSubject(menuTitle: string, publishedAt: Date): string {
+  const formatted = new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    timeZone: "America/Los_Angeles",
+  }).format(publishedAt);
+
+  return `Published: ${menuTitle} menu · ${formatted}`;
+}
+
 function localMenuPath(uid: string) {
   return path.join(process.cwd(), "content", "menus", `${uid}.menu.json`);
 }
@@ -180,6 +192,8 @@ export async function PUT(
   const changes = originalDoc ? diffMenuDocs(originalDoc, body) : [];
 
   try {
+    const publishedAt = new Date();
+
     // 1. Fetch current file SHA from GitHub
     const getUrl = `${githubContentsUrl(uid)}?ref=${GITHUB_BRANCH}`;
     const getRes = await fetch(getUrl, { headers: githubHeaders() });
@@ -233,7 +247,7 @@ export async function PUT(
       resend.emails.send({
         from: fromEmail,
         to: publisherEmail,
-        subject: `${MENU_TITLES[uid] ?? uid} menu published`,
+        subject: formatPublishSubject(MENU_TITLES[uid] ?? uid, publishedAt),
         react: PublishEmail({
           menuTitle: MENU_TITLES[uid] ?? uid,
           menuUrl: MENU_URLS[uid] ?? "https://thegrandlb.com/menus",
