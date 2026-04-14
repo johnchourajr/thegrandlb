@@ -14,6 +14,31 @@ export interface AppLinkProps extends Omit<AnchorProps, "href"> {
   linkResolver?: unknown;
 }
 
+function resolveDocumentUrl(field: Record<string, unknown>): string | null {
+  const uid = typeof field.uid === "string" ? field.uid : null;
+  const type = typeof field.type === "string" ? field.type : null;
+  if (!uid && !type) return null;
+
+  switch (type) {
+    case "tour_index_page":
+      return "/tour";
+    case "tour_page":
+      return `/tour/${uid}`;
+    case "event_index_page":
+      return "/events";
+    case "event_page":
+      return `/events/${uid}`;
+    case "menu_page":
+      return `/menus/${uid}`;
+    case "inquire_page":
+      return "/inquire";
+    // Generic "page" type — use uid directly
+    case "page":
+    default:
+      return uid ? `/${uid}` : null;
+  }
+}
+
 function resolveField(
   field: AppLinkProps["field"]
 ): { url: string; external: boolean } | null {
@@ -31,6 +56,11 @@ function resolveField(
         url.startsWith("mailto:") ||
         url.startsWith("tel:");
       return { url, external };
+    }
+
+    if (field.link_type === "Document") {
+      const url = resolveDocumentUrl(field as Record<string, unknown>);
+      if (url) return { url, external: false };
     }
   }
 
