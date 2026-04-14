@@ -1,78 +1,89 @@
-import { FormState } from "@/data/form.types";
-import {
-  Body,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Section,
-  Tailwind,
-} from "@react-email/components";
+import type { FormState } from "@/data/form.types";
+import { Link, Text } from "@react-email/components";
 import EmailBody from "../components/email/emailBody";
+import EmailTemplate from "./components/EmailTemplate";
 
-export const ClientEmail = (props: any) => {
+type ClientEmailProps = Partial<FormState>;
+
+export const ClientEmail = (props: ClientEmailProps) => {
   const { event_name = { value: "" }, full_name = { value: "" } } =
-    props as FormState;
+    props;
 
   const previewText = `Your ${
     event_name?.value || "event"
   } inquiry has been received!`;
 
   return (
-    <Html>
-      <Head />
-      <Preview>{previewText}</Preview>
-      <Tailwind>
-        <Body className="my-auto mx-auto bg-white font-sans">
-          <Container className="mx-auto mt-[24px] w-[465px] rounded bg-[#FAF2EB] px-[32px] pt-[12px] pb-[32px]">
-            <Section className="mt-[24px] mb-[16px] w-[465px]">
-              <a href="https://thegrandlb.com" target="_blank" rel="noreferrer">
-                <Img
-                  src={`https://images.prismic.io/the-grand/cb6bbe74-9712-4cf9-bec3-145cc675a490_logo.png?auto=compress,format`}
-                  width="177"
-                  height="65"
-                  alt="The Grand"
-                  className="logo-light"
-                />
-              </a>
-            </Section>
-            <hr className="border-[1px] !border-solid border-[white] !outline-[none]" />
-            <h1 className="text-[20px]">Hey, {full_name.value || "there"}.</h1>
-            <p className="text-[16px]">
-              Thanks for your submission. Our sales team will reach out within
-              2-3 business days to discuss your event and next steps.
-            </p>
-            <p className="text-[16px]">
-              In the meantime, feel free to{" "}
-              <a href="https://thegrandlb.com/tour" target="_blank" rel="noreferrer">
-                explore our spaces
-              </a>{" "}
-              or{" "}
-              <a href="https://thegrandlb.com/menus" target="_blank" rel="noreferrer">
-                browse our menus
-              </a>
-              .
-            </p>
-            <p className="text-[16px]">
-              Cheers,
-              <br />
-              The Grand Team
-            </p>
-            <hr className="border-[1px] !border-solid border-[white] !outline-[none]" />
-            <p>What you shared:</p>
-            <EmailBody {...(props as FormState)} />
-          </Container>
-          <Section className="my-[16px] w-[465px]">
-            <p className="text-[12px]">
-              <a href="https://thegrandlb.com" target="_blank" rel="noreferrer">
-                thegrandlb.com
-              </a>
-            </p>
-          </Section>
-        </Body>
-      </Tailwind>
-    </Html>
+    <EmailTemplate
+      preview={previewText}
+      showLogo
+      eyebrow="The Grand LB · Inquiry Received"
+      title={`Hey, ${full_name.value || "there"}.`}
+      ctaHref="https://thegrandlb.com/tour"
+      ctaLabel="Explore our spaces"
+      footer="thegrandlb.com"
+    >
+      <Text
+        style={{
+          fontSize: "16px",
+          color: "#333333",
+          lineHeight: "1.6",
+          margin: "0 0 16px",
+        }}
+      >
+        Thanks for your submission. Our sales team will reach out within 2-3
+        business days to discuss your event and next steps.
+      </Text>
+
+      <Text
+        style={{
+          fontSize: "16px",
+          color: "#333333",
+          lineHeight: "1.6",
+          margin: "0 0 16px",
+        }}
+      >
+        In the meantime, feel free to{" "}
+        <Link
+          href="https://thegrandlb.com/menus"
+          target="_blank"
+          rel="noreferrer"
+          style={{ color: "#311514" }}
+        >
+          browse our menus
+        </Link>
+        .
+      </Text>
+
+      <Text
+        style={{
+          fontSize: "16px",
+          color: "#333333",
+          lineHeight: "1.6",
+          margin: "0 0 24px",
+        }}
+      >
+        Cheers,
+        <br />
+        The Grand Team
+      </Text>
+
+      <Text
+        style={{
+          fontSize: "11px",
+          letterSpacing: "0.1em",
+          textTransform: "uppercase",
+          color: "#9e8d7a",
+          margin: "0 0 12px",
+          borderTop: "1px solid #eee",
+          paddingTop: "24px",
+        }}
+      >
+        What you shared
+      </Text>
+
+      <EmailBody {...props} />
+    </EmailTemplate>
   );
 };
 

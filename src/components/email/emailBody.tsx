@@ -1,15 +1,36 @@
-interface EmailBodyProps {
-  event_name?: any;
-  event_type?: any;
-  desired_date?: any;
-  desired_time?: any;
-  head_count?: any;
-  desired_space?: any;
-  full_name?: any;
-  email?: any;
-  phone?: any;
-  additional_details?: any;
-}
+type FieldValue = {
+  value?: string | number;
+};
+
+type EmailBodyProps = {
+  event_name?: FieldValue;
+  event_type?: FieldValue;
+  desired_date?: FieldValue;
+  desired_time?: FieldValue;
+  head_count?: FieldValue;
+  desired_space?: FieldValue;
+  full_name?: FieldValue;
+  email?: FieldValue;
+  phone?: FieldValue;
+  additional_details?: FieldValue;
+};
+
+const cardStyle = {
+  backgroundColor: "#fafafa",
+  borderRadius: "6px",
+  padding: "14px 16px",
+};
+
+const rowStyle = {
+  color: "#333333",
+  fontSize: "14px",
+  lineHeight: "1.6",
+  margin: "0 0 8px",
+};
+
+const labelStyle = {
+  color: "#9e8d7a",
+};
 
 function formatDate(date: string) {
   if (!date) return "";
@@ -35,43 +56,43 @@ const EmailBody = ({
   phone = { value: "" },
   additional_details = { value: "" },
 }: EmailBodyProps) => (
-  <div className="rounded bg-[white] px-[16px] py-[1px]">
-    <p>
-      <span className="opacity-[0.5]">Event Name:</span>{" "}
+  <div style={cardStyle}>
+    <p style={rowStyle}>
+      <span style={labelStyle}>Event Name:</span>{" "}
       {event_name.value || "N/A"}
     </p>
-    <p>
-      <span className="opacity-[0.5]">Event Type:</span>{" "}
+    <p style={rowStyle}>
+      <span style={labelStyle}>Event Type:</span>{" "}
       {event_type.value || "N/A"}
     </p>
-    <p>
-      <span className="opacity-[0.5]">Desired Date:</span>{" "}
-      {formatDate(desired_date.value) || "N/A"}
+    <p style={rowStyle}>
+      <span style={labelStyle}>Desired Date:</span>{" "}
+      {formatDate(String(desired_date.value ?? "")) || "N/A"}
     </p>
-    <p>
-      <span className="opacity-[0.5]">Desired Time:</span>{" "}
+    <p style={rowStyle}>
+      <span style={labelStyle}>Desired Time:</span>{" "}
       {desired_time.value || "N/A"}
     </p>
-    <p>
-      <span className="opacity-[0.5]">Guest Count:</span>{" "}
+    <p style={rowStyle}>
+      <span style={labelStyle}>Guest Count:</span>{" "}
       {head_count.value || "N/A"}
     </p>
-    <p>
-      <span className="opacity-[0.5]">Desired Space:</span>{" "}
+    <p style={rowStyle}>
+      <span style={labelStyle}>Desired Space:</span>{" "}
       {desired_space.value || "N/A"}
     </p>
-    <p>
-      <span className="opacity-[0.5]">Full Name:</span>{" "}
+    <p style={rowStyle}>
+      <span style={labelStyle}>Full Name:</span>{" "}
       {full_name.value || "N/A"}
     </p>
-    <p>
-      <span className="opacity-[0.5]">Email:</span> {email.value || "N/A"}
+    <p style={rowStyle}>
+      <span style={labelStyle}>Email:</span> {email.value || "N/A"}
     </p>
-    <p>
-      <span className="opacity-[0.5]">Phone:</span> {phone.value || "N/A"}
+    <p style={rowStyle}>
+      <span style={labelStyle}>Phone:</span> {phone.value || "N/A"}
     </p>
-    <p>
-      <span className="opacity-[0.5]">Additional Details:</span>{" "}
+    <p style={{ ...rowStyle, margin: 0 }}>
+      <span style={labelStyle}>Additional Details:</span>{" "}
       {additional_details.value || "N/A"}
     </p>
   </div>

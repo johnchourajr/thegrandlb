@@ -1,15 +1,7 @@
-import { FormState } from "@/data/form.types";
-import {
-  Body,
-  Container,
-  Head,
-  Html,
-  Img,
-  Preview,
-  Section,
-  Tailwind,
-} from "@react-email/components";
+import type { FormState } from "@/data/form.types";
+import { Text } from "@react-email/components";
 import EmailBody from "../components/email/emailBody";
+import EmailTemplate from "./components/EmailTemplate";
 
 function formatDate(date: string) {
   if (!date) return "";
@@ -23,12 +15,14 @@ function formatDate(date: string) {
   return `${month} ${day}, ${year}`;
 }
 
-export const SalesEmail = (props: any) => {
+type SalesEmailProps = Partial<FormState>;
+
+export const SalesEmail = (props: SalesEmailProps) => {
   const {
     event_name = { value: "" },
     full_name = { value: "" },
     desired_date = { value: "" },
-  } = props as FormState;
+  } = props;
 
   const previewText = `New ${
     event_name?.value || "event"
@@ -38,51 +32,43 @@ export const SalesEmail = (props: any) => {
   const nowFormatted = formatDate(new Date().toISOString());
 
   return (
-    <Html>
-      <Head />
-      <Preview>{previewText}</Preview>
-      <Tailwind>
-        <Body className="mx-auto my-auto bg-white font-sans">
-          <Container className="relative mx-auto mt-[24px] max-w-[529px] overflow-hidden rounded bg-[#FAF2EB] px-[32px] pb-[32px] pt-[24px]">
-            <div className="absolute left-0 right-0 top-0 inline-block overflow-hidden bg-[#FFC42D]">
-              <span className="inline-block whitespace-nowrap py-[4px]">
-                SALES EMAIL SALES EMAIL SALES EMAIL SALES EMAIL SALES EMAIL
-                SALES EMAIL
-              </span>
-            </div>
-            <Section className="mb-[16px] mt-[24px]">
-              <a href="https://thegrandlb.com" target="_blank" rel="noreferrer">
-                <Img
-                  src={`https://images.prismic.io/the-grand/cb6bbe74-9712-4cf9-bec3-145cc675a490_logo.png?auto=compress,format`}
-                  width="177"
-                  height="65"
-                  alt="The Grand"
-                  className="logo-light"
-                />
-              </a>
-            </Section>
-            <hr className="border-[1px] !border-solid border-[white] !outline-[none]" />
-            <h1 className="text-[20px]">Hey, sales team.</h1>
-            <p className="text-[16px]">
-              {full_name.value || "Someone"} just submitted an inquiry for{" "}
-              {`"${event_name?.value}"` || "an event"} on{" "}
-              {formattedDate || "a date"} via thegrandlb.com website on{" "}
-              {nowFormatted}.
-            </p>
-            <hr className="border-[1px] !border-solid border-[white] !outline-[none]" />
-            <p>Details:</p>
-            <EmailBody {...props} />
-          </Container>
-          <Section className="my-[16px] w-[465px]">
-            <p className="text-[12px]">
-              <a href="https://thegrandlb.com" target="_blank" rel="noreferrer">
-                thegrandlb.com
-              </a>
-            </p>
-          </Section>
-        </Body>
-      </Tailwind>
-    </Html>
+    <EmailTemplate
+      preview={previewText}
+      showLogo
+      eyebrow="The Grand LB · New Inquiry"
+      title="Hey, sales team."
+      footer="Generated from thegrandlb.com"
+    >
+      <Text
+        style={{
+          fontSize: "16px",
+          color: "#333333",
+          lineHeight: "1.6",
+          margin: "0 0 24px",
+        }}
+      >
+        {full_name.value || "Someone"} just submitted an inquiry for{" "}
+        {event_name?.value ? `"${event_name.value}"` : "an event"} on{" "}
+        {formattedDate || "a date"} via thegrandlb.com website on{" "}
+        {nowFormatted}.
+      </Text>
+
+      <Text
+        style={{
+          fontSize: "11px",
+          letterSpacing: "0.1em",
+          textTransform: "uppercase",
+          color: "#9e8d7a",
+          margin: "0 0 12px",
+          borderTop: "1px solid #eee",
+          paddingTop: "24px",
+        }}
+      >
+        Details
+      </Text>
+
+      <EmailBody {...props} />
+    </EmailTemplate>
   );
 };
 
