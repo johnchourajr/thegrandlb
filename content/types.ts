@@ -107,3 +107,41 @@ export type SharedDoc = {
     [key: string]: unknown;
   };
 };
+
+// ─── Menus ─────────────────────────────────────────────────────────────────
+
+export type MenuItemData = {
+  title: RtBlock[];
+  description: RtBlock[];
+  price_per: string;
+  price_min: number;
+  price_max: number;
+};
+
+export type MenuSectionData = {
+  primary: {
+    title: RtBlock[];
+    description: RtBlock[];
+    caption: RtBlock[];
+  };
+  items: MenuItemData[];
+};
+
+export type MenuGroup = {
+  title: string;
+  description: string;
+  disclaimer: string;
+  sections: MenuSectionData[];
+  /** Set at runtime by the API when this group comes from shared.menu.json */
+  _shared?: boolean;
+};
+
+export type MenuDoc = {
+  uid: string;
+  page_title: string;
+  page_description: string;
+  page_disclaimer: string;
+  groups: MenuGroup[];
+  /** Titles of groups inherited from shared.menu.json, appended after own groups */
+  shared_group_refs?: string[];
+};

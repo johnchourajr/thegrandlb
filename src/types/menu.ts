@@ -1,17 +1,24 @@
+// Menu types — re-exported from content/types for component use.
+export type {
+  RtBlock,
+  MenuDoc,
+  MenuGroup,
+  MenuSectionData,
+  MenuItemData,
+} from "content/types";
+
 import type { RtBlock } from "content/types";
 
-// Menu item data structure (used in MenuItem component)
-export type MenuItemData = {
-  title: RtBlock[];
-  description: RtBlock[];
-  price_per: string;
-  price_min: number;
-  price_max: number;
-};
+// ─── Legacy menu types (used by MenuPageContent + public menu pages) ────────
 
-// Menu section body structure (from external menu repo)
 export type MenuSectionBody = {
-  items?: MenuItemData[];
+  items?: Array<{
+    title: RtBlock[];
+    description: RtBlock[];
+    price_per: string;
+    price_min: number;
+    price_max: number;
+  }>;
   primary: {
     title: RtBlock[];
     description: RtBlock[];
@@ -19,7 +26,6 @@ export type MenuSectionBody = {
   };
 };
 
-// Menu link data structure (represents a menu section from external repo)
 export type ExternalMenuLinkData = {
   page_title?: string;
   page_description: RtBlock[];
@@ -27,14 +33,12 @@ export type ExternalMenuLinkData = {
   body: MenuSectionBody[];
 };
 
-// External menu group item structure (from external menu repo)
 export type ExternalMenuGroupItem = {
   menu_link: {
     data: ExternalMenuLinkData;
   };
 };
 
-// Internal menu group item structure (for internal fallback)
 export type InternalMenuGroupItem = {
   menu_link: {
     data: {
@@ -46,10 +50,8 @@ export type InternalMenuGroupItem = {
   };
 };
 
-// Union type for menu group items
 export type MenuGroupItem = ExternalMenuGroupItem | InternalMenuGroupItem;
 
-// External menu collection document structure (from grandmenus repo)
 export type MenuCollectionDocument = {
   id: string;
   uid: string;
@@ -60,9 +62,9 @@ export type MenuCollectionDocument = {
   first_publication_date: string;
   last_publication_date: string;
   slugs: string[];
-  linked_documents: any[];
+  linked_documents: unknown[];
   lang: string;
-  alternate_languages: any[];
+  alternate_languages: unknown[];
   data: {
     path: string;
     page_title: string;
@@ -72,7 +74,6 @@ export type MenuCollectionDocument = {
   };
 };
 
-// Internal menu page document (first-party)
 export type InternalMenuPageDocument = {
   uid: string;
   type?: "menu_page";
@@ -87,48 +88,50 @@ export type InternalMenuPageDocument = {
   };
 };
 
-// Extended menu page document that includes the group field
 export type MenuPageDocumentWithGroup =
   | MenuCollectionDocument
   | InternalMenuPageDocument;
 
-// Props for MenuPageContent component
 export type MenuPageContentProps = {
   page: MenuPageDocumentWithGroup;
 };
 
-// Props for MenuSection component
 export type MenuSectionProps = {
   uid?: string;
   group?: MenuGroupItem[] | null;
 };
 
-// Props for MenuSectionNav component
 export type MenuSectionNavProps = {
   uid?: string;
   group?: MenuGroupItem[] | null;
 };
 
-// Props for MenuItem component
 export type MenuItemProps = {
-  data: MenuItemData;
+  data: {
+    title: RtBlock[];
+    description: RtBlock[];
+    price_per: string;
+    price_min: number;
+    price_max: number;
+  };
 };
 
-// Type guards
+// ─── Type guards ────────────────────────────────────────────────────────────
+
 export function isMenuCollectionDocument(
-  page: MenuPageDocumentWithGroup
+  page: MenuPageDocumentWithGroup,
 ): page is MenuCollectionDocument {
   return (page as MenuCollectionDocument).type === "menu_collection";
 }
 
 export function isInternalMenuPageDocument(
-  page: MenuPageDocumentWithGroup
+  page: MenuPageDocumentWithGroup,
 ): page is InternalMenuPageDocument {
   return (page as InternalMenuPageDocument).type === "menu_page";
 }
 
 export function isExternalMenuGroupItem(
-  item: MenuGroupItem
+  item: MenuGroupItem,
 ): item is ExternalMenuGroupItem {
   return typeof item.menu_link?.data?.page_title === "string";
 }

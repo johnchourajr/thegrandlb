@@ -1,7 +1,6 @@
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { handleEvent } from "@/utils/events";
 import AppLink from "./AppLink";
-import { linkResolver } from "@/prismicio";
 import clsx from "clsx";
 import { motion, useAnimation } from "framer-motion";
 import { usePathname } from "next/navigation";
@@ -26,7 +25,7 @@ export const NavParentItem = ({
   const [isHovering, setIsHovering] = useState(false);
   const isMobile = useMediaQuery(1024);
 
-  const link = href ? href : linkResolver(link_source);
+  const link = href ? href : (link_source?.url ?? "");
   const activeLink = pathname.includes(link);
   const hasChildren = items.length > 1;
 

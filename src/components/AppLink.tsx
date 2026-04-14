@@ -1,6 +1,5 @@
 "use client";
 
-import { linkResolver } from "@/prismicio";
 import type { LinkField } from "content/types";
 import Link from "next/link";
 import React from "react";
@@ -13,6 +12,31 @@ export interface AppLinkProps extends Omit<AnchorProps, "href"> {
   children?: React.ReactNode;
   /** Accepted and silently ignored — prevents passing to DOM when coming from legacy call sites */
   linkResolver?: unknown;
+}
+
+function resolveDocumentUrl(field: Record<string, unknown>): string | null {
+  const uid = typeof field.uid === "string" ? field.uid : null;
+  const type = typeof field.type === "string" ? field.type : null;
+  if (!uid && !type) return null;
+
+  switch (type) {
+    case "tour_index_page":
+      return "/tour";
+    case "tour_page":
+      return `/tour/${uid}`;
+    case "event_index_page":
+      return "/events";
+    case "event_page":
+      return `/events/${uid}`;
+    case "menu_page":
+      return `/menus/${uid}`;
+    case "inquire_page":
+      return "/inquire";
+    // Generic "page" type — use uid directly
+    case "page":
+    default:
+      return uid ? `/${uid}` : null;
+  }
 }
 
 function resolveField(
@@ -33,9 +57,10 @@ function resolveField(
         url.startsWith("tel:");
       return { url, external };
     }
+
     if (field.link_type === "Document") {
-      const url = linkResolver(field as any);
-      return { url, external: false };
+      const url = resolveDocumentUrl(field as Record<string, unknown>);
+      if (url) return { url, external: false };
     }
   }
 

@@ -1,0 +1,672 @@
+{
+  "uid": "weddings",
+  "page_title": "Our Weddings Menu",
+  "page_description": "Our weddings menu has the perfect packages for your special day.",
+  "page_disclaimer": "Add 22% production fee and applicable sales tax to all menus.",
+  "groups": [
+    {
+      "title": "Wedding Packages",
+      "description": "All Packages Include\n5 Hour Event Time Inclusive of Ceremony, Two Hour Access Window Prior to Event Start, Served Champagne & Sparkling Cider Toast, Customized Room Setup, Choice of White, Black or Ivory Linens for all Tables, Selection of Napkin Color(s), All China, Glassware & Flatware, Complimentary Parking for all Guests, and Uniformed, Professional Staff",
+      "disclaimer": "",
+      "sections": [
+        {
+          "primary": {
+            "title": [
+              {
+                "type": "heading2",
+                "text": "Lunch and Dinner Packages",
+                "spans": []
+              }
+            ],
+            "description": [],
+            "caption": []
+          },
+          "items": [
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "The Silver",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "list-item",
+                  "text": "“The Standard” Menu",
+                  "spans": [
+                    {
+                      "start": 1,
+                      "end": 13,
+                      "type": "hyperlink",
+                      "data": {
+                        "link_type": "Web",
+                        "url": "https://#the-standard",
+                        "target": "_blank"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Complimentary Entrées for Bride & Groom",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Choice of Two “To Start” Displayed Appetizers",
+                  "spans": [
+                    {
+                      "start": 15,
+                      "end": 23,
+                      "type": "hyperlink",
+                      "data": {
+                        "link_type": "Web",
+                        "url": "https://#to-start",
+                        "target": "_blank"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Choice of One Tray Passed Hors D’Oeuvre",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Wine Service with Dinner (two bottles per table)",
+                  "spans": [
+                    {
+                      "start": 25,
+                      "end": 48,
+                      "type": "em"
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Served Champagne & Sparkling Cider Toast",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Cake Cutting & Serving",
+                  "spans": []
+                }
+              ],
+              "price_per": "lunch/dinner",
+              "price_min": 83.75,
+              "price_max": 93.75
+            },
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "The Gold",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "list-item",
+                  "text": "“The Grand Standard” Menu",
+                  "spans": [
+                    {
+                      "start": 1,
+                      "end": 19,
+                      "type": "hyperlink",
+                      "data": {
+                        "link_type": "Web",
+                        "url": "https://#the-grand-standard",
+                        "target": "_blank"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Complimentary Entrées for Bride & Groom",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "90 Minute Limited Hosted Bar (Beer, Wine & Soft Drinks)",
+                  "spans": [
+                    {
+                      "start": 29,
+                      "end": 55,
+                      "type": "em"
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Choice of Three “To Start” Displayed Appetizers",
+                  "spans": [
+                    {
+                      "start": 17,
+                      "end": 25,
+                      "type": "hyperlink",
+                      "data": {
+                        "link_type": "Web",
+                        "url": "https://#to-start",
+                        "target": "_blank"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Choice of Two Tray Passed Hors D’oeuvres",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Wine Service with Dinner (two bottles per table)",
+                  "spans": [
+                    {
+                      "start": 25,
+                      "end": 48,
+                      "type": "em"
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Served Champagne & Sparkling Cider Toast",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "10” Mirrored Round for Each Guest Table",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Cake Cutting & Serving",
+                  "spans": []
+                }
+              ],
+              "price_per": "lunch/dinner",
+              "price_min": 107.75,
+              "price_max": 118.75
+            },
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "The Platinum",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "list-item",
+                  "text": "“The Choura Standard” Menu",
+                  "spans": [
+                    {
+                      "start": 1,
+                      "end": 20,
+                      "type": "hyperlink",
+                      "data": {
+                        "link_type": "Web",
+                        "url": "https://#the-choura-standard",
+                        "target": "_blank"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Complimentary Entrées for Bride & Groom",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "90 Minute Hosted Bar (Cocktails, Beer, Wine & Soft Drinks)",
+                  "spans": [
+                    {
+                      "start": 21,
+                      "end": 58,
+                      "type": "em"
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Choice of Three “To Start” Displayed Appetizers",
+                  "spans": [
+                    {
+                      "start": 17,
+                      "end": 25,
+                      "type": "hyperlink",
+                      "data": {
+                        "link_type": "Web",
+                        "url": "https://#to-start",
+                        "target": "_blank"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Choice of Three Tray Passed Hors D’oeuvres",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Wine Service with Dinner (two bottles per table)",
+                  "spans": [
+                    {
+                      "start": 25,
+                      "end": 48,
+                      "type": "em"
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Served Champagne & Sparkling Cider Toast",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "10” Mirrored Round for Each Guest Table",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Chair Covers with Sash -or- Chiavari Chairs",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Cake Cutting & Serving",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Additional Event Hour",
+                  "spans": []
+                }
+              ],
+              "price_per": "lunch/dinner",
+              "price_min": 125.75,
+              "price_max": 138.75
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "More Packages",
+      "description": "",
+      "disclaimer": "",
+      "sections": [
+        {
+          "primary": {
+            "title": [
+              {
+                "type": "heading2",
+                "text": "Say, ‘I do...’",
+                "spans": []
+              }
+            ],
+            "description": [],
+            "caption": []
+          },
+          "items": [
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "Garden Ceremony",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Have your Garden Ceremony outside on our Palm Terrace or on our Monarch Patio. Minimum 100 guests",
+                  "spans": [
+                    {
+                      "start": 79,
+                      "end": 97,
+                      "type": "em"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Pricing",
+                  "spans": [
+                    {
+                      "start": 0,
+                      "end": 7,
+                      "type": "strong"
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Without Reception $23.00 per person",
+                  "spans": [
+                    {
+                      "start": 25,
+                      "end": 35,
+                      "type": "em"
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "With Reception $20.00 per person",
+                  "spans": [
+                    {
+                      "start": 22,
+                      "end": 32,
+                      "type": "em"
+                    }
+                  ]
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Includes",
+                  "spans": [
+                    {
+                      "start": 0,
+                      "end": 8,
+                      "type": "strong"
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Iced Water Station",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "White Wood Chairs",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Serene Garden Setting",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Wedding Arch -or- Columns",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "White Aisle Runner",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Bridal Suite – Available on a ‘First Come, First Served’ Basis Upon Booking",
+                  "spans": []
+                },
+                {
+                  "type": "paragraph",
+                  "text": "Not Included",
+                  "spans": [
+                    {
+                      "start": 0,
+                      "end": 12,
+                      "type": "strong"
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Groom’s Room, Wedding Coordinator, Photographer, Decorations, Clergy, and Music. Referrals are available upon request",
+                  "spans": [
+                    {
+                      "start": 81,
+                      "end": 117,
+                      "type": "em"
+                    }
+                  ]
+                }
+              ],
+              "price_per": "per person",
+              "price_min": 20,
+              "price_max": 23
+            }
+          ]
+        },
+        {
+          "primary": {
+            "title": [
+              {
+                "type": "heading2",
+                "text": "Bridal Room Packages",
+                "spans": []
+              }
+            ],
+            "description": [
+              {
+                "type": "paragraph",
+                "text": "Each package is a flat cost and serves six people.",
+                "spans": []
+              }
+            ],
+            "caption": []
+          },
+          "items": [
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "Afternoon Treat",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "list-item",
+                  "text": "Ice Cream Bars",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Assorted Cookies",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Coffee, Decaf, Assorted Sodas",
+                  "spans": []
+                }
+              ],
+              "price_per": "per",
+              "price_min": 88,
+              "price_max": 0
+            },
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "Spice It Up",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "list-item",
+                  "text": "Mini Chicken Quesadillas",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Guacamole and Pico de Gallo",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Tortilla Chips",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Coffee, Decaf, Assorted Sodas",
+                  "spans": []
+                }
+              ],
+              "price_per": "per",
+              "price_min": 113,
+              "price_max": 0
+            },
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "Napa Valley",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "list-item",
+                  "text": "Marinated Olives, Goat Cheese, Grapes, and Crostinis",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Sliced Seasonal Fruit and Berries",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Coffee, Decaf, Tea, Mineral Water, Assorted Sodas",
+                  "spans": []
+                }
+              ],
+              "price_per": "per",
+              "price_min": 113,
+              "price_max": 0
+            },
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "Balance",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "list-item",
+                  "text": "Granola Bars",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Whole Fruit",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Vegetable Crudités with Dip",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Assorted Vitamin Water",
+                  "spans": []
+                }
+              ],
+              "price_per": "per",
+              "price_min": 128,
+              "price_max": 0
+            },
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "Time For Tea",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "list-item",
+                  "text": "Freshly Baked Scones",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Assorted Tea Sandwiches",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Strawberries with Whipped Cream",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Assorted Hot Teas",
+                  "spans": []
+                }
+              ],
+              "price_per": "per",
+              "price_min": 140,
+              "price_max": 0
+            },
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "Ultimate Relaxation",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "list-item",
+                  "text": "Premium House Chardonnay and Cabernet Sauvignon",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Gourmet Cheese Display with Dried Fruit and Nuts",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Seasonal Fruit Platter",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Assorted Breads & Crostinis",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Mineral Water",
+                  "spans": []
+                }
+              ],
+              "price_per": "per",
+              "price_min": 200,
+              "price_max": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shared_group_refs": [
+    "Appetizers",
+    "Main Courses",
+    "Sweets",
+    "Drinks"
+  ]
+}

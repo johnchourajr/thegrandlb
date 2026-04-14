@@ -1,0 +1,617 @@
+{
+  "uid": "classic",
+  "page_title": "Our Classic  Menu",
+  "page_description": "Our classic menu is the best of what we have to offer, and is fit for any occasion.",
+  "page_disclaimer": "Add 22% production fee and applicable sales tax to all menus. Every event is subject to a $7 per person site fee.",
+  "groups": [
+    {
+      "title": "Breakfast &  Brunch",
+      "description": "All Packages Include \n5 Hour Event Time, Two Hour Access Window Prior to Event Start, Customized Room Setup, Choice of White, Black or Ivory Linens for all Tables, Selection of Napkin Color(s), All China, Glassware & Flatware, Complimentary Parking for all Guests, and Uniformed, Professional Staff.",
+      "disclaimer": "",
+      "sections": [
+        {
+          "primary": {
+            "title": [
+              {
+                "type": "heading2",
+                "text": "Served Breakfast",
+                "spans": []
+              }
+            ],
+            "description": [
+              {
+                "type": "paragraph",
+                "text": "Breakfast beverage service includes orange juice, regular and decaf coffee, and iced water. 30 guest minimum; $150 Fee applies if minimum is not met.",
+                "spans": [
+                  {
+                    "start": 92,
+                    "end": 149,
+                    "type": "em"
+                  }
+                ]
+              }
+            ],
+            "caption": [
+              {
+                "type": "paragraph",
+                "text": "**Substitute Turkey Bacon or Sausage for an additional $1.50 per person.",
+                "spans": []
+              },
+              {
+                "type": "paragraph",
+                "text": "**Substitute Egg Whites for an additional $1.50 per person",
+                "spans": []
+              }
+            ]
+          },
+          "items": [
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "Cinnamon French Toast",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Two Slices Texas Toast, Scrambled Eggs & Bacon or Sausage, Maple Syrup, & Powdered Sugar",
+                  "spans": []
+                }
+              ],
+              "price_per": "per person",
+              "price_min": 38,
+              "price_max": 0
+            },
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "The All American",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Scrambled Eggs with Cheese, Choice of Bacon, Sausage or Ham, Hash Browns, & Fresh Fruit",
+                  "spans": []
+                }
+              ],
+              "price_per": "per person",
+              "price_min": 38,
+              "price_max": 0
+            },
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "Traditional Benedict",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Two English Muffins Topped with Canadian Bacon, Poached Eggs, & Chipotle Hollandaise Sauce (vegetarian option available upon request)",
+                  "spans": []
+                }
+              ],
+              "price_per": "per person",
+              "price_min": 38,
+              "price_max": 0
+            },
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "Fried Chicken & Waffles",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Buttermilk Brined, Oven Fried Chicken on top a Belgian Waffle & Chipotle Syrup",
+                  "spans": []
+                }
+              ],
+              "price_per": "per person",
+              "price_min": 38,
+              "price_max": 0
+            },
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "Breakfast Croissant",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Open-faced Croissant with Scrambled Eggs, Cheddar Cheese, & Canadian Bacon. Served with Fresh Fruit",
+                  "spans": []
+                }
+              ],
+              "price_per": "per person",
+              "price_min": 38,
+              "price_max": 0
+            },
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "Mexican Scramble",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Scrambled Eggs with Pico de Gallo & Chorizo, Tortillas and Choice of Bacon or Sausage",
+                  "spans": []
+                }
+              ],
+              "price_per": "per person",
+              "price_min": 38,
+              "price_max": 0
+            }
+          ]
+        },
+        {
+          "primary": {
+            "title": [
+              {
+                "type": "heading2",
+                "text": "Buffet Breakfast",
+                "spans": []
+              }
+            ],
+            "description": [
+              {
+                "type": "paragraph",
+                "text": "Breakfast beverage service includes orange juice, regular and decaf coffee, and iced water. 30 guest minimum; $150 Fee applies if minimum is not met.",
+                "spans": [
+                  {
+                    "start": 92,
+                    "end": 149,
+                    "type": "em"
+                  }
+                ]
+              }
+            ],
+            "caption": []
+          },
+          "items": [
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "Continental Breakfast",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Assorted Breakfast Breads, Mini Muffins & Mini Danish",
+                  "spans": []
+                }
+              ],
+              "price_per": "per person",
+              "price_min": 22,
+              "price_max": 0
+            },
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "Deluxe Continental",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Assorted Breakfast Breads, Mini Muffins, Mini Danish & Fresh Fruit",
+                  "spans": []
+                }
+              ],
+              "price_per": "per person",
+              "price_min": 25,
+              "price_max": 0
+            },
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "Healthy Continental",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Fresh Fruit, Individual Yogurts, Granola & Assorted Breakfast Breads",
+                  "spans": []
+                }
+              ],
+              "price_per": "per person",
+              "price_min": 28,
+              "price_max": 0
+            }
+          ]
+        },
+        {
+          "primary": {
+            "title": [
+              {
+                "type": "heading2",
+                "text": "Build Your Own Breakfast Buffet",
+                "spans": []
+              }
+            ],
+            "description": [
+              {
+                "type": "paragraph",
+                "text": "Breakfast beverage service includes orange juice, regular and decaf coffee, and iced water. 30 guest minimum; $150 Fee applies if minimum is not met.",
+                "spans": [
+                  {
+                    "start": 92,
+                    "end": 149,
+                    "type": "em"
+                  }
+                ]
+              }
+            ],
+            "caption": []
+          },
+          "items": [
+            {
+              "title": [],
+              "description": [
+                {
+                  "type": "heading4",
+                  "text": "Scrambled Eggs (Select One)",
+                  "spans": [
+                    {
+                      "start": 15,
+                      "end": 27,
+                      "type": "em"
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "With Cheese",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "With Chorizo",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "With Vegetables",
+                  "spans": []
+                },
+                {
+                  "type": "heading4",
+                  "text": "Side 1 (Select One)",
+                  "spans": [
+                    {
+                      "start": 7,
+                      "end": 19,
+                      "type": "em"
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Hash Browns",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Country Potatoes - Peppers & Onions",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Skillet Potatoes - Ortega Chiles, Cumin & Onions, Sweet Potato Hash (Add $0.75 per person)",
+                  "spans": [
+                    {
+                      "start": 68,
+                      "end": 90,
+                      "type": "em"
+                    }
+                  ]
+                },
+                {
+                  "type": "heading4",
+                  "text": "Side 2 (Select One)",
+                  "spans": [
+                    {
+                      "start": 7,
+                      "end": 19,
+                      "type": "em"
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Thick-Cut Bacon",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Sausage Patties",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Sausage Links",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Turkey Sausage Links (Add $1.50 per person)",
+                  "spans": [
+                    {
+                      "start": 21,
+                      "end": 43,
+                      "type": "em"
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Turkey Bacon (Add $1.50per person)",
+                  "spans": [
+                    {
+                      "start": 13,
+                      "end": 34,
+                      "type": "em"
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Morning Star Veggie Patties (Add $1.50 per person)",
+                  "spans": [
+                    {
+                      "start": 28,
+                      "end": 50,
+                      "type": "em"
+                    }
+                  ]
+                },
+                {
+                  "type": "heading4",
+                  "text": "Side 3 (Select One)",
+                  "spans": [
+                    {
+                      "start": 7,
+                      "end": 19,
+                      "type": "em"
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Petite Croissants",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Mini Muffins",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Mini Bagels",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Zucchini Bread",
+                  "spans": []
+                }
+              ],
+              "price_per": "per person",
+              "price_min": 38,
+              "price_max": 0
+            }
+          ]
+        },
+        {
+          "primary": {
+            "title": [
+              {
+                "type": "heading2",
+                "text": "Brunch Buffet",
+                "spans": []
+              }
+            ],
+            "description": [
+              {
+                "type": "paragraph",
+                "text": "Brunch beverage service includes orange juice, regular and decaf coffee, and iced water. 50 guest minimum; $150 Fee applies if minimum is not met. Have our Brunch Buffet for Dinner for an additional $5.00 per person.",
+                "spans": [
+                  {
+                    "start": 199,
+                    "end": 215,
+                    "type": "strong"
+                  },
+                  {
+                    "start": 205,
+                    "end": 215,
+                    "type": "em"
+                  }
+                ]
+              }
+            ],
+            "caption": []
+          },
+          "items": [
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "The Standard",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Fresh Fruit, Assorted Breakfast Breads, Country Potatoes, Oven Fried Chicken w/ Gravy, Bacon, Sausage, Scrambled Eggs w/ Chives & Cheese, Build Your Own Salad Bar & one Culinary Enhancement below (food only).",
+                  "spans": []
+                }
+              ],
+              "price_per": "per person",
+              "price_min": 60,
+              "price_max": 0
+            }
+          ]
+        },
+        {
+          "primary": {
+            "title": [
+              {
+                "type": "heading2",
+                "text": "Culinary Breakfast Enhancements",
+                "spans": []
+              }
+            ],
+            "description": [
+              {
+                "type": "paragraph",
+                "text": "$150 per attendant. One attendant per 50 guests recommended",
+                "spans": []
+              }
+            ],
+            "caption": []
+          },
+          "items": [
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "Waffle Bar",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Berries, Banana, Bacon Bits, Chocolate Chips, Whipped Cream, Syrup, Butter, & Powdered Sugar",
+                  "spans": []
+                }
+              ],
+              "price_per": "additional per person",
+              "price_min": 14,
+              "price_max": 0
+            },
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "Omelet Bar",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Cheddar, Feta, Mushroom, Spinach, Diced Tomato, Peppers, Onions, Scallions, Ham, Bacon, & Sausage",
+                  "spans": []
+                }
+              ],
+              "price_per": "additional per person",
+              "price_min": 16,
+              "price_max": 0
+            },
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "Carving Station (Select One)",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "list-item",
+                  "text": "Herb Roasted Prime Rib with Horseradish Cream & Au Jus",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Turkey Airline Breast with Cranberry Relish & Sage Gravy",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Smoked Pitt Ham with Honey Clove Orange Glaze & Ground Mustard",
+                  "spans": []
+                }
+              ],
+              "price_per": "additional per person",
+              "price_min": 20,
+              "price_max": 0
+            },
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "Juice Bar",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Carrots, Apples, Celery, Cucumber, Kale, Spinach, Beets, & Pineapple",
+                  "spans": []
+                }
+              ],
+              "price_per": "additional per person",
+              "price_min": 13,
+              "price_max": 0
+            },
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "Mimosa Station",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Champagne & Assorted Fruit Juices",
+                  "spans": []
+                }
+              ],
+              "price_per": "per person per hour",
+              "price_min": 10,
+              "price_max": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shared_group_refs": [
+    "Appetizers",
+    "Main Courses",
+    "Sweets",
+    "Drinks"
+  ]
+}

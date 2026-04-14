@@ -1,0 +1,218 @@
+{
+  "uid": "milestones",
+  "page_title": "Our Milestones Menu",
+  "page_description": "Our milestones menu was designed for anything you're celebrating.",
+  "page_disclaimer": "A 22% production fee, a $5 per person flat rate (for social events only), and applicable sales tax will be added to all menus.",
+  "groups": [
+    {
+      "title": "Milestone Packages",
+      "description": "All Packages Include\n5 Hour Event Time, Two Hour Access Window Prior to Event Start, Served Champagne & Sparkling Cider Toast, Customized Room Setup, Choice of White, Black or Ivory Linens for all Tables, Selection of Napkin Color(s), All China, Glassware & Flatware, Complimentary Parking for all Guests, and Uniformed, Professional Staff.",
+      "disclaimer": "",
+      "sections": [
+        {
+          "primary": {
+            "title": [
+              {
+                "type": "heading2",
+                "text": "Lunch and Dinner Packages",
+                "spans": []
+              }
+            ],
+            "description": [],
+            "caption": []
+          },
+          "items": [
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "The Ruby",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "list-item",
+                  "text": "“The Standard” Menu",
+                  "spans": [
+                    {
+                      "start": 1,
+                      "end": 13,
+                      "type": "hyperlink",
+                      "data": {
+                        "link_type": "Web",
+                        "url": "https://#the-standard"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Complimentary Entrée for Guest of Honor",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Fruit Punch -or- Lemonade Station",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Served Champagne & Sparkling Cider Toast",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Cake Cutting & Serving",
+                  "spans": []
+                }
+              ],
+              "price_per": "lunch/dinner",
+              "price_min": 64.75,
+              "price_max": 74.75
+            },
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "The Pearl",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "list-item",
+                  "text": "“The Grand Standard” Menu",
+                  "spans": [
+                    {
+                      "start": 1,
+                      "end": 19,
+                      "type": "hyperlink",
+                      "data": {
+                        "link_type": "Web",
+                        "url": "https://#the-grand-standard"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Complimentary Entrée for Guest of Honor",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Fruit Punch -or- Lemonade Station",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Unlimited Soft Drinks",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Served Champagne & Sparkling Cider Toast",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Cake Cutting & Serving",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "10” Mirrored Round for Each Guest Table",
+                  "spans": []
+                }
+              ],
+              "price_per": "lunch/dinner",
+              "price_min": 73.75,
+              "price_max": 84.75
+            },
+            {
+              "title": [
+                {
+                  "type": "heading4",
+                  "text": "The Diamond",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "list-item",
+                  "text": "“The Choura Standard” Menu",
+                  "spans": [
+                    {
+                      "start": 1,
+                      "end": 20,
+                      "type": "hyperlink",
+                      "data": {
+                        "link_type": "Web",
+                        "url": "https://#the-choura-standard"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "list-item",
+                  "text": "Complimentary Entrée for Guest of Honor",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Fruit Punch -or- Lemonade Station",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Unlimited Soft Drinks",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Served Champagne & Sparkling Cider Toast",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Chocolate Fountain with Five Dipping Items",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Cake Cutting & Serving",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "10” Mirrored Round for Each Guest Table",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Chair Covers with Sash -or- Chiavari Chairs",
+                  "spans": []
+                },
+                {
+                  "type": "list-item",
+                  "text": "Additional Event Hour",
+                  "spans": []
+                }
+              ],
+              "price_per": "lunch/dinner",
+              "price_min": 83.75,
+              "price_max": 95.75
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "shared_group_refs": [
+    "Appetizers",
+    "Main Courses",
+    "Sweets",
+    "Drinks"
+  ]
+}

@@ -2,7 +2,6 @@
 
 import { event as handleEvent } from "@/utils/gtm";
 import { stringToUnderscore } from "@/utils/utils";
-import { linkResolver } from "@/prismicio";
 import type { LinkField } from "content/types";
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
@@ -163,7 +162,7 @@ function Button({
         return { href } as LinkProps;
       case "app-link":
         if (params) {
-          return { href: `${linkResolver(field)}?${params}` } as any;
+          return { href: `${field?.url ?? ""}?${params}` } as any;
         }
         return { field };
       default:
