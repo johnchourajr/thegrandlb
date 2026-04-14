@@ -5,6 +5,7 @@ import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { inputCls, labelCls } from "../utils/classes";
+import { AutoTextarea } from "./AutoTextarea";
 import { newItem } from "../utils/newItem";
 import { rtRead, rtWrite } from "../utils/rt";
 import { ItemRow } from "./ItemRow";
@@ -120,11 +121,10 @@ export function SectionBlock({
           </div>
           <div>
             <label className={labelCls}>Section Description</label>
-            <textarea
+            <AutoTextarea
               value={rtRead(section.primary.description)}
               onChange={(e) => updatePrimary("description", e.target.value)}
-              rows={2}
-              className={clsx(inputCls, "resize-y")}
+              className={inputCls}
               placeholder="Section description"
             />
           </div>

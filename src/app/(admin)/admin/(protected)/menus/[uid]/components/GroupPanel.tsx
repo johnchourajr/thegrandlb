@@ -4,6 +4,7 @@ import type { MenuGroup, MenuSectionData } from "@/types/menu";
 import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import { inputCls, labelCls } from "../utils/classes";
+import { AutoTextarea } from "./AutoTextarea";
 import { newSection } from "../utils/newItem";
 import { SectionBlock } from "./SectionBlock";
 
@@ -108,21 +109,19 @@ export function GroupPanel({
           <div className="mt-3 grid gap-2">
             <div>
               <label className={labelCls}>Group Description</label>
-              <textarea
+              <AutoTextarea
                 value={group.description}
                 onChange={(e) => onChange({ ...group, description: e.target.value })}
-                rows={2}
-                className={clsx(inputCls, "resize-y")}
+                className={inputCls}
                 placeholder="Group description"
               />
             </div>
             <div>
               <label className={labelCls}>Group Disclaimer</label>
-              <textarea
+              <AutoTextarea
                 value={group.disclaimer}
                 onChange={(e) => onChange({ ...group, disclaimer: e.target.value })}
-                rows={2}
-                className={clsx(inputCls, "resize-y")}
+                className={inputCls}
                 placeholder="Group disclaimer"
               />
             </div>

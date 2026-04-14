@@ -5,6 +5,7 @@ import clsx from "clsx";
 import { useState } from "react";
 import { inputCls, labelCls } from "../utils/classes";
 import { rtRead, rtWrite } from "../utils/rt";
+import { AutoTextarea } from "./AutoTextarea";
 import { ReorderControls } from "./ReorderControls";
 
 export function ItemRow({
@@ -61,7 +62,7 @@ export function ItemRow({
 
         <div>
           <label className={labelCls}>Description</label>
-          <textarea
+          <AutoTextarea
             value={rtRead(item.description)}
             onChange={(e) =>
               onChange({
@@ -69,8 +70,7 @@ export function ItemRow({
                 description: rtWrite(e.target.value, item.description),
               })
             }
-            rows={2}
-            className={clsx(inputCls, "resize-y")}
+            className={inputCls}
             placeholder="Item description"
           />
         </div>
