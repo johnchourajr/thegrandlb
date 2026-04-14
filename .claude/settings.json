@@ -49,7 +49,6 @@
       "Bash(ls -la /Users/johnchoura/Dropbox/Sites/thegrandlb/src/content/types*)",
       "Bash(echo \"Exit code: $?\")",
       "Bash(awk 'NR>=40 && NR<=55')",
-      "Bash(curl -s 'https://grandmenus.cdn.prismic.io/api/v2?access_token=MC5aSmt1ZHhFQUFDd0FkcVJm.77-977-9Cg5U77-9U--_ve-_ve-_ve-_vV3vv70s77-977-9dnLvv70677-9Je-_ve-_ve-_vRLvv73vv73vv70077-9Sg')",
       "Bash(python3 -m json.tool)",
       "Bash(python3)",
       "Bash(mkdir -p /Users/johnchoura/Dropbox/Sites/thegrandlb/content/menus)",

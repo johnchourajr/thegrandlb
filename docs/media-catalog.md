@@ -8,8 +8,7 @@ This document helps humans and agents find **where media lives**, **what it is f
 |--------|------|-------------|
 | **Cloudflare Images** (`https://imagedelivery.net/…`) | **Raster photos** for static TypeScript page content | Hero stills, galleries, tour/event imagery (`/public` variant URLs in `*.content.ts`) |
 | **Cloudflare R2** served at `https://cdn.thegrandlb.com/` | **Video** and **SVG** illustrations (not Cloudflare Images) | Hero/section `video_url`, icon rows, decorative SVGs |
-| **`public/`** | Static files shipped with the Next.js app | Open Graph / Apple touch: `/logo.png` (`src/app/(site)/layout.tsx`) |
-| **Prismic CDN** (`the-grand.cdn.prismic.io`, `images.prismic.io`) | Assets uploaded in Prismic or legacy URLs | Form illustration, transactional email logo, some menu PDFs |
+| **`public/`** | Static files shipped with the Next.js app | Open Graph / Apple touch: `/logo.png` (`src/app/(site)/layout.tsx`); inquiry thanks art `/handshake.svg`; offsite catering PDFs under `/offsite-catering/*.pdf` |
 | **Prismic documents** | Editorial **photos** for pages | Slice-driven `ImageField` data (not enumerated here; lives in CMS) |
 | **`slices/**/screenshot-*.png`** | Slice Machine / Storybook previews | Documentation and Slice Machine UI only—not used in production pages |
 
@@ -140,10 +139,10 @@ Named files are stable keys; reuse the same asset when adding similar UI (for ex
 | Asset | URL | Where |
 |-------|-----|--------|
 | Site logo (public) | `/logo.png` | `public/logo.png`; Open Graph / icons in `src/app/(site)/layout.tsx` |
-| Handshake illustration | `https://the-grand.cdn.prismic.io/the-grand/12534b2c-98c9-41da-a5ed-21df334b02b0_handshake.svg` | `src/components/form/InquireThanks.tsx` |
-| Logo in emails | `https://images.prismic.io/the-grand/cb6bbe74-9712-4cf9-bec3-145cc675a490_logo.png?auto=compress,format` | `src/emails/clientEmail.tsx`, `src/emails/salesEmail.tsx` |
+| Handshake illustration | `/handshake.svg` (`public/handshake.svg`) | `src/components/form/InquireThanks.tsx` |
+| Logo in emails | Cloudflare Images (`imagedelivery.net/…/bf87763c-0f39-4979-462c-f7ca3b03e300/public`) | `src/emails/components/EmailTemplate.tsx` |
 
-Menu PDFs on Prismic CDN are linked from `src/app/(site)/menus/content.ts` (not images/video; omitted from tables above).
+Offsite catering menu PDFs (`/offsite-catering/2023-*-catering-menu.pdf`) are linked from `src/app/(site)/menus/content.ts` (served from `public/offsite-catering/`).
 
 ---
 
