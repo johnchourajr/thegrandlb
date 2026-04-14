@@ -317,44 +317,46 @@ export default function MenuEditorPage() {
           <MobileJumpSelect groups={doc.groups} onSelect={scrollToId} />
 
           {/* Page meta */}
-          <div className="grid gap-3 rounded-xl border border-black/10 bg-white p-6">
-            <h2 className="text-string-extra-small font-semibold uppercase tracking-widest text-black/40">
-              Page Meta
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className={labelCls}>Page Title</label>
-                <input
-                  type="text"
-                  value={doc.page_title}
-                  onChange={(e) => setDoc({ ...doc, page_title: e.target.value })}
-                  className={inputCls}
-                />
+          {uid !== "shared" && (
+            <div className="grid gap-3 rounded-xl border border-black/10 bg-white p-6">
+              <h2 className="text-string-extra-small font-semibold uppercase tracking-widest text-black/40">
+                Page Meta
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className={labelCls}>Page Title</label>
+                  <input
+                    type="text"
+                    value={doc.page_title}
+                    onChange={(e) => setDoc({ ...doc, page_title: e.target.value })}
+                    className={inputCls}
+                  />
+                </div>
+                <div>
+                  <label className={labelCls}>Page Description</label>
+                  <input
+                    type="text"
+                    value={doc.page_description}
+                    onChange={(e) =>
+                      setDoc({ ...doc, page_description: e.target.value })
+                    }
+                    className={inputCls}
+                  />
+                </div>
               </div>
               <div>
-                <label className={labelCls}>Page Description</label>
-                <input
-                  type="text"
-                  value={doc.page_description}
+                <label className={labelCls}>Page Disclaimer</label>
+                <textarea
+                  value={doc.page_disclaimer}
                   onChange={(e) =>
-                    setDoc({ ...doc, page_description: e.target.value })
+                    setDoc({ ...doc, page_disclaimer: e.target.value })
                   }
-                  className={inputCls}
+                  rows={2}
+                  className={clsx(inputCls, "resize-y")}
                 />
               </div>
             </div>
-            <div>
-              <label className={labelCls}>Page Disclaimer</label>
-              <textarea
-                value={doc.page_disclaimer}
-                onChange={(e) =>
-                  setDoc({ ...doc, page_disclaimer: e.target.value })
-                }
-                rows={2}
-                className={clsx(inputCls, "resize-y")}
-              />
-            </div>
-          </div>
+          )}
 
           {/* Groups */}
           <div className="flex flex-col gap-2">
