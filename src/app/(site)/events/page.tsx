@@ -1,4 +1,5 @@
 import CtaFooter from "@/components/CtaFooter";
+import { DynamicSliceZone } from "@/components/DynamicExports";
 import GridBase from "@/components/grid-index/GridBase";
 import { getEventIndexLayout } from "@/components/grid-index/utils";
 import HeroCategoryPage from "@/components/HeroCategoryPage";
@@ -6,7 +7,6 @@ import Layout from "@/components/Layout";
 import TileFooter from "@/components/TileFooter";
 import { getExtra } from "@/services/get-extra";
 import type { EventPageWithLayout } from "@/types/grid";
-import { DynamicSliceZone } from "@/components/DynamicExports";
 import { eventIndexPage } from "./content";
 import type { ContentImageField } from "content/types";
 

@@ -36,17 +36,17 @@ const GridBase = ({ uid: parentUid, sectionId, items }: GridBaseProps) => {
         once: true,
       }}
     >
-      {safeItems.map((space: GridItemData) => {
+      {safeItems.map((space: GridItemData, index: number) => {
         const {
           page: { id, uid, data },
           page_media,
         } = space as any; // Type assertion needed for relation field access
-        // console.log({ space });
+        const rowKey = id ?? uid ?? `event-index-${index}`;
 
         if (uid === "map") {
           return (
             <TileItem
-              key={id}
+              key={rowKey}
               theme={"Outlined"}
               size="Default"
               headline={"See Interactive Map"}
@@ -62,7 +62,7 @@ const GridBase = ({ uid: parentUid, sectionId, items }: GridBaseProps) => {
         if (uid === "tour") {
           return (
             <TileItem
-              key={id}
+              key={rowKey}
               theme={"Outlined"}
               size="Default"
               headline={"Tour Our Spaces"}
@@ -77,8 +77,8 @@ const GridBase = ({ uid: parentUid, sectionId, items }: GridBaseProps) => {
 
         return (
           <GridIndexItem
-            key={id}
-            id={id}
+            key={rowKey}
+            id={id ?? uid}
             uid={uid}
             page_media={page_media}
             layout={space.layout}

@@ -39,6 +39,7 @@ export default async function Page({
         title={title}
         headline={headline}
         caption={caption}
+        captionClassName="mx-auto max-w-[20em]"
         media={media}
         video_url={video_url}
       />

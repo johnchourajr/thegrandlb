@@ -15,6 +15,8 @@ export interface HeroDetailPageProps {
   title?: string | null;
   headline?: string | null;
   caption?: string | null;
+  /** Optional Tailwind classes for the caption line (e.g. max width on event detail heroes) */
+  captionClassName?: string;
   media?: ContentImageField | null;
   video_url?: string | null;
   subhead?: string | null;

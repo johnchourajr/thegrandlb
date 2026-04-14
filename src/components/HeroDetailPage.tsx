@@ -17,6 +17,7 @@ const HeroDetailPage = ({
   title,
   headline,
   caption,
+  captionClassName,
   media,
   video_url,
   subhead,
@@ -62,7 +63,13 @@ const HeroDetailPage = ({
             </Headline>
           )}
           {caption && (
-            <Headline size="lg" animateOnce={true} delay={0.5} emphasis>
+            <Headline
+              size="lg"
+              animateOnce={true}
+              delay={0.5}
+              emphasis
+              className={clsx(captionClassName)}
+            >
               {caption}
             </Headline>
           )}

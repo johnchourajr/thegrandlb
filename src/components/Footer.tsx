@@ -14,6 +14,7 @@ import { GridSection } from "./GridSection";
 import Headline from "./Headline";
 import Text from "./Paragraph";
 import StringText, { StringTextProps } from "./StringText";
+import { FooterEventPages } from "./FooterEventPages";
 import HeaderLogo from "./svg/HeaderLogo";
 
 const NavLinkItem = ({
@@ -297,6 +298,7 @@ export default function Footer({ settings, navigation }: FooterProps) {
           address={address}
           phone_number={phone_number}
         />
+        <FooterEventPages />
         <FooterMiddle tag_line={tag_line} />
         <FooterLower
           parent_company={parent_company}

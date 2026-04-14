@@ -6,13 +6,13 @@ import ImageBox from "@/components/media-frame/ImageBox";
 import Text from "@/components/Paragraph";
 import StringText from "@/components/StringText";
 import ArrowRight from "@/components/svg/ArrowRight";
-import { handleEvent } from "@/utils/events";
 import {
   getImageField,
   getKeyText,
   getLinkField,
   getSelectValue,
 } from "@/utils/content-field-helpers";
+import { handleEvent } from "@/utils/events";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import type { TileItemProps, TileStyleProps } from "./types";
@@ -130,7 +130,7 @@ export const TileItem = ({
         return {
           container: clsx(
             "lg:col-span-4 min-h-[25rem]",
-            theme === "Outlined" && "min-h-[8rem]"
+            theme === "Outlined" && "min-h-[8rem]",
           ),
           headline: "uppercase max-w-[6em]",
           content: "!gap-10 !lg:gap-20",
@@ -140,7 +140,7 @@ export const TileItem = ({
         return {
           container: clsx(
             "min-h-[25rem]",
-            theme === "Outlined" && "min-h-[8rem]"
+            theme === "Outlined" && "min-h-[8rem]",
           ),
           headline: "",
           content: "",
@@ -164,7 +164,7 @@ export const TileItem = ({
       col_start && getNumberForColStart(col_start),
       col_span && getNumberForColSpan(col_span),
       row_start && getNumberForRowStart(row_start),
-      row_span && getNumberForRowSpan(row_span)
+      row_span && getNumberForRowSpan(row_span),
     );
 
   return (
@@ -185,7 +185,7 @@ export const TileItem = ({
           "relative h-full w-full",
           gridOptionStyles,
           getSize().container,
-          className
+          className,
         ) as any
       }
       {...rest}
@@ -196,6 +196,7 @@ export const TileItem = ({
           ({
             opacity: 0,
             y: 10,
+            scale: 1,
           } as any)
         }
         whileInView={
@@ -221,7 +222,7 @@ export const TileItem = ({
           getSize().content,
           getStyles().container,
           getDirection(),
-          innerClassName
+          innerClassName,
         )}
         style={motionStyles}
       >

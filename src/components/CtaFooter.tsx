@@ -91,7 +91,7 @@ const CtaFooter = ({ data }: CtaFooterProps) => {
       )}
     >
       <TileItem
-        className="3lg:!col-span-4 3lg:!col-start-8 z-50 flex w-full items-center md:!col-span-2 md:!col-start-3 lg:!col-span-5 lg:!col-start-7"
+        className="z-50 col-span-4 col-start-1 flex w-full items-center md:!col-span-2 md:!col-start-3 lg:!col-span-5 lg:!col-start-7 3lg:!col-span-4 3lg:!col-start-8"
         innerClassName="max-h-[50rem] "
         initial={{
           opacity: 0,
