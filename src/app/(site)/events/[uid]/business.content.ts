@@ -8,9 +8,9 @@ export const businessPage: PageDoc = {
     caption: "Elevate your events with our professional touch.",
     video_url: null,
     meta_title:
-      "Corporate Event Venue in Long Beach, CA | Conferences & Meetings | The Grand LB",
+      "Long Beach Conference Venue & Corporate Events | Meetings to 675 Guests | The Grand LB",
     meta_description:
-      "Book corporate events, conferences, meetings, and team offsites at The Grand Long Beach. 7 flexible spaces for 10-675 guests, in-house catering, AV support, and free parking. 20 min from LAX.",
+      "Long Beach conference venue for meetings, offsites, galas, and trade shows. The Grand Long Beach offers 7 flexible spaces (10–675 guests), in-house catering, AV support, and free parking—20 min from LAX.",
     slices: [
       {
         type: "image_section",

@@ -1,5 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
   reactStrictMode: false,
   // Ensure content/menus JSON files are included in the Vercel serverless
   // function bundle so fs.readFileSync works at runtime (ISR, API routes).
@@ -28,7 +29,22 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   async redirects() {
+    /** Apex canonical: https://thegrandlb.com — assign these hosts to this Vercel project so requests hit Next. */
+    const canonicalHosts = [
+      "www2.thegrandlb.com",
+      "hello.thegrandlb.com",
+      "www.thegrandlb.com",
+    ] as const;
+
+    const hostRedirects = canonicalHosts.map((host) => ({
+      source: "/:path*",
+      has: [{ type: "host" as const, value: host }],
+      destination: "https://thegrandlb.com/:path*",
+      permanent: true as const,
+    }));
+
     return [
+      ...hostRedirects,
       { source: "/home", destination: "/", permanent: true },
       { source: "/tour/map", destination: "/map", permanent: true },
     ];
@@ -58,4 +74,4 @@ const nextConfig = {
   compress: true,
 };
 
-module.exports = nextConfig;
+export default nextConfig;

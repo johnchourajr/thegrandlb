@@ -19,9 +19,11 @@ export default async function InquirePage() {
 
 export async function generateMetadata() {
   return {
-    title: "Make an Inquiry | Book Your Event at The Grand LB in Long Beach",
+    title: {
+      absolute: "Tour or Proposal | The Grand Long Beach",
+    },
     description:
-      "Request a proposal or schedule a tour at The Grand Long Beach. Inquire about weddings, quinceañeras, corporate events, and private celebrations in Long Beach, CA.",
+      "Schedule a site tour or request a proposal from our planners. Weddings, corporate meetings, quinceañeras, and private events at The Grand Long Beach—40,000 sq ft, in-house catering, 20 min from LAX.",
     alternates: { canonical: "/inquire" },
   };
 }

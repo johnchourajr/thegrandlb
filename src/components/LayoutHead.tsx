@@ -49,7 +49,7 @@ const LayoutHead = ({ settings, page, headContent }: any) => {
       <meta name="description" content={desc} />
 
       <meta property="og:title" content={metaTitle} />
-      <meta name="og:description" content={desc} />
+      <meta property="og:description" content={desc} />
       <meta property="og:type" content="website" />
       <meta property="og:image" content={img} />
       <meta property="og:site_name" content={siteTitle || ""} />

@@ -52,7 +52,7 @@ export function cfImageUrl(
 /**
  * Next.js custom image loader for Cloudflare Images.
  *
- * Usage in next.config.js:
+ * Usage in next.config.ts:
  *   images: { loader: 'custom', loaderFile: './src/lib/image-cdn.ts' }
  *
  * Or pass directly to <Image loader={cloudflareImageLoader} />.

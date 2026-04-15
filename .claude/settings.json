@@ -27,7 +27,7 @@
       "Bash(npm info:*)",
       "Bash(pnpm info:*)",
       "Bash(ls /Users/johnchoura/Dropbox/Sites/thegrandlb/next.config*)",
-      "Bash(node -e \"const c = require\\('./next.config.js'\\); console.log\\(JSON.stringify\\(c.images.remotePatterns, null, 2\\)\\)\")",
+      "Bash(pnpm exec tsx -e \"import c from './next.config.ts'; console.log(JSON.stringify(c.images.remotePatterns, null, 2))\")",
       "Bash(grep -v \"^$\")",
       "Bash(pnpm add:*)",
       "Bash(pnpm install:*)",

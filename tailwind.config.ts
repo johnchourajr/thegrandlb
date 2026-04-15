@@ -1,9 +1,14 @@
-/** @type {import('tailwindcss').Config} */
+import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
+import twColors from "tailwindcss/colors";
+import scopedGroups from "tailwindcss-scoped-groups";
 
-const defaultTheme = require("tailwindcss/defaultTheme");
-const twColors = require("tailwindcss/colors");
-
-function clampBuilder(minWidthPx, maxWidthPx, minFontSize, maxFontSize) {
+function clampBuilder(
+  minWidthPx: number,
+  maxWidthPx: number,
+  minFontSize: number,
+  maxFontSize: number,
+): string {
   const minWidth = minWidthPx / 16;
   const maxWidth = maxWidthPx / 16;
 
@@ -15,8 +20,7 @@ function clampBuilder(minWidthPx, maxWidthPx, minFontSize, maxFontSize) {
   }vw, ${maxFontSize}rem)`;
 }
 
-// modular scale function
-function ms(base, ratio, n) {
+function ms(base: number, ratio: number, n: number): number {
   return base * Math.pow(ratio, n);
 }
 
@@ -55,10 +59,10 @@ const colors = {
   blue: "#CEEAEB",
 };
 
-module.exports = {
+const config: Config = {
   content: ["./src/**/*.{js,ts,jsx,tsx}", "./slices/**/*.{js,ts,jsx,tsx}"],
   plugins: [
-    require("tailwindcss-scoped-groups")({
+    scopedGroups({
       groups: ["one", "two", "three"],
     }),
   ],
@@ -107,18 +111,18 @@ module.exports = {
       "headline-sm": clampBuilder(1024, 1920, headline.min[6], headline.max[6]),
     },
     lineHeight: {
-      base: 1.2,
-      paragraph: 1.45,
-      string: 1.5,
-      linkString: 1.2,
-      "headline-5xl": 0.88,
-      "headline-4xl": 0.88,
-      "headline-3xl": 0.91,
-      "headline-2xl": 0.95,
-      "headline-xl": 0.98,
-      "headline-lg": 1,
-      "headline-md": 1.1,
-      "headline-sm": 1.2,
+      base: "1.2",
+      paragraph: "1.45",
+      string: "1.5",
+      linkString: "1.2",
+      "headline-5xl": "0.88",
+      "headline-4xl": "0.88",
+      "headline-3xl": "0.91",
+      "headline-2xl": "0.95",
+      "headline-xl": "0.98",
+      "headline-lg": "1",
+      "headline-md": "1.1",
+      "headline-sm": "1.2",
     },
     letterSpacing: {
       "headline-5xl": "-0.04em",
@@ -133,25 +137,12 @@ module.exports = {
 
     screens: {
       sm: "640px",
-      // => @media (min-width: 640px) { ... }
-
       md: "768px",
-      // => @media (min-width: 768px) { ... }
-
       lg: "1024px",
-      // => @media (min-width: 1024px) { ... }
-
       xl: "1280px",
-      // => @media (min-width: 1280px) { ... }
-
       "2xl": "1440px",
-      // => @media (min-width: 1440px) { ... }
-
       "3xl": "1920px",
-      // => @media (min-width: 1920px) { ... }
-
       "4xl": "2560px",
-      // => @media (min-width: 2560px) { ... }
     },
     container: {
       padding: {
@@ -205,3 +196,5 @@ module.exports = {
     },
   },
 };
+
+export default config;

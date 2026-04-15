@@ -26,6 +26,8 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 Project notes and decisions live in [`/docs`](docs/), including [voice and tone](docs/voice-and-tone.md) and a [media catalog](docs/media-catalog.md) (Cloudflare Images photo URLs, R2 video/SVGs, static assets, and code references). Large PDFs that ship with the app (for example offsite catering menus) live under [`public/offsite-catering/`](public/offsite-catering/); see the media catalog for R2 vs `public/` guidance and for **how to expose a second R2 bucket** with a public URL. For **what each Cloudflare Image depicts and how to reuse it on landing pages**, see [`docs/cloudflare-images-for-agents.md`](docs/cloudflare-images-for-agents.md). Machine-readable **vision-only** labels for all 146 assets are in [`docs/cloudflare-images-visual-classification.json`](docs/cloudflare-images-visual-classification.json) (do not use existing repo `alt` strings as ground truth for image meaning). The full URL list is in [`docs/cloudflare-images-urls.txt`](docs/cloudflare-images-urls.txt).
 
+**Canonical host:** `https://thegrandlb.com`. `next.config.ts` issues **308 redirects** from `www.thegrandlb.com`, `www2.thegrandlb.com`, and `hello.thegrandlb.com` to the same path on the apex domain. In Vercel, add those domains to **this** project so traffic reaches Next and the redirects run.
+
 ## Testing
 
 Run validation unit tests:
