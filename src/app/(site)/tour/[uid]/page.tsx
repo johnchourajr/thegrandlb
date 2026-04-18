@@ -2,6 +2,7 @@ import CtaFooter from "@/components/CtaFooter";
 import { DynamicSliceZone } from "@/components/DynamicExports";
 import HeroDetailPage from "@/components/HeroDetailPage";
 import JsonLdBreadcrumb from "@/components/JsonLdBreadcrumb";
+import JsonLdVideo from "@/components/JsonLdVideo";
 import TileFooter from "@/components/TileFooter";
 import { getExtra } from "@/services/get-extra";
 import Layout from "@components/Layout";
@@ -59,9 +60,22 @@ export default async function Page({
 
   const { settings, navigation, cta, footer_cards } = await getExtra({});
   const { slices, headline, media, video_url, subhead, body } = page.data;
+  const thumbnailUrl = media?.url;
+  const metaTitle = page.data.meta_title;
+  const metaDescription = page.data.meta_description;
 
   return (
     <Layout page={page} settings={settings} navigation={navigation}>
+      {video_url && thumbnailUrl && (
+        <JsonLdVideo
+          name={metaTitle ?? `${headline} — Video Tour`}
+          description={metaDescription ?? "Event space video tour at The Grand Long Beach, CA."}
+          thumbnailUrl={thumbnailUrl}
+          contentUrl={video_url}
+          uploadDate="2024-06-01"
+          duration="PT30S"
+        />
+      )}
       <JsonLdBreadcrumb
         crumbs={[
           { name: "Home", url: "https://thegrandlb.com" },

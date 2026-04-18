@@ -1,6 +1,7 @@
 import GridBase from "@/components/grid-index/GridBase";
 import { getTourIndexLayout } from "@/components/grid-index/utils";
 import HeroCategoryPage from "@/components/HeroCategoryPage";
+import JsonLdVideo from "@/components/JsonLdVideo";
 import Layout from "@/components/Layout";
 import { getExtra } from "@/services/get-extra";
 import type { TourSpaceWithLayout } from "@/types/grid";
@@ -23,6 +24,14 @@ export default async function Page() {
 
   return (
     <Layout page={tourIndexPage} settings={settings} navigation={navigation} hidePageUid>
+      <JsonLdVideo
+        name="Event Spaces at The Grand LB — Venue Tour"
+        description="7 indoor and outdoor event spaces at The Grand Long Beach, CA. From the 675-guest Grand Ballroom to the intimate Board Room. 40,000 sq ft venue 20 min from LAX."
+        thumbnailUrl="https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/569cb5d0-cd2b-433e-6f65-d237efee8900/public"
+        contentUrl="https://cdn.thegrandlb.com/2ff5529b-ae2d-4706-9e14-2e9215729acf-tour-index-15s-final.mp4"
+        uploadDate="2024-06-01"
+        duration="PT15S"
+      />
       <HeroCategoryPage
         headline={title}
         gallery={gallery}
@@ -46,9 +55,9 @@ export default async function Page() {
 
 export async function generateMetadata() {
   return {
-    title: "Tour Our Event Spaces | 7 Venues for 40-675 Guests in Long Beach, CA",
+    title: "7 Event Spaces in Long Beach, CA | The Grand LB",
     description:
-      "Explore 7 indoor and outdoor event spaces at The Grand Long Beach. From The Grand Ballroom (675 guests) to The Board Room (40 guests). 40,000 sq ft venue in Long Beach, CA.",
+      "7 indoor and outdoor event spaces at The Grand Long Beach — from the 675-guest Grand Ballroom to the intimate 40-guest Board Room. 40,000 sq ft. Free parking. 20 min from LAX.",
     alternates: { canonical: "/tour" },
   };
 }

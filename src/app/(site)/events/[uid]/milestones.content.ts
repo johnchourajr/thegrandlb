@@ -8,7 +8,7 @@ export const milestonesPage: PageDoc = {
     caption: "Celebrate your milestones in style.",
     video_url: null,
     meta_title:
-      "Birthday & Anniversary Party Venue in Long Beach, CA | The Grand LB",
+      "Birthday & Milestone Party Venue in Long Beach, CA | The Grand LB",
     meta_description:
       "Host birthday parties, anniversaries, baby showers, and milestone celebrations at The Grand Long Beach. 7 event spaces for 40-675 guests with in-house catering. 20 min from LAX.",
     slices: [

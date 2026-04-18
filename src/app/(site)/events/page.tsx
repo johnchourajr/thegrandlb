@@ -1,6 +1,7 @@
 import CtaFooter from "@/components/CtaFooter";
 import { DynamicSliceZone } from "@/components/DynamicExports";
 import GridBase from "@/components/grid-index/GridBase";
+import JsonLdVideo from "@/components/JsonLdVideo";
 import { getEventIndexLayout } from "@/components/grid-index/utils";
 import HeroCategoryPage from "@/components/HeroCategoryPage";
 import Layout from "@/components/Layout";
@@ -29,6 +30,14 @@ export default async function Page() {
 
   return (
     <Layout page={eventIndexPage} settings={settings} navigation={navigation}>
+      <JsonLdVideo
+        name="Events at The Grand LB Long Beach — Weddings, Corporate & Celebrations"
+        description="The Grand Long Beach hosts weddings, quinceañeras, corporate events, galas, and private celebrations. 7 indoor and outdoor spaces for 40–675 guests. 20 min from LAX."
+        thumbnailUrl="https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/856df71a-3832-4963-6cc1-1fc9c6115c00/public"
+        contentUrl="https://cdn.thegrandlb.com/9e5d872e-81ca-46e2-93e4-7d952055014c-events-index-15s-final.mp4"
+        uploadDate="2024-06-01"
+        duration="PT15S"
+      />
       <HeroCategoryPage
         headline={title}
         gallery={gallery}

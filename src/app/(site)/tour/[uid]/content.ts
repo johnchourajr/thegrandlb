@@ -2582,7 +2582,7 @@ export const tourPages: Record<string, PageDoc> = {
           feature: "Large Dance Floor",
         },
       ],
-      meta_title: "The Grand Ballroom | Largest Event Space at The Grand LB",
+      meta_title: "The Grand Ballroom Long Beach | 675-Guest Event Space | The Grand LB",
       meta_description:
         "SoCal's premier ballroom with room for 675 guests. 13,000+ sqft, built-in stage, professional lighting, and in-house catering in Long Beach, CA.",
       slices: [

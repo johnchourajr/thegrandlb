@@ -8,7 +8,7 @@ export const quincesPage: PageDoc = {
     caption: "A quinceañera venue as unforgettable as the moment itself.",
     video_url: null,
     meta_title:
-      "Quinceañera Venue in Long Beach, CA | The Grand LB | Quince Party",
+      "Quinceañera Venue in Long Beach, CA | The Grand LB",
     meta_description:
       "Host your quinceañera at The Grand Long Beach. 7 elegant indoor and outdoor event spaces for up to 675 guests, in-house catering, and bilingual event coordinators in Long Beach, CA.",
     slices: [

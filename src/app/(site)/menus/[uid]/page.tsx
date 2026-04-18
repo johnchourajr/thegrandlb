@@ -18,7 +18,7 @@ const MENU_METADATA: Record<MenuUid, { title: string; description: string }> = {
       "Classic catering menu for events at The Grand Long Beach. Plated dinners, buffet options, and action stations prepared by our in-house kitchen in Long Beach, CA.",
   },
   corporate: {
-    title: "Corporate Event Catering Menu | Meetings & Conferences at The Grand LB",
+    title: "Corporate Event Catering Menu | The Grand LB Long Beach",
     description:
       "Corporate catering menu at The Grand Long Beach. Lunch, dinner, and break service for meetings, conferences, galas, and team events. In-house kitchen in Long Beach, CA.",
   },
@@ -28,9 +28,9 @@ const MENU_METADATA: Record<MenuUid, { title: string; description: string }> = {
       "Catering menu for milestone celebrations at The Grand Long Beach. Customizable menus for quinceañeras, birthdays, anniversaries, and more. In-house kitchen in Long Beach, CA.",
   },
   weddings: {
-    title: "Wedding Catering Menu | Reception Dining at The Grand LB",
+    title: "Wedding & Reception Catering Menus | The Grand LB Long Beach",
     description:
-      "Wedding catering menu at The Grand Long Beach. Plated dinners, buffet service, and action stations for receptions of up to 675 guests. In-house kitchen in Long Beach, CA.",
+      "Custom wedding catering at The Grand Long Beach — plated dinners, buffet service, and action stations for receptions up to 675 guests. In-house kitchen with dedicated wedding coordinators.",
   },
 };
 
@@ -46,7 +46,7 @@ export async function generateMetadata({
   const { uid } = await params;
   const meta = MENU_METADATA[uid as MenuUid];
   if (!meta) return {};
-  return { title: meta.title, description: meta.description };
+  return { title: meta.title, description: meta.description, alternates: { canonical: `/menus/${uid}` } };
 }
 
 export default async function MenuPage({
