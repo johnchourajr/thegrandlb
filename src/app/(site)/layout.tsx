@@ -1,7 +1,8 @@
-import RootLayoutShell from "@/components/RootLayoutShell";
 import JsonLdLocalBusiness from "@/components/JsonLdLocalBusiness";
+import RootLayoutShell from "@/components/RootLayoutShell";
 import { getExtra } from "@/services/get-extra";
 import { Analytics } from "@vercel/analytics/next";
+import { VercelToolbar } from "@vercel/toolbar/next";
 import type { Metadata, Viewport } from "next";
 
 export const viewport: Viewport = {
@@ -37,7 +38,6 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://thegrandlb.com",
     siteName: "The Grand LB",
-    images: ["/og-image.png"],
   },
   twitter: {
     card: "summary_large_image",
@@ -58,6 +58,7 @@ export default async function SiteLayout({
       <JsonLdLocalBusiness />
       {children}
       <Analytics />
+      <VercelToolbar />
     </RootLayoutShell>
   );
 }

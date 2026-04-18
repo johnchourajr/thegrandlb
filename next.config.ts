@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { withVercelToolbar } from "@vercel/toolbar/plugins/next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: false,
@@ -82,4 +83,4 @@ const nextConfig: NextConfig = {
   compress: true,
 };
 
-export default nextConfig;
+export default withVercelToolbar()(nextConfig);
