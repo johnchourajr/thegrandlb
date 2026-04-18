@@ -37,13 +37,13 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://thegrandlb.com",
     siteName: "The Grand LB",
-    images: ["/logo.png"],
+    images: ["/og-image.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "The Grand LB | Premier Event Venue & Weddings in Long Beach, CA",
     description: SITE_DESCRIPTION,
-    images: ["/logo.png"],
+    images: ["/og-image.png"],
   },
 };
 
