@@ -38,6 +38,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://thegrandlb.com",
     siteName: "The Grand LB",
+    images: ["/og-image.png"],
   },
   twitter: {
     card: "summary_large_image",

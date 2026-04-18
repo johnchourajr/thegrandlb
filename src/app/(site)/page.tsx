@@ -36,9 +36,12 @@ export async function generateMetadata() {
     description,
     alternates: { canonical: "/" },
     openGraph: {
-      title:
-        "The Grand LB | Event Venue & Wedding Venue in Long Beach, CA",
+      title: "The Grand LB | Event Venue & Wedding Venue in Long Beach, CA",
       description,
+      type: "website",
+      url: "https://thegrandlb.com",
+      siteName: "The Grand LB",
+      images: ["/og-image.png"],
     },
   };
 }
