@@ -45,10 +45,6 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: ["/logo.png"],
   },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/logo.png",
-  },
 };
 
 export default async function SiteLayout({
