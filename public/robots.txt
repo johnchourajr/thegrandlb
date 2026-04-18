@@ -10,6 +10,19 @@ Disallow: /api/
 # Disallow thank you page (form submission)
 Disallow: /thanks
 
+# Block Next.js static assets — no indexing value, wastes crawl budget
+Disallow: /_next/static/
+Disallow: /_next/image/
+
+# Block utility/fragment pages that should not appear in search results
+Disallow: /footer
+
+# Block query strings used for internal tracking (canonical tags handle dedup)
+Disallow: /*?wordfence_lh=
+Disallow: /*?ref=
+Disallow: /*?desired_space=
+Disallow: /*?utm_
+
 # Defensive: Block common attack paths even though we don't use them
 Disallow: /wp/
 Disallow: /wp-admin/

@@ -47,6 +47,14 @@ const nextConfig: NextConfig = {
       ...hostRedirects,
       { source: "/home", destination: "/", permanent: true },
       { source: "/tour/map", destination: "/map", permanent: true },
+      { source: "/tour/map/", destination: "/map", permanent: true },
+      { source: "/corporate-social-events", destination: "/events", permanent: true },
+      { source: "/corporate-social-events/", destination: "/events", permanent: true },
+      { source: "/services-menu", destination: "/menus", permanent: true },
+      { source: "/services-menu/", destination: "/menus", permanent: true },
+      { source: "/feed", destination: "/", permanent: true },
+      { source: "/weddings", destination: "/events/weddings", permanent: true },
+      { source: "/weddings/", destination: "/events/weddings", permanent: true },
     ];
   },
   async headers() {
