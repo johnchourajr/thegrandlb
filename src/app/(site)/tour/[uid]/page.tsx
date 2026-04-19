@@ -72,7 +72,7 @@ export default async function Page({
           description={metaDescription ?? "Event space video tour at The Grand Long Beach, CA."}
           thumbnailUrl={thumbnailUrl}
           contentUrl={video_url}
-          uploadDate="2024-06-01"
+          uploadDate="2024-06-01T00:00:00+00:00"
           duration="PT30S"
         />
       )}
