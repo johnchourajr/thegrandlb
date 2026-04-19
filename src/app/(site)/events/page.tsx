@@ -35,7 +35,7 @@ export default async function Page() {
         description="The Grand Long Beach hosts weddings, quinceañeras, corporate events, galas, and private celebrations. 7 indoor and outdoor spaces for 40–675 guests. 20 min from LAX."
         thumbnailUrl="https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/856df71a-3832-4963-6cc1-1fc9c6115c00/public"
         contentUrl="https://cdn.thegrandlb.com/9e5d872e-81ca-46e2-93e4-7d952055014c-events-index-15s-final.mp4"
-        uploadDate="2024-06-01"
+        uploadDate="2024-06-01T00:00:00+00:00"
         duration="PT15S"
       />
       <HeroCategoryPage

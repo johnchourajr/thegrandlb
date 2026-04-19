@@ -16,7 +16,7 @@ export default async function Homepage() {
         description="SoCal's premier 40,000 sq ft event venue. Host weddings, quinceañeras, corporate events, and celebrations across 7 spaces for up to 675 guests. 20 min from LAX."
         thumbnailUrl="https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/b41a724a-b3ad-40ae-57df-98a1b8ce3400/public"
         contentUrl="https://cdn.thegrandlb.com/7cff637b-d646-493b-9e81-06266373f84c-homepage-60s-final.mp4"
-        uploadDate="2024-06-01"
+        uploadDate="2024-06-01T00:00:00+00:00"
         duration="PT1M"
       />
       <DynamicSliceZone slices={homePage.data.slices} />
