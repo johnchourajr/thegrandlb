@@ -2,6 +2,7 @@ import CtaFooter from "@/components/CtaFooter";
 import { DynamicSliceZone } from "@/components/DynamicExports";
 import HeroDetailPage from "@/components/HeroDetailPage";
 import JsonLdBreadcrumb from "@/components/JsonLdBreadcrumb";
+import JsonLdFaqSlices from "@/components/JsonLdFaqSlices";
 import JsonLdVideo from "@/components/JsonLdVideo";
 import TileFooter from "@/components/TileFooter";
 import { getExtra } from "@/services/get-extra";
@@ -66,6 +67,7 @@ export default async function Page({
 
   return (
     <Layout page={page} settings={settings} navigation={navigation}>
+      <JsonLdFaqSlices slices={slices} />
       {video_url && thumbnailUrl && (
         <JsonLdVideo
           name={metaTitle ?? `${headline} — Video Tour`}

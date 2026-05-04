@@ -9,6 +9,7 @@ import {
   DynamicTileFooter,
 } from "@/components/DynamicExports";
 import JsonLdBreadcrumb from "@/components/JsonLdBreadcrumb";
+import JsonLdFaqSlices from "@/components/JsonLdFaqSlices";
 import { eventPages, eventPageUids } from "./content";
 
 export const revalidate = false;
@@ -27,6 +28,7 @@ export default async function Page({
 
   return (
     <Layout page={page} settings={settings} navigation={navigation}>
+      <JsonLdFaqSlices slices={slices} />
       <JsonLdBreadcrumb
         crumbs={[
           { name: "Home", url: "https://thegrandlb.com" },

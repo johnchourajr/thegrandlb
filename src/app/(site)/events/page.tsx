@@ -1,6 +1,7 @@
 import CtaFooter from "@/components/CtaFooter";
 import { DynamicSliceZone } from "@/components/DynamicExports";
 import GridBase from "@/components/grid-index/GridBase";
+import JsonLdFaqSlices from "@/components/JsonLdFaqSlices";
 import JsonLdVideo from "@/components/JsonLdVideo";
 import { getEventIndexLayout } from "@/components/grid-index/utils";
 import HeroCategoryPage from "@/components/HeroCategoryPage";
@@ -30,6 +31,7 @@ export default async function Page() {
 
   return (
     <Layout page={eventIndexPage} settings={settings} navigation={navigation}>
+      <JsonLdFaqSlices slices={slices} />
       <JsonLdVideo
         name="Events at The Grand LB Long Beach — Weddings, Corporate & Celebrations"
         description="The Grand Long Beach hosts weddings, quinceañeras, corporate events, galas, and private celebrations. 7 indoor and outdoor spaces for 40–675 guests. 20 min from LAX."
