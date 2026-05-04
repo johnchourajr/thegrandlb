@@ -1,5 +1,6 @@
 import { DynamicCtaFooter, DynamicSliceZone } from "@/components/DynamicExports";
 import HeroCategoryPage from "@/components/HeroCategoryPage";
+import JsonLdFaqSlices from "@/components/JsonLdFaqSlices";
 import Layout from "@/components/Layout";
 import { getExtra } from "@/services/get-extra";
 import { menuIndexPage } from "./content";
@@ -12,6 +13,7 @@ export default async function Page() {
 
   return (
     <Layout page={menuIndexPage} settings={settings} navigation={navigation} hidePageUid>
+      <JsonLdFaqSlices slices={slices} />
       <HeroCategoryPage
         headline={title}
         gallery={gallery}
