@@ -22,7 +22,7 @@
     "@next/third-parties": "^16.2.2",
     "@vercel/analytics": "^2.0.1",
     "@vercel/toolbar": "^0.2.2",
-    "axios": "^1.15.0",
+    "axios": "^1.15.2",
     "body-parser": "^2.2.2",
     "clsx": "^2.1.1",
     "framer-motion": "^12.38.0",
