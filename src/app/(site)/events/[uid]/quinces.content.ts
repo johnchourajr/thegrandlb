@@ -17,11 +17,11 @@ export const quincesPage: PageDoc = {
         video_media: null,
         media: {
           dimensions: {
-            width: 2816,
-            height: 1826,
+            width: 1152,
+            height: 768,
           },
-          alt: "Ballroom with pink uplighting, dance floor, and DJ booth.",
-          url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/39670f24-73de-4ddb-91c8-b992f36ccd00/public",
+          alt: "Quinceañera sweetheart table with lush florals, pink and peach drapery, and gold accents.",
+          url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/5df18e9d-af7b-41cc-4869-1cd2f6122f00/public",
         },
         bottom_spacer: "None",
       },
@@ -149,16 +149,42 @@ export const quincesPage: PageDoc = {
           data: {
             gallery_items: [
               {
+                caption: "Ceremony Backdrop",
+                link: null,
+                video_media: null,
+                media: {
+                  dimensions: {
+                    width: 512,
+                    height: 768,
+                  },
+                  alt: "Woven circular backdrop with peach floral arrangements and a tufted settee.",
+                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/83ca5e7d-0501-4563-f725-77b1c88c8800/public",
+                },
+              },
+              {
+                caption: "Reception Details",
+                link: null,
+                video_media: null,
+                media: {
+                  dimensions: {
+                    width: 512,
+                    height: 768,
+                  },
+                  alt: "Gold chiavari chairs with coral sashes and elegant place settings.",
+                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/ed2a0cbd-b79e-4d3b-49cc-1bbe288b0f00/public",
+                },
+              },
+              {
                 caption: "The Grand Ballroom",
                 link: null,
                 video_media: null,
                 media: {
                   dimensions: {
-                    width: 2464,
-                    height: 1848,
+                    width: 1152,
+                    height: 768,
                   },
-                  alt: "Grand Ballroom with ornate ceiling, crystal chandeliers, formal rounds.",
-                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/ba00e56c-e108-4405-26e1-f16ba5b35c00/public",
+                  alt: "Grand Ballroom set with round tables, peach chair sashes, and a draped floral backdrop.",
+                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/3517d7dc-7dfb-4b3b-9158-1326cb29fa00/public",
                 },
               },
               {

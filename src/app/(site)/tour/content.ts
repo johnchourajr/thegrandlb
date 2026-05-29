@@ -6,14 +6,14 @@ export const tourIndexPage: PageDoc = {
   "uid": "tour",
   "data": {
     "title": "The Grand Tour",
-    "video_url": "https://cdn.thegrandlb.com/2ff5529b-ae2d-4706-9e14-2e9215729acf-tour-index-15s-final.mp4",
+    "video_url": "https://cdn.thegrandlb.com/Tour%20Index%2015s.mp4",
     "media": {
       "dimensions": {
         "width": 3840,
         "height": 2160
       },
       "alt": "Evening exterior of the venue with palms and illuminated facade.",
-      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/569cb5d0-cd2b-433e-6f65-d237efee8900/public"
+      "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/9b85e6b5-cb44-4d11-c06a-b524ca6cb100/public"
     },
     "icon_media": {
       "dimensions": {
@@ -32,8 +32,8 @@ export const tourIndexPage: PageDoc = {
             "width": 1814,
             "height": 2416
           },
-          "alt": "Grand Ballroom with rounds, stage, and chandeliers.",
-          "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/856df71a-3832-4963-6cc1-1fc9c6115c00/public"
+          "alt": "Grand Ballroom set with round tables, blush chair sashes, and place settings under ring chandeliers.",
+          "url": "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/710eb74f-1fce-4e42-89b6-2d41e2643e00/public"
         },
         "page": {
           "uid": "grand-ballroom",

@@ -16,9 +16,9 @@ export const indianWeddingsPage: PageDoc = {
         type: "image_section",
         video_media: null,
         media: {
-          dimensions: { width: 2816, height: 1826 },
-          alt: "Grand Ballroom with ornate ceiling, crystal chandeliers, formal rounds.",
-          url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/ba00e56c-e108-4405-26e1-f16ba5b35c00/public",
+          dimensions: { width: 1152, height: 768 },
+          alt: "Grand Ballroom social setup with round tables, blush chair sashes, and pink uplighting.",
+          url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/ef8c6b56-c2c2-47c6-8e7d-0334a67b2e00/public",
         },
         bottom_spacer: "None",
       },
@@ -132,9 +132,9 @@ export const indianWeddingsPage: PageDoc = {
                 link: null,
                 video_media: null,
                 media: {
-                  dimensions: { width: 2464, height: 1848 },
-                  alt: "Grand Ballroom with ornate ceiling, crystal chandeliers, formal rounds.",
-                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/ba00e56c-e108-4405-26e1-f16ba5b35c00/public",
+                  dimensions: { width: 1152, height: 768 },
+                  alt: "Grand Ballroom set with round tables, peach chair sashes, and a draped floral backdrop.",
+                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/3517d7dc-7dfb-4b3b-9158-1326cb29fa00/public",
                 },
               },
               {

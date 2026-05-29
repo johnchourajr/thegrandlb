@@ -16,9 +16,9 @@ export const graduationPartiesPage: PageDoc = {
         type: "image_section",
         video_media: null,
         media: {
-          dimensions: { width: 3696, height: 2772 },
-          alt: "Grand Ballroom with stage, dance floor, and pink uplighting.",
-          url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/3562cb12-8916-4107-ba62-834da911cb00/public",
+          dimensions: { width: 1152, height: 768 },
+          alt: "Grand Ballroom theater setup with coffered ceiling, ring chandeliers, and tables below.",
+          url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/6e4c12c4-0822-4a4a-d16b-ffa9e6546b00/public",
         },
         bottom_spacer: "None",
       },
@@ -104,6 +104,15 @@ export const graduationPartiesPage: PageDoc = {
         gallery: {
           data: {
             gallery_items: [
+              {
+                link: null,
+                video_media: null,
+                media: {
+                  dimensions: { width: 512, height: 768 },
+                  alt: "Outdoor buffet service with a staff member plating for a guest among palms.",
+                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/36b6a98a-be6a-4b19-6ebe-7b985e62fe00/public",
+                },
+              },
               {
                 link: null,
                 video_media: null,

@@ -7,14 +7,14 @@ export const eventIndexPage: PageDoc = {
   data: {
     title: "Your Grand Moment",
     video_url:
-      "https://cdn.thegrandlb.com/9e5d872e-81ca-46e2-93e4-7d952055014c-events-index-15s-final.mp4",
+      "https://cdn.thegrandlb.com/Events%20Index%2015s.mp4",
     media: {
       dimensions: {
         width: 3840,
         height: 2160,
       },
       alt: "Elegant ballroom interior with rounds, chandeliers, soft uplighting.",
-      url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/cfe41bb3-f218-430d-868d-99feb6668300/public",
+      url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/fb5211c2-b998-4c97-3a38-2d565addb600/public",
     },
     headline: "No matter your thing, we're here for you.",
     body: "Every occasion deserves a personalized touch. Our seven indoor and outdoor event spaces in Long Beach accommodate 40 to 675 guests—flexible enough for weddings, quinceañeras, corporate conferences, and everything in between.",
@@ -253,11 +253,11 @@ export const eventIndexPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: {
-                    width: 2464,
-                    height: 1848,
+                    width: 1152,
+                    height: 768,
                   },
-                  alt: "Grand Ballroom with ornate ceiling, crystal chandeliers, formal rounds.",
-                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/ba00e56c-e108-4405-26e1-f16ba5b35c00/public",
+                  alt: "Grand Ballroom set with round tables, peach chair sashes, and a draped floral backdrop.",
+                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/3517d7dc-7dfb-4b3b-9158-1326cb29fa00/public",
                 },
               },
               {
@@ -292,11 +292,11 @@ export const eventIndexPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: {
-                    width: 1848,
-                    height: 2464,
+                    width: 512,
+                    height: 768,
                   },
-                  alt: "Grand Ballroom vertical shot: dramatic ceiling, chandeliers, long perspective toward stage.",
-                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/0061dc98-91d8-48c7-a03c-391748748a00/public",
+                  alt: "Grand Ballroom set with round tables, blush chair sashes, and place settings under ring chandeliers.",
+                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/710eb74f-1fce-4e42-89b6-2d41e2643e00/public",
                 },
               },
               {
