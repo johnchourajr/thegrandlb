@@ -27,8 +27,8 @@ export default async function Page() {
       <JsonLdVideo
         name="Event Spaces at The Grand LB — Venue Tour"
         description="7 indoor and outdoor event spaces at The Grand Long Beach, CA. From the 675-guest Grand Ballroom to the intimate Board Room. 40,000 sq ft venue 20 min from LAX."
-        thumbnailUrl="https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/569cb5d0-cd2b-433e-6f65-d237efee8900/public"
-        contentUrl="https://cdn.thegrandlb.com/2ff5529b-ae2d-4706-9e14-2e9215729acf-tour-index-15s-final.mp4"
+        thumbnailUrl="https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/9b85e6b5-cb44-4d11-c06a-b524ca6cb100/public"
+        contentUrl="https://cdn.thegrandlb.com/Tour%20Index%2015s.mp4"
         uploadDate="2024-06-01T00:00:00+00:00"
         duration="PT15S"
       />

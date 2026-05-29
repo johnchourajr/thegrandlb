@@ -194,6 +194,18 @@ export const menuIndexPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: {
+                    width: 512,
+                    height: 768,
+                  },
+                  alt: "Guest serving a plate at the buffet with fresh sides and salsa.",
+                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/691103be-dfd6-4fcb-4982-c9c9dce41800/public",
+                },
+              },
+              {
+                link: null,
+                video_media: null,
+                media: {
+                  dimensions: {
                     width: 1850,
                     height: 2466,
                   },

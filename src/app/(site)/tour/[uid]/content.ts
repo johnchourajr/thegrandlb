@@ -2558,14 +2558,14 @@ export const tourPages: Record<string, PageDoc> = {
       title: "Grand Ballroom",
       headline: "Grand \nBallroom",
       video_url:
-        "https://cdn.thegrandlb.com/b2bb058f-2bf0-4fec-9a81-db8ca7850d2c-grand-ballroom-30s-final.mp4",
+        "https://cdn.thegrandlb.com/Grand%20Ballroom%2030s.mp4",
       media: {
         dimensions: {
           width: 3840,
           height: 2160,
         },
         alt: "Grand Ballroom with dramatic ceiling, chandeliers, packed dance floor.",
-        url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/c8b247ca-ab6b-4f95-0af4-e412e6ad4c00/public",
+        url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/7403dbe6-914f-4629-f988-4f8743e62f00/public",
       },
       subhead: "Large capacity,\nbigger possibilities.",
       body: "We believe that every occasion is deserving of a personalized touch. Each of our unique spaces is flexible to suit the range of need for any event or gathering.",
@@ -2683,8 +2683,8 @@ export const tourPages: Record<string, PageDoc> = {
                       width: 3696,
                       height: 2772,
                     },
-                    alt: "Grand Ballroom with rounds, stage, and warm chandelier glow.",
-                    url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/48eb9ff1-7ac7-431e-e380-079a64b59a00/public",
+                    alt: "Guests and catering staff at a long buffet line in the Grand Ballroom.",
+                    url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/d13b799e-5120-4d6c-c946-be3e59593d00/public",
                   },
                 },
                 {
@@ -2695,8 +2695,8 @@ export const tourPages: Record<string, PageDoc> = {
                       width: 3696,
                       height: 2772,
                     },
-                    alt: "Grand Ballroom from rear or balcony: full room, stage, crystal lighting.",
-                    url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/32248fb5-d086-4925-9b48-c43302529100/public",
+                    alt: "Grand Ballroom set with round tables, blush chair sashes, and place settings under ring chandeliers.",
+                    url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/710eb74f-1fce-4e42-89b6-2d41e2643e00/public",
                   },
                 },
                 {
@@ -2720,8 +2720,8 @@ export const tourPages: Record<string, PageDoc> = {
                       width: 3696,
                       height: 2772,
                     },
-                    alt: "Grand Ballroom with dramatic ceiling and central dance floor.",
-                    url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/87f0c8bf-146c-414a-aa10-978ea0890600/public",
+                    alt: "Staff arranging a floral centerpiece on a set table in the Grand Ballroom.",
+                    url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/6b529a71-93b3-4c4b-bf7e-21e5041c0600/public",
                   },
                 },
                 {
@@ -2732,8 +2732,8 @@ export const tourPages: Record<string, PageDoc> = {
                       width: 3696,
                       height: 2772,
                     },
-                    alt: "Grand Ballroom with stage, dance floor, and pink uplighting.",
-                    url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/3562cb12-8916-4107-ba62-834da911cb00/public",
+                    alt: "Place setting with gold chargers and a floral centerpiece in the Grand Ballroom.",
+                    url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/f66e213d-013b-4ac2-2211-52980f90d200/public",
                   },
                 },
                 {
@@ -2744,8 +2744,8 @@ export const tourPages: Record<string, PageDoc> = {
                       width: 3696,
                       height: 2772,
                     },
-                    alt: "Grand Ballroom with dramatic red uplighting and stage.",
-                    url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/50691ccf-e12f-4687-eeae-8bc3f7c66400/public",
+                    alt: "Grand Ballroom set with round tables, peach chair sashes, and a draped floral backdrop.",
+                    url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/3517d7dc-7dfb-4b3b-9158-1326cb29fa00/public",
                   },
                 },
               ],
@@ -3078,7 +3078,7 @@ export const tourPages: Record<string, PageDoc> = {
             data: {
               gallery_items: [
                 {
-                  caption: "Social Setup",
+                  caption: "Social Layout",
                   link: null,
                   video_media: null,
                   media: {
@@ -3086,12 +3086,12 @@ export const tourPages: Record<string, PageDoc> = {
                       width: 3696,
                       height: 2772,
                     },
-                    alt: "Grand Ballroom with pink uplighting and dance floor.",
-                    url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/e2724b59-2b54-48ab-d7fe-7800d2d2fb00/public",
+                    alt: "Grand Ballroom social setup with round tables, blush chair sashes, and pink uplighting.",
+                    url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/ef8c6b56-c2c2-47c6-8e7d-0334a67b2e00/public",
                   },
                 },
                 {
-                  caption: "Fundraiser Setup",
+                  caption: "Head Table & Rounds",
                   link: null,
                   video_media: null,
                   media: {
@@ -3099,12 +3099,12 @@ export const tourPages: Record<string, PageDoc> = {
                       width: 3696,
                       height: 2772,
                     },
-                    alt: "Grand Ballroom with pink uplighting and dance floor.",
-                    url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/bdc5bd25-ad1d-45a3-1242-3fd77afbb800/public",
+                    alt: "Grand Ballroom set with round tables, a long head table, and blush décor.",
+                    url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/e5064f28-331a-45fe-f3af-65f50fb2b400/public",
                   },
                 },
                 {
-                  caption: "Classroom Setup",
+                  caption: "Banquet Tables",
                   link: null,
                   video_media: null,
                   media: {
@@ -3112,12 +3112,12 @@ export const tourPages: Record<string, PageDoc> = {
                       width: 3696,
                       height: 2772,
                     },
-                    alt: "Grand Ballroom with rounds and stage (wide).",
-                    url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/a99e14e7-1ba6-49c4-1654-ef161e724100/public",
+                    alt: "Grand Ballroom with long banquet tables and rounds under ring chandeliers.",
+                    url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/a808c080-b538-40a8-de54-9ad8645bbc00/public",
                   },
                 },
                 {
-                  caption: "Theater Setup",
+                  caption: "Coffered Ceiling",
                   link: null,
                   video_media: null,
                   media: {
@@ -3125,8 +3125,8 @@ export const tourPages: Record<string, PageDoc> = {
                       width: 3696,
                       height: 2772,
                     },
-                    alt: "Grand Ballroom with pink uplighting and dance floor.",
-                    url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/fbabdfb9-4baa-4836-0516-44294e16b600/public",
+                    alt: "Grand Ballroom with coffered ceiling, ring chandeliers, and tables below.",
+                    url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/6e4c12c4-0822-4a4a-d16b-ffa9e6546b00/public",
                   },
                 },
               ],
@@ -3168,8 +3168,8 @@ export const tourPages: Record<string, PageDoc> = {
               width: 2772,
               height: 3696,
             },
-            alt: "Grand Ballroom with pink and purple uplighting and stage.",
-            url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/5d755ebb-0900-4db2-3a68-70f3ca2efa00/public",
+            alt: "Coffered ceiling and ring chandeliers in the Grand Ballroom.",
+            url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/c9bf38f2-829a-4dd7-c6db-a600327c1500/public",
           },
           asset_position: true,
           items: [

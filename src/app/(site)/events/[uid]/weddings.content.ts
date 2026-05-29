@@ -123,6 +123,18 @@ export const weddingsPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: {
+                    width: 1152,
+                    height: 768,
+                  },
+                  alt: "Sweetheart table with lush florals, pink and peach drapery, and gold accents.",
+                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/5df18e9d-af7b-41cc-4869-1cd2f6122f00/public",
+                },
+              },
+              {
+                link: null,
+                video_media: null,
+                media: {
+                  dimensions: {
                     width: 2466,
                     height: 1850,
                   },

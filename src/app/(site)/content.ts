@@ -18,14 +18,14 @@ export const homePage: PageDoc = {
         headline: "Where Moments Become Memories",
         video_media: null,
         video_url:
-          "https://cdn.thegrandlb.com/7cff637b-d646-493b-9e81-06266373f84c-homepage-60s-final.mp4",
+          "https://cdn.thegrandlb.com/Homepage%2060s%20v2.mp4",
         media: {
           dimensions: {
             width: 3840,
             height: 2160,
           },
           alt: "Twilight exterior of the venue with palms and dramatic sky.",
-          url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/b41a724a-b3ad-40ae-57df-98a1b8ce3400/public",
+          url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/7bc9937a-e01f-4c64-ca20-ad0b7afc2600/public",
         },
         primary_action: "Make an Inquiry",
         primary_action_link: {
@@ -418,14 +418,14 @@ export const homePage: PageDoc = {
         section_id: "locale",
         video_media: null,
         video_url:
-          "https://cdn.thegrandlb.com/2a63ded8-77f1-4838-ab41-da32d6e887df-community-section-30s-final.mp4",
+          "https://cdn.thegrandlb.com/Community%20Section%2030s.mp4",
         media: {
           dimensions: {
             width: 3840,
             height: 2160,
           },
           alt: "Aerial twilight over the venue block and adjacent streets.",
-          url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/52b8ff11-1b88-41c1-72e8-512662e19700/public",
+          url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/54f82582-be9c-4198-39d6-e19d09e4e600/public",
         },
         title: "Family-owned and rooted.",
         description:

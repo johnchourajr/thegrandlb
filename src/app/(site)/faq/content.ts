@@ -17,9 +17,9 @@ export const faqPage: PageDoc = {
         section_id: "venue",
         title: "Venue & Spaces",
         media: {
-          dimensions: { width: 2464, height: 1848 },
-          alt: "Grand Ballroom with ornate ceiling, crystal chandeliers, formal rounds.",
-          url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/ba00e56c-e108-4405-26e1-f16ba5b35c00/public",
+          dimensions: { width: 1152, height: 768 },
+          alt: "Grand Ballroom social setup with round tables, blush chair sashes, and pink uplighting.",
+          url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/ef8c6b56-c2c2-47c6-8e7d-0334a67b2e00/public",
         },
         asset_position: true,
         items: [

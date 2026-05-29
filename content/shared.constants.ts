@@ -565,7 +565,7 @@ export const ctaFooter: SharedDoc | null = {
     headline: "Moments \nStart \nHere",
     video_media: null,
     video_url:
-      "https://cdn.thegrandlb.com/cd461232-bc21-4a37-99f3-1fe75274d9f5-footer-peak-15s-281-29-final.mp4",
+      "https://cdn.thegrandlb.com/Footer%20Peak%2015s.mp4",
     media: {
       dimensions: {
         width: 3840,
@@ -573,7 +573,7 @@ export const ctaFooter: SharedDoc | null = {
       },
       alt: "Evening exterior with palms and illuminated entry (footer mood).",
       copyright: null,
-      url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/9c4a00e5-743d-41fc-f500-8e35b371b000/public",
+      url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/99a125f0-0ddb-4c07-419c-355102756200/public",
       id: "ZNRzHxAAACcAlv4o",
       edit: {
         x: 0,

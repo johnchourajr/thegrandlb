@@ -130,6 +130,18 @@ export const milestonesPage: PageDoc = {
                 video_media: null,
                 media: {
                   dimensions: {
+                    width: 512,
+                    height: 768,
+                  },
+                  alt: "Bartender pouring a fresh margarita at the outdoor bar.",
+                  url: "https://imagedelivery.net/jq-BfOr8JDGgGxqbx8v5CA/5a7146e9-4920-4964-1de3-347f1940cc00/public",
+                },
+              },
+              {
+                link: null,
+                video_media: null,
+                media: {
+                  dimensions: {
                     width: 2464,
                     height: 1848,
                   },
