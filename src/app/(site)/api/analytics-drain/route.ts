@@ -1,26 +1,26 @@
+import crypto from "node:crypto";
 import type { NextRequest } from "next/server";
 import pool from "../../../../services/db";
 
-// Vercel signs drain payloads with HMAC-SHA1 using the drain secret.
-// Set ANALYTICS_DRAIN_SECRET in Vercel env vars to match what you configure
-// in the drain settings. If unset, signature verification is skipped (dev only).
-async function verifySignature(body: string, header: string | null): Promise<boolean> {
+// Vercel signs each drain delivery with HMAC-SHA1 over the raw request body,
+// using the drain's signing secret, and sends the result as a bare hex digest
+// in the `x-vercel-signature` header (no "sha1=" prefix). Set
+// ANALYTICS_DRAIN_SECRET to that signing secret. Fails closed if it is unset.
+function verifySignature(rawBody: string, header: string | null): boolean {
   const secret = process.env.ANALYTICS_DRAIN_SECRET;
-  if (!secret) return true; // skip in dev
-  if (!header) return false;
+  if (!secret || !header) return false;
 
-  const key = await crypto.subtle.importKey(
-    "raw",
-    new TextEncoder().encode(secret),
-    { name: "HMAC", hash: "SHA-1" },
-    false,
-    ["sign"],
+  const expected = crypto
+    .createHmac("sha1", secret)
+    .update(rawBody, "utf-8")
+    .digest("hex");
+
+  const received = Buffer.from(header);
+  const computed = Buffer.from(expected);
+  return (
+    received.length === computed.length &&
+    crypto.timingSafeEqual(received, computed)
   );
-  const sig = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(body));
-  const expected = Array.from(new Uint8Array(sig))
-    .map((b) => b.toString(16).padStart(2, "0"))
-    .join("");
-  return header === `sha1=${expected}`;
 }
 
 const SETUP_SQL = `
@@ -52,7 +52,7 @@ async function ensureTable() {
 export async function POST(request: NextRequest) {
   const body = await request.text();
 
-  const valid = await verifySignature(body, request.headers.get("x-vercel-signature"));
+  const valid = verifySignature(body, request.headers.get("x-vercel-signature"));
   if (!valid) return new Response("Unauthorized", { status: 401 });
 
   // Vercel sends either NDJSON (one object per line) or a JSON array
