@@ -1,11 +1,11 @@
 import type { NextRequest } from "next/server";
 import pool from "../../../../services/db";
 
-// Simple token auth — set ANALYTICS_READ_TOKEN in Vercel env vars,
-// then use that as the Bearer token in Retool's REST resource.
+// Bearer token auth — ANALYTICS_READ_TOKEN must be set in Vercel env vars.
+// Use the same token as the Bearer value in Retool's REST resource headers.
 function isAuthorized(request: NextRequest): boolean {
   const token = process.env.ANALYTICS_READ_TOKEN;
-  if (!token) return true; // open in dev if not set
+  if (!token) return false; // deny if token not configured
   const auth = request.headers.get("authorization") ?? "";
   return auth === `Bearer ${token}`;
 }
