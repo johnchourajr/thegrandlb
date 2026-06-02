@@ -1,5 +1,6 @@
 import JsonLdLocalBusiness from "@/components/JsonLdLocalBusiness";
 import RootLayoutShell from "@/components/RootLayoutShell";
+import WebMcp from "@/components/WebMcp";
 import { getExtra } from "@/services/get-extra";
 import { Analytics } from "@vercel/analytics/next";
 import { VercelToolbar } from "@vercel/toolbar/next";
@@ -57,6 +58,7 @@ export default async function SiteLayout({
   return (
     <RootLayoutShell initialExtra={initialExtra}>
       <JsonLdLocalBusiness />
+      <WebMcp />
       {children}
       <Analytics />
       <VercelToolbar />
