@@ -1,6 +1,7 @@
 "use client";
 
 import type { LinkField } from "content/types";
+import { track } from "@vercel/analytics";
 import Link from "next/link";
 import React from "react";
 
@@ -95,6 +96,14 @@ const AppLink = React.forwardRef<HTMLAnchorElement, AppLinkProps>(
 
     if (isExternal) {
       const target = (field as any)?.target || rest.target || "_blank";
+      const handleExternalClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        if (resolvedUrl?.startsWith("tel:")) {
+          track("conversion.phone_click", { number: resolvedUrl.replace("tel:", "") });
+        } else if (resolvedUrl?.startsWith("mailto:")) {
+          track("engagement.email_click", { address: resolvedUrl.replace("mailto:", "") });
+        }
+        rest.onClick?.(e);
+      };
       return (
         <a
           ref={ref}
@@ -102,6 +111,7 @@ const AppLink = React.forwardRef<HTMLAnchorElement, AppLinkProps>(
           target={target}
           rel="noopener noreferrer"
           {...rest}
+          onClick={handleExternalClick}
         >
           {children}
         </a>
