@@ -1,15 +1,23 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "The Grand LB Public API",
-    "version": "1.0.0",
-    "description": "Public, read-only endpoints for The Grand Long Beach event venue. No authentication is required. Use these to read catering menu data and check service health.",
+    "title": "The Grand LB API",
+    "version": "1.1.0",
+    "description": "Public and internal endpoints for The Grand Long Beach event venue. Public endpoints require no auth. Analytics endpoints require a Bearer token (set ANALYTICS_READ_TOKEN in Vercel env).",
     "contact": {
       "name": "The Grand LB",
       "url": "https://thegrandlb.com/contact"
     }
   },
   "servers": [{ "url": "https://thegrandlb.com" }],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
   "paths": {
     "/api/menus": {
       "get": {
@@ -69,6 +77,64 @@
             "content": { "application/json": { "schema": { "type": "object" } } }
           },
           "404": { "description": "Menu not found." }
+        }
+      }
+    },
+    "/api/analytics": {
+      "get": {
+        "operationId": "queryAnalytics",
+        "summary": "Query analytics events",
+        "description": "Returns analytics data from the events database. Use the `q` parameter to select which dataset to return.",
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "description": "Query type.",
+            "schema": {
+              "type": "string",
+              "enum": ["events", "event_counts", "daily", "inquiry_funnel", "agent_activity", "phone_clicks"],
+              "default": "events"
+            }
+          },
+          {
+            "name": "days",
+            "in": "query",
+            "required": false,
+            "description": "Lookback window in days (max 90, default 30).",
+            "schema": { "type": "integer", "default": 30 }
+          },
+          {
+            "name": "event_name",
+            "in": "query",
+            "required": false,
+            "description": "Filter by event name (used with q=events and q=daily).",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Max rows to return for q=events (max 500, default 100).",
+            "schema": { "type": "integer", "default": 100 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Query results.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "rows": { "type": "array", "items": { "type": "object" } }
+                  }
+                }
+              }
+            }
+          },
+          "401": { "description": "Missing or invalid Bearer token." }
         }
       }
     }
