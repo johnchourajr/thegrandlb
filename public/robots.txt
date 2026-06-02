@@ -4,8 +4,17 @@
 # Allow all search engines
 User-agent: *
 
+# AI content usage preferences (Content Signals — https://contentsignals.org)
+# search: allow indexing for search results
+# ai-input: allow AI assistants to use this content to answer user questions
+# ai-train: disallow using this content to train AI models
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+
 # Disallow API routes (internal use only)
 Disallow: /api/
+
+# Allow public, read-only agent APIs (see /.well-known/api-catalog)
+Allow: /api/menus
 
 # Disallow thank you page (form submission)
 Disallow: /thanks

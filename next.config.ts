@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/menus/[uid]": ["./content/menus/*.menu.json"],
     "/api/admin/menus/[uid]": ["./content/menus/*.menu.json"],
+    "/api/menus/[uid]": ["./content/menus/*.menu.json"],
+    "/api/md": ["./content/menus/*.menu.json"],
   },
   images: {
     remotePatterns: [
@@ -57,6 +59,20 @@ const nextConfig: NextConfig = {
       { source: "/weddings", destination: "/events/weddings", permanent: true },
       { source: "/weddings/", destination: "/events/weddings", permanent: true },
     ];
+  },
+  async rewrites() {
+    return {
+      // Served after the filesystem/public dir is checked, so static
+      // .well-known files (openapi.json, agent-skills/*) win; only the
+      // extension-less api-catalog falls through to the route handler that
+      // sets `application/linkset+json`.
+      afterFiles: [
+        {
+          source: "/.well-known/api-catalog",
+          destination: "/api/well-known/api-catalog",
+        },
+      ],
+    };
   },
   async headers() {
     return [

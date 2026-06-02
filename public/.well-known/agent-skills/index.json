@@ -1,0 +1,31 @@
+{
+  "$schema": "https://agentskills.io/schema/v0.2.0/index.json",
+  "version": "0.2.0",
+  "publisher": {
+    "name": "The Grand LB",
+    "url": "https://thegrandlb.com"
+  },
+  "skills": [
+    {
+      "name": "venue-info",
+      "type": "text/markdown",
+      "description": "Look up facts about The Grand LB event venue in Long Beach, CA — spaces, capacities, location, parking, accessibility, and contact details.",
+      "url": "https://thegrandlb.com/.well-known/agent-skills/venue-info/SKILL.md",
+      "sha256": "ad04e60102bd63a15d60362b5c480d997b164431f819cf63248673c153af59d7"
+    },
+    {
+      "name": "browse-menus",
+      "type": "text/markdown",
+      "description": "Read The Grand LB catering menus as structured JSON or Markdown — Classic, Weddings, Corporate, and Milestones packages with per-person pricing.",
+      "url": "https://thegrandlb.com/.well-known/agent-skills/browse-menus/SKILL.md",
+      "sha256": "c2fcaa8f95fb421cbc058796112293828e59ae612d5dedbd2647f9904e3bcc53"
+    },
+    {
+      "name": "submit-inquiry",
+      "type": "text/markdown",
+      "description": "Help a user start a booking inquiry for an event at The Grand LB. There is no public write API — guide the user to the inquiry form or phone.",
+      "url": "https://thegrandlb.com/.well-known/agent-skills/submit-inquiry/SKILL.md",
+      "sha256": "37f9a2bac072bf04f2e1c837f74ca4aed36bc85ea6a99c92e963bf2acba0963a"
+    }
+  ]
+}

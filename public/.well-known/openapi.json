@@ -1,0 +1,76 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "The Grand LB Public API",
+    "version": "1.0.0",
+    "description": "Public, read-only endpoints for The Grand Long Beach event venue. No authentication is required. Use these to read catering menu data and check service health.",
+    "contact": {
+      "name": "The Grand LB",
+      "url": "https://thegrandlb.com/contact"
+    }
+  },
+  "servers": [{ "url": "https://thegrandlb.com" }],
+  "paths": {
+    "/api/menus": {
+      "get": {
+        "operationId": "listMenus",
+        "summary": "List catering menus",
+        "description": "Returns the catalog of catering menus available at the venue.",
+        "responses": {
+          "200": {
+            "description": "A list of menus.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "venue": { "type": "string" },
+                    "count": { "type": "integer" },
+                    "menus": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "uid": { "type": "string" },
+                          "title": { "type": "string" },
+                          "url": { "type": "string", "format": "uri" },
+                          "json": { "type": "string", "format": "uri" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/menus/{uid}": {
+      "get": {
+        "operationId": "getMenu",
+        "summary": "Get a single catering menu",
+        "description": "Returns the full content of one catering menu, including groups, sections, items, and per-person pricing.",
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "path",
+            "required": true,
+            "description": "Menu identifier.",
+            "schema": {
+              "type": "string",
+              "enum": ["classic", "weddings", "corporate", "milestones"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The menu content.",
+            "content": { "application/json": { "schema": { "type": "object" } } }
+          },
+          "404": { "description": "Menu not found." }
+        }
+      }
+    }
+  }
+}
