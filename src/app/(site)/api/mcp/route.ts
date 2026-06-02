@@ -1,5 +1,6 @@
 import type { NextRequest } from "next/server";
 import { SITE_ORIGIN, venueInfo } from "@/lib/agent/site-info";
+import { track } from "@vercel/analytics/server";
 
 const PROTOCOL_VERSION = "2024-11-05";
 
@@ -138,6 +139,7 @@ export async function POST(request: NextRequest) {
       const toolName = String(p.name ?? "");
       const toolArgs = (p.arguments ?? {}) as Record<string, unknown>;
       try {
+        await track("agent.mcp.tool_call", { tool: toolName });
         const result = await callTool(toolName, toolArgs);
         return ok(id, {
           content: [
