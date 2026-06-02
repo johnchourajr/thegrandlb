@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1",
+  "serverInfo": {
+    "name": "The Grand LB",
+    "version": "1.0.0",
+    "description": "Read-only MCP server for The Grand Long Beach event venue in Long Beach, CA. Exposes venue facts, catering menus, and booking inquiry instructions via five public tools."
+  },
+  "transport": {
+    "type": "streamable-http",
+    "url": "https://thegrandlb.com/api/mcp"
+  },
+  "capabilities": {
+    "tools": {}
+  }
+}

@@ -52,5 +52,7 @@ In-house kitchen with full-service catering. Plated dinners, buffet, and action 
 - API catalog (RFC 9727): https://thegrandlb.com/.well-known/api-catalog
 - OpenAPI description: https://thegrandlb.com/.well-known/openapi.json
 - Agent skills index: https://thegrandlb.com/.well-known/agent-skills/index.json
+- MCP server card (SEP-1649): https://thegrandlb.com/.well-known/mcp/server-card.json
+- MCP endpoint (streamable-HTTP): https://thegrandlb.com/api/mcp
 - Menus as JSON: https://thegrandlb.com/api/menus (and /api/menus/{uid})
 - Markdown for agents: send `Accept: text/markdown` to any page (e.g. the homepage, /menus, /menus/{uid}, /faq) to receive a Markdown rendering.
