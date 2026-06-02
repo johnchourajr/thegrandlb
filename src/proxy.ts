@@ -10,6 +10,7 @@ const DISCOVERY_LINK = [
   '</llms.txt>; rel="service-doc"; type="text/markdown"',
   '</sitemap.xml>; rel="sitemap"; type="application/xml"',
   '</.well-known/agent-skills/index.json>; rel="describedby"; type="application/json"',
+  '</.well-known/mcp/server-card.json>; rel="describedby"; type="application/json"',
 ].join(", ");
 
 /** True for navigable HTML page routes (not API, assets, well-known, or admin). */
