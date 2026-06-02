@@ -1,6 +1,7 @@
 import { fetchMenuCollection } from "@/services/menu-data";
 import { venueInfo } from "@/lib/agent/site-info";
 import { NextResponse } from "next/server";
+import { track } from "@vercel/analytics/server";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -18,6 +19,8 @@ export async function GET(
   { params }: { params: Promise<{ uid: string }> },
 ) {
   const { uid } = await params;
+
+  await track("agent.menus.get", { menu: uid });
 
   if (!VALID_UIDS.includes(uid)) {
     return NextResponse.json(

@@ -1,5 +1,6 @@
 import { buildPageMarkdown } from "@/lib/agent/page-markdown";
 import type { NextRequest } from "next/server";
+import { track } from "@vercel/analytics/server";
 
 /**
  * Markdown-for-agents endpoint. `proxy.ts` rewrites page requests that carry
@@ -13,6 +14,7 @@ export async function GET(request: NextRequest) {
     request.headers.get("x-md-path") ??
     request.nextUrl.searchParams.get("path") ??
     "/";
+  await track("agent.markdown.request", { path });
   const markdown = await buildPageMarkdown(path);
 
   if (markdown == null) {

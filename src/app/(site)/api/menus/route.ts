@@ -1,5 +1,6 @@
 import { SITE_ORIGIN, venueInfo } from "@/lib/agent/site-info";
 import { NextResponse } from "next/server";
+import { track } from "@vercel/analytics/server";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -18,6 +19,7 @@ const MENU_TITLES: Record<string, string> = {
  * given UID is available at `/api/menus/{uid}`.
  */
 export async function GET() {
+  await track("agent.menus.list");
   const menus = venueInfo.catering.menuUids.map((uid) => ({
     uid,
     title: MENU_TITLES[uid] ?? uid,
