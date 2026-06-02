@@ -12,6 +12,7 @@ import {
   toastSubmitError,
   toastSubmitSuccess,
 } from "@/utils/events";
+import { track } from "@vercel/analytics";
 import {
   isValidEmail,
   validateValueWithRule,
@@ -87,6 +88,7 @@ export function InquireFormContainer() {
 
     try {
       toastSubmit();
+      track("conversion.inquiry_submit", { event_type: String(formState?.event_type?.value || "") });
 
       const {
         additional_details,
@@ -123,12 +125,14 @@ export function InquireFormContainer() {
         formState,
       });
 
+      track("conversion.inquiry_success", { event_type: String(formState?.event_type?.value || "") });
       toastSubmitSuccess();
       router.push("/thanks");
     } catch (error) {
       console.error(error);
       isSubmittingRef.current = false;
       setSubmitLoading(false);
+      track("conversion.inquiry_error");
       toastSubmitError();
     }
   };

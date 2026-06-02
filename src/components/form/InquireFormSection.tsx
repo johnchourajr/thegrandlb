@@ -2,6 +2,7 @@ import { FormPage } from "@/data/form.types";
 import {
   eventInquireNext,
   eventInquirePrev,
+  eventInquireSubmit,
   toastNextError,
 } from "@/utils/events";
 import { formatDate, formatTitle } from "@/utils/utils";
@@ -153,6 +154,7 @@ export const InquireFormSection = ({
 
   const handleFormSubmitClick = () => {
     updateValidityForKeys(pageInputValues);
+    eventInquireSubmit(step);
     handleFormSubmit();
   };
 
