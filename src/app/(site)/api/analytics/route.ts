@@ -22,7 +22,10 @@ export function OPTIONS() {
 
 export async function GET(request: NextRequest) {
   if (!isAuthorized(request)) {
-    return Response.json({ error: "Unauthorized" }, { status: 401, headers: CORS });
+    return Response.json(
+      { error: "Unauthorized" },
+      { status: 401, headers: CORS },
+    );
   }
 
   const { searchParams } = request.nextUrl;
@@ -36,13 +39,18 @@ export async function GET(request: NextRequest) {
     switch (endpoint) {
       // Recent raw events — used for the event log table in Retool
       case "events": {
-        const limit = Math.min(parseInt(searchParams.get("limit") ?? "100"), 500);
+        const limit = Math.min(
+          parseInt(searchParams.get("limit") ?? "100"),
+          500,
+        );
         const eventName = searchParams.get("event_name");
         const where = eventName ? `AND event_name = $2` : "";
         const params: unknown[] = [limit];
         if (eventName) params.push(eventName);
         result = await pool.query(
-          `SELECT id, event_type, event_name, event_data, path, occurred_at
+          `SELECT id, event_type, event_name, event_data, path, route,
+                  referrer_host, utm_source, country, region, city,
+                  device_type, os_name, browser_name, occurred_at
            FROM analytics_events
            WHERE occurred_at > ${since} ${where}
            ORDER BY occurred_at DESC
@@ -127,11 +135,106 @@ export async function GET(request: NextRequest) {
         return Response.json({ rows: result.rows }, { headers: CORS });
       }
 
+      // Device-type mix (desktop / mobile / tablet) — pie/donut
+      case "by_device": {
+        result = await pool.query(
+          `SELECT COALESCE(device_type, 'unknown') AS device_type,
+                  COUNT(*)::int                     AS count,
+                  COUNT(DISTINCT session_id)::int   AS sessions
+           FROM analytics_events
+           WHERE occurred_at > ${since}
+           GROUP BY COALESCE(device_type, 'unknown')
+           ORDER BY count DESC`,
+        );
+        return Response.json({ rows: result.rows }, { headers: CORS });
+      }
+
+      // Browser breakdown
+      case "by_browser": {
+        result = await pool.query(
+          `SELECT COALESCE(browser_name, 'unknown') AS browser_name,
+                  COUNT(*)::int                      AS count,
+                  COUNT(DISTINCT session_id)::int    AS sessions
+           FROM analytics_events
+           WHERE occurred_at > ${since}
+           GROUP BY COALESCE(browser_name, 'unknown')
+           ORDER BY count DESC`,
+        );
+        return Response.json({ rows: result.rows }, { headers: CORS });
+      }
+
+      // Operating-system breakdown
+      case "by_os": {
+        result = await pool.query(
+          `SELECT COALESCE(os_name, 'unknown') AS os_name,
+                  COUNT(*)::int                 AS count,
+                  COUNT(DISTINCT session_id)::int AS sessions
+           FROM analytics_events
+           WHERE occurred_at > ${since}
+           GROUP BY COALESCE(os_name, 'unknown')
+           ORDER BY count DESC`,
+        );
+        return Response.json({ rows: result.rows }, { headers: CORS });
+      }
+
+      // Acquisition sources: UTM source wins, else referrer host, else Direct
+      case "sources": {
+        result = await pool.query(
+          `SELECT COALESCE(utm_source, referrer_host, 'Direct') AS source,
+                  COUNT(*)::int                                 AS count,
+                  COUNT(DISTINCT session_id)::int               AS sessions
+           FROM analytics_events
+           WHERE occurred_at > ${since}
+           GROUP BY COALESCE(utm_source, referrer_host, 'Direct')
+           ORDER BY count DESC
+           LIMIT 25`,
+        );
+        return Response.json({ rows: result.rows }, { headers: CORS });
+      }
+
+      // UTM campaign breakdown — only rows that carry a UTM tag
+      case "utm": {
+        result = await pool.query(
+          `SELECT utm_source, utm_medium, utm_campaign,
+                  COUNT(*)::int                   AS count,
+                  COUNT(DISTINCT session_id)::int AS sessions
+           FROM analytics_events
+           WHERE occurred_at > ${since}
+             AND (utm_source IS NOT NULL OR utm_medium IS NOT NULL OR utm_campaign IS NOT NULL)
+           GROUP BY utm_source, utm_medium, utm_campaign
+           ORDER BY count DESC`,
+        );
+        return Response.json({ rows: result.rows }, { headers: CORS });
+      }
+
+      // Geography: country (with region/city rollup)
+      case "geo": {
+        result = await pool.query(
+          `SELECT COALESCE(country, 'Unknown')  AS country,
+                  region,
+                  city,
+                  COUNT(*)::int                  AS count,
+                  COUNT(DISTINCT session_id)::int AS sessions
+           FROM analytics_events
+           WHERE occurred_at > ${since}
+           GROUP BY COALESCE(country, 'Unknown'), region, city
+           ORDER BY count DESC
+           LIMIT 100`,
+        );
+        return Response.json({ rows: result.rows }, { headers: CORS });
+      }
+
       default:
-        return Response.json({ error: "Unknown query" }, { status: 400, headers: CORS });
+        return Response.json(
+          { error: "Unknown query" },
+          { status: 400, headers: CORS },
+        );
     }
   } catch (err) {
     console.error("[analytics]", err);
-    return Response.json({ error: "Query failed" }, { status: 500, headers: CORS });
+    return Response.json(
+      { error: "Query failed" },
+      { status: 500, headers: CORS },
+    );
   }
 }
