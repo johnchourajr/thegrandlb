@@ -32,10 +32,11 @@ a {
 
 /* Accessibility: skip-to-content link — visually hidden until focused */
 .skip-link {
-  position: absolute;
+  position: fixed;
   top: -4rem;
   left: 1rem;
-  z-index: 1000;
+  /* Above the sticky header (z-[9999]) so it's visible when focused. */
+  z-index: 10000;
   padding: 0.75rem 1.25rem;
   background: #311514;
   color: #ffffff;

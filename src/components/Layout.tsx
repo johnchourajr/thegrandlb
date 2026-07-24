@@ -22,10 +22,6 @@ const Layout = ({
         wrapperClassName,
       )}
     >
-      {/* Skip to main content — first focusable element for keyboard users */}
-      <a href="#main-content" className="skip-link">
-        Skip to main content
-      </a>
       {settings && (
         <LayoutHead page={page} settings={settings} headContent={headContent} />
       )}

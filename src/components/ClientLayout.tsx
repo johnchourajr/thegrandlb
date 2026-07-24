@@ -63,6 +63,12 @@ function ClientLayoutContent({
           modalOverlay && "overflow-hidden bg-black"
         )}
       >
+        {/* Skip to main content — must be the first focusable element in the
+            DOM, before the header nav. Targets the <main id="main-content"> in
+            Layout. */}
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         {!hideHeader && <Header navigation={navigation} />}
         <Suspense>
           <MotionConfig {...motionConfig}>
