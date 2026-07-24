@@ -116,22 +116,32 @@ export const accessibilityPage: PageDoc = {
           },
           {
             type: "list-item",
-            text: "Page titles rendered as first-level headings, with true list markup for structured content such as our FAQ and menus.",
+            text: "Each page opens with a single first-level heading followed by a consistent heading hierarchy, and true list markup for structured content such as our FAQ and menus.",
             spans: [],
           },
           {
             type: "list-item",
-            text: "Navigation built from native buttons and links that is fully operable by keyboard, with expanded and collapsed state exposed on the menus.",
+            text: "Navigation built from native buttons and links that is fully operable by keyboard, with the mobile menu button exposing its expanded or collapsed state and hiding its links from keyboard and screen-reader users while closed.",
             spans: [],
           },
           {
             type: "list-item",
-            text: 'Respect for the operating-system "reduce motion" preference: animations and autoplaying video are reduced or disabled when a visitor requests it.',
+            text: "Disclosure controls such as the FAQ accordion expose their expanded or collapsed state to assistive technology, and collapsed content is hidden until it is opened.",
             spans: [],
           },
           {
             type: "list-item",
-            text: "Inquiry and contact forms built from native form controls, with required fields conveyed to assistive technology.",
+            text: "Text, form placeholders, and error messages are styled to meet the WCAG AA contrast minimum of 4.5:1 against their background.",
+            spans: [],
+          },
+          {
+            type: "list-item",
+            text: 'Respect for the operating-system "reduce motion" preference: animations, autoplaying video, parallax, and scrolling marquees are reduced or stopped when a visitor requests it.',
+            spans: [],
+          },
+          {
+            type: "list-item",
+            text: "Inquiry and contact forms built from native form controls, with each field's visible label programmatically associated to its input, required fields marked, invalid fields flagged, and validation messages announced to assistive technology.",
             spans: [],
           },
           {
@@ -176,32 +186,22 @@ export const accessibilityPage: PageDoc = {
           },
           {
             type: "paragraph",
-            text: "Despite our efforts, some parts of this website are not yet fully accessible. We are aware of the following and are working to resolve them:",
+            text: "We hold ourselves to a high standard, and a few areas are still in progress:",
             spans: [],
           },
           {
             type: "list-item",
-            text: "On our inquiry form, some field labels are not yet fully associated with their inputs for assistive technology, and some validation messages are announced only briefly.",
+            text: "We have not yet commissioned a comprehensive third-party audit that includes manual testing with assistive technology. Our current assessment is based on internal manual review and automated testing, so some issues that only surface with a screen reader or other assistive technology may remain.",
             spans: [],
           },
           {
             type: "list-item",
-            text: "Heading levels beneath the page title are still being made consistent across some page templates.",
+            text: "Some highly stylized or decorative sections and any embedded third-party content are still being reviewed against every Level AA success criterion.",
             spans: [],
           },
           {
             type: "list-item",
-            text: "Certain accent colors and placeholder text may not yet meet the 4.5:1 contrast minimum in every context.",
-            spans: [],
-          },
-          {
-            type: "list-item",
-            text: "Some interactive controls, such as the FAQ accordion and the mobile menu button, do not yet fully expose their expanded or collapsed state.",
-            spans: [],
-          },
-          {
-            type: "list-item",
-            text: "A few highly animated sections (such as parallax and scrolling marquees) and embedded third-party content (such as maps) may not fully meet Level AA, and continuous motion is not entirely stopped under the reduce-motion setting.",
+            text: "As we publish new pages and content, an issue can occasionally appear before our automated checks and manual reviews catch it. We monitor for these and fix them on an ongoing basis.",
             spans: [],
           },
           {

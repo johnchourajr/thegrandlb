@@ -45,10 +45,19 @@ export const HeaderRight = ({
     animate: isNavOpen ? "open" : "closed",
   };
 
+  // On mobile the collapsed menu stays in the DOM (height 0); mark it inert and
+  // hidden from assistive tech so keyboard and screen-reader users don't reach
+  // links that aren't visible. Desktop nav is always visible, so never inert.
+  const navHidden = isMobile && !isNavOpen;
+
   return (
     <AnimatePresence mode="sync">
       {!modalOverlay && (
         <AnimatedNav
+          id="primary-navigation"
+          aria-label="Primary"
+          aria-hidden={navHidden || undefined}
+          inert={navHidden || undefined}
           className={clsx(
             "group-one grid-inset overflow-hidden lg:overflow-visible",
             "col-span-full row-start-2 flex w-full grow flex-col items-center justify-between lg:gap-4",
@@ -57,7 +66,7 @@ export const HeaderRight = ({
             /**
              * PRINT STYLES
              */
-            "print:hidden"
+            "print:hidden",
           )}
           {...animationProps}
         >
@@ -76,7 +85,7 @@ export const HeaderRight = ({
                   {...rest}
                 />
               );
-            }
+            },
           )}
           <Star
             className={clsx("z-10 my-4 lg:my-0")}

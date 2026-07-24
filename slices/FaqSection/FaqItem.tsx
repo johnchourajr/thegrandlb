@@ -7,7 +7,7 @@ import { RichText } from "@/components/RichText";
 import { toText } from "@/utils/rich-text";
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useId, useState } from "react";
 import type { FaqItem as FaqSliceItem } from "../slice-types";
 
 type FaqItemProps = {
@@ -19,18 +19,22 @@ type FaqItemProps = {
 export const FaqItem = ({ question, answer, open = false }: FaqItemProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(open);
   const toggleOpen = () => setIsOpen((prevIsOpen) => !prevIsOpen);
+  const panelId = useId();
 
   return (
     <MotionBox
       className={clsx(
         "relative flex w-full flex-col border-t-2 border-white pb-8 pt-8 text-left",
-        "last-of-type:border-b-2"
+        "last-of-type:border-b-2",
       )}
     >
       <button
+        type="button"
+        aria-expanded={isOpen}
+        aria-controls={panelId}
         className={clsx(
           "relative flex w-full items-center text-left",
-          "after:bg-transparent after:absolute after:-inset-2 after:z-[-1] after:rounded-2xl after:transition-all after:duration-500 after:ease-out-expo after:content-['']"
+          "after:bg-transparent after:absolute after:-inset-2 after:z-[-1] after:rounded-2xl after:transition-all after:duration-500 after:ease-out-expo after:content-['']",
         )}
         onClick={toggleOpen}
       >
@@ -41,7 +45,7 @@ export const FaqItem = ({ question, answer, open = false }: FaqItemProps) => {
               paragraph: ({ children }) => (
                 <Headline
                   size={"sm"}
-                  as="span"
+                  as="h3"
                   className="max-w-[80%]"
                   animateOnce
                   disableMotion
@@ -53,6 +57,7 @@ export const FaqItem = ({ question, answer, open = false }: FaqItemProps) => {
           />
         )}
         <motion.span
+          aria-hidden="true"
           variants={{
             open: { rotate: 180 },
             closed: { rotate: 0 },
@@ -71,6 +76,10 @@ export const FaqItem = ({ question, answer, open = false }: FaqItemProps) => {
         </motion.span>
       </button>
       <motion.div
+        id={panelId}
+        role="region"
+        aria-hidden={!isOpen}
+        inert={!isOpen ? true : undefined}
         variants={{
           open: {
             height: "auto",

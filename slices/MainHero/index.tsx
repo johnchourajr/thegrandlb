@@ -8,7 +8,9 @@ import type { PageHeroSlice } from "../slice-types";
 import clsx from "clsx";
 import { LayoutGroup, motion } from "framer-motion";
 
-const PageHero = ({ slice }: SliceComponentProps<PageHeroSlice>): JSX.Element => {
+const PageHero = ({
+  slice,
+}: SliceComponentProps<PageHeroSlice>): JSX.Element => {
   const {
     section_id,
     headline,
@@ -30,11 +32,12 @@ const PageHero = ({ slice }: SliceComponentProps<PageHeroSlice>): JSX.Element =>
       >
         <div
           className={clsx(
-            "relative col-span-full col-start-1 flex aspect-square max-h-[calc(100vh-8.8125rem)] w-full flex-col items-center justify-center gap-10 overflow-hidden rounded-sm bg-black px-4 text-center text-white md:aspect-[4/3] md:max-h-[calc(100vh-9rem-2.5rem)] md:rounded-md"
+            "relative col-span-full col-start-1 flex aspect-square max-h-[calc(100vh-8.8125rem)] w-full flex-col items-center justify-center gap-10 overflow-hidden rounded-sm bg-black px-4 text-center text-white md:aspect-[4/3] md:max-h-[calc(100vh-9rem-2.5rem)] md:rounded-md",
           )}
         >
           {headline && (
             <Headline
+              as="h1"
               size="3xl"
               uppercase
               className="relative z-10 max-w-[10em]"

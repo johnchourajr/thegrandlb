@@ -20,11 +20,11 @@ const InputPhone = ({
   const nameString = name.toString();
 
   const [formattedValue, setFormattedValue] = useState(
-    formatPhoneNumber(String(value))
+    formatPhoneNumber(String(value)),
   );
 
   const formatPhoneNumberOnChange = (
-    e: React.ChangeEvent<HTMLInputElement>
+    e: React.ChangeEvent<HTMLInputElement>,
   ) => {
     const newValue = e.target.value;
     const formattedValue = formatPhoneNumber(newValue);
@@ -46,7 +46,7 @@ const InputPhone = ({
       onBlur={handleBlur}
       onChange={formatPhoneNumberOnChange}
       placeholder={placeholder}
-      className={clsx(className, `placeholder:text-[rgba(0,0,0,.35)]`)}
+      className={clsx(className, `placeholder:text-[rgba(0,0,0,.6)]`)}
       value={formattedValue} // Pass value prop
       {...rest}
     />

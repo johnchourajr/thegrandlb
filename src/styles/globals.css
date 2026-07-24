@@ -62,6 +62,21 @@ a {
   .skip-link {
     transition: none;
   }
+
+  /* Stop continuous / looping CSS animations for visitors who ask for reduced
+     motion. The scrolling marquee (ticker) and looping loaders are held static;
+     JS/Framer Motion animations are already reduced via MotionConfig
+     reducedMotion="user". */
+  .animate_ticker,
+  .animate_ticker_reverse {
+    animation: none;
+    transform: none;
+  }
+
+  .animate-tail,
+  .animate-pulse {
+    animation: none;
+  }
 }
 
 .grid-inset {
