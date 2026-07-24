@@ -41,7 +41,7 @@ const TextSection = ({
         <div
           className={clsx(
             "col-span-full border-t-2 border-[transparent] lg:col-span-10 lg:col-start-2",
-            top_border && "!border-white"
+            top_border && "!border-white",
           )}
         />
         <MotionBox className="col-span-full flex flex-col items-center justify-center gap-10 text-center lg:col-span-10 lg:col-start-2">
@@ -51,7 +51,7 @@ const TextSection = ({
             </StringText>
           )}
           {bodyText && (
-            <Headline size="lg" staggerDuration={0.02} animateOnce>
+            <Headline as="h2" size="lg" staggerDuration={0.02} animateOnce>
               {bodyText}
             </Headline>
           )}
@@ -60,9 +60,7 @@ const TextSection = ({
               <Button
                 field={primary_action_link}
                 text={primary_action}
-                eventCategory={stringToUnderscore(
-                  `${uid} text Section Action`
-                )}
+                eventCategory={stringToUnderscore(`${uid} text Section Action`)}
                 eventLabel={stringToUnderscore(`${section_id} Primary CTA`)}
                 type="black"
                 size="large"
@@ -82,7 +80,7 @@ const TextSection = ({
         <div
           className={clsx(
             "col-span-full border-b-2 border-[transparent] lg:col-span-10 lg:col-start-2",
-            bottom_border && "!border-white"
+            bottom_border && "!border-white",
           )}
         />
       </GridSection>

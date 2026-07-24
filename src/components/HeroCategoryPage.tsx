@@ -30,6 +30,7 @@ const HeadlineItem = ({ headline, scrollYProgress }: HeadlineItemProps) => {
   return (
     <>
       <Headline
+        as="h1"
         uppercase
         size={"4xl"}
         animationType={"letter"}
@@ -55,6 +56,7 @@ const HeadlineItem = ({ headline, scrollYProgress }: HeadlineItemProps) => {
       </Headline>
       <Headline
         // text={`${splitFirstTwoWords}⬦${splitWordsPastTwo}`}
+        aria-hidden="true"
         uppercase
         size={"4xl"}
         animationType={"letter"}
@@ -138,7 +140,7 @@ const HeroCategoryPage = ({
               <ImageBox
                 media={icon_media}
                 className={clsx(
-                  "h-48 max-h-[18rem] w-48 max-w-[18rem] md:h-[14vw] md:w-[14vw]"
+                  "h-48 max-h-[18rem] w-48 max-w-[18rem] md:h-[14vw] md:w-[14vw]",
                 )}
               />
             </MotionBox>
@@ -148,10 +150,15 @@ const HeroCategoryPage = ({
               "col-span-full pb-0 pt-10 lg:pb-20 lg:pt-12",
               icon_media
                 ? "sm:col-start-3 lg:col-span-5 lg:col-start-auto"
-                : "lg:col-span-5 lg:col-start-2"
+                : "lg:col-span-5 lg:col-start-2",
             )}
           >
-            <Headline size={"xl"} className={"max-w-[10em] pr-12"} animateOnce>
+            <Headline
+              as="h2"
+              size={"xl"}
+              className={"max-w-[10em] pr-12"}
+              animateOnce
+            >
               {subhead}
             </Headline>
           </MotionBox>
@@ -160,7 +167,7 @@ const HeroCategoryPage = ({
               "col-span-full pb-12 lg:pt-16",
               icon_media
                 ? "sm:col-start-3 lg:col-span-3 lg:col-start-9"
-                : "lg:col-span-4 lg:col-start-7"
+                : "lg:col-span-4 lg:col-start-7",
             )}
           >
             <Text paragraph size="large" className="max-w-[30em]">

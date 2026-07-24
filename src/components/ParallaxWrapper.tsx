@@ -1,6 +1,12 @@
 "use client";
 
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { useRef } from "react";
 
 interface ParallaxWrapperProps {
@@ -12,6 +18,7 @@ interface ParallaxWrapperProps {
 
 const ParallaxWrapper = ({ children, amount = 0.2 }: ParallaxWrapperProps) => {
   const ref = useRef(null);
+  const prefersReducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -23,6 +30,17 @@ const ParallaxWrapper = ({ children, amount = 0.2 }: ParallaxWrapperProps) => {
   const y = useTransform(progress, [0, 1], [`${amount * -100}%`, `0%`]);
 
   const height = 100 + amount * 100;
+
+  // Respect the OS "reduce motion" setting: skip the scroll-linked parallax
+  // translate (useTransform is not covered by MotionConfig's reducedMotion) and
+  // render the media statically so nothing drifts as the page scrolls.
+  if (prefersReducedMotion) {
+    return (
+      <motion.div className="absolute h-full w-full overflow-hidden" ref={ref}>
+        <div className="absolute z-[-1] h-full w-full">{children}</div>
+      </motion.div>
+    );
+  }
 
   return (
     <motion.div className="absolute h-full w-full overflow-hidden" ref={ref}>

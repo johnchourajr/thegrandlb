@@ -38,7 +38,7 @@ const InputDateSelect = ({
       placeholder={placeholder}
       className={clsx(
         className,
-        `!px-[.65rem] placeholder:text-[rgba(0,0,0,.35)]`
+        `!px-[.65rem] placeholder:text-[rgba(0,0,0,.6)]`,
       )}
       value={value} // Pass value prop
       {...rest}

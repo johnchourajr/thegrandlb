@@ -98,7 +98,7 @@ export const settings: SharedDoc = {
     legal_text: [
       {
         type: "paragraph",
-        text: "Privacy Policy. Sitemap. Site by John.Design",
+        text: "Privacy Policy. Accessibility. Sitemap. Site by John.Design",
         spans: [
           {
             start: 0,
@@ -119,7 +119,16 @@ export const settings: SharedDoc = {
           },
           {
             start: 16,
-            end: 23,
+            end: 29,
+            type: "hyperlink",
+            data: {
+              link_type: "Web",
+              url: "/accessibility",
+            },
+          },
+          {
+            start: 31,
+            end: 38,
             type: "hyperlink",
             data: {
               link_type: "Web",
@@ -127,8 +136,8 @@ export const settings: SharedDoc = {
             },
           },
           {
-            start: 34,
-            end: 45,
+            start: 48,
+            end: 59,
             type: "hyperlink",
             data: {
               link_type: "Web",
@@ -564,8 +573,7 @@ export const ctaFooter: SharedDoc | null = {
   data: {
     headline: "Moments \nStart \nHere",
     video_media: null,
-    video_url:
-      "https://cdn.thegrandlb.com/Footer%20Peak%2015s.mp4",
+    video_url: "https://cdn.thegrandlb.com/Footer%20Peak%2015s.mp4",
     media: {
       dimensions: {
         width: 3840,

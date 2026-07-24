@@ -28,7 +28,7 @@ const InputBasic = ({
       onBlur={onBlur}
       onChange={handleChange}
       placeholder={placeholder}
-      className={clsx(className, `placeholder:text-[rgba(0,0,0,.35)]`)}
+      className={clsx(className, `placeholder:text-[rgba(0,0,0,.6)]`)}
       value={value} // Pass value prop
       {...rest}
     />

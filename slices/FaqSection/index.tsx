@@ -42,7 +42,7 @@ const FaqSection = ({
     >
       <MotionBox className="padding-top-md padding-bottom-md gap-y-md padding-left-md padding-right-md col-span-full flex flex-col items-start justify-start lg:col-span-6 lg:col-start-auto lg:row-start-1">
         {title && (
-          <StringText uppercase bold>
+          <StringText as="h2" uppercase bold>
             {title}
           </StringText>
         )}
@@ -60,7 +60,7 @@ const FaqSection = ({
       <MotionBox
         className={clsx(
           "relative col-span-full row-start-1 flex aspect-square overflow-hidden rounded-sm bg-white md:max-h-[calc(100vh-9rem-2rem)] md:rounded-md lg:sticky lg:top-[9.5rem] lg:col-span-6 lg:aspect-auto lg:h-[100vh]",
-          getAssetPosition(asset_position)
+          getAssetPosition(asset_position),
         )}
       >
         <MediaFrame

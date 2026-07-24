@@ -243,6 +243,7 @@ export const TileItem = ({
         <div className="flex flex-col items-center justify-center gap-4">
           {headline && (
             <Headline
+              as="h3"
               className={clsx(getStyles().headline, getSize().headline)}
               size={getSize().headlineSize}
               disableMotion={true}

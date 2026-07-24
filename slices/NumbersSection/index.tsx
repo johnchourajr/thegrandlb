@@ -63,13 +63,13 @@ const NumbersSection = ({
         <div
           className={clsx(
             "col-span-full border-t-2 border-[transparent] lg:col-span-10 lg:col-start-2",
-            top_border && "!border-white"
+            top_border && "!border-white",
           )}
         />
         {header && (
           <MotionBox className="col-span-full text-center">
             {title && (
-              <Headline size="md" animateOnce>
+              <Headline as="h2" size="md" animateOnce>
                 {title}
               </Headline>
             )}
@@ -81,11 +81,14 @@ const NumbersSection = ({
             className={clsx(
               "relative flex flex-row flex-wrap items-center justify-center gap-y-12",
               getColumns().container,
-              getInset()
+              getInset(),
             )}
           >
             {items.map(
-              ({ media, number, eyebrow, body, action_text, action_link }, i) => (
+              (
+                { media, number, eyebrow, body, action_text, action_link },
+                i,
+              ) => (
                 <NumberItem
                   key={i}
                   delay={i * 0.2}
@@ -97,14 +100,14 @@ const NumbersSection = ({
                   action_link={action_link}
                   className={clsx("p-4 sm:p-10", getColumns().item)}
                 />
-              )
+              ),
             )}
           </MotionBox>
         )}
         <div
           className={clsx(
             "col-span-full border-b-2 border-[transparent] lg:col-span-10 lg:col-start-2",
-            bottom_border && "!border-white"
+            bottom_border && "!border-white",
           )}
         />
       </GridSection>

@@ -19,7 +19,7 @@ const Layout = ({
       id="page"
       className={clsx(
         "relative z-0 mx-auto w-full max-w-[100vw] bg-bg text-black 4xl:max-w-[2500px]",
-        wrapperClassName
+        wrapperClassName,
       )}
     >
       {settings && (
@@ -27,8 +27,15 @@ const Layout = ({
       )}
       {/* PAGE CONTENT */}
       <main
-        id={page?.uid || undefined}
-        className={clsx("--min-h-[150vh]", "min-h-[25vh]", className)}
+        id="main-content"
+        data-uid={page?.uid || undefined}
+        tabIndex={-1}
+        className={clsx(
+          "--min-h-[150vh]",
+          "min-h-[25vh]",
+          "focus:outline-none",
+          className,
+        )}
       >
         {children}
       </main>

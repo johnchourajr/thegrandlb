@@ -38,12 +38,12 @@ const TeamGallery = ({
               className={clsx(
                 "3lg:col-span-3 group relative col-span-full flex flex-col items-center gap-6 p-4 text-center sm:col-span-2 md:p-4 lg:col-span-4",
                 "after:absolute after:inset-0 after:z-0 after:rounded-xl after:bg-white after:transition-all after:duration-500 after:ease-out-expo after:content-['']",
-                "hover:after:inset-[-2px]"
+                "hover:after:inset-[-2px]",
               )}
             >
               <div
                 className={clsx(
-                  "relative aspect-[3/4] h-auto w-full overflow-hidden rounded-sm bg-black"
+                  "relative aspect-[3/4] h-auto w-full overflow-hidden rounded-sm bg-black",
                 )}
               >
                 {primary_media?.url && (
@@ -53,7 +53,7 @@ const TeamGallery = ({
                       "absolute z-20 h-full w-full object-cover transition-all duration-500 ease-out-expo",
                       "group-hover:scale-[1.05]",
                       secondary_media?.url &&
-                        "group-hover:invisible group-hover:opacity-0"
+                        "group-hover:invisible group-hover:opacity-0",
                     )}
                   />
                 )}
@@ -63,14 +63,14 @@ const TeamGallery = ({
                     className={clsx(
                       "absolute z-10 h-full w-full object-cover transition-all duration-500 ease-out-expo",
                       "group-hover:scale-[1.05]",
-                      "group-hover:visible"
+                      "group-hover:visible",
                     )}
                   />
                 )}
                 <div className="noise" />
               </div>
               <div className="relative z-10 flex flex-col items-center gap-4 pb-3">
-                <Headline disableMotion size={"sm"} uppercase>
+                <Headline as="h3" disableMotion size={"sm"} uppercase>
                   {name}
                 </Headline>
                 <StringText size={"default"} uppercase>

@@ -36,13 +36,13 @@ const HomepageLocation = ({
       <GridSection id={section_id} topSpacer={top_spacer} bottomSpacer={"None"}>
         <MotionBox
           className={clsx(
-            "relative col-span-full col-start-1 flex aspect-square w-full flex-col items-center justify-center gap-10 overflow-hidden rounded-sm bg-black px-4 text-center text-white md:aspect-[16/7] md:rounded-md"
+            "relative col-span-full col-start-1 flex aspect-square w-full flex-col items-center justify-center gap-10 overflow-hidden rounded-sm bg-black px-4 text-center text-white md:aspect-[16/7] md:rounded-md",
           )}
         >
           <MediaFrame video_url={video_url} media={media} />
         </MotionBox>
         <MotionBox className="col-span-full pt-10 pb-0 lg:col-span-5 lg:col-start-2 lg:pb-20">
-          <Headline size={"xl"} className={"max-w-[7em]"} animateOnce>
+          <Headline as="h2" size={"xl"} className={"max-w-[7em]"} animateOnce>
             {title}
           </Headline>
         </MotionBox>
@@ -105,7 +105,10 @@ const HomepageLocation = ({
         {bullet_list_data && (
           <MotionBox className="col-span-full flex flex-col items-center justify-evenly gap-10 lg:col-span-8 lg:col-start-3 lg:flex-row lg:gap-6">
             {bullet_list_data.map(
-              ({ media, number, eyebrow, body, action_text, action_link }, i) => (
+              (
+                { media, number, eyebrow, body, action_text, action_link },
+                i,
+              ) => (
                 <NumberItem
                   key={i}
                   media={media}
@@ -115,7 +118,7 @@ const HomepageLocation = ({
                   action_text={action_text}
                   action_link={action_link}
                 />
-              )
+              ),
             )}
           </MotionBox>
         )}

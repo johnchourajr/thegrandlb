@@ -27,7 +27,7 @@ const InputSelect = ({
       onBlur={onBlur}
       onChange={handleChange}
       value={value}
-      className={clsx(className, `data-[value='']:text-[rgba(0,0,0,.35)]`)}
+      className={clsx(className, `data-[value='']:text-[rgba(0,0,0,.6)]`)}
       data-value={value}
       {...rest}
     >

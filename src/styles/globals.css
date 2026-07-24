@@ -30,6 +30,56 @@ a {
   text-decoration: none;
 }
 
+/* Accessibility: skip-to-content link — visually hidden until focused */
+.skip-link {
+  position: fixed;
+  top: -4rem;
+  left: 1rem;
+  /* Above the sticky header (z-[9999]) so it's visible when focused. */
+  z-index: 10000;
+  padding: 0.75rem 1.25rem;
+  background: #311514;
+  color: #ffffff;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1;
+  transition: top 0.2s ease-out;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Accessibility: consistent keyboard focus indicator.
+   The black outline reads on light backgrounds; the cream halo keeps it
+   visible on dark (e.g. hero) sections. */
+:focus-visible {
+  outline: 2px solid #311514;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px #faf2eb;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-link {
+    transition: none;
+  }
+
+  /* Stop continuous / looping CSS animations for visitors who ask for reduced
+     motion. The scrolling marquee (ticker) and looping loaders are held static;
+     JS/Framer Motion animations are already reduced via MotionConfig
+     reducedMotion="user". */
+  .animate_ticker,
+  .animate_ticker_reverse {
+    animation: none;
+    transform: none;
+  }
+
+  .animate-tail,
+  .animate-pulse {
+    animation: none;
+  }
+}
+
 .grid-inset {
   @apply px-4 md:px-8 xl:px-16;
 }
@@ -123,7 +173,8 @@ body {
   /*
   Ensure background is added first
   */
-  background: linear-gradient(to bottom, #eee, rgba(222, 112, 6, 0.2), #de7006),
+  background:
+    linear-gradient(to bottom, #eee, rgba(222, 112, 6, 0.2), #de7006),
     var(--clip-image, "");
 
   background-attachment: fixed;
@@ -251,7 +302,8 @@ body {
 .noise {
   @apply absolute inset-0 h-full w-full opacity-[0.05];
   /* Replaced large PNG with CSS-only noise pattern - saves 156MB! */
-  background: radial-gradient(
+  background:
+    radial-gradient(
       circle at 20% 80%,
       transparent 50%,
       rgba(255, 255, 255, 0.02) 50%
@@ -266,7 +318,10 @@ body {
       transparent 50%,
       rgba(255, 255, 255, 0.015) 50%
     );
-  background-size: 3px 3px, 5px 5px, 7px 7px;
+  background-size:
+    3px 3px,
+    5px 5px,
+    7px 7px;
   opacity: 0.1;
   animation: noise 3s steps(4) infinite both;
   pointer-events: none;
@@ -284,7 +339,8 @@ body {
 /* Static noise for data saver mode */
 .noise-static {
   @apply absolute inset-0 h-full w-full opacity-[0.03];
-  background: radial-gradient(
+  background:
+    radial-gradient(
       circle at 25% 75%,
       transparent 50%,
       rgba(255, 255, 255, 0.01) 50%
@@ -294,7 +350,9 @@ body {
       transparent 50%,
       rgba(255, 255, 255, 0.01) 50%
     );
-  background-size: 4px 4px, 6px 6px;
+  background-size:
+    4px 4px,
+    6px 6px;
   pointer-events: none;
   z-index: 9999;
 }

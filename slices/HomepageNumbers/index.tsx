@@ -26,6 +26,7 @@ const HomepageNumbers = ({
       >
         {title && (
           <Headline
+            as="h2"
             className="col-span-full text-center"
             size="lg"
             uppercase
@@ -50,14 +51,17 @@ const HomepageNumbers = ({
                     <div className="h-20 w-[3px] flex-grow rounded-md bg-white lg:h-[3px] lg:w-full" />
                   )}
                 </Fragment>
-              )
+              ),
             )}
           </MotionBox>
         )}
         {bullet_list && (
           <MotionBox className="col-span-full flex flex-col items-center justify-evenly gap-10 sm:flex-row lg:col-span-8 lg:col-start-3 lg:gap-6">
             {bullet_list.map(
-              ({ media, number, eyebrow, body, action_text, action_link }, i) => (
+              (
+                { media, number, eyebrow, body, action_text, action_link },
+                i,
+              ) => (
                 <NumberItem
                   key={i}
                   media={media}
@@ -67,7 +71,7 @@ const HomepageNumbers = ({
                   action_text={action_text}
                   action_link={action_link}
                 />
-              )
+              ),
             )}
           </MotionBox>
         )}

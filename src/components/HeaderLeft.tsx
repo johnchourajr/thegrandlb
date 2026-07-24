@@ -23,7 +23,7 @@ export const HeaderLeft = ({
         /**
          * PRINT STYLES
          */
-        "print:h-full print:w-full print:grow print:items-end print:justify-center"
+        "print:h-full print:w-full print:grow print:items-end print:justify-center",
       )}
       initial={{ transformOrigin: "0% 70%" } as any}
       animate={controls}
@@ -46,7 +46,7 @@ export const HeaderLeft = ({
             /**
              * PRINT STYLES
              */
-            "print:h-32 print:w-64"
+            "print:h-32 print:w-64",
           )}
         />
         <AnimatePresence mode="sync">
@@ -58,7 +58,7 @@ export const HeaderLeft = ({
               exit={{ opacity: 0, y: -30, x: "0" }}
               className={clsx(
                 " lg:absolute lg:right-[10%] lg:w-[0]",
-                modalOverlay && "text-white"
+                modalOverlay && "text-white",
               )}
             >
               {subtitle && (
@@ -82,14 +82,19 @@ export const HeaderLeft = ({
             /**
              * PRINT STYLES
              */
-            "print:hidden"
+            "print:hidden",
           )}
         >
           <button
+            type="button"
             onClick={() => setIsNavOpen(!isNavOpen)}
-            className=" flex h-11 w-11 items-center justify-center bg-[yelllow]"
-            aria-label="open navigation"
-            title="open navigation"
+            className=" flex h-11 w-11 items-center justify-center"
+            aria-label={
+              isNavOpen ? "Close navigation menu" : "Open navigation menu"
+            }
+            title={isNavOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isNavOpen}
+            aria-controls="primary-navigation"
           >
             {isNavOpen ? (
               <>
