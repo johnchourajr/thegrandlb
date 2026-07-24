@@ -12,6 +12,7 @@ export const LongformRichText = ({ field, paragraphSize = "large" }: any) => (
       heading1: ({ children, key }) => (
         <Headline
           key={key}
+          as="h2"
           size={"xl"}
           className="mb-4 mt-14 block border-b-2 border-white pb-4"
           disableMotion
@@ -22,6 +23,7 @@ export const LongformRichText = ({ field, paragraphSize = "large" }: any) => (
       heading2: ({ children, key }) => (
         <Headline
           key={key}
+          as="h2"
           size={"sm"}
           className="mb-4 mt-14 block border-b-2 border-white pb-4"
           disableMotion
@@ -30,22 +32,43 @@ export const LongformRichText = ({ field, paragraphSize = "large" }: any) => (
         </Headline>
       ),
       heading3: ({ children, key }) => (
-        <StringText key={key} size={"large"} className="mb-4" bold uppercase>
+        <StringText
+          key={key}
+          as="h3"
+          size={"large"}
+          className="mb-4"
+          bold
+          uppercase
+        >
           {children}
         </StringText>
       ),
       heading4: ({ children, key }) => (
-        <StringText key={key} size={"default"} className="mb-4" bold uppercase>
+        <StringText
+          key={key}
+          as="h4"
+          size={"default"}
+          className="mb-4"
+          bold
+          uppercase
+        >
           {children}
         </StringText>
       ),
       heading5: ({ children, key }) => (
-        <StringText key={key} size={"small"} className="mb-4" bold uppercase>
+        <StringText
+          key={key}
+          as="h5"
+          size={"small"}
+          className="mb-4"
+          bold
+          uppercase
+        >
           {children}
         </StringText>
       ),
       heading6: ({ children, key }) => (
-        <StringText key={key} size={"small"} className="mb-4" uppercase>
+        <StringText key={key} as="h6" size={"small"} className="mb-4" uppercase>
           {children}
         </StringText>
       ),

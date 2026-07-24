@@ -88,6 +88,7 @@ const sections: SitemapSection[] = [
     title: "Legal",
     links: [
       { label: "Privacy Policy", href: "/privacy" },
+      { label: "Accessibility", href: "/accessibility" },
     ],
   },
 ];

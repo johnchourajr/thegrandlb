@@ -19,16 +19,27 @@ const Layout = ({
       id="page"
       className={clsx(
         "relative z-0 mx-auto w-full max-w-[100vw] bg-bg text-black 4xl:max-w-[2500px]",
-        wrapperClassName
+        wrapperClassName,
       )}
     >
+      {/* Skip to main content — first focusable element for keyboard users */}
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       {settings && (
         <LayoutHead page={page} settings={settings} headContent={headContent} />
       )}
       {/* PAGE CONTENT */}
       <main
-        id={page?.uid || undefined}
-        className={clsx("--min-h-[150vh]", "min-h-[25vh]", className)}
+        id="main-content"
+        data-uid={page?.uid || undefined}
+        tabIndex={-1}
+        className={clsx(
+          "--min-h-[150vh]",
+          "min-h-[25vh]",
+          "focus:outline-none",
+          className,
+        )}
       >
         {children}
       </main>

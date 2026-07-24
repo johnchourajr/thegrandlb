@@ -41,7 +41,7 @@ const HeroDetailPage = ({
           className={clsx(
             "padding-top-md padding-bottom-md relative col-span-full col-start-1 flex w-full flex-col items-center justify-center gap-4 overflow-hidden px-4 text-center",
             !noMedia &&
-              "aspect-square max-h-[calc(100vh-8.8125rem)] gap-10 rounded-sm bg-black text-white md:aspect-[4/3] md:max-h-[calc(100vh-9rem-3rem)] md:rounded-md"
+              "aspect-square max-h-[calc(100vh-8.8125rem)] gap-10 rounded-sm bg-black text-white md:aspect-[4/3] md:max-h-[calc(100vh-9rem-3rem)] md:rounded-md",
           )}
         >
           {title && (
@@ -51,6 +51,7 @@ const HeroDetailPage = ({
           )}
           {headline && (
             <Headline
+              as="h1"
               size="3xl"
               uppercase
               className="relative z-10 max-w-[10em]"
@@ -109,10 +110,10 @@ const HeroDetailPage = ({
                 size="large"
                 params={uid ? `desired_space=${uid}` : undefined}
                 eventCategory={stringToUnderscore(
-                  `${uid || "unknown"} Hero Detail Page Action`
+                  `${uid || "unknown"} Hero Detail Page Action`,
                 )}
                 eventLabel={stringToUnderscore(
-                  `${headline || "unknown"} Primary CTA`
+                  `${headline || "unknown"} Primary CTA`,
                 )}
               />
             </motion.div>
