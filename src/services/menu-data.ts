@@ -1,27 +1,12 @@
-import * as fs from "fs";
-import * as path from "path";
+import { readMenuDoc } from "@/services/menu-files";
 import type { RtBlock } from "content/types";
 import type { MenuDoc, MenuGroup } from "content/types";
 import type { MenuCollectionDocument, ExternalMenuGroupItem } from "@/types/menu";
 
-// ─── Local file helpers ────────────────────────────────────────────────────────
-
-function menuFilePath(uid: string) {
-  return path.join(process.cwd(), "content", "menus", `${uid}.menu.json`);
-}
-
-function readMenuJson(uid: string): MenuDoc | null {
-  try {
-    const p = menuFilePath(uid);
-    if (!fs.existsSync(p)) return null;
-    return JSON.parse(fs.readFileSync(p, "utf-8")) as MenuDoc;
-  } catch {
-    return null;
-  }
-}
+// ─── Menu document helpers ────────────────────────────────────────────────────────
 
 function readSharedGroups(): MenuGroup[] {
-  return readMenuJson("shared")?.groups ?? [];
+  return readMenuDoc("shared")?.groups ?? [];
 }
 
 /** Merge shared groups into a MenuDoc's groups array */
@@ -87,7 +72,7 @@ function menuDocToCollectionDocument(doc: MenuDoc): MenuCollectionDocument {
 export async function fetchMenuCollection(
   menuApiUid: string
 ): Promise<MenuCollectionDocument> {
-  const doc = readMenuJson(menuApiUid);
+  const doc = readMenuDoc(menuApiUid);
   if (!doc) throw new Error(`Menu not found: ${menuApiUid}`);
   return menuDocToCollectionDocument(doc);
 }
