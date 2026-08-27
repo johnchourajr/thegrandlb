@@ -3,6 +3,14 @@ import { withVercelToolbar } from "@vercel/toolbar/plugins/next";
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
+  experimental: {
+    // TypeScript 7 is the native compiler: it ships `bin/tsc` but no
+    // `lib/typescript.js`. Next's default `typescript-api` mode loads that
+    // file, so without this it reports TypeScript as uninstalled and the dev
+    // server never boots. This shells out to `bin/tsc` instead.
+    // Remove when Next restores API-mode support for the native compiler.
+    useTypeScriptCli: true,
+  },
   reactStrictMode: false,
   images: {
     remotePatterns: [
