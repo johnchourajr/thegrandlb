@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import { withVercelToolbar } from "@vercel/toolbar/plugins/next";
 
 const nextConfig: NextConfig = {
+  cacheComponents: true,
   reactStrictMode: false,
   // Ensure content/menus JSON files are included in the Vercel serverless
   // function bundle so fs.readFileSync works at runtime (ISR, API routes).

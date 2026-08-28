@@ -12,7 +12,9 @@ import JsonLdBreadcrumb from "@/components/JsonLdBreadcrumb";
 import JsonLdFaqSlices from "@/components/JsonLdFaqSlices";
 import { eventPages, eventPageUids } from "./content";
 
-export const revalidate = false;
+// TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
+// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
+export const instant = false;
 
 export default async function Page({
   params,

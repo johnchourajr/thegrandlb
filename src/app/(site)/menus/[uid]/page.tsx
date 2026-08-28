@@ -4,9 +4,12 @@ import { MenuPageContent } from "@/components/MenuPageContent";
 import { getExtra } from "@/services/get-extra";
 import { fetchMenuCollection } from "@/services/menu-data";
 import type { MenuPageDocumentWithGroup } from "@/types/menu";
+import { cacheLife } from "next/cache";
 import { notFound } from "next/navigation";
 
-export const revalidate = 3600;
+// TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
+// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
+export const instant = false;
 
 const VALID_UIDS = ["classic", "corporate", "milestones", "weddings"] as const;
 type MenuUid = (typeof VALID_UIDS)[number];
@@ -43,6 +46,9 @@ export async function generateMetadata({
 }: {
   params: Promise<{ uid: string }>;
 }) {
+  "use cache";
+  cacheLife("hours");
+
   const { uid } = await params;
   const meta = MENU_METADATA[uid as MenuUid];
   if (!meta) return {};
@@ -54,6 +60,9 @@ export default async function MenuPage({
 }: {
   params: Promise<{ uid: string }>;
 }) {
+  "use cache";
+  cacheLife("hours");
+
   const { uid } = await params;
 
   if (!VALID_UIDS.includes(uid as MenuUid)) {
