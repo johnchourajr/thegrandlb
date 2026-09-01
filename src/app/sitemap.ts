@@ -28,6 +28,8 @@ const EVENT_UIDS = [
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  "use cache";
+
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: `${BASE_URL}/`,

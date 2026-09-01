@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import { withVercelToolbar } from "@vercel/toolbar/plugins/next";
 
 const nextConfig: NextConfig = {
+  cacheComponents: true,
   reactStrictMode: false,
   images: {
     remotePatterns: [

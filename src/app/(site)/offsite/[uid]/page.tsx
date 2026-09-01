@@ -8,7 +8,9 @@ import { getExtra } from "@/services/get-extra";
 import { notFound } from "next/navigation";
 import { offsitePages, offsitePageUids } from "./content";
 
-export const revalidate = false;
+// TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
+// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
+export const instant = false;
 
 export default async function OffsitePage({
   params,
@@ -47,5 +49,11 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams() {
+  // TODO: Cache Components adoption. offsitePages is empty, so this route has no
+  // real uids and every request 404s. Cache Components rejects an empty
+  // generateStaticParams, so this yields one param that falls through to
+  // notFound() — same behavior as before. Revisit: either populate
+  // offsitePages or delete this route.
+  if (offsitePageUids.length === 0) return [{ uid: "__placeholder__" }];
   return offsitePageUids.map((uid) => ({ uid }));
 }

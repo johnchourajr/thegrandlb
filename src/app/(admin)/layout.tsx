@@ -3,6 +3,10 @@ import type { Metadata } from "next";
 import { Inter, Lexend_Zetta } from "next/font/google";
 import localFont from "next/font/local";
 
+// TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
+// See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
+export const instant = false;
+
 const lexend = Lexend_Zetta({
   subsets: ["latin"],
   weight: "400",
