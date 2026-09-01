@@ -1,6 +1,5 @@
 import { cookies } from "next/headers";
-import * as fs from "fs";
-import * as path from "path";
+import { readMenuDoc } from "@/services/menu-files";
 import type { NextRequest } from "next/server";
 import type { MenuDoc } from "content/types";
 import { Resend } from "resend";
@@ -34,10 +33,6 @@ function formatPublishSubject(menuTitle: string, publishedAt: Date): string {
   }).format(publishedAt);
 
   return `Published: ${menuTitle} menu · ${formatted}`;
-}
-
-function localMenuPath(uid: string) {
-  return path.join(process.cwd(), "content", "menus", `${uid}.menu.json`);
 }
 
 function githubFilePath(uid: string) {
@@ -81,13 +76,7 @@ function notFound(uid: string) {
 // ─── Shared group helpers ──────────────────────────────────────────────────────
 
 function readSharedGroups(): MenuDoc["groups"] {
-  try {
-    const sharedPath = localMenuPath("shared");
-    if (!fs.existsSync(sharedPath)) return [];
-    return (JSON.parse(fs.readFileSync(sharedPath, "utf-8")) as MenuDoc).groups ?? [];
-  } catch {
-    return [];
-  }
+  return readMenuDoc("shared")?.groups ?? [];
 }
 
 /** Merge shared groups into a menu doc, marking each with _shared: true */
@@ -124,10 +113,8 @@ export async function GET(
   }
 
   try {
-    const filePath = localMenuPath(uid);
-    if (!fs.existsSync(filePath)) return notFound(uid);
-    const raw = fs.readFileSync(filePath, "utf-8");
-    const menu: MenuDoc = JSON.parse(raw);
+    const menu = readMenuDoc(uid);
+    if (!menu) return notFound(uid);
     // For non-shared menus, merge in the shared groups so the editor can display them
     const merged = uid === "shared" ? menu : mergeSharedGroups(menu);
     return new Response(JSON.stringify(merged), {
@@ -181,13 +168,7 @@ export async function PUT(
   body = stripSharedGroups(body);
 
   // Read the local file before committing so we can diff what changed
-  let originalDoc: MenuDoc | null = null;
-  try {
-    const localPath = localMenuPath(uid);
-    if (fs.existsSync(localPath)) {
-      originalDoc = JSON.parse(fs.readFileSync(localPath, "utf-8"));
-    }
-  } catch { /* non-fatal — email will omit the diff */ }
+  const originalDoc: MenuDoc | null = readMenuDoc(uid);
 
   const changes = originalDoc ? diffMenuDocs(originalDoc, body) : [];
 
