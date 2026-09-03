@@ -10,6 +10,13 @@ function isAuthorized(request: NextRequest): boolean {
   return auth === `Bearer ${token}`;
 }
 
+// Vercel's `session_id` is not a session identifier — across 90 days it was 68%
+// null and every non-null value was the literal 0, so every "sessions" figure
+// built on it was wrong. Count the first-party id instead (src/utils/session.ts),
+// falling back to the device for rows written before that shipped so historical
+// numbers degrade to visitor-level rather than collapsing to zero.
+const SESSION_KEY = `COALESCE(session_uid, 'device:' || device_id::text)`;
+
 const CORS = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, OPTIONS",
@@ -104,6 +111,52 @@ export async function GET(request: NextRequest) {
         return Response.json({ rows: result.rows }, { headers: CORS });
       }
 
+      // Inquiry form drop-off, split by device. This is the query the funnel
+      // audit could not run: it separates "opened the form and never touched a
+      // field" from "started filling it in and gave up", and shows where.
+      //
+      // Scoped to rows carrying a first-party session id, so it reports only on
+      // traffic seen since the form instrumentation shipped. Older rows have no
+      // start/step events and would drag every rate toward zero.
+      case "inquiry_form_funnel": {
+        result = await pool.query(
+          `WITH s AS (
+             SELECT
+               session_uid,
+               MAX(device_type)                                                      AS device_type,
+               COALESCE(BOOL_OR(path LIKE '/inquire%' AND event_name IS NULL), false) AS reached_form,
+               COALESCE(BOOL_OR(event_name = 'conversion.inquiry_start'), false)      AS started,
+               COALESCE(BOOL_OR(event_name = 'conversion.inquiry_blocked'), false)    AS blocked,
+               COALESCE(BOOL_OR(event_name = 'conversion.inquiry_submit'), false)     AS submitted,
+               COALESCE(BOOL_OR(event_name = 'conversion.inquiry_success'), false)    AS succeeded,
+               MAX(CASE WHEN event_data->>'step' ~ '^[0-9]+$'
+                        THEN (event_data->>'step')::int END)
+                 FILTER (WHERE event_name = 'conversion.inquiry_step')                AS furthest_step
+             FROM analytics_events
+             WHERE occurred_at > ${since}
+               AND session_uid IS NOT NULL
+             GROUP BY session_uid
+           )
+           SELECT
+             COALESCE(NULLIF(device_type, ''), 'unknown')          AS device_type,
+             (COUNT(*) FILTER (WHERE reached_form))::int           AS reached_form,
+             (COUNT(*) FILTER (WHERE started))::int                AS started,
+             (COUNT(*) FILTER (WHERE blocked))::int                AS hit_validation_block,
+             (COUNT(*) FILTER (WHERE submitted))::int              AS submitted,
+             (COUNT(*) FILTER (WHERE succeeded))::int              AS succeeded,
+             ROUND(100.0 * COUNT(*) FILTER (WHERE started)
+                   / NULLIF(COUNT(*) FILTER (WHERE reached_form), 0), 1) AS pct_form_to_start,
+             ROUND(100.0 * COUNT(*) FILTER (WHERE submitted)
+                   / NULLIF(COUNT(*) FILTER (WHERE started), 0), 1)      AS pct_start_to_submit,
+             ROUND(AVG(furthest_step) FILTER (WHERE started AND NOT submitted), 2)
+                                                                   AS avg_step_abandoned
+           FROM s
+           GROUP BY 1
+           ORDER BY reached_form DESC`,
+        );
+        return Response.json({ rows: result.rows }, { headers: CORS });
+      }
+
       // Agent activity: MCP tool calls + menu fetches + markdown requests
       case "agent_activity": {
         result = await pool.query(
@@ -140,7 +193,7 @@ export async function GET(request: NextRequest) {
         result = await pool.query(
           `SELECT COALESCE(device_type, 'unknown') AS device_type,
                   COUNT(*)::int                     AS count,
-                  COUNT(DISTINCT session_id)::int   AS sessions
+                  COUNT(DISTINCT ${SESSION_KEY})::int AS sessions
            FROM analytics_events
            WHERE occurred_at > ${since}
            GROUP BY COALESCE(device_type, 'unknown')
@@ -154,7 +207,7 @@ export async function GET(request: NextRequest) {
         result = await pool.query(
           `SELECT COALESCE(browser_name, 'unknown') AS browser_name,
                   COUNT(*)::int                      AS count,
-                  COUNT(DISTINCT session_id)::int    AS sessions
+                  COUNT(DISTINCT ${SESSION_KEY})::int AS sessions
            FROM analytics_events
            WHERE occurred_at > ${since}
            GROUP BY COALESCE(browser_name, 'unknown')
@@ -168,7 +221,7 @@ export async function GET(request: NextRequest) {
         result = await pool.query(
           `SELECT COALESCE(os_name, 'unknown') AS os_name,
                   COUNT(*)::int                 AS count,
-                  COUNT(DISTINCT session_id)::int AS sessions
+                  COUNT(DISTINCT ${SESSION_KEY})::int AS sessions
            FROM analytics_events
            WHERE occurred_at > ${since}
            GROUP BY COALESCE(os_name, 'unknown')
@@ -182,7 +235,7 @@ export async function GET(request: NextRequest) {
         result = await pool.query(
           `SELECT COALESCE(utm_source, referrer_host, 'Direct') AS source,
                   COUNT(*)::int                                 AS count,
-                  COUNT(DISTINCT session_id)::int               AS sessions
+                  COUNT(DISTINCT ${SESSION_KEY})::int AS sessions
            FROM analytics_events
            WHERE occurred_at > ${since}
            GROUP BY COALESCE(utm_source, referrer_host, 'Direct')
@@ -197,7 +250,7 @@ export async function GET(request: NextRequest) {
         result = await pool.query(
           `SELECT utm_source, utm_medium, utm_campaign,
                   COUNT(*)::int                   AS count,
-                  COUNT(DISTINCT session_id)::int AS sessions
+                  COUNT(DISTINCT ${SESSION_KEY})::int AS sessions
            FROM analytics_events
            WHERE occurred_at > ${since}
              AND (utm_source IS NOT NULL OR utm_medium IS NOT NULL OR utm_campaign IS NOT NULL)
@@ -214,7 +267,7 @@ export async function GET(request: NextRequest) {
                   region,
                   city,
                   COUNT(*)::int                  AS count,
-                  COUNT(DISTINCT session_id)::int AS sessions
+                  COUNT(DISTINCT ${SESSION_KEY})::int AS sessions
            FROM analytics_events
            WHERE occurred_at > ${since}
            GROUP BY COALESCE(country, 'Unknown'), region, city

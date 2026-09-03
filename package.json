@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "type-check": "tsc --noEmit",
-    "test:unit": "tsx --test src/utils/inquire-validation.test.ts",
+    "test:unit": "tsx --test src/utils/inquire-validation.test.ts src/utils/session.test.ts",
     "test:menu-unit": "tsx --test src/__tests__/admin/diff.test.ts src/__tests__/admin/rt.test.ts src/__tests__/admin/newItem.test.ts",
     "test:menu-api": "tsx scripts/test-menu-admin-auth.ts",
     "test:inquiry-form": "tsx scripts/test-inquiry-form.ts",

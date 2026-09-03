@@ -12,7 +12,7 @@ import {
   toastSubmitError,
   toastSubmitSuccess,
 } from "@/utils/events";
-import { track } from "@vercel/analytics";
+import { trackEvent } from "@/utils/analytics";
 import {
   isValidEmail,
   validateValueWithRule,
@@ -47,10 +47,13 @@ export function InquireFormContainer() {
   const isSubmittingRef = useRef(false);
   const [currentPage, setCurrentPage] = useState(0);
   const [formState, setFormState] = useState<FormState>({});
+  const hasStartedRef = useRef(false);
 
   // console.log({ formState, data });
 
-  const handleFormChange = (
+  // Writes a value into form state. Shared by real user input and by the
+  // prefill effect below — prefill must not read as the visitor starting.
+  const setFieldValue = (
     fieldName: FieldTypeValues,
     value: any,
     page_key: any,
@@ -74,21 +77,57 @@ export function InquireFormContainer() {
     }));
   };
 
+  const handleFormChange: HandleFormFunction = (
+    fieldName,
+    value,
+    page_key,
+    validations
+  ) => {
+    // First real interaction with the form. Everything between reaching
+    // /inquire and submitting used to be dark — 811 high-intent visitors left
+    // in 90 days with no trace of how far they got. This is the near end of
+    // that gap; conversion.inquiry_step and _blocked cover the middle.
+    if (!hasStartedRef.current) {
+      hasStartedRef.current = true;
+      trackEvent("conversion.inquiry_start", {
+        step: currentPage,
+        field: String(fieldName),
+      });
+    }
+    setFieldValue(fieldName, value, page_key, validations);
+  };
+
   const handleFormBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     // console.log("handleFormBlur", e);
   };
 
   const handleFormSubmit = async () => {
     const emailValue = String(formState?.email?.value || "").trim();
-    if (!emailValue) return toastEmailRrequired();
-    if (!isValidEmail(emailValue)) return toastSubmitError();
+    if (!emailValue) {
+      trackEvent("conversion.inquiry_blocked", {
+        step: currentPage,
+        fields: "email",
+        field_count: 1,
+      });
+      return toastEmailRrequired();
+    }
+    if (!isValidEmail(emailValue)) {
+      trackEvent("conversion.inquiry_blocked", {
+        step: currentPage,
+        fields: "email",
+        field_count: 1,
+      });
+      return toastSubmitError();
+    }
     if (isSubmittingRef.current) return;
     isSubmittingRef.current = true;
     setSubmitLoading(true);
 
     try {
       toastSubmit();
-      track("conversion.inquiry_submit", { event_type: String(formState?.event_type?.value || "") });
+      trackEvent("conversion.inquiry_submit", {
+        event_type: String(formState?.event_type?.value || ""),
+      });
 
       const {
         additional_details,
@@ -125,14 +164,16 @@ export function InquireFormContainer() {
         formState,
       });
 
-      track("conversion.inquiry_success", { event_type: String(formState?.event_type?.value || "") });
+      trackEvent("conversion.inquiry_success", {
+        event_type: String(formState?.event_type?.value || ""),
+      });
       toastSubmitSuccess();
       router.push("/thanks");
     } catch (error) {
       console.error(error);
       isSubmittingRef.current = false;
       setSubmitLoading(false);
-      track("conversion.inquiry_error");
+      trackEvent("conversion.inquiry_error");
       toastSubmitError();
     }
   };
@@ -141,7 +182,7 @@ export function InquireFormContainer() {
     // update formState with url params
     params.forEach((value, key) => {
       if (value) {
-        handleFormChange(key as FieldTypeValues, value, 0, null);
+        setFieldValue(key as FieldTypeValues, value, 0, null);
       }
     });
   }, [params]);

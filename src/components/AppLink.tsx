@@ -1,7 +1,7 @@
 "use client";
 
 import type { LinkField } from "content/types";
-import { track } from "@vercel/analytics";
+import { hostOf, trackEvent } from "@/utils/analytics";
 import Link from "next/link";
 import React from "react";
 
@@ -98,9 +98,21 @@ const AppLink = React.forwardRef<HTMLAnchorElement, AppLinkProps>(
       const target = (field as any)?.target || rest.target || "_blank";
       const handleExternalClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
         if (resolvedUrl?.startsWith("tel:")) {
-          track("conversion.phone_click", { number: resolvedUrl.replace("tel:", "") });
+          trackEvent("conversion.phone_click", {
+            number: resolvedUrl.replace("tel:", ""),
+          });
         } else if (resolvedUrl?.startsWith("mailto:")) {
-          track("engagement.email_click", { address: resolvedUrl.replace("mailto:", "") });
+          trackEvent("engagement.email_click", {
+            address: resolvedUrl.replace("mailto:", ""),
+          });
+        } else if (resolvedUrl) {
+          // Every other external destination — social, Google Maps, the
+          // studio credit. Untracked until now, so traffic handed off the site
+          // was invisible and no campaign could be measured end to end.
+          trackEvent("engagement.outbound_click", {
+            host: hostOf(resolvedUrl),
+            url: resolvedUrl,
+          });
         }
         rest.onClick?.(e);
       };

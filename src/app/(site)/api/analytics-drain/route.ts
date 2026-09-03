@@ -1,5 +1,6 @@
 import crypto from "node:crypto";
 import type { NextRequest } from "next/server";
+import { SESSION_QUERY_PARAM } from "@/utils/session";
 import pool from "../../../../services/db";
 
 // Vercel signs each drain delivery with HMAC-SHA1 over the raw request body,
@@ -53,6 +54,7 @@ const COLUMNS = [
   "browser_version",
   "client_type",
   "session_id",
+  "session_uid",
   "device_id",
   "project_id",
   "owner_id",
@@ -104,6 +106,7 @@ const SETUP_SQL = `
     ADD COLUMN IF NOT EXISTS owner_id        TEXT,
     ADD COLUMN IF NOT EXISTS vercel_env      TEXT,
     ADD COLUMN IF NOT EXISTS deployment_id   TEXT,
+    ADD COLUMN IF NOT EXISTS session_uid     TEXT,
     ADD COLUMN IF NOT EXISTS raw             JSONB;
   CREATE INDEX IF NOT EXISTS analytics_events_event_name_idx    ON analytics_events (event_name);
   CREATE INDEX IF NOT EXISTS analytics_events_occurred_at_idx   ON analytics_events (occurred_at DESC);
@@ -111,6 +114,7 @@ const SETUP_SQL = `
   CREATE INDEX IF NOT EXISTS analytics_events_country_idx       ON analytics_events (country);
   CREATE INDEX IF NOT EXISTS analytics_events_referrer_host_idx ON analytics_events (referrer_host);
   CREATE INDEX IF NOT EXISTS analytics_events_utm_source_idx    ON analytics_events (utm_source);
+  CREATE INDEX IF NOT EXISTS analytics_events_session_uid_idx   ON analytics_events (session_uid);
 `;
 
 let tableReady = false;
@@ -146,8 +150,20 @@ const UTM_KEYS = [
   "utm_content",
 ] as const;
 
-// Vercel sends the raw query string in `queryParams`; pull the standard UTM
-// fields out into their own columns for acquisition reporting.
+// Vercel sends the raw query string in `queryParams`, with or without a leading
+// "?". Returns null rather than throwing on anything malformed.
+function queryOf(queryParams: unknown): URLSearchParams | null {
+  const s = str(queryParams);
+  if (!s) return null;
+  try {
+    return new URLSearchParams(s.startsWith("?") ? s.slice(1) : s);
+  } catch {
+    return null;
+  }
+}
+
+// Pull the standard UTM fields into their own columns for acquisition
+// reporting.
 function parseUtm(
   queryParams: unknown,
 ): Record<(typeof UTM_KEYS)[number], string | null> {
@@ -158,18 +174,38 @@ function parseUtm(
     utm_term: null,
     utm_content: null,
   } as Record<(typeof UTM_KEYS)[number], string | null>;
-  const s = str(queryParams);
-  if (!s) return out;
-  try {
-    const params = new URLSearchParams(s.startsWith("?") ? s.slice(1) : s);
-    for (const k of UTM_KEYS) {
-      const v = params.get(k);
-      if (v) out[k] = v;
-    }
-  } catch {
-    /* ignore malformed query strings */
+  const params = queryOf(queryParams);
+  if (!params) return out;
+  for (const k of UTM_KEYS) {
+    const v = params.get(k);
+    if (v) out[k] = v;
   }
   return out;
+}
+
+function parseJson(v: unknown): unknown {
+  if (typeof v !== "string") return v;
+  try {
+    return JSON.parse(v);
+  } catch {
+    return null;
+  }
+}
+
+// The first-party session id minted in src/utils/session.ts. Custom events
+// carry it in their property bag; pageviews have no property bag, so it arrives
+// as the `_sid` query parameter instead.
+//
+// This exists because Vercel's own `sessionId` is not a session identifier —
+// 68% null across 90 days, every non-null value the literal `0`. That field is
+// still stored in `session_id` for fidelity, but nothing reads it.
+function sessionUid(e: Record<string, unknown>): string | null {
+  const data = parseJson(e.eventData);
+  if (data && typeof data === "object" && !Array.isArray(data)) {
+    const fromEvent = str((data as Record<string, unknown>).session_id);
+    if (fromEvent) return fromEvent;
+  }
+  return str(queryOf(e.queryParams)?.get(SESSION_QUERY_PARAM));
 }
 
 // jsonb params must be passed as JSON text; objects/arrays are stringified so
@@ -207,6 +243,7 @@ function rowFor(e: Record<string, unknown>): unknown[] {
     browser_version: str(e.clientVersion),
     client_type: str(e.clientType),
     session_id: e.sessionId ?? null,
+    session_uid: sessionUid(e),
     device_id: e.deviceId ?? null,
     project_id: str(e.projectId),
     owner_id: str(e.ownerId),

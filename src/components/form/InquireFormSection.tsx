@@ -1,4 +1,5 @@
 import { FormPage } from "@/data/form.types";
+import { trackEvent } from "@/utils/analytics";
 import {
   eventInquireNext,
   eventInquirePrev,
@@ -142,14 +143,28 @@ export const InquireFormSection = ({
     if (allPageValuesAreValid) {
       setCurrentPage(step + 1);
       eventInquireNext(step);
+      trackEvent("conversion.inquiry_step", { step: step + 1, from: step });
     } else {
       toastNextError(step);
+      // Which fields held them up, so a stall can be traced to a specific
+      // field rather than inferred. The April 2026 audit found the button bar
+      // sits over the fields on mobile; if that is what is stopping people, it
+      // shows up here as a burst on one step, on one device_type.
+      const blocking = pageInputKeys.filter(
+        (key: string) => !formState[key]?.isValid
+      );
+      trackEvent("conversion.inquiry_blocked", {
+        step,
+        fields: blocking.join(","),
+        field_count: blocking.length,
+      });
     }
   };
 
   const handleBackButtonClick = () => {
     setCurrentPage(step - 1);
     eventInquirePrev(step);
+    trackEvent("conversion.inquiry_back", { step: step - 1, from: step });
   };
 
   const handleFormSubmitClick = () => {
