@@ -56,3 +56,7 @@ next-env.d.ts
 # agent scratch (e.g. bulk image downloads for visual QA)
 /tmp/
 .playwright-mcp/
+
+# local analysis, working drafts, and business records — kept out of this
+# repository deliberately
+/analysis
