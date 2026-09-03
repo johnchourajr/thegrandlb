@@ -120,6 +120,42 @@ test("getSessionId stays stable when localStorage throws", () => {
   );
 });
 
+test("getSessionId returns null rather than a weak id without a CSPRNG", () => {
+  const realCrypto = Object.getOwnPropertyDescriptor(globalThis, "crypto");
+  Object.defineProperty(globalThis, "crypto", {
+    value: undefined,
+    configurable: true,
+  });
+
+  try {
+    withBrowser(({ advance }) => {
+      // Age out the in-memory fallback any earlier test may have left behind,
+      // so this asserts on a genuinely fresh session.
+      advance(THIRTY_MINUTES * 2);
+
+      // Degrades to "no session id", which is what the pipeline did before
+      // this module existed. It never falls back to low-entropy randomness.
+      assert.equal(getSessionId(), null);
+    });
+  } finally {
+    if (realCrypto) Object.defineProperty(globalThis, "crypto", realCrypto);
+  }
+});
+
+test("session ids are unique across sessions", () => {
+  const seen = new Set<string>();
+  withBrowser(({ advance }) => {
+    for (let i = 0; i < 50; i++) {
+      const id = getSessionId();
+      assert.ok(id);
+      assert.match(id, /^s_[0-9a-f]{16}$/);
+      seen.add(id);
+      advance(THIRTY_MINUTES + 1000);
+    }
+  });
+  assert.equal(seen.size, 50, "every new session should get a distinct id");
+});
+
 test("the pageview query parameter name is pinned", () => {
   // This is a wire format, not an implementation detail: it is written into
   // analytics_events.raw on every pageview. Renaming it silently orphans every

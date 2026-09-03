@@ -34,15 +34,28 @@ type StoredSession = { id: string; lastSeen: number };
  */
 let memorySession: StoredSession | null = null;
 
-function newId(): string {
+/**
+ * 64 bits from the platform CSPRNG, hex-encoded.
+ *
+ * `crypto.getRandomValues` is available in every browser we support *and* in
+ * insecure contexts, where `crypto.randomUUID` is not — so it covers the plain
+ * -http case that would otherwise need a fallback. A `Math.random()` fallback
+ * would be weaker for no coverage gain, so there isn't one: if the platform
+ * has no CSPRNG at all we return null and the caller skips session stamping
+ * rather than inventing a low-entropy id.
+ */
+function newId(): string | null {
   if (
-    typeof crypto !== "undefined" &&
-    typeof crypto.randomUUID === "function"
+    typeof crypto === "undefined" ||
+    typeof crypto.getRandomValues !== "function"
   ) {
-    return `s_${crypto.randomUUID().replace(/-/g, "").slice(0, 16)}`;
+    return null;
   }
-  const rand = () => Math.random().toString(36).slice(2, 10);
-  return `s_${rand()}${rand()}`;
+  const bytes = crypto.getRandomValues(new Uint8Array(8));
+  const hex = Array.from(bytes, (b) => b.toString(16).padStart(2, "0")).join(
+    "",
+  );
+  return `s_${hex}`;
 }
 
 function read(): StoredSession | null {
@@ -80,10 +93,9 @@ export function getSessionId(): string | null {
   const stillActive =
     previous !== null && now - previous.lastSeen < SESSION_TIMEOUT_MS;
 
-  const session: StoredSession = stillActive
-    ? { id: previous.id, lastSeen: now }
-    : { id: newId(), lastSeen: now };
+  const id = stillActive ? previous.id : newId();
+  if (id === null) return null;
 
-  write(session);
-  return session.id;
+  write({ id, lastSeen: now });
+  return id;
 }
