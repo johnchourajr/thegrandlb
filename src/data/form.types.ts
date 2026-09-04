@@ -1,3 +1,5 @@
+import { withCapacity } from "./rooms";
+
 export type Option = {
   title: string;
   value: string;
@@ -46,8 +48,26 @@ export function validateForm(formData: FormPage[]): boolean {
 }
 
 export function getFormData(): FormPage[] {
-  const jsonData = require("./form.json");
-  return jsonData as FormPage[];
+  const jsonData = require("./form.json") as FormPage[];
+
+  // Room capacity is shown at the point of choosing, rather than being
+  // something the visitor has to leave the form to go and look up (#215).
+  // Done here so form.json stays the question set and rooms.ts stays the
+  // single source for capacity — the two cannot drift apart.
+  return jsonData.map((page) => ({
+    ...page,
+    questions: page.questions.map((question) =>
+      question.question_key !== "desired_space"
+        ? question
+        : {
+            ...question,
+            options: question.options.map((option) => ({
+              ...option,
+              title: withCapacity(option.title, option.value),
+            })),
+          },
+    ),
+  }));
 }
 
 export const fieldTypes = {
