@@ -110,16 +110,59 @@ export function formatPhoneNumber(value: string): string {
   return value;
 }
 
-// format date from YYYY-MM-DD to Mm DD, YYYY
+const MONTH_NAMES = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+] as const;
+
+/** A date we have already formatted, e.g. "February 1, 2025". */
+const FORMATTED = /^[A-Z][a-z]+ \d{1,2}, \d{4}$/;
+
+/** The calendar part of "2025-02-01" or "2025-02-01T00:00:00.000Z". */
+const CALENDAR_DATE = /^(\d{4})-(\d{2})-(\d{2})/;
+
+/**
+ * Formats a calendar date as "February 1, 2025".
+ *
+ * Deliberately does no timezone conversion. `desired_date` is a calendar day a
+ * visitor picked, not an instant — 1 February is 1 February wherever they are.
+ *
+ * The previous implementation went through `Date` and read the month in local
+ * time while reading the day and year in UTC. West of Greenwich those two
+ * disagree for the whole of the 1st, so `"2025-02-01"` formatted as
+ * "January 1, 2025" — reported by a visitor in May 2024 and confirmed in #213.
+ * Every other day of the month looked fine, which is why it survived two years.
+ *
+ * Already-formatted input is returned unchanged. The submit path used to format
+ * on the client and again on the server, which shifted the date a second time;
+ * that double call is gone, but staying idempotent means it cannot silently
+ * come back.
+ */
 export function formatDate(date: string) {
-  const dateObj = new Date(date);
-  dateObj.setUTCHours(0, 0, 0, 0); // Set time to midnight in UTC
+  if (!date) return "";
 
-  const month = dateObj.toLocaleString("default", { month: "long" });
-  const day = dateObj.getUTCDate();
-  const year = dateObj.getUTCFullYear();
+  const trimmed = String(date).trim();
+  if (FORMATTED.test(trimmed)) return trimmed;
 
-  return `${month} ${day}, ${year}`;
+  const match = CALENDAR_DATE.exec(trimmed);
+  // Not a shape we recognise — hand it back rather than inventing a date.
+  if (!match) return trimmed;
+
+  const [, year, month, day] = match;
+  const monthName = MONTH_NAMES[Number(month) - 1];
+  if (!monthName) return trimmed;
+
+  return `${monthName} ${Number(day)}, ${Number(year)}`;
 }
 
 // replace dashes and underscores with spaces and title case

@@ -19,7 +19,7 @@ import {
   validateValueWithRule,
 } from "@/utils/inquire-validation";
 import { formatPhoneForDatabase } from "@/utils/phone-formatter";
-import { formatDate, formatTitle } from "@/utils/utils";
+import { formatTitle } from "@/utils/utils";
 import axios from "axios";
 import clsx from "clsx";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -193,7 +193,9 @@ export function InquireFormContainer() {
 
       const data = {
         additional_details: additional_details?.value || "",
-        desired_date: formatDate(String(desired_date.value)),
+        // Sent raw: the server formats it once. Formatting here as well used
+        // to shift the date a second time on the way into the database (#213).
+        desired_date: String(desired_date.value),
         desired_space: formatTitle(String(desired_space.value)),
         desired_time: desired_time.value,
         email: email.value,

@@ -1,19 +1,8 @@
 import type { FormState } from "@/data/form.types";
+import { formatDate } from "@/utils/utils";
 import { Text } from "@react-email/components";
 import EmailBody from "../components/email/emailBody";
 import EmailTemplate from "./components/EmailTemplate";
-
-function formatDate(date: string) {
-  if (!date) return "";
-  const dateObj = new Date(date);
-  dateObj.setUTCHours(0, 0, 0, 0); // Set time to midnight in UTC
-
-  const month = dateObj.toLocaleString("default", { month: "long" });
-  const day = dateObj.getUTCDate();
-  const year = dateObj.getUTCFullYear();
-
-  return `${month} ${day}, ${year}`;
-}
 
 type SalesEmailProps = Partial<FormState>;
 
