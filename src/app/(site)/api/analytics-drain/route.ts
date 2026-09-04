@@ -1,6 +1,6 @@
 import crypto from "node:crypto";
 import type { NextRequest } from "next/server";
-import { SESSION_QUERY_PARAM } from "@/utils/session";
+import { parseUtm, sessionUid } from "@/utils/analytics-query";
 import pool from "../../../../services/db";
 
 // Vercel signs each drain delivery with HMAC-SHA1 over the raw request body,
@@ -140,72 +140,6 @@ function hostOf(url: unknown): string | null {
   } catch {
     return null;
   }
-}
-
-const UTM_KEYS = [
-  "utm_source",
-  "utm_medium",
-  "utm_campaign",
-  "utm_term",
-  "utm_content",
-] as const;
-
-// Vercel sends the raw query string in `queryParams`, with or without a leading
-// "?". Returns null rather than throwing on anything malformed.
-function queryOf(queryParams: unknown): URLSearchParams | null {
-  const s = str(queryParams);
-  if (!s) return null;
-  try {
-    return new URLSearchParams(s.startsWith("?") ? s.slice(1) : s);
-  } catch {
-    return null;
-  }
-}
-
-// Pull the standard UTM fields into their own columns for acquisition
-// reporting.
-function parseUtm(
-  queryParams: unknown,
-): Record<(typeof UTM_KEYS)[number], string | null> {
-  const out = {
-    utm_source: null,
-    utm_medium: null,
-    utm_campaign: null,
-    utm_term: null,
-    utm_content: null,
-  } as Record<(typeof UTM_KEYS)[number], string | null>;
-  const params = queryOf(queryParams);
-  if (!params) return out;
-  for (const k of UTM_KEYS) {
-    const v = params.get(k);
-    if (v) out[k] = v;
-  }
-  return out;
-}
-
-function parseJson(v: unknown): unknown {
-  if (typeof v !== "string") return v;
-  try {
-    return JSON.parse(v);
-  } catch {
-    return null;
-  }
-}
-
-// The first-party session id minted in src/utils/session.ts. Custom events
-// carry it in their property bag; pageviews have no property bag, so it arrives
-// as the `_sid` query parameter instead.
-//
-// This exists because Vercel's own `sessionId` is not a session identifier —
-// 68% null across 90 days, every non-null value the literal `0`. That field is
-// still stored in `session_id` for fidelity, but nothing reads it.
-function sessionUid(e: Record<string, unknown>): string | null {
-  const data = parseJson(e.eventData);
-  if (data && typeof data === "object" && !Array.isArray(data)) {
-    const fromEvent = str((data as Record<string, unknown>).session_id);
-    if (fromEvent) return fromEvent;
-  }
-  return str(queryOf(e.queryParams)?.get(SESSION_QUERY_PARAM));
 }
 
 // jsonb params must be passed as JSON text; objects/arrays are stringified so
