@@ -63,6 +63,19 @@ async function main() {
       }
 
       const width = Math.max(...rows.map((r) => r.column_name.length));
+      const enums = new Map<string, string[]>();
+      for (const r of rows) {
+        if (r.data_type !== "USER-DEFINED") continue;
+        const { rows: labels } = await pool.query<{ label: string }>(
+          `SELECT e.enumlabel AS label
+             FROM pg_enum e
+             JOIN pg_type t ON t.oid = e.enumtypid
+            WHERE t.typname = $1
+            ORDER BY e.enumsortorder`,
+          [r.udt_name],
+        );
+        enums.set(r.column_name, labels.map((l) => l.label));
+      }
       for (const r of rows) {
         const len = r.character_maximum_length
           ? `(${r.character_maximum_length})`
@@ -74,6 +87,10 @@ async function main() {
         console.log(
           `  ${r.column_name.padEnd(width)}  ${(r.udt_name + len).padEnd(14)} ${bits.join(", ")}`,
         );
+        const labels = enums.get(r.column_name);
+        if (labels) {
+          console.log(`  ${" ".repeat(width)}  -> ${labels.join(" | ")}`);
+        }
       }
     }
   } finally {
