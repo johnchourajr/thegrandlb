@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "type-check": "tsc --noEmit",
-    "test:unit": "TZ=America/Los_Angeles tsx --test src/utils/inquire-validation.test.ts src/utils/session.test.ts src/utils/field-obstruction.test.ts src/utils/utils.test.ts",
+    "test:unit": "TZ=America/Los_Angeles tsx --test src/utils/inquire-validation.test.ts src/utils/session.test.ts src/utils/field-obstruction.test.ts src/utils/utils.test.ts src/utils/rich-text.test.ts",
     "test:menu-unit": "tsx --test src/__tests__/admin/diff.test.ts src/__tests__/admin/rt.test.ts src/__tests__/admin/newItem.test.ts",
     "test:menu-api": "tsx scripts/test-menu-admin-auth.ts",
     "test:inquiry-form": "tsx scripts/test-inquiry-form.ts",
