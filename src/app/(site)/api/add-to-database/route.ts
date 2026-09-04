@@ -1,6 +1,7 @@
 import errorNotificationService from "@/services/error-notifications";
 import { isValidEmail } from "@/utils/inquire-validation";
 import { formatPhoneForDatabase } from "@/utils/phone-formatter";
+import { guestCountValue } from "@/data/form-display";
 import { formatDate } from "@/utils/utils";
 import type { NextRequest } from "next/server";
 import pool from "../../../../services/db";
@@ -69,7 +70,10 @@ export async function POST(request: NextRequest) {
     const fields = {
       phone: formattedPhone,
       desired_date: formattedDate,
-      head_count: String(head_count), // Ensure head_count is a string
+      // head_count is INT4 and nullable. Stringifying meant an unparseable
+      // answer arrived as the literal "NaN" and Postgres rejected the whole
+      // INSERT — a 500 on the only conversion path on the site.
+      head_count: guestCountValue(head_count),
       created_date: new Date().toISOString(),
       ...formData,
     };

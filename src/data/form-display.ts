@@ -65,3 +65,20 @@ export function guestPhrase(value: unknown): string {
   if (!raw) return "";
   return GUEST_RANGE_LABELS[raw] ?? raw;
 }
+
+/**
+ * Coerces a guest-count answer to what the database column accepts.
+ *
+ * `glb_submissions.head_count` is `INT4`, nullable, default 0. The submit path
+ * used to send `parseInt(...)` straight through, and the API stringified it —
+ * so any answer that did not parse became the literal string "NaN" and
+ * Postgres rejected the whole INSERT. That is a 500 on the only conversion
+ * path on the site, for a field a visitor can no longer type into freely.
+ *
+ * Returns null rather than a guess. Null is a legitimate "not stated" in that
+ * column; 0 would be a claim nobody made.
+ */
+export function guestCountValue(value: unknown): number | null {
+  const parsed = Number.parseInt(String(value ?? "").trim(), 10);
+  return Number.isFinite(parsed) ? parsed : null;
+}

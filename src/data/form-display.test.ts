@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   GUEST_RANGE_LABELS,
+  guestCountValue,
   guestPhrase,
   spacePhrase,
   TIME_FLEXIBLE,
@@ -106,4 +107,26 @@ test("empty answers render as empty, not as a sentinel", () => {
   assert.equal(spacePhrase(""), "");
   assert.equal(timePhrase(undefined), "");
   assert.equal(guestPhrase(null), "");
+});
+
+test("guest count coerces to what INT4 accepts", () => {
+  // glb_submissions.head_count is int4, nullable, default 0 — confirmed with
+  // `pnpm schema:pull`, not inferred from call sites.
+  assert.equal(guestCountValue("100"), 100);
+  assert.equal(guestCountValue(250), 250);
+  assert.equal(guestCountValue("  675  "), 675);
+});
+
+test("an unparseable guest count becomes null, never NaN", () => {
+  // The submit path used to send parseInt(...) and the API stringified it, so
+  // a bad answer arrived as the literal "NaN" and Postgres rejected the whole
+  // INSERT — a 500 on the only conversion path on the site.
+  for (const bad of ["", "   ", "unknown", null, undefined, {}]) {
+    assert.equal(guestCountValue(bad), null, `${JSON.stringify(bad)} -> null`);
+  }
+});
+
+test("null is used rather than the column default", () => {
+  // The column defaults to 0. Null says "not stated"; 0 is a claim nobody made.
+  assert.notEqual(guestCountValue(""), 0);
 });

@@ -18,6 +18,7 @@ import {
   isValidEmail,
   validateValueWithRule,
 } from "@/utils/inquire-validation";
+import { guestCountValue } from "@/data/form-display";
 import { formatPhoneForDatabase } from "@/utils/phone-formatter";
 import { formatTitle } from "@/utils/utils";
 import axios from "axios";
@@ -202,7 +203,7 @@ export function InquireFormContainer() {
         event_name: event_name.value,
         event_type: formatTitle(String(event_type.value)),
         full_name: full_name.value,
-        head_count: parseInt(String(head_count.value)),
+        head_count: guestCountValue(head_count.value),
         phone: formatPhoneForDatabase(String(phone.value)),
       };
 
