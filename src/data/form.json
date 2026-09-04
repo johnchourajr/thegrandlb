@@ -141,6 +141,10 @@
         "required": true,
         "options": [
           {
+            "title": "Open to what's available",
+            "value": "flexible"
+          },
+          {
             "title": "8 am",
             "value": "8am"
           },
@@ -207,18 +211,47 @@
       },
       {
         "title": "Head Count",
-        "placeholder": "Estimated number of guests",
-        "question_type": "number",
+        "placeholder": "Select a guest range",
+        "question_type": "dropdown",
         "question_key": "head_count",
         "required": true,
-        "options": [],
+        "options": [
+          {
+            "title": "Up to 25 guests",
+            "value": "25"
+          },
+          {
+            "title": "26 - 50 guests",
+            "value": "50"
+          },
+          {
+            "title": "51 - 100 guests",
+            "value": "100"
+          },
+          {
+            "title": "101 - 200 guests",
+            "value": "200"
+          },
+          {
+            "title": "201 - 300 guests",
+            "value": "300"
+          },
+          {
+            "title": "301 - 450 guests",
+            "value": "450"
+          },
+          {
+            "title": "More than 450 guests",
+            "value": "675"
+          }
+        ],
         "validations": {
-          "rule": "min_value",
-          "value": 2,
-          "error_message": "That's too few"
+          "rule": "regex",
+          "value": "^.{1,}$",
+          "error_message": "Select a guest range"
         },
-        "error_message": "Please provide a valid number",
-        "data_type": "number"
+        "error_message": "Select a guest range",
+        "data_type": "string"
       },
       {
         "title": "Desired Space",
@@ -254,6 +287,10 @@
           {
             "title": "The Board Room",
             "value": "board-room"
+          },
+          {
+            "title": "Not sure yet — help me choose",
+            "value": "undecided"
           }
         ],
         "validations": {

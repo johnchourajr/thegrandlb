@@ -1,3 +1,8 @@
+import {
+  guestPhrase,
+  spacePhrase,
+  timePhrase,
+} from "@/data/form-display";
 import { formatDate } from "@/utils/utils";
 
 type FieldValue = {
@@ -61,15 +66,15 @@ const EmailBody = ({
     </p>
     <p style={rowStyle}>
       <span style={labelStyle}>Desired Time:</span>{" "}
-      {desired_time.value || "N/A"}
+      {timePhrase(desired_time.value) || "N/A"}
     </p>
     <p style={rowStyle}>
       <span style={labelStyle}>Guest Count:</span>{" "}
-      {head_count.value || "N/A"}
+      {guestPhrase(head_count.value) || "N/A"}
     </p>
     <p style={rowStyle}>
       <span style={labelStyle}>Desired Space:</span>{" "}
-      {desired_space.value || "N/A"}
+      {spacePhrase(desired_space.value) || "N/A"}
     </p>
     <p style={rowStyle}>
       <span style={labelStyle}>Full Name:</span>{" "}

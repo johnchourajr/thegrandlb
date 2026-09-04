@@ -1,4 +1,10 @@
+import {
+  guestPhrase,
+  spacePhrase,
+  timePhrase,
+} from "@/data/form-display";
 import { FormPage } from "@/data/form.types";
+import { VENUE_PHONE_DISPLAY, VENUE_PHONE_HREF } from "@/data/venue";
 import { trackEvent, viewportProps } from "@/utils/analytics";
 import {
   eventInquireNext,
@@ -63,7 +69,7 @@ const InquireLastPage = ({ formState }: any) => {
           </span>{" "}
           in{" "}
           <span className="underline decoration-[1px] underline-offset-4">
-            {formatTitle(formState["desired_space"]?.value) || ""}
+            {spacePhrase(formState["desired_space"]?.value)}
           </span>{" "}
           on{" "}
           <span className="underline decoration-[1px] underline-offset-4">
@@ -71,11 +77,11 @@ const InquireLastPage = ({ formState }: any) => {
           </span>{" "}
           at{" "}
           <span className="underline decoration-[1px] underline-offset-4">
-            {formatTitle(formState["desired_time"]?.value) || ""}
+            {timePhrase(formState["desired_time"]?.value)}
           </span>{" "}
           for{" "}
           <span className="underline decoration-[1px] underline-offset-4">
-            {formState["head_count"]?.value || ""}
+            {guestPhrase(formState["head_count"]?.value)}
           </span>{" "}
           guests.
         </Headline>
@@ -221,6 +227,31 @@ export const InquireFormSection = ({
               {title}
             </Headline>
             <Text className={"max-w-[18em]"}>{description}</Text>
+            {/*
+              22% of people who abandoned this form said they would rather
+              contact the venue by phone, and several typed questions the form
+              was never going to fit — directions, nearby hotels, whether a
+              performance was open to the public (#215). Shown on every step
+              rather than only at the end, because that is where they leave.
+            */}
+            <Text size="small" className="max-w-[18em]">
+              Would you rather talk to someone?{" "}
+              <a
+                href={VENUE_PHONE_HREF}
+                className="underline underline-offset-2 hover:no-underline"
+                onClick={() =>
+                  trackEvent("conversion.phone_click", {
+                    number: VENUE_PHONE_HREF.replace("tel:", ""),
+                    // Separates calls started from the form from calls started
+                    // anywhere else on the site.
+                    context: "inquiry_form",
+                    step,
+                  })
+                }
+              >
+                Call {VENUE_PHONE_DISPLAY}
+              </a>
+            </Text>
           </div>
           <div
             // Surveyed against the fields it may be covering — see
