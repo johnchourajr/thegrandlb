@@ -24,6 +24,19 @@ export function trackEvent(
   );
 }
 
+/**
+ * Viewport dimensions, for slicing form behaviour by available screen height
+ * rather than by device class. A large phone in landscape and a small laptop
+ * window share a problem that "mobile vs desktop" cannot express.
+ */
+export function viewportProps(): { viewport_w: number; viewport_h: number } {
+  if (typeof window === "undefined") return { viewport_w: 0, viewport_h: 0 };
+  return {
+    viewport_w: Math.round(window.innerWidth),
+    viewport_h: Math.round(window.innerHeight),
+  };
+}
+
 /** Bare hostname (sans leading `www.`), for grouping outbound destinations. */
 export function hostOf(url: string): string | null {
   try {

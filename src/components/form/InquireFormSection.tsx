@@ -1,5 +1,5 @@
 import { FormPage } from "@/data/form.types";
-import { trackEvent } from "@/utils/analytics";
+import { trackEvent, viewportProps } from "@/utils/analytics";
 import {
   eventInquireNext,
   eventInquirePrev,
@@ -95,6 +95,7 @@ export interface InquireFormSectionProps extends FormPage {
   handleFormBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
   handleFormSubmit: any;
   submitLoading: boolean;
+  onFieldFocus?: (questionKey: string) => void;
 }
 
 export const InquireFormSection = ({
@@ -112,6 +113,7 @@ export const InquireFormSection = ({
   handleFormBlur,
   handleFormSubmit,
   submitLoading,
+  onFieldFocus,
 }: InquireFormSectionProps) => {
   const pageInputKeys = questions.map((question: any) => question.question_key);
   const pageInputValues = getPageInputValues(formState, pageInputKeys);
@@ -157,6 +159,7 @@ export const InquireFormSection = ({
         step,
         fields: blocking.join(","),
         field_count: blocking.length,
+        ...viewportProps(),
       });
     }
   };
@@ -220,6 +223,9 @@ export const InquireFormSection = ({
             <Text className={"max-w-[18em]"}>{description}</Text>
           </div>
           <div
+            // Surveyed against the fields it may be covering — see
+            // src/utils/field-obstruction.ts
+            data-inquire-actionbar=""
             className={clsx(
               "fixed bottom-0 left-0 z-50 flex w-full items-center justify-center gap-6 p-2",
               "lg:--relative lg:--bottom-[unset] lg:sticky  lg:bottom-4 lg:left-[unset] lg:items-start lg:justify-start lg:p-0",
@@ -294,6 +300,7 @@ export const InquireFormSection = ({
                 page_key={page_key}
                 handleFormChange={handleFormChange}
                 handleFormBlur={handleFormBlur}
+                onFieldFocus={onFieldFocus}
                 {...item}
               />
             );

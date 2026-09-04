@@ -157,6 +157,71 @@ export async function GET(request: NextRequest) {
         return Response.json({ rows: result.rows }, { headers: CORS });
       }
 
+      // Direct evidence for the mobile button-bar defect: how often the action
+      // bar is measured sitting on top of the form's own fields, and on which
+      // screens. Sliced by viewport height rather than device class, because a
+      // phone in landscape and a small laptop window share the problem.
+      case "form_obstruction": {
+        result = await pool.query(
+          `SELECT
+             COALESCE(NULLIF(event_data->>'bar_position', ''), 'unknown') AS bar_position,
+             COALESCE(NULLIF(device_type, ''), 'unknown')                 AS device_type,
+             CASE
+               WHEN event_data->>'viewport_h' ~ '^[0-9]+$' THEN
+                 CASE
+                   WHEN (event_data->>'viewport_h')::int < 700 THEN 'under 700px'
+                   WHEN (event_data->>'viewport_h')::int < 900 THEN '700-899px'
+                   ELSE '900px and up'
+                 END
+               ELSE 'unknown'
+             END                                                          AS viewport_band,
+             COALESCE(NULLIF(event_data->>'worst_field', ''), '(none)')   AS worst_field,
+             COUNT(*)::int                                                AS occurrences,
+             COUNT(DISTINCT session_uid)::int                             AS sessions,
+             ROUND(AVG(CASE WHEN event_data->>'worst_pct' ~ '^[0-9]+$'
+                            THEN (event_data->>'worst_pct')::numeric END), 1) AS avg_worst_pct
+           FROM analytics_events
+           WHERE occurred_at > ${since}
+             AND event_name = 'conversion.inquiry_obstructed'
+           GROUP BY 1, 2, 3, 4
+           ORDER BY sessions DESC`,
+        );
+        return Response.json({ rows: result.rows }, { headers: CORS });
+      }
+
+      // Per-field engagement: which inputs people actually touch, and how many
+      // of them go on to submit. Catches the visitor who stalls on one field
+      // and leaves without ever pressing Next — invisible to inquiry_blocked.
+      case "inquiry_field_dropoff": {
+        result = await pool.query(
+          `WITH touched AS (
+             SELECT DISTINCT session_uid, event_data->>'field' AS field
+             FROM analytics_events
+             WHERE occurred_at > ${since}
+               AND event_name = 'conversion.inquiry_field'
+               AND session_uid IS NOT NULL
+           ),
+           submitted AS (
+             SELECT DISTINCT session_uid
+             FROM analytics_events
+             WHERE occurred_at > ${since}
+               AND event_name = 'conversion.inquiry_submit'
+               AND session_uid IS NOT NULL
+           )
+           SELECT
+             t.field,
+             COUNT(DISTINCT t.session_uid)::int AS sessions_touched,
+             COUNT(DISTINCT s.session_uid)::int AS sessions_submitted,
+             ROUND(100.0 * COUNT(DISTINCT s.session_uid)
+                   / NULLIF(COUNT(DISTINCT t.session_uid), 0), 1) AS pct_went_on_to_submit
+           FROM touched t
+           LEFT JOIN submitted s USING (session_uid)
+           GROUP BY t.field
+           ORDER BY sessions_touched DESC`,
+        );
+        return Response.json({ rows: result.rows }, { headers: CORS });
+      }
+
       // Agent activity: MCP tool calls + menu fetches + markdown requests
       case "agent_activity": {
         result = await pool.query(

@@ -12,7 +12,8 @@ import {
   toastSubmitError,
   toastSubmitSuccess,
 } from "@/utils/events";
-import { trackEvent } from "@/utils/analytics";
+import { trackEvent, viewportProps } from "@/utils/analytics";
+import { surveyObstruction } from "@/utils/field-obstruction";
 import {
   isValidEmail,
   validateValueWithRule,
@@ -39,6 +40,9 @@ export type HandleFormFunction = (
 
 //?event_name=TEST%20John%27s%20Birthday&event_type=birthday_party&desired_date=2024-11-17&desired_time=9pm&head_count=100&desired_space=board-room&full_name=TEST%20John%20Choura&email=hi%40john.design&phone=555-555-5555
 
+/** Long enough for the animated step transition to finish before measuring. */
+const OBSTRUCTION_SETTLE_MS = 600;
+
 export function InquireFormContainer() {
   const router = useRouter();
   const params = useSearchParams();
@@ -48,6 +52,8 @@ export function InquireFormContainer() {
   const [currentPage, setCurrentPage] = useState(0);
   const [formState, setFormState] = useState<FormState>({});
   const hasStartedRef = useRef(false);
+  const touchedFieldsRef = useRef<Set<string>>(new Set());
+  const surveyedStepsRef = useRef<Set<number>>(new Set());
 
   // console.log({ formState, data });
 
@@ -92,10 +98,53 @@ export function InquireFormContainer() {
       trackEvent("conversion.inquiry_start", {
         step: currentPage,
         field: String(fieldName),
+        ...viewportProps(),
       });
     }
     setFieldValue(fieldName, value, page_key, validations);
   };
+
+  // Which fields a visitor engages, and in what order. inquiry_start only says
+  // that someone began; this says where they got stuck, including the people
+  // who stall on one input and leave without ever pressing Next.
+  const handleFieldFocus = (questionKey: string) => {
+    if (touchedFieldsRef.current.has(questionKey)) return;
+    touchedFieldsRef.current.add(questionKey);
+    trackEvent("conversion.inquiry_field", {
+      field: questionKey,
+      step: currentPage,
+      order: touchedFieldsRef.current.size,
+      ...viewportProps(),
+    });
+  };
+
+  // Survey what the action bar is physically covering, once per step.
+  //
+  // This runs when a step renders rather than when a field is focused, because
+  // a fully covered field cannot be tapped — focus would never fire for the
+  // people worst affected, who are precisely the "opened it and never touched
+  // a field" cohort the funnel audit could not explain.
+  useEffect(() => {
+    if (surveyedStepsRef.current.has(currentPage)) return;
+    surveyedStepsRef.current.add(currentPage);
+
+    // Step transitions are animated; measure once the layout has settled.
+    const timer = window.setTimeout(() => {
+      const survey = surveyObstruction();
+      if (!survey || survey.obscuredCount === 0) return;
+      trackEvent("conversion.inquiry_obstructed", {
+        step: currentPage,
+        obscured_count: survey.obscuredCount,
+        field_count: survey.fieldCount,
+        worst_field: survey.worstField,
+        worst_pct: survey.worstPct,
+        bar_position: survey.barPosition,
+        ...viewportProps(),
+      });
+    }, OBSTRUCTION_SETTLE_MS);
+
+    return () => window.clearTimeout(timer);
+  }, [currentPage]);
 
   const handleFormBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     // console.log("handleFormBlur", e);
@@ -210,6 +259,7 @@ export function InquireFormContainer() {
             handleFormBlur={handleFormBlur}
             handleFormSubmit={handleFormSubmit}
             submitLoading={submitLoading}
+            onFieldFocus={handleFieldFocus}
             {...item}
           />
         );
