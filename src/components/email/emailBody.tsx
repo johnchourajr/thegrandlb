@@ -1,3 +1,5 @@
+import { formatDate } from "@/utils/utils";
+
 type FieldValue = {
   value?: string | number;
 };
@@ -31,18 +33,6 @@ const rowStyle = {
 const labelStyle = {
   color: "#9e8d7a",
 };
-
-function formatDate(date: string) {
-  if (!date) return "";
-  const dateObj = new Date(date);
-  dateObj.setUTCHours(0, 0, 0, 0); // Set time to midnight in UTC
-
-  const month = dateObj.toLocaleString("default", { month: "long" });
-  const day = dateObj.getUTCDate();
-  const year = dateObj.getUTCFullYear();
-
-  return `${month} ${day}, ${year}`;
-}
 
 const EmailBody = ({
   event_name = { value: "" },
