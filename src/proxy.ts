@@ -1,6 +1,12 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { isMarkdownSupportedPath } from "@/lib/agent/markdown-paths";
+import {
+  EXPERIMENT_COOKIE,
+  EXPERIMENT_COOKIE_MAX_AGE,
+  isExperimentId,
+  newExperimentId,
+} from "@/utils/experiment";
 
 // RFC 8288 Link header advertising agent-discovery resources, added to every
 // HTML page response.
@@ -47,6 +53,18 @@ const BLOCKED_PATH_PATTERNS = [
   /\.aspx?$/i,
   /\.cgi$/i,
 ];
+
+/** Request headers with one extra cookie appended, leaving the rest intact. */
+function withCookie(
+  request: NextRequest,
+  name: string,
+  value: string,
+): Headers {
+  const headers = new Headers(request.headers);
+  const existing = headers.get("cookie");
+  headers.set("cookie", existing ? `${existing}; ${name}=${value}` : `${name}=${value}`);
+  return headers;
+}
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -96,8 +114,34 @@ export function proxy(request: NextRequest) {
       return NextResponse.rewrite(url, { request: { headers } });
     }
 
-    // Advertise agent-discovery resources on every page (RFC 8288).
-    const res = NextResponse.next();
+    // Advertise agent-discovery resources on every page (RFC 8288), and make
+    // sure the visitor carries an experiment id (#217).
+    const existing = request.cookies.get(EXPERIMENT_COOKIE)?.value;
+    const minted = isExperimentId(existing) ? null : newExperimentId();
+
+    // Inject the new id into *this* request as well as setting it on the
+    // response. Without that, a visitor's first page render has no id, falls
+    // back to the control arm, and every new visitor's first impression is the
+    // control — which would bias the experiment towards it.
+    const res = minted
+      ? NextResponse.next({
+          request: {
+            headers: withCookie(request, EXPERIMENT_COOKIE, minted),
+          },
+        })
+      : NextResponse.next();
+
+    if (minted) {
+      res.cookies.set(EXPERIMENT_COOKIE, minted, {
+        maxAge: EXPERIMENT_COOKIE_MAX_AGE,
+        sameSite: "lax",
+        path: "/",
+        // Readable by the client, which stamps the arm onto analytics events.
+        httpOnly: false,
+        secure: request.nextUrl.protocol === "https:",
+      });
+    }
+
     res.headers.set("Link", DISCOVERY_LINK);
     return res;
   }
