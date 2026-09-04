@@ -23,6 +23,8 @@ interface FormItemProps extends Question {
   onChange?: () => void;
   handleFormChange: HandleFormFunction;
   handleFormBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
+  /** Fired the first time a visitor puts the cursor in this field. */
+  onFieldFocus?: (questionKey: string) => void;
 }
 
 const FormItem = ({
@@ -39,6 +41,7 @@ const FormItem = ({
   showError,
   handleFormChange,
   handleFormBlur,
+  onFieldFocus,
   page_key,
   required,
   ...rest
@@ -120,6 +123,9 @@ const FormItem = ({
       <Input
         id={inputId}
         name={question_key}
+        // Read by the obstruction survey — see src/utils/field-obstruction.ts
+        data-inquire-field={question_key}
+        onFocus={() => onFieldFocus?.(String(question_key))}
         placeholder={placeholder}
         onBlur={handleBlur}
         handleFormChange={handleFormChange}
