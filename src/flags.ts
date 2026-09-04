@@ -5,6 +5,7 @@ import {
   EXPERIMENT_COOKIE,
   type Arm,
 } from "@/utils/experiment";
+import type { Identify } from "flags";
 import { dedupe, flag } from "flags/next";
 
 /**
@@ -27,13 +28,28 @@ export const INQUIRY_FORM_VARIANT_KEY = "inquiry-form-variant";
  *
  * This is the kill switch. Setting it to 0 returns everyone to today's form on
  * the next request; `assignArm` guarantees 0 means nobody, not almost nobody.
+ *
+ * Changing it currently needs a deploy. #217 asks for "turned off instantly
+ * without a release", which wants `@flags-sdk/vercel` — `adapter:
+ * vercelAdapter()` moves the value into Vercel Flags, controllable from the
+ * dashboard or `vercel flags set`. Worth adding once there is a variant to
+ * gate; while the share is 0 there is nothing to turn off.
  */
 export const INQUIRY_VARIANT_SHARE = 0;
 
-/** Read once per request; `identify` may be called for several flags. */
-const identify = dedupe(({ cookies }: { cookies: { get: (name: string) => { value: string } | undefined } }) => ({
+type Entities = { experimentId: string | null };
+
+/**
+ * Evaluation context. Reads the experiment cookie the proxy minted.
+ *
+ * `dedupe` keeps this to one read per request even when several flags share
+ * it, which is the SDK's documented pattern.
+ */
+const identify: Identify<Entities> = ({ cookies }) => ({
   experimentId: cookies.get(EXPERIMENT_COOKIE)?.value ?? null,
-}));
+});
+
+const identifyOnce = dedupe(identify);
 
 /**
  * Which inquiry form a visitor sees.
@@ -41,7 +57,7 @@ const identify = dedupe(({ cookies }: { cookies: { get: (name: string) => { valu
  * Assignment is a pure function of the experiment cookie — see
  * `src/utils/experiment.ts` for why that cookie is not the analytics session id.
  */
-export const inquiryFormVariant = flag<Arm, { experimentId: string | null }>({
+export const inquiryFormVariant = flag<Arm, Entities>({
   key: INQUIRY_FORM_VARIANT_KEY,
   description:
     "Inquiry form: today's linear form vs an intent-first form that asks what the visitor came to do.",
@@ -50,7 +66,7 @@ export const inquiryFormVariant = flag<Arm, { experimentId: string | null }>({
     { label: "Control — today's linear form", value: ARM_CONTROL },
     { label: "Variant — intent-first", value: ARM_VARIANT },
   ],
-  identify,
+  identify: identifyOnce,
   decide({ entities }) {
     return assignArm(
       entities?.experimentId,
