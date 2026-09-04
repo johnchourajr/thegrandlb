@@ -1,37 +1,36 @@
 /**
- * Assignment for the inquiry form experiment (#217).
+ * Visitor identity for the inquiry form experiment (#217).
  *
- * Deliberately separate from `src/utils/session.ts`. That session id has a
- * 30-minute sliding idle window because it was built to group analytics events
- * within a visit. Bucketing on it would reassign anyone who came back the next
- * day — and returning visitors are exactly who this experiment is about, since
- * #216 invites people to leave and finish an inquiry later. A visitor who
- * starts in one arm and finishes in the other makes the funnel uninterpretable.
+ * Bucketing itself lives in Vercel Flags, not here. The flag is declared with
+ * `vercelAdapter`, whose declaration type is
+ * `Omit<FlagDeclaration, 'decide' | 'origin'>` — the adapter decides, and
+ * rollout is configured with `vercel flags rollout … --by user.id`. What this
+ * module provides is the stable id Vercel buckets *by*.
  *
- * So the experiment id is its own long-lived value, in a cookie rather than
- * localStorage: the flag is evaluated on the server, and the server can only
- * see cookies.
+ * The site has no accounts, so that id has to be minted. It is deliberately
+ * not the analytics session id from `src/utils/session.ts`: that has a
+ * 30-minute sliding idle window because it groups events within a visit, and
+ * bucketing on it would reassign anyone who returned the next day. Returning
+ * visitors are exactly who this experiment is about — #216 invites people to
+ * leave and finish an inquiry later — and a visitor who starts in one arm and
+ * finishes in the other makes the funnel uninterpretable.
  *
- * Assignment is a pure function of (experiment id, flag key). Nothing is
- * stored per experiment, there is no lookup, and the same visitor always lands
- * in the same arm — on any device that carries the same cookie, on every
- * render, server and client alike.
+ * A cookie rather than localStorage because the flag resolves on the server,
+ * and the server can only see cookies.
  */
 
-/** Readable by the client, which stamps the arm onto analytics events. */
+/** Readable by the client, which stamps the resolved arm onto analytics. */
 export const EXPERIMENT_COOKIE = "glb.exp";
 
 /** A year. Long enough that the experiment ends before the id does. */
 export const EXPERIMENT_COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
 
+/** Variant keys, matching the flag created in Vercel. */
 export const ARM_CONTROL = "control";
-export const ARM_VARIANT = "variant";
-export type Arm = typeof ARM_CONTROL | typeof ARM_VARIANT;
+export const ARM_TREATMENT = "treatment";
+export type Arm = typeof ARM_CONTROL | typeof ARM_TREATMENT;
 
-/** Bucket resolution. 10,000 gives splits to one hundredth of a percent. */
-const BUCKETS = 10_000;
-
-/** `s_` prefix mirrors the session id; 16 hex chars is 8 bytes of entropy. */
+/** `x_` plus 16 hex characters — 8 bytes of entropy. */
 const ID_PATTERN = /^x_[0-9a-f]{16}$/;
 
 export function isExperimentId(value: unknown): value is string {
@@ -39,11 +38,11 @@ export function isExperimentId(value: unknown): value is string {
 }
 
 /**
- * Mints an experiment id, or null where no CSPRNG is available.
+ * Mints a visitor id, or null where no CSPRNG is available.
  *
  * Returns null rather than falling back to `Math.random`, for the same reason
  * `session.ts` does: CodeQL flags it, and a predictable id would let someone
- * choose their own arm.
+ * pick their own arm.
  */
 export function newExperimentId(): string | null {
   if (
@@ -55,45 +54,4 @@ export function newExperimentId(): string | null {
   const bytes = crypto.getRandomValues(new Uint8Array(8));
   const hex = Array.from(bytes, (b) => b.toString(16).padStart(2, "0")).join("");
   return `x_${hex}`;
-}
-
-/**
- * FNV-1a, 32-bit. Chosen because it is tiny, dependency-free, and identical on
- * the server and in the browser — the same visitor must bucket the same way in
- * both, or the rendered arm and the reported arm disagree.
- *
- * Not a security boundary. It decides which form someone sees, nothing more.
- */
-export function hashToBucket(input: string): number {
-  let hash = 0x811c9dc5;
-  for (let i = 0; i < input.length; i++) {
-    hash ^= input.charCodeAt(i);
-    // hash * 16777619, kept in 32 bits without overflowing to a float.
-    hash = Math.imul(hash, 0x01000193) >>> 0;
-  }
-  return hash % BUCKETS;
-}
-
-/**
- * The arm this visitor belongs in.
- *
- * `variantShare` is the proportion in the variant, 0..1. The flag key is mixed
- * into the hash so a visitor's arm in one experiment says nothing about their
- * arm in the next — without it, the same people would always be the control
- * group, and every experiment would inherit the last one's bias.
- *
- * Returns the control arm for a missing or malformed id, so a visitor who
- * refuses cookies sees the form that exists today rather than an untested one.
- */
-export function assignArm(
-  experimentId: unknown,
-  flagKey: string,
-  variantShare = 0.5,
-): Arm {
-  if (!isExperimentId(experimentId)) return ARM_CONTROL;
-  if (!(variantShare > 0)) return ARM_CONTROL;
-  if (variantShare >= 1) return ARM_VARIANT;
-
-  const bucket = hashToBucket(`${flagKey}:${experimentId}`);
-  return bucket < variantShare * BUCKETS ? ARM_VARIANT : ARM_CONTROL;
 }

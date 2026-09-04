@@ -1,79 +1,68 @@
 import {
   ARM_CONTROL,
-  ARM_VARIANT,
-  assignArm,
   EXPERIMENT_COOKIE,
+  isExperimentId,
   type Arm,
 } from "@/utils/experiment";
+import { vercelAdapter } from "@flags-sdk/vercel";
 import type { Identify } from "flags";
 import { dedupe, flag } from "flags/next";
 
 /**
- * Feature flags. See #217.
+ * Feature flags, backed by Vercel Flags. See #217.
  *
- * The Vercel Toolbar is already mounted (`src/app/(site)/layout.tsx`), so these
- * appear in Flags Explorer and can be overridden per-viewer for QA without
- * touching what real visitors see.
+ * The flag itself lives in Vercel — its description, variants and per
+ * environment values are managed there, not in this file:
+ *
+ *   vercel flags inspect inquiry-form-variant
+ *   vercel flags set inquiry-form-variant --environment preview --variant treatment
+ *   vercel flags rollout inquiry-form-variant --environment production \
+ *     --by user.id --from-variant control --to-variant treatment \
+ *     --default-variant control --stage 10,2h --stage 50,12h
+ *
+ * That is what makes the experiment adjustable without a deploy, which #217
+ * requires. `@vercel/toolbar` is already mounted, so Flags Explorer can also
+ * override the value per-viewer for QA without affecting real visitors.
+ *
+ * Requires the `FLAGS` environment variable (a server SDK key). Without it the
+ * adapter cannot resolve and every visitor falls back to `defaultValue` —
+ * today's form — which is the correct failure mode.
  */
 
 export const INQUIRY_FORM_VARIANT_KEY = "inquiry-form-variant";
 
 /**
- * Share of visitors in the variant, 0..1.
+ * Bucketing entity. Vercel splits traffic on this, so it must be stable for
+ * the same visitor across visits — see `src/utils/experiment.ts` for why it is
+ * a dedicated cookie rather than the analytics session id.
  *
- * **Deliberately 0.** The scaffolding ships inert: assignment, tracking and
- * reporting all run, and every visitor lands in the control arm, so the change
- * can be verified in production before a single person sees a different form.
- * Raise it when the variant exists and #216 is settled.
- *
- * This is the kill switch. Setting it to 0 returns everyone to today's form on
- * the next request; `assignArm` guarantees 0 means nobody, not almost nobody.
- *
- * Changing it currently needs a deploy. #217 asks for "turned off instantly
- * without a release", which wants `@flags-sdk/vercel` — `adapter:
- * vercelAdapter()` moves the value into Vercel Flags, controllable from the
- * dashboard or `vercel flags set`. Worth adding once there is a variant to
- * gate; while the share is 0 there is nothing to turn off.
+ * Returns no entity when the cookie is missing or malformed, which resolves to
+ * `defaultValue`: refusing cookies means seeing today's form, never an
+ * untested one.
  */
-export const INQUIRY_VARIANT_SHARE = 0;
+type Entities = { user?: { id: string } };
 
-type Entities = { experimentId: string | null };
+const identify: Identify<Entities> = ({ cookies }) => {
+  const id = cookies.get(EXPERIMENT_COOKIE)?.value;
+  return isExperimentId(id) ? { user: { id } } : {};
+};
 
-/**
- * Evaluation context. Reads the experiment cookie the proxy minted.
- *
- * `dedupe` keeps this to one read per request even when several flags share
- * it, which is the SDK's documented pattern.
- */
-const identify: Identify<Entities> = ({ cookies }) => ({
-  experimentId: cookies.get(EXPERIMENT_COOKIE)?.value ?? null,
-});
-
+/** Deduped so several flags sharing this context read the cookie once. */
 const identifyOnce = dedupe(identify);
 
 /**
  * Which inquiry form a visitor sees.
  *
- * Assignment is a pure function of the experiment cookie — see
- * `src/utils/experiment.ts` for why that cookie is not the analytics session id.
+ * No `decide` — `VercelAdapterDeclaration` is
+ * `Omit<FlagDeclaration, 'decide' | 'origin'>`, because the adapter is what
+ * decides. Assignment, percentage rollout and staged ramps are all configured
+ * in Vercel.
  */
 export const inquiryFormVariant = flag<Arm, Entities>({
   key: INQUIRY_FORM_VARIANT_KEY,
-  description:
-    "Inquiry form: today's linear form vs an intent-first form that asks what the visitor came to do.",
+  adapter: vercelAdapter,
   defaultValue: ARM_CONTROL,
-  options: [
-    { label: "Control — today's linear form", value: ARM_CONTROL },
-    { label: "Variant — intent-first", value: ARM_VARIANT },
-  ],
   identify: identifyOnce,
-  decide({ entities }) {
-    return assignArm(
-      entities?.experimentId,
-      INQUIRY_FORM_VARIANT_KEY,
-      INQUIRY_VARIANT_SHARE,
-    );
-  },
 });
 
 export const inquiryFlags = [inquiryFormVariant] as const;

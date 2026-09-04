@@ -21,6 +21,7 @@
     "verify:cf-image-alts": "node scripts/verify-cf-image-alts.mjs"
   },
   "dependencies": {
+    "@flags-sdk/vercel": "^1.4.7",
     "@next/third-parties": "^16.3.2",
     "@vercel/analytics": "^2.0.1",
     "@vercel/toolbar": "^0.2.2",

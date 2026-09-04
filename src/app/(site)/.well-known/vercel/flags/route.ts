@@ -1,9 +1,12 @@
 import { inquiryFormVariant } from "@/flags";
-import { createFlagsDiscoveryEndpoint, getProviderData } from "flags/next";
+import { getProviderData } from "@flags-sdk/vercel";
+import { createFlagsDiscoveryEndpoint } from "flags/next";
 
 // Lets Vercel Toolbar's Flags Explorer discover this app's flags and offer
-// per-viewer overrides. Authenticated with FLAGS_SECRET; returns 401 without it.
-export const GET = createFlagsDiscoveryEndpoint(async () =>
+// per-viewer overrides. `getProviderData` comes from the Vercel adapter rather
+// than `flags/next`, so the definitions returned are the ones Vercel holds.
+// Authenticated with FLAGS_SECRET; returns 401 without it.
+export const GET = createFlagsDiscoveryEndpoint(() =>
   getProviderData({ inquiryFormVariant }),
 );
 
