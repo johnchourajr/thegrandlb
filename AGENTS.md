@@ -49,18 +49,23 @@ Aliases: `@/*` → `src/*`, `@components/*` → `src/components/*`.
 every one of its neighbours. Opting a route _in_ is a deliberate decision, not a
 cleanup.
 
-**TypeScript 7 with a TypeScript 6 sidecar for lint.** TS 7 is the native
-compiler and ships no JS compiler API. typescript-eslint hard-throws above TS 6,
-so `.pnpmfile.cjs` rewrites its `typescript` peer into a nested TS 6 dependency
-while the root stays on 7. `next.config.ts` sets
-`experimental.useTypeScriptCli: true` for the same reason. **Delete both when
-typescript-eslint supports TS 7** — the file says so at the top.
+**`instant = false` does not make a route dynamic.** It controls
+instant-navigation validation and nothing else — and, where it is the highest
+`instant` config in a route's tree, it also disables static-shell validation.
 
-**Dates are calendar days, not instants.** `formatDate` in `src/utils/utils.ts`
-does no timezone conversion, on purpose, and is idempotent. It used to read the
-month locally and the day in UTC, which shifted the 1st of every month for
-anyone west of Greenwich, and the submit path formatted twice so the database
-got it wrong twice (#213). Do not "simplify" it back to `new Date()`.
+Under Cache Components a page is dynamic by default but its shell is still
+prerendered, so a request-time read — cookies, headers, a feature flag — that
+sits at the top level of a page **blocks the prerender** rather than being
+cached: everything below it becomes dynamic and the static shell collapses.
+Wrapping the read in `<Suspense>` is what lets the rest of the page prerender
+while that one value streams. `export const dynamic` is gone in Next 16 when
+Cache Components is on, so a boundary is the mechanism.
+
+Normally Next flags an unwrapped runtime read as a blocking-route insight, but
+that is dev-overlay only — it never appears in an HTTP response or fails a
+build — and `instant = false` suppresses the shell check that would otherwise
+catch it. So this degrades quietly. `/inquire` reads the experiment flag and is
+the route to watch.
 
 ## The inquiry form
 
@@ -107,6 +112,38 @@ First-party, no third-party session cookie.
 Event names are namespaced (`conversion.*`, `engagement.*`). A mismatch here is
 invisible: an `email_click` tile read zero for months because the dashboard
 queried `conversion.email_click` and the site emitted `engagement.email_click`.
+
+## Retool
+
+Client-facing dashboards live in Retool (org `johndesign`), not in this repo.
+They read production through `/api/analytics`, so a `q` value that is not
+deployed yet renders as a broken panel — check what is on `main` before asking
+an app to query it.
+
+| App                     | UUID                                   | Type    | URL                                                  |
+| ----------------------- | -------------------------------------- | ------- | ---------------------------------------------------- |
+| GLB Analytics Dashboard | `d10d6716-5ed9-11f1-a6c4-c71872a6b392` | react   | https://johndesign.retool.com/rr/app/grand-analytics |
+| GLB Inquiries           | `2126984e-5acf-11f1-b332-9bb6d34c2be2` | react   | https://johndesign.retool.com/rr/app/glb-inquiries   |
+| GLB Submissions App     | `d7085480-3a76-11ee-b9c6-7f76c1b486f7` | classic | unpublished                                          |
+| GLB Chatbot             | `cde0532a-6092-11ee-9837-17152e09b3a4` | classic | unpublished                                          |
+| glb-test                | `b47bcff6-4c59-11ee-a1a9-53ac6606a5d7` | classic | unpublished                                          |
+
+The two `react` apps are the live ones; the three `classic` apps are from 2023
+and unpublished.
+
+**Never pass `startNewThreadFromMain` without reading the existing threads
+first.** A Retool React app keeps a durable agent thread per conversation, each
+on its own branch, and work only reaches the published app when that thread is
+published. Branching off `main` while an unpublished thread exists is how work
+gets silently stranded — it has happened here once already. `retool_list_react_app_threads`
+lists them; a thread whose stream ends in a `turn_commit` with no later
+`publish_succeeded` chip is unmerged.
+
+Known unmerged as of 2026-09-05: thread `1c8b25c6` ("New changes · June 27,
+2026", last commit 2026-07-06) carries `theme-grand.css` and a chart tweak, and
+was never published. It is **superseded** — `main` now has `brandTheme.css`,
+which is a later and fuller version of the same brand-palette override. Nothing
+of value is stranded there.
 
 ## Feature flags and the experiment
 
