@@ -11,25 +11,20 @@ export const instant = false;
 /**
  * Resolves the visitor's arm at request time.
  *
- * This has to sit inside a `<Suspense>` boundary. Cache Components prerenders
- * everything it can into a static shell, and a flag read *outside* a boundary
- * is resolved once during that prerender — where there is no request and so no
- * `glb.exp` cookie. The adapter then lands on `defaultValue`, and that single
- * arm is baked into the shell and served to everyone from the CDN.
+ * The flag read is a genuine runtime access — `flags/next` calls `cookies()`
+ * and `headers()` from `next/headers` under the hood — so it resolves per
+ * visitor either way. What the `<Suspense>` boundary changes is *where the
+ * prerender stops*.
  *
- * That is not a theoretical risk: before this boundary existed, two requests
- * carrying different `glb.exp` cookies came back byte-identical, both with
- * `arm:"control"`. It was invisible only because every environment is still
- * pinned to control — the moment #217 ramps, bucketing would not have varied
- * per visitor and the funnel would have been meaningless.
+ * Awaited at the top level of the page, the read blocks the prerender: every
+ * thing below it becomes dynamic and the static shell collapses to almost
+ * nothing. Behind a boundary, the shell prerenders normally and only the arm
+ * streams. Next would normally flag the unwrapped case as a blocking-route
+ * insight, but that is dev-overlay only, and `instant = false` suppresses the
+ * static-shell check that would otherwise catch it — so it degrades quietly.
  *
- * A boundary is the mechanism, not a preference: `export const dynamic` was
- * removed in Next 16 when Cache Components is enabled.
- *
- * The arm now arrives a beat after the shell, so the very first event of a
- * visit can be stamped `null`. That is survivable by design — `experiment_funnel`
- * attributes a session with `MAX(event_data->>'experiment_arm')`, so one event
- * carrying the arm attributes the whole session.
+ * A boundary is the mechanism rather than a preference: `export const dynamic`
+ * was removed in Next 16 when Cache Components is enabled.
  */
 async function ResolvedExperimentArm() {
   // Resolved server-side so a Flags Explorer override is respected — an

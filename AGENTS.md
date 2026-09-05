@@ -50,31 +50,22 @@ every one of its neighbours. Opting a route _in_ is a deliberate decision, not a
 cleanup.
 
 **`instant = false` does not make a route dynamic.** It controls
-instant-navigation validation and nothing else. Under Cache Components every
-page is "dynamic" but its shell is still prerendered, so **any request-time read
-— cookies, headers, a feature flag — must sit inside a `<Suspense>` boundary**,
-or it resolves once at prerender and that one answer is cached for everyone.
-`export const dynamic` is gone in Next 16 when Cache Components is on, so a
-boundary is the only mechanism.
+instant-navigation validation and nothing else — and, where it is the highest
+`instant` config in a route's tree, it also disables static-shell validation.
 
-This is not hypothetical. `/inquire` resolved the experiment flag at the top
-level of the page, so it was evaluated at prerender with no `glb.exp` cookie,
-fell back to `defaultValue`, and every visitor was served the same cached arm —
-two requests with different cookies came back byte-identical. It was invisible
-because the flag was pinned to control. #229 moved the read into a boundary.
+Under Cache Components a page is dynamic by default but its shell is still
+prerendered, so a request-time read — cookies, headers, a feature flag — that
+sits at the top level of a page **blocks the prerender** rather than being
+cached: everything below it becomes dynamic and the static shell collapses.
+Wrapping the read in `<Suspense>` is what lets the rest of the page prerender
+while that one value streams. `export const dynamic` is gone in Next 16 when
+Cache Components is on, so a boundary is the mechanism.
 
-**TypeScript 7 with a TypeScript 6 sidecar for lint.** TS 7 is the native
-compiler and ships no JS compiler API. typescript-eslint hard-throws above TS 6,
-so `.pnpmfile.cjs` rewrites its `typescript` peer into a nested TS 6 dependency
-while the root stays on 7. `next.config.ts` sets
-`experimental.useTypeScriptCli: true` for the same reason. **Delete both when
-typescript-eslint supports TS 7** — the file says so at the top.
-
-**Dates are calendar days, not instants.** `formatDate` in `src/utils/utils.ts`
-does no timezone conversion, on purpose, and is idempotent. It used to read the
-month locally and the day in UTC, which shifted the 1st of every month for
-anyone west of Greenwich, and the submit path formatted twice so the database
-got it wrong twice (#213). Do not "simplify" it back to `new Date()`.
+Normally Next flags an unwrapped runtime read as a blocking-route insight, but
+that is dev-overlay only — it never appears in an HTTP response or fails a
+build — and `instant = false` suppresses the shell check that would otherwise
+catch it. So this degrades quietly. `/inquire` reads the experiment flag and is
+the route to watch.
 
 ## The inquiry form
 
