@@ -25,11 +25,15 @@ removed in #169, so ignore any CMS-shaped instinct.
 ```
 src/app/(site)      public pages + all API routes
 src/app/(admin)     password-gated menu editor
+src/proxy.ts        middleware — Next 16 renamed it; bot blocking, Link headers,
+                    experiment cookie
+src/flags.ts        Vercel Flags declarations
 src/components      UI; form/, email/, media-frame/, menu/ are the substantial ones
 src/data            form.json — the inquiry form's entire question set
 src/utils           shared logic; anything with a .test.ts lives here
 src/emails          React Email templates rendered server-side by Resend
 src/services        data access (menu-files.ts loads via import.meta.glob)
+scripts/            one-off and repeatable tooling — schema:pull, backfill:analytics
 content/menus       *.menu.json — the live menu data
 analysis/           funnel analysis, SQL, time log. Gitignored, local only.
 docs/               media catalog, voice & tone, DNS notes
@@ -103,6 +107,55 @@ First-party, no third-party session cookie.
 Event names are namespaced (`conversion.*`, `engagement.*`). A mismatch here is
 invisible: an `email_click` tile read zero for months because the dashboard
 queried `conversion.email_click` and the site emitted `engagement.email_click`.
+
+## Feature flags and the experiment
+
+Flags are **Vercel Flags**, via `flags` + `@flags-sdk/vercel`. The declaration
+lives in `src/flags.ts`; `@vercel/toolbar` is already mounted, so Flags Explorer
+can override a value per-viewer for QA.
+
+**Vercel decides, not this repo.** The adapter's own type is
+`Omit<FlagDeclaration, 'decide' | 'origin'>` — supplying a `decide` alongside it
+is a category error. Variants, per-environment values and percentage rollouts
+are all configured on the platform:
+
+```bash
+vercel flags inspect inquiry-form-variant
+vercel flags set inquiry-form-variant --environment preview --variant treatment
+vercel flags rollout inquiry-form-variant --environment production \
+  --by user.id --from-variant control --to-variant treatment \
+  --default-variant control --stage 10,2h --stage 50,12h
+vercel flags evaluations inquiry-form-variant --since 24h
+```
+
+**`identify` supplies the bucketing entity.** The site has no accounts, so
+`user.id` comes from `glb.exp`, a year-long cookie minted in `src/proxy.ts`.
+It is deliberately **not** the analytics session id — that has a 30-minute idle
+window, so bucketing on it would reassign anyone returning the next day, and
+returning visitors are the whole point of #216. The proxy injects a newly
+minted id into the _current_ request as well as the response; without that,
+every visitor's first render falls back to control and the experiment is
+biased from the start.
+
+**Failure modes all resolve to `defaultValue`.** No `FLAGS` key, no cookie, or a
+malformed cookie each mean the visitor sees today's form. That is deliberate —
+a missing credential must never show someone an untested variant. It also means
+**the app builds and runs fine without `FLAGS`**, which is how CI and local dev
+work; do not add it as a hard requirement.
+
+Two environment variables, both set on the Vercel project rather than committed:
+`FLAGS` (server SDK key, from `vercel flags sdk-keys add`) and `FLAGS_SECRET`
+(for Flags Explorer). `vercel env pull` brings them local.
+
+Arm constants in `src/utils/experiment.ts` must match the variants registered on
+the flag. A test pins them, because a mismatch resolves to a variant Vercel has
+never heard of and fails silently to the default.
+
+Every custom analytics event carries `experiment_arm`, taken from what the
+server resolved rather than recomputed in the browser — a Flags Explorer
+override changes the render without changing the cookie, and reporting an arm
+the visitor is not seeing is worse than reporting none. It lands in
+`analytics_events.event_data`, queryable as `event_data->>'experiment_arm'`.
 
 ## Testing
 
