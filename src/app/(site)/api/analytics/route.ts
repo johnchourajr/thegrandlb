@@ -157,6 +157,64 @@ export async function GET(request: NextRequest) {
         return Response.json({ rows: result.rows }, { headers: CORS });
       }
 
+      // Through-put by experiment arm — the measure #217 is decided on.
+      //
+      // The arm rides on custom events (`experiment_arm` in the property bag);
+      // pageviews have no property bag, so a session's arm is whichever its
+      // events reported. Sessions that never fired a custom event have none,
+      // and show as 'unassigned' rather than being silently folded into the
+      // control — they are people who opened the form and did nothing, which
+      // is the population under study.
+      case "experiment_funnel": {
+        result = await pool.query(
+          `WITH s AS (
+             SELECT
+               session_uid,
+               MAX(event_data->>'experiment_arm')                                      AS arm,
+               COALESCE(BOOL_OR(path LIKE '/inquire%' AND event_name IS NULL), false)  AS reached_form,
+               COALESCE(BOOL_OR(event_name = 'conversion.inquiry_start'), false)       AS started,
+               COALESCE(BOOL_OR(event_name = 'conversion.inquiry_blocked'), false)     AS blocked,
+               COALESCE(BOOL_OR(event_name = 'conversion.inquiry_success'), false)     AS succeeded
+             FROM analytics_events
+             WHERE occurred_at > ${since}
+               AND session_uid IS NOT NULL
+             GROUP BY session_uid
+           )
+           SELECT
+             COALESCE(arm, 'unassigned')                            AS experiment_arm,
+             (COUNT(*) FILTER (WHERE reached_form))::int            AS reached_form,
+             (COUNT(*) FILTER (WHERE started))::int                 AS started,
+             (COUNT(*) FILTER (WHERE blocked))::int                 AS hit_validation_block,
+             (COUNT(*) FILTER (WHERE succeeded))::int               AS succeeded,
+             ROUND(100.0 * COUNT(*) FILTER (WHERE succeeded)
+                   / NULLIF(COUNT(*) FILTER (WHERE reached_form), 0), 1) AS pct_through
+           FROM s
+           GROUP BY 1
+           ORDER BY 1`,
+        );
+        return Response.json({ rows: result.rows }, { headers: CORS });
+      }
+
+      // Phone clicks split by where they started. #215 put the venue's number
+      // on every step of the inquiry form, for the 22% of people who said they
+      // would rather call than fill it in; `context = 'inquiry_form'` is
+      // whether that is being used.
+      case "phone_clicks_by_context": {
+        result = await pool.query(
+          `SELECT
+             COALESCE(NULLIF(event_data->>'context', ''), 'elsewhere on site') AS context,
+             COUNT(*)::int                                    AS clicks,
+             COUNT(DISTINCT ${SESSION_KEY})::int              AS sessions,
+             MAX(occurred_at)::date                           AS last_seen
+           FROM analytics_events
+           WHERE occurred_at > ${since}
+             AND event_name = 'conversion.phone_click'
+           GROUP BY 1
+           ORDER BY clicks DESC`,
+        );
+        return Response.json({ rows: result.rows }, { headers: CORS });
+      }
+
       // Direct evidence for the mobile button-bar defect: how often the action
       // bar is measured sitting on top of the form's own fields, and on which
       // screens. Sliced by viewport height rather than device class, because a
