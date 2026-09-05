@@ -1,9 +1,30 @@
 "use client";
 
 import { track } from "@vercel/analytics";
+import type { Arm } from "./experiment";
 import { getSessionId } from "./session";
 
 type AllowedPropertyValues = string | number | boolean | null;
+
+/**
+ * The experiment arm this visitor is in, set once per page by the server.
+ *
+ * Held here rather than recomputed in the browser on purpose. Assignment is a
+ * pure function of the experiment cookie, so the client *could* work it out —
+ * but a Flags Explorer override during QA changes what the server renders
+ * without changing the cookie. Recomputing would then report the arm the
+ * visitor is not actually seeing, which is worse than not reporting it.
+ */
+let experimentArm: Arm | null = null;
+
+/** Called by `<ExperimentArm>` with the value the server actually resolved. */
+export function setExperimentArm(arm: Arm | null): void {
+  experimentArm = arm;
+}
+
+export function getExperimentArm(): Arm | null {
+  return experimentArm;
+}
 
 /**
  * Send a custom event to Vercel Web Analytics, stamped with the first-party
@@ -18,10 +39,12 @@ export function trackEvent(
   properties?: Record<string, AllowedPropertyValues>,
 ): void {
   const sessionId = getSessionId();
-  track(
-    name,
-    sessionId ? { ...properties, session_id: sessionId } : properties,
-  );
+  const stamped: Record<string, AllowedPropertyValues> = { ...properties };
+  if (sessionId) stamped.session_id = sessionId;
+  // Every event carries its arm, so the funnel can be split by variant without
+  // a join — see #217.
+  if (experimentArm) stamped.experiment_arm = experimentArm;
+  track(name, Object.keys(stamped).length > 0 ? stamped : undefined);
 }
 
 /**

@@ -1,5 +1,7 @@
 import Layout from "@components/Layout";
 import { getExtra } from "@/services/get-extra";
+import ExperimentArm from "@/components/ExperimentArm";
+import { inquiryFormVariant } from "@/flags";
 
 // TODO: Cache Components adoption. Refactor this route so this opt-out can be removed.
 // See: https://nextjs.org/docs/app/guides/migrating-to-cache-components
@@ -7,15 +9,21 @@ export const instant = false;
 
 export default async function InquirePage() {
   const { settings, navigation } = await getExtra({});
+  // Resolved server-side so a Flags Explorer override is respected. Currently
+  // pinned to the control arm for everyone — see INQUIRY_VARIANT_SHARE.
+  const arm = await inquiryFormVariant();
 
   return (
-    <Layout
+    <>
+      <ExperimentArm arm={arm} />
+      <Layout
       page={{ uid: "inquire", data: {} }}
       settings={settings}
       navigation={navigation}
       className={"!min-h-[0vh]"}
       wrapperClassName={"!min-h-[0vh]"}
-    />
+      />
+    </>
   );
 }
 
